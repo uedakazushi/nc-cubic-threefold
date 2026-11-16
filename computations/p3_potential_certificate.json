@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-14",
+  "version": 1,
+  "field": "Q; exact Fraction elimination",
+  "potential_space_dimension": 256,
+  "signed_rotation": "rho(omega)=-omega, verified over Z",
+  "polynomial_tensor": "sum_{sigma in S4} sign(sigma) x_sigma(0)^(0) ... x_sigma(3)^(3)",
+  "polynomial_derivative_ranks": [
+    6,
+    6,
+    6,
+    6
+  ],
+  "polynomial_relations_equal_commutator_spaces": true,
+  "bad_tensor": "sum_{a,b=0}^3 x_a^(0) x_b^(1) x_a^(2) x_b^(3)",
+  "bad_derivative_ranks": [
+    16,
+    16,
+    16,
+    16
+  ],
+  "bad_quotient_degree_two_is_zero": true,
+  "tangent_constraint_matrix_shape": [
+    200,
+    256
+  ],
+  "tangent_constraint_rank": 165,
+  "two_constraint_row_space_dimensions": [
+    100,
+    100
+  ],
+  "intersection_dimension": 35,
+  "affine_tensor_tangent_dimension": 91,
+  "projective_tensor_tangent_dimension": 90,
+  "orbit_matrix_shape": [
+    256,
+    64
+  ],
+  "affine_GL4_fourfold_orbit_rank": 46,
+  "projective_orbit_rank": 45,
+  "orbit_directions_satisfy_constraints_over_Z": true,
+  "quotient_tangent_dimension": 45,
+  "scope": "Finite signed-potential and tangent checks; not a global AS-locus or component classification.",
+  "source_sha256": "35b7e48092f2c48164153ad3e0a4bfe7cc0eb84785e088f7d77e2d98954efc8a"
+}
