@@ -1,0 +1,507 @@
+\section{正則正規超曲面対とAS正則$\mathbb Z$-代数の周期性}
+\label{sec:moduli-ambient-periodicity}
+\label{sec:periodic-pair-route}
+本節では，通常の次数付き表示をあらかじめ選ばず，
+正則正規超曲面とそのambientを同時に周期化する．
+標準5次元AS正則$\mathbb Z$-代数の正規三次商については，
+三次イデアルを保つ1周期同型が存在し，通常の次数付き正規三次商として表示できる．
+その証明では，正規族による有限頂点orbit代数を構成し，
+Reyes--Rogalskiの一般化AS正則性とtwisted Calabi--Yau性の同値，
+Nakayama双加群と片側Extの比較，中心への作用を使う
+\cite[Theorem~5.15, Lemmas~5.9 and~4.5]{RRGeneralizedAS}．
+これらの既知結果は通常の有限頂点次数付き代数に適用する．
+抽象的な非可換cubicすべての超曲面表示や，族全体での周期構造の降下を
+この定理だけから結論することはしない．
+
+\subsection{添字，次数，AS条件}
+
+$\mathcal B$を体$k$上の局所有限な正の連結$\mathbb Z$-代数とする．
+すなわち$\mathcal B_{ii}=k$，$\mathcal B_{ij}=0$（$j<i$）で，積は
+\begin{equation}
+ \mathcal B_{ij}\otimes\mathcal B_{j\ell}\longrightarrow\mathcal B_{i\ell}
+\end{equation}
+の順とする．右$\mathcal B$-加群$M$は$M_i$と
+$M_i\otimes\mathcal B_{ij}\to M_j$からなる．
+$P_i=e_i\mathcal B$，$S_i=P_i/(P_i)_{>i}$と書く．
+左単純加群は${}_iS$と表す．
+
+$\mathcal B(r)_{ij}=\mathcal B_{i+r,j+r}$と置き，
+添字を保つ同型$\mathcal B\simeq\mathcal B(r)$があるとき$r$周期的という．
+通常の連結次数付き代数$C$に付随する$\check C_{ij}=C_{j-i}$は1周期的である．
+逆に1周期同型を選ぶと，それを用いて$\mathcal B_{0m}$に積を定め，
+$\mathcal B\simeq\check C$と表示できる．この表示は周期同型の選択を含む．
+正規族またはイデアルを持つ場合には，周期同型がそれも保存することを別に要求する．
+
+本節で必要なAS仮定は次の明示的なものである．
+\begin{enumerate}[label=\textup{(AS\arabic*)}]
+\item 右および左$\mathcal B$-加群圏のglobal dimensionは$h<\infty$である．
+\item 各$S_i$は有限生成射影加群による有限解消を持ち，ある固定整数$N>0$について
+\begin{equation}\label{eq:pair-route-as-right}
+ \Ext^q_{\mathcal B}(S_i,P_j)
+ \simeq
+ \begin{cases}
+  k,&q=h,\ j=i+N,\\
+  0,&\text{それ以外}
+ \end{cases}
+\end{equation}
+である．左右を交換した条件も仮定する．
+\end{enumerate}
+標準5次元Koszul AS正則型では$h=N=5$であり，
+最小右解消の末項は$P_{i+5}$である．
+後述する正規超曲面対の周期性の証明にはKoszul性自体は不要で，uniformなAS添字$N$を使う．
+
+通常の次数付き代数$D$の加群のシフトは$M(s)_n=M_{n+s}$とする．
+従って$k(N)$は内部次数$-N$に集中する．
+内部次数を記録するExtを
+\begin{equation}
+ \underline{\Ext}^{q}_{D}(M,D)_s
+  =\Ext^q_{\operatorname{Gr}D}(M,D(s))
+\end{equation}
+で定義する．以下の$\operatorname{Gr}D$は全整数次数の右加群圏である．
+通常の代数としての$D$の次数は非負である．
+本節では下付き$D$または$\mathcal B$のExtを右加群圏で取る．
+外部文献が左加群を標準規約とする場合の$\Ext_{D^{\rm op}}$は，
+本節では$\Ext_D$と書く．ただし双加群Extの下付き$D^e$は
+対角双加群を左$D^e$-加群とした通常の規約に従う．
+
+次数$d>0$の左右正則正規族$0\ne g_i\in\mathcal B_{i,i+d}$を仮定する．
+正規性は
+\begin{equation}\label{eq:moduli-ambient-normal-family}
+ \mathcal B_{ij}g_j=g_i\mathcal B_{i+d,j+d}
+\end{equation}
+である（正規族の定義については
+Chan--Nyman\cite[Definition~8.6]{PChanNymanNormalFamily}も参照）．
+ここでは中心性を仮定しない．左右正則性により一意な線型同型
+\begin{equation}\label{eq:moduli-ambient-sigma}
+ \sigma_{ij}:\mathcal B_{ij}\longrightarrow\mathcal B_{i+d,j+d},
+ \qquad ag_j=g_i\sigma_{ij}(a)
+\end{equation}
+が定まる．$a\in\mathcal B_{ij}$，$b\in\mathcal B_{j\ell}$について
+\begin{equation}
+ (ab)g_\ell
+  =a(g_j\sigma(b))
+  =g_i\sigma(a)\sigma(b)
+\end{equation}
+となるので，$g_i$の正則性による消去から$\sigma(ab)=\sigma(a)\sigma(b)$を得る．
+$a=g_i$を代入すれば$\sigma(g_i)=g_{i+d}$となる．
+従って$\sigma$は$g$も保つ$d$周期同型である．
+負の冪は逆同型を用いて定義する．
+
+
+\subsection{正規族を仮定しないKoszul ambientの周期}
+\begin{lemma}[Koszul--Frobenius双対性からの周期]
+\label{lem:moduli-ambient-koszul-period}
+$\mathcal B$は二次Koszul AS正則$\mathbb Z$-代数で，
+左右のAS条件を満たし，各単純加群は有限生成射影加群による有限の最小線型解消を持つとする．
+AS次元とGorenstein parameterがともに$N$なら，
+正規族の存在を仮定せず$\mathcal B\simeq\mathcal B(N)$となる．
+\end{lemma}
+\begin{proof}
+Koszul双対 $E=\mathcal B^!$ を考える。
+有限線型解消と左右AS双対性から，$E$ はindex $N$ の
+局所Frobenius $\mathbb Z$-代数となる
+（Bondal--Polishchuk~\cite[Proposition~4.1, \S5]{PBondalPolishchukHelices}）。
+具体的には，最高次数の同定
+$\lambda_i:E_{i,i+N}\xrightarrow{\sim}k$ を選ぶと，
+\begin{equation}
+ E_{ij}\otimes E_{j,i+N}\longrightarrow E_{i,i+N}
+ \xrightarrow{\lambda_i}k
+\end{equation}
+が各相補次数で完全対合である。
+この対合から，任意の $a\in E_{ij}$ に対して
+\begin{equation}
+ \lambda_i(ab)=\lambda_j(b\nu_{ij}(a))
+ \quad(b\in E_{j,i+N})
+\end{equation}
+となる線型同型 $\nu_{ij}:E_{ij}\to E_{i+N,j+N}$ が定まる。
+$a\in E_{ij},c\in E_{j\ell},b\in E_{\ell,i+N}$ に対して
+\begin{equation}
+ \lambda_i((ac)b)
+ =\lambda_j((cb)\nu(a))
+ =\lambda_\ell(b\nu(a)\nu(c))
+\end{equation}
+であるから，対合の完全性により
+$\nu(ac)=\nu(a)\nu(c)$ となる。
+合計の長さが$N$を超える場合には積がともに零なので，同じ結論となる。
+従って $\nu:E\xrightarrow{\sim}E(N)$ は $\mathbb Z$-代数同型である。
+次数一部分で逆双対を取り，二次関係を保つことを用いると，
+\begin{equation}\label{eq:moduli-ambient-rho-unmarked}
+ \rho_0:\mathcal B\xrightarrow{\sim}\mathcal B(N)
+\end{equation}
+が得られる。
+\end{proof}
+この直接証明はambientのみの周期を与える．
+指定した正規族を保つ$N$周期同型を得るには，以下のorbit構成を使う．
+
+\subsection{中心元を持つ有限頂点orbit代数}
+
+各整数$i$を一意に$i=\bar i+dq_i$，$0\leq\bar i<d$と書く．
+通常の非負次数付き代数$D$を
+\begin{equation}\label{eq:pair-route-orbit-space}
+ D_m=\bigoplus_{r=0}^{d-1}\mathcal B_{r,r+m}\quad(m\geq0)
+\end{equation}
+として定める．成分$\mathcal B_{r,r+m}$は
+$e_rD_me_{\overline{r+m}}$である．
+$a\in\mathcal B_{r,r+m}$，$b\in\mathcal B_{s,s+n}$に対し，
+$s\not\equiv r+m\pmod d$なら$a\cdot b=0$とし，
+そうでなければ
+\begin{equation}\label{eq:pair-route-orbit-product}
+ a\cdot b=a\,\sigma^{(r+m-s)/d}(b)
+   \in\mathcal B_{r,r+m+n}
+\end{equation}
+と置く．$\sigma$が代数同型なのでこの積は結合的である．
+具体的には三つの合成可能な成分の積では，第二・第三因子を
+同じ開始添字まで$\sigma$で移してから$\mathcal B$内で掛けるため，
+二つの括弧付けは同じ三因子積になる．
+$1_D=\sum_{r=0}^{d-1}e_r$，$D_0=k^d$であり，$D$は局所有限である．
+
+\begin{lemma}[orbit内の中心元]\label{lem:pair-route-orbit-center}
+\begin{equation}\label{eq:pair-route-central-z}
+ z=\sum_{r=0}^{d-1}g_r\in D_d
+\end{equation}
+は中心正則元である．
+\end{lemma}
+\begin{proof}
+$a\in\mathcal B_{r,r+m}\subset D_m$について
+\eqref{eq:pair-route-orbit-product}を用いると
+\begin{equation}
+ a\cdot z=ag_{r+m},\qquad
+ z\cdot a=g_r\sigma(a)
+\end{equation}
+となる．両者は\eqref{eq:moduli-ambient-sigma}により一致する．
+各斉次成分・各開始頂点で$g_r$の左右乗法と$\sigma$は単射なので，
+$z$の左右乗法も単射である．
+\end{proof}
+
+この$D$は，単に任意の既知の1周期構造で
+$\mathcal B$を通常の連結次数付き代数に読み替えたものではない．
+\emph{正規族自身から構成した}$\sigma$で畳み込むため，
+一般の正規族が中心元$z$になる．ここが本証明の要点である．
+
+\subsection{AS正則性の移行}
+
+\begin{lemma}[graded module categoryの分解]
+\label{lem:pair-route-sector-equivalence}
+自然な完全圏同値
+\begin{equation}\label{eq:pair-route-category-product}
+ \operatorname{Gr}D\simeq
+   \prod_{c=0}^{d-1}\operatorname{Mod}\mathcal B
+\end{equation}
+が存在する．特に$D$のgraded global dimensionは$h$である．
+\end{lemma}
+\begin{proof}
+$M\in\operatorname{Gr}D$を$M_ne_r$に分解する．
+次数$m$の矢印の作用は$(n,r)$を$(n+m,\overline{r+m})$へ送るので，
+$r-n\bmod d$は保存される．従って
+\begin{equation}
+ M=\bigoplus_{c\in\mathbb Z/d\mathbb Z}M^{(c)},\qquad
+ M^{(c)}_n=M_ne_{\overline{c+n}}
+\end{equation}
+は$D$-部分加群への分解である．異なるsector間の次数零準同型は零である．
+
+$c$の代表を$0\leq c<d$に選ぶ．右$\mathcal B$-加群$L$から
+$c$-sectorの$D$-加群$\Gamma_cL$を
+\begin{equation}
+ (\Gamma_cL)_n=L_{c+n}
+ \quad\text{（右頂点$\overline{c+n}$に置く）}
+\end{equation}
+で定める．$a\in\mathcal B_{\overline{c+n},\overline{c+n}+m}\subset D_m$
+の作用は，$q=(c+n-\overline{c+n})/d$として
+$\sigma^q(a)\in\mathcal B_{c+n,c+n+m}$の作用で定義する．
+\eqref{eq:pair-route-orbit-product}から結合律が従う．
+
+逆に$c$-sectorの$M$に対して$L_j=M_{j-c}e_{\bar j}$とし，
+$b\in\mathcal B_{i,j}$を
+$\sigma^{-q_i}(b)\in e_{\bar i}D_{j-i}e_{\bar j}$として作用させる．
+二つの構成は互いに逆であり，各成分での完全性を保つ．
+有限個のsectorの直積はglobal dimensionの最大値を持つので最後の主張を得る．
+\end{proof}
+
+\begin{lemma}[通常のAS条件と頂点置換]
+\label{lem:pair-route-orbit-as}
+右単純$D$-加群$T_r=e_rD/e_rD_{\geq1}$について
+\begin{equation}\label{eq:pair-route-orbit-ext}
+ \underline{\Ext}^{q}_{D}(T_r,D)
+ \simeq
+ \begin{cases}
+ {}_{\overline{r+N}}T(N),&q=h,\\
+ 0,&q\ne h
+ \end{cases}
+\end{equation}
+である．ここで${}_sT$は左頂点$s$の単純加群である．
+従って$D$は一般化AS正則次元$h$であり，graded twisted Calabi--Yau代数である．
+通常の左右global dimensionも$h$となる．
+\end{lemma}
+\begin{proof}
+$T_r$は$r$-sectorに属し，前補題の同値で$S_r$に対応する．
+$D(s)=\bigoplus_{j=0}^{d-1}e_jD(s)$のうち$r$-sectorに属する項は，
+$j\equiv r-s\pmod d$を満たす唯一の項である．
+この項は$\Gamma_r$の逆同値で$P_{r-s}$に対応する．実際，その添字$t$の成分は
+\begin{equation}
+ (e_jD)_{t-r+s}e_{\bar t}
+ =\mathcal B_{j,j+t-r+s}
+ \simeq\mathcal B_{r-s,t},
+\end{equation}
+最後の同型は$\sigma$によるものである．
+従って
+\begin{equation}
+ \Ext^q_{\operatorname{Gr}D}(T_r,D(s))
+ \simeq\Ext^q_{\mathcal B}(S_r,P_{r-s}).
+\end{equation}
+\eqref{eq:pair-route-as-right}により，これは$q=h,s=-N$の場合に限り一次元である．
+そのときの左頂点は$j=\overline{r+N}$である．
+左正次数部分は内部次数を変えるので作用が零となり，
+\eqref{eq:pair-route-orbit-ext}を得る．
+各単純加群の有限生成射影解消も$\Gamma_r$から移る．
+
+前補題のgraded global dimensionとこのExt条件は
+Reyes--Rogalskiの一般化AS条件（右加群版）である．
+しかも$D/D_{\geq1}=k^d$は$k$上separableなので，
+\cite[Theorem~5.15]{RRGeneralizedAS}によりgraded twisted Calabi--Yau性と
+通常の左右global dimensionについての主張が従う．
+$D_0=k^d$のglobal dimensionが$0$であるだけで
+$D$のglobal dimensionを結論しているのではなく，
+前補題で全graded module categoryを比較していることに注意する．
+\end{proof}
+
+\subsection{Nakayama自己同型とそのlift}
+
+\begin{lemma}[uniform indexとNakayama自己同型]
+\label{lem:pair-route-nakayama}
+$D$は次数を保つNakayama自己同型$\mu$を持ち，
+\begin{equation}\label{eq:pair-route-mu-vertices}
+ \mu(e_r)=e_{\overline{r+N}},\qquad \mu(z)=z
+\end{equation}
+とできる．本節の右AS規約では頂点置換は$+N$であり，$-N$ではない．
+\end{lemma}
+\begin{proof}
+graded Nakayama双加群を
+\begin{equation}
+ U=\underline{\Ext}^{h}_{D^e}(D,D^e)
+\end{equation}
+とする．前補題により$U$はgraded invertibleである．
+$S=D_0=k^d$にはtrace対合による$S^*\simeq S$という双加群同型がある．
+\cite[Lemma~5.9(1)]{RRGeneralizedAS}を$X=S$に適用すると，
+\begin{equation}\label{eq:pair-route-U-top}
+ U\otimes_D S\simeq
+ \underline{\Ext}^{h}_{D}(S,D)
+\end{equation}
+を得る．右辺は右$D$-加群$S$からのExtであり，
+その右$e_r$成分は\eqref{eq:pair-route-orbit-ext}の
+左単純加群${}_{\overline{r+N}}T(N)$である．
+すなわち$Ue_r\twoheadrightarrow U\otimes_D {}_rT$の終項は
+${}_{\overline{r+N}}T(N)$となる．
+
+$U\otimes_D-$はgraded左加群圏の同値なので，
+$De_r\twoheadrightarrow{}_rT$という射影被覆を射影被覆に移す．
+従って，graded射影被覆の一意性から
+\begin{equation}\label{eq:pair-route-U-free}
+ Ue_r\simeq De_{\overline{r+N}}(N),\qquad
+ {}_DU\simeq {}_DD(N)
+\end{equation}
+となる．各直和因子をこの順序で対応させる左加群同型を選ぶ．
+$U$の右作用をこれによって$D(N)$へ移すと，
+$\End_D(D)\simeq D^{\rm op}$から次数を保つ代数準同型
+$\mu:D\to D$を得る．$U$がinvertibleなので右作用写像
+$D^{\rm op}\to\End_D(U)$は同型であり，$\mu$は自己同型である．
+従って$U\simeq {}^1D^\mu(N)$となる．
+\eqref{eq:pair-route-U-free}で$Ue_r$が$De_{\overline{r+N}}(N)$に対応するため，
+$\mu(e_r)=e_{\overline{r+N}}$である．
+
+twisted Calabi--Yau代数のNakayama自己同型は中心を点ごとに固定する
+\cite[Lemma~4.5]{RRGeneralizedAS}．
+この事実は，$c\in Z(D)$に対して
+$c\otimes1-1\otimes c^{\rm op}\in Z(D^e)$が対角双加群$D$に零作用するため，
+その作用が$U=\underline{\Ext}^{h}_{D^e}(D,D^e)$でも零であることから従う．
+$U\simeq{}^1D^\mu(N)$では$c=\mu(c)$を意味する．
+補題\ref{lem:pair-route-orbit-center}を適用して$\mu(z)=z$を得る．
+\end{proof}
+
+\begin{lemma}[正規族を保つ$N$周期同型]
+\label{lem:pair-route-rho}
+族$(g_i)$を保つ$N$周期同型
+\begin{equation}\label{eq:moduli-ambient-rho}
+ \rho:\mathcal B\xrightarrow{\sim}\mathcal B(N)
+\end{equation}
+が存在する．
+さらに$\rho$と$\sigma$は添字シフト込みで可換にできる．
+\end{lemma}
+\begin{proof}
+各$i\leq j$に対して，orbit成分との線型同型
+\begin{equation}\label{eq:pair-route-Fij}
+ F_{ij}:\mathcal B_{ij}\xrightarrow{\sim}
+       e_{\bar i}D_{j-i}e_{\bar j},\qquad
+ F_{ij}(a)=\sigma^{-q_i}(a)
+\end{equation}
+を用いる．orbit積の定義から，これらは合成と両立する：
+\begin{equation}
+ F_{ij}(a)\cdot F_{j\ell}(b)=F_{i\ell}(ab).
+\end{equation}
+実際，左辺の第二因子に掛ける$\sigma$の冪は$q_j-q_i$であり，
+全体は$\sigma^{-q_i}(a)\sigma^{-q_i}(b)$となる．
+
+\eqref{eq:pair-route-mu-vertices}により
+\begin{equation}\label{eq:pair-route-rho-formula}
+ \rho_{ij}=F_{i+N,j+N}^{-1}\,\mu\,F_{ij}
+\end{equation}
+は定義できる．$\mu$の次数保存性と乗法保存性から
+$\rho:\mathcal B\to\mathcal B(N)$は$\mathbb Z$-代数同型である．
+また
+\begin{equation}
+ F_{i,i+d}(g_i)=e_{\bar i}z
+\end{equation}
+だから，$\mu(z)=z$と頂点置換から$\rho(g_i)=g_{i+N}$を得る．
+
+最後に
+$F_{i+d,j+d}\sigma_{ij}=F_{ij}$が成り立つので，
+\eqref{eq:pair-route-rho-formula}から
+\begin{equation}
+ \rho_{i+d,j+d}\sigma_{ij}
+ =\sigma_{i+N,j+N}\rho_{ij}
+\end{equation}
+が従う．従ってこの選択では二つの周期同型は可換である．
+\end{proof}
+
+\begin{theorem}[正規超曲面対の最大公約数周期性]
+\label{thm:pair-route-gcd}
+\label{thm:moduli-ambient-gcd}
+\textup{(AS1)--(AS2)}を満たす$\mathcal B$と，次数$d$の左右正則正規族$(g_i)$に対して，
+組$(\mathcal B,(g_i))$は$\gcd(N,d)$周期的である．
+その族付きの最小正周期，イデアル付きの最小正周期，ambientのみの最小正周期は，
+いずれも$\gcd(N,d)$を割る．
+従って$I=(g_i)$，$\mathcal A=\mathcal B/I$もその周期同型を持つ．
+特に標準5次元AS正則ambientと正規三次超曲面対は，
+商イデアルを保つ1周期同型を持つ．
+\end{theorem}
+\begin{proof}
+前補題の$\rho$と\eqref{eq:moduli-ambient-sigma}の$\sigma$は，それぞれ$N$と$d$だけ添字を動かし，
+いずれも$g_i$を移動後の添字の$g$へ送る．
+$ud+vN=\gcd(N,d)$となる整数$u,v$を選び，
+$\theta=\sigma^u\rho^v$とする．これは所望の周期同型であり，$I$を保つので商にも降りる．
+周期の集合は合成と逆同型により$\mathbb Z$の部分群となるので，
+最小正周期についての主張も従う．
+$N=5,d=3$の場合には
+\begin{equation}\label{eq:pair-route-one-period}
+ \theta=\rho^{-1}\sigma^2,\qquad 2\cdot3-5=1
+\end{equation}
+とすればよい．成分を明記すると
+$\theta_{ij}=\rho^{-1}_{i+1,j+1}\sigma_{i+3,j+3}\sigma_{ij}$であり，
+$\theta(g_i)=g_{i+1}$が成り立つ．
+\end{proof}
+
+\subsection{通常の次数付き商への移行と中心性の限界}
+
+\begin{corollary}[三次三様体対の次数付き表示]
+\label{cor:pair-route-graded-quotient}
+\label{cor:moduli-cubic-ambient-periodic}
+$\mathcal B$を標準$(1,5,10,10,5,1)$型の5次元Koszul AS正則
+$\mathbb Z$-代数とし，次数3の正則正規族を持つとする．
+このとき通常の連結次数付き代数$C$と
+次数3の正則正規元$G\in C_3$を選び，
+\begin{equation}
+ (\mathcal B,I)\simeq(\check C,\check{(G)}),\qquad
+ \mathcal A\simeq\check{C/(G)}
+\end{equation}
+と表示できる．$C$は標準5次元AS正則である．
+特に$\dim\mathcal B_{i,i+m}=\binom{m+4}{4}$なら$H_C(t)=(1-t)^{-5}$である．
+この表示は1周期同型の選択に依存し，一意な次数付き代数$C$を与えるとは主張しない．
+$G$が中心的であることも一般にはこの構成からは従わない．
+\end{corollary}
+\begin{proof}
+$C_m=\mathcal B_{0m}$，$a*b=a\theta^m(b)$（$a\in C_m$）と置く．
+$\theta$の乗法保存性から$*$は結合的であり，
+$\theta^i:C_{j-i}\to\mathcal B_{ij}$が$\check C\simeq\mathcal B$を与える．
+$G=g_0$とすれば$\theta^i(G)=g_i$なので，この同型は三次イデアルを保つ．
+左右正則性は同型から従う．次数付き加群圏と$\mathcal B$-加群圏の同値により
+AS条件・global dimensionも移る．
+
+正規自己同型を明記するため，
+$\tau=\theta^{-d}\sigma$を$\mathcal B_{0m}=C_m$に制限する．
+$\sigma$と$\theta$は可換なので$\tau$は$C$の次数付き自己同型である．
+\eqref{eq:moduli-ambient-sigma}から
+\begin{equation}\label{eq:pair-route-normal-tau}
+ a*G=G*\tau(a)
+\end{equation}
+を得る．$N=5,d=3$の選択\eqref{eq:pair-route-one-period}では
+\begin{equation}
+ \tau=\rho^3\sigma^{-5}
+\end{equation}
+という添字を動かさない自己同型であり，これが恒等であるとは証明されていない．
+従って中心性を結論しない．
+\end{proof}
+
+\begin{remark}[Zhang twistとの整合性]
+\label{ex:pair-route-zhang}
+体の標数を$0$とし，$S=k[x_0,\ldots,x_4]$，
+\begin{equation}
+ F=x_0^2x_1+x_1^3+x_2^3+x_3^3+x_4^3
+\end{equation}
+と置く．$V(F)\subset\PP^4$は滑らかである．実際，勾配が零なら
+$x_2=x_3=x_4=0$，$x_0x_1=0$，$x_0^2+3x_1^2=0$から全座標が零になる．
+$\varphi(x_0)=-x_0$，$\varphi(x_j)=x_j$（$j>0$）とし，
+Zhang twist $C=S^\varphi$の積を
+$a*b=a\varphi^{\deg a}(b)$とする．$\varphi(F)=F$だから
+\begin{equation}
+ a*F=F*\varphi(a)
+\end{equation}
+となり，$F$は正則正規であるが中心的ではない．
+例えば$x_0*F=x_0F$に対して$F*x_0=-Fx_0$である．
+一方
+\begin{equation}
+ \check C_{ij}\longrightarrow\check S_{ij},\qquad
+ a\longmapsto\varphi^i(a)
+\end{equation}
+は$\mathbb Z$-代数同型であり，$F$が生成する三次イデアルも保つ．
+従って同じ$\mathbb Z$-代数対が，中心三次商の表示と非中心的な正規三次商の表示を持つ．
+本節の1周期化はこの例と両立し，特定の次数付き表示の中心性を不変量とする主張ではない．
+\end{remark}
+
+\subsection{低次数からの判定と適用範囲}
+\begin{proposition}[低次数の核からの正規性判定]\label{prop:moduli-cubic-normal-criterion}
+$\mathcal B$ は次数一生成で
+$\dim\mathcal B_{i,i+1}=5$ とする。
+斉次両側イデアル $I\subset\mathcal B$ が
+\begin{equation}
+ I_{i,i+3}=k g_i,\qquad \dim I_{i,i+4}=5
+\end{equation}
+を満たし，各 $g_i$ が左右正則なら，$(g_i)$ は次数3の正則正規族である。
+\end{proposition}
+\begin{proof}
+$I_{i,i+4}$ の二つの部分空間
+\begin{equation}
+ g_i\mathcal B_{i+3,i+4},
+ \qquad \mathcal B_{i,i+1}g_{i+1}
+\end{equation}
+は，正則性によってともに5次元であり，よって一致する。
+これは長さ一の正規関係である。
+次数一生成と結合律による帰納法で任意の $j\geq i$ に対する
+\eqref{eq:moduli-ambient-normal-family}を得る。
+\end{proof}
+
+標準多項式型の行Hilbert級数$(1-t)^{-5}$と
+次数3の正則元による商の級数$(1-t^3)/(1-t)^5$が既知なら、
+次数3と4の差から
+$\dim I_{i,i+3}=35-34=1$、$\dim I_{i,i+4}=70-65=5$を計算できる。
+ただしHilbert級数だけでAS正則性や正則性を導いたわけではない。
+一般に$N=n+2,d=3$なら$n=2,3$では対の1周期性が従う一方、
+$n=4$では対の最小正周期は3の約数としか言えず、3周期の非1周期例の存在は主張しない。
+
+
+\begin{remark}[適用範囲と既知結果との関係]
+\label{rem:moduli-ambient-pair-scope}
+本稿の中心三次対$(B_F,[G_F])$は初めから通常の次数付き代数と中心正則元からなるため，
+その付随$\mathbb Z$-代数対は明らかに1周期的である．
+系\ref{cor:moduli-cubic-ambient-periodic}は，この表示を初めから選ばなくても，
+標準5次元AS正則ambientの正則正規三次超曲面対が1周期化できることを示す．
+一方，復元される通常の次数付き表示の一意性，次数3の関係元の中心化，
+ambientのCalabi--Yau化は別問題である．
+
+本節は体上の正規元族を扱う．相対三次核が非自明な直線束で与えられる場合には，
+$g_i$や同時の$d$周期同型を大域的に選べるとは限らない．
+従って，これだけで族全体の1周期構造，その一意性，あるいは底への降下は結論しない．
+抽象的な非可換cubicすべてがこの超曲面表示を持つことも主張しない．
+
+正規族からのorbit構成と既知の一般化AS正則性・twisted Calabi--Yau双対性を
+組み合わせた証明を上に与えたが，この組合せの初出・新規性の網羅的確認は未了である．
+Koszul--Frobenius双対性自体，およびReyes--Rogalskiの各入力定理は既知の結果である．
+\end{remark}

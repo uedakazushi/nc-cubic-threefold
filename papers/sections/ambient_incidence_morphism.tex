@@ -1,0 +1,215 @@
+\section{Ambientへの射・相対incidence・一次障害}
+\label{sec:ambient-incidence}
+二次包絡の一意性は、三次対からambientへの\emph{射}を与える。
+その射の単射性は意味しない。本節では、有限型のambient族を一つ固定し、
+この射を中心核の線形代数として構成する。
+全AS正則$\mathbb Z$-代数の大域的な代数的モジュライの存在は入力しない。
+
+\subsection{中心三次直線の相対表示}
+有限型$k$-スキーム$S$上に、次数一生成の連結次数付き代数族
+$\mathcal B=\bigoplus_{d\geq0}\mathcal B_d$を取り、各$\mathcal B_d$は有限階数局所自由とする。
+考える例では$\mathcal B_1$の階数は5、ファイバーは二次AS正則代数である。
+中心性を検出するベクトル束写像を
+\begin{equation}\label{eq:central-commutator-map}
+ \delta:\mathcal B_3\longrightarrow
+ \mathcal H:=\mathcal Hom_S(\mathcal B_1,\mathcal B_4),
+ \qquad \delta(c)(x)=cx-xc
+\end{equation}
+と置く。次数一生成性から、$\ker\delta_s=Z(B_s)_3$である。
+$\PP_S(\mathcal B_3)$は一次元部分空間を表す規約とし、
+その普遍直線束を$\mathcal L\subset p^*\mathcal B_3$と書く。
+
+\begin{proposition}[中心incidenceと基底変換]\label{prop:central-incidence-basechange}
+合成$\mathcal L\to p^*\mathcal B_3\xrightarrow{p^*\delta}p^*\mathcal H$
+の零スキーム
+\begin{equation}\label{eq:central-incidence-definition}
+ \mathcal I^{\mathrm{cen}}_3(\mathcal B/S)\subset\PP_S(\mathcal B_3)
+\end{equation}
+は、中心三次直線を表す有限型の射影$S$-スキームであり、任意の基底変換と可換する。
+写像$\delta$の階数がスキーム論的に一定の層$S_r$上では
+$\mathcal E_r=\ker(\delta|_{S_r})$は局所自由で、
+\begin{equation}\label{eq:central-projective-kernel}
+ \mathcal I^{\mathrm{cen}}_3(\mathcal B/S)\times_S S_r
+ \simeq\PP_{S_r}(\mathcal E_r).
+\end{equation}
+この核束および同型も$S_r$上の任意の基底変換と可換する。
+\end{proposition}
+\begin{proof}
+中心三次直線とは、直線部分束$L\subset B_3$で$\delta(L)=0$を満たすものであり、
+普遍零スキームの関手的定義がそのまま主張を与える。
+階数$r$の層は、$(r+1)$次小行列式を零とし、少なくとも一つの$r$次小行列式を
+可逆にした局所閉スキームとして取る。
+その上で局所的な行列の基本変形により$\delta$は
+$\operatorname{diag}(I_r,0)$となる。従って核と余核は局所自由で、
+核を取る操作が任意の基底変換と可換する。普遍直線の記述から
+\eqref{eq:central-projective-kernel}を得る。
+単に幾何点で核次元が一致することを、非被約な底上の核の基底変換と同一視していない。
+\end{proof}
+
+全幾何ファイバー$B_s$が整域なら、incidence上の非零三次直線は各ファイバーで正則である。
+このとき全次数$d$について
+\begin{equation}\label{eq:relative-cubic-flat-quotient}
+ 0\longrightarrow\mathcal L\otimes p^*\mathcal B_{d-3}
+ \xrightarrow{\ \mathrm{mult}\ }p^*\mathcal B_d
+ \longrightarrow\mathcal A_d\longrightarrow0
+\end{equation}
+は局所自由層の完全列になる（$d<3$では左項を零とする）。
+実際、最初の写像は全幾何ファイバーで単射なので、局所的に階数分の小行列式が可逆となり、
+局所自由な余核を持つ。これで商族の全次数の平坦性が従う。
+整域条件を外す場合は、正則性を別条件として課す。
+いずれの場合も、$\qgr A_s$の大域次元3または導来圏の滑らかさは別の条件である。
+その条件の開性・非空性は、三次中心核の有限行列だけからは従わない。
+
+\subsection{群作用・ファイバー・次元の規約}
+$V=k^5$を固定し、$S$が二次関係空間$R\subset V\otimes V$の
+$\GL(V)$不変な族であるとする。
+上の構成は変数変換と可換するので、
+\begin{equation}\label{eq:central-stack-morphism}
+ [\mathcal I^{\mathrm{cen}}_3/\GL(V)]
+ \longrightarrow[S/\GL(V)]
+\end{equation}
+という射を得る。これは選んだ有限型ambient族の上の代数的stackの射である。
+中心スカラーは関係部分空間と三次\emph{直線}の双方に自明に作用するため、
+同じ作用は$\PGL(V)$を通り、対応する$\PGL(V)$商も取れる。
+このスカラー自己同型を除いた規約と、$\GL(V)$商stackそのものとは区別する。
+
+\begin{proposition}[固定ambient上のファイバー]\label{prop:ambient-fibers-stack}
+幾何点$B$と、その点へのambientの同型を指定して
+\eqref{eq:central-stack-morphism}の2ファイバーを取ると、
+それは$\PP(Z(B)_3)$である。
+正則元だけ、または滑らかな三次圏だけに制限した場合は、対応する部分関手を取る。
+ambientの\emph{同型類}だけを固定して同型の指定を忘れると、
+三次対の同型類は$\PP(Z(B)_3)$に対する$\Aut_{\mathrm{gr}}(B)$の軌道である。
+\end{proposition}
+\begin{proof}
+商stackの射の2ファイバーの対象は、中心三次対と、そのambientを指定された$B$へ送る
+同型との組である。この同型を用いると中心直線は$B_3$内の直線になり、
+同型を保つ自己同型は恒等である。従ってファイバーは中心直線のスキームそのものである。
+同型の指定を忘れれば、残る同一視は$B$の次数付き自己同型による作用である。
+\end{proof}
+
+定理\ref{thm:pair-generic-center}の一般点では$\dim Z(B)_3=5$であり、
+このファイバーは$\PP^4$となる。
+中心の階数5が一定の開部分では、射は相対次元4の射影束である。
+一般の射影stabilizerが有限であることを合わせると、次元は次のようになる。
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+規約&ambient&中心三次対\\
+\midrule
+生成元を標識した係数空間&37&41\\
+$\PGL_5$商stack・一般有理商&13&17\\
+$\GL_5$商stack&12&16\\
+\bottomrule
+\end{tabular}
+\end{center}
+$\GL_5$商stackの次元が一つ小さいのは、一般点にも残る
+$\mathbb G_m$自己同型のためであり、同型類の変動次元が減るという意味ではない。
+一般有理商でのファイバーは、有限な射影stabilizerを$\Gamma_B$として
+$\PP^4/\Gamma_B$と記述され、次元は4のままである。
+一般stabilizerが自明だと証明しない限り、これを$\PP^4$そのものとは呼ばない。
+
+命題\ref{prop:quantum-113-component}の規格化CY変形の対応成分では、
+中心三次incidenceが成分の稠密開部分を支配する。
+従って\emph{この成分の中で}その像の一般余次元は0である。
+これは像の閉包についての結論であり、全ての境界点を像に含むという結論ではない。
+また、滑らかな三次圏の部分関手へ制限した射が同じ開部分を支配することには、
+その部分関手の一般ファイバーでの非空性を別途要する。
+
+\subsection{中心三次を延長する一次障害}
+$s\in S(k)$と$0\ne c\in Z(B_s)_3$を固定する。
+一次変形$v\in T_sS$上で$\mathcal B_3,\mathcal H$を自明化し、
+$\delta$の一次変化を$\dot\delta_v$とする。
+三次直線の持上げを$c+\epsilon\dot c$と書けば、中心性は
+\begin{equation}\label{eq:central-tangent-equation}
+ \delta_s(\dot c)+\dot\delta_v(c)=0,
+ \qquad \dot c\in(B_s)_3/kc
+\end{equation}
+に等しい。従って一次障害は
+\begin{equation}\label{eq:central-tangent-obstruction}
+ \omega_c(v):=[\dot\delta_v(c)]\in\operatorname{coker}\delta_s
+\end{equation}
+である。自明化を変えると右辺は$\operatorname{im}\delta_s$の元だけ変わり、
+$\delta_s(c)=0$なので余核中の類は変わらない。
+
+\begin{proposition}[incidenceの接空間完全列]\label{prop:central-tangent-exact}
+$L=kc$と置くと、自然な完全列
+\begin{equation}\label{eq:central-tangent-exact-sequence}
+\begin{split}
+ 0\longrightarrow\Hom_k(L,Z(B_s)_3/L)
+ \longrightarrow T_{(s,[c])}\mathcal I^{\mathrm{cen}}_3
+ \longrightarrow T_sS
+ \xrightarrow{\ \omega\ }\Hom_k(L,\operatorname{coker}\delta_s)
+\end{split}
+\end{equation}
+がある。最後の射の全射性は主張しない。
+特にambientの一次変形が中心三次対へ延長できるための必要十分条件は
+$\omega_c(v)=0$である。
+\end{proposition}
+\begin{proof}
+\eqref{eq:central-tangent-equation}の解の存在は
+$\dot\delta_v(c)\in\operatorname{im}\delta_s$と同値である。
+$v=0$の場合の解は$Z(B_s)_3/kc$であり、生成元$c$の選択を除くと
+$\Hom_k(L,Z(B_s)_3/L)$となる。これが全ての箇所の完全性を与える。
+\end{proof}
+
+階数一定の層に沿っては核束が存在するため、この一次障害は消える。
+一方、その層に横断するambient変形には中心三次を失う方向があり得る。
+全ambientモジュライ内での像の余次元を決める際は、
+中心核の階数だけでなく、この障害写像と高次の延長問題を調べる必要がある。
+これは全非可換変形の障害複体を中心性の有限行列で置き換えるという主張ではない。
+
+\subsection{中心条件と正規条件の差}
+正則な正規三次元$c$は一般に中心元ではなく、
+一意な次数付き自己同型$\sigma$に対して$cx=\sigma(x)c$を満たす。
+二次表示$B=T(V)/(R)$が与えられている場合、標識付き正規incidenceは
+\begin{equation}\label{eq:normal-incidence-equations}
+ \sigma\in\GL(V),\quad
+ (\sigma\otimes\sigma)(R)=R,\quad
+ cx-\sigma(x)c=0\ \text{in }B_4\quad(x\in V)
+\end{equation}
+で書ける。二次関係を保存する条件により$\sigma$は$B$の自己同型へ延びる。
+最後の等式は積について帰納的に延び、$cB=Bc$を与える。
+正則性があれば、この式から$\sigma$は一意に決まる。
+中心incidenceは$\sigma=1$という部分問題であり、
+中心核の射影束をそのまま全正規incidenceだとみなすことはできない。
+また、ここでの表示は1周期化を選んだ次数付き代数についてのものであり、
+任意の$\mathbb Z$-代数の正規族を一つの$\sigma$に置き換えたものではない。
+
+\begin{proposition}[量子多項式族での正の余次元の例]
+\label{prop:quantum-polynomial-central-cubic}
+$q_{ij}\in\mathbb G_m$ ($1\le i<j\le5$)、$q_{ji}=q_{ij}^{-1}$、$q_{ii}=1$として
+\[
+ B(q)=k\langle x_1,\ldots,x_5\rangle/
+ (x_ix_j-q_{ij}x_jx_i)
+\]
+を考える。この10次元パラメータトーラスのうち、非零の中心三次元を持つ部分は
+余次元4の部分トーラスの有限個の捩れ点平行移動の和集合である。
+従って中心三次incidenceの像はこのパラメータ族では真部分集合である。
+一方、任意の$q$で$x_i^3$は正則正規三次元である。
+\end{proposition}
+\begin{proof}
+順序付き単項式$x^\alpha$はPBW基底をなし、$B(q)$は反復skew多項式拡大による整域である。
+そのKoszul複体は可換多項式環の複体の多重次数による捩れとして得られ、
+Koszul双対は五生成元のskew外積代数である。従ってこれは標準的な
+noetherianな5次元Koszul AS正則代数の族である。
+各単項式について
+\[
+ x_i x^\alpha=\chi_i(\alpha)x^\alpha x_i,
+ \qquad\chi_i(\alpha)=\prod_jq_{ij}^{\alpha_j}
+\]
+となる。交換子の単項式が独立なので、次数三中心が非零であるための必要十分条件は、
+$|\alpha|=3$を満たす35個の指数の少なくとも一つについて
+$\chi_i(\alpha)=1$ ($i=1,\ldots,5$)となることである。
+このトーラス準同型の指標格子上の写像を$\mathbb Q$へ拡大すると
+$\beta\mapsto\beta\wedge\alpha$であり、$\alpha\ne0$なので階数は4である。
+従って各核の連結成分は次元$10-4=6$の部分トーラスの捩れ点平行移動である。
+有限和集合も次元6であり、主張を得る。最後の主張は各$x_i$の正規性と整域性による。
+\end{proof}
+
+ここでの余次元4は\emph{指定した量子多項式の係数トーラス内}の値である。
+座標変換・Zhang捩れ・$\mathbb Z$-代数同型をすべて商に取った空間の
+余次元だとは主張しない。また、単項式による正規商の存在は、
+その商の射影圏が滑らかな三次三様体であることを意味しない。
+この例は、中心三次を持つ像の大きさがambient族によって変わり、
+相対Jacobian成分の余次元0という結論を全ambient族へ一般化できないことを示す。

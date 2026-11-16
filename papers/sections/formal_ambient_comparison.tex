@@ -1,0 +1,495 @@
+% Classical Artin deformation functors; all categorical equivalences are marked.
+% The projective frame removes outer automorphisms, not scalar 2-automorphisms.
+\section{可換点におけるambient変形関手の比較}
+\label{sec:formal-ambient-comparison}
+
+本節では、非可換射影空間のモジュライを定義する際に現れる
+Abel圏、$\mathbb Z$-代数、規格化CY代数の三つの表示を、
+可換な$\PP^4$の全Artin変形について比較する。
+接空間の一致だけでは比較を結論しない。
+有限Beilinson窓の形式sliceを構成し、二つのminimal hullの一意性を用いて、
+実際の$\mathsf{Qmod}$自然変換が同型であることを示す。
+Poisson座標の選択と、この自然変換自体とは区別する。
+
+$k=\C$とし、$\mathsf{Art}_k$を剰余体$k$の局所Artin $k$-代数の圏とする。
+本節の$\mathcal D_{\mathrm{ab},Y}(R)$は
+$\mathsf{Qcoh}(Y)$の平坦Abel $R$-変形の同値類であり、
+特殊ファイバーとの同値をデータに含める。
+変形の間の同値はこの標識と自然同型を除いて可換とする。
+$\mathcal D_{\mathbb Z,Y}$は$(\OO_Y(i))_{i\in\mathbb Z}$の
+section $\mathbb Z$-代数の線型変形の同値類とする。
+いずれも集合値関手であり、自己同値間の自然同型まで保持した
+$2$-groupoidを表す記号ではない。
+
+\subsection{豊富列の持上げと構造代数層}
+
+\begin{proposition}[Abel圏、$\mathbb Z$-代数、Poisson変形の同値類]
+\label{prop:formal-abel-poisson}
+$Y=\PP^4$または滑らかな三次三様体$X\subset\PP^4$とする。
+特殊ファイバーの標識を保つ全Artin変形について、自然な全単射
+\begin{equation}\label{eq:formal-abel-poisson-chain}
+ \mathcal D_{\mathbb Z,Y}
+ \simeq \mathcal D_{\mathrm{ab},Y}
+ \simeq \mathcal D_{\mathrm{Ass},Y}
+ \simeq \mathcal D_{\mathrm{Pois},Y}
+\end{equation}
+がある。最後の二関手では構造層の結合代数変形、
+および可換積も変形させるPoisson変形のgauge同値類を取る。
+最後の同定にはYekutieliの量子化を用いる。
+
+各$\OO_Y(i)$は任意のAbel変形に平坦対象として同型を除いて一意に持ち上がる。
+$m\le n$なら、その持上げの間のHomは有限自由であり、
+任意のArtin基底変換と可換である。
+ただし、この一意性は持上げを結ぶ同型の一意性でも、
+添字を一つ動かす自己同値の持上げの一意性でもない。
+\end{proposition}
+\begin{proof}
+両方の$Y$について
+\[
+ H^1(Y,\OO_Y(j))=H^2(Y,\OO_Y(j))=0
+ \qquad(j\in\mathbb Z)
+\]
+である。射影空間では線束のコホモロジー、三次の場合は超曲面完全列で従う。
+従って小拡大の核$I$に対する対象$\OO_Y(i)$の持上げの障害群
+$I\otimes\Ext^2(\OO_Y(i),\OO_Y(i))$と差の群
+$I\otimes\Ext^1(\OO_Y(i),\OO_Y(i))$は消える。
+豊富列は$\mathbb Z$-生成列であり、$m\le n$に対し
+\[
+ \Ext^{1,2}(\OO_Y(m),M\otimes_k\OO_Y(n))=0
+ \quad(M\text{ は有限次元 }k\text{-空間})
+\]
+が成立する。De~Deken--Lowen\cite[Theorem~4.5]{DeDekenLowen}を
+適用でき、その逆構成が持上げのHomの平坦性と基底変換を与える。
+これで最初の同定を得る。
+
+Lowen\cite[Theorems~3.14, 3.26]{LowenRinged}により、
+有限アフィン被覆とその交叉を用いたalgebroid変形がAbel変形を表す。
+ここでは$Y$が準コンパクトかつ分離的なので同定理の被覆条件を満たす。
+このalgebroidは局所的な$\OO_Y$の平坦持上げから構成される。
+$H^2(Y,\OO_Y)=0$により大域的持上げを選べ、
+$H^1(Y,\OO_Y)=0$によりその同型類は一意である。
+その局所自己準同型層を取れば結合代数層を得る。
+これはtwisted変形から通常の変形へ移る
+Yekutieli\cite[Corollary~7.5]{YekutieliTwisted}の消滅条件でもある。
+したがって同値類について第二の同定を得る。
+同論文Corollary~11.2を、滑らかな$Y$、$k=\C\supset\mathbb R$、
+$H^1(Y,\OO_Y)=H^2(Y,\OO_Y)=0$に適用して最後の同定を得る。
+そのパラメータ代数は局所Artin代数を含み、係数環の準同型に関して自然である。
+
+持上げた$\OO_Y(i)$の自己準同型環は階数一の自由$R$加群で、
+単位写像$R\to\End(\widetilde{\OO_Y(i)})$が同型になる。
+従って還元が恒等な自己同型$1+\mathfrak m_R$は残る。
+また、対象を個別に持ち上げることは、それらを結ぶ自己同値を
+整合的に選ぶことを含まない。
+\end{proof}
+
+\begin{remark}[選択対象とsmooth proper性]
+同様の持上げ論法を一般の選択対象$E$へ使う際に必要なのは
+$\Ext^2(E,E)=\Ext^1(E,E)=0$である。
+smooth proper性だけではこの消滅は得られない。
+例えば滑らかな正次元射影多様体の点のskyscraper層は
+通常$\Ext^1$を持ち、点を動かす持上げがある。
+本節で$\OO_Y(i)$を使えるのは上記の消滅による。
+三次三様体上のこれらの対象を、完全な例外生成列と見なすこともしない。
+\end{remark}
+
+\subsection{射影Poisson錐とgauge作用}
+
+$W=H^0(\PP^4,\OO(1))$、$P=\PP(W^*)$とおき、
+\[
+ \mathcal P(P)=
+ \{\pi\in H^0(P,\wedge^2T_P)\mid[\pi,\pi]=0\}
+\]
+をJacobi方程式で定義したアフィンスキームとする。
+その原点完備化を$\widehat{\mathcal P}_0$と書く。
+また
+\[
+ G_1(R)=\ker\bigl(\PGL(W)(R)\longrightarrow\PGL(W)(k)\bigr)
+\]
+とする。
+
+\begin{proposition}[全Artin上の射影Poisson表示]
+\label{prop:formal-projective-poisson-quotient}
+自然な同定
+\begin{equation}\label{eq:formal-projective-poisson-quotient}
+ \mathcal D_{\mathrm{ab},P}(R)
+ \simeq\widehat{\mathcal P}_0(R)/G_1(R)
+\end{equation}
+があり、その接空間は$H^0(P,\wedge^2T_P)$、次元$126$である。
+商写像$\widehat{\mathcal P}_0\to\mathcal D_{\mathrm{ab},P}$は
+形式的に滑らかで接空間同型を誘導する、すなわちminimal hullである。
+\end{proposition}
+\begin{proof}
+$H^1(P,T_P)=0$だから、$P$の標識付き可換Artin変形は自明である。
+これは小拡大ごとに局所自明化の差の$T_P$-値cocycleを消して確認できる。
+自明化の差は$G_1(R)$であり、Poisson括弧は
+$\mathfrak m_R\otimes H^0(P,\wedge^2T_P)$のJacobi零点となる。
+命題\ref{prop:formal-abel-poisson}により
+\eqref{eq:formal-projective-poisson-quotient}を得る。
+
+Euler完全列の外積から
+\[
+ H^0(P,\wedge^2T_P)
+ \simeq
+ \frac{\Sym^2W\otimes\wedge^2W^*}
+ {E\wedge\End(W^*)},\qquad
+ \dim=150-(25-1)=126
+\]
+を得る。ここで$E$はEuler場であり、分母の核は$kE$である。
+Jacobi式は二次なので、原点の接空間はこの全空間である。
+$G_1(k[\varepsilon]/(\varepsilon^2))$の作用はこの接空間上で自明である。
+さらに、全射$R'\to R$に対して$G_1(R')\to G_1(R)$は全射である。
+与えられたPoisson代表の還元を一致させるgaugeを$R'$へ持ち上げれば、
+商写像の形式的滑らかさが従う。
+\end{proof}
+
+\begin{lemma}[発散零の持上げはスキームとして一意]
+\label{lem:formal-unimodular-projective}
+射影化は、発散零の二次Poisson構造のスキームと
+$\mathcal P(P)$の間の同型を与える。
+特にこれは非被約Artin基底上でも成立する。
+\end{lemma}
+\begin{proof}
+体積形式を固定し、発散作用素を$\Delta$とする。
+線型ベクトル場$Z$について
+\[
+ \Delta(E\wedge Z)=5Z-\operatorname{tr}(Z)E
+\]
+である。二次bivectorの発散は跡零の線型場なので、
+Euler方向を加減することにより、一意の発散零の持上げ$\Pi$を得る。
+この操作は係数環によらない線型分裂である。
+射影Jacobiが零なら$J=[\Pi,\Pi]$は$E\wedge Q$と書ける。
+$\Delta\Pi=0$から$\Delta J=0$であり、同次BV恒等式は
+\[
+ 0=\Delta(E\wedge Q)=5Q-E\wedge\Delta Q
+\]
+を与える。両辺に$E$を外積すると$5J=0$、従って$J=0$となる。
+これは任意の$k$-代数上の恒等式であるから、Jacobi零点スキームを同定する。
+\end{proof}
+
+\begin{remark}[接空間で見えないgauge同一視]
+\label{rem:formal-gauge-counterexample}
+標識付きPoisson錐そのものを
+$\mathcal D_{\mathrm{ab},P}$と同一視することはできない。
+$R=k[\varepsilon]/(\varepsilon^3)$とし、射影ベクトル場
+\[
+ u=x_0\partial_{x_0},\quad v=x_1\partial_{x_1},
+ \quad\xi=x_2\partial_{x_0},\quad P_0=u\wedge v
+\]
+を取る。$[u,v]=0$、$[\xi,P_0]=\xi\wedge v\ne0$である。
+二つの異なる点
+\[
+ \pi=\varepsilon P_0,
+ \qquad \pi'=\varepsilon P_0+\varepsilon^2[\xi,P_0]
+\]
+はともにPoissonであり、$\pi'=\exp(\varepsilon\operatorname{ad}\xi)\pi$だから
+同じgauge類を与える。一次の接空間はどちらも126次元でも、
+この同一視は二次で初めて現れる。
+原点の自己同型方向は$\mathfrak{pgl}_5$である。
+従って商groupoidを考えるなら、原点の接複体の次数$-1,0$部分には
+$[\mathfrak{pgl}_5\xrightarrow{0}H^0(P,\wedge^2T_P)]$が現れる。
+Abel圏の自然自己同型まで保持すると、さらにスカラーの$2$-自己同型を扱う必要がある。
+\end{remark}
+
+\subsection{Beilinson窓の射影標識と実際のCY比較}
+
+$\mathcal D^{\mathrm{pf}}_{\mathrm{ab},P}$を、
+Abel変形に$\Hom(\widetilde\OO,\widetilde\OO(1))$の
+標準基底へ還元する\emph{射影基底}を付けた同値類の関手とする。
+このHomは命題\ref{prop:formal-abel-poisson}により階数五の自由加群である。
+持上げ対象の同型を変更するとHomの基底は共通スカラー倍だけ変わるので、
+射影基底という条件はその選択に依存しない。
+
+\begin{lemma}[有限窓の形式slice]
+\label{lem:formal-beilinson-frame}
+$\mathcal D^{\mathrm{pf}}_{\mathrm{ab},P}$は完備局所Noetherian環
+$\mathcal R_{\mathrm{pf}}$でprorepresentされる。
+射影基底を忘れる写像
+$\mathcal D^{\mathrm{pf}}_{\mathrm{ab},P}\to\mathcal D_{\mathrm{ab},P}$は
+minimal hullである。
+\end{lemma}
+\begin{proof}
+$\OO,\ldots,\OO(4)$の有限線型圏を$\mathfrak b$とする。
+そのHom空間は
+\[
+ H_{ij}=\begin{cases}\Sym^{j-i}W&i\le j,\\0&i>j,\end{cases}
+ \qquad 0\le i,j\le4.
+\]
+標準列は射影空間の幾何的helixをなすので、
+De~Deken--Lowen\cite[Theorem~5.15]{DeDekenLowen}は
+この有限窓の変形と$\mathcal D_{\mathrm{ab},P}$を比較する。
+ここで三次三様体へ同じ有限窓の主張を適用しているのではない。
+
+固定した各$H_{ij}$上の合成写像を変数とし、単位と結合律を課した
+有限型アフィンスキームを$M$、通常の対称積を$\mu_0$とする。
+基底変更群は
+\[
+ K=\prod_{0\le i<j\le4}\GL(H_{ij}).
+\]
+射影基底を固定する部分群$K^{\mathrm{pf}}$は、
+$H_{01}=W$への作用がスカラーである元からなる。
+対象ごとのスカラー変更
+\[
+ T=(\mathbb G_m)^5/\mathbb G_m,
+ \qquad (\lambda_i)\colon H_{ij}\longmapsto
+       (\lambda_j/\lambda_i)H_{ij}
+\]
+は$M$に自明に作用する中央部分群である。
+$H=K^{\mathrm{pf}}/T$は滑らかな群であり、
+形式変形の同値類は$\widehat M_{\mu_0}/\widehat H_1$となる。
+ここでは関手の自然同型が与える対象スカラーを既に除いている。
+
+$\mu_0$における$H$の無限小固定群が零であることを確認する。
+有限圏$\mathfrak b$は隣接Hom
+$V_i=H_{i,i+1}=W$、$0\le i\le3$で生成され、
+隣接二段の関係は$\wedge^2W\subset V_{i+1}\otimes V_i$で生成される。
+圏の導分の$V_i$上の成分を$D_i$とすると、関係の保存から
+\[
+ (D_{i+1}-D_i)u\mathbin{\odot}v
+ -(D_{i+1}-D_i)v\mathbin{\odot}u=0
+ \quad(u,v\in W)
+\]
+を得る。基底ベクトルを代入すると、各$D_{i+1}-D_i$はスカラーである。
+射影基底条件で$D_0$もスカラーだから、すべての$D_i$はスカラーとなる。
+それらは$T$のLie代数から来る導分であり、$\Lie(H)$の固定部分は零である。
+
+$r=\dim H$とし、合成写像のアフィン空間上の$r$個の線型関数を、
+軌道写像の微分上で独立となるように選ぶ。
+それらを$\mu_0$での値に固定した$M$内の形式sliceを$S$とする。
+形式陰関数定理により、各Artin点$\mu$には一意な
+$h\in\widehat H_1$が存在して$h\mu\in S$となる。
+実際、$h$の$r$個の形式座標に関するJacobianが特殊ファイバーで可逆であり、
+小拡大に沿う帰納で解が存在し一意となる。
+従って
+\[
+ \widehat H_1\times S\simeq\widehat M_{\mu_0},
+ \qquad\mathcal D^{\mathrm{pf}}_{\mathrm{ab},P}\simeq S.
+\]
+この$S$の完備局所環が所要の$\mathcal R_{\mathrm{pf}}$である。
+
+基底を忘れる写像は形式的に滑らかである。
+小拡大でAbel変形を持ち上げた後、自由Hom加群の射影基底を持ち上げればよい。
+一次では基底変更の24方向はすべて$\mu_0$の射影座標導分から来る。
+任意の一次積$\mu_0+\varepsilon\mu_1$に対し
+$1+\varepsilon D$は、$D$が$\mu_0$の導分ならその積の自己同型である。
+従ってこれら24方向は同値類では消え、忘却の接写像は同型となる。
+\end{proof}
+
+Pym\cite[Definition~2.8]{Pym}の規格化Koszul CY変形芽の
+可換点完備化を$\widehat{\mathcal Q}_{\CY}$と書く。
+生成空間$W$は固定し、これは関係部分空間の形式スキームである。
+Artin点は相対的なCY変形を意味し、Artin基底上の絶対大域次元を主張しない。
+
+\begin{theorem}[可換$\PP^4$での全Artin ambient比較]
+\label{thm:formal-ambient-cy-comparison}
+次数付き代数$B_R$からその$\mathbb Z$-代数と$\mathsf{Qmod}$を取る自然変換
+\begin{equation}\label{eq:formal-cy-framed-map}
+ \Psi:\widehat{\mathcal Q}_{\CY}
+ \longrightarrow\mathcal D^{\mathrm{pf}}_{\mathrm{ab},P}
+\end{equation}
+は、集合値Artin関手の同型である。
+特にすべての$R\in\mathsf{Art}_k$について、実際の$\mathsf{Qmod}$写像は
+\begin{equation}\label{eq:formal-ambient-cy-quotient}
+ \widehat{\mathcal Q}_{\CY}(R)/G_1(R)
+ \xrightarrow{\ \sim\ }
+ \mathcal D_{\mathrm{ab},P}(R)
+ \simeq\mathcal D_{\mathbb Z,P}(R)
+\end{equation}
+を与える。
+従って可換点の形式近傍では、規格化CY表示と
+一般$\mathbb Z$-代数表示の間に追加の古典的Artin変形方向はない。
+これは特殊ファイバーの標識を保つ局所主張である。
+\end{theorem}
+\begin{proof}
+まず$B_R$に対応する$\mathbb Z$-代数$\check B_R$は、
+各Homが有限自由な$\check{\Sym W}$の線型変形である。
+De~Deken--Lowen\cite[Proposition~4.4, Theorem~4.5]{DeDekenLowen}により
+$\mathsf{Qmod}(\check B_R)$はAbel変形となり、
+同定理の逆構成は指定対象の間のHomを$\check B_R$と同定する。
+特に$\Hom(\widetilde\OO,\widetilde\OO(1))=(B_R)_1=W\otimes R$なので、
+生成元の基底から射影基底を得る。
+これで$\Psi$は基底変換と可換な実際の自然変換として定義された。
+
+命題\ref{prop:formal-projective-poisson-quotient}と
+補題\ref{lem:formal-beilinson-frame}により、
+$\widehat{\mathcal P}_0$と
+$\operatorname{Spf}\mathcal R_{\mathrm{pf}}$は同じ集合値関手のminimal hullである。
+従ってその完備局所環は非標準的に同型となる
+\cite[Tag~06T5]{StacksFormal}。
+ここで必要な一意性は、二つの形式的に滑らかな写像を
+Artin商ごとに持ち上げて環準同型を双方向に作り、
+接空間同型を持つ合成自己準同型が同型となることからも直接従う。
+
+一方、Pym\cite[Proposition~2.9]{Pym}と
+補題\ref{lem:formal-unimodular-projective}により、
+$\widehat{\mathcal Q}_{\CY}$の完備局所環も
+$\widehat{\mathcal P}_0$のそれと同型である。
+この段階ではPymの解析同型の座標同変性も、
+その同型とYekutieliの量子化との一致も用いていない。
+
+$d\Psi$は、発散零二次bivectorの射影化である。
+この一次の照合では、$R=k[\varepsilon]/(\varepsilon^2)$上で
+交換子が$\varepsilon B_R$に入ることを用いる。
+第\ref{sec:moduli-artin}節と同じ有限の交換子展開により
+各標準一次元の冪をOre局所化できる。
+その次数零部分の一次交換子は、通常の商の微分則により
+二次bivectorの射影化に等しい。
+従って誘導された構造代数層の第一Poisson括弧はこの射影bivectorである。
+命題\ref{prop:formal-abel-poisson}の量子化も第一括弧を保つ。
+従って補題\ref{lem:formal-unimodular-projective}により
+$d\Psi$は126次元空間の同型である。
+
+既に抽象的に同型と分かっている二つの完備局所Noetherian環を同一視すると、
+$\Psi$は余接空間上で同型な連続自己準同型となる。
+随伴次数環は余接空間で生成されるから各次数の写像は全射であり、
+各次数は同じ有限次元空間なので同型である。
+完備性と分離性から環準同型自体が同型となり、
+\eqref{eq:formal-cy-framed-map}を得る。
+接空間同型だけから結論したのではなく、minimal hullの比較で
+両環の抽象的同型を先に確立した点が必要である。
+
+$\Psi$は生成元の射影座標変更と射影基底変更に関して同変である。
+すべての射影基底は$G_1(R)$の作用で移り合うので、
+それを忘れた商が\eqref{eq:formal-ambient-cy-quotient}となる。
+\end{proof}
+
+\begin{corollary}[37次元成分と中心incidenceの形式像]
+\label{cor:formal-113-component}
+命題\ref{prop:quantum-113-component}の$Q_{113}$の可換頂点完備化は、
+$\mathcal D^{\mathrm{pf}}_{\mathrm{ab},P}$の形式局所模型の
+37次元既約成分を与え、その一般点において全局所環は被約かつ正則である。
+命題\ref{prop:formal-abel-poisson}を通して、これは射影基底付き
+$\mathbb Z$-代数変形の形式局所模型の成分でもある。
+
+$Q_{113}$の可換頂点の近傍を、普遍二次代数の次数三・四部分が
+局所自由となるように取る。
+その上の$\PP(\mathscr B_3)$内の中心直線の閉incidenceにおいて、
+既存の支配的成分の閉包を$I_{113}$とする。
+可換ambient上の\emph{全fiberに沿って}これを形式完備化し、
+実際の$\mathsf{Qmod}$写像を合成すると、像の形式閉包は上記の成分全体となる。
+従ってこの対応成分内での像の余次元は零である。
+この完備化のArtin点は正則中心三次商を与えるので、
+正規三次超曲面型のモジュライへの写像として解釈できる。
+ここでは一つの指定した三次式$F$での対の完備化だけを
+取っているのではなく、商のsmooth proper性を追加した部分関手への
+同じ主張もここからは結論しない。
+\end{corollary}
+\begin{proof}
+$Q_{113}$はgraph座標で正次数の斉次整域のスペクトルである。
+頂点完備化における非零元の最初の斉次項を取れば、
+その積が非零であることが分かるので完備化も整域である。
+全Poissonスキームは有限型$k$-スキームであるから、その局所環はexcellentであり、
+完備化への写像はregularである\cite[Tag~07QS]{StacksFormal}。
+Pymの形式比較を通すと、命題\ref{prop:quantum-113-component}の
+成分性と一般正則性がこの形式完備化へ移る。
+さらに定理\ref{thm:formal-ambient-cy-comparison}の
+実際の同型$\Psi$で主張した形式模型の成分となる。
+
+次数三・四の普遍成分は有限表示加群であり、
+可換点での完備化後は平坦な二次変形の対応次数成分として自由である。
+完備化の忠実平坦性によって可換点の局所環上でも自由となるため、
+局所自由となる近傍を取れる。
+選んだ近傍では、中心条件は
+$\mathscr L\otimes\mathscr B_1\to\mathscr B_4$という
+交換子写像の零点として$\PP(\mathscr B_3)$内で閉に定義される。
+ここで$\mathscr L$はtautological直線束である。
+その支配的既約成分の閉包を取るので、
+$f:I_{113}\to Q_{113}$は、この近傍へ制限して射影的かつ支配的である。
+$Q_{113}$は被約なので
+$\OO_{Q_{113}}\to f_*\OO_{I_{113}}$は単射である。
+可換点の局所化と完備化は平坦であり、
+射影的写像の大域切断はこの平坦基底変換と可換である
+\cite[Tag~02KH]{StacksFormal}。
+従って完備化後もこの単射を保つ。
+形式関数定理\cite[Tag~02OC]{StacksFormal}により、
+同じ結論を全特殊fiberに沿う形式完備化で表せる。
+これが像の形式閉包が全成分であることを意味する。
+最後に$\Psi$を合成してもこの性質は変わらない。
+
+正則性も全Artin点で確認できる。
+特殊ファイバーの中心直線は非零の三次式$F\in\Sym^3W$である。
+任意の局所Artin持上げ$R$で直線の生成元$g$を選ぶと、
+各次数の左右乗法は、還元すると多項式環での
+$F:S_{n-3}\hookrightarrow S_n$となる。
+$F\ne0$なのでこれは単射であり、最大rankの小行列式が単元に持ち上がるため、
+元の有限自由$R$加群間の乗法も分裂単射である。
+incidence条件から$g$は中心なので、両側イデアルは$gB_R=B_Rg$となり、
+その商は各次数で自由、Hilbert級数$(1-t^3)/(1-t)^5$を持つ。
+従ってこの形式完備化が与える対は実際に正則正規三次商の条件を満たす。
+この段階では$F$の滑らかさを仮定していない。
+この議論は具体的な量子incidenceと$\mathsf{Qmod}$を使っており、
+独立に選んだPoisson座標どうしの可換性を必要としない。
+\end{proof}
+
+\begin{remark}[形式同型の意味と大域化]
+定理\ref{thm:formal-ambient-cy-comparison}の$\Psi$は
+$\mathsf{Qmod}$から定まる自然変換である。
+その証明に使ったPoisson座標やminimal hull間の同型は選択に依存し得る。
+また、同定理は任意の非可換点での形式近傍、全AS正則
+$\mathbb Z$-代数の有限型モジュライ、あるいはそれらの大域成分を同定しない。
+相対的な周期同型の選択をすべて保持したstackの同型も主張しない。
+集合値の同型から高次自己同型を保つ同値を推論してはいけない。
+\end{remark}
+
+\subsection{三次三様体からのambient写像}
+
+\begin{corollary}[可換三次点での実際のambient変形写像]
+\label{cor:formal-cubic-ambient-map}
+滑らかな三次三様体$X=V_+(F)\subset P$について、
+定理\ref{thm:artin-central-pair}および
+定理\ref{thm:artin-quadratic-cover}の同次formality入力の下で、
+二次包絡は自然変換
+\begin{equation}\label{eq:formal-cubic-ambient-map}
+ \mathcal D_{\mathrm{ab},X}
+ \longrightarrow\mathcal D_{\mathrm{ab},P}
+ \simeq\widehat{\mathcal Q}_{\CY}/G_1
+\end{equation}
+を与える。
+左辺は$\mathcal R_X$、すなわち
+\eqref{eq:artin-poisson-sheaf-ring}の17次元・接空間20次元の環で表される。
+原点における接写像は
+\[
+ H^1(X,T_X)\oplus H^0(X,\wedge^2T_X)
+ \longrightarrow H^0(P,\wedge^2T_P),
+ \qquad(\dot F,a)\longmapsto\Pi(F,a)_{\mathrm{proj}}.
+\]
+その核は10次元の可換三次変形方向であり、像は10次元である。
+\end{corollary}
+\begin{proof}
+命題\ref{prop:formal-abel-poisson}と
+定理\ref{thm:artin-quadratic-cover}により、
+Abel変形は中心三次商の変形で表示される。
+そのsection $\mathbb Z$-代数はDe~Deken--Lowenの逆構成によるものと同一視される。
+従って二次包絡の内在的復元はこの表示から得た$B_R$の
+$\mathbb Z$-代数に一致し、平坦なambient変形を与える。
+これに$\mathsf{Qmod}$を取り、
+定理\ref{thm:formal-ambient-cy-comparison}を用いれば
+\eqref{eq:formal-cubic-ambient-map}を得る。
+規格化CY側への同定は、存在するambient圏に同定理の逆写像を適用する意味であり、
+任意の次数付き表示が既に規格化CYであると仮定していない。
+
+一次では、$F+\varepsilon\dot F$だけを動かしても二次包絡は可換多項式環である。
+Poisson方向の一次交換子は
+$\iota_{\Pi(F,a)}\Omega=dF\wedge a$なので上記の式となる。
+その射影化を$X$へ制限すると
+$a\mapsto\iota_Ea$という
+\eqref{eq:artin-relative-bivectors}の同型を得るから、
+$a$方向の写像は単射である。
+\end{proof}
+
+\begin{remark}[Poisson座標での式と比較の範囲]
+相対Poisson計算自体は、全Artin上の自然写像
+\[
+ \mathcal D_{\mathrm{Pois},X}\longrightarrow
+ \widehat{\mathcal P}_0/G_1,
+ \qquad (F_R,a)\longmapsto\Pi(F_R,a)_{\mathrm{proj}}
+\]
+を与える。この写像と\eqref{eq:formal-cubic-ambient-map}を、
+独立に選んだ二つの量子化同定によって作った正方形の中で
+同じものと主張するには、量子化とCasimir商・局所化の両立を照合する必要がある。
+本節はその未確認の両立を証明の前提にしていない。
+実際のambient写像の存在、全Artin ambient比較、および接写像の式は上で得られている。
+また、ここでの接写像の10次元の核は、非零一般点における
+ambient忘却の4次元ファイバーとは異なる。
+原点のJacobi方程式が二次で始まることを無視して両者を比較してはいけない。
+\end{remark}

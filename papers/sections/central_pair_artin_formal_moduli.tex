@@ -1,0 +1,532 @@
+% Source recovery: noncommutative central cubic pair, all Artin bases.
+% Main mathematical input: original 2026-11-01 paper V, sections 12--13 and 21.
+% This section is included in papers/nc_cubic_threefold_moduli.tex.
+\section{中心三次対の全Artin形式局所構造と二次包絡}
+\label{sec:moduli-artin}
+本節は、滑らかな可換三次三様体の近傍において、
+有限係数の17次元族と異なる\emph{完備形式局所モジュライ}を扱う。
+生成空間の座標標識を残す関手と、その射影座標変更を割った関手を
+区別する。構造代数層との比較に用いるのは後者であり、
+特殊ファイバーの同一視は保持する。主張は通常の集合値Artin変形関手に関するものであり、
+derived stackの同型でも非可換領域全体の大域分類でもない。
+同次formalityを外部入力とし、構造代数層への移行には
+Yekutieliの量子化定理の仮定と相対コホモロジー計算を明示する。
+
+以下$k=\C$、$V=k^5$、$S=\Sym V^*$、
+$F\in S_3$を滑らかな三次三様体
+$X=V_+(F)\subset\PP(V)$の定義式とする。
+$(R,\mathfrak m)$は剰余体$k$の局所Artin代数である。
+
+\begin{lemma}[平坦な正規三次商は自動的に中心商]
+\label{lem:artin-normal-central}
+$B_R$を$R$上各次数有限自由な連結非負次数付き代数とし、
+一次で生成され、特殊ファイバー$B_R/\mathfrak mB_R=S$とする。
+$w\in(B_R)_3$が$F$に特殊化するなら$w$は左右正則であり、
+以下の条件は同値である：
+\[
+ B_R/(w)\text{ が各次数で }R\text{-平坦},\qquad
+ wB_R=B_Rw,\qquad
+ w\in Z(B_R).
+\]
+成立するとき商のHilbert級数は$(1-t^3)/(1-t)^5$である。
+\end{lemma}
+\begin{proof}
+$w$の左右乗法の各次数成分は、$\mathfrak m$で還元すると
+$F:S_{d-3}\hookrightarrow S_d$である。
+$F\ne0$と$S$が整域であることから単射となり、
+有限自由行列の最大rank小行列式が単元であるため、
+元の乗法も分裂単射になる。
+
+$J=(w)$について商が平坦なら
+$0\to J_d\to(B_R)_d\to(B_R/J)_d\to0$は
+有限自由$R$加群の分裂完全列である。
+$J_d/\mathfrak mJ_d=FS_{d-3}$なので、
+左右乗法$(B_R)_{d-3}\to J_d$はNakayamaと
+先の単射性により同型である。従って$J=wB_R=B_Rw$。
+正規性から$wb=\sigma(b)w$で次数付き自己同型$\sigma$が得られる。
+特殊ファイバーでは$\bar\sigma=\mathrm{id}$であり、
+$b=w$と右消去によって$\sigma(w)=w$となる。
+$\sigma\equiv\mathrm{id}\pmod{\mathfrak m^r}$とし、
+$\mathfrak m^r/\mathfrak m^{r+1}=I$とおくと、
+次の差分は次数零の導分
+\[
+ D:S\longrightarrow I\otimes_k S,\qquad
+ D(F)=0
+\]
+である。$D=\sum_i\ell_i\partial_{x_i}$、
+$\ell_i\in I\otimes S_1$だから
+$\sum_i\ell_iF_i=0$。滑らかさから
+$F_0,\ldots,F_4$は二次正則列をなし、
+Koszul複体に一次係数のsyzygyが存在しない。
+よって$D=0$となり、$\mathfrak m$の冪零性から
+$\sigma=\mathrm{id}$を得る。
+中心性から商平坦性へは、
+各次数の分裂単射$w:(B_R)_{d-3}\to(B_R)_d$を使えばよい。
+\end{proof}
+
+\begin{corollary}[標識付き対の自己同型]
+\label{cor:artin-scalar}
+上の中心正規対$(B_R,Rw)$の次数付き自己同型が
+特殊ファイバーで恒等なら、次数一の生成元への作用は
+すべて同じ単元$\lambda\in1+\mathfrak m$によるスカラー倍である。
+従って射影標識を入れた対には非自明な無限小自己同型はない。
+\end{corollary}
+\begin{proof}
+$\phi(w)=cw$、$c\in1+\mathfrak m$と書き、
+$c$の一意の三乗根による次数スカラー倍を合成すると
+$w$を固定する自己同型に帰着する。
+その$\mathfrak m$進差分は前補題の$D(F)=0$と同じ
+一次Koszul syzygyで消える。
+\end{proof}
+
+\subsection{相対Casimir条件と五つのPl\"ucker方程式}
+体積形式$\Omega=dx_0\wedge\cdots\wedge dx_4$を固定する。
+$F_R\in R\otimes S_3$を$F$の持上げとし、
+$a=\sum_{i<j}a_{ij}\,dx_i\wedge dx_j$を
+係数$a_{ij}\in\mathfrak m$の定数二形式とする。
+\[
+ \iota_{\Pi(F_R,a)}\Omega=dF_R\wedge a
+\]
+で二次bivectorを定める。
+$\{i,j,k,l\}=\{0,\ldots,4\}\setminus\{r\}$、
+$i<j<k<l$に対し
+\[
+ q_r(a)=(-1)^r
+ (a_{ij}a_{kl}-a_{ik}a_{jl}+a_{il}a_{jk}),\qquad
+ g=\sum_{r=0}^4q_r(a)\,\partial_rF_R
+\]
+とおく。
+
+\begin{lemma}[全Artin上でのCasimir核]
+\label{lem:artin-casimir}
+二次bivector$\Pi$が$\iota_{dF_R}\Pi=0$を満たすことと、
+一意な$a\in R\otimes\wedge^2V^*$を用いて
+$\Pi=\Pi(F_R,a)$と表せることは同値である。
+この同型は任意の$R$の基底変換と可換であり、
+$\Pi$は発散零である。
+\end{lemma}
+\begin{proof}
+$F$の五つの偏微分は二次正則列だから、そのKoszul複体の
+\[
+ \wedge^3V\otimes R
+ \xrightarrow{\iota_{dF_R}}
+ S_{R,2}\otimes\wedge^2V
+ \xrightarrow{\iota_{dF_R}}
+ S_{R,4}\otimes V
+\]
+の該当次数は、特殊ファイバーで左端の単射と中央での完全性を持つ。
+有限自由加群の複体なので、分裂小行列式の単元性を
+Artin基底へ持ち上げて同じ完全性を得る。
+$\wedge^3V\simeq\wedge^2V^*$により表示と一意性が従う。
+$d(dF_R\wedge a)=0$から発散零である。
+\end{proof}
+
+\begin{proposition}[JacobiイデアルとPl\"uckerイデアルの一致]
+\label{prop:artin-pfaffian}
+$\Pi=\Pi(F_R,a)$に対し、Jacobi方程式の係数イデアルは
+\[
+ (q_0(a),\ldots,q_4(a))
+\]
+と一致する。特に集合論的なrank分類だけでなく、
+非被約な局所Artin基底上での方程式を同定する。
+\end{proposition}
+\begin{proof}
+$J=\frac12[\Pi,\Pi]$と書くと、五変数の外積計算から
+\[
+ \iota_{\Pi\wedge\Pi}\Omega=2g\,dF_R,\qquad
+ \iota_J\Omega=dg\wedge dF_R
+\]
+が得られる。これは多項式恒等式である。
+符号は$ a=dx_0\wedge dx_1+dx_2\wedge dx_3$
+の代入で直接確認できる。
+線形写像
+\[
+ L_F:k^5\longrightarrow\Omega^2_{S,3},\qquad
+ (c_r)\longmapsto d\bigl(\textstyle\sum_rc_rF_r\bigr)\wedge dF
+\]
+は単射である。核の元について、
+$F_i$のKoszul完全性から
+$d(\sum c_rF_r)$は$dF$の多項式倍となるが、
+係数の次数は負なので零である。
+Euler式と定数係数のKoszul syzygyの消滅により$c_r=0$。
+従って$L_F$の非零$5$次小行列式は
+$R$上でも単元であり、$L_{F_R}$は分裂単射となる。
+上の$J$の表示の係数から$q_r(a)$を回収でき、
+両方のイデアルが一致する。
+\end{proof}
+
+\begin{theorem}[中心三次対の全Artin形式局所環：入力を明示した結論]
+\label{thm:artin-central-pair}
+局所Artin基底上の次数別平坦な二次多項式環の標識付き変形と
+同次Poisson変形との間に、固定したGL$_5$同変の
+Kontsevich形式量子化を適用する。
+中心三次直線が$kF$へ特殊化する対の古典的変形関手は
+\[
+ \widehat{\mathcal I}_{F}\simeq
+ \operatorname{Spf}\frac{
+  k[[s_1,\ldots,s_{34},a_{01},\ldots,a_{34}]]
+ }{(q_0(a),\ldots,q_4(a))}
+\]
+で表される。形式局所次元は$41$、接空間次元は$44$。
+特殊ファイバーで恒等に還元する射影座標変更を割ると、
+\[
+ \operatorname{Spf}\frac{
+ k[[t_1,\ldots,t_{10},a_{01},\ldots,a_{34}]]
+ }{(q_0(a),\ldots,q_4(a))}
+\]
+となり、次元$17$、接空間次元$20$である。
+有限群$\Aut(X)$はこの記述ではまだ割らない。
+\end{theorem}
+\begin{proof}
+同次形式量子化の星積を$B_\Pi$とする。
+$\Pi$に対するtwisted Taylor mapの次数三部分
+$D^0_\Pi:S_{R,3}\to(B_\Pi)_3$は
+還元が恒等の有限自由加群の同型である。
+また次数四のベクトル場$Y$の評価
+\[
+ D^1_\Pi(Y)\longmapsto
+ \bigl(D^1_\Pi(Y)(x_0),\ldots,D^1_\Pi(Y)(x_4)\bigr)
+\]
+は同じく還元が恒等の同型なので、
+twisted chain identityにより
+\[
+ D^0_\Pi(F_R)\in Z(B_\Pi)
+ \quad\Longleftrightarrow\quad [\Pi,F_R]=0
+\]
+となる。ここで中心の形成と非平坦基底変換の交換性は
+仮定せず、有限自由行列の可逆性によって逆向きを証明する。
+このformalityの恒等式は
+Cattaneo--Felder--Tomassini\cite{CFT}
+のtwisted formulaを入力としている。
+補題\ref{lem:artin-normal-central}と
+命題\ref{prop:artin-pfaffian}により、
+$F_R$の射影変形の34変数と$a$の10変数、
+五つのPl\"ucker方程式が得られる。
+後者は$\mathrm{Gr}(2,5)$の非零アフィン錐の閉包で
+次元$7$、原点の接空間次元$10$なので
+$34+7=41$、$34+10=44$。
+$X$が滑らかで$H^0(X,T_X)=0$だから
+$\PGL_5$の軌道方向24は形式的に横断sliceから分離できる。
+$34-24=10$を得て後半が従う。
+なお特異な形式基底でのCalabi--Yau性は相対的であり、
+絶対大域次元が五であるとは主張しない。
+\end{proof}
+
+\begin{remark}[一次方向はすべて二次へ延長するわけではない]
+\label{rem:artin-obstruction}
+$a=\varepsilon(dx_0\wedge dx_1+dx_2\wedge dx_3)$を
+$k[\varepsilon]/(\varepsilon^2)$上で考えると
+$q_r(a)=0$だが、
+$k[\varepsilon]/(\varepsilon^3)$上では$q_4(a)=\varepsilon^2$。
+二次の補正$b$を$a+\varepsilon^2b$に加えてもこの項は消えない。
+従って接空間20次元と局所次元17の差は実際の二次障害を表し、
+全Artin比較を無障害性と混同してはいけない。
+\end{remark}
+
+\subsection{Ore局所化、偏極、および斉次二次包絡}
+次数別平坦な斉次変形$A_R$を
+$S/(F)$へ特殊化するものとする。
+一次元の持上げ$\widetilde x_i$を選び、
+標準開集合$U_i=D_+(x_i)\cap X$上で
+\[
+ \mathscr A_R(U_i)=
+ \bigl(A_R[\widetilde x_i^{-1}]\bigr)_0
+\]
+を取る。$[A_R,A_R]\subset\mathfrak m A_R$かつ
+$\mathfrak m$冪零なので、有限の交換子展開により
+$\{\widetilde x_i^n\}$は左右Ore集合となる。
+その元の特殊化は$S/(F)$の整域の非零因子だから、
+各局所化は$R$平坦である。
+重なりは二つの一次元をともに可逆化した次数零部分で
+記述され、三重重なりのcocycleも局所化の普遍性に従う。
+この操作で$X$上に平坦な結合$R$代数層
+$\mathscr A_R$が得られる。
+
+\begin{proposition}[偏極とsection algebraの回復]
+\label{prop:artin-ore-section}
+上のOre局所化層の次数$n$部分を貼り合わせた
+$\mathscr E_n$は可逆両側$\mathscr A_R$加群であり、
+\[
+ \mathscr E_m\otimes_{\mathscr A_R}\mathscr E_n
+ \simeq\mathscr E_{m+n}.
+\]
+$n\ge0$について
+\[
+ H^i(X,\mathscr E_n)=0\ (i>0),\qquad
+ (A_R)_n\xrightarrow{\sim}H^0(X,\mathscr E_n)
+\]
+が成り立ち、積とも両立し任意のArtin基底変換に可換である。
+\end{proposition}
+\begin{proof}
+局所化の一次元は可逆なので強い$\mathbb Z$次数付けと
+両側可逆性が従う。有限標準被覆の\v{C}ech複体を取り、
+$R$の小拡大を順に帰納すると、
+特殊ファイバーの$H^i(X,\OO_X(n))=0$ ($i>0,n\ge0$)
+から高次消滅と$H^0$の有限自由性が得られる。
+特殊化で同型な$(A_R)_n\to H^0(X,\mathscr E_n)$は
+Nakayamaで同型となる。強次数付けにより積との両立も従う。
+\end{proof}
+
+\begin{lemma}[可逆両側偏極の同型類の一意性]
+\label{lem:artin-polarization}
+$\mathscr A_R$上の二つの平坦な可逆両側加群
+$\mathscr M,\mathscr N$が同じ線束$L$に特殊化し、
+$H^1(X,\OO_X)=H^0(X,T_X)=0$なら、
+$\mathscr M\simeq\mathscr N$である。
+$H^0(X,\OO_X)=k$なら各々の自己同型は$R^\times$である。
+\end{lemma}
+\begin{proof}
+小拡大$R'\twoheadrightarrow R$の核$I$で
+$\mathfrak mI=0$とする。
+特殊ファイバーの局所基底の持上げにより
+$\mathscr M,\mathscr N$は右加群として局所自由階数一。
+同型の右加群としての持上げの障害は
+$I\otimes H^1(X,\OO_X)$に属し消える。
+二つの左作用の差は導分に対応し
+$I\otimes H^0(X,T_X)=0$なので持上げは両側同型。
+自己同型群は
+$H^0(X,\OO_X)=k$と小拡大帰納から$R^\times$となる。
+\end{proof}
+
+\subsection{構造代数層の変形関手と座標標識の商}
+\begin{lemma}[相対三次Poisson変形の形式局所環]
+\label{lem:artin-relative-poisson-sheaf}
+$\mathcal D_{\mathrm{Pois},X}(R)$を、$\OO_X$への還元同型を持つ
+平坦な可換$R$代数層と、還元が零である$R$線形Poisson括弧の
+gauge同値類の集合とする。するとこの関手は
+\begin{equation}\label{eq:artin-poisson-sheaf-ring}
+ \mathcal R_X=
+ \frac{k[[t_1,\ldots,t_{10},a_{01},\ldots,a_{34}]]}
+ {(q_0(a),\ldots,q_4(a))}
+\end{equation}
+で表される。ここでは特殊ファイバーの有限自己同型群$\Aut(X)$を割らない。
+\end{lemma}
+\begin{proof}
+まずPoisson括弧を忘れる。滑らかなアフィン開集合上の
+冪零な平坦可換変形とその貼合せにより、基礎の代数層は
+$X$の滑らかなArtin変形$X_R$の構造層となる。
+小拡大の核を$I$とすると、線束$\OO_X(1)$の持上げの障害は
+$I\otimes H^2(X,\OO_X)$に、持上げの差は
+$I\otimes H^1(X,\OO_X)$に属する。
+両者が零なので、$\OO_X(1)$は各$X_R$へ同型を除いて一意に持ち上がる。
+三次超曲面の標準完全列から
+\[
+ H^1(X,\OO_X(n))=H^2(X,\OO_X(n))=0\quad(n\in\mathbb Z)
+\]
+である。特に$n\ge0$では高次コホモロジーがすべて消えるので、
+小拡大帰納により持ち上げた線束の非負次数のsectionは自由で、
+任意のArtin基底変更と可換である。
+その一次sectionの基底を選ぶと$X_R$は$\PP^4_R$に埋め込まれる。
+実際、section環への写像は特殊ファイバーで全射なので
+各次数でNakayamaにより全射であり、三次核は階数一である。
+その生成元$F_R$の乗法は特殊ファイバーで単射だから分裂単射であり、
+同じHilbert関数とNakayamaにより全核は$(F_R)$となる。
+従って$X_R=V_+(F_R)$である。
+
+相対随伴公式により
+$\wedge^2T_{X_R/R}\simeq\Omega^1_{X_R/R}(2)$である。
+相対余法完全列と制限完全列
+\[
+\begin{split}
+0&\longrightarrow\OO_{X_R}(-1)
+ \longrightarrow\Omega^1_{\PP^4_R/R}(2)|_{X_R}
+ \longrightarrow\Omega^1_{X_R/R}(2)\longrightarrow0,\\
+0&\longrightarrow\Omega^1_{\PP^4_R/R}(-1)
+ \longrightarrow\Omega^1_{\PP^4_R/R}(2)
+ \longrightarrow\Omega^1_{\PP^4_R/R}(2)|_{X_R}\longrightarrow0
+\end{split}
+\]
+を用いる。左端二層の$H^0,H^1$は、超曲面完全列とEuler完全列から
+零である。さらにEuler完全列の次数二部分から
+\begin{equation}\label{eq:artin-relative-bivectors}
+ H^0(X_R,\wedge^2T_{X_R/R})
+ \simeq H^0(\PP^4_R,\Omega^1_{\PP^4_R/R}(2))
+ \simeq R\otimes_k\wedge^2V^*
+\end{equation}
+を得る。これらは有限自由加群間の分裂完全列による計算なので、
+非平坦なArtin基底変更とも可換である。
+$F_R$の尺度と体積形式を固定した上で、この対応は
+定数二形式$a$を$\iota_Ea$に送り、対応するbivectorは
+$\iota_{\Pi}\Omega=dF_R\wedge a$の射影制限である。
+これは偏微分$\partial_iF_R$が単元となる滑らかなchartで
+随伴公式の縮約を計算して確認できる。
+
+ここで$J=\frac12[\Pi,\Pi]$、$g=\sum_rq_r(a)\partial_rF_R$とする。
+命題\ref{prop:artin-pfaffian}の恒等式をEuler場で縮約すると
+\begin{equation}\label{eq:artin-intrinsic-jacobi}
+ \iota_E\iota_J\Omega
+   =2g\,dF_R-3F_R\,dg
+\end{equation}
+となる。$F_R=0$に制限しEuler方向を除くと、
+内在的Jacobi障害は随伴同型
+$\wedge^3T_{X_R/R}\simeq\OO_{X_R}(2)$の下で
+$2g$に対応する（全体の符号は縮約の規約による）。
+五つの二次式$\partial_rF_R$は$R\otimes S_2$内で
+階数五の直和因子を生成する。
+実際、特殊ファイバーでの定数係数の関係は
+滑らかな$F$の偏微分正則列のKoszul完全性により零であり、
+非零最大minorを$R$へ持ち上げればよい。
+また$H^0(X_R,\OO_{X_R}(2))=R\otimes S_2$である。
+従ってJacobi方程式の係数イデアルは、
+集合論的にだけでなく$(q_0,\ldots,q_4)$と一致する。
+
+座標を残すと、$[F_R]$の34係数と$a$の10係数に
+この五つのPl\"ucker方程式を課した関手を得る。
+滑らかな三次三様体は$H^0(X,T_X)=0$を満たすので、
+特殊ファイバーで恒等な射影座標変更の作用は自由であり、
+その24次元軌道を分離する形式sliceが存在する。
+この作用は分解可能二形式の錐を保つので、$F_R$をsliceへ移す
+一意の形式座標変更を$a$にも作用させれば、
+残る方程式は同じPl\"ucker方程式である。
+これが\eqref{eq:artin-poisson-sheaf-ring}を与える。
+特殊ファイバーを恒等に保つ自己同型は、最初の非零な
+$\mathfrak m$進差分が$H^0(X,T_X)$に属するため存在しない。
+従ってここで必要なのは集合値のprorepresenting環である。
+\end{proof}
+
+$\mathcal D_{\mathrm{cp},X}$を中心三次対の関手から、
+特殊ファイバーで恒等な射影座標変更を割ったものとする。
+次数スカラー倍は対に自明に作用するので、その自己同型をrigidifyする。
+従って定理\ref{thm:artin-central-pair}の\emph{第二の}環、
+すなわち\eqref{eq:artin-poisson-sheaf-ring}がこの関手を表す。
+生成空間の座標標識を残した41次元・接空間44次元の関手ではない。
+$\mathcal D_{\mathrm{Ass},X}$は$\OO_X$への還元同型を保つ
+平坦結合代数層のArtin変形のgauge同値類の関手とする。
+
+\begin{theorem}[斉次環の全Artin変形の二次cover]
+\label{thm:artin-quadratic-cover}
+定理\ref{thm:artin-central-pair}で固定した同次formalityの下で、
+Ore局所化による自然変換
+\[
+ \Theta:\mathcal D_{\mathrm{cp},X}
+       \longrightarrow\mathcal D_{\mathrm{Ass},X}
+\]
+は自然同型となる。
+従って任意の次数別平坦な斉次変形$A_R$は
+\[
+ V_R=(A_R)_1,\quad
+ K_{2,R}=\ker(V_R^{\otimes2}\to(A_R)_2),\quad
+ B_R^{\mathrm{quad}}=T_R(V_R)/(K_{2,R})
+\]
+を用いて一意の中心三次対から回復される。
+特に$B_R^{\mathrm{quad}}$は次数別$R$平坦で、
+\[
+ L_R=\ker\bigl((B_R^{\mathrm{quad}})_3\to(A_R)_3\bigr)
+ \subset Z(B_R^{\mathrm{quad}})_3
+\]
+は階数一の直和因子であり、
+$A_R\simeq B_R^{\mathrm{quad}}/(L_R)$。
+この構成はArtin基底変換と可換である。
+\end{theorem}
+\begin{proof}
+まず局所化による$\Theta$を上で実際に構成した。
+射影座標変更が特殊ファイバーで恒等なら、誘導する局所化層の同型も
+還元同型を保つので、$\Theta$は上記の商を経由する。
+中心対側は\eqref{eq:artin-poisson-sheaf-ring}で表される。
+Yekutieli\cite[Corollary~11.2]{YekutieliTwisted}は、滑らかな$X$と
+$H^1(X,\OO_X)=H^2(X,\OO_X)=0$の下で、
+Poisson変形と結合代数層変形のgauge同値類の自然な全単射を与える。
+そのパラメータ代数は完備局所Noetherian代数であり、局所Artin代数を含む。
+本稿では$k=\C$であるから同定理の基礎体の条件も満たされ、
+係数環の準同型についての自然性が成立する。
+補題\ref{lem:artin-relative-poisson-sheaf}により、
+$\mathcal D_{\mathrm{Ass},X}$も同じ環$\mathcal R_X$で表される。
+
+一次変形のHochschild--Kostant--Rosenberg分解は
+\[
+ T\mathcal D_{\mathrm{Ass},X}
+ =H^1(X,T_X)\oplus H^0(X,\wedge^2T_X)
+\]
+である。$H^2(X,\OO_X)=0$なので第三の成分は現れない。
+これは上記量子化の第一Taylor写像による接空間の同定とも一致する。
+接写像$d\Theta$は、可換方向では
+$H^1(X,T_X)$上の恒等写像であり、
+反対称交換子方向では
+\[
+ \wedge^2V^*\longrightarrow H^0(X,\wedge^2T_X),
+ \qquad a\longmapsto\iota_Ea
+\]
+という\eqref{eq:artin-relative-bivectors}の10次元空間の同型である。
+よって接写像は可逆な三角行列となる。
+両関手を$\mathcal R_X$で表すと、$\Theta$はその連続自己準同型となる。
+余接空間での同型から、対称冪で生成される各随伴次数成分への
+写像が全射となり、これらは同じ有限次元空間の自己写像なので同型である。
+完備性と分離性から環自体も同型となる。
+したがって$\Theta$は全Artin基底で自然同型。
+
+一方、上の命題で$\mathscr A_R$の局所化次数一は
+$\OO_X(1)$の両側可逆な持上げ$\mathscr E_1$となり、
+全section algebraを回復する。
+補題\ref{lem:artin-polarization}でこの持上げの同型類は
+一意なので、任意の$A_R$と$\Theta$から来る中心商を
+次数付き環として同一視できる。
+中心商では三次まで新しい二次関係がないから
+二次包絡は元の$B_R$に一致し、三次核は$L_R$。
+この方法は未知の二次包絡の平坦性を先取りせず、
+既に存在する中心対に同型化した後でそれを導く。
+基底変換は有限自由の分裂核と局所化の普遍性で従う。
+
+Ore局所化の一般的な参照先はYekutieli\cite{YekutieliAffine}である。一方、
+De~Deken--Lowen\cite[Theorem~4.5]{DeDekenLowen}も、
+$\OO_X(n)$の$\mathbb Z$-生成性と上記の$\mathrm{Ext}^{1,2}$消滅により
+Abel圏変形と$\mathbb Z$-代数変形を比較する。
+しかし同定理から次数付き構造や1周期性を推論する必要はなく、
+本証明では実際に構成したOre局所化、相対Poisson計算、
+および両側偏極の一意性を用いた。
+\end{proof}
+
+\begin{remark}[明確に主張しない事柄]
+\label{rem:artin-limits}
+この全Artin同型は偏極付き\emph{古典的}変形関手の同定であり、
+derived moduli stack、高次自己同型を保つgroupoid、
+構造対象を忘れたKuznetsov成分の変形、
+またはそこで構成される可換復元との一致を与えない。
+無限小の中心対を得ることと、有限非可換パラメータで
+滑らかなtailsを持つことは別問題である。
+\end{remark}
+
+\subsection{固定ambientからの忘却の四次元ファイバー}
+\begin{proposition}[中心三次直線の射影束]
+\label{prop:artin-fixed-ambient-fiber}
+ある良い開集合$U$の各点$B$が二次Koszul AS正則CY五次元整域であり、
+$\dim Z(B)_1=2$、$\dim Z(B)_3=5$かつ
+中心の形成が基底変更と可換であると仮定する。
+$E_1=Z(\mathscr B)_1$、$E_3=Z(\mathscr B)_3$とおけば
+\[
+ 0\longrightarrow\Sym^3E_1\longrightarrow E_3
+ \longrightarrow L\longrightarrow0,\qquad\rank L=1.
+\]
+中心三次直線のパラメータ空間は
+$\PP_U(E_3)\to U$で各fiberは$\PP^4$。
+$\PP(E_3)\setminus\PP(\Sym^3E_1)$は
+$\Sym^3E_1\otimes L^{-1}$を作用群とするtorsorである。
+同型類を取る場合、$\Gamma_B=\Aut_{\gr}(B)/k^\times$
+が有限なら一般fiberの粗い双有理型は
+$\PP Z(B)_3/\Gamma_B$となり、その次元は4である。
+\end{proposition}
+\begin{proof}
+中心三次部のベクトル束の射影化で前半を得る。
+$B$が整域なので中心三次の非零元は正則、
+次数ごとの乗法の核は零で、商の各次数が局所自由となる。
+$E_3\to L$に非零に写る直線はこの短完全列のsplittingに対応し、
+splittingの差は$\Hom(L,\Sym^3E_1)$に属する。
+同型類については、二次包絡と三次核の復元から
+$B/(W)\simeq_{\gr}B/(W')$と
+$[W'],[W]$が$\Gamma_B$軌道に属することが同値である。
+Rosenlichtの有理商を$U$とincidenceへ適用し、
+周囲$B$の軌道の上の空間が
+$\PGL(V)\times_{\Gamma_B}\PP Z(B)_3$となることから
+不変関数体が$k(\PP Z(B)_3)^{\Gamma_B}$に一致する。
+有限群商は次元を保つ。
+\end{proof}
+
+\begin{remark}[四係数は標識を忘れても消えない]
+特に固定した周囲に対し$Z(B)_3=kG\oplus\Sym^3Z(B)_1$なら、
+$G+f(u,v)$の四係数が相対アフィンfiberを表す。
+有限群$\Gamma_B$による同一視は生じ得るが、
+四係数全体を座標変換で消せるわけではない。
+原稿中の明示剛体周囲$B_*$についての
+$\Aut_{\gr}(B_*)=k^\times$と正則開集合の主張は、
+付属の有限整数証明書が現行Git treeに存在しないため、
+本稿では独立に再検証した定理として採用しない。
+\end{remark}

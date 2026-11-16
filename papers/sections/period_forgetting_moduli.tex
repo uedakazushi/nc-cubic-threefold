@@ -1,0 +1,384 @@
+\section{周期構造を忘れる射とZhang同一視}
+\label{sec:period-forgetting}
+本節では体を代数閉体$k$、標数を0とする。
+次数付き代数の同型と、その$\mathbb Z$-代数の同型は異なる。
+この差を単なる$\Aut_{\mathrm{gr}}$の作用と同一視せず、
+周期構造の共役問題として記述する。
+その後、本稿の一般族では追加同一視が有限個であることを、
+二因子stabilizerの整数行列証明書から示す。
+
+\subsection{厳密なファイバーと固定同型類上の群oid}
+連結な$\mathbb Z$-代数$\mathcal B$について
+\[
+ \operatorname{Per}_1(\mathcal B)
+ =\{\theta:\mathcal B\xrightarrow{\sim}\mathcal B(1)
+       \mid\theta\text{ は添字を1だけ動かす代数同型}\}
+\]
+と置く。$\mathcal B(1)_{ij}=\mathcal B_{i+1,j+1}$という記法であり、
+$\theta$は各$\mathcal B_{ij}$を$\mathcal B_{i+1,j+1}$へ送る。
+添字を固定する自己同型群を$G=\Aut_0(\mathcal B)$とする。
+非空なら$\operatorname{Per}_1(\mathcal B)$は$G$のtorsorである。
+
+\begin{proposition}[周期構造による圧縮と忘却]\label{prop:period-fiber}
+周期構造$\theta$を選ぶと、
+\begin{equation}\label{eq:period-compression-product}
+ B^\theta_n=\mathcal B_{0n},\qquad
+ a*_{\theta}b=a\,\theta^m(b)
+ \quad(a\in\mathcal B_{0m},\ b\in\mathcal B_{0n})
+\end{equation}
+は連結次数付き代数となり、その付随$\mathbb Z$-代数は$\mathcal B$と同型である。
+この構成は、次数付き代数の群oidと1周期構造付き$\mathbb Z$-代数の群oidの同値を与える。
+
+周期構造を忘れる射の、\emph{指定された}$\mathcal B$への2ファイバーは
+$\operatorname{Per}_1(\mathcal B)$を対象とし、恒等射だけを持つ群oidである。
+一方、$\mathcal B$の同型類だけを固定した部分群oidは共役作用のaction群oidである。
+そのfpqc局所形式も含むstackを表す記法では
+\begin{equation}\label{eq:period-residual-quotient}
+ [\operatorname{Per}_1(\mathcal B)/\Aut_0(\mathcal B)]
+\end{equation}
+となり、作用は共役作用である。
+\end{proposition}
+\begin{proof}
+結合性は$\theta^{m+n}=\theta^m\theta^n$から従う。
+$B^\theta_{j-i}=\mathcal B_{0,j-i}\to\mathcal B_{ij}$を$\theta^i$で与えると
+付随$\mathbb Z$-代数の同型になる。
+同型$g$が周期構造を保つ条件は$g\theta=\theta'g$であり、
+これは圧縮した次数付き代数の同型条件である。
+この圧縮はSierra\cite[Proposition~3.3]{SierraGAlgebras}のprincipal mapの構成である。
+2ファイバーではambientへの同型もデータに含むため、
+その同型を使ってambientを$\mathcal B$と同一視した後に許される射は恒等だけになる。
+同型の指定を外したときに初めて共役による同一視が生じる。
+\end{proof}
+
+ここで2ファイバーが「恒等射だけを持つ」とは、パラメータ集合が零次元という意味ではない。
+$G$自体は一般に無限個の次数成分にわたる自己同型を含み、
+\eqref{eq:period-residual-quotient}を有限型代数的stackと呼ぶ根拠はまだない。
+
+次数付き代数$B$の付随代数を$\check B$と書く。
+Sierra\cite[Theorem~1.2, Corollary~4.4]{SierraGAlgebras}により
+\begin{equation}\label{eq:sierra-zhang-comparison}
+ \check B\simeq\check B'
+ \quad\Longleftrightarrow\quad
+ B'\text{ は }B\text{ のあるZhang twisting systemによる捩れと次数付き同型}
+\end{equation}
+である。単一の自己同型の冪による捩れはこの特別な場合であり、
+全てのtwisting systemを最初からその形だとは仮定しない。
+対$(\mathcal B,\mathcal I)$では、$G$と$\operatorname{Per}_1$を
+それぞれ$\mathcal I$を保つ自己同型と周期構造に置き換える。
+
+\subsection{二因子stabilizerからの有限次元化}
+$B=T(V)/(R)$、$\dim V=N<\infty$とし、
+\begin{equation}\label{eq:two-factor-stabilizer}
+ H_R=\{(g,h)\in\PGL(V)\times\PGL(V)
+       \mid(g\otimes h)R=R\}
+\end{equation}
+と置く。これは有限型の閉代数群である。
+射影行列の持上げのスカラーは部分空間$R$を変えないので、条件はwell-definedである。
+
+\begin{lemma}[中心二変数による一意延長]\label{lem:two-factor-injective}
+本稿のPBW開部分の$B_F$について、$H_{R_F}$の両射影は単射である。
+\end{lemma}
+\begin{proof}
+$(1,h)\in H_{R_F}$とし、$h\in\GL(V)$を持ち上げる。
+中心元$u,v$と任意の$x\in V$の交換関係に$1\otimes h$を作用させると
+\begin{equation}\label{eq:one-factor-central-equation}
+ u h(x)=x h(u),\qquad u h(v)=v h(u)
+\end{equation}
+を得る。補題\ref{lem:pbw}の自由性と濾過から、次数2にはベクトル空間直和分解
+\[
+ (B_F)_2=k[u,v]_2\oplus(k[u,v]_1\otimes W)\oplus\widetilde{(S_{f_3})_2}
+\]
+がある。最後の項は任意に選んだactive次数2の持上げでよい。
+$u h(v)=v h(u)$の$uW,vW$成分を比較すると、$h(u),h(v)$の$W$成分は零になる。
+さらに$u^2,uv,v^2$を比較すると
+$h(u)=\lambda u$、$h(v)=\lambda v$となる。
+\eqref{eq:one-factor-central-equation}と$u$の正則性から$h(x)=\lambda x$であり、
+$h$は射影的に恒等である。$(h,1)$も左右を交換した同じ議論で従う。
+標数0の代数群は滑らかなので、これは群スキームの核も自明であることを意味する。
+\end{proof}
+
+\begin{proposition}[有限次元群による周期の比較]\label{prop:finite-dimensional-period-group}
+$H_R$の両射影が単射とする。
+このとき有限型の代数群$K_R\subset\PGL(V)$とその自己同型$\alpha$があり、
+以下が成り立つ。
+\begin{enumerate}
+\item $\Aut_0(\check B)$を各次数間のスカラー変更で割った幾何点の群は$K_R(k)$である。
+\item 同じ$\mathbb Z$-代数を持つ次数付き代数の同型類は、$K_R$上の作用
+\begin{equation}\label{eq:twisted-conjugacy-action}
+   k\cdot a=k a\alpha(k)^{-1}
+\end{equation}
+の軌道と一対一に対応する。
+\item $\Aut_{\mathrm{gr}}(B)/\mathbb G_m=K_R^\alpha$である。
+周期の無限小変更を添字付き代数の自己同型で同一視した空間は
+\begin{equation}\label{eq:period-tangent-cokernel}
+ \operatorname{coker}(1-d\alpha:\Lie K_R\to\Lie K_R)
+\end{equation}
+である。この空間は命題\ref{prop:period-fiber}の厳密な2ファイバーの接空間とは異なる。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+$H_1,H_2\subset\PGL(V)$を二つの射影像とする。
+代数群の準同型の像は閉部分群であり、標数0で核が自明な準同型はその像への同型なので、
+$H_R$は同型$\phi:H_1\xrightarrow{\sim}H_2$のgraphである。
+添字を固定する$\check B$の自己同型は、各隣接次数の線型同型$g_i:V\to V$で
+\[
+  (g_i\otimes g_{i+1})R=R\qquad(i\in\mathbb Z)
+\]
+を満たすものに等しい。従ってその射影類は$g_0$から両方向に一意に延びる。
+$g_0$が$n$歩まで両方向に延びる条件を$K_n$とすると、
+$K_0=H_1\cap H_2$から始めて
+\[
+ K_{n+1}=\{g\in K_n:\phi(g),\phi^{-1}(g)\in K_n\}
+\]
+で定まる閉部分群の降鎖を得る。
+Noether性により降鎖は有限段で安定する。
+その安定値$K_R$では$\phi$が自己同型となり、これが両無限列の全体を表す。
+特にこの有限次元化は、固定した$R$での主張である。
+全ての$R$に一様な安定段数があるとは主張しない。
+
+各$g_i$のスカラー変更は自由に選べる。
+これらの群を$D\simeq\prod_{i\in\mathbb Z}\mathbb G_m$と書くと、
+頂点のスカラー$(\lambda_i)$による$\lambda_{i+1}\lambda_i^{-1}$と同じ群である。
+従って$D$は$\Aut_0(\check B)$の中心部分群で、幾何点では商が$K_R$になる。
+標準周期構造を$\theta$とし、$\alpha=\operatorname{Ad}\theta$が誘導する
+$K_R$の自己同型を取る。
+他の周期構造を$a\theta$と書けば、共役作用は\eqref{eq:twisted-conjugacy-action}になる。
+$D$上で$\alpha$は添字の平行移動であり、差分準同型
+$d\mapsto d\alpha(d)^{-1}$は、初期値を一つ選ぶ逐次解法により全射である。
+従ってスカラー変更から追加の同型類は生じず、その固定部分は
+次数スカラー$\mathbb G_m$だけである。
+これで軌道の対応を得る。一般の底上の無限積の降下や商stackの代数性を
+ここから主張しているわけではない。
+
+$\theta$と可換な自己同型では$g_i$が一定なので、
+射影次数付き自己同型群は$K_R^\alpha$になる。
+$a=1+\epsilon X$、$k=1+\epsilon Y$を
+\eqref{eq:twisted-conjugacy-action}へ代入すると
+$X\mapsto X+(1-d\alpha)Y$となり、接空間の主張を得る。
+スカラー差分の逐次解法は局所Artin環の単元にも適用できる。
+\end{proof}
+
+\begin{corollary}[連続した追加同一視がないための条件]\label{cor:period-no-continuous-drop}
+前命題の仮定の下で$\Aut_{\mathrm{gr}}(B)/\mathbb G_m$が有限なら、
+\eqref{eq:period-tangent-cokernel}は零である。
+同じ$\mathbb Z$-代数を持つ次数付き代数のうち、射影次数付き自己同型群が有限なものの
+同型類は有限個しかない。さらに$H_R$そのものが有限なら、
+自己同型群について追加仮定を置かず、全ての次数付き表示の同型類が有限個である。
+\end{corollary}
+\begin{proof}
+有限性より$\ker(1-d\alpha)=\Lie(K_R^\alpha)=0$である。
+$\Lie K_R$は有限次元なので余核も零になる。
+捩れ共役作用で有限stabilizerを持つ軌道は$\dim K_R$次元であり、$K_R$の開部分になる。
+異なる開軌道は同じ既約成分に入れないため、その数は有限である。
+最後の場合は$K_R$自体が有限である。
+\end{proof}
+
+有限な$\Aut_{\mathrm{gr}}/\mathbb G_m$だけから結論するのではなく、
+命題\ref{prop:finite-dimensional-period-group}による有限次元化を先に用いている。
+また$K_R$が正次元の可能性が残る場合、同型類の次元とstackの次元はなお区別する。
+
+\subsection{一般族の二因子stabilizerの整数証明書}
+\begin{theorem}[一般ambientの有限な二因子stabilizer]\label{thm:generic-two-factor-finite}
+本稿の相対Jacobian族には、$H_{R_F}$が有限である非空Zariski開部分がある。
+従って一般ambientの次数付き同型類13次元、一般中心三次対の次数付き同型類17次元は、
+添字付き$\mathbb Z$-代数または対の同型による追加同一視で連続的に減少しない。
+正確には、既存の一般有理商上で、同じ$\mathbb Z$-同型類を与える点の集合は有限である。
+\end{theorem}
+\begin{proof}
+式\eqref{eq:F0}の$F_0$を使う。二元三次部分は二次関係に寄与しない。
+$V^{\otimes2}$を順序付き語$x_ix_j$、$\Sym^2V$を15個の可換単項式で座標表示する。
+二次関係$R_F$は$\wedge^2V$から$\Sym^2V$へのgraphなので、
+関係を表す$25\times10$行列$\widetilde R$と、
+商への射影を表す$15\times25$行列$Q$を取れる。
+対称化の分母を除くため、関係の列と商射影をそれぞれ2倍し、両行列を整数行列にする。
+その場合も$Q\widetilde R=0$である。
+
+二因子の無限小作用は次の$150\times50$整数行列で表される：
+\begin{equation}\label{eq:two-factor-lie-matrix}
+ M(X,Y)=\operatorname{vec}
+       \bigl(Q(X\otimes1+1\otimes Y)\widetilde R\bigr).
+\end{equation}
+列は左因子$E_{ab}$の25個、次に右因子$E_{ab}$の25個の順とし、
+行は10個の関係それぞれに対する15個の商座標とする。
+$(I,0)$と$(0,I)$は整数上で独立な核ベクトルなので$\rank_{\mathbb Q}M\le48$である。
+\nolinkurl{computations/verify_two_factor_stabilizer.py}は全行列をこの式から生成し、
+\nolinkurl{computations/two_factor_stabilizer_certificate.json}の行・列で指定した小行列式について
+\begin{equation}\label{eq:two-factor-nonzero-minor}
+ \det M_{48}\equiv815096\pmod{1000003}
+\end{equation}
+を得る。従って$\rank_{\mathbb Q}M\ge48$であり、階数はちょうど48である。
+有限体での非零を整数行列式の非零証明に使い、核ベクトルの等式は整数上で検証している。
+よって$\PGL(V)\times\PGL(V)$におけるstabilizerのLie代数は零であり、
+標数0の有限型代数群として$H_{R_{F_0}}$は有限である。
+同じ非零小行列式の条件はZariski開条件であり、
+既存のPBW・AS正則な非空開部分との共通部分も非空である。
+
+この開部分で補題\ref{lem:two-factor-injective}と
+系\ref{cor:period-no-continuous-drop}を適用する。
+対$(\check B,\check I)$の自己同型群は$\Aut_0(\check B)$の部分群であり、
+全ての頂点スカラーは$\check I$を保つ。
+従ってスカラーを除いた対の自己同型群も有限な$K_R$の部分群となる。
+イデアルを保つ周期構造についても同じ議論が適用でき、対の場合の有限性も従う。
+最後に定理\ref{thm:17}および第\ref{sec:ambient-incidence}節の一般有理商の次元を用いる。
+\end{proof}
+
+この定理は、有限個の同一視の個数を求めたものではない。
+また、13または17を全$\mathbb Z$-代数モジュライstackの次元と呼ぶには、
+そのstackの定義・頂点スカラーの扱い・代数性の比較が必要である。
+全モジュライの既約成分性もこの有限性だけからは従わない。
+
+\subsection{一般点での中心条件とCY条件の形式的剛性}
+\begin{lemma}[単位に還元する次数付き自己同型]\label{lem:scalar-automorphism-rigidity}
+$B$を次数一生成の連結次数付き代数とし、$\Aut_{\mathrm{gr}}(B)/\mathbb G_m$は有限とする。
+局所Artin $k$-代数$T$上の次数一生成平坦変形$B_T$について、
+特殊ファイバーで恒等になる次数付き$T$-代数自己同型は、
+ある$c\in1+\mathfrak m_T$による次数スカラー$\xi_c$である。
+\end{lemma}
+\begin{proof}
+$\Lie\Aut_{\mathrm{gr}}(B)=kI$である。
+$\mathfrak m_T$の冪について帰納し、自己同型を既に得た次数スカラーで割って
+$\beta\equiv1\pmod{\mathfrak m_T^r}$とする。
+$\mathfrak m_T^r/\mathfrak m_T^{r+1}$の各係数は、
+関係保存の一次式により$B$の次数0導分を与えるので全てスカラーである。
+これを$c$の次の係数へ吸収する。有限回で$\beta=\xi_c$となる。
+\end{proof}
+
+\begin{corollary}[中心三次の近傍では正規条件は中心条件になる]
+\label{cor:normal-central-artin-rigidity}
+前補題の下で$G\in Z(B)_3$を正則元とする。
+その正則正規な持上げ$G_T\in(B_T)_3$が存在し、
+正規自己同型$\sigma_T$が$G_Tb=\sigma_T(b)G_T$で定まるとする。
+このとき$G_T$は中心元である。
+\end{corollary}
+\begin{proof}
+正則性と$G$の中心性により$\sigma_T$の特殊ファイバーは恒等である。
+前補題から$\sigma_T=\xi_c$、$c\equiv1\pmod{\mathfrak m_T}$となる。
+$b=G_T$を正規性の式に代入し、$G_T$を消去すると$\sigma_T(G_T)=G_T$を得る。
+従って$c^3=1$であり、3が可逆で$c\equiv1$なので$c=1$である。
+\end{proof}
+
+\begin{proposition}[添字付きnormal incidenceの形式的中心化]
+\label{prop:indexed-normal-central-rigidity}
+$B=T(V)/(R)$は次数一生成の連結二次代数で、
+$H_R\subset\PGL(V)^2$は有限とする。
+さらに、中心正則元$u\in B_1$と$G\in\Z(B)_3$が存在するとする。
+局所Artin $k$-代数$T$上の任意の次数付き平坦二次変形$B_T$に対し、
+次の二集合は、中央三次直線を全ての添字で繰り返す写像によって自然に一致する：
+\begin{enumerate}
+\item $kG$に還元する中心正則三次直線$L\subset(B_T)_3$；
+\item $\check B_T$のnormal incidenceで、特殊ファイバーが
+      $L_i=kG\subset B_3$となる直線束族$(L_i)_{i\in\mathbb Z}$。
+\end{enumerate}
+従って、ここでは次数付き表示を選んだcentral部分問題と、
+添字付き代数の\emph{全normal incidence}の形式近傍が一致する。
+ただし、底にあるambient変形は次数付き$B_T$から来るものとする。
+\end{proposition}
+\begin{proof}
+各$L_i$の生成元$G_i$を$G$に還元するように選ぶ。
+長さ四のnormal条件と左右の正則性から、一意な線型同型
+$\phi_i:(B_T)_1\to(B_T)_1$があり、
+\[
+ G_i x=\phi_i(x)G_{i+1}\qquad(x\in(B_T)_1)
+\]
+を満たす。$G$の中心性と正則性より$\phi_i\equiv1\pmod{\mathfrak m_T}$である。
+二次関係$r=\sum x\otimes y\in R_T$に対し、
+\[
+ 0=G_i\sum xy
+   =\sum\phi_i(x)\phi_{i+1}(y)G_{i+2}
+\]
+である。右の$G_{i+2}$を消去すると
+$(\phi_i\otimes\phi_{i+1})R_T\subset R_T$を得る。
+両辺は同階数の部分束で、特殊ファイバーでは同じなので、これは等号である。
+従って射影対$([\phi_i],[\phi_{i+1}])$は
+二因子stabilizerの$T$-点で、特殊ファイバーで恒等となる。
+
+そのような$T$-点は恒等に限る。
+実際、$\mathfrak m_T$の冪に関する最初の非零項は
+$\Lie H_R\otimes_k(\mathfrak m_T^r/\mathfrak m_T^{r+1})$に入り、
+$H_R$が有限で標数0だから零である。有限回の帰納で結論を得る。
+この議論に相対stabilizer自体の平坦性は不要である。
+よって$\phi_i=c_i1$、$c_i\in1+\mathfrak m_T$である。
+$s_0=1$、$s_{i+1}=s_ic_i$を両方向に解き、$G_i$を$s_iG_i$で置き換えると
+\begin{equation}\label{eq:indexed-central-recursion}
+ G_i x=xG_{i+1}
+\end{equation}
+となる。
+
+次数一生成により$G_i b=bG_{i+3}$が全ての$b\in(B_T)_3$に成り立つ。
+$b=G_i$として左の$G_i$を消去すれば$G_{i+3}=G_i$となる。
+そこで$H=(G_0+G_1+G_2)/3$と置くと、
+\eqref{eq:indexed-central-recursion}と3周期性から$Hx=xH$であり、$H$は中心元である。
+$D_i=G_i-H$は3周期的で、$D_0+D_1+D_2=0$を満たす。
+$u$の任意の次数一の持上げ$u_T$について
+\[
+ D_i u_T=u_TD_{i+1}
+\]
+である。$D_i\in\mathfrak m_T^r(B_T)_3$とし、その
+$\mathfrak m_T^r/\mathfrak m_T^{r+1}$での像を$d_i$とする。
+特殊ファイバーの$u$は中心正則だから$u(d_i-d_{i+1})=0$より$d_i=d_{i+1}$となる。
+その和が零で3が可逆なので全て$d_i=0$である。
+$D_i$は初めから$\mathfrak m_T$に入るため、帰納により$D_i=0$を得る。
+従って$L_i=TH$は全添字で同じ中心直線である。
+
+逆に中心正則直線を繰り返せばnormal incidenceの条件を満たす。
+逆写像は$(L_i)\mapsto L_0$であるため、上の選択には依存せず、Artin基底変換とも可換である。
+\end{proof}
+
+\begin{corollary}[固定ambient上の全ファイバーの四次元形式近傍]
+\label{cor:indexed-normal-four-dimensional-fibre}
+本稿の一般開部分で$\dim\Z(B)_3=5$とし、$G\in\Z(B)_3$を正則元とする。
+指定したambient $\check B$上の全normal incidenceの$\check{(G)}$における形式完備化は
+\[
+ \widehat{\PP(\Z(B)_3)}_{[G]}
+ \simeq\operatorname{Spf}k[[t_1,t_2,t_3,t_4]]
+\]
+である。これは定理\ref{thm:moduli-incidence-equivalence}の厳密な2ファイバーについての主張であり、
+ambient自己同型による商の形式近傍を表すものではない。
+\end{corollary}
+\begin{proof}
+前命題を定数変形$B_T=B\otimes_kT$に適用する。
+この場合$\Z(B_T)_3=\Z(B)_3\otimes_kT$であり、
+正則な特殊ファイバーを持つ元の乗法は各次数で部分束への単射となる。
+従って$[G]$の全Artin近傍では正則性の追加方程式はなく、
+中心直線の射影空間の形式完備化を得る。
+\end{proof}
+
+\begin{proposition}[相対Koszul--Frobenius条件下のNakayama剛性]
+\label{prop:relative-nakayama-rigidity}
+$B$を本稿の一般開部分にある5次元Koszul CY代数とし、$B_T$を局所Artin底上の平坦二次変形とする。
+以下の相対条件を仮定する：Koszul双対$E_T$は次数0から5にある有限自由なFrobenius代数で、
+$(E_T)_5\simeq T$、Frobenius積の対は完全であり、相対Koszul双加群複体は
+Nakayama自己同型$\mu_T$を与える。その次数一部分はFrobenius自己同型$\nu_T$の双対
+\begin{equation}\label{eq:relative-koszul-nakayama-dual}
+ \mu_T|_{(B_T)_1}=(\nu_T|_{(E_T)_1})^*
+\end{equation}
+であるとする（次元5では通常の符号$(-1)^{5+1}$は正である）。
+このとき$\mu_T=1$であり、$B_T$は相対CYである。
+\end{proposition}
+\begin{proof}
+$\mu_T$は特殊ファイバーで恒等になるので、
+補題\ref{lem:scalar-automorphism-rigidity}より$\mu_T=\xi_c$となる。
+\eqref{eq:relative-koszul-nakayama-dual}から$\nu_T$は$(E_T)_1$に$c$倍で作用する。
+Koszul双対は次数一生成なので、最高次数には$c^5$倍で作用する。
+Frobenius汎関数$\varepsilon:E_T\to T$を取ると、
+Nakayamaの定義に単位を代入して$\varepsilon\nu_T=\varepsilon$を得る。
+最高次数で$\varepsilon$は同型だから$c^5=1$である。
+$c\equiv1$と標数0から$c=1$となる。
+\end{proof}
+
+体上のKoszul双対によるNakayama比較とhomological determinantの恒等式は
+Reyes--Rogalski--Zhang\cite[Theorem~6.3 and its proof]{RRZHomological}を参照できる。
+全斉次成分が有限自由な平坦族については、
+補題\ref{lem:p3-relative-bar}と注意\ref{rem:relative-bar-general-dimension}により、
+二次双対の有限自由性と完全Frobenius対は幾何学的ファイバーから従う。
+上の命題でなお明示的な入力として残すのは、相対双加群複体によるNakayamaの構成と
+式\eqref{eq:relative-koszul-nakayama-dual}の具体的同定である。
+
+Pym\cite[\S2.2, Definition~2.8]{Pym}による可換点近傍のCY規格化は、
+Nakayamaの適切な根による捩れから得られる。
+その自己同型による捩れの公式は
+Reyes--Rogalski--Zhang\cite[Theorem~0.3]{RRZHomological}にある。
+本節の有限同一視の定理は任意のtwisting systemを含むため、
+Pymの議論を全$\mathbb Z$-代数の大域的な一意性へ拡張して使う必要がない。
+残る比較は、一般の$\mathbb Z$-代数の\emph{族}が相対1周期構造を持つことと、
+その降下・有限型の局所atlasを構成することである。
