@@ -1,0 +1,194 @@
+\section{非可換三次三様体側との比較}
+\label{sec:cubic-p3-comparison}
+
+非可換$\PP^3$と非可換三次三様体は、射影的な次元はともに3であるが、
+座標代数のホモロジーは異なる。
+本研究で三次商から復元するambientは非可換$\PP^4$であり、
+二次包絡が与えるモジュライの射も三次側から$\PP^4$側への射である。
+そのambient側のpointed stackには
+系\ref{cor:standard-n-potential-stack}の五頂点potential商表示が適用できる。
+以下の比較は、三次側から非可換$\PP^3$への自然な射を構成するものではない。
+
+\subsection{AS正則代数とAS Gorenstein超曲面商}
+
+体の標数を0とする。$B$は左右noetherianな連結次数付き代数で、
+次数一生成、二次Koszul AS正則、global dimensionとGorenstein parameterがともに5、
+$H_B(t)=(1-t)^{-5}$であるとする。
+$G\in B_3$は非零の左右正則正規元とし、$A=B/(G)$と置く。
+正規性とは$GB=BG$であり、中心性はここでは仮定しない。
+
+\begin{proposition}[三次商のホモロジー的型]
+\label{prop:cubic-p3-gorenstein-type}
+$A$はAS Gorensteinで、左右のinjective dimensionは4、
+Gorenstein parameterは2である。一方、$k$の左右のprojective dimensionと
+$A$の左右のglobal dimensionは無限である。
+また$A$は二次代数ではなく、従って通常のKoszul代数でもない。
+\end{proposition}
+\begin{proof}
+正則正規元によるReesの補題はAS Gorenstein性を保存し、
+injective dimensionを一つ下げる
+\cite[arXiv版v1, Lemma~4.4]{CSBGCCKM}。
+内部次数も記録したchange-of-ringsの同定は、単純加群上では
+正規自己同型による捩れを除いて
+\[
+ \underline{\operatorname{Ext}}^{i}_{A}(k,A)
+ \simeq\underline{\operatorname{Ext}}^{i+1}_{B}(k,B)(-3)
+\]
+となる。従って非零の項は$i=4$での$k(5-3)=k(2)$だけであり、
+左右ともGorenstein parameterは2である。
+
+正則性と$0\to B(-3)\xrightarrow{\,G\,}B\to A\to0$から
+\begin{equation}\label{eq:cubic-p3-hilbert}
+ H_A(t)=\frac{1-t^3}{(1-t)^5},\qquad
+ H_A(t)^{-1}=\frac{(1-t)^4}{1+t+t^2}.
+\end{equation}
+仮に$k$が有限projective dimensionを持てば、noetherian性により
+有限生成自由加群による有限の最小次数付き解消を持つ。
+そのHilbert級数の交代和から$H_A(t)^{-1}$は多項式となる。
+しかし\eqref{eq:cubic-p3-hilbert}の分母は原始三乗根で零になり、
+分子はそこで零にならないため矛盾する。左加群にも同じ証明が使える。
+
+$G$の次数は3なので$A_1=B_1$、$A_2=B_2$である。
+従って$A$の二次包絡は$B$に等しく、
+$\ker(B_3\to A_3)=kG\ne0$である。
+これは既存の二次関係からは従わない三次関係であり、$A$は二次ではない。
+\end{proof}
+
+比較を表にまとめる。最後の行は、適切なnoetherian条件の下での
+Orlovの定理\cite[Theorem~2.5]{OrlovSingularities}による。
+$\operatorname{pd}_A k=\infty$なので$k$はperfectでなく、
+$D_{\mathrm{sg}}^{\mathrm{gr}}(A)$は非零である。
+\begin{center}
+\small
+\begin{tabular}{p{.23\textwidth}p{.32\textwidth}p{.35\textwidth}}
+\hline
+ & 非可換$\PP^3$の標準座標代数$C$ & 非可換三次三様体の座標代数$A$\\
+\hline
+一次生成元の数 & $4$ & $5$\\
+基本関係 & 二次関係 & ambientの二次関係と正規三次関係\\
+Hilbert級数 & $(1-t)^{-4}$ & $(1-t^3)(1-t)^{-5}$\\
+ホモロジー的次元 & AS正則、$\operatorname{gldim}C=4$ & AS Gorenstein、$\operatorname{injdim}A=4$、$\operatorname{gldim}A=\infty$\\
+Gorenstein parameter & $4$ & $2$\\
+射影導来圏の標準分解 & 四つの線対象による完全例外列 & 二つの線対象と非自明な特異圏成分\\
+\hline
+\end{tabular}
+\end{center}
+AS Gorensteinのinjective dimensionが4であることを、
+4次元AS正則性や4-Calabi--Yau性と読み替えることはできない。
+また$A$のglobal dimensionが無限でも、$\operatorname{qgr}A$が滑らかであることとは両立する。
+
+\subsection{三次側の有限potentialデータ}
+
+Bocklandt--Schedler--Wemyssの定理によれば、Koszul twisted CY代数は、
+twisted superpotentialとその高階導分から復元される。
+逆向きには付随する双加群複体の完全性が必要である
+\cite[Theorem~6.2とその証明直後のtwisted版]{BSWPotentials}。
+従ってCY規格化を選べるchartでは、比較すべき表示は
+\begin{equation}\label{eq:cubic-p3-potential-degrees}
+ C=\mathcal D(\omega_4,2),\qquad
+ B=\mathcal D(\omega_5,3),\qquad A=B/(G)
+\end{equation}
+である。$\mathcal D(\omega,r)$は長さ$r$の部分語による導分を関係とする代数を表す。
+これは通常の一階のcyclic derivativeによるJacobi代数とは異なる。
+同文献の符号規約では、長さ$m$のsuperpotentialは巡回移動で$(-1)^{m-1}$倍となる。
+従って四次では反巡回、五次では巡回である。
+一般のAS正則表示ではNakayamaの捩れも記録し、CY性を無条件に仮定しない。
+
+三次側に必要な追加データは、$B_3$内の直線$L=kG$である。
+中心三次chartでは
+\[
+ L\subset\ker\bigl(B_3\longrightarrow
+        \operatorname{Hom}(B_1,B_4),\quad g\longmapsto[x\mapsto gx-xg]\bigr)
+\]
+を課す。全normal問題では中心条件を正規条件に置き換える。
+$G$は$B_3$の元であり、自由代数内の三次liftを変更しても同じ直線になり得る。
+従ってpotentialの係数空間に任意の三次式を付加するだけではモジュライ問題を表せない。
+
+添字付き表示では、体上で次の選択肢がある。
+\begin{enumerate}
+\item \textbf{五頂点のambient表示。}
+三次イデアルを保つ5周期同型を選び、$i\in\mathbb Z/5$、
+五次元の矢空間$V_i:i\to i+1$を取る。
+必要なNakayamaの捩れも記録した五次superpotentialの三階導分で二次関係を与え、
+さらに長さ三の直線$L_i\subset B_{i,i+3}$と
+\begin{equation}\label{eq:cubic-p3-normal-incidence}
+ L_iV_{i+3}=V_iL_{i+1}\subset B_{i,i+4}
+\end{equation}
+を課す。五頂点の向き付けられたcycle上で長さ3のpathは閉じないので、
+$L_i$は通常のquiver potentialではなくnormal incidenceのデータである。
+\item \textbf{一頂点の次数付き表示。}
+系\ref{cor:moduli-cubic-ambient-periodic}の正規超曲面対の周期性定理を、AS index $5$と三次正規族へ適用すると、
+$\gcd(5,3)=1$によりイデアルを保つ1周期同型を選べる。
+従って五つのloop、五次のtwisted potential、正規三次直線による
+\eqref{eq:cubic-p3-potential-degrees}の表示を得る。
+この選択は一意ではなく、異なる表示を比較するにはZhang twisting systemと周期の忘却を扱う。
+\end{enumerate}
+正規族自身の3周期で折り畳む方法もある。その場合は三頂点上で正規三次族が中心的な閉路になる一方、
+ambientのNakayama置換は$+5\equiv+2\pmod3$となり、五次potentialに頂点の捩れが残る。
+これらは体上の表示であり、族での周期構造や直線束の降下は別に証明する必要がある。
+
+有限tensorの表示を得ても、全てのtensorが求めるAS正則代数を与えるわけではない。
+五次のpotentialには導分空間の型$(1,5,10,10,5,1)$とKoszul複体の完全性を課し、
+三次直線には正則性と\eqref{eq:cubic-p3-normal-incidence}を課す。
+射影三次圏のsmooth proper性も独立の条件である。
+従って研究上の自然な有限表示の候補は、\emph{ambientのpotential空間上のnormal incidence}である。
+
+\subsection{例外列の障害と残余圏を保持する模型}
+
+滑らかな可換三次三様体$X\subset\mathbb P^4$では
+\[
+ D^b(X)=\langle\operatorname{Ku}(X),\mathcal O_X,\mathcal O_X(1)\rangle,
+ \qquad S_{\operatorname{Ku}(X)}^3\simeq[5]
+\]
+である\cite[Corollary~4.1]{KuznetsovFractionalCY}。
+従って残余圏のfractional CY次元は$5/3$であり、
+非可換$\mathbb P^3$の四対象完全例外列と同じ構造ではない。
+
+\begin{proposition}[普通のtilting代数に対する可換点の障害]
+\label{prop:cubic-p3-no-ordinary-tilting}
+$X$上の三つの連続する線束$\mathcal O_X,\mathcal O_X(1),\mathcal O_X(2)$は例外列ではない。
+さらに$D^b(X)$は完全例外列を持たず、通常の有限次元代数のperfect導来圏とも同値でない。
+特に、四頂点の通常のtilting代数によりこの可換点を表すことはできない。
+\end{proposition}
+\begin{proof}
+$\omega_X=\mathcal O_X(-2)$なのでSerre双対により
+$\operatorname{Ext}^3(\mathcal O_X(2),\mathcal O_X)=k$である。
+従って三つ目の線束を入れた時点で半直交性が破れる。
+
+Hochschild homologyの次元は体拡大で不変なので、有限生成部分体へ降下して
+$\mathbb C$へ埋め込むことにより、以下は$k=\mathbb C$で計算してよい。
+次に$H$を超平面類とすると
+$c(T_X)=(1+H)^5/(1+3H)$より$c_3(T_X)=-2H^3$、$\chi_{\mathrm{top}}(X)=-6$である。
+Lefschetz定理から$b_0=b_2=b_4=b_6=1$、$b_1=b_5=0$となるので$b_3=10$である。
+$H^0(X,\omega_X)=0$とHodge分解から$h^{2,1}=h^{1,2}=5$を得る。
+HKR同型と半直交分解に関するHochschild homologyの加法性
+\cite[Theorem~8.3, Corollary~7.5]{KuznetsovHochschild}により
+\[
+ HH_1(X)\simeq k^5,\qquad HH_{-1}(X)\simeq k^5.
+\]
+例外対象一つのHochschild homologyは次数0にしかないため、完全例外列は存在しない。
+また通常の代数$\Lambda$のbar複体は非負homological次数にあり、$HH_{-1}(\Lambda)=0$である。
+Hochschild homologyの導来Morita不変性から
+$D^b(X)\simeq\operatorname{Perf}(\Lambda)$も不可能である。
+実際、そのような三角圏同値があれば$\Lambda$の像は自己Extが次数0に集中する
+生成対象となり、そのdg endomorphism代数は通常の$\Lambda$と擬同型の鎖で結ばれるため、
+Hochschild homologyの比較に必要な導来Morita同値が得られる。
+\end{proof}
+
+この障害は有限頂点の\emph{dgまたは$A_\infty$模型}を排除しない。
+例えば$T=\bigoplus_{i=0}^{4}\mathcal O_X(i)$はcompact generatorである。
+実際、埋込み$j:X\hookrightarrow\mathbb P^4$と$M\in D_{\mathrm{qc}}(X)$について
+$\operatorname{RHom}(T,M)=0$ならBeilinson生成と随伴から$j_*M=0$、従って$M=0$となる。
+よって$D^b(X)\simeq\operatorname{Perf}(\operatorname{RHom}_X(T,T))$であるが、
+このdg代数には上で検出した高次Extがあり、その次数0部分だけでは足りない。
+
+非可換商$A=B/(G)$についても、Orlovの定理は適切なmutationの後に
+二つの線対象と$D^{\mathrm{gr}}_{\mathrm{sg}}(A)$による分解を与える。
+さらに$B$がnoetherian AS正則、$G$が正則正規なら、後者は
+twisted matrix factorizationのhomotopy圏と同値になる
+\cite[公刊版, Theorem~5.8]{CSBGCCKM}。
+同文献は左加群を使うので、本稿の右加群の規約では反対環へ適用する。
+従って圏のモジュライまで比較する際には、ambientのpotentialと三次直線に加え、
+この残余圏と二つの線対象への貼り合わせを保持するのが適切である。
+一般正規商では正規自己同型の捩れが残るため、
+可換点の式$S^3=[5]$をそのまま一般の非可換商へ移すことはしない。

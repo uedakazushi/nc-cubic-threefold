@@ -1,0 +1,922 @@
+\section{非可換射影三空間の四頂点superpotential表示}
+\label{sec:projective-three-potentials}
+
+非可換$\PP^3$の標準的な座標$\mathbb Z$-代数は4周期的である．
+この事実は四頂点quiverによる有限個の係数への還元を可能にするが，
+任意の周期同型を選んだ表示と，対象自体のモジュライとは区別する必要がある．
+本節ではKoszul双対のFrobenius traceから周期を規格化し，
+まず体上の対象と自己同型についてこの差を処理する．
+さらに，全成分が局所自由で幾何学的ファイバーが標準AS正則である族では，
+相対bar複体からFrobenius双対性を導き，頂点スカラーを除いたfpqc stackの比較まで行う．
+得られるpotentialは四次の符号付きsuperpotentialであり，
+関係は長さ二の経路による微分から作る．通常の一階Jacobian代数ではない．
+
+基礎体は$k=\C$とする．対象$C$は正連結・局所有限な二次Koszul
+$\mathbb Z$-代数で，左右AS正則性，AS次元とGorenstein parameterがともに4，
+各単純加群の有限最小線型解消の型が$(1,4,6,4,1)$であるとする．
+従って$V_i=C_{i,i+1}$の次元は4，二次関係$R_i\subset V_i\otimes V_{i+1}$の
+次元は6，行Hilbert級数は$(1-t)^{-4}$である．
+以下で\emph{標準4次元データ}というときはこの対象域を指す．
+必要なら左右noetherian性や第\ref{sec:categorical-moduli-comparison}節の
+saturationを加えた部分問題へ制限できる．
+単に四生成元・六関係という数値だけを仮定するものではない．
+すべての同型は整数添字を保つものとし，添字の平行移動は同一視しない．
+
+\subsection{Frobenius周期による規格化}
+
+前向き二次双対を$E=C^!$と書き，$E_{i,i+1}=V_i^*$の規約を用いる．
+Koszul--Frobenius双対性により
+\begin{equation}\label{eq:p3-local-frobenius}
+ \dim E_{i,i+p}=\binom4p\quad(0\le p\le4),\qquad
+ E_{i,i+p}=0\quad(p>4)
+\end{equation}
+であり，相補次数の積は完全対合である
+\cite[Proposition~4.1, \S5]{PBondalPolishchukHelices}．
+この既知入力から周期同型を得る証明は
+補題\ref{lem:moduli-ambient-koszul-period}の$N=4$の場合である．
+以下ではその選択依存性も用いるので，必要な式を明記する．
+
+各$i$で非零trace $\lambda_i:E_{i,i+4}\to k$を選ぶ．
+完全対合により
+\begin{equation}\label{eq:p3-frobenius-period}
+ \lambda_i(ab)=\lambda_j\bigl(b\nu_{ij}(a)\bigr),
+ \qquad a\in E_{ij},\quad b\in E_{j,i+4}
+\end{equation}
+が$\nu:E\xrightarrow{\sim}E(4)$を定める．
+結合律と完全対合から$\nu(ac)=\nu(a)\nu(c)$となるので，これは代数同型である．
+次数一部分で逆双対を取ると
+$\tau^\lambda:C\xrightarrow{\sim}C(4)$を得る．
+これを\emph{Frobenius周期}と呼ぶ．
+
+\begin{lemma}[Frobenius周期の選択独立性]
+\label{lem:p3-canonical-period}
+二つのtrace族が与えるFrobenius周期は，頂点スカラー自己同型$h$により
+\[
+ \tau^{\lambda'}=h(4)\tau^\lambda h^{-1}
+\]
+と比較できる．また$C\simeq C'$という任意の添字保存同型は，
+終域の頂点スカラー自己同型で補正すれば，指定された二つのFrobenius周期と可換にできる．
+\end{lemma}
+\begin{proof}
+$\lambda'_i=t_i\lambda_i$とすると
+\[
+ \nu^{\lambda'}_{ij}=(t_i/t_j)\nu^\lambda_{ij}.
+\]
+$s_{i+4}/s_i=t_i$となる$s_i\in k^\times$を，四つの剰余類について
+それぞれ一つの初期値から両方向へ再帰的に選ぶ．
+$E$上の頂点スカラー$s_i/s_j$による共役は上のtrace変更を実現する．
+逆双対を取れば，$C_{ij}$上の$s_j/s_i$倍による自己同型$h$が所望の式を満たす．
+この構成に無限積は現れない．
+
+同型$f:C\to C'$を与えると，双対の同型を通じてtraceを移送できる．
+式\eqref{eq:p3-frobenius-period}の特徴付けにより，移送されたFrobenius周期は
+$f(4)\tau^\lambda f^{-1}$である．
+終域で選ばれたtraceとの差を，既に証明した頂点スカラー共役で補正すればよい．
+\end{proof}
+
+この補題の内容は\texttt{asz4}のFrobenius標準化の議論
+\cite[定理\texttt{canonical-four}]{ASZ4Canonical}と同じであり，
+本節では以後のCY表示と群oid比較に必要な証明を再掲した．
+選択を含まない一つの具体的な線型写像$\tau$が得られた，という意味ではない．
+
+\subsection{四頂点への畳込みと4-Calabi--Yau性}
+
+一般の4周期同型$\tau:C\to C(4)$を選び，それに沿って各生成空間の基底を延長する．
+すると$V_{i+4}=V_i$，$R_{i+4}=R_i$と厳密に表示できる．
+四頂点$i\in\mathbb Z/4$と，$i$から$i+1$への四次元矢印空間$V_i$を持つ
+quiverを$Q$とし，$S=k^4$，$V=\bigoplus_iV_i$と置く．
+畳込み代数は
+\begin{equation}\label{eq:p3-rolled-algebra}
+ D(C,\tau)=T_S(V)/(R_0,R_1,R_2,R_3).
+\end{equation}
+長さ$m$の始点$i$の成分は$C_{i,i+m}$であり，
+終点は$i+m\bmod4$である．
+逆にこの四頂点の二次代数を整数列上に展開すれば，厳密な4周期同型を備えた$C$に戻る．
+従ってこの操作は，周期を\emph{指定した}対象と，頂点を固定する次数付きquiver代数との同値である．
+
+\begin{theorem}[Frobenius周期のCY orbit]
+\label{thm:p3-canonical-cy-orbit}
+$C$を標準4次元データとし，$\tau$をFrobenius周期とする．
+このとき$D(C,\tau)$は二次Koszul 4-Calabi--Yau代数である．
+異なるtraceから作った代数は頂点を保つ次数付き代数として同型である．
+任意の4周期を使った畳込みについては，このuntwistedなCY結論を無条件に主張しない．
+\end{theorem}
+\begin{proof}
+整数列上の線型解消を畳み込むと，$D_0=S$の各単純加群に線型解消を得る．
+従って$D$はKoszulである．その二次双対は$E$を$\nu$で畳み込んだ有限次元代数
+$\overline E$で記述できる．通常の$S$-双加群双対で矢印を逆向きに置く規約では
+この前向き表示の反対代数を取るが，以下の対合とgraded対称性は反対代数でも保たれる．
+
+式\eqref{eq:p3-frobenius-period}で$j=i+4$，$b=1$とすると
+\[
+ \lambda_{i+4}(\nu(a))=\lambda_i(a).
+\]
+従ってtraceは畳込みと両立する．$\overline E$上で
+$\lambda=\sum_{i=0}^3\lambda_i$を次数4に置き，その他の次数では零とすると，
+\eqref{eq:p3-frobenius-period}は
+$\lambda(ab)=\lambda(ba)$という通常の対称性になる．
+相補次数の完全性により，これはFrobenius汎関数である．
+
+4次元のCY符号を得るには，頂点ごとにさらに符号を入れる．
+\begin{equation}\label{eq:p3-graded-trace}
+ \varepsilon|_{e_i\overline E_4e_i}=(-1)^i\lambda_i.
+\end{equation}
+これは$i\bmod4$で定義される．
+$a\in\overline E_p$，$b\in\overline E_{4-p}$が積を持つとき，
+始点は$p$だけ変わるので
+\begin{equation}\label{eq:p3-graded-symmetry}
+ \varepsilon(ab)=(-1)^p\varepsilon(ba)
+                 =(-1)^{p(4-p)}\varepsilon(ba).
+\end{equation}
+よって$\overline E$はgraded対称Frobenius代数である．
+
+この汎関数を四重テンソルへ双対化すると，次数4の符号付き巡回テンソル$W$を得る．
+完全対合により，$W$の二階微分の空間は$D$の二次関係空間と一致し，
+各階の微分の空間は二次双対の各次数の双対に一致する．
+従って$W$から作る複体は$D$のKoszul双加群解消そのものであり，完全である．
+Bocklandt--Schedler--Wemyssの定理
+\cite[Theorem~6.2, Lemmas~6.4--6.5 and equation~(6.2)]{BSWPotentials}
+により，この符号付き自己双対解消は4-CY性を与える．
+これはKoszul性をFrobenius性だけから推論したものではなく，
+最初から$C$のKoszul性を用いた議論である．
+
+最後の同型独立性は補題\ref{lem:p3-canonical-period}から従う．
+一般の周期を使うと，$\nu$と選んだ周期の差が畳込み後のNakayamaの捩れに残る．
+その場合はtwisted CYとtwisted superpotentialの対応
+\cite[Theorem~6.2の証明直後のtwisted版への拡張]{BSWPotentials}
+を用いることになる．
+\end{proof}
+
+\begin{remark}[通常の対称性とCY符号]
+前証明で通常の対称traceだけを使うと，4次元の符号を見落とす．
+同じ現象は，Koszul双対の通常のNakayamaが恒等であるとき，
+元代数のNakayamaには次数符号が現れる，と記述することもできる．
+四頂点cycleでは$a\mapsto(-1)^{\deg a}a$は
+$\sum_i(-1)^ie_i$による内的共役なので，CY性の障害にはならない．
+式\eqref{eq:p3-graded-trace}はその内的補正をtrace側で実行している．
+\end{remark}
+
+\subsection{256係数と二階微分による関係}
+
+以下，四つの矢印空間$V_i\simeq k^4$を固定する．
+長さ四の閉経路の空間は
+\[
+ \bigoplus_{i=0}^3V_i\otimes V_{i+1}\otimes V_{i+2}\otimes V_{i+3}.
+\]
+最初の矢印を最後へ送る巡回回転を$c$と書く．
+$c^4=1$であり，次数4の\emph{符号付きsuperpotential}は$cW=-W$を満たす元である．
+これはBSWの符号$(-1)^{4-1}$に対応する
+\cite[\S1, equation~(1.3)]{BSWPotentials}．
+
+任意の
+\begin{equation}\label{eq:p3-potential-tensor}
+ w\in\mathcal W:=V_0\otimes V_1\otimes V_2\otimes V_3,
+ \qquad \dim\mathcal W=4^4=256
+\end{equation}
+に対し
+\begin{equation}\label{eq:p3-signed-potential}
+ W(w)=w-cw+c^2w-c^3w
+\end{equation}
+と置く．始点0の成分を取ることが逆写像になるので，
+これは$\mathcal W$と符号付きsuperpotential空間の線型同型である．
+四つの成分は異なる始点の直和因子にある．
+従って$\mathcal W$自体に，一頂点のテンソルで課すような追加の巡回不変条件はない．
+
+経路$p$による左微分は，経路$q$に対し
+\[
+ \partial_p(q)=
+ \begin{cases}r&q=pr,\\0&\text{それ以外}\end{cases}
+\]
+と定め，線型に延長する．矢印空間の双対による縮約として基底に依存せず定義できる．
+二次関係と代数を
+\begin{equation}\label{eq:p3-derivation-quotient}
+ R_i(w)=\operatorname{span}\{\partial_pW(w):
+       p\text{は}i+2\text{から}i\text{への長さ二の経路}\},
+ \qquad D_w=T_S(V)/(R_i(w))
+\end{equation}
+と置く．ここで$R_i(w)\subset V_i\otimes V_{i+1}$である．
+すなわち$D_w=\mathcal D(W(w),2)$というBSWのderivation quotientである．
+一階微分なら三次関係となるため，本節の二次AS正則代数には対応しない．
+また$W(w)$を通常の符号なしcyclic wordの商で扱うと，
+$cW=-W$からその像は零になる．本節では経路代数内の符号付きテンソルとして扱う．
+
+\begin{definition}[許容potentialの集合]
+\label{def:p3-admissible-potentials}
+$\mathcal U_4(k)\subset\PP(\mathcal W)(k)$を，$D_w$がKoszul 4-CYで，
+各頂点の線型解消の型が$(1,4,6,4,1)$となる$[w]$の集合とする．
+同値に，BSWの微分空間を$W_j$とすると，各始点におけるその次元が
+$1,4,6,4,1$となり，複体
+\begin{equation}\label{eq:p3-superpotential-complex}
+ 0\longrightarrow D_w\otimes_S W_4\otimes_S D_w
+ \longrightarrow\cdots\longrightarrow
+ D_w\otimes_S W_0\otimes_S D_w
+ \longrightarrow D_w\longrightarrow0
+\end{equation}
+が完全であることを要求する．微分はBSWの式(6.1)に従う．
+この同値性は同論文Theorem~6.2による．
+\end{definition}
+
+この定義で展開した$C_w$は標準4次元データである．
+実際，線型双加群解消を各頂点の単純加群へ適用すると，
+指定された左右の線型解消と，自己双対性によるAS双対性を得る．
+そのEuler関係から各行のHilbert級数は$(1-t)^{-4}$となる．
+逆に定理\ref{thm:p3-canonical-cy-orbit}は，すべての標準4次元データを
+この形で与える．$w$の非零スカラー倍は関係空間を変えないため，
+代数のモジュライには$w$自体ではなく$[w]\in\PP^{255}$を用いる．
+
+\begin{remark}[有限係数表示と正則locus]
+必要条件$\dim R_i(w)=6$は$16\times16$の縮約行列のrankが6という条件である．
+rankが6以下という閉条件と6以上という開条件を同時に課すので，
+全$\mathbb A^{256}$の開部分を取るだけの問題ではない．
+有限個の微分空間の次元とFrobenius対合は有限行列で検査できる．
+しかし\eqref{eq:p3-superpotential-complex}の完全性は全内部次数にわたる条件であり，
+有限次元のFrobenius性だけからは従わない．
+本節は$\mathcal U_4$全体を有限型の開または局所閉schemeとして構成したとは主張しない．
+そのためには完全性・平坦性の有限判定や適切な有界性を別途証明する必要がある．
+既にPBW性などを認定できるchartでは，その追加定理を用いて具体的な代数的locusを作れる．
+\end{remark}
+
+\begin{remark}[可換例と正則性を満たさないpotential]
+\label{ex:p3-potential-examples}
+各$V_i$の基底を$x_0^{(i)},\ldots,x_3^{(i)}$とする．
+交代テンソル
+\[
+ w_{\mathrm{alt}}=
+ \sum_{\sigma\in\mathfrak S_4}\operatorname{sgn}(\sigma)
+ x_{\sigma(0)}^{(0)}x_{\sigma(1)}^{(1)}
+ x_{\sigma(2)}^{(2)}x_{\sigma(3)}^{(3)}
+\]
+から\eqref{eq:p3-signed-potential}を作ると，二階微分の空間は
+\[
+ R_i=\operatorname{span}
+ \{x_a^{(i)}x_b^{(i+1)}-x_b^{(i)}x_a^{(i+1)}:a<b\}.
+\]
+従って$C_{w_{\mathrm{alt}}}=\check{k[x_0,x_1,x_2,x_3]}$である．
+四cycleの巡回置換の符号が負なので，この例でも$cW=-W$が必要である．
+
+一方，
+\[
+ w_{\mathrm{bad}}=\sum_{a,b=0}^3
+ x_a^{(0)}x_b^{(1)}x_a^{(2)}x_b^{(3)}
+\]
+を取ると，$V_2\otimes V_3$を縮約するだけで
+$V_0\otimes V_1$の全16基底が得られる．
+同じことがすべての始点で成立するので$R_i(w_{\mathrm{bad}})=V_i\otimes V_{i+1}$である．
+よって長さ二以上の成分は零となり，標準Hilbert関数もAS正則性も満たさない．
+この例は256係数のpotential空間全体を非可換$\PP^3$のパラメータ空間と
+呼べないことを直接示す．
+\end{remark}
+
+
+\subsection{Directed Beilinson四窓と三次syzygyによるpotential復元}
+\label{subsec:p3-directed-potential}
+
+非可換$\PP^2$のBeilinson関係式と三頂点三次potentialの比較
+\cite[\S7, 特に(7.27)--(7.28)]{AOUNCPlanes}は，
+非可換$\PP^3$の場合に次の形で一般化できる．
+ただし四次では二つの連続する二次関係空間があり，追加する矢の双対は
+\emph{三次syzygy}から作る．
+
+$V_0,V_1,V_2$をrank $4$のベクトル束とし，
+$R_0\subset V_0\otimes V_1$，$R_1\subset V_1\otimes V_2$
+をrank $6$の直和因子とする．
+\begin{equation}\label{eq:p3-directed-K}
+ K=(R_0\otimes V_2)\cap(V_0\otimes R_1)
+ \subset V_0\otimes V_1\otimes V_2.
+\end{equation}
+相対的な交わりは二つの包含の差の核で定義する．
+次の条件を課したfpqc部分関手を$\mathcal D_4$と書く：
+(i) $K$がrank $4$の直和因子で底変更に両立すること；
+(ii) 自然な縮約
+\begin{equation}\label{eq:p3-directed-spanning}
+ K\otimes V_2^*\longrightarrow R_0,\qquad
+ V_0^*\otimes K\longrightarrow R_1
+\end{equation}
+がともに全射であること．
+全体のパラメータは
+$\Gr(6,V_0\otimes V_1)\times\Gr(6,V_1\otimes V_2)$
+であるが，一般点の$K$は零になり得るので，
+$\mathcal D_4$はこの積全体ではない．
+
+\begin{proposition}[Directed relationと四次potentialの群oid同値]
+\label{prop:p3-directed-potential}
+$\mathcal W=V_0\otimes V_1\otimes V_2\otimes V_3$とする．
+その非零テンソルの部分関手$\mathcal U^{\mathrm{dir}}$を以下で定める：
+$w:V_3^*\hookrightarrow V_0\otimes V_1\otimes V_2$の像が
+$K(R_0(w),R_1(w))$と一致するrank $4$の直和因子で，
+二階縮約で得る$R_0(w),R_1(w)$がrank $6$の直和因子である．
+このとき
+\begin{equation}\label{eq:p3-dir-pot-groupoid}
+ \left[\mathcal U^{\mathrm{dir}}/
+ \prod_{i=0}^{3}\GL(V_i)\right]
+ \simeq
+ \left[\mathcal D_4/\prod_{i=0}^{2}\GL(V_i)\right].
+\end{equation}
+両側で展開した四頂点二次代数にKoszul・AS正則性を課した
+全部分群oidにも，この同値は制限される．
+ここで左辺は非射影化したテンソルである．
+射影potentialを使う場合はスカラー慣性のrigidificationを
+\emph{両側で}揃える必要がある．
+\end{proposition}
+\begin{proof}
+$K$がrank $4$の直和因子なら$V_3=K^*$と置き，
+恒等テンソル
+\[
+ w=\operatorname{coev}_K
+ \in K\otimes K^*
+ \subset V_0\otimes V_1\otimes V_2\otimes V_3
+\]
+を取る．局所基底では$w=\sum_{\alpha=1}^4k_\alpha c_\alpha$である．
+$K\subset R_0\otimes V_2$と$K\subset V_0\otimes R_1$から，
+二階縮約の像はそれぞれ$R_0,R_1$に含まれ，
+式\eqref{eq:p3-directed-spanning}によって一致する．
+残りの二箇所の関係空間は反対側の二対二flatteningの
+transposeであり，同じrank $6$を持つ．
+
+逆に$\mathcal U^{\mathrm{dir}}$の$w$は
+$V_3^*\simeq K$を与えるので，この同型で
+$w$は$\operatorname{coev}_K$に戻る．
+固定$(R_0,R_1)$上のその同型の選択空間は$\GL(V_3)$-torsorである．
+これはfpqc局所で自明であり，射と自己同型も同じであるから，
+両群oidの同値を得る．
+AS・Koszul条件は両表示が生成する\emph{同じ}四頂点代数に課す．
+\end{proof}
+
+四次のBSW型非捩れsuperpotentialは
+\[
+ W=w-cw+c^2w-c^3w,\qquad cW=-W
+\]
+であり，関係は長さ二の\emph{左}経路微分から得る．
+符号なしの通常のcyclic path algebraに$W$を射影すると零になるので，
+これは通常のDWZ型\emph{一階Jacobian代数}ではない．
+他方，符号なしの巡回和$W_+=w+cw+c^2w+c^3w$も
+四つの始点ごとに得られる二階縮約の関係\emph{空間}は同じである．
+したがって「ordinary potential」の意味を，
+BSWの符号付き高階微分か，符号なし巡回和の二階微分かで指定すべきである．
+
+\begin{remark}[可換例，境界とmoduliの意義]
+$V_i=V$，$R_0=R_1=\wedge^2V$なら
+$K=\wedge^3V$（rank $4$）で，
+両方の式\eqref{eq:p3-directed-spanning}の像は$\wedge^2V$である．
+双対の体積形式を選べば$w$は完全交代四重テンソルに対応する．
+全Grassmannianの一般の二関係空間では$K=0$となり得るので，
+このpotential表示は\emph{非自明な三次syzygyのrank層}上の表示である．
+境界で$\dim K>4$なら$V_3=K^*$という指定は破れ，
+$\Gr(4,K)$のようなsyzygy選択を保持するincidence compactificationと，
+関係式だけのGITコンパクト化は一般に一致しない．
+従ってpotentialは分類のパラメータ数を直ちに減らす方法ではないが，
+四つの二次関係を一つのテンソルにまとめ，
+4-Calabi--Yau双対性・Koszul複体・Poisson量子化の条件を
+同時に表すという意味で有用である．
+大域AS locusの有限型性とGIT境界の同定は依然として未証明である．
+\end{remark}
+
+\subsection{軌道と自己同型の正確な比較}
+
+$G=\prod_{i=0}^3\GL(V_i)$，$H=\prod_{i=0}^3\PGL(V_i)$とする．
+$G$は$\mathcal W$にテンソル積で作用する．各矢印空間のスカラー
+$Z_G=(k^\times)^4$は$w$を四つのスカラーの積だけ倍にするため，
+$\PP(\mathcal W)$には自明に作用する．
+従って射影potentialの有効作用は$H$を通る．
+頂点はラベル付きのままであり，四頂点の回転による追加の商は取らない．
+
+\begin{lemma}[potential直線の一意性]
+\label{lem:p3-potential-unique}
+許容代数$D_w$から，符号付きsuperpotentialの直線$kW(w)$を一意に復元できる．
+従って，頂点を保つ次数付き同型$D_w\simeq D_{w'}$は，
+$G$の元が$[w]$を$[w']$へ送ることと同値である．
+\end{lemma}
+\begin{proof}
+Koszul双対の各頂点の最高次数は一次元である．
+その二つのgraded対称Frobenius traceの比を$t_i\in k^\times$とする．
+隣接する次数1と次数3の完全対合に
+\eqref{eq:p3-graded-symmetry}を適用すると$t_i=t_{i+1}$となる．
+従って全traceの比は一つの共通スカラーである．
+traceを双対化して得る$W$も同じ共通スカラーを除いて一意である．
+代数同型は二次双対とこのtrace直線を保つので，potential直線を保つ．
+逆にpotential直線を保つ基底変更は二階微分の空間を保つため代数同型を与える．
+\end{proof}
+
+標準4次元データの群oidから，すべての頂点スカラー
+\[
+ \rho_\lambda(a_{ij})=\lambda_i\lambda_j^{-1}a_{ij},
+ \qquad(\lambda_i)\in(k^\times)^{\mathbb Z}
+\]
+を射において同一視した群oidを$\mathcal Z_4^{\mathrm{pt}}(k)$と書く．
+共通スカラーはもともと恒等に作用するので，$\lambda_0=1$としてよい．
+saturationを課す場合，これは第\ref{sec:categorical-moduli-comparison}節の
+一点の同定を保持する豊富列付き圏の群oidである．
+
+\begin{theorem}[体上のpotential軌道による比較]
+\label{thm:p3-potential-moduli}
+次が成り立つ．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 標準4次元データの添字保存同型類は
+$\mathcal U_4(k)/G(k)=\mathcal U_4(k)/H(k)$と一対一に対応する．
+\item 点の作用群oidとして
+\begin{equation}\label{eq:p3-pointed-groupoid}
+ [\mathcal U_4(k)/H(k)]\simeq\mathcal Z_4^{\mathrm{pt}}(k)
+\end{equation}
+が成り立つ．これはスキーム上の族のstack同値を表す式ではない．
+\item $\tau$をFrobenius周期，$D=D(C,\tau)$とすると
+\begin{equation}\label{eq:p3-automorphism-comparison}
+ \frac{\Aut_{S,\mathrm{gr}}(D)}{(k^\times)^4}
+ \simeq
+ \frac{\Aut_{\mathbb Z}(C)}{\rho((k^\times)^{\mathbb Z})}.
+\end{equation}
+左辺の四つのスカラーは四つの矢印空間のスカラーである．
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+定理\ref{thm:p3-canonical-cy-orbit}で各$C$から許容potentialを得る．
+逆に$D_w$を展開すると標準4次元データ$C_w$を得る．
+この展開の厳密な4周期はFrobenius周期であることも確認できる．
+実際，$D_w$のgraded対称traceの頂点$i$成分を$(-1)^i$倍すると，
+通常の対称traceになり，\eqref{eq:p3-frobenius-period}が厳密4移動を与える．
+補題\ref{lem:p3-canonical-period}と補題\ref{lem:p3-potential-unique}から
+同型類の全単射を得る．
+
+自己同型とHom集合について，周期の選択を忘れる差を確認する．
+$\Aut_{S,\mathrm{gr}}(D)$は$\Aut_{\mathbb Z}(C,\tau)$と同じである．
+任意の$f\in\Aut_{\mathbb Z}(C)$に対し，移送された
+$f(4)\tau f^{-1}$もFrobenius周期である．
+補題\ref{lem:p3-canonical-period}により$f$を頂点スカラーで補正すれば
+$\tau$と可換にできる．従って\eqref{eq:p3-automorphism-comparison}の右辺への写像は全射である．
+
+その核は，周期と可換な頂点スカラーである．
+$\rho_\lambda(4)=\rho_\lambda$は
+\[
+ \lambda_{i+4}/\lambda_i=\kappa\qquad(i\in\mathbb Z)
+\]
+となる一つの$\kappa\in k^\times$が存在することと同値である．
+従って隣接矢印に作用する比$\lambda_i/\lambda_{i+1}$は4周期的である．
+逆に任意の四つの非零比から$\lambda_0=1$を初期値としてこのような頂点スカラーを作れる．
+よって核はちょうど$(k^\times)^4$であり，自己同型群の式を得る．
+
+二つの異なる対象間の同型についても同じ補正を行える．
+また二つの周期保存同型が頂点スカラーだけ異なるとき，
+その差は今確認した四つの矢印スカラーである．
+従って各Hom集合について全単射であり，対象については本質的全射である．
+補題\ref{lem:p3-potential-unique}によるpotentialの作用群oidの表示と合わせて
+\eqref{eq:p3-pointed-groupoid}を得る．
+\end{proof}
+
+\begin{remark}[スカラー商のlevel]
+$[\mathcal U_4(k)/G(k)]$には四次元のスカラー自己同型が残るので，
+$[\mathcal U_4(k)/H(k)]$とは同じ群oidではない．
+式\eqref{eq:p3-pointed-groupoid}では，終域でも対応する頂点スカラーを除いたことが重要である．
+全対象の同定を保持する厳密な$\mathbb Z$-代数stackとの同値ではない．
+以下では，両側でこのスカラーの扱いを揃えてから相対比較を行う．
+\end{remark}
+
+\subsection{相対bar複体とpointed stackの比較}
+
+体上で周期を規格化できるという事実だけでは，族の比較は得られない．
+ここでは本稿の代数stackの定義に含まれる\emph{全成分の局所自由性}を使う．
+$\mathfrak P_3^{\mathrm{AS}}$を，正連結・次数一生成の相対二次
+$\mathbb Z$-代数$C/\OO_S$で，全$C_{ij}$が階数
+$\binom{j-i+3}{3}$の有限局所自由層（$i\le j$），すべての幾何学的ファイバーが
+標準4次元データとなるもののfpqc stackとする．
+射は厳密な添字保存同型である．これは
+定義\ref{def:moduli-two-stacks}のambientの定義を4次元へ置き換えたものである．
+
+\begin{lemma}[相対Koszul双対は全底変更と両立する]
+\label{lem:p3-relative-bar}
+$C\in\mathfrak P_3^{\mathrm{AS}}(S)$とする．
+その相対二次双対$E=C^!$の各成分は有限局所自由で，
+\eqref{eq:p3-local-frobenius}の階数を持ち，任意の底変更と両立する．
+特に$L_i=E_{i,i+4}$は直線束であり，積は完全対合
+\begin{equation}\label{eq:p3-relative-frobenius}
+ E_{ij}\xrightarrow{\sim}
+ \mathcal Hom_{\OO_S}(E_{j,i+4},L_i)
+ \qquad(i\le j\le i+4)
+\end{equation}
+を与える．基底の被約性やnoetherian性は必要ない．
+\end{lemma}
+\begin{proof}
+始点$i$と内部長$n>0$を固定する．相対normalized bar複体の該当部分は
+\begin{equation}\label{eq:p3-bar-complex}
+ K^{i,n}_p=
+ \bigoplus_{i=i_0<i_1<\cdots<i_p=i+n}
+ C_{i_0i_1}\otimes_{\OO_S}\cdots\otimes_{\OO_S}C_{i_{p-1}i_p}
+ \quad(1\le p\le n)
+\end{equation}
+であり，微分は隣接する二因子の積の交代和である．
+これは有限個の有限局所自由層からなる有界複体であり，
+底変更後も同じbar複体となる．$n=0$では次数0に$\OO_S$を置く．
+幾何学的ファイバーのKoszul性により，そのhomologyは
+$1\le n\le4$ならhomological degree $n$だけにあり，次元は$\binom4n$，
+$n>4$なら全て零である．
+
+有界な局所自由複体の全幾何学的ファイバーが一つの次数だけに
+同じ次元のhomologyを持てば，複体は局所的にその次数のベクトル束と同値になる．
+ここでは次の初等的な議論を使える．一点の近傍で項を自由にし，
+その点で可逆な微分の小行列を順に消去すると，contractibleな二項直和因子を除ける．
+残る複体の微分はその点で零なので，各項のその点での階数はhomologyの次元である．
+従って一つの次数以外の項は消え，残る項は所定の階数の自由層となる．
+この操作は開近傍で行え，被約性を使わない
+\cite[Tags~0BDK, 0BCD]{StacksPerfect}．
+従って$T_{i,i+n}:=H_n(K^{i,n})$は所定の階数のベクトル束であり，
+他のhomologyは零である．この局所記述により，homologyは非平坦なものを含む
+任意の底変更と可換になる．
+
+bar複体の経路を切断するcoproductを双対化すると，
+$E_{i,i+n}=T_{i,i+n}^*$に積を得る．これが相対二次双対であることも確認できる．
+bar複体の最高項は$C_{i,i+1}\otimes\cdots\otimes C_{i+n-1,i+n}$であり，
+その微分の核は各隣接位置に二次関係を置いた部分空間の共通部分である．
+上で得た局所分裂を双対化すれば，その双対は二次関係の直交空間で
+テンソル代数を割った商そのものである．
+従って$E=C^!$であり，この同定と積も底変更に自然である．
+
+最後に，\eqref{eq:p3-relative-frobenius}は同階数のベクトル束間の写像である．
+各幾何学的ファイバーではAS双対性により同型なので，その行列式は局所的に単元となる．
+従って相対的にも完全対合である．
+\end{proof}
+
+\begin{remark}[相対bar補題の次元に依存しない部分]
+\label{rem:relative-bar-general-dimension}
+補題\ref{lem:p3-relative-bar}の証明で$4$を$N$に置き換えると，
+全成分が有限局所自由で，幾何学的ファイバーが標準$N$次元Koszul
+AS正則である族について同じ結論を得る．
+すなわち，二次双対の階数は$\binom Np$，最高次数は直線束で，
+相補次数の積は任意の底変更と両立する完全対合である．
+従って，本稿の5次元ambientの族にもこのFrobenius構造の存在は適用できる．
+相対Nakayama双加群の具体的同定や，正規三次イデアルを保つ周期の降下は，
+この補題単独の結論とは区別する．
+\end{remark}
+
+\begin{definition}[相対許容potential関手]
+\label{def:p3-relative-potential-functor}
+$U_4^{\mathrm{AS}}$を$\PP(\mathcal W)$のfpqc部分関手として次で定める．
+$S$上のpotential直線$\mathscr L\subset\mathcal W\otimes\OO_S$について，
+\eqref{eq:p3-signed-potential}から得る二階縮約の像$R_i$がrank6の部分束であり，
+その関係で作った四頂点代数を展開した$C_w$が
+$\mathfrak P_3^{\mathrm{AS}}(S)$に属することを要求する．
+ここで部分束とは余商も局所自由であることを含む．
+\end{definition}
+
+この条件はfpqc局所的であり，底変更と両立する．
+縮約の像については，定義に含めた部分束条件により核と余商が局所分裂することを使う．
+体上では$U_4^{\mathrm{AS}}(k)=\mathcal U_4(k)$である．
+実際，符号付き巡回性と二階微分の関係により，$W$の各頂点成分は
+二次Koszul複体の長さ四の共通核に入る．
+この核は一次元であり$W$の成分は非零なので，その生成元となる．
+従って双対traceはgraded対称で，完全対合を持ち，
+定理\ref{thm:p3-canonical-cy-orbit}と同じBSWの議論が適用できる．
+
+また$\mathfrak P_3^{\mathrm{pt}}$を，
+$\mathfrak P_3^{\mathrm{AS}}$の同型層を頂点スカラー
+$\mathbb T_0=\{(\lambda_i)\in(\mathbb G_m)^{\mathbb Z}:\lambda_0=1\}$で割り，
+その後fpqc stack化したものとする．
+この定義は定義\ref{def:categorical-three-moduli}のpointed levelと同じである．
+なお圏の族との同定には，同節で明示した相対section復元とsaturationの条件を用いる．
+
+\begin{theorem}[相対potential表示とpointedモジュライ]
+\label{thm:p3-potential-stack}
+fpqc stackの同値
+\begin{equation}\label{eq:p3-potential-stack-equivalence}
+ [\,U_4^{\mathrm{AS}}/\prod_{i=0}^3\PGL(V_i)\,]
+ \xrightarrow{\ \sim\ }\mathfrak P_3^{\mathrm{pt}}
+\end{equation}
+が成り立つ．左辺は上のfpqc部分関手の商stackとして定義する．
+この定理は$U_4^{\mathrm{AS}}$のschemeとしての表現可能性，開性，有限型性を主張しない．
+\end{theorem}
+\begin{proof}
+まず，固定した四つの矢印空間上のpotentialから$C_w$を作ることは底変更と可換である．
+$\prod_i\GL(V_i)$の基底変更は周期を保つ$\mathbb Z$-代数同型を誘導する．
+その中心$(\mathbb G_m)^4$は，整数列上で
+$\lambda_{i+1}=\lambda_i/a_i$を解くことで頂点スカラーと書ける．
+従って終域のpointed化の後は$\prod_i\PGL(V_i)$の作用に因子化し，
+\eqref{eq:p3-potential-stack-equivalence}の射を得る．
+$\PGL$の切断をfpqc局所で$\GL$へ持ち上げる際の二つの選択の差は中心であり，
+pointed化の後に恒等となるので，この射は選択に依存せず降下する．
+
+本質的全射性はfpqc局所で示せばよい．
+$C\in\mathfrak P_3^{\mathrm{AS}}(S)$に対し，
+補題\ref{lem:p3-relative-bar}により最高次数の直線束$E_{i,i+4}$と完全Frobenius対合を得る．
+全ての最高次数直線束のframe束の積を取り，必要な四つの$V_i$も自明化すれば，
+同時にtraceと基底を選べるfpqc被覆を得る
+（命題\ref{prop:categorical-relative-descent}の証明と同じ議論である）．
+この被覆上で\eqref{eq:p3-frobenius-period}は相対的な$\nu$と$\tau$を与える．
+四頂点へ畳み，\eqref{eq:p3-graded-trace}を双対化すると
+potential直線$\mathscr L\subset\mathcal W\otimes\OO_S$を得る．
+完全対合により二階微分の像はもとのrank6の関係部分束に一致する．
+その展開はもとの$C$なので，この直線は$U_4^{\mathrm{AS}}$に属する．
+
+逆に$U_4^{\mathrm{AS}}$の点から作った$C_w$では，
+$W$の各頂点成分が相対bar複体の最高次核に入る．
+この核は補題\ref{lem:p3-relative-bar}による直線束であり，
+potential直線からの写像は各ファイバーで同型なので相対的にも同型である．
+従って，potential直線を局所的に自明化して得るgraded対称traceを
+頂点符号$(-1)^i$で補正すると，展開の厳密4周期がFrobenius周期になる．
+
+次に完全忠実性を同型層について局所的に確認する．
+二つのこのような$C,C'$の厳密な同型$f$を与える．
+最高次数直線束のtraceを局所的に自明化すれば，移送したtraceと指定したtraceの比は
+全整数$i$に対する単元$t_i\in\OO_S^\times$となる．
+補題\ref{lem:p3-canonical-period}の再帰式
+$s_{i+4}/s_i=t_i$は単元の有限積によって相対的にも解ける．
+従って$f$を頂点スカラーで補正すれば周期を保存し，四つの可逆な矢印写像から定まる．
+potential直線の一意性も相対的に成り立つ．
+実際，二つのtraceの比$t_i$は隣接する完全対合から$t_i=t_{i+1}$を満たすので，
+共通単元に限る．従って四つの矢印写像はpotential直線を保つ．
+
+二つの周期保存同型の差が頂点スカラーであるための条件は，
+体上と同じ計算により，四つの矢印に4周期的なスカラーとして作用することである．
+これはちょうど$\prod_i\GL(V_i)$の中心であり，商は$\prod_i\PGL(V_i)$である．
+よって同型のfpqc層について完全忠実性を得る．
+両側をstack化しているので，局所本質的全射性とこの完全忠実性からstack同値が従う．
+\end{proof}
+
+\begin{remark}[この商表示が含む形式と残る幾何]
+左辺の$\PGL$-torsorは大域的な$\GL$-torsorへ持ち上がるとは限らない．
+定理はその場合も両側のfpqc stack化で扱っており，
+すべての対象に四つの大域的ベクトル束や，大域的な周期同型を指定しているのではない．
+従ってBrauer型の捩れを，根拠なく無いものとして扱ってはいない．
+右辺を厳密な$\mathfrak P_3^{\mathrm{AS}}$へ戻すと頂点スカラーの慣性が復活するので，
+同じ$\PGL$商表示にはならない．
+
+本定理によって，定義したpointed fpqc stackの比較自体は得られた．
+残る代数幾何の問題は，$U_4^{\mathrm{AS}}$の全次数の平坦性とKoszul条件を
+有限の係数条件で認識できる範囲，有界性，代数性，および既約成分の決定である．
+$256-60$などの形式的な引算を，AS正則モジュライの次元とは解釈しない．
+\end{remark}
+
+\subsection{一般次元と五頂点ambientへの帰結}
+
+\begin{corollary}[標準$N$次元のpotential商]
+\label{cor:standard-n-potential-stack}
+$N\ge2$とする．全成分が有限局所自由で，幾何学的ファイバーが
+二次Koszul・左右AS正則，AS次元とparameterが$N$，
+線型解消の型が$\bigl(\binom N0,\ldots,\binom NN\bigr)$となる
+$\mathbb Z$-代数を対象とする．
+各$V_i$が$N$次元である$N$頂点cycleを取り，
+\[
+ \mathcal W_N=\bigotimes_{i=0}^{N-1}V_i,\qquad
+ W_N(w)=\sum_{i=0}^{N-1}(-1)^{(N-1)i}c^i w
+\]
+と置く．関係は長さ$N-2$の経路による微分で与える．
+$U_N^{\mathrm{AS}}\subset\PP(\mathcal W_N)$を，微分像が
+rank $\binom N2$の部分束で，この代数を展開したものが
+上記の相対標準AS条件を満たすfpqc部分関手とすると，
+\[
+ [\,U_N^{\mathrm{AS}}/\PGL_N^N\,]
+ \simeq\mathfrak P_{N-1}^{\mathrm{pt}}
+\]
+が成り立つ．特に$N=5$では
+\begin{equation}\label{eq:p4-five-potential-stack}
+ [\,U_5^{\mathrm{AS}}/\PGL_5^5\,]
+ \simeq\mathfrak P_4^{\mathrm{pt}},
+ \qquad U_5^{\mathrm{AS}}\subset\PP^{3124}.
+\end{equation}
+ここでも部分関手全体のscheme表現可能性や有限型性は主張しない．
+\end{corollary}
+\begin{proof}
+注意\ref{rem:relative-bar-general-dimension}が相対Frobenius双対を与える．
+traceを選ぶと$\nu:E\to E(N)$が得られ，
+Frobenius周期で畳み込んだ双対のtraceは通常対称となる．
+頂点$i$のtraceを
+\[
+ \varepsilon_i=(-1)^{(N-1)i}\lambda_i
+\]
+とする．$N(N-1)$が偶数なのでこの符号は$i\bmod N$で定義される．
+次数$p$と$N-p$の相補対合では
+$(-1)^{(N-1)p}=(-1)^{p(N-p)}$となり，graded対称性を得る．
+従ってBSWのKoszul双加群複体は$N$-CY解消であり，
+そのpotentialは表示した$W_N$となる．
+
+trace変更の補正式は$s_{i+N}/s_i=t_i$であり，
+$N$個の剰余類ごとに単元の有限積で解ける．
+周期を保存する頂点スカラーは，各矢空間に独立な$N$個のスカラーとして作用する．
+相対bar，potential直線の一意性，frame束のfpqc自明化およびHomの商の証明は
+定理\ref{thm:p3-potential-stack}と同一であり，
+$\GL_N^N$の中心を除くと主張の$\PGL_N^N$商になる．
+$N=5$では符号は全て正，係数の数は$5^5=3125$，
+二次関係を与える微分の長さは3である．
+\end{proof}
+
+式\eqref{eq:p4-five-potential-stack}はambient側だけの結論である．
+三次イデアルを指定した対について，Frobenius周期がそのイデアルを
+相対的に保つことまでは証明していない．
+従って次節の正規三次incidenceを，すべての基底で自動的に
+五つの直線束だけへ置き換える根拠にはしない．
+
+\subsection{可換点の完備化における二つのrank条件}
+\label{subsec:p3-formal-rank}
+
+前述の大域的な完全性の問題に対し，可換点の形式近傍では有限個の
+determinantal equationsだけで十分である．以下のrankは体上の点のrankではなく，
+すべての$7\times7$ minorの消失と，少なくとも一つの$6\times6$ minorの可逆性を
+要求するscheme論的なrank条件である．
+
+テンソル$w$の二つのflatteningを
+\[
+ M_{01|23}(w):(V_2\otimes V_3)^*\longrightarrow V_0\otimes V_1,
+ \qquad
+ M_{12|30}(w):(V_3\otimes V_0)^*\longrightarrow V_1\otimes V_2
+\]
+とし，いずれもrank $6$となる局所閉部分schemeを
+\[
+ Z_6\subset\PP(\mathcal W)
+\]
+と書く．残る二つのflatteningはこれらの転置と符号で異なるだけなので，
+この条件は全ての$R_i(w)$のrankが$6$であることと同値である．
+$[w_{\mathrm{alt}}]\in Z_6$であり，その点で非零な二つの$6$次minorを
+固定した開chartだけを用いても，以下の完備局所環は変わらない．
+
+\begin{theorem}[rank条件による可換点の形式模型]
+\label{thm:p3-formal-rank-six}
+$R$を剰余体$k=\C$の局所Artin $k$-代数とし，
+$[w_R]\in Z_6(R)$の剰余点が$[w_{\mathrm{alt}}]$であるとする．
+このとき$D_{w_R}$の長さ$m$の各始点成分は
+rank $\binom{m+3}{3}$の自由$R$-加群であり，
+各頂点加群$R e_i$は型$(1,4,6,4,1)$の相対線型Koszul解消を持つ．
+さらにpotential双加群複体は相対的に完全かつ自己双対である．
+従って$D_{w_R}$は$R$上相対的にhomologically smoothな4-CY代数であり，
+相対AS双対性も満たす．
+
+逆に，$[w_{\mathrm{alt}}]$を持ち上げる射影potentialで，
+$D_{w_R}$が指定されたHilbert ranksを持つ平坦族となるものは$Z_6(R)$に属する．
+従って
+\[
+ \widehat{(Z_6)}_{[w_{\mathrm{alt}}]}
+\]
+は，可換点を特殊化として持つ，矢印空間を固定した射影potential付き
+標準4次元データの形式変形関手を表す．
+\end{theorem}
+\begin{proof}
+$\Lambda_R=R^4$，$A=D_{w_R}$とし，$\mathcal W_p$を
+$W(w_R)$の$(4-p)$階微分の像とする．$R$は局所環なので$w_R$の生成元を選べる．
+この選択を単元倍しても，微分空間も代数も変わらない．
+
+各始点の$\mathcal W_4$は，特殊ファイバーで非零な係数を持つ
+$W(w_R)$の成分が張る直線部分加群であり，rank $1$の直和因子である．
+各始点の$\mathcal W_3$はrank $4$の自由加群からの縮約写像の像である．
+特殊ファイバーである$4$次minorが非零なので，この写像はsplit injectionであり，
+像はrank $4$の直和因子である．$\mathcal W_2$は仮定によりrank $6$の
+直和因子である．同様に，特殊ファイバーで全射である三階・四階縮約から
+$\mathcal W_1=V_R$，$\mathcal W_0=\Lambda_R$を得る．
+従って各始点のranksは順に$1,4,6,4,1$である．
+
+符号付き巡回性から，$\mathcal W_p$の一つの端の因子を切り離すと
+$V_R\otimes_{\Lambda_R}\mathcal W_{p-1}$および
+$\mathcal W_{p-1}\otimes_{\Lambda_R}V_R$へ入る．
+隣接二因子を積にすると二次関係で消えるので，左Koszul微分は二乗零となる．
+これはBSWのpotential複体の構成
+\cite[\S6, equation~(6.1) and Lemma~6.5]{BSWPotentials}
+と同じテンソル恒等式であり，$R$上でも成立する．
+
+内部長$m$に関する帰納法で，$A_m$の自由性と左Koszul複体の完全性を同時に示す．
+$m=0$では$A_0=\Lambda_R$である．$m>0$とし，$A_r$が$r<m$について
+所定のrankの自由加群であると仮定する．正のhomological degreesだけを残した複体
+\begin{equation}\label{eq:p3-positive-koszul-induction}
+ F^{(m)}_p=(A\otimes_{\Lambda_R}\mathcal W_p)_m
+          =A_{m-p}\otimes_{\Lambda_R}\mathcal W_p,
+ \qquad 1\le p\le4
+\end{equation}
+を考える．負の添字の項は零とする．各項は帰納仮定により有限自由である．
+特殊ファイバーは多項式環の四頂点表示のKoszul複体から
+homological degree $0$の項を除いたものである．従ってhomologyはdegree $1$だけにあり，
+各始点でその次元は$\binom{m+3}{3}$である．
+
+perfect複体の一つの次数への集中判定
+\cite[Tags~0BDK, 0BCD]{StacksPerfect}により，
+$F^{(m)}_\bullet$もdegree $1$以外のhomologyを持たず，
+$H_1(F^{(m)}_\bullet)$は所定のrankの自由$R$-加群である．
+ここで$H_1(F^{(m)}_\bullet)=A_m$は二次presentationから直接従う．
+実際，$A_{m-1}\otimes_{\Lambda_R}V_R$を
+$A_{m-2}\otimes_{\Lambda_R}\mathcal W_2$の像で割ると，
+長さ$m$の全ての位置に二次関係を課した商，すなわち$A_m$になる．
+この同定により$A_m$の自由性を得るとともに，
+$F^{(m)}_1\to A_m$を付加した複体の完全性も得る．帰納法が完了する．
+特に，この議論は未知の$A_m$の平坦性を帰納段階の仮定に含めていない．
+
+次に双加群potential複体を考える．全ての$A_m$が自由になったので，
+その内部長$m$の各項
+\[
+ \bigoplus_{a+b+p=m}
+ A_a\otimes_{\Lambda_R}\mathcal W_p\otimes_{\Lambda_R}A_b
+\]
+およびaugmentationの終域$A_m$は有限自由である．
+特殊ファイバーは多項式環の完全な双加群Koszul解消であるから，
+同じperfect複体の判定により，相対双加群複体も全内部次数で完全である．
+
+potentialによる$\mathcal W_p$と$\mathcal W_{4-p}$の対合は完全である．
+実際，関連する縮約行列をrank $\binom4p$の可逆小行列でsplitし，
+その像と核の商を用いれば完全対合を得る．
+従ってBSWの符号付き自己双対性の証明
+\cite[Lemma~6.4 and the proof of Theorem~6.2]{BSWPotentials}
+は$R$上でも成立する．各$\mathcal W_p$は$\Lambda_R$-双加群として有限射影なので，
+これは相対enveloping algebra $A\otimes_R A^{\mathrm{op}}$上の
+有限射影自己双対解消である．よって相対4-CY性を得る．
+同じ解消を左右の頂点加群に用いると相対AS双対性を得る．
+ここで$R$自体の正則性を仮定しておらず，
+$k$上の絶対的global dimensionについての主張ではない．
+
+逆向きには，各始点の長さ二の成分がrank $10$の自由加群であることから，
+その二次関係空間はrank $6$の直和因子となる．
+二階縮約行列の像はこの関係空間そのものなので，
+各行列は基底変更により$\operatorname{diag}(I_6,0)$となる．
+従ってscheme論的rank $6$条件を満たす．
+両構成は底変更に自然であり，形式関手の主張を得る．
+\end{proof}
+
+\begin{proposition}[可換potential点の接空間と軌道]
+\label{prop:p3-rank-six-tangent}
+$\widetilde Z_6\subset\mathcal W$を上記二つのrank $6$条件のaffine locusとする．
+このとき
+\[
+ \dim T_{w_{\mathrm{alt}}}\widetilde Z_6=91,
+ \qquad
+ \dim T_{[w_{\mathrm{alt}}]}Z_6=90.
+\]
+$G=\prod_{i=0}^3\GL(V_i)$のaffine orbitの次元は$46$，
+射影orbitの次元は$45$である．従って射影potentialの変形を
+恒等に還元する基底変更で割った一次変形の空間は$45$次元である．
+\end{proposition}
+\begin{proof}
+指定した基底で全ての$V_i$を四次元空間$V$と同一視する．
+交代テンソルの第一flatteningの核と余核はともに$\operatorname{Sym}^2V$型の
+$10$次元空間である．rank $6$ determinantal locusの接条件は
+核から余核への誘導写像が零となることなので，
+第一条件の$100$個の独立線型汎関数は
+\[
+ U_{01|23}=
+ (V^{*\otimes4})^{\langle(01),(23)\rangle}
+ \cong\operatorname{Sym}^2(V^*)\otimes\operatorname{Sym}^2(V^*)
+\]
+を張る．第二条件のrow spaceは同様に
+$U_{12|30}=(V^{*\otimes4})^{\langle(12),(30)\rangle}$である．
+これら四つのtranspositionは$\mathfrak S_4$を生成するため，
+\[
+ U_{01|23}\cap U_{12|30}
+   =(V^{*\otimes4})^{\mathfrak S_4}
+   =\operatorname{Sym}^4(V^*),
+ \qquad \dim\operatorname{Sym}^4(V^*)=35.
+\]
+従って全線型条件のrankは$100+100-35=165$であり，
+affine接空間の次元は$256-165=91$である．
+非零tensorのスカラー方向を除くと射影接空間の次元は$90$となる．
+
+最後にLie安定化群を計算する．$X_i\in\mathfrak{gl}(V)$について
+\[
+ \sum_{i=0}^3
+ (1\otimes\cdots\otimes X_i\otimes\cdots\otimes1)w_{\mathrm{alt}}
+ \in k w_{\mathrm{alt}}
+\]
+を仮定する．二つの位置に同じ基底添字$b$が現れ，添字$a\ne b$が欠ける係数を
+比較すると，任意の$i,j$について$(X_i)_{ba}=(X_j)_{ba}$を得る．
+次に四つの添字が全て異なる係数を，二位置の添字を交換して比較すると，
+$(X_i)_{aa}-(X_j)_{aa}$は$a$によらない．
+従って$X_i=H+c_iI$であり，$H\in\mathfrak{sl}(V)$と取れる．
+逆にこの形は全て射影potentialを保つ．
+よって射影Lie安定化群の次元は$15+4=19$，射影orbitは$64-19=45$次元である．
+affine potential自体を保つ条件はさらに$\sum_i c_i=0$であるため，
+affine安定化群は$18$次元，orbitは$46$次元となる．
+一次変形を基底変更で割った空間の次元は$90-45=45$である．
+\end{proof}
+
+\begin{remark}[形式模型の範囲]
+定理\ref{thm:p3-formal-rank-six}は，全ての局所Artin基底上での同定である．
+それは$Z_6$の可換点における完備局所環を有限個のminorで記述するが，
+同じrank条件を満たす全ての体上のpotentialの正則性や，
+$Z_6$の一つのZariski開近傍全体での全次数の平坦性を証明したものではない．
+また，接空間の次元計算だけから形式関手の同型を推論したのではなく，
+先の全Artin基底上の完全性の証明が形式同定を与えている．
+\end{remark}
+
+\begin{corollary}[五頂点ambientの可換点の形式方程式]
+\label{cor:p4-formal-rank-ten}
+$N=5$の係数空間$\PP(\mathcal W_5)=\PP^{3124}$において，
+五つのcyclic flattening
+\[
+ (V_{i+2}\otimes V_{i+3}\otimes V_{i+4})^*
+   \longrightarrow V_i\otimes V_{i+1},
+ \qquad i\in\mathbb Z/5,
+\]
+がscheme論的にrank $10$となる局所閉schemeを$Z_{10}^{(5)}$とする．
+可換五変数環を与える交代テンソル$w_{\mathrm{alt},5}$において，
+$\widehat{(Z_{10}^{(5)})}_{[w_{\mathrm{alt},5}]}$は
+矢印空間を固定した射影potential付き標準5次元データの
+全Artin形式変形関手を表す．
+\end{corollary}
+\begin{proof}
+各flatteningは$25\times125$行列である．
+rank条件は長さ二の微分像$\mathcal W_2$をrank $10$の直和因子にする．
+符号なし巡回性により，長さ三の微分像を与える行列は
+これらの転置なので，$\mathcal W_3$もrank $10$となる．
+可換特殊ファイバーのunit minorにより，
+$\mathcal W_4,\mathcal W_5,\mathcal W_1,\mathcal W_0$の各頂点rankは
+それぞれ$5,1,5,1$である．
+従って微分空間の全ranksは$(1,5,10,10,5,1)$となる．
+定理\ref{thm:p3-formal-rank-six}の内部長帰納法を，
+$1\le p\le5$としてそのまま適用でき，
+全次数の平坦性，Koszul解消，相対5-CY性を得る．
+逆に平坦な標準Hilbert型なら，長さ二の商のrank $15$から
+関係像はrank $10$の部分束であり，上の五つのrank条件を満たす．
+これらの構成は底変更に自然である．
+\end{proof}
+
+この系は有限個のminorによる形式方程式を与えるが，
+$Z_{10}^{(5)}$全体のAS性や既約成分を決定したものではない．
+五頂点の接空間行列の直接計算も，本稿の四頂点の有限検算とは別課題である．

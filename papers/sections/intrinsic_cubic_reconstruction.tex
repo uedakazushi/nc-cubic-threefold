@@ -1,0 +1,274 @@
+\section{豊富列による内在的定義と族におけるambient復元}
+\label{sec:intrinsic-cubic}
+
+本節では，超曲面埋込みや次数シフトを入力に含めず，
+圏と十分な対象列からambientを構成する．
+「内在的」はこの\emph{対象列付きの圏}に関する意味である．
+対象列を忘れたアーベル圏，導来圏，または残余圏のみからの
+一意復元は本節の結論ではない．特に，自己同値$s$と対象$E$
+から初めから$E_i=s^{-i}E$と置くと1周期構造を既に選んでしまう．
+一般の$\mathbb Z$-代数のモジュライを扱うには，対象列を先に固定し，
+その列を移す自己同値の存在を別に問う必要がある．
+
+\subsection{対象列と二次包絡}
+
+基礎体を$k$とする．$k$-線型アーベル圏$\mathcal C$内の列
+$\mathcal E=(E_i)_{i\in\mathbb Z}$について，
+$\dim_k\Hom(E_i,M)<\infty$をすべての$i,M$に仮定する．
+本節の添字規約では，列が\emph{豊富}であるとは次の二条件をいう：
+任意の全射$M\twoheadrightarrow N$に対して
+$\Hom(E_i,M)\to\Hom(E_i,N)$は$i\gg0$で全射となり，
+任意の$M$と整数$r$に対して，ある$i_1,\ldots,i_s\geq r$を用いた
+全射$\bigoplus_{\alpha=1}^s E_{i_\alpha}\twoheadrightarrow M$が存在する．
+これはPolishchukのample sequenceの規約を$i\mapsto-i$で読み替えたものである
+\cite[Lemma~2.1, Theorem~2.4]{PolishchukProj}．
+可換射影多様体の例では$E_i=\OO_X(-i)$である．
+
+以下では$\End(E_i)=k$，$\Hom(E_j,E_i)=0$（$j<i$）を仮定し，
+\begin{equation}\label{eq:intrinsic-section-z}
+ \mathcal A_{ij}=\Hom_{\mathcal C}(E_j,E_i)\quad(i\leq j),
+ \qquad
+ \mathcal A_{ij}\otimes\mathcal A_{j\ell}\longrightarrow\mathcal A_{i\ell},
+ \quad f\otimes g\longmapsto f\circ g
+\end{equation}
+と置く．これが本節で用いる正の連結$\mathbb Z$-代数の積の規約である．
+豊富性により，$M\mapsto\bigoplus_j\Hom(E_j,M)$は
+$\mathcal C\simeq\operatorname{cohproj}\mathcal A$を与える
+\cite[Theorem~2.4]{PolishchukProj}．
+noetherianな場合には右辺を$\qgr\mathcal A$と書く．
+ここでは$\mathcal A$を最初からHomで定義しており，
+一般の斉次座標環とそのsection algebraが低次数まで一致することを
+無条件に仮定してはいない．
+
+次数一生成の正の連結$\mathbb Z$-代数$\mathcal A$に対して
+\begin{align}
+ V_i&=\mathcal A_{i,i+1},\\
+ R_i&=\ker\bigl(V_i\otimes V_{i+1}\longrightarrow\mathcal A_{i,i+2}\bigr),
+ \label{eq:intrinsic-quadratic-relations}\\
+ Q(\mathcal A)&=T_{\mathbb Z}(V)/(R_i\mid i\in\mathbb Z)
+ \label{eq:intrinsic-quadratic-envelope}
+\end{align}
+と定める．ここで
+$T_{\mathbb Z}(V)_{ij}=V_i\otimes\cdots\otimes V_{j-1}$（$i<j$），
+$T_{\mathbb Z}(V)_{ii}=k$であり，括弧は両側イデアルを表す．
+積から標準全射$q:Q(\mathcal A)\twoheadrightarrow\mathcal A$が定まり，
+これは長さ$0,1,2$の成分で同型である．
+この構成にambientの選択は含まれない．
+対象列付き圏の同値には，各$i$について$F(E_i)\simeq E'_i$という
+両立する同定を含める．これによりHomと合成の同型，従って
+$\mathcal A\simeq\mathcal A'$および$Q(\mathcal A)\simeq Q(\mathcal A')$
+が誘導される．同定を変更したときの基底変更も同型として扱い，
+対象列を保たない圏同値まで同じモジュライ問題に含めない．
+
+\begin{definition}[豊富列付きの正規三次データ]
+\label{def:intrinsic-cubic-datum}
+組$(\mathcal C,\mathcal E)$が\emph{正規三次三様体データ}であるとは，
+上の条件に加え，そのsection $\mathbb Z$-代数$\mathcal A$が次数一生成であり，
+次を満たすことをいう．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\mathcal A$と$\mathcal B:=Q(\mathcal A)$は左右noetherianであり，
+$\mathcal B$は左右のAS条件を満たす二次Koszul AS正則$\mathbb Z$-代数である．
+その次元とGorenstein parameterはともに$5$，
+最小線型解消の型は$(1,5,10,10,5,1)$とする．
+\item すべての$i$と$m\geq0$について
+\begin{equation}\label{eq:intrinsic-cubic-hilbert}
+ \dim_k\mathcal B_{i,i+m}=b_m:=\binom{m+4}{4},\qquad
+ \dim_k\mathcal A_{i,i+m}=h_m:=b_m-b_{m-3},
+\end{equation}
+ただし$m<0$では$b_m=0$とする．
+\item $I=\ker q$の一次元空間$I_{i,i+3}$の任意の非零元$g_i$は左右正則である．
+すなわち，$g_i\mathcal B_{i+3,j}$および$\mathcal B_{\ell i}g_i$を定める
+乗法写像は，それぞれ$j\geq i+3$，$\ell\leq i$について単射である．
+\end{enumerate}
+さらに$D^b(\mathcal C)$がsmooth properな$k$-線型dg enhancementを持つとき，
+このデータを\emph{滑らかな}正規三次データと呼ぶ．
+この滑らかさは独立の条件であり，Hilbert級数やambientのAS正則性だけからは結論しない．
+\end{definition}
+
+この定義は，圏のHomと合成から計算できる\emph{埋込みの選択を要しない認識条件}である．
+しかし，より弱い数値的・Serre関手的条件を満たす抽象圏すべてが
+この定義を満たすと証明したわけではない．
+また中心元による三次商は正規三次データの特殊な場合であり，
+中心性は対象列に周期構造を選んだ後に初めて通常の次数付き表示で比較できる．
+
+\begin{theorem}[内在的な正規超曲面認識]
+\label{thm:intrinsic-normal-recognition}
+定義\ref{def:intrinsic-cubic-datum}のデータに対して，
+任意の選択$0\ne g_i\in I_{i,i+3}$は正則正規族をなし，
+\begin{equation}\label{eq:intrinsic-normal-presentation}
+ \mathcal A\simeq\mathcal B/(g_i\mid i\in\mathbb Z),
+ \qquad \mathcal B=Q(\mathcal A)
+\end{equation}
+となる．$\mathcal A$への商写像と両立する二次ambientは一意である．
+より正確には，二次代数$\mathcal B'$から$\mathcal A$への全射が
+長さ$1,2$で同型なら，その商写像と両立する
+$\mathcal B'\simeq Q(\mathcal A)$が一意に存在する．
+\end{theorem}
+\begin{proof}
+Hilbert関数の差から
+$\dim I_{i,i+3}=1$，$\dim I_{i,i+4}=5$である．
+左右正則性により
+\begin{equation}\label{eq:intrinsic-degree-four-normal}
+ g_i\mathcal B_{i+3,i+4}
+   =I_{i,i+4}
+   =\mathcal B_{i,i+1}g_{i+1}
+\end{equation}
+が成り立つ．実際，左右の空間はともに$I_{i,i+4}$に含まれる5次元空間である．
+次数一生成と帰納法により
+$g_i\mathcal B_{i+3,j+3}=\mathcal B_{ij}g_j$がすべての$j\geq i$について従う．
+従って$(g_i)$は正則正規族である．
+
+$J$をこの族が生成する両側イデアルとする．正規性により
+$J_{i,i+m}=g_i\mathcal B_{i+3,i+m}$（$m\geq3$）であり，
+正則性からその次元は$b_{m-3}$となる．一方，
+\eqref{eq:intrinsic-cubic-hilbert}から
+$\dim I_{i,i+m}=b_{m-3}$である．$J\subseteq I$なので全成分で$J=I$を得る．
+従って，三次での核に加えて高次の独立な方程式が残る可能性もここで排除される．
+
+最後に，$\mathcal B'$は次数一生成の二次代数なので，
+長さ一成分と，隣接する長さ一成分の積の核とで定まる．
+仮定によりこれらは\eqref{eq:intrinsic-quadratic-relations}の$V_i,R_i$そのものである．
+従って\eqref{eq:intrinsic-quadratic-envelope}が所望の同型を与える．
+同型は生成元上で既に決まるので一意である．
+\end{proof}
+
+\begin{remark}[周期性との関係]
+\label{rem:intrinsic-periodicity-scope}
+第\ref{sec:moduli-ambient-periodicity}節の系\ref{cor:moduli-cubic-ambient-periodic}により，
+定理\ref{thm:intrinsic-normal-recognition}で得られる体上の対$(\mathcal B,I)$は，
+三次イデアルを保つ1周期同型を持つ．従って$\mathcal A$も
+一つの通常の次数付き正規三次商の付随$\mathbb Z$-代数として表示できる．
+これは正規三次データに対する\emph{結論}であり，定義に組み込んだ条件ではない．
+この証明は正規族に沿った有限頂点orbit代数とNakayama双対性を使う．
+一方，1周期構造の選択は一意とは限らず，次数3の関係元の中心性や
+族全体の周期構造の降下は別途検証を要する．
+\end{remark}
+
+\subsection{任意の底変更と両立する構成}
+
+閉点の同型類ごとの復元だけでは，モジュライ間の射はまだ得られない．
+必要なのは族での構成と底変更への両立である．以下では圏の族の存在論を避け，
+相対section代数が既に与えられている状況を正確に扱う．
+
+\begin{theorem}[二次包絡と三次イデアルの相対復元]
+\label{thm:intrinsic-relative-envelope}
+$S$を$k$-スキームとし，$\mathcal A$を正の連結
+$\OO_S$-$\mathbb Z$-代数とする．各$\mathcal A_{ij}$は有限階数局所自由，
+$\mathcal A$は次数一生成と仮定する．すると
+\eqref{eq:intrinsic-quadratic-relations}--\eqref{eq:intrinsic-quadratic-envelope}
+は$S$上で定義され，任意の$f:T\to S$について標準同型
+\begin{equation}\label{eq:intrinsic-base-change}
+ f^*Q(\mathcal A)\simeq Q(f^*\mathcal A)
+\end{equation}
+を持つ．ここで$f$の平坦性は不要である．
+
+さらに$\mathcal B=Q(\mathcal A)$の各成分も局所自由で，その階数と
+$\mathcal A$の階数が\eqref{eq:intrinsic-cubic-hilbert}に等しく，
+すべての幾何学的ファイバーにおける$I_{i,i+3}$の非零元が左右正則とする．
+このとき$L_i:=I_{i,i+3}$は直線束であり，
+\begin{equation}\label{eq:intrinsic-relative-ideal}
+ I_{ij}=\operatorname{im}\bigl(L_i\otimes\mathcal B_{i+3,j}
+                  \longrightarrow\mathcal B_{ij}\bigr)\quad(j\geq i+3).
+\end{equation}
+この写像は$I_{ij}$への同型である．また
+\begin{equation}\label{eq:intrinsic-relative-normal}
+ \operatorname{im}\bigl(L_i\otimes\mathcal B_{i+3,j+3}
+                   \longrightarrow\mathcal B_{i,j+3}\bigr)
+ =\operatorname{im}\bigl(\mathcal B_{ij}\otimes L_j
+                   \longrightarrow\mathcal B_{i,j+3}\bigr).
+\end{equation}
+従って$I$はこの三次直線束族で生成され，$I$と$L_i$も任意の底変更と両立する．
+\end{theorem}
+\begin{proof}
+次数一生成により$V_i\otimes V_{i+1}\to\mathcal A_{i,i+2}$は全射である．
+終項が局所自由なので，その核$R_i$は局所自由であり，
+この短完全列は局所分裂する．従って任意の底変更で核が保たれる．
+長さ$m$のテンソル代数成分は$m$個の$V_i$のテンソル積である．
+二次関係が生成するイデアルの同じ成分は，
+その隣接する二因子を$R_j$に置き換えた有限個のテンソル積からの写像の像である．
+よって$Q(\mathcal A)_{i,i+m}$はこの有限の写像の余核として表される．
+テンソル積と余核はいずれも底変更と両立するので
+\eqref{eq:intrinsic-base-change}を得る．
+
+$\mathcal B\twoheadrightarrow\mathcal A$の各成分の終項も局所自由なので，
+$I_{ij}$は局所自由であり，核の形成は任意の底変更と両立する．
+特に$L_i$と$I_{i,i+4}$の階数はそれぞれ$1,5$である．
+乗法による二写像
+\begin{equation}
+ L_i\otimes\mathcal B_{i+3,i+4}\longrightarrow I_{i,i+4},\qquad
+ \mathcal B_{i,i+1}\otimes L_{i+1}\longrightarrow I_{i,i+4}
+\end{equation}
+は，すべての幾何学的ファイバーで単射となる同階数のベクトル束間の写像である．
+従ってそれぞれ同型である．この事実を次数一生成と帰納法に適用すると，
+\eqref{eq:intrinsic-relative-normal}を得る．
+
+\eqref{eq:intrinsic-relative-ideal}の写像を$I_{ij}$への写像と見ると，
+始項と終項の階数はいずれも$b_{j-i-3}$である．
+すべての幾何学的ファイバーで正則性により単射なので，やはり同型である．
+従って三次直線束族が$I$全体を生成する．
+以上の構成はテンソル積・積・局所分裂した核・余核からなるため，
+主張したすべての底変更同型は自然であり，底変更の合成とも両立する．
+\end{proof}
+
+\begin{remark}[族についての仮定を省略しない]
+$Q(\mathcal A)$の各成分の局所自由性は上の定理の追加仮定である．
+有限個の低次数のrankや個々の閉点での数値のみから，これを自動的に導いたわけではない．
+圏の族から出発する場合も，相対Homが局所自由であり底変更と両立することを
+別途確かめてから本定理を使う．また$L_i$は一般には非自明な直線束なので，
+大域的な元$g_i$の選択は不要であり，その存在も主張しない．
+ファイバーごとの1周期性から，族全体の1周期同型やその降下も自動的には従わない．
+\end{remark}
+
+\subsection{モジュライ関手と「一意」の意味}
+
+上の相対条件と幾何学的ファイバーでのAS条件を課した
+$\mathcal A$の族のファイバー群oidを$\mathfrak C^{\rm seq}_3$，
+標準5次元二次AS正則$\mathbb Z$-代数の族のファイバー群oidを
+$\mathfrak P^{\rm AS}_4$と書く．射は添字を保つ代数同型とする．
+定理\ref{thm:intrinsic-relative-envelope}は標準的な射
+\begin{equation}\label{eq:intrinsic-moduli-morphism}
+ \Phi:\mathfrak C^{\rm seq}_3\longrightarrow\mathfrak P^{\rm AS}_4,
+ \qquad\mathcal A\longmapsto Q(\mathcal A)
+\end{equation}
+を与える．必要なら両辺をfpqc stack化して同じ射を得る．
+ここで\emph{代数的stackであること，局所有限表示性，有限型atlasの存在は主張しない}．
+これらは無限個の成分・AS条件・noetherian性を有限の表示条件に置き換える別の課題である．
+また，この群oidはまず相対座標代数のモジュライである．
+圏の族のモジュライと同一視する際には，相対Homの底変更と，
+座標代数から相対section代数への写像のsaturationを別途確認する．
+
+\begin{proposition}[商データとの同値とambient忘却]
+\label{prop:intrinsic-pair-groupoid}
+$\mathfrak C^{\rm seq}_3$は，条件を満たす二次ambientと三次直線束族による
+正規商の組$(\mathcal B,I)$のファイバー群oidに同値である．
+同値は$\mathcal A\mapsto(Q(\mathcal A),\ker q)$で与えられる．
+特にすべての$\mathcal A$について
+\begin{equation}\label{eq:intrinsic-automorphisms}
+ \Aut(\mathcal A)\simeq\Aut(Q(\mathcal A),\ker q)
+ \lhook\joinrel\longrightarrow\Aut(Q(\mathcal A))
+\end{equation}
+となる．しかし$\Phi$は一般には同型類上で単射ではない．
+\end{proposition}
+\begin{proof}
+正規商は長さ$1,2$の成分を変えないため，その二次包絡は元の二次ambientに戻る．
+逆方向は定理\ref{thm:intrinsic-normal-recognition}と
+定理\ref{thm:intrinsic-relative-envelope}で与えられる．
+商の同型は長さ一成分上で同型を与え，テンソル代数の普遍性から
+二次包絡の同型へ一意に延長する．積の核を保つので$I$も保存する．
+逆に$(\mathcal B,I)$の同型は商に降りる．これらは互いに逆で，
+底変更と両立するから群oidの同値となる．
+
+最後の主張は可換例だけでも分かる．
+すべての滑らかな三次超曲面$X\subset\PP^4$について，
+$\mathcal A=\check{(k[x_0,\ldots,x_4]/(F))}$の二次包絡は
+同じ$\check{k[x_0,\ldots,x_4]}$である．
+従って，ambientの一意性は三次方程式の一意性を意味しない．
+\end{proof}
+
+具体的な$\mathcal B$への同型まで指定した$\Phi$のファイバーは，
+その$\mathcal B$内の許容三次イデアルのパラメータ問題である．
+ambientの同型を指定しなければさらに$\Aut(\mathcal B)$で割る．
+したがって，像の次元を求めるにはソースの次元だけでなく，
+一般ambient上の三次イデアルの変動と安定化群も計算しなければならない．
+既存の17次元族の像が17次元である，あるいはambient moduliの既約成分である，
+という結論は\eqref{eq:intrinsic-moduli-morphism}だけからは得られない．

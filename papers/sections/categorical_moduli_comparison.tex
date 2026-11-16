@@ -1,0 +1,373 @@
+\section{豊富列付き圏と座標代数のモジュライの比較}
+\label{sec:categorical-moduli-comparison}
+
+第\ref{sec:intrinsic-cubic}節の復元をモジュライの比較に用いるには，
+対象の同型類だけでなく，射とその自然同型を指定しなければならない．
+本節では，対象列の各項の同定を保持する場合，その同定を忘れる場合，
+および$E_0$の同定だけを保持する場合を区別する．
+以下の比較は，明記するsaturationと相対復元の仮定の下での定理である．
+全AS正則代数に対するこれらの仮定や，得られるstackの代数性を
+ここで自動的に結論するものではない．
+
+\subsection{全対象の同定を保持する比較}
+
+まず体$k$上で考える．正の連結$\mathbb Z$-代数$A$に対し，
+$P_i=e_iA$，$\overline P_i=\pi P_i\in\qgr A$と書く．
+本節で\emph{飽和した座標代数}とは，$A$が局所有限・右noetherianで，
+$(\overline P_i)$が第\ref{sec:intrinsic-cubic}節の意味で豊富であり，
+$\qgr A$における必要なHom空間が有限次元，かつ標準写像
+\begin{equation}\label{eq:categorical-saturation}
+ A_{ij}\longrightarrow
+ \Hom_{\qgr A}(\overline P_j,\overline P_i)
+\end{equation}
+がすべての$i,j$について同型であるものをいう．
+$i>j$では左辺を$0$とする．特に，これは低次数を含む条件であり，
+高次数での同型だけでは代用しない．本稿のモジュライ部分問題では
+さらに$\dim A_{i,i+1}=5$を課す．
+
+$\mathcal C$を$k$-線型Abel圏，$(E_i)$を豊富列とし，
+$\End(E_i)=k$，$\Hom(E_j,E_i)=0$（$i>j$）を仮定する．
+section代数は$A_{ij}=\Hom(E_j,E_i)$である．
+Polishchukの復元定理\cite[Theorem~2.4]{PolishchukProj}は
+この圏を$\operatorname{cohproj}A$として復元する．
+以下では$A$が右noetherianである部分問題に制限し，これを$\qgr A$と書く．
+逆向きに，任意の代数$A$から始めて\eqref{eq:categorical-saturation}を
+無条件に結論することはしない．
+
+\begin{definition}[全同定付きの2群oid]
+\label{def:categorical-marked}
+$\mathbf{Cat}^{\mathrm{mark}}(k)$の対象は，上記の条件を満たす
+$(\mathcal C,(E_i))$である．1射は，$k$-線型圏同値
+$F:\mathcal C\to\mathcal C'$と同型
+\[
+ \alpha_i:F(E_i)\xrightarrow{\sim}E'_i\qquad(i\in\mathbb Z)
+\]
+の組とする．$(F,\alpha)$から$(G,\beta)$への2射は自然同型
+$\eta:F\Rightarrow G$であって
+$\beta_i\eta_{E_i}=\alpha_i$をすべての$i$について満たすものとする．
+添字の平行移動はこの定義の射に含めない．
+\end{definition}
+
+同定$\alpha_i$を保持することは，$\Hom(E_j,E_i)$の基底を選ぶこととは異なる．
+ここで保持しているのは，圏同値の下でどの対象をどの対象に同定するかというデータである．
+
+\begin{theorem}[全同定付き圏と厳密な代数同型]
+\label{thm:categorical-marked-equivalence}
+section代数の構成は，$\mathbf{Cat}^{\mathrm{mark}}(k)$から，
+飽和した座標代数と添字を保つ代数同型の群oidへの同値を与える．
+左辺では各Hom群oidの2同型類を取る．より強く，
+各Hom群oidは離散群oidと同値である．1射の像は
+\begin{equation}\label{eq:categorical-induced-map}
+ \phi_{ij}(a)=\alpha_iF(a)\alpha_j^{-1}.
+\end{equation}
+従って，同じ$\phi$を誘導する二つの1射の間には，
+同定と両立する2射が一意に存在する．
+\end{theorem}
+\begin{proof}
+式\eqref{eq:categorical-induced-map}は単位と合成を保つ．
+$\beta_i\eta_{E_i}=\alpha_i$と自然性を用いると，2同型な1射の像は等しい．
+逆に，添字を保つ代数同型$\phi:A\xrightarrow{\sim}A'$は
+加群の構造の移送を与え，torsion加群を保つため$\qgr$の同値を誘導する．
+これは$\overline P_i$を$\overline P'_i$へ標準的に同定する．
+式\eqref{eq:categorical-saturation}により，そのsection代数上の作用は
+もとの$\phi$である．
+
+ここで，自然変換の一意性だけでなく存在も確認する．
+$\Gamma_{\mathcal E}(M)_j=\Hom(E_j,M)$と置く．
+1射$(F,\alpha)$は，各$j$の写像
+\[
+ \Hom(E'_j,F(M))\longrightarrow\Hom(E_j,M),
+ \qquad u\longmapsto F^{-1}(u\alpha_j)
+\]
+により，$\Gamma_{\mathcal E'}F$と
+$\Gamma_{\mathcal E}$の$\phi$に沿った構造移送との自然同型を与える．
+この写像は合成の定義から加群構造と両立する．
+十分高い次数への切断を取り，その像を$\qgr$で考えれば，
+復元同値により$F$は$\phi$が誘導する関手へ自然に同型となる．
+この同型は$E_i$上で指定された$\alpha_i$と両立する．
+従って同じ$\phi$を与える二つの1射の間に所望の2射が存在する．
+
+その一意性は豊富性からも直接分かる．
+二つの2射がすべての$E_i$上で一致するとき，任意の$M$への全射
+$\bigoplus E_{i_a}\twoheadrightarrow M$に自然性を適用する．
+圏同値は全射を保つので，二つの自然変換は$M$上でも一致する．
+特に1射の2自己同型は恒等変換に限る．
+最後に，飽和した$A$は$(\qgr A,(\overline P_i))$から復元され，
+豊富列付き圏はPolishchukの定理で復元される．
+以上で対象とHom群oidの両方について同値を得る．
+\end{proof}
+
+\subsection{頂点スカラーと一点を保持する比較}
+
+次に，1射には圏同値$F$だけを含め，
+各$i$について$F(E_i)\simeq E'_i$であることを条件とし，
+具体的な同定$\alpha_i$を含めない．2射はすべての自然同型とする．
+この2群oidを$\mathbf{Cat}^{\mathrm{weak}}(k)$と書く．
+別に$\mathbf{Cat}^{\mathrm{pt}}(k)$では，1射に
+$\alpha_0:F(E_0)\simeq E'_0$だけを含め，2射には
+$\beta_0\eta_{E_0}=\alpha_0$を課す．
+いずれも列自体を忘れた圏のモジュライではない．
+
+\begin{proposition}[スカラーgaugeの正確な作用]
+\label{prop:categorical-scalar-gauge}
+$T(k)=(k^\times)^{\mathbb Z}$，
+$T_0(k)=\{(\lambda_i)\in T(k)\mid\lambda_0=1\}$と置く．
+頂点スカラーは
+\begin{equation}\label{eq:categorical-vertex-gauge}
+ \rho_\lambda(a_{ij})=\lambda_i\lambda_j^{-1}a_{ij}
+\end{equation}
+で添字を保つ代数自己同型を定める．
+$\mathbf{Cat}^{\mathrm{weak}}(k)$は，対象を飽和した代数$A$，
+1射を厳密な代数同型$\phi:A\to A'$，2射を
+\begin{equation}\label{eq:categorical-gauge-two-arrow}
+ \lambda:\phi\Rightarrow\psi,
+ \qquad \psi=\rho_\lambda\phi
+\end{equation}
+とする2群oidと同値である．
+$\mathbf{Cat}^{\mathrm{pt}}(k)$では同じ記述で$\lambda_0=1$を課す．
+
+各$A_{i,i+1}\ne0$の下で，$\ker\rho$は対角$k^\times$であり，
+$\rho(T_0)=\rho(T)$，$\rho|_{T_0}$は単射である．
+従って弱い自己同値の2同型類の群と恒等自己同値の2自己同型群はそれぞれ
+\begin{equation}\label{eq:categorical-weak-inertia}
+ \Aut_{\mathrm{seq}}(\mathcal C)
+   =\Aut_{\mathbb Z}(A)/\rho(T_0),
+ \qquad
+ \Aut_2(\operatorname{Id}_{\mathcal C})=k^\times.
+\end{equation}
+一点の同定を保持すると後者は自明となり，
+前者を自己同型群とする通常の群oidを得る．
+\end{proposition}
+\begin{proof}
+各$i$で同定$\alpha_i:F(E_i)\simeq E'_i$を選べば
+式\eqref{eq:categorical-induced-map}を得る．
+同定を$\lambda_i\alpha_i$に変更すると像は$\rho_\lambda\phi$になる．
+二つの1射に同定$\alpha_i,\beta_i$を選び，自然同型$\eta:F\Rightarrow G$
+を与えると，$\End(E'_i)=k$より
+$\beta_i\eta_{E_i}\alpha_i^{-1}=\lambda_i\operatorname{Id}_{E'_i}$と書ける．
+自然性はちょうど\eqref{eq:categorical-gauge-two-arrow}である．
+逆にこの式が成り立つなら，$G$の同定を$\lambda_i^{-1}\beta_i$へ変更し，
+定理\ref{thm:categorical-marked-equivalence}を適用すると所望の自然同型が一意に得られる．
+$E_0$での条件は$\lambda_0=1$と同値である．
+
+$\rho_\lambda=1$なら，$A_{i,i+1}\ne0$により
+$\lambda_i=\lambda_{i+1}$であり，すべてのスカラーが等しい．
+逆は明らかである．任意の$\lambda$を$\lambda_0$で割れば
+同じ$\rho_\lambda$を与える$T_0$の元となる．
+また添字を保つ$k$-線型代数同型は$\rho_\lambda$と可換なので，
+この像は$\Aut_{\mathbb Z}(A)$の中心部分群である．
+以上から自己同値の2同型類と2自己同型群の記述が従う．
+
+恒等関手の自然自己同型については，別の直接的な確認もできる．
+各$E_i$上の作用はスカラーであり，隣接Hom空間との自然性により
+すべて同じスカラーになる．豊富列からの全射により，
+このスカラーは圏全体の自然変換を一意に決める．
+$E_0$上で恒等であるという条件を加えると，そのスカラーも$1$となる．
+\end{proof}
+
+従って，全同定付きモジュライにおいて頂点スカラーを既に同一視したと考えてはならない．
+例えば$(\operatorname{Id},(\lambda_i\operatorname{Id}))$は，
+$\lambda_i$が一定でない限り，異なる全同定付き自己同型を与える．
+同定を忘れた後に初めて，これらが自然同型で結ばれる．
+対角$\mathbb G_m$は弱い圏の\emph{2自己同型}として残るので，
+通常の代数stackの慣性群から単に一つの$\mathbb G_m$を除く操作と混同しない．
+
+\subsection{相対線束とfpqc降下}
+
+底をスキーム$S$とし，$A_{ij}$が有限階数局所自由である場合を考える．
+相対圏との比較には，次を明示的な仮定とする．
+圏の族は，基底変更とその合成の整合性を備えた$S$-線型圏のfpqc stackであり，
+直線束とのテンソル積と相対Homを持つものとする．
+1射はこの構造および基底変更と両立する線型圏同値，
+2射は基底変更と両立する自然同型である．
+選んだ対象列の相対Homは$A_{ij}$であり任意の底変更と両立すること，
+およびsection関手による復元同値がすべての底変更後に自然な形で成立することを課す．
+座標代数から出発するときも，\eqref{eq:categorical-saturation}の相対版を
+すべての底変更後に要求する．
+相対tailsを大きなAbel圏$\operatorname{QGr}(A)$で扱い，
+幾何学的点上のnoetherian部分圏を$\qgr$とすることもできる．
+有限生成部分圏を基底上で直接使う場合は，その部分圏がAbelであることも必要である．
+本節ではこれらの条件を満たす相対模型とそのfpqc局所形式を比較対象とし，
+一般のAbel圏の族に対する相対Artin--Zhang定理を主張しない．
+
+相対版の「列を保つ」には二通りある．大域同型
+$F(E_i)\simeq E'_i$を要求する条件と，そのような同型がfpqc局所で存在する条件は
+同じではない．stackとしての降下には後者を使う．
+そこで，直線束の族$L=(L_i)_{i\in\mathbb Z}$に対し
+\begin{equation}\label{eq:categorical-line-twist}
+ A^L_{ij}=L_i\otimes_{\OO_S}A_{ij}\otimes_{\OO_S}L_j^{-1}
+\end{equation}
+と置く．積は中間の$L_j^{-1}\otimes L_j$を縮約して定める．
+これは$(E_i\otimes L_i)$のsection代数である．
+
+\begin{proposition}[弱い射の線束による記述]
+\label{prop:categorical-relative-descent}
+上の相対復元とsaturationの仮定の下で，二つの大域的な代数模型$A,A'$の間の
+弱い圏同値の群oidは，次の群oidと同値である：
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 対象は，直線束族$L_i$と添字を保つ同型
+$\phi:A\xrightarrow{\sim}(A')^L$の組である．
+\item $(L,\phi)$から$(M,\psi)$への射は直線束の同型族
+$\theta_i:L_i\xrightarrow{\sim}M_i$であって
+$\psi=\Theta_\theta\phi$を満たすものとする．
+ここで$\Theta_\theta:(A')^L\to(A')^M$は
+$\theta_i$と$\theta_j$の双対の逆写像から誘導される．
+\end{enumerate}
+この記述で対応する圏同値は
+$F(E_i)\simeq E'_i\otimes L_i$を満たす．
+一点の同定を保持する場合は，さらに$L_0\simeq\OO_S$という自明化を指定し，
+射はその自明化を保つものとする．
+\end{proposition}
+\begin{proof}
+まず線束族を与えたとき，右$A$加群$M$を
+\[
+ (M^L)_i=M_i\otimes L_i^{-1}
+\]
+とする操作は，$A$加群と$A^L$加群の圏の同値を与える．
+乗法は\eqref{eq:categorical-line-twist}により定義され，逆は$L_i^{-1}$を用いる操作である．
+この同値はtorsionを保つためtailsに降りる．
+その逆同値は$\pi e_iA^L$を$\pi e_iA\otimes L_i$へ送る．
+従って$\phi:A\to(A')^L$から，主張した対象列上の作用を持つ圏同値が得られる．
+
+逆に，相対圏同値$F$がfpqc局所で列を保つとする．
+局所的に$F(E_i)\simeq E'_i$なので，相対Hom
+$L_i=\mathcal Hom(E'_i,F(E_i))$は直線束である．
+評価写像$E'_i\otimes L_i\to F(E_i)$は局所同型であり，大域的にも同型となる．
+この同型を用いてHomと合成を取ると
+$A\xrightarrow{\sim}(A')^L$を得る．
+二つの圏同値の間の自然同型は，各$E_i$上で$\theta_i$を与え，
+自然性は$\psi=\Theta_\theta\phi$と同値である．
+逆向きの自然同型の存在と一意性は，局所的に全同定付き比較へ帰着する．
+一意性によりこれらは重なり上で一致し，降下する．
+
+すべての$L_i$を同時に自明化するfpqc被覆を使ってよいことも確認する．
+それぞれのframe束の$S$上の積を取れば，これはaffineな忠実平坦射である．
+実際，有限部分積はaffine忠実平坦であり，その座標代数のfiltered colimitも
+平坦で，各幾何学的ファイバーが非零なので忠実平坦である．
+この射はaffine，従って準コンパクトである．
+無限個の線束を同時に自明化するこの議論から，有限表示の被覆が得られるとは主張しない．
+
+最後に$F(E_0)\simeq E'_0$という同定は，評価同型を通して
+$L_0$の自明化と同じである．自然同型がこの同定を保つことは，
+$\theta_0$が自明化と両立することと同値である．
+\end{proof}
+
+全頂点に共通な直線束$L_i=L$を取ると$A^L\simeq A$であるが，
+対応する弱い圏同値は$M\mapsto M\otimes L$となる．
+従って「線束による捩れは代数式で相殺する」ことから，
+相対圏同値自体が大域的に恒等であるとはいえない．
+体上で現れた対角スカラーの2自己同型は，この相対現象の局所的な形である．
+
+\begin{definition}[比較する三種類のモジュライ]
+\label{def:categorical-three-moduli}
+相対代数の許容クラスを底変更とfpqc降下に関して固定する．
+全同定付きの相対模型をその射とともにstack化したものを
+$\mathfrak M^{\mathrm{mark}}$とする．
+これは上の相対比較の仮定の下で，飽和した代数と厳密な添字保存同型のstackに同値である．
+
+式\eqref{eq:categorical-gauge-two-arrow}の2射を加えてfpqc 2-stack化したものを
+$\mathfrak M^{\mathrm{weak}}$とする．
+また$E_0$の同定を保持する模型について，同じ構成の各Hom群oidの
+同型類を取り，fpqc stack化したものを$\mathfrak M^{\mathrm{pt}}$とする．
+命題\ref{prop:categorical-scalar-gauge}により後者には非自明な2慣性がなく，
+通常の1-stackとして扱える．
+\end{definition}
+
+ここで$\mathbb T=(\mathbb G_m)^{\mathbb Z}$，
+$\mathbb T_0=\{\lambda_0=1\}$はfpqc群層である．
+$A_{i,i+1}$が正の一定階数を持つので，相対版でも
+$\ker\rho=\mathbb G_m$，$\rho|_{\mathbb T_0}$は単射である．
+大域模型$A/S$において
+\begin{equation}\label{eq:categorical-pointed-aut-sheaf}
+ \mathcal Aut_{\mathfrak M^{\mathrm{pt}}}(A)
+   \simeq \mathcal Aut_{\mathbb Z}(A)/\rho(\mathbb T_0)
+\end{equation}
+は\emph{fpqc層としての商}を意味する．
+右辺の$S$上の切断を，常に大域自己同型の集合を大域スカラーで割った集合と
+置き換えてはならない．命題\ref{prop:categorical-relative-descent}の線束が，
+局所代表を貼り合わせるために必要になる．
+また弱い2-stackの対象には局所模型の捩れた形式も含まれ得る．
+すべての対象が，大域的な代数と大域的に選ばれた全対象列を持つとは主張しない．
+これらの定義には代数的atlasや有限型性の存在を必要としない．
+
+\subsection{二次包絡はすべての比較と両立する}
+
+\begin{proposition}[内在的復元のgauge同変性]
+\label{prop:categorical-envelope-equivariance}
+定理\ref{thm:intrinsic-relative-envelope}の仮定の下で，任意の直線束族$L$について
+標準同型
+\begin{equation}\label{eq:categorical-envelope-twist}
+ Q(A^L)\simeq Q(A)^L
+\end{equation}
+が存在する．三次核も$I^L$へ対応する．
+従って命題\ref{prop:intrinsic-pair-groupoid}の同値は，
+全同定付き代数stack，弱い2-stack，一点の同定を保持するstackの
+それぞれにおいて，三次商のモジュライと許容対$(B,I)$のモジュライの同値を与える．
+各levelでambientを忘れる射が定まる．
+\end{proposition}
+\begin{proof}
+$V_i=A_{i,i+1}$，$R_i\subset V_i\otimes V_{i+1}$とする．
+捩れた長さ一成分は$V_i^L=L_i\otimes V_i\otimes L_{i+1}^{-1}$である．
+隣接テンソル積では中間の直線束が相殺し，二次積の核は
+$R_i^L=L_i\otimes R_i\otimes L_{i+2}^{-1}$となる．
+長さ$m$のテンソル積でも同様に中間因子がすべて相殺するので，
+二次関係で割ると\eqref{eq:categorical-envelope-twist}を得る．
+商写像と可換な同型であるため，核の成分も
+$I^L_{ij}=L_i\otimes I_{ij}\otimes L_j^{-1}$へ写る．
+これらの同型は線束の同型，積，底変更と自然に両立する．
+従って全同定付きでの商と二次包絡の互いに逆な構成は，
+命題\ref{prop:categorical-relative-descent}の射と2射にも延長し，
+stack化の後も互いに逆となる．
+\end{proof}
+
+特に，先の自己同型比較\eqref{eq:intrinsic-automorphisms}は
+\emph{厳密な添字保存代数同型，または全同定付き圏同値の2同型類}
+についての等式である．同定を弱めた後の正確な式は
+\begin{equation}\label{eq:categorical-pointed-pair-aut}
+ \frac{\mathcal Aut_{\mathbb Z}(A)}{\rho(\mathbb T_0)}
+ \simeq
+ \frac{\mathcal Aut_{\mathbb Z}(Q(A),I)}{\rho(\mathbb T_0)}
+ \lhook\joinrel\longrightarrow
+ \frac{\mathcal Aut_{\mathbb Z}(Q(A))}{\rho(\mathbb T_0)}.
+\end{equation}
+これはfpqc群層の同型と単射である．
+頂点スカラーは各斉次成分に単元倍で作用するので，すべての斉次イデアルを保つ．
+また$A$と$Q(A)$の長さ一成分は同じであり，両辺の$\mathbb T_0$は同じ部分群を表す．
+このため右端への単射も保たれる．
+弱い2-stackでは，同じ自己同値の2同型類に加えて，
+両側に対角$\mathbb G_m$の2自己同型を保持する．
+
+具体的なambientへの同型まで指定したファイバーと，ambientの同型類だけを
+固定した商との違いは，この比較の後にも残る．
+可換ambientでの検算は命題\ref{prop:moduli-commutative-fibre}を参照されたい．
+周期構造を選ぶ場合はさらに別のデータを加える必要があり，
+その忘却射とファイバーは第\ref{sec:period-forgetting}節で扱う．
+頂点スカラーの同一視と周期構造の忘却は，異なる操作である．
+
+\subsection{既知の復元定理との適用範囲の比較}
+
+Artin--Zhang\cite{AZ}の偏極を持つ圏の枠組みと，
+Polishchuk\cite[Theorem~2.4 and Remark~2 following it]{PolishchukProj}の
+一般の豊富列の枠組みは，次数シフトを入力に持つかどうかが異なる．
+本節は後者を用い，射の同定データと自然変換をさらに明示したものである．
+section代数の復元そのものは既知の結果であり，
+相対saturationを省略する根拠にはならない．
+
+次数付き加群圏についても，列を保つこととシフト関手に可換であることは異なる．
+Sierra\cite[Theorem~3.6 and the following Remark]{SierraGAlgebras}は，
+付随$\mathbb Z$-代数の同型を，標準自由加群のシフトの各同型類を保つ圏同値で特徴付ける．
+同論文のCorollary~4.4はこれをZhang twistと対応させる
+\cite{SierraGAlgebras,Zhang}．
+これらは次数付き加群圏についての結果であり，
+任意の無標識な$\qgr$の同値を付随$\mathbb Z$-代数の同型に置き換える結果ではない．
+
+一方，3次元二次AS正則代数については，
+Abdelgadir--Okawa--Ueda\cite[Theorem~7.3, Appendix~A]{AOUNCPlanes}が
+無標識なAbel圏からのより強い復元を扱う．
+同付録Corollary~A.7では，圏の内部で定まる次元のfiltration，
+商圏での長さ，Euler形式を用いて$\{\OO(n)\}$を認識し，
+その順序と1周期性から$\mathbb Z$-代数の同型類を復元する．
+Corollary~A.10はこの場合の$\qgr$同値とZhang twistの関係も与える．
+この対象認識を標準5次元AS正則ambientや三次商へ移す証明は本稿にはない．
+従って，ここで定義した豊富列付きモジュライから列をすべて忘れる射が
+同値になることは，独立の未解決問題として残す．

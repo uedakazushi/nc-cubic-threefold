@@ -1,0 +1,253 @@
+\section{二つのモジュライstackと正規三次incidence}
+\label{sec:algebraic-moduli-foundations}
+
+本節では、まず添字を保つ代数同型を射とするモジュライ問題を定義する。
+圏の同値における自然同型、対象列の同定の忘却、周期構造の忘却は、
+この定義を変える操作であり、後続の節で別々に扱う。
+基礎体は$k=\C$とし、stackは$k$-スキームのfpqc site上で考える。
+有限型代数的stackの構成と、無限個の次数にわたるモジュライ問題の定義を区別する。
+
+\subsection{固定Hilbert関数を持つ代数のstack}
+
+$d=(d_m)_{m\geq0}$を$d_0=1$を満たす正整数列とする。
+$\mathfrak{Alg}_{\mathbb Z}(d)(S)$の対象は、
+\begin{equation}\label{eq:moduli-z-family}
+ A_{ii}=\OO_S,\quad A_{ij}=0\ (j<i),\quad
+ \rank A_{ij}=d_{j-i}\ (j>i),\qquad
+ A_{ij}\otimes A_{j\ell}\longrightarrow A_{i\ell}
+\end{equation}
+という有限階数局所自由層と、単位律・結合律を満たす積の族である。
+射は各$A_{ii}=\OO_S$上で恒等となる、添字を保つ代数同型とする。
+プルバックは各成分の通常の層のプルバックで定める。
+この時点では、次数一生成、noetherian性、AS正則性を課さない。
+
+\begin{proposition}[有限窓による厳密な表示]
+\label{prop:moduli-finite-window}
+$\mathfrak{Alg}_{\mathbb Z}(d)$はfpqc stackである。
+$J_N=\{-N,\ldots,N\}$への制限のstackを$\mathfrak{Alg}_{J_N}(d)$と書くと、
+\begin{equation}\label{eq:moduli-window-limit}
+ \mathfrak{Alg}_{\mathbb Z}(d)
+ \simeq \mathop{2\!\varprojlim}_{N}\mathfrak{Alg}_{J_N}(d),
+ \qquad
+ \mathfrak{Alg}_{J_N}(d)=[X_N/G_N]
+\end{equation}
+である。ここで$X_N$は有限型affine scheme、$G_N$は有限個の一般線型群の積であり、
+各有限窓のstackは有限型代数的stackである。
+\end{proposition}
+\begin{proof}
+$i<j$に対し$W_{ij}=k^{d_{j-i}}$を取り、
+\[
+ M_N=\prod_{\substack{i<j<\ell\\ i,j,\ell\in J_N}}
+ \Hom_k(W_{ij}\otimes W_{j\ell},W_{i\ell}),\qquad
+ G_N=\prod_{\substack{i<j\\ i,j\in J_N}}\GL(W_{ij})
+\]
+と置く。$X_N\subset M_N$を、すべての$i<j<\ell<m$について
+$\mu_{i\ell m}(\mu_{ij\ell}\otimes1)
+=\mu_{ijm}(1\otimes\mu_{j\ell m})$を課した閉部分schemeとする。
+長さ零の積は単位で指定済みなので、それ以外の式は不要である。
+基底変更の作用は
+$(g\mu)_{ij\ell}=g_{i\ell}\mu_{ij\ell}(g_{ij}^{-1}\otimes g_{j\ell}^{-1})$
+である。有限階数ベクトル束のframe torsorを取る通常の降下により、
+$[X_N/G_N]$は有限窓の代数族をちょうど分類する。
+
+ベクトル束とその間の射はfpqc降下を満たし、結合律は降下後にも成り立つ。
+この議論を成分ごとに行えば、無限個の添字についても降下は有効である。
+さらに各成分、各積、各結合律はある有限窓に含まれる。
+従って、制限同型を含む有限窓の両立する系から、全成分と積を一意に貼り合わせられる。
+射についても同じなので\eqref{eq:moduli-window-limit}を得る。
+\end{proof}
+
+これは、次数付き代数に対するBehrend--Noohiの乗法・基底変更群・切断の構成
+\cite[\S\S2.3, 2.5]{BehrendNoohiModuli}を、添字を持つ小さい線型圏に適用したものである。
+有限窓をrelationの空間として記述する方法は、
+Abdelgadir--Okawa--Uedaのquiver relationのモジュライ
+\cite[\S\S3--5]{AOUNCPlanes}とも整合する。
+これらの構成自体を新規の結果として主張しない。
+また、\eqref{eq:moduli-window-limit}から全stackの有限型性や
+有限窓一つによる決定性は従わない。
+
+\begin{definition}[ambientと三次のモジュライ]
+\label{def:moduli-two-stacks}
+$b_m=\binom{m+4}{4}$、$h_m=b_m-b_{m-3}$とする。
+以下の二つを本稿の\emph{厳密な座標代数のモジュライ}と定める。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\mathfrak P^{\rm AS}_4\subset\mathfrak{Alg}_{\mathbb Z}(b)$は、
+次数一生成の相対二次代数で、すべての幾何学的ファイバーが
+定義\ref{def:intrinsic-cubic-datum}の標準5次元Koszul AS正則条件を満たすもののfull substackである。
+左右noetherian性、AS index $5$、左右のglobal dimensionとuniform AS Ext条件も含める。
+相対二次代数とは$T_{\mathbb Z}(B_{i,i+1})/(R_i)\to B$が同型であることをいう。
+\item $\mathfrak C^{\rm seq}_3\subset\mathfrak{Alg}_{\mathbb Z}(h)$は、
+次数一生成の$A$で、$Q(A)\in\mathfrak P^{\rm AS}_4$、かつ三次核の非零元が
+すべての幾何学的ファイバーで左右正則となるもののfull substackである。
+\end{enumerate}
+\end{definition}
+
+各条件はfpqc局所的であり、二次包絡は任意の底変更に可換であるため、
+これは実際に二つのfpqc stackを定める。
+ここでnoetherian性などは明記した幾何学的ファイバー上の条件である。
+一般の基底に対する相対$qgr$の存在論やcoherenceを、
+ファイバーの条件だけから結論していない。
+圏を用いたモジュライとの比較には第\ref{sec:categorical-moduli-comparison}節の条件を追加する。
+滑らかな三次のみを扱うときも、相対的なsmooth proper enhancementの条件を別に課す。
+その部分が開であることは、本定義からは従わない。
+
+\subsection{比較射と全ファイバーの定義}
+
+固定した$S$上の$B\in\mathfrak P^{\rm AS}_4(S)$に対し、
+$\operatorname{Inc}^{\rm nor}_3(B)(T)$を、$B_T$内の直線部分束
+\[
+ L_i\subset (B_T)_{i,i+3}\quad(i\in\mathbb Z)
+\]
+で次を満たすものの集合とする。部分束の語は余商も局所自由であることを含む。
+まず、左右の乗法
+\begin{equation}\label{eq:moduli-normal-subbundles}
+ L_i\otimes (B_T)_{i+3,j}\longrightarrow (B_T)_{ij},\qquad
+ (B_T)_{\ell i}\otimes L_i\longrightarrow (B_T)_{\ell,i+3}
+\end{equation}
+はすべての$j\geq i+3$、$\ell\leq i$について部分束への同型とする。
+さらに、長さ四で
+\begin{equation}\label{eq:moduli-adjacent-normality}
+ L_i(B_T)_{i+3,i+4}=(B_T)_{i,i+1}L_{i+1}
+ \ \subset (B_T)_{i,i+4}
+\end{equation}
+を課す。直線の生成元、またはそれらの自明化はデータに含めない。
+
+\begin{theorem}[二つのモジュライの比較とnormal incidence]
+\label{thm:moduli-incidence-equivalence}
+自然な射
+\begin{equation}\label{eq:moduli-main-arrow}
+ \Phi:\mathfrak C^{\rm seq}_3\longrightarrow\mathfrak P^{\rm AS}_4,
+ \qquad A\longmapsto Q(A)
+\end{equation}
+があり、$B:S\to\mathfrak P^{\rm AS}_4$による2-fiber productは
+\begin{equation}\label{eq:moduli-full-fibre}
+ S\mathop{\times}_{\mathfrak P^{\rm AS}_4}\mathfrak C^{\rm seq}_3
+ \simeq\operatorname{Inc}^{\rm nor}_3(B)
+\end{equation}
+というfpqc集合層である。特に、ambientとの同型を指定したファイバーに
+追加の自己同型はない。
+一方、代数閉体上でambientの同型類だけを固定した群oidは
+$\operatorname{Inc}^{\rm nor}_3(B)(k)//\Aut_0(B)(k)$である。
+ambientがfpqc局所的に$B$と同型である族を含めたstackは
+$[\operatorname{Inc}^{\rm nor}_3(B)/\Aut_0(B)]$である。
+ここで$\Aut_0$は添字を保つ代数自己同型を表す。
+\end{theorem}
+\begin{proof}
+三次側からは、定理\ref{thm:intrinsic-relative-envelope}により
+$L_i=\ker(Q(A)_{i,i+3}\to A_{i,i+3})$を得る。
+同定$Q(A)\simeq B_T$を用いて$B_T$内の部分束と見れば、
+\eqref{eq:moduli-normal-subbundles}--\eqref{eq:moduli-adjacent-normality}を満たす。
+
+逆に、直線束族から$J_{ij}=L_i(B_T)_{i+3,j}$（$j-i\geq3$）、
+その他の成分では$J_{ij}=0$と置く。
+これは右イデアルである。次数一生成と\eqref{eq:moduli-adjacent-normality}を繰り返すと
+$J_{ij}=(B_T)_{i,j-3}L_{j-3}$も成り立つので、左イデアルでもある。
+\eqref{eq:moduli-normal-subbundles}から$J_{ij}$は階数$b_{j-i-3}$の部分束である。
+従って$A=B_T/J$の各成分は階数$h_{j-i}$のベクトル束となる。
+長さ一・二を変えないため、$Q(A)\simeq B_T$である。
+また各ファイバーで正規正則三次商となり、noetherian性もambientから従う。
+
+両構成は任意の底変更に可換で互いに逆である。
+ambient上で恒等となる商の自己同型は、次数一生成により恒等である。
+従って2-fiber productは集合層になる。
+ambientの同定を忘れれば、その変更を$\Aut_0(B)$で割ることになる。
+\end{proof}
+
+\begin{proposition}[ファイバーの有限窓での方程式]
+\label{prop:moduli-incidence-windows}
+各$B/S$に対し、有限表示の準射影$S$-scheme $I_N(B)$があり、
+\begin{equation}\label{eq:moduli-incidence-limit}
+ \operatorname{Inc}^{\rm nor}_3(B)=\varprojlim_N I_N(B)
+\end{equation}
+がfpqc集合層として成り立つ。
+\end{proposition}
+\begin{proof}
+まず$J_N$に$i,i+3$が含まれる$i$について、有限積
+$\prod_i\PP_S(B_{i,i+3})$を取る。ここでは$\PP$は直線部分束の規約である。
+この積には普遍直線束がある。
+窓内に含まれる\eqref{eq:moduli-normal-subbundles}の有限個の写像について、
+すべてが最大rankとなる開部分を取る。
+この開部分では各像と余商はベクトル束である。
+そこで\eqref{eq:moduli-adjacent-normality}を、例えば一方の像から他方の余商への
+合成が零となる閉条件として課す。
+同階数の二つの部分束の包含は等号となるため、これが必要十分である。
+こうして得た局所閉部分schemeを$I_N(B)$とする。
+窓の制限はこれらの間の射を定める。
+すべての直線、正則性の条件、長さ四の条件はある有限窓に現れるので、
+その逆極限は所望の集合層である。
+\end{proof}
+
+式\eqref{eq:moduli-incidence-limit}は、比較射のファイバーを具体的な方程式で調べる入口になる。
+しかし遷移射がaffineであるとは示していないので、ここではこの極限がschemeであるとは主張しない。
+同様に、AS条件を有限窓一つで認識できる定理、族の有界性、適切な安定性を証明するまでは、
+全モジュライを有限型代数的stackまたはGIT quotientと呼ばない。
+
+\subsection{一次変形と可換点での基準例}
+
+\begin{proposition}[固定ambient上の接空間]
+\label{prop:moduli-normal-tangent}
+体上の点$I\subset B$における$\operatorname{Inc}^{\rm nor}_3(B)$の接空間は
+\begin{equation}\label{eq:moduli-normal-tangent}
+ T_I\operatorname{Inc}^{\rm nor}_3(B)
+   =\Hom_{B\text{-}B,\mathbb Z}(I,B/I)
+\end{equation}
+である。右辺では両方の添字を保つ双加群準同型を取る。
+\end{proposition}
+\begin{proof}
+$k[\epsilon]/(\epsilon^2)$上のflatなイデアル変形は、各成分の補空間を選ぶと
+$a+\epsilon\widetilde\eta(a)$（$a\in I$）と$\epsilon I$で生成される。
+$\eta(a)=\widetilde\eta(a)\bmod I$は補空間に依存しない。
+これが両側イデアルとなる条件は
+$\eta(bac)=b\eta(a)c$であり、これが右辺の双加群条件である。
+逆に、そのような$\eta$のgraphは成分ごとにflatな商を与える。
+三次より低い成分は変わらず、三次核は直線束、全核の階数は$b_{m-3}$のままである。
+左右の正則性の乗法は特殊ファイバーで単射なので、Artin基底上で部分束を与える。
+定理\ref{thm:intrinsic-relative-envelope}を適用するとnormal incidenceの点を得る。
+\end{proof}
+
+周期を選んだ次数付き問題では右辺も次数零のgraded双加群準同型に置き換える。
+例えば中心正則元$G\in B_3$による商では、それは$\Z(B/(G))_3$になる。
+中心三次直線だけを動かす部分問題の接空間は$\Z(B)_3/kG$であり、
+両者を無条件に同じ空間とはしない。
+全normal incidenceと、特定の次数付き表示でのcentral incidenceは異なる定義である。
+
+\begin{proposition}[可換ambientのファイバー]
+\label{prop:moduli-commutative-fibre}
+$S_0=\Sym_k V$、$\dim V=5$とする。可換ambient$\check S_0$の厳密なファイバーは
+\begin{equation}\label{eq:moduli-commutative-fibre}
+ \operatorname{Inc}^{\rm nor}_3(\check S_0)
+       \simeq\PP(\Sym^3 V)=\PP^{34}
+\end{equation}
+であり、これは非被約な基底も含む関手の同型である。
+頂点スカラーを除いたambient自己同型群は$\PGL(V)$である。
+従って第\ref{sec:categorical-moduli-comparison}節の一点の同定を保持するlevelでは、
+$B\PGL(V)$という可換ambientの中立部分stackへの底変更は
+$[\PP^{34}/\PGL(V)]$となる。
+滑らかな可換三次の部分は判別式の補集合を取った通常の10次元モジュライである。
+\end{proposition}
+\begin{proof}
+基底上で隣接する二つの三次直線を局所的に$F,G$で生成する。
+normalityは$F V=G V$を意味する。
+両辺はrank $5$の部分束なので、基底$x_0,\ldots,x_4$について
+$F x_j=G\ell_j$、$\ell_j\in V\otimes\OO_S$となり、$x_j\mapsto\ell_j$は可逆である。
+交換律と$G$の正則性から$x_i\ell_j=x_j\ell_i$を得る。
+二次単項式の係数を比較すれば、すべての$j$で$\ell_j=\lambda x_j$となる。
+可逆性から$\lambda$は単元であり、$F=\lambda G$である。
+従ってすべての$L_i$は同じ三次直線に等しい。
+逆に、任意の三次直線部分束は各ファイバーで非零多項式を与えるため、
+全乗法写像が部分束を与え、必要なnormalityも満たす。
+以上は任意の基底に対する議論であり、\eqref{eq:moduli-commutative-fibre}を得る。
+
+最後に、$\check S_0$の自己同型を長さ一成分の$g_i\in\GL(V)$で記述する。
+二次関係を保つ条件は$(g_i\otimes g_{i+1})\wedge^2 V=\wedge^2 V$である。
+$(1\otimes h)\wedge^2 V=\wedge^2 V$を満たす$h$は、同じ二次係数比較によりスカラーである。
+従ってすべての$g_i$の射影類は等しい。
+各矢印のスカラーは頂点スカラーの比として表せるので、それらを除く群は$\PGL(V)$となる。
+滑らかな三次では射影自己同型群は有限であり、次元は$34-24=10$である。
+この有限性は$H^0(X,T_X)=0$からも従う。
+\end{proof}
+
+この基準例により、ambient復元の一意性と比較射の単射性は別の性質であることが、
+モジュライの定義そのものから確認できる。
+可換部分の10次元すべてが同じambientの点へ写る一方、
+後述の非可換Jacobian族では一般ambientも13次元分だけ動く。
