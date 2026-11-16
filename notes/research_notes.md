@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-16 / migration-v1。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-16 / research-plan-v2。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -117,15 +117,101 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-次の技術的入口は、P3のrank6形式模型の既約枝とPym六族の比較、および一般H_R有限なP4点の相対helix再構成である。相対Koszul–Frobeniusの存在は全成分の局所自由性から得られたので、正規三次イデアルを保つ周期降下と有限係数incidenceに焦点を置く。smooth proper部分の開性には、相対dg模型と対角のperfect性の有限検査が必要。
+次の主課題は、全Artin基底における実際の残余射の形式幾何化（§10）と、17係数全混合族の非空smooth proper開集合である。相対dg模型・対角perfect性・基底変更を確保し、必要なJacobian開部分で正規三次イデアルを保つ周期降下と有限係数incidenceを扱う。P3のrank6模型の全分類や全AS5許容関手の代数性を、その前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
-point graph規約の訂正：p yz+q zy-h x²に対する行列は(-hx,qz,py)を第一行とする。以前のp,q逆順は逆translationを表していた。`verify_cubic_integrated_envelope.py` に関係式からの直接検算を加えた。E、位数4条件、character余因子判定、既得bad Dは不変。
+## 10. 残余圏の形式幾何化：既知入力と条件付き積分解
 
-固定PI4族の有限Ext判定も `cubic_order4_ext_bound.tex` に証明した。CCKM Theorem4.7をAS4右加群（oppositeで適用）に使うとdehomogenization後Extはi>=6で2周期。全単純加群の組（次元<=4）のExt6,7が零 iff H3。有限中心の完備化、左右双対、semiperfect最小解消による証明。普遍表現の8段有限自由解消は基底上平坦syzygyを持ち、単純性の有限開条件とExt非零の有限階数条件からbad像はconstructible。超越的Dが全てgoodなので像は有限。この有限データの全生成とbad多項式計算は未実行。
-48次元sliceの停止保証は `lem:order4-fortyeight-slice`：HのAS Gorenstein local dualityから中心2パラメータ上graded free、基底次数<=8。Uのfiltered基底を持ち上げると全(D,c1,c2)でrank48、次数9までで正則表現を得る。重み付き再構成は17ケース全完了と係数空間の可逆性が揃うまで未完として扱う。
+### 10.1 一次文献で確定している入力
 
-中心式再構成は完了。独立なDstar・character中心点の代入でF=gradF=0を確認し、Hessian rank2、核方向cubic0、形式Morseの最初の非零次数4。中心はA3である（quartic Schur補でも同じ係数）。非H3は既証のodd Ext1なので、Du Val中心だけを十分条件にしない。全中心式・全17評価・全係数空間は `cubic_order4_center_relation_certificate.json`、局所確認は `verify_cubic_order4_bad_center.py` とcertificate。
-次の消去計算に有用な厳密変換（作業用 /workspace/work/clifford_cubic/normalize_order4_center.py）：先頭Phiのcube係数はr1^3,r2^3,1、r1=(g-1)(g²-1)/2,r2=(g²-1)²/2。X_i=r_i Z_iで先頭はSigma X_i³+(7g²-13)X1X2X3。各pure square係数を消す一意のaffine shift後、全中心式はX1,X2に対称となることを計算で確認した。まだ原稿化・追跡validator化していないので次の作業で再検算する。u=X1+X2,v=X1-X2,z=X3とすると4F=f(u,z,D)+v²*(3u-(7g²-13)z-B)の形。全中心特異値をv=0枝と線形係数=0枝へ分けられる。前者は二変数cubicのcritical norm、後者は線上への制限cubicの判別式で計算できる見込み。これらの零点を即bad Dと同一視しない。
+Xを滑らかな複素三次三様体、K=Ku(X)とする。Kuznetsov [KuzHH, Theorem 8.9] は
+\[
+HH^p(K)=
+\begin{cases}
+\mathbb C & p=0,\\
+\mathbb C^{10} & p=2,\\
+0 & p\ne0,2
+\end{cases}
+\]
+を計算している。Jacovskis–Lin–Liu–Zhang [JLLZ, Theorem 4.4(2)] では、**実際の幾何的接写像** H^1(T_X)→HH^2(K) が同型であり、HH^2(K)からHom(H^{2,1}(X),H^{1,2}(X))への作用γは単射である。これらは既知結果であって本研究の新規成果ではない。
 
+標識付きdg/Morita変形の制御定理とhullの存在を正しく適用すれば、HH^1=HH^3=0は、同型類の形式変形を10変数の滑らかなhullで表す強い根拠になる。しかし対象とする変形関手・enhancement・同値・基底変更を指定する必要がある。HH^0=\mathbb Cによるスカラーの2自己同型は残るので、同型類関手／scalar rigidificationと完全な2-stackを同一視しない。
+
+### 10.2 Poisson一次方向の消失：既知結果からの推論
+
+通常HKRで HH^2(X)=H^1(T_X)⊕H^0(∧^2T_X)、各直和因子の次元は10である。JLLZ Theorem 3.11のsqrt(td)補正HKRを用いた可換図式では、bivectorがH^1(Ω_X^2)に作用する先はH^1(O_X)=0である。γが単射なので、補正HKRでのbivector方向はHH^2(K)への制限で消える。
+
+通常HKRへ戻す際、bivectorのH^1(T_X)方向へのTodd補正はc_1(T_X)とのcontractionの定数倍である。[Hitchin, §5.3, pp.41–42] のcanonical bundleのPoisson module構造により、各Poisson bivector πについて π⌟c_1(T_X)=0。H^2(O_X)方向への補正もFanoの消滅で零である。Poisson cone Gr(2,5)が全bivector空間を線形に張るので、全bivector方向でも補正の影響は零となる。従ってこの一次の消失は通常HKRでも読める。
+
+これは文献の定理と上記contractionからの推論である。今回の有限係数非可換族からの残余写像を全次数で構成した証明ではない。また以下の積分解には、この一次核の同定自体は必要なく、幾何的s方向の可逆性だけを使う。
+
+### 10.3 条件付き代数補題：実際の残余射ができれば積分解できる
+
+A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。既存原稿の三次側hullがこのRであるという主張は、そこで明記したhomogeneous formality入力に依存する。
+
+次の三つを追加の入力とする。
+
+1. 可換cubicの標識付き形式変形と、Kの適切にrigidifyしたdg/Morita形式変形が、全Artin基底で同定される。
+2. 三次側のactual deformationから残余圏を取る操作が、全Artin基底で自然な写像 r を定める。ここには相対dg enhancement、O,O(1)の持上げ、例外性、半直交性、admissibility、任意の底変更を含める。
+3. 可換部分a=0に制限したrは、可換cubicをそのKuに送る幾何的写像と一致する。
+
+このとき、受け皿をk[[t_1,...,t_10]]と書けば r^*(t)=f(s,a)であり、∂f/∂sの原点での行列は可逆である。A_0を固定してsをfへ送る連続自己写像は、形式逆写像定理によりRの自己同型となる。従って
+\[
+ R\simeq A_0[[t_1,\ldots,t_{10}]]
+\]
+がk[[t]]-代数として成立する。証明は、aを固定したまま形式的にsを(t,a)から解くことであり、Plücker(a)のイデアルは変わらない。A_0が特異でも、線型s係数の可逆性を使う次数帰納は成立する。
+
+**結論の範囲**：上の入力が満たされれば残余射は非標準的な形式座標でproduct projectionとなり、fiberは7次元のGrassmannian coneの完備化、頂点接空間は10次元である。actual ambient射と独立Poisson座標の全高次互換性を先に解く必要はない。現在未構成なのは主として入力2の全Artin相対残余射であり、本節はそれを完成したとは宣言しない。入力1の制御定理の正確な適用も確認する。
+
+形式的な積分解は、一般非零パラメータでのKu同値、代数化・収束・全2-stack比較を含まない。対象X_Aが原稿の係数Fで定義される古典cubicそのものであるとも結論しない。新しいt座標には高次の量子補正があり得る。
+
+### 10.4 7方向と4方向、rotationと接合
+
+二次包絡の一般17→13のfiber4は、固定B内の中心三次直線の選択である。将来の残余射17→10のfiber7は別の自由度であり、現状はまず形式的に扱う。
+
+可換cubicではrotation R_rotとSerre関手Sについて R_rot^3=[2], S=R_rot^{-2}[3]、従ってR_rot=S[-1]である。同じ式が成立する中心CY三次商に対し、rotationを追加しただけで7方向を回復することは期待できない。一般正規商にnormal automorphismのtwistがある場合は、この式の適用を別に調べる。
+
+[Feyzbakhsh–Liu–Zhang, Theorems 1.1/6.2 and 1.2/7.1] は可換del Pezzo三様体について、Q_X=ker(H^0(O_X(1))⊗O_X→O_X(1))、E_X=i^!Q_X∈Ku(X)というgluing objectを使うBrill–Noether復元と特徴づけを与える。これは接合データを調べる具体的入口となる。本研究の非可換7方向をE_X一個だけで記述できるとは未確認であり、例外pair側の5矢Kronecker圏と残余圏の接合双加群全体を候補とする。
+
+## 11. 先行研究との差分と公表前の確認
+
+以下は現在の研究方針に効く一次資料である。定理の全適用や新規性の網羅的確認を完了したという意味ではない。
+
+| 識別子・一次資料 | 確認した結果・範囲 | 本研究で追加すべき内容 |
+|---|---|---|
+| [Mayanskiy, arXiv:1303.5916](https://arxiv.org/pdf/1303.5916), Theorem 1 | 固定smooth cubicの射影Poisson空間Gr(2,5)。Loray–Pereira–Touzetに帰属。証明のSchouten式はPlücker二次式 | 17という数だけを新規性にしない。有限係数の非可換族・正しい同型類・圏の幾何を示す |
+| [Cukierman–Pereira–Vainsencher, arXiv:0709.4072](https://arxiv.org/pdf/0709.4072), Theorem 2; AFST18(2009),685–715, DOI10.5802/afst.1221 | 有理葉層R(r,d_0,...,d_q)のfoliation schemeでの成分性・一般被約性。r=4,q=2,(1,1,3)を含む | decomposabilityを課さない**全Poisson scheme**の接空間、中心三次incidenceとの関係を明示する |
+| [Corrêa–Muniz, arXiv:2207.12880v5](https://arxiv.org/pdf/2207.12880v5), Corollaries C/D and §5 | P4のrank2 Poisson locusにRat113/Rat122型。π∧π=0を課すlocusの成分を扱う | 全Poisson schemeの一般正則性・量子化moduliと区別。全分類完成の入力として機械的に使わない |
+| [Pym, arXiv:1403.6444](https://arxiv.org/pdf/1403.6444), Definition2.8, Proposition2.9, Theorem2.10 | 一般Vの規格化Koszul CY変形芽とunimodular quadratic Poisson scheme、成分の局所比較 | 解析芽の存在をcanonical quantization map、大域stack、今回の実際の比較写像と同一視しない |
+| [Mori–Smith, arXiv:1502.07403v2](https://arxiv.org/pdf/1502.07403v2), Theorem4.2(1) | 滑らかな平面三次からの対称化Jacobian量子代数は3-CY | 相対PBWと5次元ambientへの拡張、指定中心三次対のmoduliを分離して述べる |
+| [Reyes–Rogalski, arXiv:1807.10249v2](https://arxiv.org/pdf/1807.10249v2), Theorem5.15, Lemmas5.9/4.5 | generalized ASとtwisted CYの比較、Nakayamaは中心を固定 | 指定した正規族を保つN周期の構成、可換なd周期とのgcd周期化、相対降下が本稿の組合せ |
+| [Mori–Nyman, regV8](https://faculty.nymana.wwu.edu/regV8.pdf), Theorem4.19; [arXiv:2307.15253](https://arxiv.org/abs/2307.15253) | ASF++と周期的ASF+の関係 | 弱いAS条件と混同しない。gcd対定理の初出は引き続き要確認 |
+| [Sierra, arXiv:math/0608791](https://arxiv.org/pdf/math/0608791), Proposition3.3, Corollary4.4 | principal Z-algebra、compression、Zhang twisting system | 周期の選択・共役・相対降下を別々に記述する |
+| [Rains, arXiv:2107.13540v2](https://arxiv.org/pdf/2107.13540v2), Theorem2.13 | torsion translationの楕円代数のfiltered deformationでは中心もfiltered deformationになる | finite-order境界の入力。一般infinite-orderへそのまま適用しない |
+| [Rennemo–Segal–Van den Bergh, arXiv:1705.01366v2](https://arxiv.org/pdf/1705.01366v2), Proposition2.1, proof(6)–(7) | 有限型可換代数上有限な代数のgeneric smoothnessと相対perfect diagonal | finite-center仮定を供給する。一般AS5やqgrのsmooth proper性への無条件の近道ではない |
+| [KuzHH: Kuznetsov, arXiv:0904.4330](https://arxiv.org/pdf/0904.4330), Theorem8.9 | cubic3の残余圏の全HH^p表 | actual NC residual familyと幾何的変形への全次数写像が新たに必要 |
+| [JLLZ: Jacovskis–Lin–Liu–Zhang, arXiv:2203.08187v3](https://arxiv.org/pdf/2203.08187v3), Theorems3.11 and4.4(2) | 幾何的接写像の同型、γ単射、補正HKRの図式 | 次元一致だけでなくactual mapを使う。形式/代数的な比較の区別を保つ |
+| [Hitchin, arXiv:1008.0973](https://arxiv.org/pdf/1008.0973), §5.3 pp.41–42 | canonical bundleのPoisson module構造とπ⌟c_1(T)=0 | §10.2のTodd補正確認に使う |
+| [Feyzbakhsh–Liu–Zhang, MPIM23-7](https://archive.mpim-bonn.mpg.de/id/eprint/4904/1/mpim-preprint_2023-7.pdf), Theorems1.1/6.2 and1.2/7.1 | 可換del Pezzo三様体のgluing objectとBrill–Noether復元 | 今回の非可換族で接合データが7方向をどう保持するかを調べる |
+| [Matviichuk–Pym–Schedler, arXiv:2411.10425v1](https://arxiv.org/html/2411.10425v1), Introduction, Theorem1.1 | 適切な非退化条件を満たすq-symmetric/toric型から具体的な量子射影空間を作る | rank2 Rat113へ直接適用する定理ではない。有限係数成分構成の方法比較に使う |
+| [Lin–Zhang, arXiv:2611.05915v1](https://arxiv.org/html/2611.05915v1), §2–3 | 幾何的相対admissible圏・perfect kernelを仮定する同値変形。新しいhypersurface Torelliの結果 | 任意のNC familyを幾何的とする定理ではない。今回の代数化入力と混同しない |
+
+近接するfoliation文献とKu変形の文献は、公表用Introductionへ正確に反映する必要がある。今回の方針調査ではノートに必要な識別子・適用範囲を確保した。原稿の既存証明本文や48項目のbibliographyを、監査なしで一括改稿していない。
+
+## 12. 現在の検証範囲と外部課題との境界
+
+現在のsourceを対象に `scripts/verify.py` と主要8計算を実行した。横断sliceの行列式−5538243375000、Rat113の全Poisson接空間37、二因子stabilizer rank48、低次数中心、中心三次式、軌道rank24、分離型codim15を再現した。Rat113・二因子stabilizer・中心対称性の3保存証明書は再生成と一致した。正確なコマンドとhashは `validation.json`。
+
+原稿の骨格、次元議論、periodicity、相対moduliと正則性の引用入力を分担点検した。これは全旧証明の独立再証明ではない。剛体B_*の無限/有限自己同型の主張については、原稿の手計算証明があること、関連orbit計算を再実行したこと、同じ全証明書を独立に再構成したことを分ける。元のArtin節の監査保留表示を、証明不存在または反例と読み替えない。
+
+LuaLaTeXは `lualatex.fmt` 不在で停止。今回のPDF生成・組版・視覚確認は未完了である。
+
+### H3/PI4の関連知識（本研究の定理の入力ではない）
+
+以下は三次曲面側に属する情報であり、本研究の次の作業指示ではない。対応する現行ファイルの所在を移管元 `uedakazushi/nc-cubic-moduli` のcommit `d9070ddd2352f54c1db243be11ec482d062b8a60` で確認した。内容を本研究へ引用して使う時は、仮定・式・証明をその一次ソースから点検する。
+
+- point graphの規約はp yz+q zy−h x²に対する第一行(−hx,qz,py)であり、p,q逆順は逆translationを表す。[verify_cubic_integrated_envelope.py](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/computations/verify_cubic_integrated_envelope.py) が関連する検算である。
+- 固定PI4族の有限Ext判定・48次元sliceは、[cubic_order4_ext_bound.tex](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/papers/sections/cubic_order4_ext_bound.tex) に属する。AS4のCCKM二周期性、次元≤4の単純加群対のExt6/7、中心2パラメータ上のgraded free性と基底次数≤8を用いる。この曲面側のH3判定をAS5三次三様体のsmooth proper性に転用しない。
+- Du Val中心だけではH3の十分条件にならない例を保持する。中心のHessian rank2、核方向cubic零、形式Morseの初項次数4によりA3となる一方、odd Ext1が非H3を検出するという内容は、[cubic_order4_center.tex](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/papers/sections/cubic_order4_center.tex)、[全中心式証明書](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/computations/cubic_order4_center_relation_certificate.json)、[局所検算](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/computations/verify_cubic_order4_bad_center.py) に対応する。
+- 中心式を再構成する際の変換の知識：r1=(g−1)(g²−1)/2、r2=(g²−1)²/2、X_i=r_i Z_i（r3=1）で最高次をΣX_i³+(7g²−13)X1X2X3へ規格化し、pure squareを消すaffine shift後にu=X1+X2,v=X1−X2,z=X3を取ると、4F=f(u,z,D)+v²(3u−(7g²−13)z−B)となる型を使う。特異値はv=0枝と線形係数零の枝へ分け、二変数critical normと線上三次の判別式で調べる。ただし中心特異値とbad Dは同一視しない。関連する[対称中心検算](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/computations/verify_cubic_order4_symmetric_center.py)・[中心critical検算](https://github.com/uedakazushi/nc-cubic-moduli/blob/d9070ddd2352f54c1db243be11ec482d062b8a60/computations/verify_cubic_order4_center_critical.py)を参照する。消失した作業用絶対パスを再開の前提にしない。
