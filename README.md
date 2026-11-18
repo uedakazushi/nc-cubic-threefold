@@ -35,7 +35,7 @@ LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用
 
 ## 関連する独立研究
 
-- [H3非可換三次曲面分類](https://github.com/uedakazushi/nc-cubic-moduli)
+- [H3非可換三次曲面分類](https://github.com/uedakazushi/nc-cubic-classification)
 - [四次元AS正則Z-algebra](https://github.com/uedakazushi/asz4)
 - [非可換三次曲面・中心三次商の研究](https://github.com/uedakazushi/nc-cubic)
 - [P^4のPoisson構造](https://github.com/uedakazushi/poisson-p4)
