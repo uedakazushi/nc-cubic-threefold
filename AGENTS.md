@@ -15,7 +15,7 @@
 3. 必要なJacobian開部分で有限型potential/incidence chart、相対周期降下、局所完全性・成分性を証明する。
 4. 実際の一般点での可換cubic対応と、例外pairとの接合データに残る7方向を調べる。
 
-全AS5/Zモジュライの代数性・開性の全面解決、有限忘却次数の全計算、P3の全分類を上記の前提にしない。H3三次曲面の完全分類は `uedakazushi/nc-cubic-moduli` の別課題。
+全AS5/Zモジュライの代数性・開性の全面解決、有限忘却次数の全計算、P3の全分類を上記の前提にしない。H3三次曲面の完全分類は `uedakazushi/nc-cubic-classification` の別課題。
 
 ## 主張と検証
 
