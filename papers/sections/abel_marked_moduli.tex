@@ -1,0 +1,725 @@
+\section{構造対象だけを標識したAbel圏のモジュライ}
+\label{sec:abel-marked-moduli}
+
+本節では豊富列そのものをモジュライのデータから外し，構造対象だけを残す．
+二次包絡を含む三次性の定義，全ての圏同値を含む射の定義，
+特定の部分族での復元定理を分ける．特に中心の階数条件は，
+可換三次三様体を含む全体の定義には課さない．
+
+\subsection{対象の条件と全ての構造対象付き同値}
+\label{subsec:abel-cubic-definition}
+
+\begin{definition}[構造対象付き三次Abel圏]
+\label{def:abel-cubic-pointed}
+体$k=\C$上で，$(\mathcal C,\OO)$が\emph{構造対象付き三次Abel圏}であるとは，
+$\mathcal C$が$k$-線型noetherian Abel圏であり，$E_0\simeq\OO$を満たす
+豊富列$(E_i)_{i\in\mathbb Z}$で，次の条件を満たすものが\emph{存在する}ことをいう．
+そのsection $\mathbb Z$-代数は，第\ref{sec:intrinsic-cubic}節の
+三次データの条件を満たし，かつ第\ref{sec:categorical-moduli-comparison}節の
+saturationと復元の条件を満たす．すなわち，標準Hilbert関数を持つ
+次数一生成の代数で，二次包絡は標準Koszul AS正則次元$5$，
+その核は左右正則な正規三次族である．
+
+1射は任意の$k$-線型完全同値$F:\mathcal C\to\mathcal C'$と同型
+$\alpha:F(\OO)\xrightarrow{\sim}\OO'$の組であり，
+2射は$\beta\eta_{\OO}=\alpha$を満たす自然同型$\eta:F\Rightarrow G$とする．
+豊富列の選択や次数一の自己同値は対象にも射にも指定しない．
+\end{definition}
+
+例えば滑らかな三次三様体$X\subset\PP^4$は
+$(\operatorname{coh}X,\OO_X)$としてこのクラスに入る．
+豊富列は$E_i=\OO_X(-i)$，二次包絡は五変数多項式環の
+$\mathbb Z$-代数である．一方，定義\ref{def:categorical-three-moduli}の
+$\mathfrak M^{\mathrm{pt}}$は対象列自体をまだ記憶している．
+この違いのため，列を忘れる射の像に，列保存の射だけを入れてはならない．
+定義\ref{def:abel-cubic-pointed}は対象の条件を満たす圏の間の
+\emph{全て}の構造対象付き完全同値を採用する．
+
+相対版では第\ref{sec:categorical-moduli-comparison}節と同じく，
+相対Hom，底変更，線束とのテンソル積，およびその整合性を備える圏の族を使う．
+fpqc局所で上記の相対$qgr$/$QGr$模型を持ち，sectionのsaturationと復元が
+指定した全ての底変更後に成立することを要求する．このような模型の間の
+全ての構造対象付き相対完全同値を射として，Hom群oidの同型類を取り，
+fpqc stack化したものを$\mathfrak M^{\OO}_{\mathrm{cub}}$と書く．
+この構成は相対模型の条件と底変更構造を明示したモジュライ問題であり，
+任意の抽象Abel圏に底変更を無条件に定義する定理ではない．
+有限型atlas，対角の代数性，smooth proper locusの開性は，定義により従うものではない．
+特に非正則Artin基底上のAS正則性には，
+定理\ref{thm:abel-relative-as-lift}で明示する相対解消と両側AS双対を用い，
+基底を含めた絶対的大域次元の有限性を要求しているのではない．
+
+実際，任意の許容な豊富列について$\End(E_i)=\OO_T$であり，
+隣接Homは正の階数の局所自由層である．自然自己変換の$E_i$上のスカラーは
+隣接Homの忠実性により全て等しく，豊富性から圏全体の変換を決定する．
+従って$\OO=E_0$上で恒等である2自己同型は自明である．
+このことが，上記の構造対象付き問題を通常の1-stackとして扱う理由である．
+体上の同じ議論は補題\ref{lem:abel-pointed-scalar-center}に記す．
+
+\begin{remark}[全Abel変形と三次表示の本質像]
+\label{rem:abel-cubic-essential-image}
+滑らかな可換三次点の\emph{全ての}平坦Abel変形を扱う関手と，
+$\mathfrak M^{\OO}_{\mathrm{cub}}$のその点での形式完備化は，
+現時点では同一と証明されていない．
+第\ref{sec:abel-formal-cubic}節は，全Abel変形をsection $\mathbb Z$-代数の
+全Artin変形と比較する．二次包絡の全次数平坦性は未証明であり，
+その平坦性が得られれば相対AS性は定理\ref{thm:abel-relative-as-lift}から従う．
+従って，全Abel変形の比較を三次incidenceの局所完全性と
+読み替えることはできない．この本質像の同定が残る核心である．
+\end{remark}
+
+\subsection{中心二変数を持つ族の偶数Veronese復元}
+\label{subsec:abel-relative-veronese}
+
+本節は中心Jacobian型のうち低次中心を制御できる部分に関する相対定理である．
+三次商の可換点では次数二中心の次元は$15$であり，以下の階数$3$の条件を満たさない．
+従って，本節の条件が可換点の近傍を含むことは主張しない．
+中心条件については下の有限rank命題が開条件を与えるが，
+他の許容条件の開性まで同時に従うものではない．Abel圏との比較に必要な
+相対section algebraのsaturationやSerre関手の底変更は，本節の代数的主張とは別の入力である．
+
+\begin{definition}[普遍的な中心二変数条件]
+\label{def:abel-two-center-family}
+$T$を$\C$上のスキームとする（特に$2$は可逆である）．非負次数付き
+$\mathcal O_T$-代数$A=\bigoplus_{n\geq0}A_n$が本節の許容条件を満たすとは，
+次を満たすことをいう．
+\begin{enumerate}
+\item $A_0=\mathcal O_T$であり，各$A_n$は有限階数局所自由である．
+\item 階数$2$のベクトル束$E\subset A_1$が中心に含まれ，積は単射
+  $P:=\operatorname{Sym}_{\mathcal O_T}E\hookrightarrow A$を与える．
+  $A$は$P$加群として平坦である．
+\item 任意の$T'\to T$について
+  \begin{equation}\label{eq:abel-universal-center-two}
+    Z(A_{T'})_2=\operatorname{Sym}^2 E_{T'}
+       \ \subset (A_{T'})_2
+  \end{equation}
+  が成り立つ．ここで左辺は底変更後の代数で中心を取り直したものとする．
+\end{enumerate}
+中心の形成が底変更と自動的に可換であると仮定したのではなく，
+式\eqref{eq:abel-universal-center-two}を非平坦な底変更も含めて要求している．
+$P$上の自由性は十分条件だが，以下の証明では平坦性だけを用いる．
+\end{definition}
+
+\begin{lemma}[中心多項式環の埋込みは普遍的である]
+\label{lem:abel-universal-polynomial-embedding}
+$K$を任意の可換環，$P=K[u,v]$を標準次数付き多項式環とする．
+$A$は非負次数付きの単位的$P$-代数で，$A_0=K$であり，
+$A$が$P$加群として平坦であるとする．このとき$P\to A$は単射であり，
+任意の$K\to K'$による底変更後にも単射である．
+\end{lemma}
+\begin{proof}
+核は斉次イデアルなので，像が零となる斉次元$p\in P$を取る．
+$P$平坦性を列
+\[
+ 0\longrightarrow\operatorname{Ann}_P(p)\longrightarrow P
+          \xrightarrow{p}P
+\]
+に適用すると，$p\cdot1_A=0$から
+$1_A\in\operatorname{Ann}_P(p)A$を得る．
+$p$は斉次なので$\operatorname{Ann}_P(p)$も斉次である．
+非負次数と$A_0=K$を用いてこの等式の次数零成分を取ると，
+$1\in\operatorname{Ann}_P(p)_0$となる．従って$p=0$である．
+底変更後も$A\otimes_KK'$は$P\otimes_KK'$上平坦であり，
+非負次数と次数零の条件を保つので，同じ議論を適用できる．
+階数二の束の対称代数についても，局所基底を取れば同じ結論を得る．
+\end{proof}
+
+\begin{proposition}[二次中心の普遍性を保証する有限rank条件]
+\label{prop:abel-center-rank-open}
+$A$は次数一生成で，$A_1,A_2,A_3$が有限階数局所自由とする．
+中心に含まれる階数$2$の束$E\subset A_1$を取り，
+$\operatorname{Sym}^2E\to A_2$は階数$3$の部分束と仮定する．
+交換子写像は
+\begin{equation}\label{eq:abel-center-commutator-map}
+ \overline c:A_2/\operatorname{Sym}^2E
+     \longrightarrow\mathcal Hom_{\mathcal O_T}(A_1,A_3),
+ \qquad \overline z\longmapsto(a\longmapsto za-az)
+\end{equation}
+を定める．$\overline c$が幾何学的ファイバー上で単射となる点の集合$T^\circ$は開である．
+この開集合上では\eqref{eq:abel-universal-center-two}が任意の底変更後に成り立つ．
+\end{proposition}
+\begin{proof}
+始項と終項は有限階数局所自由なので，局所行列の最大小行列式の非消滅が
+$T^\circ$を定める．その上で$\overline c$は局所分裂した単射となり，
+余商も局所自由である．従って任意の底変更後も単射である．
+また$\operatorname{Sym}^2E\subset A_2$は部分束なので，その核の形成も底変更と両立する．
+次数一生成により，二次元が代数全体と可換であることは$A_1$と可換であることと同値である．
+従って底変更後も交換子写像の核はちょうど$\operatorname{Sym}^2E$となる．
+\end{proof}
+
+この命題は，中心条件をある具体的な有限係数族のrank-minor開部分で確認する方法を与える．
+その開集合の非空性，$\operatorname{Sym}E$上の平坦性，tailsの正則性，
+dg smooth proper性は別の確認を要する．可換三次点では二次中心は階数$15$なので，
+この最大rank開部分には含まれない．
+
+$R=A^{(2)}$，$D=P^{(2)}$と置き，$R_n=A_{2n}$，$D_n=P_{2n}$と次数を付ける．
+以下の$\underline{\operatorname{Isom}}_{\mathrm{gr},T}$は，
+$T$上のfpqc層としての次数付き代数同型層を意味する．
+
+\begin{lemma}[低次中心の内在性と普遍的な交差表示]
+\label{lem:abel-universal-center-and-cech}
+定義\ref{def:abel-two-center-family}の条件の下で，任意の底変更後に
+\begin{equation}\label{eq:abel-intrinsic-center}
+ Z(A)_1=E,\qquad Z(R)_1=P_2,\qquad
+ D=\langle Z(R)_1\rangle_{\mathrm{alg}}
+\end{equation}
+となる．さらに$E$を局所的に$u,v$で自明化すると，
+\begin{equation}\label{eq:abel-universal-intersection}
+ A=A[u^{-1}]\cap A[v^{-1}]
+       \quad\text{in }A[(uv)^{-1}]
+\end{equation}
+が成り立ち，この表示は任意の底変更後にも成立する．
+\end{lemma}
+\begin{proof}
+$P=K[u,v]$となる基底のaffine開集合上で証明する．
+$A$の$P$平坦性から，$u,v,uv$による乗法は単射である．
+$z\in Z(A)_1$なら，$uz,vz\in P_2$であり，$u(vz)=v(uz)$を満たす．
+二次式の係数を比較すると，ある$\ell\in P_1$について$uz=u\ell$となる．
+$u$を消去すれば$z=\ell$であり，$Z(A)_1=E$を得る．
+
+$z\in Z(R)_1$とし，$a\in A$を斉次元とする．
+$a$が偶数次数なら$[z,a]=0$である．奇数次数なら$ua\in R$なので，
+$u[z,a]=[z,ua]=0$となり，再び$u$を消去できる．
+従って$Z(R)_1=Z(A)_2=P_2$である．$P^{(2)}$は$P_2$で生成されるので
+最後の等式も従う．
+
+Laurent単項式の係数比較により
+\[
+ 0\longrightarrow P\longrightarrow P[u^{-1}]\oplus P[v^{-1}]
+       \longrightarrow P[(uv)^{-1}]
+\]
+は最初の二つの非零項で完全である．最後の射の全射性は必要ない．
+これを平坦な$P$加群$A$とテンソルすれば
+\eqref{eq:abel-universal-intersection}を得る．
+$P$平坦性は基底変更で保たれ，中心の条件も普遍的に課しているため，
+同じ議論は任意の$T'\to T$上で成立する．
+\end{proof}
+
+\begin{lemma}[二次Veronese錐の同型の持上げ]
+\label{lem:abel-relative-conic-lift}
+階数$2$のベクトル束$E,E'$に対し，
+$P=\operatorname{Sym}E$，$P'=\operatorname{Sym}E'$，
+$D=P^{(2)}$，$D'=(P')^{(2)}$と置く．制限射
+\begin{equation}\label{eq:abel-conic-isom-torsor}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(P,P')
+  \longrightarrow
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(D,D')
+\end{equation}
+は$\mu_{2,T}$-torsorである．すなわち，右辺の任意の$T'$上の同型の
+持上げ層は，$T'$上の有限\'etaleな$\mu_2$-torsorで表される．
+\end{lemma}
+\begin{proof}
+ベクトル束を局所的に自明化する．
+$\operatorname{Proj}D$は$\mathbb P^1$であり，その$\mathcal O(1)$は
+$\mathbb P^1$上の$\mathcal O(2)$である．$D\simeq D'$はこの偏極付き射影直線の同型を誘導する．
+射影直線の自己同型層が$\operatorname{PGL}_2$であることにより，
+fpqc局所でこの射影同型をある$M:E\simeq E'$へ持ち上げられる．
+この事実は非被約な試験基底も含む関手の等式である．
+基礎体上の任意の代数についての直接証明は
+\href{https://www.jmilne.org/math/Books/iAG2022.pdf}
+{Milne, \emph{Algebraic Groups}, Proposition~20.7}を参照されたい．
+
+$\operatorname{Sym}^{\mathrm{even}}M$を取り除いた差は射影直線上で恒等である．
+従って偏極$\mathcal O(2)$上の自己同型は基底のある単元$c$による乗法であり，
+対応する$D_n$上の作用は$c^n$である．ここでは
+$D_n\simeq p_*\OO_{\mathbb P(E)}(2n)$が任意の底変更と両立することを使う．
+従って非被約基底でも，射影化で見えない低次数の作用が残ることはない．
+有限\'etale被覆$z^2=c$を取って$M$を$zM$へ置き換えれば，
+与えられた$D$の同型そのものを持ち上げる．平方根被覆の忠実平坦性と\'etale性は
+\href{https://stacks.math.columbia.edu/tag/03PK}
+{Stacks Project, Section~59.28, Lemma~59.28.1}のKummer計算である．
+
+二つの持上げの差は射影化で恒等なのでスカラー$\lambda$であり，
+偶数次数上で恒等であることは$\lambda^2=1$と同値である．
+従って持上げ層は$\mu_2$の単純推移的作用を持ち，局所的に非空である．
+$\mu_2$は有限\'etaleなので，降下によりこのtorsorも有限\'etaleで表される．
+\end{proof}
+
+\begin{theorem}[相対偶数Veronese復元と同型層]
+\label{thm:abel-relative-veronese-isom}
+$A,A'$は定義\ref{def:abel-two-center-family}の許容族とし，
+対応する環を$P,P',R,R',D,D'$と書く．制限は標準同型
+\begin{equation}\label{eq:abel-veronese-cartesian}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(A,A')
+ \simeq
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(R,R')
+ \mathop{\times}_{\underline{\operatorname{Isom}}_{\mathrm{gr},T}(D,D')}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(P,P')
+\end{equation}
+を与える．特に
+\begin{equation}\label{eq:abel-veronese-mu-two}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(A,A')
+   \longrightarrow
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(R,R')
+\end{equation}
+は$\mu_2$-torsorである．その作用は，偶数次数で恒等，奇数次数で
+$\epsilon\in\mu_2$を掛ける自己同型との合成である．
+全構成は任意の底変更と両立する．
+\end{theorem}
+\begin{proof}
+補題\ref{lem:abel-universal-center-and-cech}から，$A$の同型は$P$を，
+$R$の同型は$D$を必ず保存する．従って制限射は内在的に定まる．
+
+$\phi:R\simeq R'$と，その$D$上の制限を持ち上げる
+$\beta:P\simeq P'$を与える．$E$の局所基底を$u,v$とする．
+$R,D$の次数を二倍して元の次数に戻すと，積は標準同型
+\begin{equation}\label{eq:abel-localized-veronese}
+ R[(u^2)^{-1}]
+    \otimes_{D[(u^2)^{-1}]}P[u^{-1}]
+       \xrightarrow{\sim} A[u^{-1}]
+\end{equation}
+を与える．実際，$P[u^{-1}]$は$D[(u^2)^{-1}]$上で基底$1,u$を持ち，
+$A[u^{-1}]$の偶数部分は$R[(u^2)^{-1}]$，奇数部分はその$u$倍である．
+後者は奇数斉次元$a$について$a/u=(ua)/u^2$と書けば分かる．
+中心性によりこの加群分解は表示した代数同型を与える．$v$についても同様である．
+
+式\eqref{eq:abel-localized-veronese}と$\phi,\beta$から，
+$A[u^{-1}]\simeq A'[\beta(u)^{-1}]$および
+$A[v^{-1}]\simeq A'[\beta(v)^{-1}]$を得る．
+重なり上では同じ$\phi,\beta$から作った写像なので一致する．
+$\beta(u),\beta(v)$は$E'$の基底であり，
+式\eqref{eq:abel-universal-intersection}を両辺に適用すれば
+一意な$A\simeq A'$へ制限される．逆向きも同様である．
+これで\eqref{eq:abel-veronese-cartesian}を得た．
+
+制限射\eqref{eq:abel-veronese-mu-two}は
+\eqref{eq:abel-conic-isom-torsor}の底変更なので$\mu_2$-torsorである．
+中心一次元を$\epsilon$倍すると，偶数部分を固定した持上げは奇数部分を
+$\epsilon$倍する．各局所化・テンソル積は底変更に可換であり，
+交差の表示は普遍的に完全な列から得られたので，底変更との両立も従う．
+\end{proof}
+
+\begin{corollary}[次数スカラーを除いた同型層]
+\label{cor:abel-projective-veronese-isom}
+定理\ref{thm:abel-relative-veronese-isom}の条件の下で，
+次数スカラーを除いたfpqc商層に標準同型
+\begin{equation}\label{eq:abel-projective-isom-sheaf}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(A,A')/\mathbb G_m
+   \xrightarrow{\sim}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(R,R')/\mathbb G_m
+\end{equation}
+がある．左の$\lambda$は$A_n$に$\lambda^n$を掛け，
+右の$c$は$R_n$に$c^n$を掛ける．従って制限上のスカラー写像は
+$\lambda\mapsto\lambda^2$である．
+\end{corollary}
+\begin{proof}
+前定理により局所全射である．二つの$A$の同型の偶数制限が
+右辺の次数スカラー$c$だけ異なるとき，fpqc局所で$\lambda^2=c$を選ぶ．
+左辺で$\lambda$の次数スカラーを合成すれば偶数制限は一致し，
+残る差は前定理の$\mu_2$である．これも左辺の次数スカラーに含まれる．
+従ってfpqc商層では単射でもある．
+\end{proof}
+
+\begin{remark}[同型と対象の降下障害を区別する]
+\label{rem:abel-veronese-descent-obstruction}
+固定した$R\simeq R'$の持上げ層は$\mu_2$-torsorなので，
+その大域持上げの障害は$H^1_{\mathrm{fppf}}(T,\mu_2)$の類である．
+一つの大域持上げがあれば全持上げは$\mu_2(T)$のtorsorになる．
+従って「持上げが正確に二つ」という表現は代数閉体上の一点では正しいが，
+一般の基底では大域切断が存在しないことも，非連結性により二つより多いこともある．
+
+一方，局所的に許容族の偶数部分として表示される$R$について，
+$A$そのものを大域的に貼り合わせる問題は別である．
+局所持上げを対象，$R$上で恒等となる同型を射とするfpqc stackは
+$\mu_2$でbandされたgerbeであり，対象の降下障害は
+$H^2_{\mathrm{fppf}}(T,\mu_2)$に置かれる．
+これは三重の重なり上で持上げ同型のcocycle条件のずれが$\mu_2$に入るという，
+gerbeの標準的な降下障害である
+（\href{https://stacks.math.columbia.edu/tag/0CJZ}{Stacks Project, Section~21.11}参照）．
+局所的に二次Veronese錐である中心が，大域的にも
+ある階数$2$の束$E$の$\operatorname{Sym}^{\mathrm{even}}E$であるとは限らない．
+射影二次曲線束のBrauer障害や，偏極に含まれる基底の線束の平方根の障害を
+省略してはならない．
+本系から得られるのは次数スカラー商の\emph{層}の同型であり，
+大域代数模型の存在やAbel圏の自然同型による商との一致は別に確認する．
+\end{remark}
+
+\begin{example}[複素基底でも大域持上げがない同型]
+\label{ex:abel-veronese-nonsquare}
+$K=\mathbb C[t,t^{-1}]$，$A=K[u,v]$，$R=A^{(2)}$とする．
+$R_n$上で$t^n$を掛ける次数付き自己同型を考える．
+これを$A$へ持ち上げる行列$M\in\operatorname{GL}_2(K)$があれば，
+その射影化は恒等なので$M=\lambda I$であり，$\lambda^2=t$を要する．
+しかし$K^\times=\mathbb C^\times t^{\mathbb Z}$にそのような$\lambda$はない．
+持上げは有限\'etale被覆$z^2=t$の後に存在する．
+これは三次三様体の例ではなく，中心二変数の持上げに現れる降下障害の最小例である．
+同じ問題は任意の許容な定数族の偶数部分に次数スカラー$t$を作用させても現れる．
+\end{example}
+
+\begin{remark}[相対Serre軌道環への適用範囲]
+\label{rem:abel-relative-serre-line-twist}
+相対Serre関手が$\mathsf S\simeq(-2)\otimes L[3]$と，
+基底の直線束$L$を伴う場合には，$\mathsf H=\mathsf S^{-1}[3]$による軌道環は
+$\bigoplus_{n\geq0}A_{2n}\otimes L^{-n}$となり得る．
+この場合は$L$を局所自明化して上の定理を適用し，
+直線束の捩れと次数スカラーの降下を別に扱う必要がある．
+この式には，相対Serre双対・section algebraのsaturation・Homの底変更という
+追加の仮定が必要であり，本節の代数的復元定理から自動的には従わない．
+\end{remark}
+
+\subsection{構造対象を保つAbel圏同値の全射と自然同型}
+\label{subsec:abel-pointed-field-hom}
+
+本小節では基礎体を$k=\C$とする．
+対象$(\mathcal C,\OO)$の間の\emph{構造対象付きAbel圏同値}とは，
+$k$-線型完全同値$F:\mathcal C\to\mathcal C'$と同型
+$\alpha:F(\OO)\xrightarrow{\sim}\OO'$の組をいう．
+$(F,\alpha)$から$(G,\beta)$への射は自然同型$\eta:F\Rightarrow G$で
+$\beta\eta_{\OO}=\alpha$を満たすものとする．
+この群oidを$\operatorname{Eq}_{\OO}(\mathcal C,\mathcal C')$と書く．
+以下の仮定は比較定理の適用範囲を指定するものであり，
+非可換三次三様体全体の定義に中心の次元条件を課すものではない．
+
+\begin{lemma}[豊富な偶数列によるスカラー中心の認識]
+\label{lem:abel-pointed-scalar-center}
+$\mathcal C$内の豊富列$(E_i)_{i\in\mathbb Z}$が
+$\End(E_i)=k$，$\Hom(E_{i+1},E_i)\ne0$を満たすとする．
+このとき$\operatorname{Nat}(\operatorname{Id}_{\mathcal C},
+\operatorname{Id}_{\mathcal C})=k$であり，
+$\OO=E_0$とした構造対象付き圏同値の2自己同型は自明である．
+\end{lemma}
+\begin{proof}
+自然変換$\eta$は$E_i$上でスカラー$\lambda_i$として作用する．
+非零の隣接Homに自然性を適用すると$\lambda_i=\lambda_{i+1}$となる．
+任意の対象への豊富列の有限直和からの全射を用いると，
+$\eta$はこの共通スカラーの恒等変換に等しい．
+圏同値$F$の自然自己変換にも準逆を合成して同じ議論を適用できる．
+$\OO$の指定された同定を保つという条件はスカラーを$1$に固定する．
+\end{proof}
+
+正の次数付き代数$A$に対し，$\varepsilon_\lambda$で
+次数$m$上に$\lambda^m$を掛ける\emph{次数スカラー}を表す．
+これは構造対象を保つ恒等tails関手と自然同型な関手を誘導する．
+従って次数スカラーは，厳密な代数自己同型としては非自明でも，
+構造対象付きAbel圏同値の2同型類では自明となる．
+
+\begin{theorem}[構造対象付きAbel圏のHom群oid]
+\label{thm:abel-pointed-field-hom}
+$A,A'$をconnected，局所有限，次数一生成の右noetherian次数付き
+$k$-代数とし，$\mathcal C_A=\qgr A$，$\OO_A=\pi A$と置く．
+両方について次を仮定する．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 標準section写像
+\[
+ A_m\longrightarrow\Hom_{\mathcal C_A}(\OO_A,\OO_A(m))
+\]
+はすべての整数$m$で同型である．ただし$m<0$では$A_m=0$とする．
+偶数列$(\OO_A(-2i))_{i\in\mathbb Z}$は豊富で，$A_2\ne0$とする．
+\item $D^b(\mathcal C_A)$はHom有限でSerre双対を持ち，そのSerre関手に
+三角関手の同型$\mathsf S_A\simeq(-2)[3]$が存在する．
+この同型の選択をモジュライの標識には含めない．
+\item $R=A^{(2)}$，$R'=(A')^{(2)}$について，制限写像
+\[
+ \operatorname{Isom}_{\rm gr}(A,A')
+ \longrightarrow\operatorname{Isom}_{\rm gr}(R,R')
+\]
+は全射で，各fiberは$\varepsilon_{-1}$の作用に関する
+$\mu_2(k)$-torsorである．
+\end{enumerate}
+すると，構造移送は標準的な全単射
+\begin{equation}\label{eq:abel-pointed-hom-quotient}
+ \operatorname{Isom}_{\rm gr}(A,A')/k^\times
+ \xrightarrow{\sim}
+ \pi_0\operatorname{Eq}_{\OO}(\mathcal C_A,\mathcal C_{A'})
+\end{equation}
+を与える．左辺の$k^\times$は次数スカラーの合成によって作用する．
+右辺の各Hom群oidは離散群oidに同値であり，
+同じ左辺の類を与える二つの構造移送の間には，
+構造対象の同定を保つ自然同型が一意に存在する．
+これらの全単射は同値の合成と両立する．
+特に
+\begin{equation}\label{eq:abel-pointed-aut-quotient}
+ \operatorname{Aut}_{\OO}(\mathcal C_A)
+ \simeq \operatorname{Aut}_{\rm gr}(A)/k^\times.
+\end{equation}
+\end{theorem}
+\begin{proof}
+まず$k$-線型Abel圏同値は完全なので，項ごとに適用することにより
+有界導来圏の同値を誘導する．Serre双対の表現可能性とYonedaの一意性により，
+この導来同値はSerre関手と整合的に可換する
+（\cite[Lemma~57.3.5, Tag~0FY3]{StacksAbel}）．
+ここで用いる一意性は双対同型を備えたSerre関手の一意性であり，
+自己同値としての同型の任意の選択を一意と主張するものではない．
+
+$H_A=\mathsf S_A^{-1}[3]$と置く．仮定\textup{(ii)}により
+$H_A\simeq(2)$であり，$H_A$は標準heartを保つ．
+同型$H_A\simeq(2)$と$H_{A'}\simeq(2)$を一時的に選ぶ．
+構造対象付き同値$(F,\alpha)$は，Serre関手との可換同型とその反復から
+軌道環の次数付き同型
+\begin{align*}
+ \phi_R:R
+ &\simeq\bigoplus_{n\ge0}
+       \Hom(\OO_A,H_A^n\OO_A)\\
+ &\xrightarrow{\sim}\bigoplus_{n\ge0}
+       \Hom(\OO_{A'},H_{A'}^n\OO_{A'})
+ \simeq R'
+\end{align*}
+を誘導する．同じ可換同型を反復して用いるため，この写像は積を保つ．
+負の冪も用いれば，偶数豊富列のすべての相対Homにおける写像が定まる．
+仮定\textup{(i)}と豊富列による復元により，これらのHomと合成上の作用は
+$F$と構造対象上の同定$\alpha$を自然同型まで決定する．
+
+仮定\textup{(iii)}で$\phi_R$を$\phi_A:A\xrightarrow{\sim}A'$へ持ち上げる．
+$\phi_A$の構造移送は偶数豊富列のsection代数に$\phi_R$として作用する．
+従って豊富列の復元定理により，その構造移送は$(F,\alpha)$へ自然に同型となる．
+これで\eqref{eq:abel-pointed-hom-quotient}の全射性を得る．
+
+次に核を計算する．二つの代数同型を比較するには，一方の逆と合成して，
+$\phi\in\operatorname{Aut}_{\rm gr}(A)$の構造移送が
+構造対象付き恒等関手へ自然同型である場合を考えればよい．
+構造移送による$\OO_A(-2i)$の標準同定の下で，その自然同型は
+$\OO_A(-2i)$上で$\lambda_i\in k^\times$として作用し，$\lambda_0=1$である．
+$\Hom(\OO_A(-2i-2),\OO_A(-2i))=A_2$上の自然性は
+\[
+ \lambda_i\phi(a)=\lambda_{i+1}a\qquad(a\in A_2)
+\]
+を与える．従って$\phi|_{A_2}=c\operatorname{Id}$となる
+$c\in k^\times$が存在する．$A$は次数一生成なので$R$は次数一生成であり，
+$\phi|_{A_{2n}}=c^n\operatorname{Id}$である．
+$b^2=c$を満たす$b\in k^\times$を選ぶと，
+$\varepsilon_b^{-1}\phi$の$R$への制限は恒等である．
+仮定\textup{(iii)}により$\varepsilon_b^{-1}\phi$は
+$1$または$\varepsilon_{-1}$である．従って$\phi$は次数スカラーである．
+逆に次数スカラーの構造移送は，次数ごとのスカラーによる自然同型により
+構造対象付き恒等関手となる．これで単射性を得る．
+
+最後に，仮定\textup{(i)}の偶数列は
+補題\ref{lem:abel-pointed-scalar-center}の仮定を満たす．
+従って構造対象付き1射の2自己同型は自明であり，
+存在する自然同型は一意である．合成との両立は構造移送の合成から従う．
+\end{proof}
+
+\begin{remark}[Serre同定の選択と次数スカラー]
+\label{rem:abel-pointed-serre-normalization}
+上の証明で$H_A\simeq(2)$の選択を変更する場合，その差は
+$(2)$の自然自己同型である．補題\ref{lem:abel-pointed-scalar-center}により
+それは一つのスカラーであり，$n$回の反復においてその$n$乗として作用する．
+従って誘導される偶数軌道環の同型の変化は次数スカラーに限られる．
+二つの平方根による持上げの差$\varepsilon_{-1}$も，
+全次数スカラー$k^\times$の部分群である．
+したがって\eqref{eq:abel-pointed-hom-quotient}はこれらの選択に依存しない．
+これは，厳密なSerre双対と両立する軌道環同型の正規化を，
+任意の次数付き同型と無条件に一致させるという主張ではない．
+また，固定した偶数環上の$\mu_2$持上げtorsorを，
+構造対象付きAbel圏の追加の2慣性と解釈してはならない．
+\end{remark}
+
+\begin{remark}[中心二変数を持つ三次族への適用範囲]
+\label{rem:abel-pointed-central-chart}
+仮定\textup{(iii)}は，中心一次元$u,v$による$k[u,v]$上の平坦性と
+$Z(A)_2=\operatorname{Sym}^2(ku\oplus kv)$などを仮定した
+定理\ref{thm:abel-relative-veronese-isom}の体上の特殊化から得られる．
+従って本定理は，これらの仮定，saturation，Serre双対を満たす
+中心Jacobian型三次商について，既存の同型類の復元を射と自然同型まで強める．
+一方，滑らかな可換三次三様体の座標環では
+$Z(A)_2=A_2$は15次元であり，この3次元中心の条件は成立しない．
+従ってこの条件を全三次三様体の内在的定義に採用したり，
+可換点を含む開近傍で自動的に成立するとしたりしない．
+一般の正規三次商，標識を忘れたAbel圏，任意の基底上での相対的な同値，
+代数的atlasの存在は，本定理の結論に含まれない．
+\end{remark}
+
+\subsection{構造対象付きAbel圏との相対比較：仮定を明示した形}
+\label{subsec:abel-relative-categorical-hom}
+
+相対偶数Veronese定理は代数の同型層についての結果である．
+これをAbel圏の族の同値へ移すため，ここでは必要な相対圏論の入力を明記する．
+この小節では有限型$\C$-スキームとfppf位相を用いる．
+これは局所Artin $\C$-代数のスペクトルを含み，ファイバー積で閉じている．
+第\ref{subsec:abel-relative-veronese}小節の代数的復元定理の任意の基底に対するfpqc主張を弱めるものではない．
+
+$T$を有限型$\C$-スキーム，$A,A'$を
+定義\ref{def:abel-two-center-family}の条件を満たす族とする．
+以下の条件は両方の族について，任意の有限型$\C$-スキーム$U\to T$の後に課す．
+局所的には$U=\operatorname{Spec}R$として記述する．
+\begin{enumerate}[label=\textup{(C\arabic*)}]
+\item $\mathcal C_U=\operatorname{QGr}(A_U)$は$R$-線型locally noetherian
+Grothendieck圏で，構造対象$\OO_U$と次数捩れを持つ．
+これらの相対模型は，基底変更の合成に関する整合性とfppf降下を備える．
+完全同値・自然同型についてもこの相対構造を使う．
+従って，ここでいう族の同値には，さらなる基底変更との両立を含める．
+\item 任意の整数$m$について，標準写像
+\[
+ (A_U)_m\xrightarrow{\sim}
+ \mathcal Hom_{\mathcal C_U}(\OO_U,\OO_U(m))
+\]
+は同型であり，任意の有限型基底変更と両立する．
+偶数列$E_i=\OO_U(-2i)$は豊富で，そのsection関手は
+$\mathcal C_U$と$\operatorname{QGr}(A_U^{(2)})$との復元同値を与える．
+この同値は基底変更に自然とし，偶数列上のHomと合成への作用は
+完全同値を自然同型まで決定すると仮定する．
+最後の条件は，ファイバーごとの豊富性だけから結論せず，
+第\ref{sec:categorical-moduli-comparison}節の相対復元の入力として課す．
+\item 導来圏には$\mathcal C_U$の複体から得られる標準dg enhancementを用いる．
+$\mathcal P_U$を，コホモロジーが有界かつnoetherianで，
+$R$上のTor振幅が有限な複体からなるfull dg部分圏とする．
+ここでTor振幅は，$\mathcal C_U$の標準的な$R$-加群作用を用いた
+$M\otimes_R^{\mathbf L}K$のコホモロジーの消滅で定義する．
+すべての$E_i$は$\mathcal P_U$に含まれ，この部分圏と相対RHomは
+指定した基底変更と両立すると仮定する．
+\item $\mathcal P_U$の二対象間の相対RHomは$R$-perfectであり，
+整合的な相対Serre双対
+\[
+ \operatorname{RHom}_R
+ \bigl(\operatorname{RHom}_{\mathcal C_U}(K,L),R\bigr)
+ \simeq
+ \operatorname{RHom}_{\mathcal C_U}(L,\mathsf S_U K)
+\]
+を持つ．この双対と$\mathsf S_U$は基底変更と両立する．
+fppf局所で，$\mathcal P_U$上の関手として
+$\mathsf S_U\simeq(-2)[3]$となる．この表示の選択を標識には含めない．
+\end{enumerate}
+
+条件\textup{(C3)}で相対perfect部分圏を内在的に指定した理由は，
+すべてのAbel圏同値がこの部分圏を保存することを保証するためである．
+単に何らかのenhancementが存在してその上にSerre関手がある，という条件だけでは，
+任意のAbel圏同値をそのenhancementへ持ち上げる根拠にはならない．
+
+\begin{lemma}[完全線型同値と相対perfect部分圏]
+\label{lem:abel-equivalence-preserves-relative-perfect}
+上の標準dg enhancementと相対perfect部分圏を用いると，
+完全$R$-線型Abel圏同値$F:\mathcal C_U\to\mathcal C'_U$は
+$\mathcal P_U\simeq\mathcal P'_U$を誘導し，相対RHomを保つ．
+従って相対Serre双対と両立する同型
+$F\mathsf S_U\simeq\mathsf S'_U F$を持つ．
+\end{lemma}
+\begin{proof}
+圏同値は任意の直和と余核を保ち，$R$-線型性により
+$F(M\otimes_R N)\simeq M\otimes_R F(N)$となる．
+自由$R$-加群による解消を用いると，この同型は導来テンソル積にも延びる．
+$F$は完全なのでコホモロジーを保ち，有限Tor振幅を保存する．
+noetherian対象も，部分対象の昇鎖という圏論的特徴付けにより保存する．
+よって$F$は$\mathcal P_U$を$\mathcal P'_U$へ送る．
+準逆にも同じ議論を適用して同値を得る．
+
+$F$を複体に項ごとに適用すると標準導来enhancementのdg同値を得る．
+また$F$は単射対象を保つので，単射解消による計算から
+相対RHomを$R$-複体として保つ．
+従って$F\mathsf S_U$と$\mathsf S'_U F$は同じ相対双対RHom関手を表現する．
+双対同型を備えた表現のYoneda一意性により所望の同型を得る．
+この一意性により，同値の合成と基底変更にも整合する．
+\end{proof}
+
+$\underline{\operatorname{Eq}}_{\OO,T}(A,A')$で，
+相対完全線型同値$F$と$\alpha:F(\OO)\simeq\OO'$の組を，
+$\alpha$と両立する自然同型で割ったもののfppf層を表す．
+これは射の同定を忘れる際に，\emph{すべての対象列の保存を条件として残した}
+第\ref{sec:categorical-moduli-comparison}節の一点付き比較とは異なる．
+ここでは最初に要求するのは構造対象の保存だけであり，
+偶数列の保存はSerre双対から導く．
+
+\begin{theorem}[構造対象付き同値の相対同型層]
+\label{thm:abel-relative-pointed-hom}
+上の代数的条件および\textup{(C1)}--\textup{(C4)}の下で，構造移送は
+fppf層の標準同型
+\begin{equation}\label{eq:abel-relative-pointed-hom}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(A,A')/\mathbb G_m
+ \xrightarrow{\sim}
+ \underline{\operatorname{Eq}}_{\OO,T}(A,A')
+\end{equation}
+を与える．商はfppf層として取り，$\lambda\in\mathbb G_m$は
+次数$n$上に$\lambda^n$を掛ける．
+構造対象の同定を保持したHom群oidには非自明な2自己同型がなく，
+同型\eqref{eq:abel-relative-pointed-hom}は同値の合成と底変更に両立する．
+\end{theorem}
+\begin{proof}
+fppf局所で$\mathsf S_U\simeq(-2)[3]$とその相手側の表示を選ぶ．
+補題\ref{lem:abel-equivalence-preserves-relative-perfect}と
+$F(\OO_U)\simeq\OO'_U$により，$F$は
+$E_i=\OO_U(-2i)$を$E'_i$へ送る．
+相対Serre関手との可換同型を反復すると，積と両立する次数付き同型
+\[
+ A_U^{(2)}
+ \simeq\bigoplus_{n\ge0}
+ \mathcal Hom\bigl(\OO_U,(\mathsf S_U^{-1}[3])^n\OO_U\bigr)
+ \xrightarrow{\sim}(A'_U)^{(2)}
+\]
+を得る．
+定理\ref{thm:abel-relative-veronese-isom}により，これは
+さらに有限\'etale局所で$A_U\simeq A'_U$へ持ち上がる．
+その構造移送と$F$は偶数列のHomと合成上で一致するので，
+\textup{(C2)}の相対復元により，構造対象の同定を保つ自然同型で結ばれる．
+これで局所全射性を得る．
+
+核は局所的な自然変換から計算する．
+構造移送が構造対象付き恒等関手へ自然同型であるとし，
+$E_i$上のスカラーを$\lambda_i\in\mathcal O_U^\times$，$\lambda_0=1$と書く．
+section saturationにより$\End(E_i)=\mathcal O_U$である．
+隣接Homは$(A_U)_2$であり，正の階数を持つベクトル束なので忠実である．
+自然性から$\lambda_{i+1}/\lambda_i=c$は$i$によらず，
+任意の$\Hom(E_{i+n},E_i)=(A_U)_{2n}$上の作用は$c^n$となる．
+系\ref{cor:abel-projective-veronese-isom}によれば，このような同型は
+次数スカラーを除いた同型層で自明である．逆に次数スカラーの構造移送は
+次数ごとのスカラーによって構造対象付き恒等関手へ自然に同型となる．
+従って\eqref{eq:abel-relative-pointed-hom}は単射でもある．
+
+さらに，自然自己同型は各$E_i$上でスカラーとして作用し，
+隣接Homの忠実性によりすべて同じスカラーとなる．
+豊富列の生成性と直和・全射への自然性から圏全体でもそのスカラーである．
+構造対象上の同定を保つとスカラーは$1$になる．
+従って2自己同型は自明で，存在する標識付き自然同型は一意である．
+Serre表示の変更は偶数軌道環の次数スカラーを変えるだけであり，
+持上げの$\mu_2$も全次数スカラーに含まれる．
+よって得た商層の同型は選択によらない．
+構造移送の合成と基底変更との両立，および\textup{(C1)}の降下から，
+局所的な比較は全体に貼り合わさる．
+\end{proof}
+
+\begin{remark}[この相対定理で解決していないこと]
+\label{rem:abel-relative-pointed-scope}
+本定理は，必要な相対圏論の入力を供給したとき，
+体上の定理\ref{thm:abel-pointed-field-hom}を族の同型層へ拡張できることを示す．
+既存の17次元全混合族で\textup{(C1)}--\textup{(C4)}が成立すること，
+その成立範囲が非空な代数的開集合であること，
+得られるAbel圏モジュライが有限型代数スタックであることは，なお別の課題である．
+特に，ファイバーごとの有限大域次元やSerre公式から
+相対RHomのperfect性・基底変更・相対Serre双対を省略しない．
+
+相対Serre関手が$(-2)\otimes L[3]$で表されるときは，
+$L$の局所自明化により上の証明を適用する．
+大域軌道環は$\bigoplus_{n\ge0}A_{2n}\otimes L^{-n}$となり得るので，
+これを大域的に$A^{(2)}$と等置する必要はない．
+体上の比較自体は，この相対条件一式を証明する前から
+定理\ref{thm:abel-pointed-field-hom}の仮定の下で有効である．
+\end{remark}
+
+\subsection{剛体ambientの四係数族への帰結}
+\label{subsec:abel-rigid-four-parameters}
+
+\begin{corollary}[四係数族の構造対象付き圏とその自己同型]
+\label{cor:abel-rigid-four-family}
+命題\ref{prop:moduli-rigid-example}で指定した入力を満たす剛体ambient $B_*$と，
+系\ref{rem:moduli-rigid-generic-smoothness}の非空開部分$U\subset k[u,v]_3\simeq\A^4$を取る．
+$f\in U$について$A_f=B_* /(G_*+f)$と置くと，
+\[
+ (\qgr A_f,\OO_f)\simeq(\qgr A_{f'},\OO_{f'})
+ \quad\Longleftrightarrow\quad f=f',
+ \qquad
+ \operatorname{Aut}_{\OO}(\qgr A_f)=1.
+\]
+右辺の自己同型群は完全同値の自然同型類の群である．
+さらに構造対象上の同定を保つ2自己同型も自明である．
+\end{corollary}
+\begin{proof}
+指定した入力により$A_f$は左右noetherianな中心三次CY商であり，
+balanced dualizing complexは$A_f(-2)[4]$である．
+局所双対\cite[Theorem~4.2(1), Corollary~4.3]{YZ}から
+$H^0_{\mathfrak m}(A_f)=H^1_{\mathfrak m}(A_f)=0$である．
+section写像の基本完全列により
+$A_f\simeq\bigoplus_m\Hom(\OO_f,\OO_f(m))$を得る．
+同じ文献による$\chi$と標準tails表示により，標準列およびその偶数部分列は豊富である．
+$U$上の有限大域次元と双対複体から
+$\mathsf S=(-2)[3]$となる．低次中心と$k[u,v]$上の自由性は
+命題\ref{prop:moduli-rigid-example}およびその後の系の入力から得られるので，
+定理\ref{thm:abel-pointed-field-hom}を適用できる．
+
+二次包絡による復元により，$A_f$の次数付き自己同型は$B_*$の自己同型へ
+一意に延びる．$\Aut_{\rm gr}(B_*)=k^\times$であり，次数スカラーは
+常に$G_*+f$の直線を保つので，$\Aut_{\rm gr}(A_f)=k^\times$である．
+従って次数スカラー商は自明である．また既存の同型判定から
+$A_f\simeq_{\rm gr}A_{f'}$は$f=f'$と同値であり，圏の判定も従う．
+\end{proof}
+
+この系は体上の対象と射の判定である．$U$がAbel圏モジュライの
+開部分や\'etale chartであること，$U$上の相対dg smooth proper性，
+構造対象を忘れた圏の相異性は結論しない．
+

@@ -22,6 +22,7 @@
 \newtheorem{corollary}[theorem]{系}
 \newtheorem{remark}[theorem]{注意}
 \newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例}
 \renewcommand{\proofname}{証明}
 \newcommand{\C}{\mathbb C}
 \providecommand{\CC}{\C}
@@ -56,9 +57,9 @@
 \newcommand{\AS}{\mathrm{AS}}
 \newcommand{\nc}{\mathrm{nc}}
 \newcommand{\Symm}{\operatorname{sym}}
-\title{非可換三次三様体と射影四空間のモジュライ\\豊富列・二次包絡・周期構造の比較}
+\title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{公表準備用研究原稿（著者情報未記入）}
-\date{2026年11月14日・nc cubic moduli研究草稿 v8}
+\date{2026年11月19日・nc cubic moduli研究草稿 v9}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -69,6 +70,19 @@
 豊富列付きAbel圏との比較では、対象の同定、自然同型、頂点スカラー、
 相対線束による捩れを明示する。必要なsaturationと相対復元を仮定した範囲で、
 二次包絡はこれらすべてと両立し、ambientを一意に復元する。
+さらに、許容豊富列の存在を条件とし、その選択を記憶しない
+構造対象付きAbel圏のモジュライ問題を定める。
+中心二変数上の平坦性と普遍的な二次中心条件の下で、
+偶数Veronese同型の持上げ層が$\mu_2$-torsorであることを示す。
+次数スカラーの商ではこの曖昧さは消え、Serre双対とsection復元の仮定の下で、
+構造対象を保つ全Abel圏同値のHom群oidを記述できる。
+可換三次点の全Abel変形についてはDe~Deken--Lowenの定理を適用し、
+全Artin基底のsection $\mathbb Z$-代数変形との比較を得る。
+これは既知定理の帰結であり、三次incidenceの局所完全性とは区別する。
+このsection代数の変形は、各位置で10本の二次関係と1本の三次関係で提示できる。
+二次包絡が全次数平坦なら、正規正則三次核と相対Koszul--AS性を復元できるため、
+三次表示の存在は二次包絡の平坦性へ還元される。
+最初の次数三の障害は、$125\times100$関係行列の91次小行列式idealで記述する。
 比較対象として非可換$\PP^3$を扱い、標準14641型の二次Koszul AS正則
 $\mathbb Z$-代数を、Frobenius周期で規格化した四頂点の四次superpotentialで表す。
 相対bar複体と頂点スカラーの降下により、許容potential関手の
@@ -121,8 +135,8 @@ Pymの局所量子化比較を通じ、規格化CY変形の対応成分と、
 本稿の中心三次族では後者に四次元の自由度があり、
 $17\longrightarrow13$という次元の射が自然に現れる。
 
-一般の$\mathbb Z$-代数を対象にするため、基礎的なデータは
-$(\mathcal C,(E_i)_{i\in\mathbb Z})$という豊富列付きAbel圏とする。
+一般の$\mathbb Z$-代数による座標模型では、基礎的なデータは
+$(\mathcal C,(E_i)_{i\in\mathbb Z})$という豊富列付きAbel圏である。
 自己同値$s$と$E_i=s^{-i}E_0$を最初から指定する定義は、
 すでに1周期化を選んだ、より狭いモジュライ問題である。
 Polishchuk\cite[Theorem 2.4 and Remarks 2]{PolishchukProj}はこの区別を明示し、
@@ -130,6 +144,11 @@ Polishchuk\cite[Theorem 2.4 and Remarks 2]{PolishchukProj}はこの区別を明�
 本稿の第\ref{sec:intrinsic-cubic}節では、この枠組みに二次包絡と正規三次核の
 条件を組み合わせる。これはambientの存在を独立の未知データとして指定する定義ではないが、
 豊富列そのものを忘れた任意のAbel圏・導来圏からの復元を意味しない。
+第\ref{sec:abel-marked-moduli}節では、そのような列の存在を条件として
+選択自体を忘れ、$(\mathcal C,\OO)$だけを残すモジュライ問題へ進む。
+中心二変数を持つ部分族では、Serre関手から偶数偏極を回復し、
+次数付き同型の次数スカラー商によって全ての構造対象付き同値を記述する。
+この中心条件は可換三次点を除外するため、全体の定義には用いない。
 
 非可換射影空間を次数付き AS 正則代数の $\qgr$ として扱う立場は
 Artin--Schelter \cite{AS} と Artin--Zhang \cite{AZ} の枠組みに属する．
@@ -221,6 +240,15 @@ $\mathbb Z$-代数モジュライへ直接移していない。
 \paragraph{局所変形の比較.}
 De~Deken--Lowen\cite[Theorems~4.5,5.15]{DeDekenLowen}は、
 豊富列を持つAbel変形と$\mathbb Z$-代数の変形、さらに幾何的helixの有限窓の変形を比較する。
+滑らかな三次三様体については、全twistの$H^1,H^2$消滅を用いて
+同論文Theorem~4.5を直接適用できる
+（第\ref{sec:abel-formal-cubic}節）。ここでは幾何的helixやfull exceptional collectionを使わない。
+Lowen--Van den BerghのAbel圏変形理論\cite{LowenVdBDeformation,LowenVdBHochschild}と、
+Barmeier--Wangのaffine coverに基づくquiver変形模型
+\cite[Theorems~1.2,3.11]{BarmeierWangSheaves}は、この一般的な変形問題を既に扱っている。
+従って本稿の全Artin比較そのものを新しい一般変形理論として主張しない。
+研究上の課題は、全Abel変形の二次包絡を平坦なAS族として認識し、
+実際の三次incidenceとその本質像を比較することである。
 Lowen\cite[Theorems~3.14,3.26]{LowenRinged}と
 Yekutieli\cite[Corollary~11.2]{YekutieliTwisted}を併せると、
 本稿の可換点では構造代数層の変形とPoisson変形の同値類も比較できる。
@@ -252,7 +280,8 @@ ambient の quadratic envelope が得られる．一方，構造対象だけを�
 偶数 Veronese の復元が使える．この後半には明示的な追加仮定が必要である．
 
 本稿で扱う新規性の候補は，\emph{全混合係数を許す相対中心三次族，
-17係数の横断的正規形，およびそれと二次包絡の一体化}にある．
+17係数の横断的正規形，二次包絡との一体化，および構造対象付き圏の
+相対Veronese復元と射の記述}にある．
 個別の結論が先行研究で未発表であることまで確認したわけではない．
 特に AS 正則性の一般論，PBW 定理，中心元の原公式，section algebra の復元自体は
 既知の結果として明記する．
@@ -287,6 +316,7 @@ ambientの5周期の直接証明も保持する。上記組合せの初出の網
 \input{papers/sections/intrinsic_cubic_reconstruction.tex}
 \input{papers/sections/algebraic_moduli_foundations.tex}
 \input{papers/sections/categorical_moduli_comparison.tex}
+\input{papers/sections/abel_marked_moduli.tex}
 \input{papers/sections/projective_three_space_potentials.tex}
 \input{papers/sections/cubic_projective_three_comparison.tex}
 
@@ -912,6 +942,7 @@ Artin--Zhangのsection algebraの自然写像は
 \end{proof}
 
 \input{papers/sections/central_pair_artin_formal_moduli.tex}
+\input{papers/sections/abel_cubic_deformations.tex}
 \input{papers/sections/formal_ambient_comparison.tex}
 \input{papers/sections/central_pair_mixed_derived_rigid.tex}
 
@@ -1058,8 +1089,50 @@ A.~Yekutieli,
 O.~De~Deken and W.~Lowen,
 \emph{Abelian and derived deformations in the presence of
 $\mathbb Z$-generating geometric helices},
-\url{https://arxiv.org/abs/1001.4265}, v3 (2010).
-Theorem~4.5.
+J. Noncommut. Geom. \textbf{5} (2011), 477--505.
+\href{https://doi.org/10.4171/JNCG/83}{doi:10.4171/JNCG/83};
+\url{https://ems.press/content/serial-article-files/30497}.
+Theorem~4.5 (pp.~495--496), Proposition~4.6 (p.~496), Theorem~5.15.
+
+\bibitem{LowenVdBDeformation}
+W.~Lowen and M.~Van den Bergh,
+\emph{Deformation theory of abelian categories},
+Trans. Amer. Math. Soc. \textbf{358} (2006), 5441--5483.
+\href{https://doi.org/10.1090/S0002-9947-06-03871-2}{doi:10.1090/S0002-9947-06-03871-2};
+\url{https://arxiv.org/abs/math/0405226}.
+出版版Propositions~4.4,4.6,4.8, Definition~8.2,
+Theorem~8.8 (p.~5472), Theorem~8.15 (p.~5476).
+
+\bibitem{LowenObstruction}
+W.~Lowen,
+\emph{Obstruction Theory for Objects in Abelian and Derived Categories},
+Comm. Algebra \textbf{33} (2005), 3195--3223.
+\href{https://doi.org/10.1081/AGB-200066155}{doi:10.1081/AGB-200066155}.
+Theorems~6.11--6.12 (pp.~3218--3219); flat版はcoflat版の双対．
+
+\bibitem{LowenVdBHochschild}
+W.~Lowen and M.~Van den Bergh,
+\emph{Hochschild cohomology of abelian categories and ringed spaces},
+Adv. Math. \textbf{198} (2005), 172--221.
+\href{https://doi.org/10.1016/j.aim.2004.11.010}{doi:10.1016/j.aim.2004.11.010}.
+Theorem~3.1 (pp.~182--184), Remark~3.5 (p.~184), Theorem~6.1 (p.~200).
+
+\bibitem{BarmeierWangSheaves}
+S.~Barmeier and Z.~Wang,
+\emph{Deformations of categories of coherent sheaves via quivers with relations},
+Algebraic Geometry \textbf{11} (2024), 1--36.
+\href{https://doi.org/10.14231/AG-2024-001}{doi:10.14231/AG-2024-001};
+\url{https://content.algebraicgeometry.nl/2024-1/2024-1-001.pdf}.
+Theorem~1.2 = Theorem~3.11; tiltingを仮定するTheorem~3.18とは区別する．
+
+\bibitem{StacksAbel}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/0FY3}{Tag~0FY3, Lemma~57.3.5}
+（双対同型を備えたSerre関手の一意性），
+\href{https://stacks.math.columbia.edu/tag/03PK}{Tag~03PK, Lemma~59.28.1}
+（Kummer列），
+\href{https://stacks.math.columbia.edu/tag/0CJZ}{Tag~0CJZ, Section~21.11}
+（gerbeの降下障害）．2026年11月19日確認．
 
 \bibitem{CFT}
 A.~S.~Cattaneo, G.~Felder and L.~Tomassini,

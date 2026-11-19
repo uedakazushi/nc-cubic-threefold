@@ -1,36 +1,38 @@
 {
-  "date": "2026-11-16",
-  "version": "research-plan-v2",
-  "scope": "Current repository status and research-plan audit; eight exact computations and source closure rerun. Not a full independent proof audit.",
-  "reviewed_repository_commit": "d8eaf4cbf9ece5c9dbf055f7fc84ed80b30d2791",
+  "date": "2026-11-19",
+  "version": "research-plan-v3",
+  "scope": "O-marked Abelian cubic moduli, relative Veronese and Hom comparison, all-Artin cubic specialization, quadratic-flatness reduction, and first degree-three obstruction. New proofs reviewed; source closure rerun. Not a full independent audit of the existing manuscript.",
+  "reviewed_repository_commit": "7b9f3d5c6dc7594d211c31a5563cbeac638c8d0c",
   "reference_commits": {
     "poisson-p4": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
     "nc-cubic": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
     "asz4": "91b45047739187fc5acb6f906b25e48f49a42c2d"
   },
   "full_mathematical_audit": false,
-  "manuscript_changed": false,
+  "manuscript_changed": true,
   "review": {
-    "finite_family": "Read construction, PBW/CY/central elements, actual 41-dimensional pair family and 17-dimensional graded isomorphism variation. Checked distinction from formal existence; exact slice/center/orbit computations rerun.",
-    "formal_and_incidence": "Read 37-dimensional Poisson component, formal ambient comparison, central incidence, conditional 17-dimensional Artin hull. No counterexample identified in reviewed arguments; no claim of exhaustive independent reproduction.",
-    "moduli_and_periodicity": "Independent readings of intrinsic and categorical reconstruction, finite-window limits, pointed potential functors, period-forgetting and gcd-periodicity. Full global algebraicity and relative periodization remain open.",
-    "regularity": "Read fixed-ambient very-general and finite-order open regularity proofs. Rains Theorem 2.13 and RSVdB Proposition 2.1 including steps (6)-(7) checked against primary texts. This does not establish a smooth proper open in the full mixed family.",
-    "rigid_ambient": "Manuscript has a proof and conditional inputs; related orbit check rerun. Complete independent reconstruction of every rigid-ambient claim was not performed. Do not equate the retained Artin-section audit caveat with a missing proof or a counterexample.",
-    "residual_strategy": "Primary Kuznetsov Theorem 8.9 and JLLZ Theorems 3.11/4.4 checked. Conditional formal product lemma reviewed independently. Actual all-Artin relative residual map is a research target, not a completed theorem.",
-    "novelty": "Targeted primary-source comparison, including rational foliations and rank-two Poisson loci, was completed for the plan. Exhaustive novelty/priority checking remains incomplete.",
-    "planning": "New priorities independently reviewed for conditional claims and feasibility; commutative-limit family clarified."
+    "definition": "O-marked objects require existence of an admissible cubic ample sequence, not its choice. All pointed exact equivalences are admitted. The rank-three quadratic-center condition is restricted to a noncommutative chart; it excludes commutative cubic points. Full Abelian formal deformation theory is not identified with the cubic incidence essential image.",
+    "relative_veronese": "Complete proof checked, including universal polynomial embedding, Cech intersection from P-flatness, nonreduced-base conic lifting, mu2 Isom torsor, grading-scalar sheaf quotient, and H1 versus H2 descent. An independent reading found no substantive error; section reconstruction on the conic was made explicit.",
+    "pointed_hom": "Field Hom-groupoid comparison checked: exact equivalences preserve Serre, even orbit algebra, ample reconstruction, scalar kernel, and trivial pointed 2-inertia. Relative comparison is conditional on explicit C1-C4 over finite-type complex schemes with fppf topology. These inputs are not established over the full 17-parameter family.",
+    "formal_cubic": "De Deken-Lowen Theorem4.5 and Proposition4.6 checked against published primary text. Cubic all-twist Ext1/Ext2 vanishing supplied. Arbitrary Artin coefficient-change lemma independently reviewed at Grothendieck and finitely presented levels. O-marking forgetful equivalence is classical 1-groupoid only, with explicit unframed-reduction convention.",
+    "envelope_reduction": "Quadratic/cubic presentation and flat-envelope normal regular kernel proved using componentwise free modules and nilpotent Nakayama. Relative Koszul-AS lifting independently reviewed: actual syzygies, bilateral indices, bimodule resolution, base-flat module pd<=5, noetherian lifting, base change, and nonregular-base counterexample to absolute global dimension. Cubic presentation criterion is conditional on all-degree envelope flatness, which remains open.",
+    "degree_three_obstruction": "Complete proof reviewed for B3=R^34 direct_sum R/I, I=Ann(g)=Fitt_34(B3), rank90 pivot reduction of a125x100 matrix, and at most10 obstruction coefficients. No assertion that degree-three flatness implies all-degree flatness. No new numerical certificate computed.",
+    "rigid_ambient_application": "The O-marked four-parameter corollary uses retained rigid-ambient, finite-order THCR, PBW, low-center and regular-tails inputs. Saturation and Serre conditions are justified via the stated balanced dualizing complex and Yekutieli-Zhang local duality. The whole older rigid-ambient proof was not independently reconstructed in this review.",
+    "retained_results": "Existing 41/37 and17/13 constructions, gcd-periodicity, finite-order regularity, Poisson component, conditional Artin hull and residual strategy retained. Their earlier computations and proof texts are not represented as newly rerun or newly fully audited.",
+    "novelty": "The DDL specialization, LVdB deformation theory, general Serre/section reconstruction and Kummer facts are identified as known inputs. Priority or novelty of the new relative formulations and their combination remains unconfirmed."
   },
   "static": {
-    "tex_inputs": 17,
-    "labels": 285,
-    "references": 265,
-    "citations": 111,
-    "bibliography": 48,
+    "tex_inputs": 19,
+    "labels": 338,
+    "references": 327,
+    "citations": 125,
+    "bibliography": 53,
     "sha256": {
-      "papers/nc_cubic_threefold_moduli.tex": "2329a5bc5448f5600e7ef15eb8eacaa2e7a4693a552495fef70c4fae6ca2ef97",
+      "papers/nc_cubic_threefold_moduli.tex": "193181fd1c9bf13b737692c5e5b725c3e2f391c648a644c1cf08ad429e222e77",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "7bed0be351ce4ff5835262c1db567e6fd3a0388d52af8626d6878af505540b36",
       "papers/sections/categorical_moduli_comparison.tex": "e6dfefa6c918c30f7cdf24122708f256bb39616c7da7e2f4cf0952afc7713eb0",
+      "papers/sections/abel_marked_moduli.tex": "aabb229f6a72643ee1fb6754690add49454814a21c099b953228a8da060fd697",
       "papers/sections/projective_three_space_potentials.tex": "66a83e1b1dfda3614a3950e53b5122d827fd3627a5b97461fbc22d114c8895f8",
       "papers/sections/cubic_projective_three_comparison.tex": "97b2aee804b32dc0bff9fb761adcc7fec171528afa372f322e94edc78687f0fe",
       "papers/sections/central_pair_explicit_centers.tex": "498a139797b4b60d53f9594e8986b7300346e6ba9e854ab7994fa60c7926ae37",
@@ -41,11 +43,13 @@
       "papers/sections/ambient_periodicity.tex": "93f2ed60eed47a15784cdbd54229b3b981538c5ac3641ac41b6ac4fb65f69ae4",
       "papers/sections/period_forgetting_moduli.tex": "94dafb728d7c6d0019f967839ff0d47436e83b5b6c5c012003868262ac47f860",
       "papers/sections/central_pair_artin_formal_moduli.tex": "77d8d2345386cbac16dae3f17326170e9c93add9e9c7c907e22f2848941fc247",
+      "papers/sections/abel_cubic_deformations.tex": "15d7fe1afd494bc38824fa571809edc50c528474e6c93a8f205436ecbd19c8ed",
       "papers/sections/formal_ambient_comparison.tex": "5ff160b93272622653c1a62dae10408a9ff6fcd33b871898ec31f8fddd4bdb95",
       "papers/sections/central_pair_mixed_derived_rigid.tex": "e1cd37709e128d2268ec2f590cbfe92cb4a465922513487043fd968003ae9645",
       "papers/sections/central_pair_finite_order_regularity.tex": "e04f4b25909da9be5fd5ffb3c9cf0129500881cad68bda61396f93eaea918bb8"
     },
-    "limit": "Static closure only, not mathematical proof audit."
+    "limit": "Static closure only, not mathematical proof audit.",
+    "new_section_braces_and_environments": "passed for both new TeX section files; not a LaTeX compilation"
   },
   "computations": [
     {
@@ -109,35 +113,47 @@
     "rat113_matches_regeneration": true,
     "two_factor_matches_regeneration": true,
     "central_symmetry_matches_regeneration": true,
-    "scope": "Finite exact checks support the stated matrix and polynomial identities; they do not prove global stack algebraicity, relative smoothness or dg Morita equivalence."
+    "scope": "Retained exact checks and matching certificates from the stated date; current computation sources have matching hashes. Not rerun on 2026-11-19. They do not establish global stack algebraicity, relative smoothness, or dg Morita equivalence.",
+    "verification_date": "2026-11-16"
   },
   "not_rerun_in_this_review": [
+    "computations/independent/verify_generic17_center.py",
+    "computations/independent/verify_generic17_slice.py",
+    "computations/verify_central_pair_centers.py",
+    "computations/verify_central_pair_orbits.py",
+    "computations/verify_central_symmetry.py",
+    "computations/verify_directed_p3_syzygy.py",
     "computations/verify_p3_potentials.py",
     "computations/verify_r13_potential.py",
-    "computations/verify_directed_p3_syzygy.py",
-    "computations/verify_surface_incidence.py"
+    "computations/verify_rat113_tangent.py",
+    "computations/verify_split_codimension.py",
+    "computations/verify_surface_incidence.py",
+    "computations/verify_two_factor_stabilizer.py"
   ],
   "build": {
     "command": "latexmk papers/nc_cubic_threefold_moduli.tex",
     "attempted": true,
+    "executed_on": "2026-11-19",
     "exit_code": 12,
     "status": "blocked_by_environment",
-    "reason": "lualatex.fmt missing; fmtutil.cnf has no lualatex entry.",
+    "reason": "lualatex.fmt missing; mktexfmt has no lualatex entry. luatexja and ltjsarticle were also not found in the installed TeX tree.",
     "pdf_generated_in_this_review": false,
     "visual_inspection_in_this_review": false,
-    "scope": "No manuscript sources were changed. No earlier build or visual inspection is represented as a new successful build."
+    "scope": "Final manuscript build attempted and stopped before TeX document processing. Static closure and brace/environment checks do not replace compilation or visual inspection."
   },
   "open_scope": [
-    "All-Artin natural relative dg residual map, its admissibility and base-change compatibility",
-    "Precise marked/rigidified dg Morita deformation control and comparison to geometric cubic deformations",
-    "Homogeneous formality input of the existing cubic Artin hull",
-    "A nonempty algebraic smooth proper open in the full mixed 17-parameter family",
-    "Local completeness and componenthood in an independently defined finite-type marked ambient moduli chart",
+    "All-degree flatness of the quadratic envelope of an arbitrary cubic Abelian Artin deformation",
+    "Vanishing of the degree-three obstruction ideal and a justified propagation criterion to higher degrees",
+    "Identification of full Abelian deformations with the essential image of normal cubic incidence",
+    "Verification of relative categorical assumptions C1-C4 on a nonempty explicit finite-type chart",
+    "A nonempty algebraic smooth proper open in the full mixed17-parameter family",
+    "Finite-type algebraicity, local completeness and componenthood for the chosen marked moduli problem",
     "Relative periodization preserving the normal cubic ideal and its descent",
-    "Algebraization and generic nonzero-parameter realization of residual categories by commutative cubics",
-    "Gluing interpretation of the seven-dimensional residual fibers",
-    "Full global AS potential algebraicity and bare-category reconstruction",
-    "Exhaustive novelty/priority verification and full independent proof audit"
+    "The homogeneous formality input and its precise controlling-model comparison for the existing cubic hull",
+    "The actual all-Artin dg residual map, algebraization and interpretation of the seven residual directions",
+    "Intrinsic recognition of O and reconstruction of bare Abelian categories",
+    "Exhaustive priority checking, full independent audit of retained proofs, and PDF compilation/visual verification"
   ],
-  "assets": "Current plan, notes, manuscript sources, code and small certificates only. No PDF/ZIP/runtime/build cache tracked."
+  "assets": "Current plan, research notes, manuscript sources, unchanged calculation code and small certificates only. No PDF, ZIP, external literature PDFs, intermediate draft fragments, build outputs or caches tracked.",
+  "computations_rerun_in_this_review": false
 }

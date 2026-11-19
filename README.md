@@ -1,26 +1,26 @@
 # 非可換三次三様体と非可換P^4のモジュライ
 
-2026-11-16 / research-plan-v2。研究再開は最初に[研究方針](00_research_plan.md)を読む。
+2026-11-19 / research-plan-v3。研究再開は最初に[研究方針](00_research_plan.md)を読む。
 
-**現在の最優先は、既存の17次元混合Jacobian族を、smooth properな三次圏の開部分・ambientのモジュライ成分・残余圏の幾何化へ結び付けること。** 数学的重要性、新規性、正確性と実現可能性を総合し、研究全体の価値を最大化する。
+**現在は、構造対象Oだけを標識したAbel圏のモジュライとして、非可換三次三様体の射・変形・二次包絡を比較している。** 許容豊富列の存在を条件とし、列の選択を忘れる。数学的重要性、新規性、理解の深化、応用可能性、正確性と実現可能性を総合して研究全体の価値を最大化する。
 
-[主原稿](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
+[主原稿 v9](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
 
-## 到達点と未解決の核心
+## 現在の到達点
 
-- 有限係数の41次元中心三次対・37次元ambient族、PGL商の17→13次元射、一般4次元fiberの構成と証明がある。17次元は形式的な数え上げだけでなく、実際のgraded同型類の変動を扱う。
-- 正則正規超曲面対について、左右AS条件・uniform index Nと次数dの下でgcd(N,d)周期性を証明する。N=5,d=3では体上の対が1周期化する。相対降下・中心化は別問題。
-- 有限位数の楕円境界を持つ固定ambientでは、非空開集合上のregular tailsを扱う。一般17係数族の相対dg smooth proper性は未完成。
-- Rat(1,1,3) Poisson成分と可換点の形式局所比較を持つ。全AS/Z-algebra大域モジュライの成分性とは区別する。
-- 残余圏の既知HH計算と幾何的接写像の同型を使い、全Artin基底のactual residual mapと形式的積分解を早期課題にする。形式的な17→10と二次包絡の17→13は異なる射である。
+- [構造対象付きAbel圏](papers/sections/abel_marked_moduli.tex)：相対偶数Veronese復元、Isomのμ2-torsor、次数スカラー商、Oを保つ全Abel同値のHom群oidを、明示した仮定の下で証明する。相対圏の比較にはC1–C4を追加する。二次中心rank3は非可換部分族の条件で、可換三次点を含む全体の定義ではない。
+- [可換点の全Artin変形](papers/sections/abel_cubic_deformations.tex)：De Deken–Lowenの既知定理を適用し、全Abel変形とsection Z-algebra変形を比較する。自然同型で割った1群oidではO-marking忘却も同値。二次・三次提示、次数3の有限行列による障害、平坦二次包絡からの正規三次核と相対Koszul–AS性を証明する。
+- **正規三次表示の存在は、二次包絡Q(b)の全次数平坦性へ還元された。** 任意のAbel変形でその平坦性が成り立つことは未証明であり、現在の最優先課題である。
+- 既存の剛体ambientの4係数regular tails開部分では、指定された入力の下でO-marked圏が相異なり、その自己同型は自明となる。モジュライへの開埋込みや相対smooth proper性は未証明。
+- 既存の41→37、17→13、一般fiber4の有限係数族と、正規超曲面対のgcd周期性の証明を保持する。全AS/Zモジュライの大域成分性とは区別する。
 
-全AS許容potential locusの有限型性を先に全面解決することは要求せず、既存族に沿う有限chartから進める。裸の圏・導来圏のモジュライと、豊富列付きの比較も区別する。
+17次元族の非空smooth proper開集合、全Artin残余射、7方向の接合データ、Oも忘れた復元は上位目標として保持する。全AS許容potential locusの有限型性を先に全面解決することは要求しない。
 
 ## 再現
 
 ```sh
-latexmk papers/nc_cubic_threefold_moduli.tex
 python3 scripts/verify.py
+latexmk papers/nc_cubic_threefold_moduli.tex
 python3 computations/independent/verify_generic17_slice.py
 python3 computations/independent/verify_generic17_center.py
 python3 computations/verify_split_codimension.py
@@ -31,7 +31,7 @@ python3 computations/verify_central_pair_orbits.py
 python3 computations/verify_central_symmetry.py --output build/central_symmetry.json
 ```
 
-LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用。PDF・中間物はGit追跡しない。今回の主要8計算と参照検査は成功し、3証明書も一致した。組版は実行環境の `lualatex.fmt` 不在で停止したため、今回のPDF生成・視覚確認は未完了。詳細は[検証状態](validation.json)。
+LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用。PDF・中間物はGit追跡しない。既存8計算の実行日・hashは検証記録に保持し、今回の再実行とは区別する。新しい主張は証明の読み合わせと参照検査を行った。組版は実行環境の `lualatex.fmt` 不在で停止し、今回のPDF生成・視覚確認は未完了。詳細は[検証状態](validation.json)。
 
 ## 関連する独立研究
 
@@ -40,4 +40,4 @@ LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用
 - [非可換三次曲面・中心三次商の研究](https://github.com/uedakazushi/nc-cubic)
 - [P^4のPoisson構造](https://github.com/uedakazushi/poisson-p4)
 
-GitHub mainを正本とし、現行方針・ノート・論文・必要なコードと証明書から再開できる構成を保つ。
+GitHub mainを正本とし、現行方針・ノート・論文・必要なコードと証明書から再開できる構成を保つ。新しい定式化・組合せの初出や新規性の網羅的確認は未完了。

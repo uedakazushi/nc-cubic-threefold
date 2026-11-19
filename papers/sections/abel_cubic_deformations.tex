@@ -1,0 +1,722 @@
+\section{可換三次点におけるAbel圏の全Artin変形}
+\label{sec:abel-formal-cubic}
+
+本節では，特殊ファイバーを固定した無限小変形を扱う．
+大域的な無標識Abel圏の復元，有限型atlasの存在，または
+任意の変形のAS ambientへの埋込みは結論しない．
+比較の一般定理はDe Deken--Lowenの既知結果であり，
+ここで行うのは三次三様体に対する仮定の確認と，
+構造対象を標識する操作への帰結の明示である．
+
+\subsection{変形の射と特殊ファイバーの固定}
+
+$k=\mathbb C$とし，$X\subset\mathbb P^4_k$を滑らかな三次三様体とする．
+$\mathcal C_0=\operatorname{Qcoh}(X)$，$E_i=\mathcal O_X(-i)$と置く．
+section $\mathbb Z$-代数は
+\[
+ a_{ij}=\operatorname{Hom}_{\mathcal C_0}(E_j,E_i)
+       =H^0(X,\mathcal O_X(j-i))
+\]
+である．特に$i>j$では$a_{ij}=0$であり，
+$a$は$k[x_0,\ldots,x_4]/(F)$の付随$\mathbb Z$-代数に等しい．
+
+$R$を剰余体$k$の可換局所Artin $k$-代数とする．
+$\operatorname{Def}_{\rm ab}(\mathcal C_0;R)$の対象を，
+Lowen--Van den Berghの意味で平坦な$R$-線型Abel圏$\mathcal D$と，
+その$k$-対象の部分圏$\mathcal D_k$への同値
+$\iota:\mathcal C_0\xrightarrow{\sim}\mathcal D_k$とする．
+射は$R$-線型圏同値$F:\mathcal D\to\mathcal D'$で
+$F\iota\simeq\iota'$を満たすものの自然同型類である．
+この両立する自然同型そのものは追加frameとして保持しない．
+これは\cite[\S8.2]{LowenVdBDeformation}の1群oidの規約である．
+従って，完全な2群oidにあるスカラー2自己同型は，この定義では既に切断されている．
+同様に$\operatorname{Def}_{\rm lin}(a;R)$では，Homが$R$-平坦な
+線型圏の変形と，還元後の$a$への同値を対象とし，射を線型圏同値の
+自然同型類とする．添字を固定した模型に取り換えた後も，
+頂点スカラーによる自然同型を射から除いてはならない．
+
+\begin{lemma}[三次三様体の全捩れに対する消滅]
+\label{lem:abel-cubic-acyclicity}
+任意の整数$m$について
+\[
+ H^1(X,\mathcal O_X(m))=H^2(X,\mathcal O_X(m))=0.
+\]
+従って，任意の$i,j\in\mathbb Z$と有限次元$k$-ベクトル空間$M$に対し
+\[
+ \operatorname{Ext}^q_{\mathcal C_0}(E_j,M\otimes_k E_i)=0
+ \qquad(q=1,2)
+\]
+である．また各$E_i$は例外対象である．
+\end{lemma}
+\begin{proof}
+超曲面の完全列
+\[
+ 0\longrightarrow\mathcal O_{\mathbb P^4}(m-3)
+ \xrightarrow{\ F\ }\mathcal O_{\mathbb P^4}(m)
+ \longrightarrow\mathcal O_X(m)\longrightarrow0
+\]
+と，$\mathbb P^4$の線束の中間コホモロジー
+$H^q(\mathbb P^4,\mathcal O(r))=0$（$0<q<4$）の消滅から従う．
+線束同士のExtは捩れ線束のコホモロジーに等しく，$M$とのテンソル積は
+有限直和なのでExtの式を得る．
+$H^0(X,\mathcal O_X)=k$であり，
+$\omega_X\simeq\mathcal O_X(-2)$とSerre双対性から
+$H^3(X,\mathcal O_X)=H^0(X,\mathcal O_X(-2))^*=0$である．
+これにより$\operatorname{RHom}(E_i,E_i)\simeq k$を得る．
+\end{proof}
+
+\begin{theorem}[既知の変形比較の三次三様体への適用]
+\label{thm:abel-cubic-all-artin}
+すべての局所Artin $k$-代数$R$について，1群oidの同値
+\[
+ \operatorname{Def}_{\rm lin}(a;R)
+ \simeq\operatorname{Def}_{\rm ab}(\operatorname{Qcoh}(X);R)
+ \simeq\operatorname{Def}_{\rm ab}(\operatorname{coh}(X);R)
+\]
+がある．第一の同値は$\widetilde a\mapsto\operatorname{Qmod}(\widetilde a)$で与えられる．
+任意の$\mathcal D$について，各$E_i$には同型を除いて一意な$R$-平坦な持上げ
+$\widetilde E_i$があり，逆方向の模型を
+\[
+ \widetilde a_{ij}=
+ \operatorname{Hom}_{\mathcal D}(\widetilde E_j,\widetilde E_i)
+ \quad(i\leq j),\qquad \widetilde a_{ij}=0\quad(i>j)
+\]
+として取れる．その各成分は有限自由で，階数は
+\[
+ h_{j-i}=\binom{j-i+4}{4}-\binom{j-i+1}{4}
+ \quad(j\geq i)
+\]
+である．ここで下段が上段より大きい二項係数は零とする．
+$\widetilde a$は次数一生成であり，局所有限，正，連結，右noetherianである．
+$\mathcal D$はlocally noetherianで，そのnoetherian対象の圏は
+$\operatorname{qgr}\widetilde a$に同値である．
+
+これらの同値は，任意の局所Artin $k$-代数の射による基底変更と両立する
+変形擬関手の同値として成り立つ．ここでAbel圏の基底変更には
+新しい係数環の作用を備えた対象の圏を用いる．
+\end{theorem}
+\begin{proof}
+$\mathcal O_X(1)$は豊富であり，$(\mathcal O_X(n))_{n\in\mathbb Z}$は
+$\operatorname{Qcoh}(X)$の$\mathbb Z$-generating sequenceをなす．
+補題\ref{lem:abel-cubic-acyclicity}は
+\cite[Theorem~4.5, pp.~495--496]{DeDekenLowen}のExt消滅仮定を満たす．
+同定理により第一の同値とその逆構成を得る．
+ここでは同論文\S5のgeometric helix仮定は使用しない．
+持上げの存在と同型類の一意性は，対象の障害が$\operatorname{Ext}^2$に，
+存在する場合の持上げの同型類の差が$\operatorname{Ext}^1$にあること
+\cite[Theorems~6.11--6.12の双対版]{LowenObstruction}からも得られる．
+
+各Homの平坦性と還元の同定は同じ比較定理に含まれる．
+有限性の持上げは\cite[Proposition~4.6]{DeDekenLowen}による．
+$R$はArtin局所環なので，有限平坦なHomは有限自由であり，その階数は
+特殊ファイバーのHilbert関数である．
+また，隣接する次数一成分の積から任意の$\widetilde a_{ij}$への写像は
+特殊ファイバー上で全射である．余核を$C$とすると$C/\mathfrak m_R C=0$であり，
+$\mathfrak m_R$の冪零性から$C=0$となる．従って次数一生成も成り立つ．
+
+noetherianな$\mathbb Z$-代数のtailsはlocally noetherianで，
+そのnoetherian対象は有限生成加群からの像である．
+よって$\mathcal D\simeq\operatorname{Qmod}(\widetilde a)$のnoetherian対象は
+$\operatorname{qgr}\widetilde a$に等しい．
+最後に，Indと有限表示対象を取る操作の変形擬関手の同値
+\cite[Theorem~8.8, p.~5472]{LowenVdBDeformation}を用いると第二の同値を得る．
+冪零核を持つ全射についての基底変更の両立は，引用した変形擬関手の同値に含まれる．
+任意の局所Artin射への拡張は次の補題による．
+\end{proof}
+
+\begin{lemma}[Artin係数の任意の変更]
+\label{lem:abel-artin-base-change}
+$b$を定理の$R$-線型$\mathbb Z$-代数の変形とし，$R\to S$を
+局所Artin $k$-代数の任意の射とする．$\mathcal D_S$で
+$R$-線型Abel圏$\mathcal D$内の$S$-対象の圏を表すと，標準的な同値
+\[
+ \operatorname{Qmod}(S\otimes_R b)
+ \simeq \operatorname{Qmod}(b)_S
+\]
+がある．この同値は射の合成と両立する．
+\end{lemma}
+\begin{proof}
+局所Artin環の射なので$S$は$R$-加群として有限表示である．
+$\mathcal D$が$R$-平坦なら$\mathcal D_S$は$S$-平坦である
+\cite[Proposition~4.8(5), p.~5454]{LowenVdBDeformation}．
+$b$と$S\otimes_R b$はいずれも右noetherianだから，そのQmodは
+加群圏をtails torsionで割ったGabriel商として実現される．
+商関手$L:\operatorname{Mod}(b)\to\operatorname{Qmod}(b)$と
+その完全忠実な右随伴$\omega$に$S$の作用を移すと，随伴
+$L_S\dashv\omega_S$を得る．$L_S$は完全で$\omega_S$は完全忠実なので，
+$L_S$もその核によるGabriel商である．
+
+一方，$\operatorname{Mod}(b)_S\simeq\operatorname{Mod}(S\otimes_R b)$
+\cite[Proposition~4.4]{LowenVdBDeformation}である．
+この同定の下で$L_S$の核は，基礎$b$-加群がtails torsionである
+$S\otimes_R b$-加群からなる．各斉次元について，十分高い次数の$b$の作用が
+零であることと，十分高い次数の$S\otimes_R b$の作用が零であることは同値である．
+従ってこの核は$S\otimes_R b$のtails torsionに等しく，所望の同値を得る．
+これらの構成は係数の作用を移す標準的な構成なので，射の合成と両立する．
+$\operatorname{coh}$側の基底変更との両立は，有限表示対象を取る操作が
+係数変更と可換であること\cite[Proposition~4.6]{LowenVdBDeformation}による．
+\end{proof}
+
+\begin{remark}[相対化の範囲]
+引用した変形擬関手の定義域は$\operatorname{Rng}^0/k$，すなわち
+冪零核を持つ全射である．上の補題は，本節のnoetherianなtails模型では
+任意の局所Artin射にも比較が自然であることを別途確認したものである．
+これは一般のスキーム基底上でのfpqc降下や，有限型代数スタックの存在までは意味しない．
+\end{remark}
+
+\subsection{関係式と正規三次条件への還元}
+
+以下では，定理\ref{thm:abel-cubic-all-artin}から得られた$R$-線型
+$\mathbb Z$-代数の変形を$b$と書く．$V_i=b_{i,i+1}$とし，
+次数一の成分からなるtensor $\mathbb Z$-代数$T=T_R(V_\bullet)$を
+\[
+ T_{ij}=V_i\otimes_R\cdots\otimes_R V_{j-1}\quad(i<j),
+ \qquad T_{ii}=R,\qquad T_{ij}=0\quad(i>j)
+\]
+で定める．次数一生成から標準的全射$T\twoheadrightarrow b$があり，
+その核を$K$とする．二次関係の族を
+$\mathcal R_i=K_{i,i+2}$と書き，二次包絡を
+\[
+ B=T/(\mathcal R_i\mid i\in\mathbb Z)
+\]
+と定める．以下の主張は，有限区間への制限による生成元・関係式の有限個化や，
+添字の周期性を主張するものではない．
+
+\begin{proposition}[二次関係と一つの三次関係による提示]
+\label{prop:abel-quadratic-cubic-presentation}
+各$V_i$は自由rank~5，各$\mathcal R_i$は自由rank~10である．
+各$i$について$f_i\in K_{i,i+3}$を適切に選ぶと，
+\[
+ K=(\mathcal R_i,f_i\mid i\in\mathbb Z),
+ \qquad b\simeq T/(\mathcal R_i,f_i\mid i\in\mathbb Z)
+\]
+となる．従って$g_i$を$f_i$の$B_{i,i+3}$への像とすれば，
+$J=\ker(B\twoheadrightarrow b)$は$(g_i)_{i\in\mathbb Z}$で生成される．
+特に$J_{i,i+3}$はcyclic $R$-加群である．
+この段階では，$B$の平坦性や$J_{i,i+3}$の自由rank~1性は主張しない．
+\end{proposition}
+\begin{proof}
+各$T_{ij}$と$b_{ij}$は有限自由であり，$T_{ij}\to b_{ij}$は全射なので，
+完全列$0\to K_{ij}\to T_{ij}\to b_{ij}\to0$は$R$-加群として分裂する．
+従って$K_{ij}$も有限自由で，その特殊化は特殊ファイバーの関係空間と一致する．
+特に$\operatorname{rank}\mathcal R_i=5^2-15=10$である．
+
+各$V_i$の還元を$k^5$と同定し，特殊ファイバーのtensor代数において
+三次多項式$F$の順序付き単項式による代表$F_i\in(T\otimes_Rk)_{i,i+3}$を選ぶ．
+$F_i$は$K\otimes_Rk$に属するので，これを$f_i\in K_{i,i+3}$へ持ち上げる．
+$L\subset K$を$\mathcal R_i$と$f_i$で生成される両側idealとする．
+特殊ファイバーの関係idealは可換性の二次関係と各位置の$F_i$で生成されるから，
+すべての$i\leq j$について
+\[
+ L_{ij}\otimes_R k\longrightarrow K_{ij}\otimes_R k
+\]
+は全射である．従って$(K/L)_{ij}/\mathfrak m_R(K/L)_{ij}=0$であり，
+$\mathfrak m_R$の冪零性から$(K/L)_{ij}=0$を得る．
+
+$B$では二次関係の像は零なので，$J$は$g_i$で生成される．
+次数三の位置$(i,i+3)$には他の位置の三次生成元を掛けて寄与させることはできず，
+$J_{i,i+3}=Rg_i$となる．ただしcyclicであるだけでは$R$-平坦とは限らない．
+\end{proof}
+
+\begin{proposition}[次数三の障害idealと有限行列]
+\label{prop:abel-degree-three-obstruction}
+$I_i=\operatorname{Ann}_R(g_i)$と置くと，$I_i\subset\mathfrak m_R$であり，
+非標準的な$R$-加群の同型
+\[
+ J_i\simeq R/I_i,
+ \qquad B_{i,i+3}\simeq R^{34}\oplus R/I_i
+\]
+がある．特に$B_{i,i+3}$が$R$-平坦であるための必要十分条件は$I_i=0$である．
+
+二次関係を次数三へ延長する写像
+\[
+ d_i:(V_i\otimes_R\mathcal R_{i+1})
+       \oplus(\mathcal R_i\otimes_R V_{i+2})
+       \longrightarrow T_{i,i+3},
+ \qquad d_i(v\otimes r,r'\otimes v')=vr+r'v'
+\]
+を考える．各加群の基底を選ぶと，これは$125\times100$行列であり，
+その特殊化のrankは$90$である．特殊化後非零となる$90\times90$小行列を
+pivotとして消去すれば，$d_i$は可逆な行・列操作により
+\[
+ \begin{pmatrix}I_{90}&0\\0&D_i\end{pmatrix},
+ \qquad D_i\in M_{35\times10}(\mathfrak m_R)
+\]
+に変形できる．さらに残りの$35$次元自由加群の基底を適切に選ぶと，
+\[
+ D_i=
+ \begin{pmatrix}
+  \lambda_{i,1}&\cdots&\lambda_{i,10}\\
+  0&\cdots&0\\
+  \vdots&&\vdots\\
+  0&\cdots&0
+ \end{pmatrix},
+ \qquad
+ I_i=(\lambda_{i,1},\ldots,\lambda_{i,10})
+\]
+となる．従って$I_i$は高々$10$元で生成される．
+このidealは基底やpivotの選択によらず，より内在的には
+\[
+ I_i=\operatorname{Fitt}_{34}(B_{i,i+3})
+\]
+である．すなわち，元の$125\times100$行列$d_i$の
+$91\times91$小行列式が生成するidealに等しい．
+\end{proposition}
+
+\begin{proof}
+$b_{i,i+3}$は自由rank~34なので，完全列
+\[
+ 0\longrightarrow J_i\longrightarrow B_{i,i+3}
+ \longrightarrow b_{i,i+3}\longrightarrow0
+\]
+は$R$-加群として分裂する．$J_i=Rg_i$より$J_i\simeq R/I_i$であり，
+所望の直和表示を得る．$g_i$の特殊化は非零な三次式$F$なので，
+$I_i$は単元を含まず$I_i\subset\mathfrak m_R$である．
+$B_{i,i+3}$が平坦であることと$R/I_i$が平坦であることは同値である．
+後者は有限平坦加群だから自由であり，その剰余体上の次元は$1$なのでrank~1である．
+このとき全射$R\to R/I_i$は同じ長さの$R$-加群間の全射となり，$I_i=0$である．
+逆は明らかである．
+
+次に行列表示を示す．$\operatorname{rank}V_i=5$，
+$\operatorname{rank}\mathcal R_i=10$であるから，$d_i$の始域は自由rank~100，
+終域は自由rank~125である．二次idealの次数三成分は$d_i$の像なので，
+\[
+ B_{i,i+3}=\operatorname{coker}(d_i).
+\]
+特殊化後の二次包絡は多項式環$S=k[x_0,\ldots,x_4]$であるから，
+$\operatorname{coker}(d_i\otimes_R k)=S_3$は次元$35$を持ち，
+$d_i\otimes_R k$のrankは$125-35=90$である．
+
+特殊化後非零となる$90\times90$小行列の行列式は$R$の単元である．
+この部分を可逆な行・列操作で単位行列にし，その上下・左右の成分を消去すると，
+主張のblock表示を得る．残余行列$D_i$の特殊化はrank~0なので，
+すべての成分が$\mathfrak m_R$に属する．
+
+この消去によって取り除いた$90$本の像の直和因子を$U\subset T_{i,i+3}$とし，
+$P=T_{i,i+3}/U\simeq R^{35}$と置く．$U$は二次関係の像からなるため，
+全射$T_{i,i+3}\to b_{i,i+3}$は全射
+\[
+ \psi:P\longrightarrow b_{i,i+3}\simeq R^{34}
+\]
+を誘導する．これは分裂し，その核$H$は自由rank~1である．
+$f_i$の$P$への像を$\widetilde g_i$と書くと，
+$\widetilde g_i\in H$であり，特殊化後には$S_3$の中の非零元$F$を与える．
+従って$\widetilde g_i$は$H$の生成元である．
+
+$D_i$の各列は二次関係の像であるから$\ker\psi=H=R\widetilde g_i$に入る．
+よって一意的な$\lambda_{i,a}\in R$を用いて，その第$a$列は
+$\lambda_{i,a}\widetilde g_i$と書ける．
+$H$は$P$の直和因子なので，$\widetilde g_i$を$P$の基底の最初の元として取り，
+これを$\psi$の分裂から得られる$34$個の元で補えば，表示した一行行列を得る．
+特に
+\[
+ \operatorname{im}(D_i)
+   =(\lambda_{i,1},\ldots,\lambda_{i,10})\widetilde g_i,
+ \qquad
+ J_i=H/\operatorname{im}(D_i)
+\]
+である．従って$I_i=(\lambda_{i,1},\ldots,\lambda_{i,10})$となる．
+なお$D_i$の特殊化が零で$\widetilde g_i$がprimitiveであることから，
+各$\lambda_{i,a}$も$\mathfrak m_R$に属する．
+
+最後に，この$35$生成元・$10$関係の表示における
+$\operatorname{Fitt}_{34}$は$D_i$の$1\times1$小行列式のidealであり，
+従って$I_i$に等しい．Fitting idealの表示非依存性と，
+元の$125$生成元・$100$関係の表示における定義から，
+$d_i$の$125-34=91$次小行列式のidealによる記述も得る．
+\end{proof}
+
+\begin{remark}[計算上の抽出と論理的な範囲]
+$35\times10$残余行列の各列は，$R^{35}$内の
+primitiveな三次関係の持上げ$\widetilde g_i$の倍数である．
+$\widetilde g_i$のある成分が単元なら，残余行列の対応する行を
+その成分で割るだけで$\lambda_{i,1},\ldots,\lambda_{i,10}$を抽出できる．
+残りの行が同じ係数による$\widetilde g_i$の倍数であることは，
+$b_{i,i+3}$の自由性と上の核の記述から従う．
+
+この命題は\emph{次数三の平坦性の必要十分条件}を与える．
+すべての$i$で$I_i=0$を示しても，それだけで$B$の次数四以降の平坦性，
+AS正則性，または全Artin Abel変形が三次incidenceに属することを結論してはならない．
+\end{remark}
+
+\begin{proposition}[二次包絡の平坦性から正規正則三次族へ]
+\label{prop:abel-flat-envelope-normal-cubic}
+前命題の二次包絡$B$について，すべての$B_{ij}$が$R$-平坦であると仮定する．
+このとき
+\[
+ \operatorname{rank}_R B_{ij}=\binom{j-i+4}{4}\quad(i\leq j),
+ \qquad
+ \operatorname{rank}_R J_{ij}=
+ \begin{cases}
+  \binom{j-i+1}{4},&j-i\geq3,\\
+  0,&j-i<3
+ \end{cases}
+\]
+であり，これらは有限自由である．特に各$J_{i,i+3}$は自由rank~1である．
+前命題の$g_i$はその生成元となり，すべての$j\geq i+3$で
+\[
+ \begin{aligned}
+ B_{i+3,j}&\xrightarrow{\ \sim\ }J_{ij},& a&\longmapsto g_i a,\\
+ B_{i,j-3}&\xrightarrow{\ \sim\ }J_{ij},& a&\longmapsto a g_{j-3}
+ \end{aligned}
+\]
+を得る．従って$(g_i)$は両側正規正則な次数三の族であり，
+$b=B/(g_i\mid i\in\mathbb Z)$である．
+
+より具体的に，$B^{(+3)}_{ij}=B_{i+3,j+3}$と書くと，
+$\mathbb Z$-代数の同型
+\[
+ \sigma:B^{(+3)}\xrightarrow{\sim}B,
+ \qquad g_i a=\sigma_{ij}(a)g_j
+ \quad(a\in B_{i+3,j+3})
+\]
+が一意に定まる．相対AS正則性・Koszul性は定理\ref{thm:abel-relative-as-lift}で確認する．
+\end{proposition}
+\begin{proof}
+二次関係空間$\mathcal R_i$の特殊化は可換性の関係空間である．
+従って，二次関係で割る操作が特殊化と可換であることから，
+$B\otimes_R k$は多項式環$S=k[x_0,\ldots,x_4]$の付随$\mathbb Z$-代数に等しい．
+各$B_{ij}$は有限自由加群$T_{ij}$の商なので有限であり，
+仮定した平坦性と$R$の局所性から有限自由である．
+その階数は$\dim_k S_{j-i}=\binom{j-i+4}{4}$である．
+
+完全列
+\[
+ 0\longrightarrow J_{ij}\longrightarrow B_{ij}
+ \longrightarrow b_{ij}\longrightarrow0
+\]
+は$b_{ij}$の自由性により$R$-加群として分裂する．
+従って$J_{ij}$は有限自由で，その特殊化は
+$\ker(S_{j-i}\to(S/(F))_{j-i})=F S_{j-i-3}$に等しい．
+ここで負次数の$S$は零とする．階数の式と$J_{i,i+3}$の自由rank~1性を得る．
+$g_i$の特殊化は$F$であるから，$g_i$は$J_{i,i+3}$の生成元である．
+
+写像$g_i\cdot-:B_{i+3,j}\to J_{ij}$の両辺は同じ階数の有限自由$R$-加群である．
+その特殊化は
+\[
+ S_{j-i-3}\longrightarrow F S_{j-i-3},\qquad a\longmapsto Fa
+\]
+であり，$F\neq0$および$S$が整域であることから同型である．
+従って元の写像も同型である．右から$g_{j-3}$を掛ける写像も同様である．
+これにより，両側の積が同じideal成分を与える正規性と，
+これらの積写像の単射性である正則性が証明された．
+
+最後に，$a\in B_{i+3,j+3}$に対して，$g_i a\in J_{i,j+3}$を
+一意に$\sigma_{ij}(a)g_j$と書ける．両側の積写像が同型なので
+$\sigma_{ij}$も$R$-加群の同型である．
+$a\in B_{i+3,j+3}$，$c\in B_{j+3,l+3}$について
+\[
+ g_i(ac)=\sigma_{ij}(a)g_jc
+        =\sigma_{ij}(a)\sigma_{jl}(c)g_l
+\]
+となる．$-\cdot g_l$の単射性から
+$\sigma_{il}(ac)=\sigma_{ij}(a)\sigma_{jl}(c)$を得る．
+また$g_i\cdot1=1\cdot g_i$なので単位も保たれ，$\sigma$は所望の同型である．
+\end{proof}
+
+\begin{remark}[周囲のAbel変形問題と三次incidenceの像]
+定理\ref{thm:abel-cubic-all-artin}が記述するのは
+$\operatorname{coh}(X)$の\emph{周囲のAbel変形問題}である．
+AS正則二次包絡と正規正則三次族を持つ生成列の存在によって
+$\mathcal O$-marked非可換三次三様体のクラスを定義した場合，
+その形式完備化が周囲のAbel変形問題全体と一致することは，まだ証明していない．
+三次incidenceからのessential imageは，現段階では真に小さい可能性を排除していない．
+
+命題\ref{prop:abel-flat-envelope-normal-cubic}により，
+二次包絡の次数ごとの平坦性を示せば，正規正則三次核という条件は自動的に従う．
+全次数平坦性の下では，定理\ref{thm:abel-relative-as-lift}が相対Koszul--AS条件も与える．
+従って残る核心は二次包絡の全次数平坦性自体である．
+特に，非正則なArtin基底上での相対AS正則性と，係数環も含めた通常の環の
+有限global dimensionを混同してはならない．
+\end{remark}
+
+\subsection{多項式環の平坦Artin変形における相対Koszul--AS性}
+\label{subsec:abel-relative-as-lifting}
+
+以下の補題は二次包絡の全次数平坦性を仮定する．
+二次・三次など有限個の成分の平坦性を，この仮定の代用にはしない．
+またArtin基底が非正則な場合，基底込みの環の絶対的大域次元は有限とは限らない．
+ここでは頂点上の基底加群の線型解消，AS双対，および基底上平坦な加群に対する
+射影次元を分けて述べる．
+
+\begin{theorem}[相対Koszul解消と両側AS双対の持上げ]
+\label{thm:abel-relative-as-lift}
+$(\Lambda,\mathfrak m,k)$を可換局所Artin $k$-代数とする．
+$B$は正の連結$\Lambda$-$\mathbb Z$-代数で，
+$B_{ii}=\Lambda$，$B_{ij}=0$ $(j<i)$，各$B_{ij}$は有限自由$\Lambda$加群とする．
+$B$は次数一生成であり，その特殊ファイバーは
+\[
+ \overline B:=B\otimes_\Lambda k
+       \simeq\check{\operatorname{Sym}_k(k^5)}
+\]
+とする．二次表示を仮定してもよいが，それ自体も以下の線型解消から従う．
+右表現加群$P_i=e_iB$，左表現加群$Q_i=Be_i$，
+頂点$i$に$\Lambda$だけを持つ右・左加群をそれぞれ$S_i,T_i$と書く．
+このとき次が成り立つ．
+\begin{enumerate}
+\item $S_i$は自然な線型射影解消
+\begin{equation}\label{eq:abel-relative-right-resolution}
+ 0\longrightarrow W_i^5\otimes_\Lambda P_{i+5}
+ \longrightarrow\cdots\longrightarrow W_i^1\otimes_\Lambda P_{i+1}
+ \longrightarrow P_i\longrightarrow S_i\longrightarrow0
+\end{equation}
+を持ち，$W_i^p$は階数$\binom5p$の有限自由$\Lambda$加群である．
+その特殊ファイバーは多項式環のKoszul解消である．
+左側にも$Q_{i-p}$を用いる同じ型の線型解消がある．
+その第$p$生成加群を${}^\ell W_i^p$と書く．
+\item AS双対は
+\begin{align}
+ \operatorname{Ext}^p_{\mathrm{Gr}B}(S_i,P_j)
+  &\simeq
+   \begin{cases}
+    (W_i^5)^* & p=5,\ j=i+5,\\
+    0 & \text{それ以外},
+   \end{cases}
+   \label{eq:abel-relative-right-as}\\
+ \operatorname{Ext}^p_{\mathrm{Gr}B^{\mathrm{op}}}(T_i,Q_j)
+  &\simeq
+   \begin{cases}
+    ({}^\ell W_i^5)^* & p=5,\ j=i-5,\\
+    0 & \text{それ以外}
+   \end{cases}
+   \label{eq:abel-relative-left-as}
+\end{align}
+である．最上次数の直線は$\Lambda$に同型だが，その自明化は選ばない．
+\item 各$P_i$は右noetherian，各$Q_i$は左noetherianである．
+従って$B$は通常の$\mathbb Z$-代数の意味で左右noetherianである．
+\item 上の解消とAS双対は任意のArtin基底変更に可換である．
+また各成分が$\Lambda$上平坦な次数付き右・左$B$加群の射影次元は高々$5$であり，
+この上界は$S_i,T_i$によって達成される．
+\end{enumerate}
+従って，この明示した相対的な意味で次元$5$，AS index $5$の
+両側Koszul--AS正則性が持ち上がる．$B$全体の1周期同型の選択は仮定していない．
+\end{theorem}
+\begin{proof}
+\emph{線型解消の構成．}
+$Z_i^0=S_i$，$F_i^0=P_i$とし，$Z_i^1=\ker(P_i\to S_i)$と置く．
+この短完全列は各頂点成分で$\Lambda$加群として分裂するので，
+$Z_i^1$の各成分は有限自由であり，特殊ファイバーを取る操作と可換である．
+以下，$Z_i^p$まで構成され，各成分が有限自由，
+特殊ファイバーが多項式環の第$p$ syzygyであるとする．
+この特殊ファイバーは頂点$i+p$の成分で生成され，
+その成分の次元は$\binom5p$である．
+頂点$i+p$より小さい成分はNakayamaの補題で零であり，
+\[
+ W_i^p=(Z_i^p)_{i+p},\qquad
+ F_i^p=W_i^p\otimes_\Lambda P_{i+p}
+\]
+と置ける．$W_i^p$は階数$\binom5p$の有限自由加群である．
+
+生成元をsyzygyへ送る評価写像$F_i^p\to Z_i^p$は，
+特殊ファイバーでKoszul解消の全射となる．各頂点$j$における余核は
+有限生成$\Lambda$加群なので，再びNakayamaの補題によって零となる．
+従ってこの評価写像は全射である．
+$Z_i^{p+1}=\ker(F_i^p\to Z_i^p)$と置くと，終項の各成分が自由なので
+短完全列は成分ごとに分裂し，$Z_i^{p+1}$も成分ごとに有限自由である．
+その特殊ファイバーは正しく次のKoszul syzygyになる．
+これで帰納法が進む．微分は$F_i^p\to Z_i^p\hookrightarrow F_i^{p-1}$で定めたので，
+任意の行列を持ち上げて$d^2=0$を期待する手順は使っていない．
+
+$p=5$の後に現れる$Z_i^6$は，特殊ファイバーのすべての成分が零である．
+各成分の有限生成性とNakayamaの補題により$Z_i^6=0$となる．
+これで\eqref{eq:abel-relative-right-resolution}を得た．
+同じ構成を左側で行えば左線型解消を得る．
+$p=2$で関係加群が次数二で生成されることも示されたので，
+次数一生成を仮定すれば二次表示は結論として従う．
+
+\emph{AS双対．}
+\eqref{eq:abel-relative-right-resolution}に
+$\operatorname{Hom}_{\mathrm{Gr}B}(-,P_j)$を適用すると，
+第$p$項が
+\[
+ (W_i^p)^*\otimes_\Lambda B_{j,i+p}
+\]
+である有界な有限自由$\Lambda$加群の複体を得る．
+$j=i+5$では正性により最後の項以外は零なので，
+第$5$コホモロジーは$(W_i^5)^*$である．
+$j\ne i+5$では特殊ファイバーの複体は多項式環のAS双対により非輪状である．
+
+局所環上の有界有限自由複体が剰余体上で非輪状なら，その複体は可縮である．
+実際，剰余体上で非零の微分成分があれば元の行列に単元成分があるので，
+基底変換で$\Lambda\xrightarrow{1}\Lambda$という直和因子を分離して消去する．
+有限回の消去後に残る微分は全成分が$\mathfrak m$に入り，
+特殊ファイバーで微分が零になる．その特殊ファイバーが非輪状であるため残りの自由加群はすべて零である．
+これにより\eqref{eq:abel-relative-right-as}を得る．左側も同様である．
+解消の短完全列は成分ごとに分裂し，双対複体は可縮部分と最上次数の自由直線へ分かれるので，
+これらの主張は任意の基底変更後にも成立する．
+
+\emph{Noetherian性．}
+$\mathfrak m^N=0$となる$N$を取り，$P_i$を
+$P_i\supset\mathfrak mP_i\supset\cdots\supset\mathfrak m^NP_i=0$で濾過する．
+$\Lambda$平坦性から
+\[
+ \mathfrak m^rP_i/\mathfrak m^{r+1}P_i
+  \simeq (\mathfrak m^r/\mathfrak m^{r+1})
+       \otimes_k(P_i\otimes_\Lambda k)
+\]
+となる．各層は多項式環の表現加群の有限直和であり，右noetherianである．
+有限回の拡大もnoetherianなので$P_i$は右noetherianとなる．左側も同様である．
+
+\emph{基底上平坦な加群の射影次元．}
+まず$W_i^0=\Lambda$，$W_i^1=V_i$とする．最小次数の核を取った構成から
+\[
+ W_i^p=\ker\bigl(W_i^{p-1}\otimes_\Lambda V_{i+p-1}
+       \longrightarrow W_i^{p-2}\otimes_\Lambda B_{i+p-2,i+p}\bigr)
+ \qquad(p\geq2)
+\]
+となる．各核は構成した短完全列の該当成分であり，
+$W_i^q\hookrightarrow V_i\otimes\cdots\otimes V_{i+q-1}$は
+$\Lambda$-分裂した埋込みである．
+線型解消の第$p$生成加群$W_i^p$は，$p\geq2$について，
+$V_i=B_{i,i+1}$，二次関係$R_i\subset V_i\otimes V_{i+1}$を用いて
+\[
+ W_i^p
+  =\bigcap_{r=0}^{p-2}
+   V_i\otimes\cdots\otimes V_{i+r-1}
+   \otimes R_{i+r}\otimes
+   V_{i+r+2}\otimes\cdots\otimes V_{i+p-1}
+\]
+と表される．交差は$V_i\otimes\cdots\otimes V_{i+p-1}$内で取る．
+これは上で構成した微分を最小次数に制限した核の式を帰納的に適用すれば分かる．
+各段の短完全列が$\Lambda$分裂することにより，この式の特殊ファイバーも
+通常の$\bigwedge^p k^5$となる．特に$W_i^p=0$ $(p>5)$である．
+
+さらに$W_i^0=\Lambda$，$W_i^1=V_i$と置き，双加群のKoszul複体を
+\[
+ \mathcal K_p
+  =\bigoplus_{i\in\mathbb Z}
+    Be_i\otimes_\Lambda W_i^p\otimes_\Lambda e_{i+p}B
+ \qquad(0\leq p\leq5)
+\]
+で作る．微分は最初と最後の次数一因子をそれぞれ外側へ掛け，
+後者に$(-1)^p$を掛けた和とする．上の交差表示と二次関係から$d^2=0$である．
+$\mathcal K_0\to B$は積で与える．固定した両端の頂点$j,\ell$について，
+和に現れる$i$は$j\leq i\leq\ell-p$に限られるので，
+この成分の増大複体は有界な有限自由$\Lambda$複体である．
+その特殊ファイバーは多項式環の通常の双加群Koszul解消であり完全である．
+先ほどの有限自由複体の消去を用いれば，元の増大複体も完全である．
+
+この解消は左$B$加群として分裂する．実際，
+$e_{i+p}B=\bigoplus_j B_{i+p,j}$は$\Lambda$-自由なので，
+各$\mathcal K_p$は左表現加群の直和で射影的である．
+最後の$B=\bigoplus_j Be_j$自体も左射影的なので，右端から順に短完全列を分裂できる．
+従って任意の右$B$加群$M$に対して$M\otimes_B\mathcal K_\bullet$は$M$を解消する．
+各$M_i$が$\Lambda$上平坦なら，Artin環上の平坦加群は射影的なので
+（\href{https://stacks.math.columbia.edu/tag/051E}{Stacks Project,
+Section~10.101, Lemma~10.101.2}），
+\[
+ M\otimes_B\mathcal K_p
+  =\bigoplus_i M_i\otimes_\Lambda W_i^p\otimes_\Lambda P_{i+p}
+\]
+は右$B$射影加群である．よって射影次元は高々$5$である．
+左側も同様であり，\eqref{eq:abel-relative-right-as}と
+\eqref{eq:abel-relative-left-as}の非零な最上次数Extが上界の達成を示す．
+無限個の頂点については表現双加群の直和を使っており，
+ここから対角双加群が有限個の生成子で生成されると主張してはいない．
+\end{proof}
+
+\begin{remark}[絶対的大域次元は持ち上がらない]
+\label{rem:abel-relative-not-absolute-gldim}
+$\Lambda=k[\epsilon]/(\epsilon^2)$，
+$B=\check{\Lambda[x_0,\ldots,x_4]}$は定理の仮定を満たす．
+しかし頂点に置いた剰余体$k$は$\Lambda$上で無限射影次元を持つ．
+$B$射影加群の各頂点成分は$\Lambda$射影的なので，
+この$k$の$B$上の射影次元も無限である．
+通常の次数付き環$\Lambda[x_0,\ldots,x_4]$の大域次元も無限である．
+本定理で有限射影次元を主張したのは，頂点の$\Lambda$および
+各成分が$\Lambda$平坦な加群である．
+\end{remark}
+
+
+\subsection{構造対象の標識と形式hull}
+\begin{corollary}[正規三次表示の平坦二次包絡判定]
+\label{cor:abel-cubic-flatness-criterion}
+定理\ref{thm:abel-cubic-all-artin}のsection $\mathbb Z$-代数変形$b$について，
+次は同値である．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 二次包絡$Q(b)$の全ての成分が$R$-平坦である．
+\item $b$は，多項式環の標準$\mathbb Z$-代数を特殊ファイバーとする
+相対Koszul--AS正則次元$5$，index $5$の平坦な二次代数族の，
+正規正則な三次族による商として表示できる．
+\end{enumerate}
+ここで相対AS条件は定理\ref{thm:abel-relative-as-lift}の明示した意味である．
+表示が存在するとき，二次ambientと三次idealはそれぞれ$Q(b)$と
+$\ker(Q(b)\to b)$に標準的に同型である．
+\end{corollary}
+\begin{proof}
+\textup{(i)}から\textup{(ii)}は，
+命題\ref{prop:abel-flat-envelope-normal-cubic}と
+定理\ref{thm:abel-relative-as-lift}による．
+逆に$b=B'/(g'_i)$という表示があれば，三次idealは次数一・二の成分を変えない．
+従って二次関係で生成される$B'$は$b$の二次包絡に標準的に同型であり，
+$B'$の平坦性から\textup{(i)}を得る．三次idealはその商写像の核である．
+これらの構成はsection代数の同型と底変更に両立する．
+\end{proof}
+
+本系は，標準豊富列を特殊ファイバーに持つ三次表示の存在を，
+全次数平坦性という一つの条件へ還元する．その条件が全Abel変形で成立することや，
+有限個の次数だけから判定できることを証明したものではない．
+
+
+\begin{proposition}[構造対象の標識を忘れる局所比較]
+\label{prop:abel-cubic-o-marking}
+上の変形群oidにおいて，対象に$\mathcal O_X$の平坦な持上げ
+$\widetilde{\mathcal O}$を加え，射には
+$\alpha:F(\widetilde{\mathcal O})\xrightarrow{\sim}\widetilde{\mathcal O}'$を加える．
+特殊ファイバーの還元同型は追加frameとして固定せず，
+射は$\alpha$と両立する自然同型を法として取る．
+こうして得られる$\mathcal O$-marked 1群oidから
+$\operatorname{Def}_{\rm ab}(\mathcal C_0;R)$への忘却は同値である．
+
+ただし，自然同型を保持する2群oidでは同じ結論は成り立たない．
+固定した$\mathcal D$内で還元同型を指定した構造対象の持上げ群oidは連結であり，
+その自己同型群は$\ker(R^\times\to k^\times)=1+\mathfrak m_R$である．
+還元同型を指定しなければ自己同型群は$R^\times$である．
+\end{proposition}
+\begin{proof}
+持上げの存在と同型類の一意性は前定理による．
+また$\operatorname{End}_{\mathcal D}(\widetilde E_i)$は有限自由rank~1であり，
+単位写像$R\to\operatorname{End}(\widetilde E_i)$は還元後同型だから同型である．
+従って，任意の変形同値$F$は$\widetilde{\mathcal O}$を
+$\widetilde{\mathcal O}'$へ送る同型$\alpha$を持つ．
+
+同じ$F$に対する二つの$\alpha$は$R^\times$の元だけ異なり，
+その差は$F$全体のスカラー自然自己同型で補正できる．
+より一般に，$F,G$の間の自然同型$\eta$と，それぞれに指定した
+$\alpha,\beta$があれば，$\beta\eta_{\widetilde{\mathcal O}}\alpha^{-1}$はスカラー単元である．
+$\eta$をその逆のスカラーで補正すれば，標識と両立する自然同型になる．
+従って忘却はHom集合上で全単射であり，対象上本質的全射だから同値である．
+
+持上げ自体の自己同型群については
+$\operatorname{End}(\widetilde{\mathcal O})=R$から直ちに従う．
+さらに$\operatorname{Aut}_2(\operatorname{Id}_{\mathcal D})=R^\times$である．
+実際，任意の自然自己同型は各$\widetilde E_i$上でスカラー$\lambda_i$であり，
+隣接Homが忠実な有限自由rank~5加群であることから自然性により
+$\lambda_i=\lambda_{i+1}$となる．$\widetilde E_i$は$\mathcal D$を生成するため，
+全体への作用もこの共通スカラーである．
+構造対象の同定を保つ2自己同型はこのスカラーを1にするので自明である．
+従って非切断2群oidの忘却は2慣性を変える．
+\end{proof}
+
+\begin{remark}[本研究の三次条件と形式hullとの関係]
+定理\ref{thm:abel-cubic-all-artin}と命題\ref{prop:abel-cubic-o-marking}は
+homogeneous formalityを仮定しない．また，次数一生成と二次・三次関係による提示は証明されたが，
+二次包絡の全次数平坦性は，この比較定理には含まれない．
+全次数平坦性が得られれば，定理\ref{thm:abel-relative-as-lift}によって相対AS性も従う．
+正規正則三次族の存在は，二次包絡の全次数平坦性の下では
+命題\ref{prop:abel-flat-envelope-normal-cubic}から従う．
+そのため，すべてのAbel変形が現行の正規三次incidenceに入ることは別途証明する必要がある．
+
+Hochschild制御\cite[Theorem~3.1]{LowenVdBHochschild}から，
+Abel変形の一次空間は$HH^2(X)$である．既存の計算では
+$HH^2(X)=H^1(X,T_X)\oplus H^0(X,\wedge^2T_X)$は20次元である．
+本節の比較により，構造対象を標識してもこの一次空間は変わらない．
+一方，10変数とGrassmannian錐の積という完全な形式hullを主張するには，
+既存原稿のformality入力と，その模型がここで定めた変形問題を表すことの
+比較がなお必要である．この二つの仮定を本節の定理によって消したことにはしない．
+
+さらに，$\mathcal O_X(n)$の全列が変形先へ持ち上がることは，
+その列を一つ移す自己同値の存在を意味しない．
+通常の次数付き代数への1周期化，Serre関手による反標準偏極の認識，
+ならびに特殊ファイバーを固定しない大域的な無標識復元は別の問題である．
+\end{remark}
