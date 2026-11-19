@@ -65,10 +65,18 @@ $I\otimes\Ext^1(\OO_Y(i),\OO_Y(i))$は消える。
 Lowen\cite[Theorems~3.14, 3.26]{LowenRinged}により、
 有限アフィン被覆とその交叉を用いたalgebroid変形がAbel変形を表す。
 ここでは$Y$が準コンパクトかつ分離的なので同定理の被覆条件を満たす。
-このalgebroidは局所的な$\OO_Y$の平坦持上げから構成される。
-$H^2(Y,\OO_Y)=0$により大域的持上げを選べ、
-$H^1(Y,\OO_Y)=0$によりその同型類は一意である。
-その局所自己準同型層を取れば結合代数層を得る。
+Theorem~3.26によって全層の加群圏と$\mathsf{Qcoh}(Y)$の変形が比較されるので、
+ここで扱っているのは後者の任意のAbel変形である。
+このalgebroidは、各開集合における$\OO_Y$の平坦持上げから構成される。
+小拡大ごとに$H^2(Y,\OO_Y)=0$で大域的持上げを選べ、
+$H^1(Y,\OO_Y)=0$でその同型類は一意である。
+その局所自己準同型層は、アフィン開集合では構造対象の
+射影生成性の持上げにより$R$平坦な結合代数層となる。
+逆にその加群圏を貼り合わせると元のAbel変形を回復する。
+標識を保つAbel同値は大域的構造対象を同型な持上げへ送るから、
+自己準同型層のgauge同型を誘導する。
+従って代表の存在だけでなく同値類の単射性も得られ、
+対象の持上げと局所自己準同型の形成から基底変換に関する自然性が従う。
 これはtwisted変形から通常の変形へ移る
 Yekutieli\cite[Corollary~7.5]{YekutieliTwisted}の消滅条件でもある。
 したがって同値類について第二の同定を得る。
@@ -436,9 +444,7 @@ $\mathbb Z$-代数の有限型モジュライ、あるいはそれらの大域�
 \begin{corollary}[可換三次点での実際のambient変形写像]
 \label{cor:formal-cubic-ambient-map}
 滑らかな三次三様体$X=V_+(F)\subset P$について、
-定理\ref{thm:artin-central-pair}および
-定理\ref{thm:artin-quadratic-cover}の同次formality入力の下で、
-二次包絡は自然変換
+section $\mathbb Z$-代数の二次包絡は自然変換
 \begin{equation}\label{eq:formal-cubic-ambient-map}
  \mathcal D_{\mathrm{ab},X}
  \longrightarrow\mathcal D_{\mathrm{ab},P}
@@ -456,17 +462,20 @@ $\mathbb Z$-代数の有限型モジュライ、あるいはそれらの大域�
 その核は10次元の可換三次変形方向であり、像は10次元である。
 \end{corollary}
 \begin{proof}
-命題\ref{prop:formal-abel-poisson}と
-定理\ref{thm:artin-quadratic-cover}により、
-Abel変形は中心三次商の変形で表示される。
-そのsection $\mathbb Z$-代数はDe~Deken--Lowenの逆構成によるものと同一視される。
-従って二次包絡の内在的復元はこの表示から得た$B_R$の
-$\mathbb Z$-代数に一致し、平坦なambient変形を与える。
+定理\ref{thm:abel-cubic-flat-envelope}により、
+任意のAbel変形のsection $\mathbb Z$-代数$\mathfrak b$の二次包絡
+$Q(\mathfrak b)$は全次数で平坦であり、平坦なambient変形を与える。
+二次関係は有限自由加群の間の分裂核なので、
+$\mathfrak b\mapsto Q(\mathfrak b)$は任意のArtin基底変換と可換である。
+持上げ対象の選択を変えると$\mathfrak b$は同型な$\mathbb Z$-代数となり、
+二次包絡も同型になる。
 これに$\mathsf{Qmod}$を取り、
 定理\ref{thm:formal-ambient-cy-comparison}を用いれば
 \eqref{eq:formal-cubic-ambient-map}を得る。
 規格化CY側への同定は、存在するambient圏に同定理の逆写像を適用する意味であり、
 任意の次数付き表示が既に規格化CYであると仮定していない。
+また、中心商を構成するために用いた量子化の選択は平坦性の証明に用いるだけで、
+この内在的な二次包絡写像の定義には含まれない。
 
 一次では、$F+\varepsilon\dot F$だけを動かしても二次包絡は可換多項式環である。
 Poisson方向の一次交換子は

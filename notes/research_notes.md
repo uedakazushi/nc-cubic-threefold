@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-plan-v3。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-19 / research-plan-v4。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -98,33 +98,46 @@ smooth cubic Xについて H¹(O_X(m))=H²(O_X(m))=0 は全整数mで成立す�
 
 O-markingの忘却は、自然同型で割った古典的1群oidで同値になる。還元の両立自然同型自体をframeとして保持しないLVdBの規約を使う。未切断2群oidではNatAut(Id)=R^×があり、Oの同定を保つと消えるため同値ではない。固定圏で還元frameを付けたOの持上げ群oidは連結だがAut=1+m_R。形式的持上げの一意性はOの大域的内在認識とは異なる。
 
-### 5.2 全Artin比較を三次incidenceへ結ぶための正確な還元
+### 5.2 次数三の障害と直接的な平坦性判定
 
-bを上のsection Z-algebra変形とし、V_i=b_(i,i+1)、T=T_R(V_•)、K=ker(T→b)、R_i=K_(i,i+2)、B=Q(b)=T/(R_i)と置く。
+bをsection Z-algebra変形とし、V_i=b_(i,i+1)、T=T_R(V_•)、K=ker(T→b)、R_i=K_(i,i+2)、B=Q(b)=T/(R_i)と置く。
 
-- V_iは自由rank5、R_iは自由rank10。KはR_iと各位置一つの三次関係f_iで生成される。Kの各成分は自由で、特殊化と両立するため、生成は冪零Nakayamaで証明できる。
-- J=ker(B→b)の次数三成分はcyclic Rg_iだが、無条件には自由とは限らない。I_i=Ann_R(g_i)⊂m_R とすると B_(i,i+3)≅R³⁴⊕R/I_i。次数三平坦性はI_i=0と同値。
-- I_iは二次関係行列d_i（125×100）の91次小行列式ideal、すなわちFitt_34(B_(i,i+3))である。特殊rank90のunit blockを除くと35×10行列になる。b3への核がprimitiveな三次関係の張る自由直線なので、残余列はその直線に入り、高々10個の係数λ_i,1,…,λ_i,10でI_iを生成できる。
-- Bが全次数R-flatなら、BとJの各成分は自由。特殊化がF倍による同型であるため、g_iB_(i+3,j)=J_ij=B_(i,j−3)g_(j−3)は両側とも自由加群の同型となる。従って正規正則三次族が自動的に得られる。
-- 同じ全次数平坦性から、特殊多項式環のKoszul解消を実際のsyzygyで持ち上げ、Betti型(1,5,10,10,5,1)、両側AS Ext index5、noetherian性、基底上平坦な加群の射影次元≤5を得る。全て任意Artin底変更に両立する。二次性もこの持上げの帰結。
+- V_iは自由rank5、R_iは自由rank10。KはR_iと各位置一つの三次関係f_iで生成される。成分ごとの分裂自由性と冪零Nakayamaによる。
+- J=ker(B→b)の三次成分はcyclic Rg_i。I_i=Ann(g_i)とすると B_(i,i+3)≅R³⁴⊕R/I_i。I_i=Fitt_34(B3)は125×100関係行列d_iの91次minor idealで、特殊rank90のunit blockを除くと35×10残余行列になる。その列はprimitiveな三次関係直線に入り、高々10係数でI_iを生成する。
+- **全てのI_i=0と全次数平坦性は同値。** 非周期的なZ代数でも、多項式特殊ファイバーに対して次数三の平坦性だけでよい。降順対を書き換え、係数のm進深さと語の転倒数を辞書式に順序付けると、冪零性により停止する。次数三で非降順語が基底になることが全ての重なりを解消し、全長の基底を与える。一般原理は既知のKoszul変形原理であり、PP Chapter6 Thm7.3を参照する。
+- **平方零基底では滑らかさ不要。** R=k⊕M、M²=0で、二次関係を交代関係のgraph q_i と書く。Schur残余は厳密に Θ_i=δ(q_(i+1)−q_i)。b3の平坦性からΘ_i=Fλ_i。δ²=0、F≠0、δ:Λ³V*→V⊗Λ⁴V*の単射性（dim V≥4）によりλ_i=0。全次数平坦性が従う。
+- 任意Artin基底でもI_i⊂m²。Fitting idealの底変更と前項から従う。これは特異三次にも使える。高次ではSchur補正とJacobiatorが入り、一次のδ閉性をそのまま帰納してはならない。
+- 全次数平坦性から正規正則三次核、Betti型(1,5,10,10,5,1)の相対Koszul解消、両側AS index5、noetherian性、基底上平坦な加群の射影次元≤5を得る。
 
-証明は `prop:abel-quadratic-cubic-presentation`, `prop:abel-degree-three-obstruction`, `prop:abel-flat-envelope-normal-cubic`, `thm:abel-relative-as-lift`, `cor:abel-cubic-flatness-criterion`。従って標準豊富列を特殊ファイバーとする正規三次表示の存在は、**Q(b)の全次数平坦性と同値**である。その平坦性が任意のAbel変形で成り立つことは未証明。全I_i=0だけから高次数平坦性を結論しない。
+完全な証明は `abel_cubic_deformations.tex` の `prop:abel-degree-three-obstruction`, `thm:abel-degree-three-propagation`, `thm:abel-square-zero-degree-three`, `thm:abel-relative-as-lift`。全位置iの条件を、周期性を示さず有限個の位置へ置き換えない。
 
-相対ASと絶対global dimensionの区別：R=C[ε]/ε²、B=check R[x0,…,x4] は相対定理を満たすが、頂点の剰余体Cの射影次元は無限である。有限であるのは基底上平坦な加群に対する相対的な次数である。無限Z頂点の双加群解消も大域的に有限個の生成子を与えるわけではない。
+相対ASは絶対global dimensionではない。R=C[ε]/ε²、B=check R[x0,…,x4] は相対定理を満たすが、頂点の剰余体Cの射影次元は無限である。無限Z頂点の双加群解消も大域的な有限生成性を意味しない。
 
-### 5.3 P4模型と既存の条件付きcubic hull
+### 5.3 滑らかな三次点の全Abel変形の二次包絡
 
-P4ではPoisson変形関手は、Jacobi零点錐の原点完備化をPGL5_1で割ったもの。接空間は126。epsilon³上でpi=epsilon Pとexp(epsilon xi)piは二次で異なる代表となるため、接空間が等しいだけでは裸の錐とgauge商を同定できない。
+**任意の局所Artin C-代数上で、滑らかな可換三次点の全Abel変形のQ(b)は全次数平坦。** 証明は `thm:abel-cubic-flat-envelope`。通常の次数付き表示を事前に仮定せず、次の順序で示す。
 
-有限Beilinson窓O,…,O(4)にHom(O,O(1))の射影基底を指定し、対象スカラーを除くと特殊点の無限小固定群が消える。形式陰関数定理でsliceができ、射影基底付きAbel変形をprorepresentする。frame忘却とPoisson錐は同じ関手のminimal hull。Pymの規格化CY芽との比較から両完備局所環が抽象的に同型と分かり、その後に実際のQmod自然写像の接空間同型を使って実際の写像の同型を証明する。この順序が重要であり、接空間だけの推論ではない。
+1. 三次式の形式slice F_t と定数二形式 a（五つの4×4 Pfaffian=0）から、i_ΠΩ=dF_t∧a で同次Poisson bivectorを作る。
+2. CFTの有限なKontsevich公式に nilpotent Artin係数を代入する。基礎加群R⊗Sym(V)は自由、グラフの次数計算で積は同次、twisted chain identityでCasimir F_t が中心三次元wへ持ち上がる。関係核のNakayamaからBは二次、wの乗法のunit minorからA=B/(w)も平坦。
+3. 実際のOre局所化が Ψ:h_T→D_Ass を与える。T=C[[t_1,…,t_10,a_ij]]/(Pfaffian_4(a))。相対Poisson計算とYekutieli Cor11.2により標的も同じTでprorepresentされる。これは単なるhullではない。
+4. Ψの接写像が零なら、一次交換子からa=0となる。その場合は実際の可換三次変形だからt=0。接空間はいずれも20次元なので同型。Tの連続自己準同型は各有限次元随伴次数上で同型となり、完備性から自己同型になる。
+5. Lowenのalgebroid模型とH¹,H²(O)=0による中立化で、全Abel変形を通常の代数層変形へ移す。中心商の局所化次数部分E_nはO_X(n)の持上げなので、個々の持上げの一意性とsection回復から b≅check A、Q(b)≅check B を得る。
 
-帰結：規格化CY芽と射影基底付きAbel/Z形式模型は全Artinで一致。frameを忘れるとPGL5_1を割る。集合値の標識付き変形関手についての結論であり、2-stackや全大域モジュライの同値ではない。
+同次代数変形の全gauge分類は証明の前提ではない。CFTによる具体的な族の構成と、Yekutieliによる標的関手の同定を分ける。量子化座標の選択は非標準的でも、内在的なb→Q(b)はArtin底変更に自然である。各O(i)の持上げを同定する段階で、shift自己同値の持上げを仮定しない。
 
-既存のsmooth cubic Artin模型は、明記した同次formality入力とその制御模型の比較の下でk[[s1..s10,a01..a34]]/(Pluecker5式)、次元17・接空間20。全framed中心対の41/44模型とは区別する。実際のambient写像の接写像は(dot F,a)↦Pi(F,a)、dot F方向の核10・像10。H0(T_X)=0であるためcubic側にP4と同じ24次元の形式gaugeは残らない。
+CFTの規約ではα=Π/2を代入し、一次交換子をΠに規格化する。中心性の逆向きが必要な補助補題では、D⁰の三次部分と、四次係数ベクトル場のD¹を生成元で評価する写像が還元恒等の有限自由行列であることを使う。中心の非平坦底変更を仮定しない。
 
-独立に選んだ射影とaffine formalityの座標で、全高次のactual mapが(F_R,a)↦Pi(F_R,a)という式と一致することは未確認。写像自体の存在と一次式、中心対局所環の記述はこの未確認点を前提にしない。
+**範囲。** 正規三次incidenceが全変形を尽くすという主張は、試験環と底変更を局所Artin代数に制限した問題である。全スキーム底変更を要求する相対M^Oの形式完備化との同定には、任意のR→Sの後のsaturationと復元をさらに供給する。形式環の計算と包絡平坦性自体には影響しない。
 
-全Abel変形の一次空間HH²(X)の次元20は既知のHochschild制御から得られ、O-markingによって変わらない。17次元の積hullをこの全Abel問題やAS三次incidenceへ同定する際は、formalityの対象と比較写像を確認する。DDL比較だけでこの二つの未確認点を解消したことにはしない。
+### 5.4 形式局所環、ambient写像、P4との区別
+
+構造対象付きAbel変形の同型類関手はTで表され、Krull次元17、接空間20。特殊ファイバーの有限Aut(X)は割らない。中心対の射影生成基底を残すとformal PGL5の24次元torsorになり、次元41・接空間44。証明は `cor:abel-cubic-formal-ring` と `thm:artin-central-pair`。H⁰(T_X)=0により、cubic側には標識を保つ形式的PGL stabilizerが残らない。
+
+実際のambient射の接写像は(dot F,a)↦Π(F,a)_projで、核10・像10。原点の核10と、非零一般点のambient忘却fiber4は別である。独立に選んだaffine／projective量子化の座標で、全高次のactual mapが単に(F_t,a)↦Π(F_t,a)となることは未確認であり、上の存在・比較の証明には用いない。
+
+P4ではPoisson変形はJacobi零点錐の原点完備化をPGL5_1で割る。接空間126。ε³上の π=εP と exp(εξ)π は二次で異なる代表となるため、接空間が同じだけでは錐とgauge商を同定できない。
+
+有限Beilinson窓とHom(O,O(1))の射影基底を使うと、対象スカラーを除いた形式sliceが得られる。Pymの規格化CY芽と、この同じ関手のminimal hullの一意性を先に用い、その後で実際のQmod写像の接写像を照合する。帰結は集合値の標識付き全Artin関手の比較であり、2-stackや大域モジュライの同値ではない。
 
 ## 6. 非可換P3の四頂点potential
 
@@ -179,7 +192,7 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-最優先は§5.2の二次包絡平坦性と、§1.2の相対Hom定理を具体的な族で適用することである。全Artin残余射の形式幾何化（§10）と、17係数全混合族の非空smooth proper開集合は上位目標として保持する。相対dg模型・対角perfect性・基底変更を確保し、必要なJacobian開部分で正規三次イデアルを保つ周期降下と有限係数incidenceを扱う。P3のrank6模型の全分類や全AS5許容関手の代数性を、その前提にしない。
+可換点の二次包絡平坦性は§5.3で解決した。最優先は§1.2の相対Hom定理を具体的な族で適用し、全スキーム底変更に対するsaturationと復元を供給することである。全Artin残余射の形式幾何化（§10）と、17係数全混合族の非空smooth proper開集合は上位目標として保持する。相対dg模型・対角perfect性・基底変更を確保し、必要なJacobian開部分で正規三次イデアルを保つ周期降下と有限係数incidenceを扱う。P3のrank6模型の全分類や全AS5許容関手の代数性を、その前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
@@ -210,7 +223,7 @@ HH^p(K)=
 
 ### 10.3 条件付き代数補題：実際の残余射ができれば積分解できる
 
-A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。既存原稿の三次側hullがこのRであるという主張は、そこで明記したhomogeneous formality入力に依存する。
+A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–5.4の証明により、三次側の古典的Abel Artin変形関手はこのRで実際に表される。ここではCFTとYekutieliの既知入力を用いるが、追加の未確認formality分類は仮定しない。
 
 次の三つを追加の入力とする。
 
@@ -247,6 +260,10 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。既存�
 | [Lowen, Comm.Algebra33 (2005), 3195–3223, DOI10.1081/AGB-200066155](https://win.uantwerpen.be/~wlowen/pdf%20papers/COMALG-ObstructionTheory.pdf), Thms6.11–6.12 pp.3218–3219 | 対象のExt²障害・Ext¹で測る持上げの差。flat版は双対 | Oの形式的持上げと、大域的なOの内在認識は別 |
 | [Lowen–Van den Bergh, Adv.Math198 (2005), 172–221, DOI10.1016/j.aim.2004.11.010](https://win.uantwerpen.be/~wlowen/pdf%20papers/ADVANCES-Hochschild-cohomology.pdf), Thm3.1, Rem3.5, Thm6.1 | Abel変形のHochschild制御、char0のMC/gauge、導来enhancementとの比較 | homogeneous coordinate模型との比較は対象を一致させて適用 |
 | [Barmeier–Wang, Algebraic Geometry11 (2024), 1–36, DOI10.14231/AG-2024-001](https://content.algebraicgeometry.nl/2024-1/2024-1-001.pdf), Thm1.2=3.11 | affine cover由来quiver relationsによる(Q)coh変形のexplicit L∞模型 | tilting版Thm3.18をcubicへそのまま使わない。一般Abel変形理論の新規性は主張しない |
+| [Lowen, arXiv:math/0511197v2](https://arxiv.org/pdf/math/0511197), Thms3.14/3.26 | algebroid模型によるMod・Qcohの全Abel変形比較 | H¹,H²(O)=0による通常の代数層への移行を明示。周期性は推論しない |
+| [Yekutieli, arXiv:0905.0488v5](https://arxiv.org/pdf/0905.0488), Cors7.5/11.2 | 通常／twisted変形、可換積も変形するPoisson／Ass関手の自然な全単射 | 固定層のstar productを扱うCor11.3との区別。全Artin基底を含む |
+| [Cattaneo–Felder–Tomassini, arXiv:math/0012228v3](https://arxiv.org/pdf/math/0012228), §3, Prop3.3, Cor5.2(iv) | GL同変な普遍式、一次項・単位、Casimirの中心持上げ | Artin係数の有限代入、次数計算、実際の中心商族を本稿で補う。逆向きの全分類は不要 |
+| [Polishchuk–Positselski, Quadratic Algebras, ULS37, AMS2005](https://doi.org/10.1090/ulect/037), Ch6 Prop7.2/Thm7.3 pp129–130 | Noetherian局所環上で、Koszul特殊ファイバーと次数1–3の自由性から全次数自由性 | 原著の該当頁を確認。非周期的Artin Z版には直接証明を与える。一般原理を新規成果としない |
 | [Milne, Algebraic Groups, Prop20.7](https://www.jmilne.org/math/Books/iAG2022.pdf); [Stacks 03PK](https://stacks.math.columbia.edu/tag/03PK), [0CJZ](https://stacks.math.columbia.edu/tag/0CJZ), [0FY3](https://stacks.math.columbia.edu/tag/0FY3), [051E](https://stacks.math.columbia.edu/tag/051E) | 非被約C基底上もPGL2=Aut(P¹)、Kummer列、gerbe、Serreの一意性、Artin flat=free | 相対Veronese・Hom比較の一般入力。組合せの初出は未確認 |
 
 | [Mayanskiy, arXiv:1303.5916](https://arxiv.org/pdf/1303.5916), Theorem 1 | 固定smooth cubicの射影Poisson空間Gr(2,5)。Loray–Pereira–Touzetに帰属。証明のSchouten式はPlücker二次式 | 17という数だけを新規性にしない。有限係数の非可換族・正しい同型類・圏の幾何を示す |
@@ -270,7 +287,7 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。既存�
 
 ## 12. 現在の検証範囲と外部課題との境界
 
-新しい相対Veronese、圏のHom、Artin基底変更、二次・三次提示、相対AS持上げ、次数三障害の証明を点検し、主要部分を独立に読み合わせた。これは第三者査読、新規性の網羅調査、全旧証明の独立再証明を意味しない。正確な対象ファイル・一次資料・範囲は `validation.json`。
+相対Veronese、圏のHom、Artin基底変更、二次・三次提示、相対AS持上げを保持し、今回は次数三平坦性の伝播、平方零障害消滅、CFTの具体的中心量子化、実際の代数層変形写像、全Abel変形の二次包絡、形式局所環の証明を点検した。主要な新証明は独立に読み合わせ、Artin底変更と全スキーム底変更の範囲を区別した。これは第三者査読、新規性の網羅調査、全旧証明の独立再証明を意味しない。正確な対象ファイル・一次資料・範囲は `validation.json`。
 
 既存8計算は2026-11-16に実行され、横断slice行列式−5538243375000、Rat113の全Poisson接空間37、二因子stabilizer rank48、低次中心、中心三次式、軌道rank24、分離型codim15を再現した。3保存証明書も一致している。今回そのsourceは変更しておらず、これを今回の再実行と報告しない。
 

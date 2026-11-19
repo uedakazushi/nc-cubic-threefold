@@ -1,12 +1,14 @@
 \section{可換三次点におけるAbel圏の全Artin変形}
 \label{sec:abel-formal-cubic}
 
-本節では，特殊ファイバーを固定した無限小変形を扱う．
-大域的な無標識Abel圏の復元，有限型atlasの存在，または
-任意の変形のAS ambientへの埋込みは結論しない．
-比較の一般定理はDe Deken--Lowenの既知結果であり，
-ここで行うのは三次三様体に対する仮定の確認と，
-構造対象を標識する操作への帰結の明示である．
+本節では，滑らかな可換三次三様体を特殊ファイバーとして固定する．
+De Deken--Lowenの既知の変形比較を適用した上で，
+全ての平坦Abel Artin変形の二次包絡が平坦な相対Koszul--AS五次元族となり，
+元のsection代数がその正規正則三次商であることを証明する．
+構造対象だけを標識した変形関手の形式局所環も同定する．
+証明では，量子化を用いない次数三の平坦性判定・平方零基底の消滅と，
+既知の量子化定理を用いる全Artin結論を区別する．
+大域的な無標識Abel圏の復元や有限型atlasの存在は結論しない．
 
 \subsection{変形の射と特殊ファイバーの固定}
 
@@ -335,8 +337,10 @@ $\widetilde g_i$のある成分が単元なら，残余行列の対応する行�
 $b_{i,i+3}$の自由性と上の核の記述から従う．
 
 この命題は\emph{次数三の平坦性の必要十分条件}を与える．
-すべての$i$で$I_i=0$を示しても，それだけで$B$の次数四以降の平坦性，
-AS正則性，または全Artin Abel変形が三次incidenceに属することを結論してはならない．
+全ての位置での$I_i=0$から全次数平坦性へ進む根拠は，
+後の定理\ref{thm:abel-degree-three-propagation}で別途証明する．
+滑らかな可換三次点の全Abel変形では，
+定理\ref{thm:abel-cubic-flat-envelope}が実際に全ての$I_i=0$を与える．
 \end{remark}
 
 \begin{proposition}[二次包絡の平坦性から正規正則三次族へ]
@@ -414,27 +418,21 @@ $\sigma_{il}(ac)=\sigma_{ij}(a)\sigma_{jl}(c)$を得る．
 また$g_i\cdot1=1\cdot g_i$なので単位も保たれ，$\sigma$は所望の同型である．
 \end{proof}
 
-\begin{remark}[周囲のAbel変形問題と三次incidenceの像]
-定理\ref{thm:abel-cubic-all-artin}が記述するのは
-$\operatorname{coh}(X)$の\emph{周囲のAbel変形問題}である．
-AS正則二次包絡と正規正則三次族を持つ生成列の存在によって
-$\mathcal O$-marked非可換三次三様体のクラスを定義した場合，
-その形式完備化が周囲のAbel変形問題全体と一致することは，まだ証明していない．
-三次incidenceからのessential imageは，現段階では真に小さい可能性を排除していない．
-
-命題\ref{prop:abel-flat-envelope-normal-cubic}により，
-二次包絡の次数ごとの平坦性を示せば，正規正則三次核という条件は自動的に従う．
-全次数平坦性の下では，定理\ref{thm:abel-relative-as-lift}が相対Koszul--AS条件も与える．
-従って残る核心は二次包絡の全次数平坦性自体である．
-特に，非正則なArtin基底上での相対AS正則性と，係数環も含めた通常の環の
-有限global dimensionを混同してはならない．
+\begin{remark}[平坦性・正規三次核・相対正則性の役割]
+命題\ref{prop:abel-flat-envelope-normal-cubic}は量子化を用いず，
+平坦な二次包絡から正規正則三次核を回復する．
+次の定理は同じ平坦性から相対Koszul--AS性を導く．
+これらを，後で証明する全Abel変形の包絡平坦性と組み合わせることで，
+滑らかな可換三次点の形式近傍では三次incidenceの本質像が全変形を尽くす．
+ここで用いる相対AS正則性は，係数環も含めた通常の環の
+有限global dimensionとは異なる．
 \end{remark}
 
 \subsection{多項式環の平坦Artin変形における相対Koszul--AS性}
 \label{subsec:abel-relative-as-lifting}
 
-以下の補題は二次包絡の全次数平坦性を仮定する．
-二次・三次など有限個の成分の平坦性を，この仮定の代用にはしない．
+以下の定理は二次包絡の全次数平坦性を仮定する．
+この仮定の次数三による判定は定理\ref{thm:abel-degree-three-propagation}で与える．
 またArtin基底が非正則な場合，基底込みの環の絶対的大域次元は有限とは限らない．
 ここでは頂点上の基底加群の線型解消，AS双対，および基底上平坦な加群に対する
 射影次元を分けて述べる．
@@ -628,7 +626,7 @@ $B$射影加群の各頂点成分は$\Lambda$射影的なので，
 \end{remark}
 
 
-\subsection{構造対象の標識と形式hull}
+\subsection{正規三次表示の判定}
 \begin{corollary}[正規三次表示の平坦二次包絡判定]
 \label{cor:abel-cubic-flatness-criterion}
 定理\ref{thm:abel-cubic-all-artin}のsection $\mathbb Z$-代数変形$b$について，
@@ -654,9 +652,397 @@ $B'$の平坦性から\textup{(i)}を得る．三次idealはその商写像の�
 \end{proof}
 
 本系は，標準豊富列を特殊ファイバーに持つ三次表示の存在を，
-全次数平坦性という一つの条件へ還元する．その条件が全Abel変形で成立することや，
-有限個の次数だけから判定できることを証明したものではない．
+全次数平坦性という一つの条件へ還元する．以下でその有限次数判定と，
+滑らかな可換三次点の全Abel変形における成立を証明する．
 
+
+\subsection{多項式特殊ファイバーにおける次数三からの平坦性伝播}
+\label{subsec:abel-degree-three-propagation}
+
+一般のKoszul変形原理は，Koszul代数の二次変形では次数三の平坦性が
+全次数の平坦性を制御することを述べる．
+Polishchuk--Positselski\cite[Chapter~6, Theorem~7.3, pp.~129--130]{PPQuadratic}は，Noether局所環上で一次・二次・三次成分が自由で，
+特殊ファイバーがKoszulであれば全次数成分が自由であることを示す．
+同章Proposition~7.2の分配束による証明は有限区間ごとの
+$\mathbb Z$-代数にも適用できる．Etingof--Maの講義録
+\href{https://math.mit.edu/~etingof/18735.pdf}
+{\emph{Lecture Notes on Cherednik Algebras}, Theorem~7.6}は
+$\C[[\hbar]]$上の形を記している．以下では既知の原理の
+本稿に必要な多項式特殊ファイバー，任意の局所Artin基底，非周期的な
+$\mathbb Z$-代数の形を，冪零性を使う並べ替えによって直接証明する．
+一般のKoszul変形原理の新規性は主張しない．
+
+\begin{theorem}[次数三による全次数平坦性の判定]
+\label{thm:abel-degree-three-propagation}
+$(R,\mathfrak m,k)$を剰余体$k$の局所Artin $k$-代数とする．
+各$i\in\mathbb Z$について$V_i$を自由rank~$5$の$R$加群とし，
+$\mathcal R_i\subset V_i\otimes_RV_{i+1}$を自由rank~$10$の直和因子とする．
+二次$\mathbb Z$-代数
+\[
+ B=T_R(V_\bullet)/(\mathcal R_i\mid i\in\mathbb Z)
+\]
+の特殊ファイバーは，五変数多項式環の標準$\mathbb Z$-代数に同型とする．
+このとき次は同値である．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item すべての$i$について$B_{i,i+3}$が$R$-平坦である．
+\item すべての$i\leq j$について$B_{ij}$が$R$-自由であり，
+  その階数は$\binom{j-i+4}{4}$である．
+\end{enumerate}
+さらに特殊ファイバーの座標基底を各$V_i$の基底
+$x_0^{(i)},\ldots,x_4^{(i)}$へ持ち上げると，任意の$i$と$n\geq0$について，
+\begin{equation}\label{eq:abel-artin-ordered-basis}
+ x_{a_1}^{(i)}x_{a_2}^{(i+1)}\cdots x_{a_n}^{(i+n-1)},
+ \qquad 0\leq a_1\leq\cdots\leq a_n\leq4
+\end{equation}
+は$B_{i,i+n}$の$R$基底となる．
+周期同型や通常の次数付き代数による表示は仮定しない．
+\end{theorem}
+\begin{proof}
+\emph{二次関係の規格化．}
+各$V_i\otimes V_{i+1}$を，降順対$a>b$の単項式が張る自由加群と，
+非降順対$a\leq b$の単項式が張る自由加群の直和に分ける．
+$\mathcal R_i$から前者への射影は，特殊ファイバーで可換性の関係による同型である．
+両辺は自由rank~$10$なので，射影自体が同型である．
+従って各関係は一意に
+\begin{equation}\label{eq:abel-artin-sorting-rule}
+ x_a^{(i)}x_b^{(i+1)}
+  \longmapsto
+ x_b^{(i)}x_a^{(i+1)}+
+ \sum_{c\leq d}q_{i,ab}^{cd}x_c^{(i)}x_d^{(i+1)},
+ \qquad a>b,\quad q_{i,ab}^{cd}\in\mathfrak m
+\end{equation}
+という規則で表せる．通常のswapの係数への補正も右の和に含める．
+
+\emph{冪零性による停止性．}
+$\mathfrak m^N=0$とし，$R$の$k$基底$\mathcal E$を
+$\mathfrak m$-進濾過に適合するように選ぶ．すなわち，
+$e\in\mathcal E$の深さ$\nu(e)$を$e\in\mathfrak m^{\nu(e)}
+\setminus\mathfrak m^{\nu(e)+1}$で定め，
+$\mathfrak m^r$が$\nu(e)\geq r$の基底元で張られるようにする．
+固定した始点$i$と長さ$n$について，tensor代数の$k$基底は
+$e\,x_{a_1}^{(i)}\cdots x_{a_n}^{(i+n-1)}$である．
+この基底項に
+\[
+ \bigl(N-\nu(e),\operatorname{inv}(a_1,\ldots,a_n)\bigr)
+\]
+という辞書式に順序付けた重みを与える．ここで$\operatorname{inv}$は転倒数である．
+規則\eqref{eq:abel-artin-sorting-rule}の通常のswapは転倒数を$1$減らす．
+補正項では係数$e q_{i,ab}^{cd}$が$\mathfrak m^{\nu(e)+1}$に入るので，
+$\mathcal E$で展開した全ての非零項で第一成分が減る．
+従って各還元は全ての項の重みを狭義に下げる．
+可能な基底項は有限個であるから，最大重みの項から還元する手順は必ず停止する．
+同じ有限順序に関する帰納法を用いれば，任意の還元列も停止する．
+
+従って，平坦性をまだ仮定しなくても，全ての語は非降順語の$R$線型結合に還元できる．
+特に\eqref{eq:abel-artin-ordered-basis}の像は$B_{i,i+n}$を生成する．
+長さ$3$ではその語の個数は$35$である．仮定\textup{(i)}の下では
+$B_{i,i+3}$は有限平坦，従って自由で，特殊ファイバーの次元からrank~$35$である．
+非降順語からの全射$R^{35}\to B_{i,i+3}$は特殊化後に基底を与えるので同型である．
+よって長さ$3$の任意の二つの完全な還元結果は一致する．
+
+\emph{曖昧さの解消と全長の基底．}
+一つの語に二つの還元可能な隣接対がある場合を考える．
+それらが交わらなければ，二つの還元を逆の順で行っても同じ$R$線型結合を得る．
+二つの対が交わる場合は，三連続文字$a>b>c$における重なりである．
+この三文字の部分だけを両方の順序で還元し尽くすと，
+長さ$3$についての前段の一意性により，同じ非降順三文字の線型結合を得る．
+その前後に同じ語を付け，係数を掛けても同じ等式である．
+いずれの場合も，途中の項は元の語より重みが小さい．
+
+この局所的な比較から，重みに関する帰納法で全長における還元結果の一意性が従う．
+実際，初めの還元位置が異なる二つの結果を，上の共通展開で結ぶ．
+その展開に現れる項は全て重みが小さいため，それらの最終結果は帰納法により一意である．
+異なる基底項を先に還元する違いは線型性によって処理できる．
+これは線型版Diamond lemmaの停止性・重なり解消の議論である．
+
+得られた正規形写像は各二次関係を任意の前後の語と任意の$R$係数で掛けたものを零に送る．
+従って二次idealを零に送る．一方，非降順語の線型結合上では恒等である．
+このため非降順語の自由$R$加群から$B_{i,i+n}$への全射は単射でもあり，
+\eqref{eq:abel-artin-ordered-basis}が$R$基底となる．
+正規形の構成は一旦$k$基底で説明したが，この全射は元々$R$線型であり，
+それが全単射なので得られた基底同型も$R$線型である．
+非降順語の個数は$\binom{n+4}{4}$だから\textup{(ii)}を得る．
+\textup{(ii)}から\textup{(i)}は明らかである．
+\end{proof}
+
+\begin{corollary}[全次数平坦性障害の次数三への集約]
+\label{cor:abel-all-flatness-from-cubic-obstruction}
+定理\ref{thm:abel-cubic-all-artin}から得られるsection代数変形$b$と
+その二次包絡$B=Q(b)$について，次は同値である．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 全ての$i$で，命題\ref{prop:abel-degree-three-obstruction}の$I_i$が零である．
+\item $B$は全次数で$R$-平坦である．
+\item $b$は，平坦な相対Koszul--AS正則次元$5$，index $5$の二次族の
+  正規正則三次族による商として表示できる．
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+$\mathcal R_i=\ker(V_i\otimes V_{i+1}\to b_{i,i+2})$であり，
+$b_{i,i+2}$は自由rank~$15$なので，$\mathcal R_i$は自由rank~$10$の直和因子である．
+特殊ファイバーの二次包絡は多項式環である．
+従って命題\ref{prop:abel-degree-three-obstruction}と
+定理\ref{thm:abel-degree-three-propagation}から\textup{(i)}と\textup{(ii)}は同値である．
+\textup{(ii)}と\textup{(iii)}は系\ref{cor:abel-cubic-flatness-criterion}による．
+\end{proof}
+
+この系では，全ての位置$i$での次数三の障害を要求する．
+添字の周期性が未証明の段階で，有限個の位置だけの検査へ置き換えてはならない．
+また証明はArtin基底の冪零性を本質的に使うので，一般の有限型係数空間で
+同じ単項式基底が大域的に存在することや，全次数条件のZariski開性を結論しない．
+各$I_i$の消滅自体は別の入力である．次の平方零基底の定理は量子化を用いず，
+その後の定理\ref{thm:abel-cubic-flat-envelope}は滑らかな三次点の全Artin基底を扱う．
+
+
+\subsection{平方零基底上での次数三障害の消滅}
+\label{subsec:abel-square-zero-degree-three}
+
+本小節では$k=\C$，$R$を剰余体$k$の可換局所Artin $k$-代数とし，
+$\mathfrak m_R^2=0$を仮定する．$b$は三次超曲面の座標
+$\mathbb Z$-代数の成分ごとに平坦な変形とする．
+この小節の結論には超曲面の滑らかさは必要なく，
+特殊ファイバーの方程式$0\ne F\in\operatorname{Sym}^3V$だけを用いる．
+ただし$\dim_kV=5$である．
+
+\begin{theorem}[平方零基底における次数三の平坦性]
+\label{thm:abel-square-zero-degree-three}
+上の仮定の下で，二次包絡$B=Q(b)$の全ての次数三成分
+$B_{i,i+3}$は$R$-自由rank~35である．
+従って命題\ref{prop:abel-degree-three-obstruction}の
+$I_i=\operatorname{Ann}_R(g_i)$は全て零である．
+さらに定理\ref{thm:abel-degree-three-propagation}により，
+$B$の全成分が自由で，多項式環と同じHilbert関数を持つ．
+\end{theorem}
+\begin{proof}
+$M=\mathfrak m_R$と置く．各$V_i=b_{i,i+1}$の基底を選び，
+特殊ファイバーの標準同定を持ち上げて$V_i=R\otimes_kV$とする．
+標数零なので
+\[
+ V\otimes_kV=\operatorname{Alt}^2V\oplus\operatorname{Sym}^2V
+\]
+という分解を使える．ここで$\operatorname{Alt}^2V$は
+$a\wedge b\mapsto a\otimes b-b\otimes a$で埋め込む．
+二次関係$\mathcal R_i\subset V_i\otimes_RV_{i+1}$の
+交代成分への射影は特殊化後に同型なので，$R$上でも同型である．
+従って一意的な$k$-線型写像
+\[
+ q_i:\bigwedge^2V\longrightarrow M\otimes_k\operatorname{Sym}^2V
+\]
+を用いて，二次関係を
+\[
+ r_i(a,b)=a\otimes b-b\otimes a-q_i(a,b)
+\]
+と書ける．
+
+まず次数三の障害を，特殊ファイバーのkernelからcokernelへの写像として計算する．
+命題\ref{prop:abel-degree-three-obstruction}の$d_i$を
+$d_i=d^0+\dot d_i$と書く．$d^0$は可換性の関係行列，
+$\dot d_i$は全成分が$M$に入る行列である．
+$d^0$のkernelは$\bigwedge^3V$，cokernelは$\operatorname{Sym}^3V$である．
+可逆なrank~90 blockを消去した残余写像は，$M^2=0$により厳密に
+\[
+ \Theta_i:\bigwedge^3V\longrightarrow
+ M\otimes_k\operatorname{Sym}^3V,
+ \qquad \Theta_i=\pi\dot d_i\bigm|_{\ker d^0}
+\]
+である．実際，始域と終域の$k$上の直和分解によって
+$d^0$を$\left(\begin{smallmatrix}I_{90}&0\\0&0\end{smallmatrix}\right)$とすれば，
+Schur補行列の補正項は$M$に属する二つのblockの積であり零となる．
+
+このkernelの元に対する式を明記する．$a,b,c\in V$について，
+古典的な重なりは
+\[
+\begin{aligned}
+ &r^0(a,b)c+r^0(b,c)a+r^0(c,a)b\\
+ &\hspace{10mm}=a r^0(b,c)+b r^0(c,a)+c r^0(a,b)
+\end{aligned}
+\]
+である．左辺から右辺を引いた持上げを$d_i$で写し，
+可換な対称三次成分へ射影すると
+\[
+ \Theta_i(a,b,c)
+ =a(q_{i+1}-q_i)(b,c)
+  -b(q_{i+1}-q_i)(a,c)
+  +c(q_{i+1}-q_i)(a,b)
+\]
+となる．ここで右辺の積は$\operatorname{Sym}V$の積である．
+
+$S=\operatorname{Sym}V$とし，Koszulのコチェイン微分を
+\[
+ \delta:\operatorname{Hom}_k(\bigwedge^pV,S_d)
+ \longrightarrow\operatorname{Hom}_k(\bigwedge^{p+1}V,S_{d+1}),
+\]
+\[
+ (\delta h)(v_0,\ldots,v_p)
+   =\sum_{r=0}^p(-1)^r v_r
+      h(v_0,\ldots,\widehat v_r,\ldots,v_p)
+\]
+で定める．上の計算は$\Theta_i=\delta(q_{i+1}-q_i)$であり，
+可換性により$\delta^2=0$だから$\delta\Theta_i=0$である．
+
+一方，$b_{i,i+3}$の$R$-自由性により，残余写像の像は
+三次関係のprimitiveな持上げが張る直線の中に入る
+（命題\ref{prop:abel-degree-three-obstruction}の証明）．
+残余写像は$M$に値を持つ．三次関係の持上げには単元成分があるので，
+それに掛かるスカラーも$M$に属する．従って$M^2=0$により
+この直線の持上げの選択は消え，
+ある
+\[
+ \lambda_i\in M\otimes_k\operatorname{Hom}_k(\bigwedge^3V,k)
+\]
+について$\Theta_i=F\lambda_i$となる．
+従って
+\[
+ 0=\delta\Theta_i=F\,\delta\lambda_i.
+\]
+$F\ne0$であり$S$は整域なので，$M\otimes_kS$上の$F$倍は単射である．
+よって$\delta\lambda_i=0$を得る．
+
+最後に
+\[
+ \delta:\operatorname{Hom}_k(\bigwedge^3V,k)
+ \longrightarrow\operatorname{Hom}_k(\bigwedge^4V,V)
+\]
+は単射である．実際，$V$の基底の三つ組$e_a,e_b,e_c$に対し，
+それらと異なる基底元$e_d$を取る．
+$(\delta\lambda_i)(e_d,e_a,e_b,e_c)$の$e_d$係数は
+$\lambda_i(e_a,e_b,e_c)$であり，他の項は$e_a,e_b,e_c$の倍数である．
+したがって全ての係数が零となり，$\lambda_i=0$である．
+これで$\Theta_i=0$，従ってrank~90 block消去後の行列全体が零となる．
+ゆえに$B_{i,i+3}\simeq R^{35}$である．
+\end{proof}
+
+\begin{corollary}[一般Artin基底での障害idealの次数]
+\label{cor:abel-obstruction-no-linear-term}
+$R$を任意の局所Artin $k$-代数とし，$b$を上記の平坦な三次座標代数変形とする．
+このとき全ての$i$について
+\[
+ I_i\subset\mathfrak m_R^2
+\]
+である．
+\end{corollary}
+\begin{proof}
+二次包絡の形成は底変更と両立し，Fitting idealも底変更と両立する．
+$R\to R/\mathfrak m_R^2$に前定理を適用すると，
+$I_i=\operatorname{Fitt}_{34}(B_{i,i+3})$の像は零である．
+従って$I_i\subset\mathfrak m_R^2$となる．
+\end{proof}
+
+\begin{remark}[次元と高次の範囲]
+同じ証明は$\dim V\geq4$の非零三次式に対して成立する．
+次元条件を使うのは，三つの基底元と異なる第四の元を選ぶ最後の単射性だけである．
+一方，この証明を一般のArtin基底へそのまま繰り返すことはできない．
+$\mathfrak m_R^2\ne0$ではSchur補行列に二次以上の補正が入り，
+$\Theta_i=\delta(q_{i+1}-q_i)$という一次式だけでは障害を記述しない．
+通常の次数付き二次変形で$q_i$が$i$によらない場合でも，
+二次の障害にはJacobiatorが現れ得る．
+従って全Artin障害の消滅には，追加の恒等式または変形比較が必要である．
+\end{remark}
+
+\subsection{全Abel変形の二次包絡の平坦性}
+\label{subsec:abel-all-flat-envelope}
+
+前小節の線型計算だけを高次へ反復する代わりに，
+第\ref{sec:moduli-artin}節で実際に構成した中心三次商の族を使う．
+必要な量子化の存在とCasimirの中心持上げは
+Cattaneo--Felder--Tomassini\cite[\S3, Proposition~3.3 and Corollary~5.2(iv)]{CFT}，
+全ての代数層変形を比較する入力は
+Yekutieli\cite[Corollary~11.2]{YekutieliTwisted}である．
+未知の同次変形分類を追加仮定として課すものではない．
+
+\begin{theorem}[滑らかな三次点の全Abel変形の平坦二次包絡]
+\label{thm:abel-cubic-flat-envelope}
+$X=V_+(F)\subset\mathbb P^4_{\mathbb C}$を滑らかな三次三様体とし，
+$R$を剰余体$\mathbb C$の任意の局所Artin代数とする．
+$\operatorname{Qcoh}(X)$の平坦Abel $R$-変形$\mathcal D$と，
+定理\ref{thm:abel-cubic-all-artin}のsection $\mathbb Z$-代数$b$について，
+次が成り立つ．
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $i\le j$について$Q(b)_{ij}$は全て$R$-自由で，階数は$\binom{j-i+4}{4}$である．
+  特に全ての次数三障害ideal $I_i$は零である．
+\item $Q(b)$は定理\ref{thm:abel-relative-as-lift}の意味で
+  相対Koszul--AS正則次元$5$，index $5$である．
+  $b=Q(b)/(g_i)$であり，$(g_i)$は両側正規正則な三次族である．
+\item さらに，次数別有限自由な通常の二次次数付き代数$B_R$と
+  中心正則三次元$w_R$を選んで
+  \[
+    A_R=B_R/(w_R),\qquad
+    b\simeq\check A_R,\qquad Q(b)\simeq\check B_R
+  \]
+  と表示できる．ここで$B_R\otimes_R\mathbb C\simeq\mathbb C[x_0,\ldots,x_4]$，
+  $w_R$の還元は$F$である．この表示の選択自体はモジュライのデータに加えない．
+\end{enumerate}
+従って，試験環と底変更を局所Artin代数に制限した
+標準豊富列付き相対正規三次incidenceの本質像は，
+滑らかな可換三次点の全Abel Artin変形を尽くす．
+内在的な構成$b\mapsto Q(b)$は任意のArtin底変更と両立する．
+\end{theorem}
+\begin{proof}
+まずLowen\cite[Theorems~3.14 and~3.26]{LowenRinged}を，
+$X$の有限アフィン被覆とその交叉に適用する．
+これにより$\mathcal D$は$\mathcal O_X$のalgebroid変形によって記述できる．
+局所的な構造対象の平坦持上げを大域化する障害は，小拡大の核$I$に対して
+$I\otimes H^2(X,\mathcal O_X)$に，その同型類の差は
+$I\otimes H^1(X,\mathcal O_X)$に属する．
+補題\ref{lem:abel-cubic-acyclicity}の消滅により，
+普通の平坦結合代数層$\mathscr A_R$を代表として取れる．
+通常の変形とtwisted変形の同値類がこの条件で全単射になることは
+Yekutieli\cite[Corollary~7.5]{YekutieliTwisted}にも明記されている．
+
+補題\ref{lem:artin-constructed-family-comparison}により，この$\mathscr A_R$は
+中心三次商$A_R=B_R/(w_R)$のOre局所化に同型である．
+同補題の証明は，既知の同次量子化公式で実際に族を構成した後，
+その局所化写像を，同じ完備局所環で表される二つの関手の間の
+接写像可逆な自然変換として同定している．
+従って，未知の$Q(b)$の平坦性も，$b$の周期性も，ここでは仮定していない．
+
+局所化の次数$n$部分が定める可逆両側加群を$\mathscr E_n$とする．
+各$\mathscr E_{-i}$は$\mathcal O_X(-i)$の平坦持上げである．
+定理\ref{thm:abel-cubic-all-artin}の持上げの一意性により，
+$b$を作る各$\widetilde E_i$を$\mathscr E_{-i}$に同定できる．
+ここで，同型を全ての$i$について選ぶことはできるが，
+その一意性や独立に与えられたshiftの持上げは主張していない．
+
+強い次数付けを持つ局所化上では，右加群の内部Homは左からの乗法によって
+$\mathcal H om_{\mathscr A_R}(\mathscr E_p,\mathscr E_q)
+ \simeq\mathscr E_{q-p}$と同定される．
+この同型は重なりと合成に両立する．
+命題\ref{prop:artin-ore-section}の非負次数のsection回復から
+\[
+ b_{ij}\simeq\operatorname{Hom}(\mathscr E_{-j},\mathscr E_{-i})
+  \simeq H^0(X,\mathscr E_{j-i})
+  \simeq(A_R)_{j-i}\qquad(i\le j)
+\]
+を得る．各対象上で選んだ同型による共役が合成を保つので，
+これは正次数成分の合成を保つ同型である．
+$j-i<0$では，$\mathscr E_{j-i}$の有限な$\mathfrak m$進濾過の各商が
+$\mathcal O_X(j-i)$の有限直和であり，その$H^0$は零なので負次数のHomも零である．
+従って全添字について$\mathbb Z$-代数の同型$b\simeq\check A_R$を得る．
+中心三次商は二次関係を変えず，$B_R$は二次代数だから，
+$Q(b)\simeq\check B_R$となる．$B_R$の全次数の自由性から\textup{(i),(iii)}を得る．
+命題\ref{prop:abel-flat-envelope-normal-cubic}と
+定理\ref{thm:abel-relative-as-lift}により\textup{(ii)}が従う．
+
+最後に，$b_{i,i+2}$は有限自由なので，二次関係を定める核は直和因子であり，
+その形成は全てのArtin底変更に可換である．
+tensor代数と生成idealによる商も底変更に可換だから$Q(b)$もそうである．
+持上げの選択を変えると同型なsection代数が得られ，$Q$はその同型を保つ．
+従って実際のambient変形写像は，存在証明で選んだ量子化座標に依存しない．
+\end{proof}
+
+\begin{remark}[ここでの局所完全性の範囲]
+この結果は特殊ファイバーの標識を固定した古典的Artin変形について述べている．
+Artin試験環に制限したsectionのsaturationと復元は，
+定理\ref{thm:abel-cubic-all-artin}の逆構成と底変更の比較から得られる．
+従って，このArtin変形問題では構造対象付き三次条件は追加の変形を排除しない．
+定義\ref{def:abel-cubic-pointed}の全スキーム底変更を要求する相対stackの
+形式完備化と同一視するには，Artin基底から任意の基底への変更後も
+saturationと復元が成立することを別途示す必要がある．
+有限型基底上の代数化，smooth proper開集合の存在，相対Hom定理のC1--C4，
+または全ての非可換点での同じ局所表示をここから結論しない．
+また，量子化と独立に選んだPoisson座標との全高次での一致は用いていない．
+\end{remark}
+
+\subsection{構造対象の標識と形式局所環}
 
 \begin{proposition}[構造対象の標識を忘れる局所比較]
 \label{prop:abel-cubic-o-marking}
@@ -698,25 +1084,39 @@ $\lambda_i=\lambda_{i+1}$となる．$\widetilde E_i$は$\mathcal D$を生成す
 従って非切断2群oidの忘却は2慣性を変える．
 \end{proof}
 
-\begin{remark}[本研究の三次条件と形式hullとの関係]
-定理\ref{thm:abel-cubic-all-artin}と命題\ref{prop:abel-cubic-o-marking}は
-homogeneous formalityを仮定しない．また，次数一生成と二次・三次関係による提示は証明されたが，
-二次包絡の全次数平坦性は，この比較定理には含まれない．
-全次数平坦性が得られれば，定理\ref{thm:abel-relative-as-lift}によって相対AS性も従う．
-正規正則三次族の存在は，二次包絡の全次数平坦性の下では
-命題\ref{prop:abel-flat-envelope-normal-cubic}から従う．
-そのため，すべてのAbel変形が現行の正規三次incidenceに入ることは別途証明する必要がある．
+\begin{corollary}[構造対象付きAbel変形の形式局所環]
+\label{cor:abel-cubic-formal-ring}
+特殊ファイバー$X$との同一視を保つ，構造対象付きAbel変形の
+同型類関手は，非標準的に
+\[
+ \mathcal R_X=
+ \frac{\mathbb C[[t_1,\ldots,t_{10},a_{ij}\ (0\le i<j\le4)]]}
+ {(a_{ij}a_{kl}-a_{ik}a_{jl}+a_{il}a_{jk}\mid i<j<k<l)}
+\]
+でprorepresentされる．そのKrull次元は$17$，接空間次元は$20$である．
+有限群$\operatorname{Aut}(X)$はまだ割っていない．
+\end{corollary}
+\begin{proof}
+命題\ref{prop:abel-cubic-o-marking}により構造対象の標識を忘れてよい．
+前定理の証明で用いたLowenの比較とtwistの中立化により，
+同型類関手は$\mathcal D_{\mathrm{Ass},X}$と同定される．
+Yekutieli\cite[Corollary~11.2]{YekutieliTwisted}と
+補題\ref{lem:artin-relative-poisson-sheaf}から上の表現環を得る．
+構造対象付き三次incidenceの本質像が全変形を尽くすことは前定理による．
+Pl\"ucker錐は$\operatorname{Gr}(2,5)$の七次元アフィン錐であり，
+方程式は原点で二次から始まる．従って次元は$10+7=17$，
+接空間次元は$10+10=20$である．
+\end{proof}
 
-Hochschild制御\cite[Theorem~3.1]{LowenVdBHochschild}から，
-Abel変形の一次空間は$HH^2(X)$である．既存の計算では
-$HH^2(X)=H^1(X,T_X)\oplus H^0(X,\wedge^2T_X)$は20次元である．
-本節の比較により，構造対象を標識してもこの一次空間は変わらない．
-一方，10変数とGrassmannian錐の積という完全な形式hullを主張するには，
-既存原稿のformality入力と，その模型がここで定めた変形問題を表すことの
-比較がなお必要である．この二つの仮定を本節の定理によって消したことにはしない．
-
-さらに，$\mathcal O_X(n)$の全列が変形先へ持ち上がることは，
-その列を一つ移す自己同値の存在を意味しない．
-通常の次数付き代数への1周期化，Serre関手による反標準偏極の認識，
-ならびに特殊ファイバーを固定しない大域的な無標識復元は別の問題である．
+\begin{remark}[既知入力，座標の非標準性，および射の切断]
+De Deken--Lowenによる比較，Lowenによるalgebroid模型，
+Kontsevich--Cattaneo--Felder--TomassiniとYekutieliによる量子化，
+およびKoszul変形原理は既知入力である．
+本節では相対Poisson方程式，実際の中心商族，section復元を結び付けて
+全Abel変形の二次包絡の平坦性を証明した．この組合せの初出は未確認である．
+$\mathcal R_X$という座標環の選択と，内在的な二次包絡写像は区別する．
+通常の次数付き表示はこのArtin近傍で存在するが，その周期構造を
+モジュライの追加データとして標準的に選ぶことは主張しない．
+また同型類関手の表示は，有限自己同型群を含む無標識stackや
+自然同型を保持した$2$-groupoidの同値を意味しない．
 \end{remark}

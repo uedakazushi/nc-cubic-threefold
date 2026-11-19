@@ -58,8 +58,8 @@
 \newcommand{\nc}{\mathrm{nc}}
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
-\author{公表準備用研究原稿（著者情報未記入）}
-\date{2026年11月19日・nc cubic moduli研究草稿 v9}
+\author{}
+\date{2026年11月19日・nc cubic moduli研究草稿 v10}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -78,11 +78,18 @@
 構造対象を保つ全Abel圏同値のHom群oidを記述できる。
 可換三次点の全Abel変形についてはDe~Deken--Lowenの定理を適用し、
 全Artin基底のsection $\mathbb Z$-代数変形との比較を得る。
-これは既知定理の帰結であり、三次incidenceの局所完全性とは区別する。
-このsection代数の変形は、各位置で10本の二次関係と1本の三次関係で提示できる。
-二次包絡が全次数平坦なら、正規正則三次核と相対Koszul--AS性を復元できるため、
-三次表示の存在は二次包絡の平坦性へ還元される。
-最初の次数三の障害は、$125\times100$関係行列の91次小行列式idealで記述する。
+比較自体は既知定理の帰結である。さらに中心三次商の同次量子化族を構成し、
+実際のOre局所化写像を同じ完備局所環の自己写像として比較することで、
+任意のAbel Artin変形の二次包絡が全次数平坦であることを証明する。
+従って相対Koszul--AS五次元包絡と正規正則三次核が存在し、
+この可換点で正規三次incidenceの本質像が全Abel変形を尽くす。
+構造対象付き変形の同型類関手は、十次元形式円板と
+$\operatorname{Gr}(2,5)$のアフィン錐の原点完備化の積で表され、
+次元17・接空間20となる。
+別に、多項式特殊ファイバーを持つ非周期的な二次$\mathbb Z$-代数について、
+次数三の平坦性から全次数の平坦性への直接証明を与える。
+次数三の障害を$125\times100$関係行列の91次小行列式idealで記述し、
+平方零基底では滑らかさを仮定せずその消滅を示す。
 比較対象として非可換$\PP^3$を扱い、標準14641型の二次Koszul AS正則
 $\mathbb Z$-代数を、Frobenius周期で規格化した四頂点の四次superpotentialで表す。
 相対bar複体と頂点スカラーの降下により、許容potential関手の
@@ -247,8 +254,9 @@ Lowen--Van den BerghのAbel圏変形理論\cite{LowenVdBDeformation,LowenVdBHoch
 Barmeier--Wangのaffine coverに基づくquiver変形模型
 \cite[Theorems~1.2,3.11]{BarmeierWangSheaves}は、この一般的な変形問題を既に扱っている。
 従って本稿の全Artin比較そのものを新しい一般変形理論として主張しない。
-研究上の課題は、全Abel変形の二次包絡を平坦なAS族として認識し、
-実際の三次incidenceとその本質像を比較することである。
+本稿では、この比較の後に二次包絡の全次数平坦性を証明し、
+滑らかな可換三次点のArtin近傍で正規三次incidenceの局所完全性を得る。
+全次数平坦性はDe Deken--Lowenの定理自体の主張ではない。
 Lowen\cite[Theorems~3.14,3.26]{LowenRinged}と
 Yekutieli\cite[Corollary~11.2]{YekutieliTwisted}を併せると、
 本稿の可換点では構造代数層の変形とPoisson変形の同値類も比較できる。
@@ -257,6 +265,24 @@ Yekutieli\cite[Corollary~11.2]{YekutieliTwisted}を併せると、
 規格化CY表示と一般$\mathbb Z$-表示の全Artin比較を得る。
 接空間の次元が等しいことだけを根拠に同定したものではない。
 この比較の組合せの新規性と先行研究での初出は未確認である。
+
+三次側ではCattaneo--Felder--Tomassini\cite[\S3 and Corollary~5.2(iv)]{CFT}の
+量子化公式で中心三次商の族を実際に構成する。
+相対Poisson計算とYekutieliの定理により標的の代数層変形関手も
+同じ完備局所環で表されるため、構成した写像の接写像の単射性と
+完備環の自己準同型の議論により全Artin同型を得る。
+全ての同次代数変形をPoisson座標で分類する追加の未確認入力は用いない。
+最後に各$\mathcal O_X(i)$の持上げを比較して、任意のsection
+$\mathbb Z$-代数の二次包絡がこの平坦な量子代数に一致することを示す。
+
+次数三からの平坦性伝播自体はKoszul変形原理の既知の範囲に属する
+\cite[Chapter~6, Theorem~7.3]{PPQuadratic}。
+本稿はArtin係数の冪零性による書き換えで必要な非周期的$\mathbb Z$版を直接証明し、
+平方零基底では重なりの障害が$F\lambda=\delta(q_{i+1}-q_i)$となることから
+その消滅を別に証明する。
+従って量子化による滑らかな点の全Artin定理と、
+滑らかさを使わない一次の代数的消滅を区別できる。
+これらを合わせた三次包絡定理の初出と新規性の網羅調査は未完了である。
 
 \paragraph{代数構成の入力.}
 三変数 Sklyanin 代数と楕円曲線の対応，次数３の中心元および
@@ -972,6 +998,14 @@ saturationと相対復元を仮定した範囲で同じ比較射が得られる�
 一般の有理商は17次元から13次元への射となり、
 可換cubicへの忘却核7次元や、可換点の接写像の核10次元とは異なる。
 
+滑らかな三次点では、同次量子化で構成した中心商の実際の局所化写像を使い、
+全Abel Artin変形の二次包絡が平坦であることを示した。
+相対Koszul--AS性と正規三次表示が従い、
+Artin試験環に制限した構造対象付き変形の同型類関手は
+十次元形式円板と$\operatorname{Gr}(2,5)$錐の積で表される。
+全スキーム底変更を要求する相対stackとの接続には、
+普遍的なsectionのsaturationと復元をさらに供給する必要がある。
+
 全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
 smooth properな三次部分の開性と支配性、豊富列を忘れた内部的認識は残っている。
 独立に選んだformality座標の下でのactual mapの全高次式の一致も未確認である。
@@ -1380,6 +1414,14 @@ A. Yekutieli and J. J. Zhang,
 \emph{Serre duality for noncommutative projective schemes},
 Proc. Amer. Math. Soc. 125 (1997), 697--707;
 \url{https://doi.org/10.1090/S0002-9939-97-03782-9}.
+
+\bibitem{PPQuadratic}
+A.~Polishchuk and L.~Positselski,
+\emph{Quadratic Algebras}, University Lecture Series \textbf{37},
+American Mathematical Society, Providence, RI, 2005, xii+159 pp.
+\href{https://doi.org/10.1090/ulect/037}{doi:10.1090/ulect/037}.
+Chapter~6, Proposition~7.2 and Theorem~7.3, pp.~129--130。
+Noetherian局所基底上のKoszul変形原理。本稿の非周期的Artin版には直接証明を与える。
 
 \end{thebibliography}
 \end{document}
