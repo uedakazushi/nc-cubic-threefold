@@ -113,25 +113,29 @@ $Z(\mathcal A_s)_2=k(s)u^2\oplus k(s)uv\oplus k(s)v^2$である．
  \mathscr A=\widetilde{\mathcal A^{(\ell)}}
 \]
 と置く。$Y\to\operatorname{Spec}P$ は射影的で、$\mathscr A$ は有限な
-$\mathcal O_Y$-代数である。任意の noetherian $P$-代数 $S$ について
+$\mathcal O_Y$-代数である。任意の可換 $P$-代数 $S$ について
 $Y_S=\operatorname{Proj}(D\otimes_P S)$ と書き、$\mathscr A_S$ を基底変更した代数層とする。
 中心準同型に核が生じる場合も、この模型をその support とともに用いる。
 
 \begin{proposition}[相対 tails の有限代数層模型]
 \label{prop:central-model-qgr}
-全ての noetherian $P$-代数 $S$ について、基底変更に自然な同値
+任意の可換 $P$-代数 $S$ について、基底変更に自然な同値
 \[
  \operatorname{QGr}(\mathcal A_S)
- \simeq \operatorname{QCoh}(Y_S,\mathscr A_S),\qquad
+ \simeq \operatorname{QCoh}(Y_S,\mathscr A_S)
+\]
+がある。$S$ が noetherian なら、これは同値
+\[
  \operatorname{qgr}(\mathcal A_S)
  \simeq \operatorname{coh}(Y_S,\mathscr A_S)
 \]
-がある。
+に制限される。
 構造対象 $\mathcal O=\pi\mathcal A_S$ は $\mathscr A_S$ に対応し、
 $\mathcal O(m)$ は
 $\widetilde{\mathcal A_S(m)^{(\ell)}}$ に対応する。
-これらの圏は $S$-線型 locally noetherian Grothendieck 圏を与え、
-基底変更の合成および fppf 降下に両立する。
+大きい加群圏は $S$-線型 Grothendieck 圏であり、
+$S$ が noetherian なら locally noetherian である。
+これらの同値は任意の基底変更の合成および fppf 降下に両立する。
 \end{proposition}
 
 \begin{proof}
@@ -154,13 +158,28 @@ $m\mathcal A_{S,\geq n+e}=0$ となる。
 逆方向は $C_S$ の像が中心にあることから直ちに従う。
 標準開上の上記の同値を貼り合わせると tails の同値を得る。
 これは通常の Serre の Proj 対応の証明を有限な代数層に適用したものであり、
-中央の局所化と次数零部分だけで構成される。
+中心局所化と次数零部分だけで構成される。
+逆向きには、quasi-coherent な $\mathscr A_S$-加群 $N$ から
+\[
+ \bigoplus_{n\in\mathbb Z}
+ \Gamma(Y_S,N\otimes_{\mathcal O_{Y_S}}\mathcal O_{Y_S}(n))
+\]
+という次数付き $\mathcal A_S^{(\ell)}$-加群を取る。
+この加群の層化は $N$ を復元する
+\cite[Lemma~28.29.5, Tag~0AG5]{StacksProj}。
+さらに次数を $\ell$ 倍にして $\mathcal A_S$ へ誘導すれば、
+上記の強次数付き局所化の逆関手を各標準開上で得る。
+有限中心被覆上で層化の核が torsion と一致することから、
+これらは商圏上で互いに逆である。
+ここまでの構成は $S$ の noetherian 性を使わない。
+また中心局所化と次数零部分は任意の係数拡大と可換する。
 したがって基底変更とその合成に自然である。
-coherent 部分の対応は、環と代数層の noetherian 性から従う。
+coherent 部分の対応には $S$ の noetherian 性を用いる。
 
 有限代数層の quasi-coherent 加群は通常の加群とその作用写像の降下として
-fppf 降下を持つ。$Y_S$ が noetherian 射影スキームであることから
-quasi-coherent 加群圏は locally noetherian Grothendieck 圏である。
+fppf 降下を持つ。大きい tails 商は Grothendieck 圏であり、
+$S$ が noetherian なら $\mathcal A_S$ も noetherian なので
+この商圏は locally noetherian である。
 固定した二つの模型の間の同値および自然変換の降下には，
 補題\ref{lem:abel-canonical-family-equivalences}を用いる。
 \end{proof}
@@ -238,17 +257,21 @@ $\operatorname{QGr}(\mathcal A_S)\simeq\mathcal D_S$であり、
 
 \begin{proposition}[偶数列の豊富性、復元、関手の決定]
 \label{prop:central-model-even-sequence}
+noetherian な可換 $P$-代数 $S$ を固定し、
 上記の模型において $E_i=\mathcal O(-2i)$、$i\geq0$ とする。
 \begin{enumerate}
- \item 任意の coherent 対象は、十分大きい添字を持つ $E_i$ の有限直和の商である。
+ \item 任意の coherent 対象と任意の下限 $i_0$ に対し、
+ その対象は $i\geq i_0$ を満たす $E_i$ の有限直和の商である。
  また任意の coherent 対象間の全射 $M\to N$ に対し、
  $\operatorname{Hom}(E_i,M)\to\operatorname{Hom}(E_i,N)$ は $i\gg0$ で全射である。
  \item Veronese 関手は基底変更に自然な同値
  $\operatorname{QGr}(\mathcal A_S)\simeq\operatorname{QGr}(\mathcal A_S^{(2)})$ を与える。
  偶数列の section 代数は前定理によって $\mathcal A_S^{(2)}$ となる。
- \item 二つの完全同値の偶数列上の制限の間に、全ての Hom と合成に両立する同型が与えられたなら、
+ \item 同じ始域 $\operatorname{QGr}(\mathcal A_S)$ と終域を持つ
+ 二つの完全同値の偶数列上の制限の間に、全ての Hom と合成に両立する同型が与えられたなら、
  その同型は圏全体の自然同型へ一意的に延びる。
 \end{enumerate}
+(2) は任意の可換 $P$-代数 $S$ について成り立ち、noetherian 性を必要としない。
 \end{proposition}
 
 \begin{proof}
@@ -302,6 +325,16 @@ noetherian 部分対象の filtered colimit であり、
 
 $\operatorname{Perf}(Y_S,\mathscr A_S)$ を、中心標準開上で
 有限生成射影 $\mathscr A_S$-加群の有界複体に同型な対象の dg 圏とする。
+命題\ref{prop:central-model-qgr}と
+\cite[Definitions~3.1, 3.13, Theorem~3.14]{BDGMinors}により、
+任意の可換 $P$-代数 $S$ について
+\[
+ D(\operatorname{QGr}(\mathcal A_S))^c
+ \simeq \operatorname{Perf}(Y_S,\mathscr A_S)
+\]
+である。ここで上添字 $c$ は非有界導来圏の compact 対象を表す。
+この同定に必要なのは $Y_S$ の quasi-compact 性と separated 性であり、
+$S$ の noetherian 性や fiber の正則性ではない。
 全係数基底上では，これを「有界coherentかつ底$S$上有限Tor振幅」という
 内在的な部分圏と同一視しない。後の命題\ref{prop:central-model-intrinsic-perfect-open}は，
 一般ファイバーの正則性の下で，非空基底開上に限ってその同一性を証明する。

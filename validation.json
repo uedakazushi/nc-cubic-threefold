@@ -1,7 +1,7 @@
 {
-  "date": "2026-11-19",
-  "version": "research-plan-v15 / manuscript-v21",
-  "scope": "Publication preparation of the Japanese LuaLaTeX main manuscript: explicit universal PBW and relative CY proof conventions, coherent even-section reconstruction and full O-preserving Hom descent, and the idempotent-complete generation input to the geometric Ku residual morphism. Current mathematical content, reproduction data and verification scope are retained without obsolete drafts or work logs.",
+  "date": "2026-11-20",
+  "version": "research-plan-v16 / manuscript-v22",
+  "scope": "Publication preparation of the Japanese LuaLaTeX main manuscript: finite-center lifting, geometric regularity, arbitrary-base big QGr versus noetherian coherent categories, global dg diagonals, and the exact domains of main theorems A-D. Current proofs, reproduction data and verification limits are retained without obsolete drafts or work logs.",
   "manuscript": "papers/nc-cubic-threefold-moduli.tex",
   "full_mathematical_audit": false,
   "external_peer_review": false,
@@ -20,15 +20,17 @@
       "papers/sections/abel_marked_moduli.tex",
       "papers/sections/algebraic_moduli_foundations.tex",
       "papers/sections/categorical_moduli_comparison.tex",
-      "papers/sections/intrinsic_cubic_reconstruction.tex"
+      "papers/sections/intrinsic_cubic_reconstruction.tex",
+      "papers/sections/central_pair_finite_order_regularity.tex",
+      "papers/sections/finite_order_relative_categories.tex",
+      "papers/sections/dg_smooth_torsion_families.tex"
     ],
     "additional_targeted_reading": [
       "papers/sections/kuznetsov_relative_category.tex: coefficient-perfect modules, smooth target and formal recognition inputs",
-      "papers/sections/dg_smooth_torsion_families.tex: spreading smoothness and descent along field extensions",
       "papers/sections/central_pair_artin_formal_moduli.tex: retained formal-ring and quantization comparison",
       "Main Introduction and related remarks: assumptions, internal references, literature comparison and current unresolved scope"
     ],
-    "method": "Separate proof readings with root integration and primary-source hypothesis checks. No concrete contradiction or unresolved gap was identified within the audited scope. This is not external peer review or an independent reproof of all inputs.",
+    "method": "Independent targeted readings of the three finite-central appendices, root integration, primary-source hypothesis checks and comparison of the main A-D statements with their proofs. The bridge proposition now separates equality of relations from the nonempty Delta/etale-chart restriction. No unresolved gap requiring a weaker main theorem was identified within this reviewed scope. This is not external peer review or an independent reproof of all inputs.",
     "core_checks": [
       "Jacobian etale saturation, universal centers, weight-zero Hom bundle, rank-four torsor, arbitrary-coefficient full faithfulness and irreducibility/finite type.",
       "All-Artin envelope flatness: CFT multiparameter naturality, Lowen affine localization comparison, Yekutieli Cor11.2 with moving commutative products, and the actual transformation between functors represented by the same complete ring.",
@@ -40,32 +42,43 @@
       "Relative CY: actual left B tensor Bop module convention, noncommutative Hessian order and flip, cochain dual signs (+,-,+,-), finite filtered exactness, and the left/right actions on the central-difference Koszul dual giving Theta(B/P)=B(5)[-5].",
       "Five-dimensional Koszul resolution: bounded reduced bar comparison in each total degree, finite-projective W_i, W_6=0, and arbitrary base change through split finite models.",
       "Full O-preserving Hom: coherent comparison of every even-section Z-algebra component, Serre choices restricted to the heart in the field-valued bounded version and to all even orbit objects in the arbitrary-base compact version, relative ample finite quotients for noetherian objects, and fpqc descent of Hom between fixed models before stackification.",
-      "Serre-stable generation: Stevenson all-localizing classification via the compact part and Kar(D_sg), automatic affine action stability, Orlov ungraded flatness hypotheses, grading/forgetting, compact extraction, and rotation R=S[-1]."
+      "Serre-stable generation: Stevenson all-localizing classification via the compact part and Kar(D_sg), automatic affine action stability, Orlov ungraded flatness hypotheses, grading/forgetting, compact extraction, and rotation R=S[-1].",
+      "Finite centers: nonnegative exhaustive filtration, Rains at closed points, constant commutator ranks over a reduced Jacobson base, lifted symbols and finite generation; no unchecked extension of the closed-point argument to nonreduced coefficient bases.",
+      "Relative categories: big QGr and quasi-coherent finite-algebra sheaves for arbitrary coefficient rings, coherent parts and ample-sequence comparison over noetherian rings, and compact=local Perf on quasi-compact separated models without noetherianity.",
+      "Finite-order regularity: CCKM finite-syzygy matrix factorizations and chart contraction; RSV finite relative diagonal with flat syzygies and all geometric field fibres; YZ/Chen duality for exact tails dimension three.",
+      "Global smoothness: ELS external-product generation for arbitrary chosen generators, left/right module conventions, diagonal evaluation and Morita comparison. The 15/16-dimensional torsion families do not establish the general 17-dimensional point.",
+      "Main A-D domains: ordinary coefficient rings; projectively graded ambient target; framed ordinary Artin neighbourhood in the full M, whose commutative point is outside C_J; nonempty point open C_J,pt and its intersection with the residual open U.",
+      "Bridge proposition: h!=0 gives the 17-parameter relations, followed by a nonempty inverse image of the Delta and etale-chart opens. The exact a=1/6, b=0, h^6=-1728 example shows that the bridge denominator alone does not guarantee quantum elliptic smoothness."
     ],
     "limits": [
       "Foundational external formality, quantization, PBW, deformation and categorical theorems are used after statement and hypothesis checks; their complete external proofs have not all been independently re-proved.",
-      "The new free-word calculation verifies identities and signs only. Exactness, PBW, finite projectivity and descent are separate manuscript proofs, not consequences of a finite computational sample.",
-      "Finite-central and finite-order relative-category appendices remain valid manuscript inputs with retained checks; their full independent audit is a remaining publication task.",
-      "Main A-D summarize proved-in-manuscript results with their stated domains. Generic smoothness, Artin formal completion, algebraization, exhaustive priority and external peer review have separate status."
+      "The retained free-word computations verify identities and signs only. Exactness, PBW, finite projectivity and descent are separate manuscript proofs, not consequences of a finite computational sample.",
+      "The three finite-central appendices have been read in full in this review, using their stated upstream PBW/CY and generator inputs. Those upstream proofs were not all reread in this review.",
+      "Remaining publication review includes retained periodization and relative-descent proofs, exhaustive priority checking and external peer review.",
+      "Main A-D summarize proved-in-manuscript results with their stated domains. Generic smoothness, ordinary Artin formal completion and algebraization have separate status."
     ],
     "current_review_fully_read_sections": [
-      "papers/sections/jacobian_abel_comparison.tex",
-      "papers/sections/abel_marked_moduli.tex",
-      "papers/sections/algebraic_moduli_foundations.tex",
-      "papers/sections/categorical_moduli_comparison.tex",
-      "papers/sections/intrinsic_cubic_reconstruction.tex",
-      "papers/sections/kuznetsov_moduli_morphism.tex"
+      "papers/sections/central_pair_finite_order_regularity.tex",
+      "papers/sections/finite_order_relative_categories.tex",
+      "papers/sections/dg_smooth_torsion_families.tex"
     ],
-    "reading_scope": "fully_read_sections is the retained cumulative coverage; current_review_fully_read_sections lists the six sections read in full in manuscript-v21. Targeted edits and statement comparisons elsewhere are not full independent proof audits."
+    "reading_scope": "fully_read_sections is cumulative retained coverage; current_review_fully_read_sections lists only the three sections read in full in manuscript-v22. Targeted edits and statement comparisons elsewhere are not full independent proof audits.",
+    "current_review_targeted_reading": [
+      "Main abstract and Introduction: theorem A-D statements, ordinary-base conventions, projectively graded B_J and open subsets.",
+      "papers/sections/kuznetsov_moduli_morphism.tex: prop:kuznetsov-algebraic-bridge and its use in the residual morphism.",
+      "papers/sections/point_scheme_poisson.tex: non-ST Jacobian Torelli remark and its Introduction reference.",
+      "Dependencies of A-D in the relative duality, all-Artin envelope and framed formal-descent sections; statement-scope comparisons rather than new full readings.",
+      "Introduction comparison with Behrend-Noohi and Abdelgadir-Okawa-Ueda: primary-source scope, attribution of unmarked abelian reconstruction, and the additional relative moduli statement."
+    ]
   },
   "static": {
     "tex_inputs": 33,
-    "labels": 563,
-    "references": 733,
-    "citations": 229,
+    "labels": 564,
+    "references": 738,
+    "citations": 233,
     "bibliography": 83,
     "sha256": {
-      "papers/nc-cubic-threefold-moduli.tex": "a5d027c00a109ccfa8314540679fc22b038b9eecb515ef3008c0cc3808a78d12",
+      "papers/nc-cubic-threefold-moduli.tex": "7400d46c7c7f228992983d88a58361288dd09efd7d32910bf8398cf583699bb4",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "cd61df35a889b8fc9c08a7bfb1f0e756a82584f41ef4f005b725f7f33e2b8081",
       "papers/sections/categorical_moduli_comparison.tex": "01ca7597e876688b4233e195fff0de9ad85d812f0fce550679198f7205f1e1f8",
@@ -79,13 +92,13 @@
       "papers/sections/jacobian_abel_comparison.tex": "7d336d472f343c88eb172f2ba51f81c96408f78c4564a755099b4bb3cd15539b",
       "papers/sections/jacobian_moduli_chart.tex": "8f0a84b2eafe1626cbb280c72d960c80106988c682c4cb07f1b03c34e29a9117",
       "papers/sections/kuznetsov_relative_category.tex": "88050dad823f8ee4e2cb2512597f98fa8ff324d5b46d0328e3d898bdd64ebc45",
-      "papers/sections/kuznetsov_moduli_morphism.tex": "46aeb7a46573e0c63dbe918b0259e35173e268b67329bcf1fc0f72669a2188ec",
+      "papers/sections/kuznetsov_moduli_morphism.tex": "528dc8cd9c23f522f2b9f1f3030e2f3281fb1b7d51cc9efe17f64b444918573a",
       "papers/sections/central_pair_artin_formal_moduli.tex": "f1efd0008953abfbea58d415990f87f806a2d043b2ef037778f30d4889212d1b",
       "papers/sections/abel_cubic_deformations.tex": "cbd4cad62177df92a638771b0fea3dfaee760fefb61c20c998dcf6720183e17e",
       "papers/sections/abel_formal_descent.tex": "e789f2d4445fed5493c9743f5315ecaf63ed2688ce1df6f4c719554a0bfe9b05",
       "papers/sections/formal_ambient_comparison.tex": "41c747bbe5ea7746f7919c632654a7ae85ef71d98062aa83632d8f2ab577593e",
       "papers/sections/poisson_cubic_lifts.tex": "fae7711c8434423a59602a24612934dd3d790b9f063a3a7f3b0b376915e046e5",
-      "papers/sections/point_scheme_poisson.tex": "478d4d18244d6984e065726eed19d7d45f24dd3e150a03e8ac5c8020c3d7de08",
+      "papers/sections/point_scheme_poisson.tex": "bad14f7442e19537df15af4a056a39d97d105289bfe8cc4b499f7153578455da",
       "papers/sections/ambient_periodicity.tex": "41645d9b4b151cf85b5ecc3028bb13903deca7d4c89a17917b26c812bc65b3be",
       "papers/sections/period_forgetting_moduli.tex": "39a653aa64433c53b968e63b1204da69deb7f8dbcf7c2eba21d78dd96154f278",
       "papers/sections/projective_three_space_potentials.tex": "2c6f45f379589277cd4c3f5fe0800517e9fca0d538f9c0c695eb3393ff68e4a2",
@@ -93,10 +106,10 @@
       "papers/sections/central_pair_diagonal_classification.tex": "870d0829f303d97f0246cba13f225f1c59a0a26d8702591d496d704043ad2678",
       "papers/sections/mixed_center_picard.tex": "e00afcbea0ca8513ca340dd576658e5ce1b7638ed8d996de50bc4aa2c389d8e1",
       "papers/sections/central_pair_mixed_derived_rigid.tex": "d55ee6906d0a9c4cce98912f493cf46a3f3ab715a6a4a080bf57795705468b32",
-      "papers/sections/finite_order_relative_categories.tex": "b2aa25ed5800c9075bdde03406bde26af5b3a569f31f59ef94db590cbcaaf44b",
+      "papers/sections/finite_order_relative_categories.tex": "18d556f14f6cbc7ebf6f9e75dd4e461f09967a0782c678e029587d68d6cb7ff9",
       "papers/sections/relative_serre_duality.tex": "c2542bef06564aab22128ec55fb1f505c83c9e037743fc5e4f55e726d5f95b8d",
-      "papers/sections/central_pair_finite_order_regularity.tex": "0cd9039a124e890cf00bb207b447ec9405405969aa96f377945c550affb8ea47",
-      "papers/sections/dg_smooth_torsion_families.tex": "6da34b975c8ec19de04132b9a69353d612f311d735e21b81c2aa27f220ad7559",
+      "papers/sections/central_pair_finite_order_regularity.tex": "1535ec44c229cf5cf2c1c3ee04b517402fa57805ae2a046553be89ad17c25b79",
+      "papers/sections/dg_smooth_torsion_families.tex": "a8955b5d514ee0366b1514dc41c75622505fc9b2be5128c3c1ba244f1bd4736e",
       "papers/sections/exact_rank_certificate.tex": "5a93d2146491a2a9bc29e2ea196b44c59dfcd4a92e3cc84f6a1194112da1c004"
     },
     "limit": "Static closure only, not mathematical proof audit."
@@ -114,12 +127,9 @@
       "definition": 9
     },
     "result_and_proof_environment_counts_preserved": true,
-    "scope": "Proofs and mathematical results retained; selected proofs are clarified, and obsolete scope remarks and duplicate bibliography entries are replaced. Counts and label closure do not certify mathematical validity.",
+    "scope": "All 32 section inputs, preexisting labels, 254 proof environments and all theorem/proposition/lemma/corollary/definition counts are preserved. Proofs and domains are clarified. Counts and label closure do not certify mathematical validity.",
     "existing_computation_sources_and_certificates_unchanged": true,
-    "new_computation_assets": [
-      "computations/verify_relative_cy.py",
-      "computations/relative_cy_certificate.json"
-    ]
+    "new_computation_assets": []
   },
   "computations": [
     {
@@ -168,7 +178,7 @@
       "source_sha256": "ae1f1515a06b6af9bfb66201ceb1ef47c61b0f0b70a9444b94bcccbce2568730",
       "executed_on": "2026-11-19",
       "result": "PASS: Rains polynomial, 339 words / 162 relations / rank 144; commutative specialization rank 144\nPASS: 3 exact Rains commutators over Q(q,t)[L1,L2,L3,M1,M2,M3]\nPASS: all three free-algebra 41-term centrality certificates, translation and exact Rains scalar difference\nPASS: ordered cubic minor rows [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17] det=-q^5(q^3-t^3)^2",
-      "executed_in_current_review": true
+      "executed_in_current_review": false
     },
     {
       "command": "python3 computations/verify_central_pair_orbits.py",
@@ -194,8 +204,8 @@
       "result": "All9 exact checks passed: elliptic determinant, first/second iterates, curve equation, third-iterate minor, nonempty Δ witness, and three Rains denominator identities. Does not verify categorical theorems.",
       "certificate": "computations/general17_open_certificate.json",
       "certificate_sha256": "2155ccbc3e34570a6b9024fcf696a4664088bc2efe0cf0cb359c93076bf7b795",
-      "executed_in_current_review": true,
-      "current_review_certificate_comparison": "Not additionally byte-compared in manuscript-v21; the existing certificate hash was checked."
+      "executed_in_current_review": false,
+      "current_review_certificate_comparison": "Stored certificate hash checked; not regenerated or newly byte-compared in manuscript-v22."
     },
     {
       "command": "python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json",
@@ -208,7 +218,8 @@
       "helper_sha256": "5daf959e2dabf77d6fc5c937e5d5556a5411b5d8603657fb053db43c191d4487",
       "input_sha256": "e42a28ae5fab6f580e64399318300b753d91c3a2f7352caf3685191673448ebd",
       "executed_in_current_review": false,
-      "regenerated_certificate_byte_identical": true
+      "regenerated_certificate_byte_identical": true,
+      "current_review_certificate_comparison": "Stored certificate hash checked; not regenerated or newly byte-compared in manuscript-v22."
     },
     {
       "command": "python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json",
@@ -219,7 +230,8 @@
       "result": "Exact rank_Q=35 for the35x42 GL5-orbit plus17-parameter differential of the classical cubic family;35-minor=752849 mod1000003; homogeneous Euler identity checked over Z. This proves dominance, not categorical equivalence.",
       "certificate": "computations/commutative_dominance_certificate.json",
       "certificate_sha256": "ea8659fba94c4ebc5f032034fa5f0dfbb31b4a8db9faf6a0f1d6ea0d9ccecabe",
-      "executed_in_current_review": false
+      "executed_in_current_review": false,
+      "current_review_certificate_comparison": "Stored certificate hash checked; not regenerated or newly byte-compared in manuscript-v22."
     },
     {
       "command": "python3 computations/verify_point_poisson.py --output build/point_poisson.json",
@@ -231,19 +243,21 @@
       "certificate": "computations/point_poisson_certificate.json",
       "certificate_sha256": "851459e38d8bb6a3add53580b3e0eeae6e87c0fda88e1c5cd63cabfdd53b8b6b",
       "executed_in_current_review": false,
-      "regenerated_certificate_byte_identical": true
+      "regenerated_certificate_byte_identical": true,
+      "current_review_certificate_comparison": "Stored certificate hash checked; not regenerated or newly byte-compared in manuscript-v22."
     },
     {
       "command": "python3 computations/verify_relative_cy.py --output build/relative_cy.json",
       "exit_code": 0,
       "executed_on": "2026-11-19",
-      "executed_in_current_review": true,
+      "executed_in_current_review": false,
       "source_sha256": "610f25e0ce94b8ddae04395d5bdd9667c2dd8fd26af3bb303bcbe926d621dfd6",
       "certificate": "computations/relative_cy_certificate.json",
       "certificate_sha256": "91072b9f8ba985bebee77de5621eb9ce33e9ef6ac562ec7a61d788498ef10cc0",
       "regenerated_certificate_byte_identical": true,
       "arithmetic": "Python standard-library Fraction; exact free-word and tensor-product coefficients",
-      "result": "All six identities passed on all 40 free words of active degrees 0 through 3: cyclic commutator, Hessian flip, both differential compositions, cochain self-duality signs and commutator/symmetrization normalizations. Linearity covers arbitrary central coefficients. This does not verify PBW, exactness or projectivity."
+      "result": "All six identities passed on all 40 free words of active degrees 0 through 3: cyclic commutator, Hessian flip, both differential compositions, cochain self-duality signs and commutator/symmetrization normalizations. Linearity covers arbitrary central coefficients. This does not verify PBW, exactness or projectivity.",
+      "current_review_certificate_comparison": "Stored certificate hash checked; not regenerated or newly byte-compared in manuscript-v22."
     }
   ],
   "euler_check": {
@@ -270,7 +284,7 @@
     ],
     "sum": -2925,
     "executed_on": "2026-11-19",
-    "evidence_scope": "Retained exact-integer result; not rerun in manuscript-v21."
+    "evidence_scope": "Retained exact-integer result; not rerun in manuscript-v22."
   },
   "build": {
     "command": "latexmk papers/nc-cubic-threefold-moduli.tex",
@@ -282,9 +296,9 @@
       "needspace"
     ],
     "japanese_font": "Noto Serif CJK; Harano Aji Mincho fallback in the source",
-    "pages": 263,
-    "pdf_bytes": 2106969,
-    "pdf_sha256": "e8ddaea46bf08df5ea8ed83a7e6cee5f0a83d4a66b2e3c992cc7ef1af2d4fd27",
+    "pages": 265,
+    "pdf_bytes": 2117978,
+    "pdf_sha256": "31f5fd2784f18bf4d79ec4c52f512b6829702218b74a88a3b9974294ed706794",
     "undefined_reference_or_citation_warnings": 0,
     "overfull_hboxes": 0,
     "missing_characters": 0,
@@ -302,44 +316,40 @@
         7,
         8,
         9,
-        13,
-        23,
-        30,
-        31,
-        33,
-        43,
-        44,
-        50,
-        56,
-        71,
-        72,
-        73,
-        74,
-        75,
-        79,
-        80,
-        95,
-        98,
-        99,
         100,
-        107,
-        135,
-        136,
-        163,
-        183,
-        217,
-        218,
-        221,
-        256,
-        260,
-        263
+        101,
+        102,
+        103,
+        175,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        258,
+        261,
+        265
       ],
-      "page_count": 263,
+      "page_count": 265,
       "all_page_text_bounds_checked": true,
       "off_page_text_spans": 0,
       "text_bound_issues": [],
-      "pdf_sha256": "e8ddaea46bf08df5ea8ed83a7e6cee5f0a83d4a66b2e3c992cc7ef1af2d4fd27",
-      "pdf_bytes": 2106969,
+      "pdf_sha256": "31f5fd2784f18bf4d79ec4c52f512b6829702218b74a88a3b9974294ed706794",
+      "pdf_bytes": 2117978,
       "pages_visually_inspected": [
         1,
         2,
@@ -350,40 +360,36 @@
         7,
         8,
         9,
-        13,
-        23,
-        30,
-        31,
-        33,
-        43,
-        44,
-        50,
-        56,
-        71,
-        72,
-        73,
-        74,
-        75,
-        79,
-        80,
-        95,
-        98,
-        99,
         100,
-        107,
-        135,
-        136,
-        163,
-        183,
-        217,
-        218,
-        221,
-        256,
-        260,
-        263
+        101,
+        102,
+        103,
+        175,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        258,
+        261,
+        265
       ],
-      "scope": "Changed proofs, new formulas, Introduction, part starts and bibliography; not a line-by-line inspection of all pages.",
-      "checks": "Changed proof paragraphs, explicit duality and section-coherence formulas, Introduction, part starts, footers and bibliography inspected; no observed clipping, overlap, missing glyphs or orphaned main-theorem headings. Table-of-contents pagination and part starts agree."
+      "scope": "Final manuscript-v22 PDF: Introduction, bridge-family comparison, point-scheme Torelli remark, the three fully read finite-center appendices and bibliography; 36 pages visually inspected, not all pages line by line.",
+      "checks": "No observed clipping, overlap, missing glyphs or orphaned main-theorem headings. The Introduction ends on page 8 and Part I begins on page 9. Table-of-contents pagination and the inspected section starts agree."
     }
   },
   "primary_sources_checked": [
@@ -398,17 +404,21 @@
     },
     {
       "key": "Rains",
-      "url": "https://arxiv.org/pdf/2107.13540",
+      "url": "https://arxiv.org/pdf/2107.13540v2",
       "version": "v2",
-      "locations": "Theorem2.13, p16; finite-order translation elliptic algebras",
-      "rechecked_in_current_review": false
+      "locations": "Theorem2.13 and the characteristic-zero elliptic-algebra setup: finite-order translation and filtered center lifting.",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Theorem2.13 and the characteristic-zero elliptic-algebra setup: finite-order translation and filtered center lifting.",
+      "checked_on": "2026-11-20"
     },
     {
       "key": "RSVdB",
-      "url": "https://arxiv.org/pdf/1705.01366",
+      "url": "https://arxiv.org/pdf/1705.01366v2",
       "version": "v2",
-      "locations": "Proposition2.1 steps3-6, Lemmas3.3-3.6, Corollary3.9; direct splitting-denominator proof supplied",
-      "rechecked_in_current_review": false
+      "locations": "Proposition2.1 and proof steps (1)-(8), Lemmas3.2-3.6/3.8 and Corollary3.9: finite-center hypotheses, smoothness, generic projectivity and flat spreading of the diagonal. Proposition2.1 does not assume normality of the center or an NCR presentation.",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Proposition2.1 and proof steps (1)-(8), Lemmas3.2-3.6/3.8 and Corollary3.9: finite-center hypotheses, smoothness, generic projectivity and flat spreading of the diagonal. Proposition2.1 does not assume normality of the center or an NCR presentation.",
+      "checked_on": "2026-11-20"
     },
     {
       "key": "StacksAbel",
@@ -425,20 +435,27 @@
       ],
       "locations": "Lazard, ordinary module descent, and derived Serre-subcategory comparison Tag023M: augmented Amitsur exactness. Lemma35.3.6 augmented Amitsur exact for anymodule; Proposition35.3.9 effective module descent; Proposition10.83.3 finiteprojective descent; Lemma21.11.1 gerbe cocycle correction for comparison only Tag023M: augmented Amitsur exactness.",
       "rechecked_in_current_review": true,
-      "checked_on": "2026-11-19",
-      "current_review_locations": "Tag0FY3 Definition57.3.2/Lemma57.3.5: Serre functor uniqueness with pairing; Tag03PK Lemma59.28.1: root covers over arbitrary bases."
+      "checked_on": "2026-11-20",
+      "current_review_locations": "Tag0FCL: derived Ext comparison for coherent and quasi-coherent modules under the stated noetherian hypotheses."
     },
     {
       "key": "StacksPerfect",
       "url": "https://stacks.math.columbia.edu/tag/08EV",
-      "locations": "Lemma36.27.1; bounded coherent complex, proper support, finite base Tor dimension",
-      "rechecked_in_current_review": false
+      "locations": "Lemma36.27.1, Tag08EV: bounded coherent complex with proper support and finite base Tor dimension has perfect pushforward; flatness of the background scheme is not required.",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Lemma36.27.1, Tag08EV: bounded coherent complex with proper support and finite base Tor dimension has perfect pushforward; flatness of the background scheme is not required.",
+      "checked_on": "2026-11-20"
     },
     {
       "key": "StacksProj",
-      "url": "https://stacks.math.columbia.edu/tag/01YR",
-      "locations": "Lemma30.14.2 and Proposition30.14.4; generation, vanishing and Proj correspondence",
-      "rechecked_in_current_review": false
+      "locations": "Tag01YR Lemma30.14.2 and Proposition30.14.4: noetherian coherent generation, vanishing and Proj comparison; Tag0AG5 Lemma28.29.5: section reconstruction of any quasi-coherent sheaf on quasi-compact Proj without noetherianity.",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Tag01YR Lemma30.14.2 and Proposition30.14.4: noetherian coherent generation, vanishing and Proj comparison; Tag0AG5 Lemma28.29.5: section reconstruction of any quasi-coherent sheaf on quasi-compact Proj without noetherianity.",
+      "checked_on": "2026-11-20",
+      "urls": [
+        "https://stacks.math.columbia.edu/tag/01YR",
+        "https://stacks.math.columbia.edu/tag/0AG5"
+      ]
     },
     {
       "key": "YekutieliBalanced",
@@ -454,10 +471,12 @@
     },
     {
       "key": "BDGMinors",
-      "url": "https://arxiv.org/pdf/1501.06023",
+      "url": "https://arxiv.org/pdf/1501.06023v2",
       "version": "v2",
-      "locations": "Definitions3.1/3.13 and Theorem3.14, pp6 and11-12: compact objects equal local perfect complexes",
-      "rechecked_in_current_review": false
+      "locations": "Definitions3.1/3.13 and Theorem3.14: quasi-coherent algebra on a quasi-compact separated scheme, compact=local Perf without a noetherian assumption.",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Definitions3.1/3.13 and Theorem3.14: quasi-coherent algebra on a quasi-compact separated scheme, compact=local Perf without a noetherian assumption.",
+      "checked_on": "2026-11-20"
     },
     {
       "key": "StacksRelativeDuality",
@@ -486,24 +505,21 @@
       "url": "https://arxiv.org/pdf/1502.07403v2",
       "locations": "Theorem4.2(1), Proposition2.8, Corollary2.9: commutator-containing smooth cubic potential is Koszul AS3 CY and a domain Theorem4.2(1): smooth plane cubic for every lambda including zero.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version2 Theorem4.2(1), Proposition2.8 proof and Corollary2.9: normalization A_(f3,1), linear resolution, Koszulness, Hilbert series and domain input."
+      "rechecked_in_current_review": false
     },
     {
       "key": "BT",
       "url": "https://arxiv.org/pdf/math/0610112v2",
       "locations": "Theorems3.1/3.6, pp9-12: potential PBW and explicit bimodule differential, signs, cyclic-Hessian flip and self-duality",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version2 Theorem3.1 and proof of Theorem3.6, pp9-12: potential PBW and explicit bimodule differentials/self-duality."
+      "rechecked_in_current_review": false
     },
     {
       "key": "EG",
       "url": "https://arxiv.org/pdf/0709.3593v4",
       "locations": "Proposition7.3.1(ii), Theorem3.3.2: all lower cyclic potential perturbations and central element input",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version4 Proposition7.3.1(ii): lower cyclic-potential perturbations; no fresh check of every other cited result."
+      "rechecked_in_current_review": false
     },
     {
       "key": "RRGeneralizedAS",
@@ -515,9 +531,10 @@
     {
       "key": "CSBGCCKM",
       "url": "https://arxiv.org/pdf/1307.8415v1",
-      "locations": "Lemma4.4 and proof of Lemma4.5: Rees lemma with grading shifts; v1 numbering distinguished from publication",
-      "checked_on": "2026-11-19",
-      "rechecked_in_current_review": false
+      "locations": "arXiv v1 Lemma4.4(3) and Theorems4.7/5.5: Rees shift, finite-syzygy matrix factorizations and singularity-category comparison; distinguish the publication numbering.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "arXiv v1 Lemma4.4(3) and Theorems4.7/5.5: Rees shift, finite-syzygy matrix factorizations and singularity-category comparison; distinguish the publication numbering."
     },
     {
       "key": "KellerDgCategories",
@@ -571,32 +588,34 @@
     },
     {
       "key": "ELSSmoothAlgebras",
-      "url": "https://arxiv.org/pdf/1810.07626",
-      "locations": "v2, Theorems4.15 and4.18(b), pp26-27: arbitrary chosen classical generators; finite-type perfect-field schemes and coherent algebra sheaves",
-      "checked_on": "2026-11-19",
-      "rechecked_in_current_review": false
+      "url": "https://arxiv.org/pdf/1810.07626v2",
+      "locations": "Theorems4.15 and4.18(b), left-module convention in Section4 and Remark5.2: arbitrary chosen generators, perfect field, noetherian J-2 schemes and noetherian product.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Theorems4.15 and4.18(b), left-module convention in Section4 and Remark5.2: arbitrary chosen generators, perfect field, noetherian J-2 schemes and noetherian product."
     },
     {
       "key": "ToenVaquieObjects",
       "url": "https://www.numdam.org/article/ASENS_2007_4_40_3_387_0.pdf",
       "locations": "Lemma2.10 pp405-407: perfect dg-module continuity; Cor2.13 and Prop2.14 are not a free closed-to-generic smoothness theorem Lemma2.10: perfect-module filtered-colimit continuity.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Lemma2.10, pp405-407: perfect-module continuity under filtered colimits."
+      "rechecked_in_current_review": false
     },
     {
       "key": "ToenDefinitionRings",
-      "url": "https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf",
-      "locations": "Author May2007 version, p2,F4. No hfp for perfect-module continuity, unlike pseudoperfect F5",
-      "checked_on": "2026-11-19",
-      "rechecked_in_current_review": false
+      "url": "https://arxiv.org/pdf/math/0611546v3",
+      "locations": "arXiv:math/0611546v3, F4 and F5: perfect-module filtered-colimit continuity in F4 has no hfp hypothesis, unlike the pseudoperfect statement F5.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "arXiv:math/0611546v3, F4 and F5: perfect-module filtered-colimit continuity in F4 has no hfp hypothesis, unlike the pseudoperfect statement F5."
     },
     {
       "key": "WWYSklyaninPoisson",
-      "url": "https://arxiv.org/pdf/1704.04975",
-      "locations": "v3, Definition-Lemma2.13 p9: Hesse equation, origin [1:-1:0], translation by parameter point; Prop2.22 finite-order/finite-center",
-      "checked_on": "2026-11-19",
-      "rechecked_in_current_review": false
+      "url": "https://arxiv.org/pdf/1704.04975v3",
+      "locations": "arXiv:1704.04975v3, Definition2.12, Definition-Lemma2.13 and Proposition2.22: Hesse equation, origin, translation point and finite-order center input.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "arXiv:1704.04975v3, Definition2.12, Definition-Lemma2.13 and Proposition2.22: Hesse equation, origin, translation point and finite-order center input."
     },
     {
       "key": "StacksEllipticTorsion",
@@ -604,9 +623,10 @@
         "https://stacks.math.columbia.edu/tag/0BFG",
         "https://stacks.math.columbia.edu/tag/0BFH"
       ],
-      "locations": "Field multiplication-map finiteness, degree and etaleness; relative Hesse claim proved with relative differential and properness",
-      "checked_on": "2026-11-19",
-      "rechecked_in_current_review": false
+      "locations": "Tags0BFG/0BFH, Lemmas39.9.8/39.9.9: multiplication-map finiteness, degree and etaleness over a field; the manuscript supplies the relative Hesse argument.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Tags0BFG/0BFH, Lemmas39.9.8/39.9.9: multiplication-map finiteness, degree and etaleness over a field; the manuscript supplies the relative Hesse argument."
     },
     {
       "key": "ToenFinitudeScope",
@@ -620,72 +640,63 @@
       "url": "https://arxiv.org/pdf/0904.4330",
       "locations": "Theorem8.9: full HH table for degree3 index2 Fano residual category Theorem8.9: HH0 and HH2 table for a cubic threefold component.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Theorem8.9 for degree3: full Hochschild calculation of the cubic-threefold component."
+      "rechecked_in_current_review": false
     },
     {
       "key": "JLLZInfinitesimal",
       "url": "https://arxiv.org/pdf/2203.08187",
       "locations": "v3, Theorem4.4(2), pp17-18: actual geometric map eta is an isomorphism Version3 Theorem4.4(2): the actual geometric Kodaira-Spencer map is an isomorphism.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version3 Theorem4.4(2) and definition of eta: actual geometric Kodaira-Spencer map."
+      "rechecked_in_current_review": false
     },
     {
       "key": "LurieDAGX",
       "url": "https://www.math.ias.edu/~lurie/papers/DAG-X.pdf",
       "locations": "Theorems5.1.9/5.3.16 and Proposition5.3.21: formal hull and tame1-proximate comparison Definition5.3.20, Theorems5.1.9/5.3.16 and Proposition5.3.21: tame, 1-proximate comparison and formal hull; higher scalar automorphisms retained.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Definition5.3.20, Proposition5.3.21 and Theorems5.1.9/5.3.16: tame formal hull and homotopy comparison."
+      "rechecked_in_current_review": false
     },
     {
       "key": "BKPFormalGenerators",
       "url": "https://arxiv.org/pdf/1705.00655",
       "locations": "Section3.3: pi0-injectivity and higher homotopy comparison; not a generic diagonal-perfectness theorem Section3.3: pi0 injection and higher homotopy equivalence.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version1 Introduction and Section3.3: distinction between isomorphism classes and higher homotopy groups."
+      "rechecked_in_current_review": false
     },
     {
       "key": "BhattAlgebraization",
       "url": "https://arxiv.org/pdf/1404.7483",
       "locations": "Lemma4.2 p16: perfect complexes over a complete coefficient ring and the inverse limit Lemma4.2: coefficient-perfect effectivity, not unconditional compact-kernel effectivity over a proper dg algebra.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Lemma4.2: effectivity in the infinity-category of coefficient-perfect complexes."
+      "rechecked_in_current_review": false
     },
     {
       "key": "StevensonSingularityActions",
       "url": "https://arxiv.org/pdf/1105.4698v3",
       "locations": "Version3 Theorem3.1(3) and Notation3.2 identify Kar(D_sg(R)) with S(R)^c. Lemma3.10 makes action stability automatic for affine R. Theorem6.13 classifies all localizing subcategories of S(R) for noetherian affine locally-hypersurface rings; compact extraction supplies the thick-generation conclusion.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version3 Theorem3.1(3), Notation3.2, Lemma3.10 and Theorem6.13: compact idempotent completion, automatic affine action stability and all-localizing classification."
+      "rechecked_in_current_review": false
     },
     {
       "key": "NeemanCompactLocalization",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/neeman-loc.pdf",
       "locations": "Lemma2.2 pp555-556: compact factorization in the localizing closure Lemma2.2: compact objects in a compactly generated localizing closure.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Lemma2.2 and supporting Lemma2.3: compact extraction from a compactly generated localizing closure."
+      "rechecked_in_current_review": false
     },
     {
       "key": "OrlovSingularities",
       "url": "https://arxiv.org/pdf/math/0503632",
       "locations": "v3, Theorems2.5/3.10/3.11(i): graded singularities, MF equivalence and hypersurface SOD; window adjusted in manuscript Version3 Theorems2.5,3.10,3.11: graded singularity and hypersurface comparisons.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version3 Theorems2.5,3.10 and3.11: graded singularities, matrix factorizations and Fano window."
+      "rechecked_in_current_review": false
     },
     {
       "key": "BMMSCubicTorelli",
       "url": "https://arxiv.org/pdf/0903.4414v2",
       "locations": "Theorem1.1: categorical Torelli for smooth complex cubic threefolds Theorem1.1: complex cubic threefold categorical Torelli. Field extension uses the manuscript spreading argument.",
       "checked_on": "2026-11-19",
-      "rechecked_in_current_review": true,
-      "current_review_locations": "Version2 Theorem1.1 and notation: categorical Torelli over the complex numbers; manuscript supplies spreading to extension fields."
+      "rechecked_in_current_review": false
     },
     {
       "key": "PoonenHypersurfaceAut",
@@ -784,18 +795,16 @@
       "key": "KuznetsovFractionalCY",
       "url": "https://arxiv.org/pdf/1509.07657",
       "locations": "Version2 Section3.3, Corollary3.18 and Lemma3.19: R^3=[2], S=R^(-2)[3], hence R=S[-1]; S^3=[5] alone is insufficient.",
-      "rechecked_in_current_review": true,
-      "checked_on": "2026-11-19",
-      "current_review_locations": "Version2 Proposition3.4, Section3.3, Corollary3.18, Lemma3.19 and Corollary4.1: rotation and Serre formulas."
+      "rechecked_in_current_review": false,
+      "checked_on": "2026-11-19"
     },
     {
       "key": "LinZhangDeformingEquivalences",
       "url": "https://arxiv.org/abs/2611.05915",
       "version": "v1",
       "locations": "Theorem1.7 and Section2: smooth irreducible bases, smooth projective families, relative admissible components with base-change-compatible perfect projector kernels, an existing special equivalence, surjective geometric Kodaira-Spencer maps and negative Hochschild vanishing. Primary PDF read locally; this does not supply initial recognition of the noncommutative family.",
-      "rechecked_in_current_review": true,
-      "checked_on": "2026-11-19",
-      "current_review_locations": "Version1 Theorem1.7, Section2.2 Theorem2.2 and Section2.3 Proposition2.4: geometric-family assumptions and extension of existing equivalence kernels."
+      "rechecked_in_current_review": false,
+      "checked_on": "2026-11-19"
     },
     {
       "key": "BarmeierWangSheaves",
@@ -827,25 +836,52 @@
       "key": "OrlovLandauGinzburg",
       "url": "https://arxiv.org/pdf/math/0302304v2",
       "locations": "Section3.1 and Theorem3.9: regular affine source, flat function and ungraded finite-rank matrix factorizations versus D_sg of the zero fibre. In the manuscript, flatness follows from torsion-freeness over k[t].",
-      "rechecked_in_current_review": true,
-      "checked_on": "2026-11-19",
-      "current_review_locations": "Section3.1 and Theorem3.9: regular affine source, flat function and ungraded finite-rank matrix factorizations versus D_sg of the zero fibre. In the manuscript, flatness follows from torsion-freeness over k[t]."
+      "rechecked_in_current_review": false,
+      "checked_on": "2026-11-19"
     },
     {
       "key": "PolishchukProj",
       "url": "https://arxiv.org/pdf/math/0212182v4",
       "locations": "Section2 Lemma2.1, Theorem2.4 and following Remark3: ample sequences and coherent Proj reconstruction over a field. The finite-dimensional Hom hypothesis is not silently used as an arbitrary-base theorem.",
-      "rechecked_in_current_review": true,
-      "checked_on": "2026-11-19",
-      "current_review_locations": "Section2 Lemma2.1, Theorem2.4 and following Remark3: ample sequences and coherent Proj reconstruction over a field. The finite-dimensional Hom hypothesis is not silently used as an arbitrary-base theorem."
+      "rechecked_in_current_review": false,
+      "checked_on": "2026-11-19"
     },
     {
       "key": "MilneProjectiveLine",
       "url": "https://www.jmilne.org/math/Books/iAG2022.pdf",
       "locations": "Proposition20.7 and Lemmas20.8-20.9, printed pp409-410: Aut(P^1)=PGL2 as group functors on arbitrary k-algebras; arbitrary-base argument checked.",
+      "rechecked_in_current_review": false,
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "YZ",
+      "url": "https://www.math.bgu.ac.il/~amyekut/publications/nc-serre/paper.pdf",
+      "locations": "Theorem4.2, Corollary4.3 and preceding AS-Gorenstein formula: balanced dualizing complex and Serre input; Proc. AMS125 (1997),697-707.",
+      "checked_on": "2026-11-20",
       "rechecked_in_current_review": true,
-      "checked_on": "2026-11-19",
-      "current_review_locations": "Proposition20.7 and Lemmas20.8-20.9, printed pp409-410: Aut(P^1)=PGL2 as group functors on arbitrary k-algebras; arbitrary-base argument checked."
+      "current_review_locations": "Theorem4.2, Corollary4.3 and preceding AS-Gorenstein formula: balanced dualizing complex and Serre input; Proc. AMS125 (1997),697-707."
+    },
+    {
+      "key": "CSBGChenGeneralizedSerre",
+      "url": "https://arxiv.org/pdf/math/0610258v3",
+      "locations": "Theorem3.10 and preceding hypotheses: generalized Serre duality on the finite-projective-dimension subcategory, with two-sided chi and finite local cohomological dimension.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true,
+      "current_review_locations": "Theorem3.10 and preceding hypotheses: generalized Serre duality on the finite-projective-dimension subcategory, with two-sided chi and finite local cohomological dimension."
+    },
+    {
+      "key": "BehrendNoohiModuli",
+      "url": "https://link.springer.com/article/10.1007/s00208-017-1624-1",
+      "locations": "Published version Sections2.3,2.5,3.1.2,4.4.1,4.5.3: graded multiplication quotient, weighted scalar gerbe, truncation, polarization autoequivalence, finite-truncation DM stability and limits of finite determination.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true
+    },
+    {
+      "key": "AOUNCPlanes",
+      "url": "https://arxiv.org/pdf/1411.7770v1",
+      "locations": "Theorem7.3, CorollaryA.7, TheoremA.8 and CorollaryA.10: unmarked abelian reconstruction for quadratic AS-regular dimension-three algebras over an algebraically closed field of characteristic different from three; no generic restriction; field-valued classification rather than arbitrary-base Hom sheaves.",
+      "checked_on": "2026-11-20",
+      "rechecked_in_current_review": true
     }
   ],
   "reference_repositories": {
@@ -867,5 +903,29 @@
     "Exhaustive priority checking, external peer review, and a full independent audit of all retained proofs. The current manuscript has been compiled and sampled visually; these do not establish mathematical correctness."
   ],
   "assets": "Current plan, research notes, manuscript sources, computation sources and small certificates only. Build output, rendered previews, external literature PDFs, logs, caches, archives and ZIPs are excluded from Git.",
-  "review_scope": "Exactly the three computations marked executed_in_current_review=true were rerun in manuscript-v21. The Euler calculation and other computations retain earlier verified source/certificate hashes and execution dates. Current and retained proof-reading coverage are distinguished. Primary-source checking, exact computation, static checks, typesetting, visual sampling and repository saving are separate states. No full independent mathematical audit, exhaustive priority review or external peer review is claimed."
+  "review_scope": "The single inline bridge-discriminant check was executed in manuscript-v22. All thirteen standalone computations and the Euler result retain previously verified source/certificate hashes and execution dates, without rerunning them. Current and cumulative proof-reading coverage are separated. Primary-source checks, exact computation, static closure, typesetting, visual sampling and repository saving are distinct states. No full independent mathematical audit, exhaustive priority review or external peer review is claimed.",
+  "inline_exact_checks": [
+    {
+      "name": "bridge_open_counterexample",
+      "executed_on": "2026-11-20",
+      "executed_in_current_review": true,
+      "source": "notes/research_notes.md, Section 1.8.1, inline Python code",
+      "code_sha256": "d256b86e3068df70453137bc68497ea0e81e152b6ea882259f880223aeaff714",
+      "arithmetic": "Exact rational polynomials; SymPy 1.14.0",
+      "inputs": {
+        "a": "1/6",
+        "b": "0",
+        "specialization": "h^6 = -1728"
+      },
+      "result": {
+        "d_h": "256 - 4*h^6",
+        "elliptic_discriminant": "-h^3*(h^6+1728)",
+        "d_remainder": "7168",
+        "elliptic_discriminant_remainder": "0",
+        "a_times_classical_discriminant": "1/48"
+      },
+      "status": "passed",
+      "scope": "The bridge denominator condition does not imply smoothness of the quantum elliptic boundary. The dominant parameter map still has a nonempty inverse image of the specified Delta and etale chart opens; no categorical theorem is proved by this check."
+    }
+  ]
 }

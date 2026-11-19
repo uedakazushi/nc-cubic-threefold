@@ -62,7 +62,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体のAbel圏モジュライ\\二次包絡とKuznetsov残余射}
 \author{}
-\date{2026年11月19日・公表準備稿 v21}
+\date{2026年11月20日・公表準備稿 v22}
 \hypersetup{pdftitle={非可換三次三様体のAbel圏モジュライ},pdfsubject={二次包絡とKuznetsov残余射}}
 \begin{document}
 \maketitle
@@ -81,7 +81,7 @@
 圏変形の形式的認識、係数環上 perfect な同値核の効果化、
 および三次成分の Serre 安定部分圏の生成性を組み合わせる。
 
-さらに、滑らかな可換三次点の framed Abel 形式近傍を、
+さらに、通常の局所 Artin 基底上で、滑らかな可換三次点の framed Abel 形式近傍を、
 十次元形式円板と $\operatorname{Gr}(2,5)$ のアフィン錐の頂点完備化との積として記述する。
 この同型は、残余操作が誘導する形式射に両立するよう選べる。
 有限係数の Jacobian 模型の適切な非空開上では、
@@ -119,6 +119,9 @@
 導来圏の内在的な有限部分として $\mathrm D(\operatorname{QGr})^c$ を取る。
 以下の具体的な部分族の中心条件は、このモジュライ全体の定義には課さない。
 従って可換な三次も同じモジュライ問題に含まれる。
+係数基底は通常の可換 $\C$-代数とする。
+導来底変更とは、その任意の射 $R\to S$ に沿う
+$-\otimes_R^{\mathbf L}S$ による係数延長を指す。
 
 \subsection{二つのモジュライ射}
 
@@ -157,6 +160,8 @@ $\mathfrak C_{\mathrm J}$、$\mathfrak B_{\mathrm J}$ と射
 正確な構成と証明は、命題\ref{prop:jacobian-ambient-etale-chart}、
 命題\ref{prop:jacobian-affine-four-morphism}、
 定理\ref{thm:jacobian-algebraic-abel-substack}に与える。
+$\mathfrak B_{\mathrm J}$ は次数付き周囲代数の同型を次数スカラーで割った
+projectively graded なモジュライ問題であり、その同型の層は fpqc 層商で解釈する。
 周囲代数を同定まで固定したファイバーが四次元になる理由は、
 中心一次空間 $U$ に対する中心三次の完全列
 \[
@@ -184,7 +189,7 @@ $\mathfrak C_{\mathrm J}$ の非空開部分 stack $\mathfrak U$ と、
 を持つ。任意の幾何学的点 $c$ において、$\rho(c)=[X_c]$ は
 $\mathcal K_c\simeq\operatorname{Ku}(X_c)$ を満たす三次の唯一の同型類である。
 $\mathfrak U$ 上の残余圏と全 compact tails 圏は相対 dg smooth proper であり、
-任意の導来底変更と両立する。
+可換係数環の任意の射に沿う導来係数延長と両立する。
 三次の族と相対 dg Morita 同値は $\mathfrak U$ 上で étale 局所的に存在する。
 \end{maintheorem}
 
@@ -228,6 +233,8 @@ stack 化後の形式表示は系\ref{cor:abel-full-stack-discrete-formal}、
 残余射との両立は系\ref{cor:abel-poisson-formal-lift}による。
 この形式表示は非標準的であり、有限 $\Aut(X)$ で割った非 framed 形式近傍や、
 選んだ表示の代数化は別問題である。
+可換点は $\mathfrak C_{\mathrm J}$ に属さず、形式近傍は全
+$\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ において取る。
 
 有限係数の模型からの復元には、埋込み点スキームとその shift を用いる。
 $\Pi_F$ は $u,v$ を Casimir とし、非中心変数の括弧を
@@ -273,13 +280,16 @@ shift を含む点対応からは、二次関係の交代部分と対称部分�
 命題\ref{prop:point-correspondence-quadratic-recovery}、
 命題\ref{prop:point-gradient-reconstruction}と
 命題\ref{prop:point-recovery-relative-descent}が正確な仮定と相対版を与える。
-これらの復元は指定した Jacobian 開で全 $\mathcal O$-保存同値に自然である。
-復元に用いるのは埋込みと scheme 構造であり、一般の Abel 圏における点対象の
-内在的な特徴付けは主張していない。
+非 Sebastiani--Thom という座標不変な仮定への拡張は
+注意\ref{rem:point-jacobian-torelli}による。
+復元条件を満たす非空開 $\mathfrak C_{\mathrm{J,pt}}\subset\mathfrak C_{\mathrm J}$ 上で、
+復元は全 $\mathcal O$-保存同値に自然である。
+既約性から $\mathfrak C_{\mathrm{J,pt}}\cap\mathfrak U\ne\varnothing$ であり、
+両構成をこの共通開で使える。
+復元は埋込みと scheme 構造を用い、一般の Abel 圏での点対象の内在的特徴付けは未解決である。
 有限成分は一般には被約となるが、Fermat 例では三点の各局所長が八となる。
-また、五次元空間 $R_Q$ の復元は、その中の特定の三次直線の選択とは区別される。
+五次元空間 $R_Q$ の復元から特定の三次直線の選択は従わない。
 
-この区別には具体的な理由がある。
 滑らかな中心超曲面と Poisson 一次括弧を持つ変形では、
 点加群が局所的に一次持上げを持つ条件は、半古典 Poisson 構造の零点条件に等しい
 （命題\ref{prop:first-order-point-poisson-zero}）。
@@ -308,10 +318,13 @@ $\underline{\operatorname{Isom}}_{\mathrm{gr}}/\mathbb G_m$ と同定する。
 この商は fpqc 層商であり、大域点集合の商ではない。
 次に有限な二次・三次関係窓、作用写像の étale locus、中心三次の分裂 torsor を使って
 主定理\ref{thm:intro-atlas}を得る。
-Behrend--Noohi \cite{BehrendNoohiModuli} の次数付き代数のモジュライ、
-Abdelgadir--Okawa--Ueda \cite{AOUNCPlanes} の非可換射影平面のモジュライに対し、
-ここでの具体的な追加部分は、中心三次商の族で全 $\mathcal O$-保存同値を含む
-有限型部分問題と二次包絡射を同時に記述することにある。
+Behrend--Noohi \cite[\S\S2.3,2.5,3.1.2]{BehrendNoohiModuli} は
+次数付き代数の商 stack を構成し、偏極の自己同値を保持した圏を扱う。
+Abdelgadir--Okawa--Ueda \cite[Theorem~7.3, Theorem~A.8 and Corollary~A.10]{AOUNCPlanes} は、
+標数三でない代数閉体上の非可換射影平面について、無標識の Abel 圏から標準列を shift の差を除いて、
+対応する $\mathbb Z$-代数を同型の差を除いて復元している。
+本稿の追加部分は、三次商の具体族で任意係数上の全 $\mathcal O$-保存 Hom 層を同定し、
+十七次元の全部分 stack と二次包絡への階数四 torsor を同時に構成する点にある。
 
 \paragraph{形式的な圏認識から実際の残余射へ.}
 Kuznetsov \cite[Theorem~8.9]{KuznetsovHochschild} による Hochschild 計算と
@@ -406,18 +419,16 @@ Gualtieri--Pym \cite[Theorem~7.2]{GualtieriPym} の modular residue と
 第\ref{sec:moduli-artin}--\ref{sec:point-scheme-poisson}節では、
 全 Artin 変形と点データからの復元を扱う。
 周期性、非可換射影三空間との比較、有限中心模型に関する補助結果は付録にまとめる。
-これらの結果の仮定は各節で明示し、主定理に用いる範囲を参照する。
 
-以下では原則として $\C$ 上で議論し、一般の係数環と導来底変更の使用は各命題に明記する。
+各命題で係数環と底変更の範囲を指定する。
 $\mathfrak C_{\mathrm J}$ の滑らかさはパラメータ stack の性質であり、
 圏の dg smooth 性とは区別する。
 
-未解決の中心問題は、量子中心直線に対応する $R_Q$ 内の古典三次直線を自然に選び、
-それが $\rho$ の出力する三次に一致することを示すことである。
+量子中心直線から $R_Q$ 内の古典三次直線を自然に選び、
+$\rho$ の出力と一致させる問題は未解決である。
 全モジュライ内での位置、七次元ファイバー、構造対象を忘れた復元については
 第\ref{sec:status}節にまとめる。
-本稿は公表準備稿であり、各結果の初出・新規性の網羅調査と全証明の独立監査は未完了である。
-検証範囲は研究ノートに記す。
+初出・新規性の網羅調査と全証明の独立監査は未完了である（研究ノート参照）。
 
 \clearpage
 \part{構造対象付き圏とJacobian中心三次族}
@@ -497,12 +508,13 @@ K.~Behrend and B.~Noohi,
 Math. Ann. \textbf{371} (2018), 1375--1408.
 \href{https://doi.org/10.1007/s00208-017-1624-1}{doi:10.1007/s00208-017-1624-1}.
 本稿では\S\S2.3,2.5の乗法空間・scalar gerbe・有限切断を参照する。
+偏極の自己同値を含む圏は\S3.1.2。
 
 \bibitem{AOUNCPlanes}
 T.~Abdelgadir, S.~Okawa and K.~Ueda,
 \emph{Compact moduli of noncommutative projective planes},
-\href{https://arxiv.org/abs/1411.7770}{arXiv:1411.7770} (2014).
-参照箇所：\S\S3--5, Theorem~7.3, Appendix~A, Corollaries~A.7 and~A.10.
+\href{https://arxiv.org/abs/1411.7770v1}{arXiv:1411.7770v1} (2014).
+参照箇所：\S\S3--5, Theorem~7.3, Appendix~A, Corollary~A.7, Theorem~A.8 and Corollary~A.10.
 
 \bibitem{SierraGAlgebras}
 S.~J.~Sierra,
@@ -777,7 +789,7 @@ J. Algebra 455 (2016), 137--163;
 \url{https://arxiv.org/abs/1307.8415}.
 arXiv v1のLemma~4.4（Reesの補題）と公刊版のTheorem~5.8
 （twisted matrix factorizationと特異圏）を版を区別して用いる。
-有限位数の議論にはTheorems~4.7 and~5.5を用いる。
+有限位数の議論にはarXiv v1のTheorems~4.7 and~5.5を用いる。
 
 \bibitem{BSWPotentials}
 R.~Bocklandt, T.~Schedler and M.~Wemyss,
@@ -801,7 +813,9 @@ perfect複体のファイバーでの単一次数集中と局所自由性。
 The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/01YR}{Section~30.14, Tag~01YR},
 特にLemma~30.14.2（coherent層の生成性・消滅）と
-Proposition~30.14.4（標準次数付き環のProj対応）。2026年11月19日閲覧。
+Proposition~30.14.4（標準次数付き環のProj対応）。
+\href{https://stacks.math.columbia.edu/tag/0AG5}{Lemma~28.29.5, Tag~0AG5}
+（quasi-compactなProj上の準連接層のsection復元）。2026年11月20日閲覧。
 
 \bibitem{MoriNymanZ}
 I.~Mori and A.~Nyman,

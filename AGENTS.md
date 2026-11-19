@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v15。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10.7・§10.6・§1.8・§1.7・§5）、`papers/sections/point_scheme_poisson.tex`、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc-cubic-threefold-moduli.tex`（v21）。
+2026-11-20 / research-plan-v16。GitHub mainが正本。再開時は `00_research_plan.md`、主稿Introduction、`notes/research_notes.md` §12、`validation.json` を読む。主稿は `papers/nc-cubic-threefold-moduli.tex`（v22）。各数学課題の入口は研究方針§4–5にある。
 
 ## 最優先の判断基準
 
@@ -8,7 +8,7 @@
 
 ## 直近の優先順位
 
-1. **公表前検証と推敲。** 主稿 `papers/nc-cubic-threefold-moduli.tex` のIntroductionにA–Dを集約する。相対Koszul/CYからSerre trace、全O保存同値、atlas、残余射という依存鎖と、全Artin平坦包絡・framed形式近傍の仮定を点検する。一般の未解決分類や内在的逆量子化の完成を公表の前提にしない。主稿の3部と証明を保持した付録という構成を尊重する。
+1. **公表前検証と推敲。** 主稿 `papers/nc-cubic-threefold-moduli.tex` のIntroductionにA–Dを集約する。相対Koszul/CYからSerre trace、全O保存同値、atlas、残余射という依存鎖、全Artin模型、および有限中心・相対圏・大域smoothness三節の重点点検範囲を保持する。次は ambient_periodicity.tex と period_forgetting_moduli.tex の周期選択、正規族との可換性、相対降下を点検する。一般の未解決分類や内在的逆量子化の完成を公表の前提にしない。主稿の3部と証明を保持した付録という構成を尊重する。
 2. **量子中心に対応する古典三次。** 点schemeからU,Q,R_Qと[Π]、shift付き対応から二次包絡とhΠ_Fを復元した。次は量子中心直線をR_Q内へ補正し、ρの出力三次との一致を示す。Hesseの有限点schemeの零点非実現性とsym⁻¹反例を制約とする。有限σのlogは使わない。相対超越基底による非標準的持上げは一般論の命題として扱う。
 3. **七次元fiberと全M内の位置。** 接合双加群と既存17→13 torsorの関係を調べる。一般非可換点の全変形は小拡大・障害を含めて比較する。C_Jは可換点を含まず、次元17の一致だけで成分性を宣言しない。全Mの代数性、開性・局所閉性、有限対角、分離性は未解決。
 4. **入力と検証の状態。** 一般(FS)、compact核の無条件形式効果化、generator開性はノート§1.8.2の反例により使わない。係数Perfを先に効果化しsmooth targetと相対Serreを使う。主要節の読み合わせ、引用仮定確認、計算実行、組版、外部査読を区別する。初出・新規性の網羅調査と全証明の独立監査は未完了。
@@ -29,11 +29,13 @@ DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同
 
 四係数族の全体で使う内在的圏は非有界導来圏のcompact対象である。元の有限係数Tor部分圏との一致は非空正則開上の別結果。monomorphismは開埋込み・成分性・atlasではない。相対双対の初期基底変更はambient導来圏で扱い、振幅集中とflatnessを得てから真正な双加群同型へ移る。
 
-有限中心Cの任意底変更後は中心準同型C_S→Z(A_S)だけを使い、単射や全中心の底変更可換性は仮定しない。非Noetherian底には大きいQGrを使う。相対アフィン対角のperfect性を大域dg smooth性と同一視しない。有限中心模型の大域smooth性は、左右Dbcoh=PerfとELS4.18の外積generator、対角kernelのMorita比較によって別に証明した。torsion曲線上の16次元族はatlasの局所閉部分スキームであり、17次元開や独立の閉部分stackを主張しない。
+有限中心Cの任意底変更後は中心準同型C_S→Z(A_S)だけを使い、単射や全中心の底変更可換性は仮定しない。非Noetherian底には大きいQGrを使う。big QGr≃QCohとcompact=局所Perfは任意係数で成立し、coherent部分・locally Noetherian性・偶数豊富列による全射比較はNoetherian底で述べる。相対アフィン対角のperfect性を大域dg smooth性と同一視しない。有限中心模型の大域smooth性は、左右Dbcoh=PerfとELS4.18の外積generator、対角kernelのMorita比較によって別に証明した。torsion曲線上の16次元族はatlasの局所閉部分スキームであり、17次元開や独立の閉部分stackを主張しない。
+
+橋渡し族のh≠0上では17係数族の関係式に移るが、指定Δ開・étale chart開の逆像へさらに制限する。d(h)≠0だけでは量子楕円境界は滑らかとは限らず、a=1/6,b=0,h⁶=−1728が反例である。係数基底は通常の可換C代数で、導来底変更はその射に沿う導来テンソルを指す。主定理Cの可換点は全Mに属し、C_Jには属さない。点復元の開C_J,ptと残余射の開Uは既約性により非空に交わる。
 
 Poisson持上げは、尺度を記憶する17次元の標的を用いる。射影化した標的は16次元である。相対Poisson錐のscheme方程式はSchouten–Plücker式と勾配の局所分裂単射から得る。可換targetのambientはω_B/V(2D)により射影束へ分裂するが、source上のO(1)降下とは区別する。実際の持上げは選択後には全O保存同値と底変更に両立する。選択独立性、NC交換子との半古典的意味、ΘQ⁻¹との一致は別の課題である。Pymの解析芽同型、Yekutieliの完備局所parameter上の比較を、この特定の大域代数的射と同一視しない。
 
-point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。相対CYの40自由語・6項目、中心式、17係数開を本版で検算した。点Poisson・étale点・Eulerの保持検証とは実行状態を区別し、正本を `validation.json` に置く。
+point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。相対CYの40自由語・6項目、中心式、17係数開、点Poisson・étale点・Eulerの検証情報を保持し、本版では再実行していない。今回実行したのはノート§1.8.1の橋渡し開条件の厳密計算である。正本を `validation.json` に置く。
 
 原稿の証明、今回の点検、計算、新規性確認を区別する。追加定理は明記した仮定の下で証明し、初出は未確認。有限Artin基底上の相対ASと絶対global dimension、体上のregular tailsと相対dg smooth proper性、実際のgraded17次元族と裸の導来圏の次元を混同しない。接空間同型だけで成分性や全Artin同値を宣言しない。
 
