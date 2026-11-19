@@ -1,0 +1,577 @@
+\section{相対 Jacobian 型の中心三次族}\label{sec:construction}
+本節では基礎体を $k=\C$ とする．$U=ku\oplus kv$ と
+$W=kx\oplus ky\oplus kz$ を置き，すべての生成元に次数１を与える．
+$F\in\Sym^3(W\oplus U)$ を
+\begin{equation}\label{eq:Ffull}
+ F=f_3(x,y,z)+Q_2(x,y,z;u,v)+L_1(x,y,z;u,v)+g(u,v)
+\end{equation}
+と書く．$f_3$ は $x,y,z$ に関して次数３，$Q_2$ は次数２，
+$L_1$ は次数１，$g\in\Sym^3U$ であり，それぞれ全次数３で斉次とする．
+
+\begin{definition}\label{def:B}
+$\Symm$ を可換単項式の完全対称化とする．$B_F$ を
+\begin{equation}\label{eq:B}
+ B_F=\frac{k\langle x,y,z,u,v\rangle}{
+ \bigl([u,-],[v,-],\ [x,y]-\Symm(F_z),\
+ [y,z]-\Symm(F_x),\ [z,x]-\Symm(F_y)\bigr)}
+\end{equation}
+で定義する．$g(u,v)$ は右辺の微分に現れない．
+\end{definition}
+
+\begin{lemma}[平面三次式の相対 PBW 性]\label{lem:pbw}
+$E=V(f_3)\subset\PP(W^*)$ が滑らかなら，$B_F$ は
+$k[u,v]$ 上自由であり，$x,y,z$-次数による濾過について
+\begin{align}\label{eq:gr}
+ \gr_{x,y,z}B_F&\simeq S_{f_3}\otimes_k k[u,v],\\
+ S_{f_3}&:=k\langle x,y,z\rangle/\bigl([x,y]-\Symm((f_3)_z),\ 
+\notag\\[-2pt]
+ &\hspace{8em}[y,z]-\Symm((f_3)_x),\ [z,x]-\Symm((f_3)_y)\bigr).
+\end{align}
+さらに $S_{f_3}$ は noetherian な３次元 Koszul AS 正則 Calabi--Yau 整域で，
+$B_F$ は noetherian な５次元 Koszul AS 正則整域となる．とくに
+\begin{equation}\label{eq:HilbertB}
+ H_{B_F}(t)=(1-t)^{-5}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Mori--Smith \cite[Theorem~4.2(1)]{MS} により，滑らかな $f_3$ から得た
+$S_{f_3}$ は３次元 Calabi--Yau であり，したがって上記の
+AS 正則性と Koszul 性を持つ．$u,v$ を中心的な係数とみなし，
+\eqref{eq:B} の三つの関係を
+$S_{f_3}$ の potential に対する次数２以下の cyclic potential の摂動と解釈する．
+各 $(u,v)=(s,t)\in k^2$ への特殊化について，
+Berger--Taillefer および Etingof--Ginzburg の PBW 定理
+\cite[Proposition~7.3.1(ii)]{EG} により，$x,y,z$-濾過の随伴次数付き代数は
+$S_{f_3}$ に等しい．
+
+$S_{f_3}$ の斉次な語の基底を選ぶ．元の関係式を用い，語を最高 $x,y,z$-次数から
+下げる帰納法により，選んだ語の持上げは $k[u,v]$ 上 $B_F$ を生成する．
+この持上げの有限 $k[u,v]$-線形関係があれば，各 $(s,t)$ への特殊化で
+PBW 基底間の関係を与えるので，その全係数は $k[u,v]$ の全閉点で零となり，
+したがって零である．これで自由性および \eqref{eq:gr} が得られる．
+特に $u,v$ は $B_F$ 上の正則中心列である．
+
+$B_F/(u,v)\simeq S_{f_3}$ なので，中心正則元に関する
+AS 正則性の上昇を二度適用すれば次元５の AS 正則性が得られる
+\cite[Propositions~2.1, 2.3]{CKS}．noetherian 性は中心正則拡大の
+標準定理，Koszul 性は中心一次元による change-of-rings，整域性は
+\eqref{eq:gr} の整域性に従う．$u,v$ を加えた次数計数から \eqref{eq:HilbertB} を得る．
+\end{proof}
+
+\begin{lemma}[ambient の Calabi--Yau 性]\label{lem:CY}
+補題\ref{lem:pbw} の仮定の下で $B_F$ の中山自己同型は恒等であり，
+$B_F$ は５次元 Calabi--Yau 代数である．
+\end{lemma}
+\begin{proof}
+AS 正則性から $B_F$ は skew Calabi--Yau であり，中山自己同型を $\nu$ とする．
+中山双加群の左右の中心作用は一致するため，$\nu$ は中心 $k[u,v]$ を
+各点固定する．すなわち $\nu(u)=u,\nu(v)=v$ である．
+したがって各 $(s,t)\in k^2$ について $\nu$ は
+$B_F/(u-s,v-t)$ に自己同型を誘導する．
+Zhou--Shen--Lu の正規元による中山自己同型の特殊化公式
+\cite[Propositions~2.6, 3.6]{ZSL} により，この自己同型は
+特殊化代数の中山自己同型である．
+一方，特殊化代数は低次 potential の摂動であり，
+Etingof--Ginzburg の定理\cite[Theorem~3.3.2(i)]{EG} によって
+３次元 Calabi--Yau である．特殊化代数は随伴次数付き整域
+$S_{f_3}$ を持つので，単元は $k^\times$ のみである．
+従って特殊化された $\nu$ は恒等である．
+$B_F$ は $k[u,v]$ 上自由だから，
+$\nu(x)-x,\nu(y)-y,\nu(z)-z$ が全 $(s,t)$ で零になることから
+それらは零である．よって $\nu=\mathrm{id}$．
+\end{proof}
+
+\begin{lemma}[一般点での三次中心元]\label{lem:center}
+$E=V(f_3)$ が滑らかな開集合のある非空開部分で
+\begin{equation}\label{eq:centS}
+ \Z(S_{f_3})_1=\Z(S_{f_3})_2=0,\qquad
+ \dim_k\Z(S_{f_3})_3=1
+\end{equation}
+が成立する．その開部分をさらに縮小し，三次中心の非零元
+$\Omega_{f_3}\in\Z(S_{f_3})_3$ を代数的に選ぶ．
+すると\eqref{eq:B} の $Q_2,L_1$ の全係数に関して代数的に変わる
+\begin{equation}\label{eq:G}
+ \mathcal G_F=\Omega_{f_3}+C_2(F)+C_1(F)\in\Z(B_F)_3
+\end{equation}
+が存在する．$C_2$ は $x,y,z$-次数２で $u,v$ に線形，$C_1$ は
+$x,y,z$-次数１で $u,v$ に二次であり，$x,y,z$-次数０の部分を零とする
+規格化によって一意である．特に
+\begin{equation}\label{eq:Gg}
+ G_F=\mathcal G_F+g(u,v)
+\end{equation}
+も中心元であり，$B_F$ 上正則である．
+\end{lemma}
+\begin{proof}
+具体的に $f_3=(x^3+y^3+z^3)/3$ では，
+$S_{f_3}=k\langle x,y,z\rangle/([x,y]-z^2,[y,z]-x^2,[z,x]-y^2)$ であり，
+自由語の次数１から４の関係行列を有理数上で消去すると，
+次数１，２，３の中心の次元は順に $0,0,1$ になる．
+この有限計算は付属 \nolinkurl{computations/independent/verify_generic17_center.py} で再現できる．
+三変数 Sklyanin 代数の楕円曲線と translation の表示
+\cite{ATV,EG} において，$\tau,\tau^2\ne1$ となる一般の点では
+低次数中心が零であり，中心三次元の空間は一次元である．
+この条件を中心性の次数４以下の有限行列の rank として書けば
+非空 Zariski 開条件になり，その上では \eqref{eq:centS} の
+核は階数１の代数的線束をなす．非零小行列式を反転した
+chart 上で $\Omega_{f_3}$ を選べる．
+
+$u,v$ を数値へ特殊化した三変数の非斉次 potential を考える．
+\cite[Theorem~3.3.2(ii)]{EG} は $x,y,z$-濾過次数３以下に
+非スカラー中心元が存在することを保証する．その最高次数の記号は
+\eqref{eq:centS} により $\Omega_{f_3}$ の非零定数倍であり，
+係数を規格化できる．補正項の $x,y,z$-次数２および１の係数は
+それぞれ６個および３個の未知数を持ち，中心性は線形方程式
+\begin{equation}\label{eq:centerlinear}
+ M(\mathbf a,\mathbf b)c=d(\mathbf a,\mathbf b)
+\end{equation}
+で表される．ここで $\mathbf a$ は非斉次二次 potential の係数，
+$\mathbf b$ は一次 potential の係数である．
+零定数部分で \eqref{eq:centerlinear} の同次解が非零なら，
+$x,y,z$-濾過次数２以下の非スカラー中心元を与え，
+最高記号を取ると \eqref{eq:centS} に矛盾する．
+よって $M$ は全特殊化で階数９を持つ．各特殊化に解が存在するので，
+一定 rank のベクトル束写像の余核中で $d$ の像は全閉点で零となる．
+基底を被約な多項式係数環としたからその像は零であり，
+唯一の代数的な解が存在する．
+
+$\mathbf a$ に重み１，$\mathbf b$ に重み２を与える
+$\mathbb G_m$-作用と規格化の一意性から，$C_2$ は
+$\mathbf a$ に一次，$C_1$ は $\mathbf a$ に二次・$\mathbf b$ に一次である．
+$\mathbf a$ を $u,v$ の一次式，$\mathbf b$ を二次式に置けば
+\eqref{eq:G} の斉次中心元を得る．
+$\Omega_{f_3}$ は \eqref{eq:gr} の整域における非零元なので，
+$G_F$ は $B_F$ の非零正則元である．
+\end{proof}
+
+\begin{theorem}[41次元の中心三次対の代数的族]\label{thm:incidence}
+$U=\langle u,v\rangle$ を固定し，$F$ の35係数を動かす．
+補題\ref{lem:center} の非空 Zariski 開条件を課したパラメータ空間
+$\mathcal T_U$ 上，$F\mapsto(B_F,[G_F])$ は代数的な中心三次対の族となる．
+商
+\begin{equation}\label{eq:A}
+ A_F=B_F/(G_F)
+\end{equation}
+は各次数で基底上局所自由であり，
+\begin{equation}\label{eq:HseriesA}
+ H_{A_F}(t)=\frac{1-t^3}{(1-t)^5},\qquad
+ (\dim A_1,\dim A_2,\dim A_3)=(5,15,34).
+\end{equation}
+$U$ を $\operatorname{Gr}(2,5)$ 上で動かすと，この族のパラメータ空間は
+$6+35=41$ 次元の既約な有限型空間を与える．その ambient 二次代数の
+係数空間は $6+31=37$ 次元であり，一般の固定 ambient の上で
+中心三次直線の選択に４次元の自由度がある．
+\end{theorem}
+\begin{proof}
+一般の斉次三次式の係数は $\binom{7}{3}=35$ 個であり，
+$F$ に含まれる $g\in\Sym^3U$ の係数は４個である．
+$B_F$ の関係式は $F$ の $x,y,z$ 偏微分から決まり，$g$ には依存しない．
+補題\ref{lem:center} の $\mathcal G_F$ は最高 $x,y,z$-次数成分によって規格化され，
+$G_F=\mathcal G_F+g$ であるから，$g$ の異なる４係数は
+同じ ambient 内の異なる中心三次直線を与える．
+補題\ref{lem:pbw} および補題\ref{lem:center} により，$B_F$ は整域，$G_F$ は
+中心正則である．$B_F$ の任意の次数に対して中心正則元による完全列
+\[
+ 0\longrightarrow B_F(-3)\xrightarrow{\cdot G_F}
+ B_F\longrightarrow A_F\longrightarrow0
+\]
+が成立し，\eqref{eq:HseriesA} が従う．
+相対的には，固定次数で有限生成自由加群間の表示行列の rank が
+全閉点で一定なので，次数成分は局所自由となる．
+$U$ の変化は Grassmannian 上の局所 chart ごとに同じ構成で与えられ，
+全体の既約次元は $\dim\operatorname{Gr}(2,5)+35=41$ である．
+\end{proof}
+
+\begin{remark}[正則性の二つの意味]\label{rem:regularity}
+本定理は ambient $B_F$ の５次元 AS 正則性，$G_F$ の正則性，
+$A_F$ の相対平坦性を示す．これだけで任意の閉点について
+$\gldim(\qgr A_F)=3$ が従うわけではない．
+量子的な楕円境界が滑らかな固定 ambient について，十分一般の
+中心三次係数で tails が滑らかになるという議論には，
+中心局所化と非可換 generic smoothness の結果
+\cite{RSVdB,Rains} が必要である．
+本稿の17次元性および復元定理は，この追加の全閉点での
+Zariski 開性を仮定しない．
+\end{remark}
+
+\section{generic な17係数正規形と真の変形次元}\label{sec:normal}
+ここで重要なのは，41係数から形式的に24を引くことだけではない．
+実際の座標変換の一般軌道が24次元であり，17個の係数だけを持つ族が
+その有理商を支配することを示す．
+
+\subsection{中心一次平面と群作用}
+\begin{lemma}[一次中心による平面の復元]\label{lem:U}
+補題\ref{lem:center} の開集合では
+\begin{equation}\label{eq:Z1}
+ \Z(B_F)_1=U=ku\oplus kv.
+\end{equation}
+したがって，次数付き代数 $B_F$ の自己同型は $U$ を保存する．
+\end{lemma}
+\begin{proof}
+$u,v$ は中心である．$w\in (B_F)_1$ が中心なら，
+$x,y,z$-次数に関する最高記号は $S_{f_3}[u,v]$ の中心である．
+その $x,y,z$-次数が１なら，$\Z(S_{f_3})_1=0$ に矛盾する．
+よって $w\in U$ である．
+\end{proof}
+
+$P\subset\PGL(W\oplus U)$ を平面 $U$ の保存群とする．
+標識された基底 $(x,y,z;u,v)$ に関して，$P$ は
+\[
+ \left(\begin{array}{cc}M&C\\0&N\end{array}\right),\qquad
+ M\in\GL_3,\quad N\in\GL_2,\quad C\in\operatorname{Mat}_{3\times2}
+\]
+の同時スカラー倍を同一視した群である．したがって
+\begin{equation}\label{eq:dimP}
+ \dim P=9+4+6-1=18,
+ \qquad\dim\PGL_5=24.
+\end{equation}
+Jacobian 括弧は変数変換に対し $\det M$ の重みを持つ．
+したがって ambient 二次関係式の係数 $F$ の
+$\Sym^3U$ 以外の31成分への Lie 作用は
+\begin{equation}\label{eq:Lie}
+ \delta_{M,N,C}F=(\operatorname{tr}M)F
+ -\sum_{i=1}^{3}\bigl((Mx)_i+(Cs)_i\bigr)\partial_{x_i}F
+ -\sum_{j=1}^{2}(Ns)_j\partial_{s_j}F,
+ \qquad s=(u,v)^t,
+\end{equation}
+を $\Sym^3U$ で割った像である．
+\emph{中心元の規格化は変数変換で binary cubic の補正を受け得る}ため，
+以下の横断性は最初に ambient の31方向で確かめ，
+最後に独立な中心三次の４方向を加える．
+この順序なら中心元の gauge に関する余分な同変性は不要である．
+
+\subsection{17係数の表示}
+\begin{theorem}[17係数の横断的代数的族]\label{thm:17}
+$M_1,M_2,M_3\in k[u,v]_2$, $g\in k[u,v]_3$ として
+\begin{equation}\label{eq:F17}
+\boxed{\begin{aligned}
+ F_{17}={}&a(x^3+y^3+z^3)+bxyz\\
+ &+ux^2+\alpha vy^2+\beta(u+v)z^2\\
+ &+M_1(u,v)x+M_2(u,v)y+M_3(u,v)z+g(u,v).
+\end{aligned}}
+\end{equation}
+この族の係数は
+\begin{equation}\label{eq:count17}
+ (a,b,\alpha,\beta)\quad\text{の４個},\qquad
+ (M_1,M_2,M_3)\quad\text{の９個},\qquad
+ g\quad\text{の４個}
+\end{equation}
+であり，合計17個である．
+非空 Zariski 開集合 $T\subset\A^{17}$ 上で
+$F=F_{17}$ を \eqref{eq:B}, \eqref{eq:Gg} に代入すると
+$A_F=B_F/(G_F)$ は次数ごとに平坦な代数的族となる．
+その一般点の次数付き代数同型類は17次元分だけ動く．
+より正確には，この族から第\ref{sec:construction}節の
+中心三次対の Rosenlicht 有理商への有理写像は支配的かつ一般に有限で，
+\begin{equation}\label{eq:17mod}
+ \trdeg_k k(\cI)^{\PGL_5}=41-24=17.
+\end{equation}
+ここで $\cI$ は構成した中心三次対の41次元既約族の像の閉包とする．
+\end{theorem}
+\begin{proof}
+まず35係数空間での一般の cubic $F$ の $f_3$ が滑らかな
+平面三次式を定めるとする．古典的 Hesse 正規形
+\cite[\S2, Lemma~2.1]{AD} により，
+$\GL_3$ の座標変換で $f_3=a(x^3+y^3+z^3)+bxyz$ と書ける．
+$b\ne0$ とし，$x,y,z$ を $u,v$ の一次式だけ平行移動すると，
+三つの交差二次項 $xy,yz,zx$ に付く二元一次式６係数を消せる．
+残る３つの二元一次式が $\PP(U)$ 上に互いに異なる零点を持つ一般点では，
+$\PGL(U)$ でそれらを $u,v,u+v$ に変換し，
+相対スカラーで第一の係数を１に規格化すれば \eqref{eq:F17} になる．
+ただし Hesse 変換の選択は有限多価であり，この議論だけで
+有理商の一般次数が１であるとはいわない．
+
+さらに代数的な横断性を有理数体で独立に検算する．
+\eqref{eq:F17} の次の点を取る：
+\begin{align}\label{eq:F0}
+ F_0={}&3(x^3+y^3+z^3)+5xyz+ux^2+2vy^2+3(u+v)z^2\notag\\
+ &+(u^2+uv+2v^2)x+(2u^2+3uv+v^2)y\\
+ &+(u^2+4uv+5v^2)z+u^3+u^2v+2uv^2+3v^3.\notag
+\end{align}
+$\mathfrak{gl}_3\oplus\mathfrak{gl}_2\oplus\operatorname{Mat}_{3\times2}$
+の19個の行列係数に対する微分 \eqref{eq:Lie} の像を取り，
+これと \eqref{eq:F17} の方向のうち $g$ 以外の13方向とを
+$\Sym^3(W\oplus U)/\Sym^3U$ の31個の単項式に展開する．
+同時スカラー１方向を除いた $31\times31$ の行列について
+\begin{equation}\label{eq:det}
+ \boxed{\det M_{31}=-5538243375000\ne0}
+\end{equation}
+となる．行と列の取り方を付録\ref{app:rank}に固定した．
+この計算は有理数体上の厳密計算であり，
+付属 \nolinkurl{computations/independent/verify_generic17_slice.py} で再現できる．
+したがって ambient 二次代数の31方向において，
+$P$ の一般軌道は18次元で，13係数正規形は横断的である．
+
+残りの $\Sym^3U$ の４係数は，固定 ambient の上の
+$[\mathcal G_F+g]$ の４次元のアフィン chart である．
+よって全中心三次対の固定 $U$ での一般軌道も18次元であり，
+17係数正規形は一般軌道に横断する．
+$U$ が \eqref{eq:Z1} によって intrinsic なので，
+一般の同型がこれ以外の６次元の pencil 方向を
+同一視してしまうことはない．
+$U$ を動かすと $\cI$ の次元は41，$\PGL_5$ の一般軌道の次元は
+$6+18=24$ である．Rosenlicht の有理商の定理 \cite{Rosenlicht}
+と次元公式により \eqref{eq:17mod} を得る．
+\end{proof}
+
+\begin{remark}[定義域と17次元の意味]\label{rem:meaning}
+この次元は $\PGL_5$ による同型軌道についての値であり，
+実際に $A$ の次数付き同型類に対応することは
+第\ref{sec:moduli-iso}節の復元定理\ref{thm:moduli-iso}で保証する．
+$\PGL_5$ の一般 stabilizer が有限であることは示したが，
+自明であることや有限次数が１であることは示していない．
+また $T$ の各点で $\qgr A$ が滑らかであるとは主張しない．
+\end{remark}
+
+\section{分離型の余次元と一般混合項の不可避性}
+\label{sec:split-codimension}
+一楕円Sklyaninブロックと独立な中心三次式からなる分離型は、
+rotation付き可換復元の明示的な成功例である。
+しかし、それが本稿の17次元一般族を支配するわけではない。
+その理由を中心一次平面を固定した係数空間で正確に述べる。
+
+\begin{proposition}[分離型は余次元15]
+\label{prop:split-codimension}
+$W=\langle x,y,z\rangle$、$U=\langle u,v\rangle$、
+$\mathcal T=\Sym^3(W\oplus U)$とする（$\dim\mathcal T=35$）。
+$W$上の滑らかな三次形式$f$、$U$上の一般の三次形式$g$、
+および$L\in\Hom(U,W)$からなる
+\[
+ F_{f,g,L}(x,u)=f(x+L(u))+g(u)
+ \tag{S}\label{eq:split-family}
+\]
+の像$\mathcal S\subset\mathcal T$は既約な20次元構成可能集合
+の閉包を持ち、$\mathcal T$内で余次元15である。
+さらに、中心平面$U$を保つ本稿の放物型座標変換群
+$\mathcal P$の一般軌道が18次元であるため、
+$\mathcal S$の有理商は次元2である。
+従って、一般17次元の中心三次対の有理商において、
+分離型の像は余次元15の真の特殊部分をなす。
+\end{proposition}
+\begin{proof}
+$f$の係数は10、$g$は4、$L$は6で、全20変数である。
+$L=0$における微分は$f$と$g$の係数方向のほか、
+\[
+ u f_x,\ u f_y,\ u f_z,\quad
+ v f_x,\ v f_y,\ v f_z
+ \tag{T}\label{eq:split-tangent}
+\]
+を与える。$f$が滑らかなら$f_x,f_y,f_z$は定数係数で一次独立である。
+実際、定数線形関係があれば$f$はある座標に依存しない錐となり、
+射影平面三次曲線は特異になる。
+従って\eqref{eq:split-tangent}の六方向は独立で、
+$\Sym^3W$と$\Sym^3U$の14方向とも次数で分離される。
+ゆえに微分の階数は20であり、$\dim\overline{\mathcal S}=20$。
+
+群$\mathcal P$は、$W$内と$U$内の線形座標変換、
+$W$への$U$のshearを含み、$F$への作用は本稿の
+Poisson中心三次対の規約（式\eqref{eq:Lie}）による。
+この群は$\mathcal S$を保つ。
+一般の滑らかな$f$と重根のない二元三次式$g$は、
+それぞれ射影的な安定化群が有限である。
+$L=0$で$f$を固定するshearの無限小方向は
+\eqref{eq:split-tangent}の独立性から消える。
+従って$\mathcal P$の有効な一般安定化群は有限であり、
+一般軌道の次元は18となる。
+ゆえに有理商の次元は$20-18=2$。
+全係数空間の一般有理商は第\ref{sec:normal}節により
+$35-18=17$次元なので、その差は15である。
+\end{proof}
+
+\begin{corollary}[本質的な混合項の一次近似]
+\label{cor:split-normal-directions}
+分離点$F=f(x)+g(u)$で、上の分離型の係数空間内の法線空間は
+固定した分解$W\oplus U$の下で自然に
+\[
+ N_{\mathcal S/\mathcal T,F}
+ \simeq U\otimes\bigl(\Sym^2W/\langle f_x,f_y,f_z\rangle\bigr)
+ \ \oplus\ W\otimes\Sym^2U,
+ \qquad \dim N_{\mathcal S/\mathcal T,F}=6+9=15
+ \tag{N}\label{eq:split-normal-directions}
+\]
+と同定される。前者が中心変数に一次の本質的な混合項、
+後者が中心変数に二次の混合項を表す。
+\end{corollary}
+\begin{proof}
+全三次式の混合部分は
+$\Sym^2W\otimes U\oplus W\otimes\Sym^2U$である。
+分離型の接空間の混合部分は、線形shearによる
+$\langle f_x,f_y,f_z\rangle\otimes U$と一致する。
+滑らかな$f$では三偏導関数が独立なので
+その商を取れば上式を得る。
+\end{proof}
+
+\begin{proposition}[可換cubicへの忘却と$17=10+7$の接空間]
+\label{prop:jacobian-forgetful-tangent}
+上の分離点$F=f(x)+g(u)$で、$f$が滑らかな平面三次式、
+$g$が重根のない二元三次式とする。$J(F)$を$F$のJacobianイデアルとすると、
+\[
+  J(F)_3^{\mathrm{quot}}:=\Sym^3(W\oplus U)/J(F)_3
+   \simeq J(f)_3^{\mathrm{quot}}
+     \oplus\bigl(J(f)_2^{\mathrm{quot}}\otimes J(g)_1^{\mathrm{quot}}\bigr)
+     \oplus\bigl(J(f)_1^{\mathrm{quot}}\otimes J(g)_2^{\mathrm{quot}}\bigr)
+\]
+であり、三項の次元は順に$1,6,3$、合計10である。
+ここで$J(f)_d^{\mathrm{quot}}=(\Sym W/(f_x,f_y,f_z))_d$、
+$J(g)_d^{\mathrm{quot}}=(\Sym U/(g_u,g_v))_d$とする。
+放物型軌道の接空間を割った17次元の変形空間から、
+元の可換cubicのJacobian変形空間への自然な線形射
+\[
+ \Sym^3(W\oplus U)/T_F(\mathcal P\cdot F)
+ \longrightarrow J(F)_3^{\mathrm{quot}}
+ \tag{J}\label{eq:forgetful-Jacobian}
+\]
+は全射で、その核は7次元である。
+分離型の2次元商に由来する方向の像は1次元、
+その余次元15の法線からの像は9次元であり、
+法線の核の次元は6である。
+\end{proposition}
+\begin{proof}
+$f$と$g$の勾配は別変数の正則列だから、Jacobian環は
+$J(f)^{\mathrm{quot}}\otimes J(g)^{\mathrm{quot}}$に分解し、
+Hilbert級数はそれぞれ$(1+t)^3$と$(1+t)^2$となる。
+従って次数3には$(3,0),(2,1),(1,2)$の三組だけが寄与し、
+次元は$1+3\cdot2+3\cdot1=10$である。
+$\mathcal P$の軌道の無限小作用は$F$のスカラー倍と
+$X_j\partial_i F$の線形結合である。
+Euler等式により$F\in J(F)_3$なので、
+\eqref{eq:forgetful-Jacobian}はwell-definedであり全射である。
+その次元差は$17-10=7$。
+分離型の接空間の純三次方向は$\Sym^3W\oplus\Sym^3U$、
+残りは$u f_i,v f_i$なので、Jacobian環への像は
+$J(f)_3^{\mathrm{quot}}$の1次元のみである。
+さらに系\ref{cor:split-normal-directions}の法線の第一項は
+$J(f)_2^{\mathrm{quot}}\otimes J(g)_1^{\mathrm{quot}}$の6方向に写り、
+第二項は$J(f)_1^{\mathrm{quot}}\otimes J(g)_2^{\mathrm{quot}}$の3方向に写る。
+よって法線からの像は9次元、核は$15-9=6$である。
+\end{proof}
+\begin{remark}[幾何学的17次元候補との関係]
+\label{rem:forgetful-geometry-not-model}
+この接空間の$17=10+7$と、幾何学的候補
+$(Y,\Lambda,\xi)$の$10+6+1$は整合的である。
+実際、元の可換cubicを固定するPoisson方向は
+超平面pencilの6方向とPoissonスカラーの1方向を持つ。
+しかしこの計算だけでは、量子化後の可換cubic$Y$、平面$\Lambda$、
+楕円曲線上の直線束$\xi$を関手的に構成したことにはならない。
+\end{remark}
+
+\begin{proposition}[七次元の核の幾何的分解]\label{prop:vertical-seven}
+命題\ref{prop:jacobian-forgetful-tangent}の仮定の下で、
+$W=\langle x,y,z\rangle$、$U=\langle u,v\rangle$を
+\emph{一次形式の空間}とする。分離点$F=f(x)+g(u,v)$で、
+\[
+ \mathsf T_{F,U}:=\Sym^3(W\oplus U)/T_F(\mathcal P\cdot F),
+ \qquad R_F=\Sym(W\oplus U)/(F_x,F_y,F_z,F_u,F_v)
+\]
+とおく。一次形式の部分空間$U$で指定される平面
+$\Lambda=V(U)\simeq\PP^2$の変形空間は
+$T_{\Lambda}\operatorname{Gr}(2,W\oplus U)
+\simeq\operatorname{Hom}(U,W)$である。
+$L\in\operatorname{Hom}(U,W)$の基底表示を
+$L(u)=\ell_u(x)$、$L(v)=\ell_v(x)$とすれば、
+次の短完全列が成立する：
+\[
+ 0\longrightarrow
+ \mathbb C[f]\oplus T_{\Lambda}\operatorname{Gr}(2,W\oplus U)
+ \xrightarrow{\ \iota\ } \mathsf T_{F,U}
+ \xrightarrow{\ \mathrm{Jac}\ } (R_F)_3
+ \longrightarrow0,
+ \tag{V}\label{eq:vertical-seven-exact}
+\]
+\[
+ \iota(a,L)=[\,a f+\ell_u(x)g_u(u,v)+\ell_v(x)g_v(u,v)\,].
+ \tag{VM}\label{eq:vertical-moving-plane}
+\]
+左端の一次元方向はPoisson双ベクトルの大きさを変える方向であり、
+六次元方向は可換cubicそのものを変えずに指定した平面を動かす方向である。
+\end{proposition}
+\begin{proof}
+$F$のJacobianイデアルの三次部分を変数の双次数に分けると、
+\[
+ J(F)_3=
+ W\langle f_x,f_y,f_z\rangle\ \oplus\
+ U\langle f_x,f_y,f_z\rangle\ \oplus\
+ W\langle g_u,g_v\rangle\ \oplus\
+ U\langle g_u,g_v\rangle.
+\]
+$f$が滑らかな平面三次式であることから
+第一項の次元は$10-\dim(R_f)_3=9$、第二項は6である。
+$g$が重根を持たない二元三次式なので
+第三項は6、第四項は4であり、全体の次元は25となる。
+一方、$\mathcal P$の無限小作用は、
+第一項において$\mathrm{SL}(W)$の8次元方向を占め、
+第二項ではshearによる全6方向を占め、
+第四項では$\mathrm{GL}(U)$による全4方向を占める。
+ここで$\mathrm{GL}(U)$が$\Sym^3U$に作用する微分は同型である：
+重根のない三点の組の射影的安定化群が有限だからである。
+従って放物型軌道の次元は$8+6+4=18$であり、
+$W\langle g_u,g_v\rangle$の第三項には寄与しない。
+また$\mathbb Cf\subset W\langle f_x,f_y,f_z\rangle$は
+$\mathrm{SL}(W)$の8次元接方向と独立である。
+実際、滑らかな平面三次式の判別式は$\mathrm{SL}(W)$不変で
+$f\mapsto(1+\varepsilon)f$で非零の一次変化を持つ。
+従って$J(F)_3/T_F(\mathcal P\cdot F)$は
+$\mathbb C[f]\oplus W\langle g_u,g_v\rangle$に一致する。
+$g_u,g_v$は二元二次式として一次独立なので、
+後者は$\operatorname{Hom}(U,W)$と同一視される。
+最後に$\operatorname{Gr}(2,W\oplus U)$の平面変形は
+$U\mapsto\langle u+\varepsilon\ell_u(x),
+ v+\varepsilon\ell_v(x)\rangle$で記述される。
+$g$へこの置換を適用したときの一次変化が
+\eqref{eq:vertical-moving-plane}の第二項に一致する。
+$F$のJacobian商への射は全射だから、短完全列が得られる。
+\end{proof}
+
+\begin{proposition}[PoissonスカラーをPicardパラメータと直接同一視できない]\label{prop:poisson-picard-obstruction}
+$X\subset\PP^4$を滑らかな可換cubic、$\Lambda\simeq\PP^2$を
+$C=X\cap\Lambda$が滑らかな平面三次曲線となる平面とする。
+$X$と$\Lambda$を固定し、非零Poisson構造のスカラー倍
+$\lambda\pi$、$\lambda\in\mathbb G_m$だけを変化させる。
+この一変数族から$\operatorname{Pic}^0(C)$への任意の
+有理写像は定数である。
+とくに、同じ$X$と$\Lambda$を保つような
+Poissonパラメータ$\lambda$と楕円Picardパラメータ$\xi$の間には、
+支配的な有理対応を与える一価の有理写像は存在しない。
+\end{proposition}
+\begin{proof}
+$\operatorname{Pic}^0(C)$は滑らかな射影的種数1曲線である。
+$\mathbb G_m\dashrightarrow\operatorname{Pic}^0(C)$という有理写像は、
+領域を$\PP^1$に埋め込めば、曲線上の有理写像に関する
+正規性とターゲットの固有性により
+$\PP^1\to\operatorname{Pic}^0(C)$に延長される。
+標数0で$\PP^1$から種数1曲線への非定数射は
+Riemann--Hurwitz公式に反する。
+従って有理写像は定数である。
+この議論は$(X,\Lambda)$を変数とする基底の
+一般幾何ファイバー上でも成立する。
+\end{proof}
+\begin{remark}[復元に必要な非自明な幾何変化]\label{rem:picard-obstruction-scope}
+滑らかなcubic threefold上の非零Poisson構造を射影化すると
+$\operatorname{Gr}(2,5)$になることは既知である
+\cite{LPT,Mayanskiy}。
+非零スカラーまで保持するとその錐から零切断を除いた
+$\mathbb G_m$束であり、固定cubic上で$6+1$次元を持つ。
+一方$(Y,\Lambda,\xi)$の$\xi$は固定$(Y,\Lambda)$上では
+楕円曲線$\operatorname{Pic}^0(Y\cap\Lambda)$を動く。
+従って$17=10+6+1$という次元一致を、
+可換cubicと平面を両方固定したまま
+$\mathbb G_m$パラメータを楕円曲線の点へ置き換える
+大域的な有理同一視と解釈してはならない。
+実際の量子化後の可換復元では、元の$X$と異なる$Y$を選ぶか、
+平面やmarkingを非自明に変化させる必要があり得る。
+一ブロックHesse模型の$\vartheta(h,t)-t\ne0$は
+そのような基底の移動が起こる明示的な例である。
+この命題は一般のrotation付き可換復元の存在を否定しない。
+また、有限被覆を介する多価の代数的対応の不存在も主張しない。
+\end{remark}
+
+\begin{remark}[可換復元への帰結]
+\label{rem:split-implication}
+分離型のrotation付き可換復元が成立しても、
+それだけでは17次元一般点の可換復元は得られない。
+線形shearで除去できない本質的な混合項に対する
+相対Orlov比較・smooth proper性・rotationの同定が必要である。
+ここで求めた余次元は、中心平面を指定する
+Poisson中心三次対の\emph{有理商}についての結論であり、
+無標識導来圏やKuznetsov成分のモジュライの余次元だと
+読み替えてはいけない。
+\end{remark}

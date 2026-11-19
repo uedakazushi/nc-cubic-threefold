@@ -288,7 +288,17 @@ $A_S$-torsion と忘却後の $B_S$-torsion は同じである。
 $-\otimes_{B_S}^{\mathbf L}A_S$ の忘却後の複体は
 cone$(w:N(-3)\to N)$ である。
 従って cohomologically torsion な複体を同種の複体へ送る。
-非有界導来圏の Gabriel 商の記述から、左随伴を tails の導来圏へ降ろせる。
+ここで使う非有界 Gabriel 商の記述は、通常の derived torsion の計算とは独立である。
+実際、$C=A_S,B_S$ に対して商関手 $\pi_C$ は完全なので、
+その右随伴 $\omega_C$ は K-injective 複体を保つ。
+$\pi_C\omega_C=\operatorname{id}$ から
+$\pi_CR\omega_C=\operatorname{id}$ であり、
+$\ker\pi_C=D_{\operatorname{tors}}(\operatorname{Gr}C)$ と合わせて
+\[
+ D(\operatorname{Gr}C)/D_{\operatorname{tors}}(\operatorname{Gr}C)
+ \simeq D(\operatorname{QGr}C)
+\]
+を得る。この商記述により、左随伴を tails の導来圏へ降ろせる。
 随伴そのものも降下する。
 実際、$N$ が $A_S$ 側の右 local 複体なら、torsion 複体 $T$ について
 \[
@@ -398,8 +408,10 @@ torsion 複体は torsion 加群から localizing に生成され、
 
 \subsection{三次商自身の torsion と真正な双加群双対}
 
-次の補足は、上の線コホモロジーの計算には不要だが、
-相対 Serre trace の構成へ渡す局所双対入力を与える。
+次の比較は、上で用いた非有界 Gabriel 商の記述とは別に、
+通常の derived torsion を局所化の fibre と同定する。
+これは線コホモロジーの計算には不要だが、相対 Serre trace の構成へ渡す
+局所双対入力を与える。
 
 \begin{lemma}[中心商に対する derived torsion の比較]
 \label{lem:relative-cubic-torsion-comparison}
@@ -869,9 +881,9 @@ $D^b(\operatorname{qgr}A_S)$ 全体の有限大域次元ではない．
 \end{proof}
 
 \paragraph{既知文献の適用範囲．}
-Mizuno, \emph{Dualizing complexes over $\mathbb Z$-algebras},
-\cite{MizunoZDuality}, arXiv:2509.13073v3（2026年9月4日）は係数体上の理論であり（\S2冒頭），
-Theorem~5.8 はさらに $\operatorname{qgr}$ の有限 global dimension を仮定する．
+Mizuno \cite[\S2 and Theorem~5.8]{MizunoZDuality} の
+$\mathbb Z$-代数の双対理論は係数体上で定式化され，
+同定理はさらに $\operatorname{qgr}$ の有限 global dimension を仮定する．
 Brown--Sridhar, \emph{Serre duality for dg-algebras},
 \cite{BrownSridharSerre}, arXiv:2410.07204v2（2025年8月15日）も係数体上の理論である（\S2冒頭）．
 Brown--Soto Levins--Sridhar, \emph{Existence of balanced dualizing dg-modules},

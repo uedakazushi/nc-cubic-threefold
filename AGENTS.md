@@ -1,18 +1,17 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v13。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10.7・§10.6・§1.8・§1.7・§5）、`papers/sections/point_scheme_poisson.tex`、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v19）。
+2026-11-19 / research-plan-v14。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10.7・§10.6・§1.8・§1.7・§5）、`papers/sections/point_scheme_poisson.tex`、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc-cubic-threefold-moduli.tex`（v20）。
 
 ## 最優先の判断基準
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し、研究全体の価値を最大化する。現在の目標は、構造対象Oだけを標識したAbel圏としてnc cubic threefoldのモジュライを定め、実際の射・全Artin変形・二次包絡の比較を完成すること。17次元族のsmooth proper開と残余圏の幾何化は達成した。全Abel形式残余とPoisson形式fiberも達成し、実際の開上の非標準的なPoisson持上げも得た。量子化としての意味を保つ内在的Poisson持上げと全Abelモジュライ内の位置を次の目標とする。
+数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し、研究全体の価値を最大化する。現在の目標は、構造対象Oだけを標識したAbel圏としてnc cubic threefoldのモジュライを定め、実際の射・全Artin変形・二次包絡の比較を完成すること。17次元族のsmooth proper開と残余圏の幾何化は達成した。全Abel形式残余とPoisson形式fiberも達成し、実際の開上の非標準的なPoisson持上げも得た。公表前の証明点検・文章の完成を優先し、内在的Poisson持上げと全Abelモジュライ内の位置を次の数学的目標とする。
 
 ## 直近の優先順位
 
-1. **点データからの内在的Poisson持上げ。** point schemeの一次持上げ可能点=Poisson零点schemeを証明した。有限係数ではE_h⊔D_w、D_wは長さ24のCI。非ST境界の開でU=I(E_h)_1、Q=I(D_w)_2からR_Q=kF⊕Sym³Uと[Π]を復元した。shift付き点対応ではH⁰(I_Γ(1,1))=R_Bにより二次包絡と尺度込みΠ_fin=hΠ_Fも復元した。次はI(D_w)_3/(V·Q)が与える量子三次直線をR_Q内へ補正し、ρの出力三次との一致を調べる。finite hでpoint scheme全体をそのままPoisson零点にする方法はHesse開全体で不可能。σ′₀=Res_mod/2は指定した経路の一次主張で、finite σの代数的対数を取らない。既存の非標準的17→17射と全Abel形式同型は保持する。
-2. **七次元fiberと全M内の位置。** 形式fiberはGr(2,5)アフィン錐の完備化で、次元7・頂点接空間10。一般の代数的fiberの双有理性・有限拡大の次数1は未証明。接合双加群を調べ、既存17→13の四次元torsorとの関係を確かめる。全Abel形式残余は中心商模型とCY不要のcompact/proper入力により完成しており、非周期性を保留理由にしない。一般非可換点の全変形比較、全M内の開性・局所閉性・成分性、有限対角・分離性は未証明。
-3. **証明の有効範囲を保持する。** 全stack化後のframed Abel形式群oid≃Spf R_X、一般族の普遍PBW/CY・全Hom比較、固定剛体ambientの全A4 monomorphism、有限位数境界の4・15・16次元smooth proper族を保持する。残余射の効果化では係数Perfを先に使い、smooth targetにより右perfectを得る。一般(FS)、compact核の無条件形式効果化、generator開性はノート§1.8.2の反例により使用しない。
-4. **公表単位と初出。** 相対双対・Abel比較・部分モジュライ・17→10射について既知のKuznetsov/JLLZ/Lurie/Bhatt/Stevenson/Orlov/Neeman/BMMS等の入力と追加の証明を区別する。初出・新規性の網羅調査と外部査読は未完了。既存PBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
-5. Oの内在認識、ρの出力三次の具体化、七方向と四方向の関係を進める。直接的な次数三判定・平方零消滅も保持し、一次障害式を高次へ無補正で反復しない。
+1. **公表前検証と推敲。** 主稿 `papers/nc-cubic-threefold-moduli.tex` のIntroductionにA–Dを集約する。相対Koszul/CYからSerre trace、全O保存同値、atlas、残余射という依存鎖と、全Artin平坦包絡・framed形式近傍の仮定を点検する。一般の未解決分類や内在的逆量子化の完成を公表の前提にしない。主稿の3部と証明を保持した付録という構成を尊重する。
+2. **量子中心に対応する古典三次。** 点schemeからU,Q,R_Qと[Π]、shift付き対応から二次包絡とhΠ_Fを復元した。次は量子中心直線をR_Q内へ補正し、ρの出力三次との一致を示す。Hesseの有限点schemeの零点非実現性とsym⁻¹反例を制約とする。有限σのlogは使わない。相対超越基底による非標準的持上げは一般論の命題として扱う。
+3. **七次元fiberと全M内の位置。** 接合双加群と既存17→13 torsorの関係を調べる。一般非可換点の全変形は小拡大・障害を含めて比較する。C_Jは可換点を含まず、次元17の一致だけで成分性を宣言しない。全Mの代数性、開性・局所閉性、有限対角、分離性は未解決。
+4. **入力と検証の状態。** 一般(FS)、compact核の無条件形式効果化、generator開性はノート§1.8.2の反例により使わない。係数Perfを先に効果化しsmooth targetと相対Serreを使う。主要節の読み合わせ、引用仮定確認、計算実行、組版、外部査読を区別する。初出・新規性の網羅調査と全証明の独立監査は未完了。
 
 H3三次曲面分類は `uedakazushi/nc-cubic-classification` の独立課題。
 
@@ -34,7 +33,7 @@ DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同
 
 Poisson持上げは、尺度を記憶する17次元の標的を用いる。射影化した標的は16次元である。相対Poisson錐のscheme方程式はSchouten–Plücker式と勾配の局所分裂単射から得る。可換targetのambientはω_B/V(2D)により射影束へ分裂するが、source上のO(1)降下とは区別する。実際の持上げは選択後には全O保存同値と底変更に両立する。選択独立性、NC交換子との半古典的意味、ΘQ⁻¹との一致は別の課題である。Pymの解析芽同型、Yekutieliの完備局所parameter上の比較を、この特定の大域代数的射と同一視しない。
 
-point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。新しい検算は `verify_point_poisson.py` と9項目の小証明書。
+point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。点Poissonの9項目とétale atlas点はv20で再実行し既存証明書に一致した。実行状態の正本は `validation.json`。
 
 原稿の証明、今回の点検、計算、新規性確認を区別する。追加定理は明記した仮定の下で証明し、初出は未確認。有限Artin基底上の相対ASと絶対global dimension、体上のregular tailsと相対dg smooth proper性、実際のgraded17次元族と裸の導来圏の次元を混同しない。接空間同型だけで成分性や全Artin同値を宣言しない。
 

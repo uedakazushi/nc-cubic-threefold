@@ -5,9 +5,16 @@
 $\rho:\mathfrak U\to V$ とし、$V$ は自己同型が自明な滑らかな三次の
 モジュライの非空開とする。本節では Poisson 構造の尺度を記憶する。
 構造を非零スカラー倍で同一視した射影 Poisson モジュライとは区別する。
-全 Abel Artin 近傍では残余射に両立する形式同型を構成し、
-実際の非空開上では座標と有理関数を選んで支配的な持上げを構成する。
-いずれも選択に依存しない逆量子化を主張するものではない。
+中心となるのは、可換三次点の全Abel Artin近傍において、
+実際の残余操作から得られる射とPoisson構造の忘却射を比較することである。
+系\ref{cor:abel-poisson-formal-lift}では、両者に両立する形式同型を構成し、
+残余射の形式ファイバーを$\operatorname{Gr}(2,5)$のアフィン錐の完備化と同定する。
+
+有限型の開上でも、相対有理座標を選べば支配的なPoisson持上げが得られる。
+こちらは相対次元七とPoisson錐の有理性を使う存在結果であり、
+形式同型の代数化や交換子からの逆量子化とは別の構成である。
+最後に、中心三次の対称化逆像がPoisson超曲面を定めない具体例を示し、
+量子中心と古典Casimirを比較する際に必要な補正を明らかにする。
 
 \subsection{相対Poisson錐とその有理座標}
 
@@ -300,9 +307,9 @@ Poisson忘却との両立と $a=0$ 上での恒等性も従う。
 この特定の形式同型の代数化・一致は別の主張である。
 \end{remark}
 
-\subsection{実際の開集合上の持上げ}
+\subsection{相対有理座標による開集合上の持上げ}
 
-\begin{theorem}[非標準的な非零Poisson持上げ]
+\begin{proposition}[相対有理座標による非標準的Poisson持上げ]
 \label{thm:noncanonical-poisson-cubic-lift}
 $\mathfrak U$ と $V$ をさらに非空開へ縮小すると、
 \[
@@ -318,7 +325,7 @@ $T\to\mathcal P^\times$ は étale である。
 ここでは $\widetilde\rho$ の representability を主張しない。
 源の有限 stabilizer が残る可能性があり、函数体上の有限性は
 射全体の有限性や次数一の双有理性を意味しない。
-\end{theorem}
+\end{proposition}
 \begin{proof}
 命題\ref{prop:relative-poisson-cubic-cone}の chart $\mathcal W\simeq V_0\times\mathbb A^6\times\mathbb G_m$ を取る。
 $\rho$ が支配的なので、源を $\rho^{-1}(V_0)$ へ制限してよい。
@@ -357,7 +364,7 @@ $T^e$ はその像の étale atlas となる。
 \end{proof}
 
 \begin{remark}[構成の意味と未解決部分]
-この定理は、既に得た $\rho$ と相対 Poisson 錐の有理性から従う。
+この持上げの存在は、$\rho$の相対次元と相対Poisson錐の有理性から従う。
 座標、非零 Pl\"ucker chart、七つの有理関数の選択に依存し、
 非可換交換子や半古典極限から指定された Poisson 構造を抽出してはいない。
 選択を固定した後には商stack上の実際の射であるから、

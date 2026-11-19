@@ -89,9 +89,10 @@ $M$は$375\times150$、$S$は$150\times37$の整数行列であり、
 Jacobian族が恒等的にPoissonかつ発散零なので$MS=0$である。
 再現コードはこの積も整数上で直接確認する。
 
-\nolinkurl{computations/verify_rat113_tangent.py}は両行列を元の公式から生成し、
-\nolinkurl{computations/rat113_tangent_certificate.json}の行・列添字で
-指定した小行列式について
+両行列を元の公式から生成するコードは
+\nolinkurl{computations/verify_rat113_tangent.py} である。
+\nolinkurl{computations/rat113_tangent_certificate.json} に記載した
+行・列添字で指定される小行列式について
 \begin{equation}\label{eq:rat113-minor-certificates}
  \det M_{113}\equiv844194,\qquad
  \det S_{37}\equiv948131\pmod{1000003}

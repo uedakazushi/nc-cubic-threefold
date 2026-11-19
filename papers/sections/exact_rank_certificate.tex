@@ -1,0 +1,26 @@
+\section{17係数正規形の正確な行列証明書}\label{app:rank}
+係数を $\mathbb Q$ 上で計算する．単項式基底は
+\[
+ x^iy^jz^ku^\ell v^{3-i-j-k-\ell},\quad
+ i,j,k,\ell\ge0,\quad i+j+k+\ell\le3
+\]
+を辞書式の添字順で並べる．$i+j+k>0$ の31単項式だけを行として取り出す．
+19個の群方向は $M_{ij}$（$1\le i,j\le3$）９個，
+$N_{ij}$（$1\le i,j\le2$）４個，
+$C_{ij}$（$1\le i\le3,1\le j\le2$）６個の順に
+\eqref{eq:Lie} の係数微分を並べる．このうち最初の１列を除く．
+13個の正規形方向は
+\[
+ x^3+y^3+z^3,\ xyz,\ vy^2,\ (u+v)z^2,\quad
+ x(u^2,uv,v^2),\ y(u^2,uv,v^2),\ z(u^2,uv,v^2)
+\]
+の順である．得られる $31\times31$ 行列の行列式は
+\[
+ -5538243375000=-2^3\cdot3^5\cdot5^6\cdot7^2\cdot61^2.
+\]
+付属の \nolinkurl{computations/independent/verify_generic17_slice.py} は \eqref{eq:F0} に対して
+これを厳密整数計算で再現する．中心三次方向
+$u^3,u^2v,uv^2,v^3$ を最後に付け足すと，
+$35\times35$ 行列式も同じ非零値となる．
+したがって binary cubic に入る量子的な正規化補正の詳細を仮定せずに
+横断性を結論できる．

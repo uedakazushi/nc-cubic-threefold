@@ -1,9 +1,22 @@
 \section{Point scheme、Poisson零点と古典構造の復元}
 \label{sec:point-scheme-poisson}
 
-本節では点加群とPoisson零点を、一次の持上げ、有限量子係数での埋込みscheme、
-およびそこからの復元という三つの段階で比較する。
-Point schemeとprojective Poisson零点を結び付ける着想自体は既知である。
+本節では、埋込み点スキームとそのシフト対応が保持する古典的な幾何を調べる。
+二つの中心一次変数を持つJacobian模型では、点スキームは楕円曲線$E$と
+長さ二十四の完全交叉$D$の非交和となる。
+一般の境界三次に対して、このデータから五次元の三次Casimir空間と
+ambient Poisson構造の射影類を復元し、シフト対応を加えると
+二次包絡とPoisson構造の尺度も復元できる。
+一方、有限Hesse族の$E\sqcup D$は、同じ射影空間のどの滑らかな三次上でも
+Poisson零点スキームにはならない。
+この非実現性は、点スキームからの復元と零点スキームとの同一視の差を示す。
+
+証明はまず一次持上げの障害を計算し、古典零点の完全交叉表示を得た後、
+有限係数での分解・復元・非実現性へ進む。
+最後にシフトの一次速度をmodular residueと比較し、
+これらの構成が構造対象を保つAbel同値に降下する範囲を明らかにする。
+
+\paragraph{先行研究との関係.}
 Vancliff \cite[\S6, Proposition~6.17 and Theorem~6.18]{VancliffQuantumSpaces}は、
 多項式環の平坦な二次変形でpoint correspondenceが自己同型のgraphをなし、
 非零パラメータで埋込みpoint schemeが一定であるという仮定の下で、
@@ -16,8 +29,8 @@ Poisson零点schemeへの包含を示している。同文献のExample~6.12で�
 楕円曲線と八点からなり、中心超平面の外ではshiftが恒等であることを示している。
 以下は二つの中心一次変数と中心三次商を持つ模型について、
 対応のscheme構造と長さ二十四の有限成分を明示するものである。
-復元で用いるJacobian Torelliとmodular residueも既知の入力として区別する。
-本節の組合せの初出・新規性の網羅的な確認は未完了である。
+勾配空間の一意性にはJacobian Torelliを用い、modular residueの規約は
+Gualtieri--Pymに従う。各々の適用箇所で、既知の結果と本模型への追加部分を述べる。
 
 
 \subsection{点加群の一次持ち上げと Poisson 零点}
@@ -64,7 +77,8 @@ $R$ 上階数一の自由加群である次数付き右加群を意味する．
 $p$ に対応する点加群族が $T$ 上 Zariski 局所的に
 $T[\epsilon]$ 上へ持ち上がることと，$p$ が零スキーム
 $Z(\pi_X)\hookrightarrow X$ を経由することは同値である．
-この意味で一次持ち上げ可能点の層は $Z(\pi_X)$ により表現される．
+従って、局所的に一次持ち上げを持つ点の部分関手は $Z(\pi_X)$ により表現される．
+ここで表現するのは持ち上げ可能な点の関手であり、持ち上げの選択を含む関手ではない．
 \end{proposition}
 
 \begin{proof}
@@ -185,8 +199,7 @@ Mayanskiy \cite[\S2.2, Lemma~2 and Theorem~1]{Mayanskiy}による。
 Pencilの基底と特異ファイバーの特異点が零点を与える一般的な描像は
 Pym \cite[\S3.2.2]{PymSurvey}にある。
 次の命題では、この描像を三次三様体についてscheme論的に具体化する。
-ここでの長さ二十四という数値と復元への応用を、先行文献に明記された
-新規な定理として主張するものではない。
+以下の完全交叉表示は、後に有限係数の点スキームと二次イデアルを比較するために用いる。
 
 \begin{proposition}[平面三次と長さ二十四の完全交叉]
 \label{prop:poisson-zero-elliptic-polar}
@@ -334,8 +347,10 @@ $S=B/(u,v)$ の二次関係の対応が、滑らかな平面三次 $E$ 上の
 また中心三次 $w\in B_3$ の $S$ における像は、$E$ の全点加群を
 消す三次の元とする。$A=B/(w)$ と置く。
 
-$w_{\mathrm{ab}}$ は $w$ の可換化での像を表す三次多項式とする。
-代表の違いは $(F_x,F_y,F_z)$ に属するため、次のスキームは代表に依存しない：
+$w$のtensor代数における斉次代表を一つ選び、その可換化を
+$w_{\mathrm{ab}}\in\operatorname{Sym}^3V$と書く。
+この多項式自体は代表に依存し得るが、二つの代表の差の可換化は
+$(F_x,F_y,F_z)$に属する。従って次のスキームは代表に依存しない：
 \[
  C=V(F_x,F_y,F_z),\qquad
  D_w=V(F_x,F_y,F_z,w_{\mathrm{ab}})\subset\mathbb P^4.
@@ -347,7 +362,7 @@ $w_{\mathrm{ab}}$ は $w$ の可換化での像を表す三次多項式とする
 \]
 で表される。次数シフトは $E$ 上で $\sigma$、残りの成分上で恒等である。
 $C$ は平面 $V(u,v)$ と交わらない次数八の $(2,2,2)$ 完全交叉曲線である。
-$w_{\mathrm{ab}}$ が $C$ を真に切る場合、$D_w$ は長さ二十四の
+$w_{\mathrm{ab}}$が$C$のどの既約成分上でも恒等的に零でない場合、$D_w$は長さ二十四の
 $(2,2,2,3)$ 完全交叉零次元スキームとなる。
 \end{proposition}
 
@@ -401,7 +416,8 @@ $E$上では仮定により全ての幾何点で零であり、$E$が滑らか�
 三つの二次式で切られる $C$ の各成分の次元は一以上である。
 二次元以上の成分は射影次元定理から平面 $V(u,v)$ と交わるため、存在しない。
 従って三つの二次式のイデアルの高さは三で、正則列となる。
-次数は $2^3=8$ である。真の三次切断を加えると正則列は長さ四となり、
+次数は $2^3=8$ である。この完全交叉はCohen--Macaulayで埋込み素点を持たないため、
+どの既約成分も含まない三次切断は非零因子となる。従って正則列は長さ四となり、
 $D_w$ の長さは $2^3\cdot3=24$ である。
 \end{proof}
 
@@ -512,7 +528,7 @@ $q_{ij}$が一意に定まり、表示した双ベクトルを得る。
 
 有限成分の二次イデアルから、古典的な偏微分の空間を抽出する。
 点スキームの抽象同型型だけではなく、その $\mathbf P(V^*)$ への埋込みを用いる。
-新規性についての網羅的な文献比較は未完了である。
+ここではシフト対応を忘れた後に残るデータを記述する。
 
 \begin{proposition}[古典Casimir三次空間の復元]
 \label{prop:point-gradient-reconstruction}
@@ -794,9 +810,11 @@ $k=\mathbb C$ とし、$u,v$ を中心とする
 \]
 を考える。
 \[
- f=\frac{x^3+y^3+z^3}{3},\quad
- T=xyz+xzy+yxz+yzx+zxy+zyx,\quad
- w_h=f-\frac{h^2}{9}T+u^3+v^3,\quad A_h=B_h/(w_h)
+ \begin{gathered}
+ f=\frac{x^3+y^3+z^3}{3},\qquad
+ T=xyz+xzy+yxz+yzx+zxy+zyx,\\
+ w_h=f-\frac{h^2}{9}T+u^3+v^3,\qquad A_h=B_h/(w_h)
+ \end{gathered}
 \]
 と置く。中心性は定理\ref{thm:pair-full-fermat-center}による。
 $h\ne0$、$h^6+27\ne0$のとき
@@ -1051,8 +1069,8 @@ $\operatorname{Res}^0_{\mathrm{mod}}(\pi)|_E=2f_y\partial_x=2\xi_f$を得る。
 \subsection{構造対象付きAbel同値に対する降下の範囲}
 
 
-ここは既存の全相対 Hom 比較定理
-定理\ref{thm:general-relative-pointed-hom}を仮定した帰結である．
+この部分では全相対 Hom 比較定理
+\ref{thm:general-relative-pointed-hom}を用いる．
 その定理が適用される中心二変数 Jacobian 開では，
 \[
  \underline{\operatorname{Isom}}_{\mathrm{gr}}(A,A')/\mathbb G_m

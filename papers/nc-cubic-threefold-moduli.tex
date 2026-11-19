@@ -1,0 +1,1111 @@
+% !TEX root = nc-cubic-threefold-moduli.tex
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
+\usepackage{luatexja-fontspec}
+\usepackage{enumitem,booktabs,array,needspace}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\IfFileExists{/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc}{%
+  \setmainjfont[Path=/usr/share/fonts/opentype/noto/]{NotoSerifCJK-Regular.ttc}%
+}{\setmainjfont{HaranoAjiMincho-Regular}}
+\setlength{\textwidth}{15.6cm}
+\setlength{\oddsidemargin}{0.25cm}
+\setlength{\evensidemargin}{0.25cm}
+\setlength{\textheight}{22.6cm}
+\setlength{\topmargin}{-0.2cm}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1pt}
+\numberwithin{equation}{section}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{maintheorem}{主定理}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{example}[theorem]{例}
+\renewcommand{\proofname}{証明}
+\newcommand{\C}{\mathbb C}
+\providecommand{\CC}{\C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\A}{\mathbb A}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cZ}{\mathcal Z}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\qgr}{\operatorname{qgr}}
+\newcommand{\gldim}{\operatorname{gldim}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Proj}{\operatorname{Proj}}
+\newcommand{\Frac}{\operatorname{Frac}}
+\newcommand{\trdeg}{\operatorname{trdeg}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Z}{\operatorname{Z}}
+\newcommand{\Tens}{\operatorname{T}}
+\newcommand{\CY}{\mathrm{CY}}
+\newcommand{\AS}{\mathrm{AS}}
+\newcommand{\nc}{\mathrm{nc}}
+\newcommand{\Symm}{\operatorname{sym}}
+\title{非可換三次三様体のAbel圏モジュライ\\二次包絡とKuznetsov残余射}
+\author{}
+\date{2026年11月19日・公表準備稿 v20}
+\hypersetup{pdftitle={非可換三次三様体のAbel圏モジュライ},pdfsubject={二次包絡とKuznetsov残余射}}
+\begin{document}
+\maketitle
+\begin{abstract}
+構造対象 $\mathcal O$ を保つ全ての完全 Abel 圏同値を射とする、
+非可換三次三様体のモジュライを考える。
+二つの中心一次変数を持つ Jacobian 型中心三次商から、
+滑らかな有限型十七次元 Deligne--Mumford 部分 stack $\mathfrak C_{\mathrm J}$ を構成する。
+二次包絡への射は、十三次元の周囲代数の stack 上の階数四ベクトル束の torsor である。
+一方、$\mathfrak C_{\mathrm J}$ の非空開上では、Kuznetsov 残余圏が
+滑らかな可換三次三様体の Kuznetsov 成分となる。
+これにより可換三次の十次元モジュライへの支配的な射を得る。
+適切な開に制限すれば、この射は相対次元七の滑らかな全射であり、
+残余圏と全 compact tails 圏は相対 dg smooth proper である。
+証明では、全 Abel 同値に対する二次包絡と残余操作の自然性、
+圏変形の形式的認識、係数環上 perfect な同値核の効果化、
+および三次成分の Serre 安定部分圏の生成性を組み合わせる。
+
+さらに、滑らかな可換三次点の framed Abel 形式近傍を、
+十次元形式円板と $\operatorname{Gr}(2,5)$ のアフィン錐の頂点完備化との積として記述する。
+この同型は、残余操作が誘導する形式射に両立するよう選べる。
+有限係数の Jacobian 模型の適切な非空開上では、
+埋込み点スキームを楕円曲線と長さ二十四の完全交叉に分解し、
+そのデータから ambient Poisson 直線と五次元の三次 Casimir 空間を復元する。
+点対応の shift を含めると二次包絡と Poisson 構造の尺度も復元できる。
+量子中心から特定の古典三次を選ぶ問題は残り、
+単純な対称化および点スキームと Poisson 零点の直接同一視に対する障害を示す。
+\end{abstract}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{序論}\label{sec:intro}
+
+滑らかな三次三様体 $X\subset\PP^4$ の導来圏には半直交分解
+\[
+ \mathrm D^b(X)=\langle\operatorname{Ku}(X),\mathcal O_X,\mathcal O_X(1)\rangle
+\]
+があり、Kuznetsov 成分 $\operatorname{Ku}(X)$ は $X$ の同型類を決定する
+\cite[Theorem~1.1]{BMMSCubicTorelli}。
+本稿では、構造対象付き Abel 圏として三次三様体を非可換変形したとき、
+この残余圏がどの可換幾何を保つかを調べる。
+主な結果は、明示的な十七次元の非可換族の一般点で残余圏が再び可換三次の成分となり、
+これが十次元の可換モジュライへの実際の代数的な射を与えることである。
+同じ族には二次包絡への十三次元の射もあり、二つの射は異なる情報を取り出す。
+
+対象は $(\mathcal C,\mathcal O)$ という構造対象付き線型 Abel 圏である。
+三次の Hilbert 級数と相対復元条件を満たす許容豊富列の\emph{存在}を要求するが、
+その選択は標識に含めない。射には $\mathcal O$ を保つ全ての完全線型同値を含め、
+標識を保つ自然同型で割る。
+この fpqc モジュライ問題を $\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ と書く
+（定義は第\ref{sec:abel-marked-moduli}節）。
+非 Noetherian な係数環では大きい tails 圏 $\operatorname{QGr}$ を用い、
+導来圏の内在的な有限部分として $\mathrm D(\operatorname{QGr})^c$ を取る。
+以下の具体的な部分族の中心条件は、このモジュライ全体の定義には課さない。
+従って可換な三次も同じモジュライ問題に含まれる。
+
+\subsection{二つのモジュライ射}
+
+五次元空間 $V$ 上の二次代数と中心三次直線の対
+\begin{equation}\label{eq:data}
+ B=\Tens(V)/(R_2),\qquad [w]\in\PP(\Z(B)_3),\qquad A=B/(w)
+\end{equation}
+を考える。扱う $B$ は、二つの中心一次変数 $u,v$ と三つの非中心変数を持つ
+Jacobian 型の相対 Koszul--AS 五次元代数であり、$w$ は中心正則元である。
+全混合係数を許した族とその明示的な非空開を
+第\ref{sec:construction}、\ref{sec:normal}、\ref{sec:general17-relative-algebra}節で構成する。
+三次関係を加えても二次関係は変わらないため、$A$ の二次包絡は $B$ である。
+この単純な観察を、豊富列の選択を忘れた全 Abel 同値と任意の係数変更に両立させることが
+最初の課題となる。
+
+\Needspace{7\baselineskip}
+\begin{maintheorem}[代数的部分モジュライと二次包絡]\label{thm:intro-atlas}
+滑らかな既約有限型 Deligne--Mumford stack
+$\mathfrak C_{\mathrm J}$、$\mathfrak B_{\mathrm J}$ と射
+\[
+ \mathfrak C_{\mathrm J}\longrightarrow\mathfrak M^{\mathcal O}_{\mathrm{cub}},
+ \qquad
+ \tau:\mathfrak C_{\mathrm J}\longrightarrow\mathfrak B_{\mathrm J}
+\]
+が存在し、次を満たす。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $\dim\mathfrak C_{\mathrm J}=17$、$\dim\mathfrak B_{\mathrm J}=13$ であり、
+第一の射は任意の係数環上で完全忠実である。
+その本質像は、指定した Jacobian 族へ fpqc 局所的に戻る対象からなる全部分 stack である。
+\item $\tau$ は二次包絡を取る射であり、$\mathfrak B_{\mathrm J}$ 上の
+階数四ベクトル束の加法群の torsor である。
+従ってスキームで表現可能、アフィン、滑らかかつ全射である。
+\end{enumerate}
+\end{maintheorem}
+
+正確な構成と証明は、命題\ref{prop:jacobian-ambient-etale-chart}、
+命題\ref{prop:jacobian-affine-four-morphism}、
+定理\ref{thm:jacobian-algebraic-abel-substack}に与える。
+周囲代数を同定まで固定したファイバーが四次元になる理由は、
+中心一次空間 $U$ に対する中心三次の完全列
+\[
+ 0\longrightarrow\Sym^3 U\longrightarrow Z(B)_3\longrightarrow L\longrightarrow0,
+ \qquad \dim U=2,\quad\dim L=1
+\]
+にある。許容中心三次直線はこの列の分裂を与える。
+$\Hom(L,\Sym^3 U)$ の中心スカラー重みは零なので商 stack に降下するが、
+$U$ や $Z(B)_3$ 自体の通常のベクトル束としての降下を主張する必要はない。
+この torsor に大域的な原点は指定していない。
+
+$\mathfrak C_{\mathrm J}$ 上の compact tails から、atlas 上の二つの例外対象
+$\mathcal O,\mathcal O(1)$ による残余圏 $\mathcal K$ を作る。
+$\mathcal O(1)$ の基底線束による捩れは mutation の評価写像で相殺されるので、
+残余圏は全ての $\mathcal O$-保存 Abel 同値に自然である。
+
+\Needspace{7\baselineskip}
+\begin{maintheorem}[Kuznetsov 成分による残余射]\label{thm:intro-residual}
+$\mathfrak C_{\mathrm J}$ の非空開部分 stack $\mathfrak U$ と、
+自己同型が自明な滑らかな可換三次のモジュライの非空開 $V$ が存在し、
+相対次元七の滑らかな全射
+\[
+ \rho:\mathfrak U\longrightarrow V
+\]
+を持つ。任意の幾何学的点 $c$ において、$\rho(c)=[X_c]$ は
+$\mathcal K_c\simeq\operatorname{Ku}(X_c)$ を満たす三次の唯一の同型類である。
+$\mathfrak U$ 上の残余圏と全 compact tails 圏は相対 dg smooth proper であり、
+任意の導来底変更と両立する。
+三次の族と相対 dg Morita 同値は $\mathfrak U$ 上で étale 局所的に存在する。
+\end{maintheorem}
+
+これは定理\ref{thm:kuznetsov-cubic-moduli-morphism}で証明する。
+$\tau$ の四次元ファイバーは周囲代数を固定した中心三次の自由度であり、
+$\rho$ の七次元ファイバーは残余圏を固定した自由度である。
+両者の関係の具体的な記述は、本稿の結論には含めない。
+また、$\rho(c)$ を、Jacobian 表示に用いた三次形式の零点集合と同一視していない。
+$\mathfrak C_{\mathrm J}$ の全モジュライ内での開性・局所閉性・成分性も未解決である。
+
+\subsection{可換点の全形式近傍と点データ}
+
+可換点では、特定の次数付き表示に属する変形だけでなく全 Abel 変形を扱える。
+以下の framed 変形では特殊ファイバーとの同定を固定する。
+群oid は同値の自然同型類を射とする通常の $1$-群oid であり、
+dg 圏の変形に現れる高次スカラー自己同型まで消去する主張ではない。
+
+\Needspace{7\baselineskip}
+\begin{maintheorem}[滑らかな可換三次点の形式近傍]\label{thm:intro-formal}
+滑らかな三次三様体 $X/\C$ において、
+$\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ の framed Artin 形式近傍は、
+剰余体 $\C$ の可換局所 Artin $\C$-代数上の群oid値関手として、
+\begin{equation}\label{eq:intro-formal-ring}
+ \operatorname{Spf} R_X,\qquad
+ R_X=\C[[t_1,\ldots,t_{10},a_{ij}\ (0\le i<j\le4)]]
+           /(\operatorname{Pfaff}_4(a))
+\end{equation}
+という離散群oidと同値である。
+ここで $(a_{ij})$ は $5\times5$ 交代行列であり、
+$\operatorname{Pfaff}_4(a)$ はその $4\times4$ Pfaffian が生成するイデアルである。
+全ての平坦 Abel Artin 変形は、全次数平坦な相対 Koszul--AS 二次包絡と
+中心正則三次商の模型を持つ。
+残余操作から得る射 $r:\widehat{\mathfrak M}^{\mathcal O}_{X}\to\operatorname{Def}_X$ に対して、
+\eqref{eq:intro-formal-ring}の表示を $r$ が $t$ 座標への射影になるように選べる。
+従って形式近傍は次元十七・接空間次元二十であり、
+$r$ の形式ファイバーは $\operatorname{Gr}(2,5)$ のアフィン錐の頂点完備化である。
+\end{maintheorem}
+
+全次数平坦性は定理\ref{thm:abel-cubic-flat-envelope}、
+stack 化後の形式表示は系\ref{cor:abel-full-stack-discrete-formal}、
+残余射との両立は系\ref{cor:abel-poisson-formal-lift}による。
+この形式表示は非標準的であり、有限 $\Aut(X)$ で割った非 framed 形式近傍や、
+選んだ表示の代数化は別問題である。
+
+有限係数の模型からの復元には、埋込み点スキームとその shift を用いる。
+$\Pi_F$ は $u,v$ を Casimir とし、非中心変数の括弧を
+$\{x,y\}=F_z$ とその巡回置換で定める Jacobian Poisson 構造とする。
+
+\Needspace{7\baselineskip}
+\begin{maintheorem}[点スキームと点対応による復元]\label{thm:intro-points}
+$h\in\C^\times$ と三次形式 $F(x,y,z,u,v)$ に対し、
+$u,v$ を中心とし
+\[
+ [y,z]=h\Symm(F_x),\qquad [z,x]=h\Symm(F_y),\qquad [x,y]=h\Symm(F_z)
+\]
+を関係とする第\ref{sec:point-scheme-poisson}節の二次代数 $B$ と中心三次商 $A=B/(w)$ を考える。
+古典境界三次 $f_3=F|_{u=v=0}$ は滑らかとする。
+$B/(u,v)$ の点対応は、滑らかな楕円曲線 $E_h$ 上の固定点を持たない自己同型
+$\sigma$ のグラフであり、$w$ はその点加群を消すと仮定する。
+$w$ の tensor 代表の可換化を $w_{\mathrm{ab}}$ とし、
+\[
+ C=V(F_x,F_y,F_z)\subset\PP(V^*),\qquad
+ D_w=C\cap V(w_{\mathrm{ab}})
+\]
+と置く。$w_{\mathrm{ab}}$ が $C$ のどの既約成分も含まないと仮定する。このとき
+\[
+ \operatorname{Pt}(A)=E_h\sqcup D_w,\qquad \operatorname{length}(D_w)=24,
+ \qquad \Gamma_A=\Gamma_\sigma\sqcup\Delta_{D_w},
+\]
+であり、$D_w$ は型 $(2,2,2,3)$ の完全交叉である。
+埋込み点対応は $H^0(I_{\Gamma_A}(1,1))=R_B$ により二次包絡を復元する。
+さらに古典境界 $f_3$ が非 Sebastiani--Thom 型であれば、埋込み点スキームから
+\[
+ \begin{gathered}
+ U=I(E_h)_1,\qquad Q=I(D_w)_2,\qquad W=\operatorname{ann}(U)\subset V^*,\\
+ R_Q=\{G\in\Sym^3V:\partial_aG\in Q\text{ for all }a\in W\}
+        =\C F\oplus\Sym^3U
+ \end{gathered}
+\]
+と ambient Poisson 直線 $[\Pi_F]$ を復元できる。
+shift を含む点対応からは、二次関係の交代部分と対称部分のグラフとして
+尺度込みの構造 $\Pi_{\mathrm{fin}}=h\Pi_F$ を復元できる。
+\end{maintheorem}
+
+命題\ref{prop:central-two-point-scheme}、
+命題\ref{prop:point-correspondence-quadratic-recovery}、
+命題\ref{prop:point-gradient-reconstruction}と
+命題\ref{prop:point-recovery-relative-descent}が正確な仮定と相対版を与える。
+これらの復元は指定した Jacobian 開で全 $\mathcal O$-保存同値に自然である。
+復元に用いるのは埋込みと scheme 構造であり、一般の Abel 圏における点対象の
+内在的な特徴付けは主張していない。
+有限成分は一般には被約となるが、Fermat 例では三点の各局所長が八となる。
+また、五次元空間 $R_Q$ の復元は、その中の特定の三次直線の選択とは区別される。
+
+この区別には具体的な理由がある。
+滑らかな中心超曲面と Poisson 一次括弧を持つ変形では、
+点加群が局所的に一次持上げを持つ条件は、半古典 Poisson 構造の零点条件に等しい
+（命題\ref{prop:first-order-point-poisson-zero}）。
+しかし有限パラメータでは、中心三次の対称化逆像は一般に Poisson 超曲面を定めず、
+Hesse 族の点スキーム全体を同じ射影空間内のいずれの滑らかな三次上の
+Poisson 零点にもできない開が存在する
+（命題\ref{prop:poisson-naive-symmetrization-fails}、
+\ref{prop:hesse-point-zero-nonrealization}）。
+従って点データから $\rho$ の出力を直接選ぶには、量子中心を反映した補正が必要である。
+
+\subsection{証明の構造と先行研究}
+
+\paragraph{座標代数から全 Abel 同値へ.}
+非可換射影空間と豊富列の枠組みは Artin--Schelter、Artin--Zhang、Polishchuk
+\cite{AS,AZ,PolishchukProj}に基づく。
+本稿の明示族では、Mori--Smith \cite[Theorem~4.2(1)]{MS} の
+三変数 Jacobian 代数、Berger--Taillefer \cite{BT} の PBW 変形、
+Etingof--Ginzburg と Rains \cite[Proposition~7.3.1(ii) and \S9.1]{EG} の
+中心元を二つの中心変数上で用いる。
+有限射影 Koszul 解消と相対 CY 双対を構成することで、
+任意の係数環上の compact tails に自然な Serre pairing を得る。
+これは体上の双対定理 \cite{YZ,RRGeneralizedAS} の無条件な底変更ではない。
+
+偶数偏極と相対 section 復元により、全 $\mathcal O$-保存 Abel 同値の層を
+$\underline{\operatorname{Isom}}_{\mathrm{gr}}/\mathbb G_m$ と同定する。
+この商は fpqc 層商であり、大域点集合の商ではない。
+次に有限な二次・三次関係窓、作用写像の étale locus、中心三次の分裂 torsor を使って
+主定理\ref{thm:intro-atlas}を得る。
+Behrend--Noohi \cite{BehrendNoohiModuli} の次数付き代数のモジュライ、
+Abdelgadir--Okawa--Ueda \cite{AOUNCPlanes} の非可換射影平面のモジュライに対し、
+ここでの具体的な追加部分は、中心三次商の族で全 $\mathcal O$-保存同値を含む
+有限型部分問題と二次包絡射を同時に記述することにある。
+
+\paragraph{形式的な圏認識から実際の残余射へ.}
+Kuznetsov \cite[Theorem~8.9]{KuznetsovHochschild} による Hochschild 計算と
+Jacovskis--Lin--Liu--Zhang \cite[Theorem~4.4(2)]{JLLZInfinitesimal} による
+実際の Kodaira--Spencer 写像の同型を、
+Lurie の tame な compactly generated 圏の変形比較
+\cite[Theorems~5.1.9,5.3.16 and Proposition~5.3.21]{LurieDAGX}と組み合わせる。
+これにより通常の局所 Artin 基底上の残余圏の変形の同型類を、
+可換三次の変形として認識する。
+次に Bhatt \cite[Lemma~4.2]{BhattAlgebraization} を
+\emph{係数環上の} perfect 複体に適用して同値核とその作用を効果化し、
+smooth な幾何的 target への完全忠実な埋込みを得る。
+相対 Serre trace が像を Serre 安定にする。
+
+Stevenson \cite[Theorem~6.13]{StevensonSingularityActions} の孤立 hypersurface の
+特異部分圏分類に graded 化を加え、Orlov の比較
+\cite[Theorems~2.5,3.10--3.11]{OrlovSingularities}と
+Neeman \cite[Lemma~2.2]{NeemanCompactLocalization} の compact 生成を用いると、
+非零 Serre 安定 thick 部分圏は三次成分全体となる。
+この段階が埋込みを同値にする。
+最後に、明示的な量子化退化、perfect 核の有限表示降下
+\cite[Lemma~2.10]{ToenVaquieObjects}、categorical Torelli
+\cite{BMMSCubicTorelli}を使って射を代数的な非空開へ広げる。
+支配性は、古典三次への係数写像の微分に対する整数行列証明書で示す。
+
+Lin--Zhang \cite[Theorem~1.7 and \S2]{LinZhangDeformingEquivalences} は、
+滑らかな既約基底上の滑らかな射影族、底変更に両立する perfect な射影核を持つ
+相対 admissible 圏、および特殊点での既存の同値を考える。
+幾何的 Kodaira--Spencer 写像の全射性と負次数 Hochschild コホモロジーの消滅の下で、
+両基底へ滑らかに写る共通基底上に同値核を変形する定理である。
+本稿で必要な、非可換族をまず幾何的な圏として認識する段階は、この定理の仮定には含まれない。
+同様に、有限位数境界上の smooth proper な十六次元族の稠密性
+（第\ref{sec:dg-smooth-torsion-families}節）だけを一般点の smooth 性の根拠にはしない。
+主定理\ref{thm:intro-residual}は相対 Serre 双対と三次成分固有の生成性を用いて証明する。
+
+\paragraph{全 Artin 変形と Poisson 形式錐.}
+De~Deken--Lowen \cite[Theorem~4.5]{DeDekenLowen} の既知の比較定理は、
+全 twist の $H^1,H^2$ 消滅により、Abel 変形を section $\mathbb Z$-代数の変形に結び付ける。
+Lowen--Van den Bergh の Abel 変形理論 \cite{LowenVdBDeformation,LowenVdBHochschild}、
+Lowen の代数層との比較 \cite[Theorems~3.14,3.26]{LowenRinged}、
+Yekutieli の量子化比較 \cite[Corollary~11.2]{YekutieliTwisted}を既知の入力とする。
+Yekutieli の Corollary~11.2 では可換積も変動を許す。
+$H^1(T_X)=0$ を追加仮定する同論文 Corollary~11.3 は三次三様体には適用しない。
+Barmeier--Wang \cite[Theorems~1.2 and~3.11]{BarmeierWangSheaves} は、
+有限アフィン被覆の交叉から作る quiver の関係により、
+分離 Noetherian スキーム上の準連接層の Abel 変形を明示的に制御する。
+本稿ではこの種の変形全体との比較を必要とする一方、
+三次三様体上に tilting bundle が存在するとは仮定しない。
+
+本稿では Cattaneo--Felder--Tomassini \cite[\S3 and Corollary~5.2(iv)]{CFT} により
+中心商の量子化を構成し、実際の局所化写像と section 復元を比較して
+二次包絡の\emph{全次数}平坦性を得る。
+さらに非 Noetherian な fpqc 被覆を含む線対象・Hom・合成の降下と
+framed 自己同値の消滅により、stack 化後の形式群oidを記述する。
+全次数平坦性やこの降下は、接空間の次元一致だけから導くものではない。
+
+滑らかな三次の射影 Poisson 空間が $\operatorname{Gr}(2,5)$ となることは
+Loray--Pereira--Touzet と Mayanskiy の既知結果である
+\cite[Theorem~9.1]{LPT}\cite[Theorem~1 and \S2.2]{Mayanskiy}。
+本稿では Schouten--Pl\"ucker 方程式を相対化し、残余射との両立まで示す。
+Pym \cite[Theorem~2.3, Proposition~2.9 and Theorem~2.10]{Pym} の
+量子化と Poisson 構造の芽の比較とは、対象となるモジュライと写像を区別する。
+実際の開上の非標準的 Poisson 持上げ
+（命題\ref{thm:noncanonical-poisson-cubic-lift}）は、
+$\rho$ と相対超越基底から従う存在命題である。
+その有理座標による論法自体や、既知の量子化比較を新規結果として扱わない。
+
+\paragraph{点スキームと復元.}
+Vancliff \cite[\S6, Proposition~6.17 and Theorem~6.18]{VancliffQuantumSpaces} は、
+非零パラメータで埋込み点スキームが一定という仮定の下で Poisson 零点と比較する。
+本稿の Hesse 境界はパラメータとともに変動する。
+Le~Bruyn--Smith--Van~den~Bergh
+\cite[Theorem~4.2.2 and Propositions~4.2.5,4.3.7]{LeBruynSmithVdBCentral}の
+一中心変数の場合に対し、本稿では二中心変数と中心三次商を扱い、
+長さ二十四の有限成分とその双線型関係を用いる。
+偏微分空間からの三次復元の原理は Ueda--Yoshinaga
+\cite[\S3, Lemma~3]{UedaYoshinagaJacobian} および Hwang
+\cite[Theorems~1.5--1.6]{HwangSymmetrizer}と関連する。
+本稿で取り出すデータは、二次元中心空間を保つ五次元 Casimir 空間と
+尺度付き ambient Poisson 構造である。
+Gualtieri--Pym \cite[Theorem~7.2]{GualtieriPym} の modular residue と
+指定した量子化経路の点 shift の速度の関係は
+命題\ref{prop:jacobian-modular-shift-comparison}に与える。
+
+\subsection{構成・規約と残された問題}
+
+第\ref{sec:intrinsic-cubic}--\ref{sec:abel-marked-moduli}節でモジュライの定義と
+座標表示の同値関係を整え、次に明示的な中心三次族を構成する。
+第\ref{sec:relative-koszul-line-cohomology}--\ref{sec:kuznetsov-moduli-morphism}節では、
+相対双対、全 Abel 同値、代数的部分 stack、残余射の順に主定理A・Bを証明する。
+第\ref{sec:moduli-artin}--\ref{sec:point-scheme-poisson}節では、
+全 Artin 変形と点データからの復元を扱う。
+周期性、非可換射影三空間との比較、有限中心模型に関する補助結果は付録にまとめる。
+これらの結果の仮定は各節で明示し、主定理に用いる範囲を参照する。
+
+以下では原則として $\C$ 上で議論し、一般の係数環と導来底変更の使用は各命題に明記する。
+$\mathfrak C_{\mathrm J}$ の滑らかさはパラメータ stack の性質であり、
+圏の dg smooth 性とは区別する。
+
+未解決の中心問題は、量子中心直線に対応する $R_Q$ 内の古典三次直線を自然に選び、
+それが $\rho$ の出力する三次に一致することを示すことである。
+全モジュライ内での位置、七次元ファイバー、構造対象を忘れた復元については
+第\ref{sec:status}節にまとめる。
+本稿は公表準備稿であり、新規性の網羅調査と全証明の独立監査は未完了である。
+検証と再現の詳細は研究ノートを参照されたい。
+
+\clearpage
+\part{構造対象付き圏とJacobian中心三次族}
+\input{papers/sections/intrinsic_cubic_reconstruction.tex}
+\input{papers/sections/algebraic_moduli_foundations.tex}
+\input{papers/sections/categorical_moduli_comparison.tex}
+\input{papers/sections/abel_marked_moduli.tex}
+\input{papers/sections/jacobian_family.tex}
+\input{papers/sections/central_pair_explicit_centers.tex}
+\input{papers/sections/central_pair_generic_component.tex}
+\input{papers/sections/ambient_incidence_morphism.tex}
+\input{papers/sections/quadratic_envelope_isomorphisms.tex}
+
+\clearpage
+\part{代数的部分モジュライとKuznetsov残余射}
+\input{papers/sections/koszul_relative_duality.tex}
+\input{papers/sections/jacobian_abel_comparison.tex}
+\input{papers/sections/jacobian_moduli_chart.tex}
+\input{papers/sections/kuznetsov_relative_category.tex}
+\input{papers/sections/kuznetsov_moduli_morphism.tex}
+
+\clearpage
+\part{全Artin変形とPoisson幾何}
+\input{papers/sections/central_pair_artin_formal_moduli.tex}
+\input{papers/sections/abel_cubic_deformations.tex}
+\input{papers/sections/abel_formal_descent.tex}
+\input{papers/sections/formal_ambient_comparison.tex}
+\input{papers/sections/poisson_cubic_lifts.tex}
+\input{papers/sections/point_scheme_poisson.tex}
+
+\section{今後の問題}\label{sec:status}
+
+\paragraph{量子中心と残余三次の比較.}
+主定理\ref{thm:intro-points}は、埋込み点データから五次元の三次 Casimir 空間を復元する。
+その中から中心商 $B/(w)$ に対応する直線を選び、
+主定理\ref{thm:intro-residual}の $X_c$ を得るためには、量子中心の補正を記述する必要がある。
+命題\ref{prop:poisson-naive-symmetrization-fails}と
+命題\ref{prop:hesse-point-zero-nonrealization}は、補正が満たすべき制約を与える。
+中心三次の具体式と相対 Casimir 空間を比較することが一つの入口である。
+この選択が全 $\mathcal O$-保存同値と係数変更に自然となるかも問題の一部である。
+
+\paragraph{七次元ファイバーの幾何.}
+可換点の形式ファイバーは Pl\"ucker 錐であるが、
+一般の代数的ファイバーの双有理型は定まっていない。
+残余圏と五矢 Kronecker 圏の接合双加群を通じて、
+残余射が失う七方向を理解したい。
+同時に、二次包絡射 $\tau$ の四次元 torsor 上で $\rho$ がどう変化するかを調べる必要がある。
+相対超越基底から作る非標準的な持上げは、この双有理分類を与えない。
+
+\paragraph{全 Abel モジュライ内の位置.}
+$\mathfrak C_{\mathrm J}$ の有限型代数性と完全忠実性は主定理\ref{thm:intro-atlas}で得た。
+一般の非可換点における全 Abel 変形を有限関係窓と比較できれば、
+全モジュライ内での開性・局所閉性・成分性を検討できる。
+この比較では接空間に加えて小拡大の持上げと障害を扱う必要がある。
+対角の有限性、分離性、$\mathcal O$ 自体の内在的な認識も独立の問題として残る。
+
+\appendix
+\clearpage
+\part{補助構成と証明}
+\input{papers/sections/ambient_periodicity.tex}
+\input{papers/sections/period_forgetting_moduli.tex}
+\input{papers/sections/projective_three_space_potentials.tex}
+\input{papers/sections/cubic_projective_three_comparison.tex}
+\input{papers/sections/central_pair_diagonal_classification.tex}
+\input{papers/sections/mixed_center_picard.tex}
+\input{papers/sections/central_pair_mixed_derived_rigid.tex}
+\input{papers/sections/finite_order_relative_categories.tex}
+\input{papers/sections/relative_serre_duality.tex}
+\input{papers/sections/central_pair_finite_order_regularity.tex}
+\input{papers/sections/dg_smooth_torsion_families.tex}
+\input{papers/sections/exact_rank_certificate.tex}
+
+\begin{thebibliography}{99}
+\bibitem{BehrendNoohiModuli}
+K.~Behrend and B.~Noohi,
+\emph{Moduli of non-commutative polarized schemes},
+Math. Ann. \textbf{371} (2018), 1375--1408.
+\href{https://doi.org/10.1007/s00208-017-1624-1}{doi:10.1007/s00208-017-1624-1}.
+本稿では\S\S2.3,2.5の乗法空間・scalar gerbe・有限切断を参照する。
+
+\bibitem{AOUNCPlanes}
+T.~Abdelgadir, S.~Okawa and K.~Ueda,
+\emph{Compact moduli of noncommutative projective planes},
+\href{https://arxiv.org/abs/1411.7770}{arXiv:1411.7770} (2014).
+参照箇所：\S\S3--5, Theorem~7.3, Appendix~A, Corollaries~A.7 and~A.10.
+
+\bibitem{SierraGAlgebras}
+S.~J.~Sierra,
+\emph{$G$-algebras, twistings, and equivalences of graded categories},
+Algebr. Represent. Theory \textbf{14} (2011), 377--390.
+\href{https://doi.org/10.1007/s10468-009-9193-y}{doi:10.1007/s10468-009-9193-y};
+\href{https://arxiv.org/abs/math/0608791}{arXiv:math/0608791}.
+参照箇所：Proposition~3.3, Theorem~3.6, Corollary~4.4.
+
+\bibitem{RRZHomological}
+M.~Reyes, D.~Rogalski and J.~J.~Zhang,
+\emph{Skew Calabi--Yau algebras and homological identities},
+Adv. Math. \textbf{264} (2014), 308--354.
+\href{https://doi.org/10.1016/j.aim.2014.07.010}{doi:10.1016/j.aim.2014.07.010};
+\href{https://arxiv.org/abs/1302.0437}{arXiv:1302.0437}.
+参照箇所：Theorems~0.3,6.3と後者の証明。
+
+\bibitem{LowenRinged}
+W.~Lowen,
+\emph{Algebroid prestacks and deformations of ringed spaces},
+Trans. Amer. Math. Soc. \textbf{360} (2008), no.~3, 1631--1660.
+\href{https://arxiv.org/abs/math/0511197}{arXiv:math/0511197v2}.
+Theorems~3.14 and~3.26.
+
+\bibitem{StacksFormal}
+The Stacks Project Authors,
+\emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/06T5}{Tag~06T5}
+（minimal versal formal objectの一意性）、
+\href{https://stacks.math.columbia.edu/tag/07QS}{Tag~07QS}
+（excellent rings）、
+\href{https://stacks.math.columbia.edu/tag/02KH}{Tag~02KH}
+（flat base change）、
+\href{https://stacks.math.columbia.edu/tag/02OC}{Tag~02OC}
+（formal functions）。2026年11月14日確認。
+
+\bibitem{RRGeneralizedAS}
+M.~L.~Reyes and D.~Rogalski,
+\emph{Graded twisted Calabi--Yau algebras are generalized Artin--Schelter regular},
+Nagoya Math. J. \textbf{245} (2022), 100--153.
+\href{https://doi.org/10.1017/nmj.2020.32}{doi:10.1017/nmj.2020.32};
+\url{https://arxiv.org/abs/1807.10249}.
+Theorem~5.15, Lemmas~5.9(1) and~4.5.
+
+\bibitem{YekutieliTwisted}
+A.~Yekutieli,
+\emph{Twisted deformation quantization of algebraic varieties},
+Adv. Math. \textbf{268} (2015), 241--305.
+\href{https://doi.org/10.1016/j.aim.2014.09.003}{doi:10.1016/j.aim.2014.09.003};
+\href{https://arxiv.org/abs/0905.0488v5}{arXiv:0905.0488v5}.
+Corollary~11.2.
+
+\bibitem{YekutieliAffine}
+A.~Yekutieli,
+\emph{Deformations of affine varieties and the Deligne crossed groupoid},
+\url{https://arxiv.org/abs/1209.6243} (2012).
+
+\bibitem{DeDekenLowen}
+O.~De~Deken and W.~Lowen,
+\emph{Abelian and derived deformations in the presence of
+$\mathbb Z$-generating geometric helices},
+J. Noncommut. Geom. \textbf{5} (2011), 477--505.
+\href{https://doi.org/10.4171/JNCG/83}{doi:10.4171/JNCG/83};
+\url{https://ems.press/content/serial-article-files/30497}.
+Theorem~4.5 (pp.~495--496), Proposition~4.6 (p.~496), Theorem~5.15.
+
+\bibitem{LowenVdBDeformation}
+W.~Lowen and M.~Van den Bergh,
+\emph{Deformation theory of abelian categories},
+Trans. Amer. Math. Soc. \textbf{358} (2006), 5441--5483.
+\href{https://doi.org/10.1090/S0002-9947-06-03871-2}{doi:10.1090/S0002-9947-06-03871-2};
+\url{https://arxiv.org/abs/math/0405226}.
+出版版Propositions~4.4,4.6,4.8, Definition~8.2,
+Theorem~8.8 (p.~5472), Theorem~8.15 (p.~5476).
+
+\bibitem{LowenObstruction}
+W.~Lowen,
+\emph{Obstruction Theory for Objects in Abelian and Derived Categories},
+Comm. Algebra \textbf{33} (2005), 3195--3223.
+\href{https://doi.org/10.1081/AGB-200066155}{doi:10.1081/AGB-200066155}.
+Theorems~6.11--6.12 (pp.~3218--3219); flat版はcoflat版の双対．
+
+\bibitem{LowenVdBHochschild}
+W.~Lowen and M.~Van den Bergh,
+\emph{Hochschild cohomology of abelian categories and ringed spaces},
+Adv. Math. \textbf{198} (2005), 172--221.
+\href{https://doi.org/10.1016/j.aim.2004.11.010}{doi:10.1016/j.aim.2004.11.010}.
+Theorem~3.1 (pp.~182--184), Remark~3.5 (p.~184), Theorem~6.1 (p.~200).
+
+\bibitem{BarmeierWangSheaves}
+S.~Barmeier and Z.~Wang,
+\emph{Deformations of categories of coherent sheaves via quivers with relations},
+Algebraic Geometry \textbf{11} (2024), 1--36.
+\href{https://doi.org/10.14231/AG-2024-001}{doi:10.14231/AG-2024-001};
+\url{https://content.algebraicgeometry.nl/2024-1/2024-1-001.pdf}.
+Theorem~1.2 = Theorem~3.11; tiltingを仮定するTheorem~3.18とは区別する．
+
+\bibitem{StacksAbel}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/0FY3}{Tag~0FY3, Lemma~57.3.5}
+（双対同型を備えたSerre関手の一意性），
+\href{https://stacks.math.columbia.edu/tag/03PK}{Tag~03PK, Lemma~59.28.1}
+（Kummer列），
+\href{https://stacks.math.columbia.edu/tag/0CJZ}{Tag~0CJZ, Section~21.11}
+（gerbeの降下障害），
+\href{https://stacks.math.columbia.edu/tag/058G}{Tag~058G, Theorem~10.81.4}
+（Lazardの定理），
+\href{https://stacks.math.columbia.edu/tag/023M}{Tag~023M, Lemma~35.3.6}
+（忠実平坦な拡大Amitsur複体の完全性），
+\href{https://stacks.math.columbia.edu/tag/023N}{Tag~023N, Proposition~35.3.9}，
+\href{https://stacks.math.columbia.edu/tag/039Y}{Tag~039Y, Remark~35.3.11}
+（通常の加群の忠実平坦降下とcosimplicial表示），
+\href{https://stacks.math.columbia.edu/tag/058S}{Tag~058S, Proposition~10.83.3}
+（有限射影加群の忠実平坦降下），
+\href{https://stacks.math.columbia.edu/tag/0FCL}{Tag~0FCL, Lemma~13.17.4}
+（Serre部分圏の有界上方導来圏との比較）．2026年11月19日確認．
+
+\bibitem{CFT}
+A.~S.~Cattaneo, G.~Felder and L.~Tomassini,
+\emph{From local to global deformation quantization of Poisson manifolds},
+Duke Math. J. \textbf{115} (2002), 329--352.
+\url{https://arxiv.org/abs/math/0012228}.
+
+\bibitem{PolishchukProj}
+A.~Polishchuk,
+\emph{Noncommutative Proj and coherent algebras},
+Math. Res. Lett. \textbf{12} (2005), 63--74.
+Theorem~2.4 and the following Remarks~2;
+\url{https://arxiv.org/abs/math/0212182}, v4 (2004).
+
+\bibitem{PoissonP4Incidence}
+\texttt{uedakazushi/poisson-p4},
+\emph{Poisson部分多様体から見る射影四空間の成分分類},
+現行研究原稿、\nolinkurl{papers/poisson_subvariety_incidence_ja.tex},
+三次延長定理と三次incidenceのファイバー命題。
+参照commit \texttt{f118dfb} (2026-11-13確認)。
+\url{https://github.com/uedakazushi/poisson-p4/blob/f118dfbfc5bb9b7a394d1985b4800b6228eebaf6/papers/poisson_subvariety_incidence_ja.tex}.
+公刊済みの外部文献ではなく、関連プロジェクトの証明を持つ研究入力である。
+
+\bibitem{PairBW} S.~Barmeier and Z.~Wang,
+\emph{Deformations of path algebras of quivers with relations},
+\url{https://arxiv.org/abs/2002.10001}, v4 (2021), Theorem 10.3 and Lemma 10.9.
+\bibitem{RainsMagma} E.~Rains, central-element computations in MAGMA form,
+\url{https://math.mit.edu/~etingof/delpezzocenter}; E6 data.
+\bibitem{AS}
+M.~Artin and W.~F.~Schelter,
+\textit{Graded algebras of global dimension 3},
+Adv. Math. \textbf{66} (1987), 171--216.
+
+\bibitem{AZ}
+M.~Artin and J.~J.~Zhang,
+\textit{Noncommutative projective schemes},
+Adv. Math. \textbf{109} (1994), 228--287.
+\href{https://doi.org/10.1006/aima.1994.1087}{doi:10.1006/aima.1994.1087}.
+
+\bibitem{ATV}
+M.~Artin, J.~Tate and M.~Van den Bergh,
+\textit{Some algebras associated to automorphisms of elliptic curves},
+in \textit{The Grothendieck Festschrift}, Vol.~I,
+Birkh\"auser (1990), 33--85.
+\href{https://doi.org/10.1007/978-0-8176-4574-8_3}{doi:10.1007/978-0-8176-4574-8\_3}.
+
+\bibitem{AD}
+M.~Artebani and I.~Dolgachev,
+\textit{The Hesse pencil of plane cubic curves},
+Enseign. Math. \textbf{55} (2009), 235--273,
+\href{https://doi.org/10.4171/LEM/55-3-3}{doi:10.4171/LEM/55-3-3}.
+
+\bibitem{BT}
+R.~Berger and R.~Taillefer,
+\textit{Poincar\'e--Birkhoff--Witt deformations of Calabi--Yau algebras},
+J. Noncommut. Geom. \textbf{1} (2007), 241--270,
+\href{https://doi.org/10.4171/JNCG/6}{doi:10.4171/JNCG/6},
+\href{https://arxiv.org/abs/math/0610112}{arXiv:math/0610112}.
+
+\bibitem{CKS}
+A.~Chirvasitu, R.~Kanda and S.~P.~Smith,
+\textit{New Artin--Schelter regular and Calabi--Yau algebras via normal extensions},
+\href{https://arxiv.org/abs/1706.05754}{arXiv:1706.05754v3},
+\href{https://doi.org/10.1090/tran/7672}{doi:10.1090/tran/7672}.
+
+\bibitem{EG}
+P.~Etingof and V.~Ginzburg,
+\textit{Noncommutative del Pezzo surfaces and Calabi--Yau algebras},
+J. Eur. Math. Soc. \textbf{12} (2010), 1371--1416,
+\href{https://doi.org/10.4171/JEMS/235}{doi:10.4171/JEMS/235},
+\href{https://arxiv.org/abs/0709.3593}{arXiv:0709.3593v4}.
+
+\bibitem{LPT}
+F.~Loray, J.~V.~Pereira and F.~Touzet,
+\textit{Foliations with trivial canonical bundle on Fano 3-folds},
+Math. Nachr. \textbf{286} (2013), 921--940,
+\href{https://arxiv.org/abs/1112.3871}{arXiv:1112.3871}.
+
+\bibitem{Mayanskiy}
+E.~Mayanskiy,
+\textit{Poisson cohomology of two Fano threefolds},
+J. Algebra \textbf{424} (2015), 21--45,
+\href{https://doi.org/10.1016/j.jalgebra.2014.08.049}{doi:10.1016/j.jalgebra.2014.08.049},
+\href{https://arxiv.org/abs/1303.5916}{arXiv:1303.5916}.
+
+\bibitem{MS}
+I.~Mori and S.~P.~Smith,
+\textit{The classification of 3-Calabi--Yau algebras with 3 generators and 3 quadratic relations},
+Math. Z. (2017),
+\href{https://doi.org/10.1007/s00209-016-1824-5}{doi:10.1007/s00209-016-1824-5},
+\href{https://arxiv.org/abs/1502.07403}{arXiv:1502.07403v2}.
+
+\bibitem{Pym}
+B.~Pym,
+\textit{Quantum deformations of projective three-space},
+Adv. Math. \textbf{281} (2015), 1216--1241,
+\href{https://doi.org/10.1016/j.aim.2015.06.005}{doi:10.1016/j.aim.2015.06.005},
+\href{https://arxiv.org/abs/1403.6444}{arXiv:1403.6444}.
+
+\bibitem{Rains}
+E.~M.~Rains,
+\textit{Filtered deformations of elliptic algebras},
+\href{https://arxiv.org/abs/2107.13540}{arXiv:2107.13540v2},
+\S2, Theorem~2.13.
+
+\bibitem{RSVdB}
+J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
+\textit{A non-commutative Bertini theorem},
+J. Noncommut. Geom. \textbf{13} (2019), 609--616,
+\href{https://doi.org/10.4171/JNCG/334}{doi:10.4171/JNCG/334},
+\href{https://arxiv.org/abs/1705.01366}{arXiv:1705.01366v2}.
+
+\bibitem{Rosenlicht}
+M.~Rosenlicht,
+\textit{Some basic theorems on algebraic groups},
+Amer. J. Math. \textbf{78} (1956), 401--443.
+
+\bibitem{YZ}
+A.~Yekutieli and J.~J.~Zhang,
+\textit{Serre duality for noncommutative projective schemes},
+Proc. Amer. Math. Soc. \textbf{125} (1997), 697--707,
+\href{https://doi.org/10.1090/S0002-9939-97-03782-9}{doi:10.1090/S0002-9939-97-03782-9}.
+
+\bibitem{ZSL}
+G.-S.~Zhou, Y.~Shen and D.-M.~Lu,
+\textit{Skew Calabi--Yau property of normal extensions},
+Manuscripta Math. \textbf{161} (2020), 125--140,
+\href{https://doi.org/10.1007/s00229-018-1064-6}{doi:10.1007/s00229-018-1064-6},
+\href{https://arxiv.org/abs/1709.09292}{arXiv:1709.09292}.
+
+\bibitem{Zhang}
+J.~J.~Zhang,
+\textit{Twisted graded algebras and equivalences of graded categories},
+Proc. London Math. Soc. \textbf{72} (1996), 281--311,
+\href{https://doi.org/10.1112/plms/s3-72.2.281}{doi:10.1112/plms/s3-72.2.281}.
+\bibitem{PBondalPolishchukHelices}
+A.~I.~Bondal and A.~E.~Polishchuk,
+\emph{Homological properties of associative algebras: the method of helices},
+Russian Acad. Sci. Izv. Math. \textbf{42} (1994), no.~2, 219--260.
+Proposition~4.1 and \S5 (Koszul--Frobenius duality and periodicity).
+\href{https://doi.org/10.1070/IM1994v042n02ABEH001536}
+{doi:10.1070/IM1994v042n02ABEH001536}.
+
+\bibitem{PChanNymanNormalFamily}
+D.~Chan and A.~Nyman,
+\emph{Noncommutative linear systems and noncommutative elliptic curves},
+\href{https://arxiv.org/abs/2211.12465}{arXiv:2211.12465} (2022).
+Definition~8.6 (normal families of elements in indexed algebras).
+
+\bibitem{CSBGCCKM}
+T.~Cassidy, A.~Conner, E.~Kirkman and W.~F.~Moore,
+\emph{Periodic free resolutions from twisted matrix factorizations},
+J. Algebra 455 (2016), 137--163;
+\href{https://doi.org/10.1016/j.jalgebra.2016.01.037}{doi:10.1016/j.jalgebra.2016.01.037};
+\url{https://arxiv.org/abs/1307.8415}.
+arXiv v1のLemma~4.4（Reesの補題）と公刊版のTheorem~5.8
+（twisted matrix factorizationと特異圏）を版を区別して用いる。
+既存の有限位数議論の参照はTheorems~4.7 and~5.5。
+
+\bibitem{BSWPotentials}
+R.~Bocklandt, T.~Schedler and M.~Wemyss,
+\emph{Superpotentials and higher order derivations},
+J. Pure Appl. Algebra \textbf{214} (2010), no.~9, 1501--1522.
+\href{https://doi.org/10.1016/j.jpaa.2009.07.013}{doi:10.1016/j.jpaa.2009.07.013};
+\href{https://arxiv.org/abs/0802.0162v3}{arXiv:0802.0162v3}.
+Equation~(1.3), Theorem~6.2, Lemmas~6.4--6.5,
+およびTheorem~6.2証明直後のtwisted版への拡張。
+
+\bibitem{StacksPerfect}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/0BDK}{Tag~0BDK, Lemma~36.31.3},
+\href{https://stacks.math.columbia.edu/tag/0BCD}{Tag~0BCD, Lemma~15.77.7}.
+perfect複体のファイバーでの単一次数集中と局所自由性。
+\href{https://stacks.math.columbia.edu/tag/08EV}{Tag~08EV, Lemma~36.27.1}
+（底に関して有限Tor振幅を持つcoherent複体のproper pushforward）を併用する。
+2026年11月19日確認。
+
+\bibitem{StacksProj}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/01YR}{Section~30.14, Tag~01YR},
+特にLemma~30.14.2（coherent層の生成性・消滅）と
+Proposition~30.14.4（標準次数付き環のProj対応）。2026年11月19日確認。
+
+\bibitem{MoriNymanZ}
+I.~Mori and A.~Nyman,
+\emph{A Categorical Characterization of Quantum Projective $\mathbb Z$-spaces},
+Appl. Categ. Structures \textbf{33} (2025), article~14.
+\href{https://doi.org/10.1007/s10485-025-09806-2}{doi:10.1007/s10485-025-09806-2};
+\url{https://arxiv.org/abs/2307.15253}.
+Theorem~4.19, Lemma~5.24, Theorems~6.4 and~6.11。
+著者版\url{https://faculty.nymana.wwu.edu/regV8.pdf}で該当箇所を確認。
+
+\bibitem{ASZ4Canonical}
+\texttt{uedakazushi/asz4},
+\emph{四次元二次AS正則$\mathbb Z$-代数の分類：
+4周期表示・1周期構造の忘却・全分類への有限atlas},
+\nolinkurl{papers/asz4_classification.tex}, 定理\texttt{canonical-four}。
+参照commit \texttt{91b4504}、2026年11月14日確認。
+\url{https://github.com/uedakazushi/asz4/blob/91b45047739187fc5acb6f906b25e48f49a42c2d/papers/asz4_classification.tex}.
+関連プロジェクトの研究入力であり、公刊済み文献として扱わない。
+
+\bibitem{BILNComponents}
+V.~Bhatoy, C.~Ingalls, F.~LaRoche and R.~Nookala,
+\emph{Some components of the moduli space of Koszul Artin--Schelter regular algebras of dimension four},
+\href{https://arxiv.org/abs/2511.08390v1}{arXiv:2511.08390v1}
+(2025年11月11日), \S2.3, Proposition~5.1 and Theorem~5.8。
+preprint本文を確認。本稿では定義と同値関係を比較し、その成分判定を証明の入力にしない。
+
+\bibitem{BIDiscrete}
+V.~Bhatoy and C.~Ingalls,
+\emph{Discrete Invariants of Koszul Artin--Schelter Regular Algebras of Dimension four},
+\href{https://arxiv.org/abs/2602.13178v1}{arXiv:2602.13178v1}
+(2026年2月13日), Introduction。
+preprint本文を確認し、公刊情報は未確認。
+
+\bibitem{OrlovSingularities}
+D.~Orlov,
+\emph{Derived Categories of Coherent Sheaves and Triangulated Categories of Singularities},
+in \emph{Algebra, arithmetic, and geometry: in honor of Yu.~I.~Manin},
+Vol.~II, Progress in Mathematics \textbf{270}, Birkh\"auser, 2009, 503--531.
+\href{https://doi.org/10.1007/978-0-8176-4747-6_16}{doi:10.1007/978-0-8176-4747-6\_16};
+\href{https://arxiv.org/abs/math/0503632v3}{arXiv:math/0503632v3},
+Theorem~2.5。
+
+\bibitem{KuznetsovFractionalCY}
+A.~Kuznetsov,
+\emph{Calabi--Yau and fractional Calabi--Yau categories},
+J. reine angew. Math. \textbf{753} (2019), 239--267.
+\href{https://doi.org/10.1515/crelle-2017-0004}{doi:10.1515/crelle-2017-0004};
+\href{https://arxiv.org/abs/1509.07657v2}{arXiv:1509.07657v2},
+Corollary~4.1。
+
+\bibitem{KuznetsovHochschild}
+A.~Kuznetsov,
+\emph{Hochschild homology and semiorthogonal decompositions},
+\href{https://arxiv.org/abs/0904.4330v1}{arXiv:0904.4330v1} (2009).
+Theorems~8.3, 8.9, Corollary~7.5 and Proposition~8.4。
+
+\bibitem{CSBGRSVBertini}
+J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
+\emph{A non-commutative Bertini theorem},
+\url{https://arxiv.org/abs/1705.01366}, v2 (2020), Proposition~2.1（証明steps~(3)--(6)），
+Lemmas~3.3--3.6，Corollary~3.9。2026年11月19日原文確認。
+
+\bibitem{CSBGChenGeneralizedSerre}
+X.-W.~Chen, \emph{Generalized Serre duality},
+\url{https://arxiv.org/abs/math/0610258}, Theorem~3.10.
+
+\bibitem{CSBGRainsElliptic}
+E.~M.~Rains, \emph{Filtered deformations of elliptic algebras},
+\url{https://arxiv.org/abs/2107.13540}, v2 (2022), Theorem~2.13 and its preceding discussion.
+
+\bibitem{CSBGYZSerre}
+A. Yekutieli and J. J. Zhang,
+\emph{Serre duality for noncommutative projective schemes},
+Proc. Amer. Math. Soc. 125 (1997), 697--707;
+\url{https://doi.org/10.1090/S0002-9939-97-03782-9}.
+
+\bibitem{PPQuadratic}
+A.~Polishchuk and L.~Positselski,
+\emph{Quadratic Algebras}, University Lecture Series \textbf{37},
+American Mathematical Society, Providence, RI, 2005, xii+159 pp.
+\href{https://doi.org/10.1090/ulect/037}{doi:10.1090/ulect/037}.
+Chapter~6, Proposition~7.2 and Theorem~7.3, pp.~129--130。
+Noetherian局所基底上のKoszul変形原理。本稿の非周期的Artin版には直接証明を与える。
+
+
+\bibitem{YekutieliBalanced}
+A.~Yekutieli,
+\emph{Dualizing complexes over noncommutative graded algebras},
+J. Algebra \textbf{153} (1992), 41--84.
+\href{https://doi.org/10.1016/0021-8693(92)90148-F}{doi:10.1016/0021-8693(92)90148-F};
+\url{https://www.math.bgu.ac.il/~amyekut/publications/dual-com/dual-com.pdf}.
+Definition~4.1と双加群としての一意性（p.~57），Proposition~4.6（p.~59），
+Proposition~5.2，Corollary~5.5，Remark~5.7（pp.~65--68）。2026年11月19日原文確認。
+
+\bibitem{BDGMinors}
+I.~Burban, Yu.~Drozd and V.~Gavran,
+\emph{Minors and resolutions of non-commutative schemes},
+\url{https://arxiv.org/abs/1501.06023}, v2 (2017),
+Definitions~3.1,3.13 and Theorem~3.14。
+quasi-compact separatedな非可換スキームの局所perfect対象とcompact対象の一致。
+2026年11月19日原文確認。
+
+\bibitem{StacksRelativeDuality}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/00MI}{Lemma~10.99.5, Tag~00MI}，
+\href{https://stacks.math.columbia.edu/tag/07VK}{Lemma~30.22.1, Tag~07VK}，
+\href{https://stacks.math.columbia.edu/tag/0B91}{Lemma~36.30.4, Tag~0B91}，
+\href{https://stacks.math.columbia.edu/tag/0A9W}{Lemma~48.15.1, Tag~0A9W}，
+\href{https://stacks.math.columbia.edu/tag/0B6J}{Lemma~48.7.1, Tag~0B6J}，
+\href{https://stacks.math.columbia.edu/tag/0B6S}{Remark~48.12.5, Tag~0B6S}，
+\href{https://stacks.math.columbia.edu/tag/0E4H}{Remark~48.12.6}，
+\href{https://stacks.math.columbia.edu/tag/047N}{Lemma~39.8.2, Tag~047N}。
+振幅とflatness，proper base change，射影空間の双対・trace，Cartierのsmoothness。
+2026年11月19日原文確認。
+
+\bibitem{KellerDgCategories}
+B.~Keller, \emph{On differential graded categories},
+\url{https://arxiv.org/abs/math/0601185v5} (2006).
+\S2.1（可換係数環の規約），Theorems~3.4,3.8(c), \S3.8。
+2026年11月19日原文確認。
+
+\bibitem{KeelerAmpleFilters}
+D.~S.~Keeler, \emph{Ample filters of invertible sheaves},
+J. Algebra \textbf{259} (2003), no.~1, 243--283;
+Corrigendum, J. Algebra \textbf{507} (2018), 592--598.
+\url{https://arxiv.org/abs/math/0108068v5}（訂正を含む2018年6月2日版）。
+Theorem~1.3, Proposition~2.7, Theorem~7.14。
+2026年11月19日原文確認。
+
+\bibitem{MizunoZDuality}
+Y.~Mizuno, \emph{Dualizing complexes over $\mathbb Z$-algebras},
+\url{https://arxiv.org/abs/2509.13073v3}（2026年9月4日版）。
+\S2の係数体の規約とTheorem~5.8の有限global dimension仮定を参照。
+2026年11月19日原文確認。
+
+\bibitem{BrownSridharSerre}
+M.~K.~Brown and P.~Sridhar, \emph{Serre duality for dg-algebras},
+\url{https://arxiv.org/abs/2410.07204v2}（2025年8月15日版）。
+\S2の係数体の規約を参照。2026年11月19日原文確認。
+
+\bibitem{BrownSotoSridharBalanced}
+M.~K.~Brown, A.~J.~Soto Levins and P.~Sridhar,
+\emph{Existence of balanced dualizing dg-modules},
+\url{https://arxiv.org/abs/2506.02398v1}（2025年6月3日版）。
+Notation~1.4, Setup~2.1, Corollary~1.3。
+2026年11月19日原文確認。
+
+\bibitem{StacksAlgebraicChart}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/03WT}{Lemma~29.37.13, Tag~03WT}，
+\href{https://stacks.math.columbia.edu/tag/02GU}{Lemma~29.37.15, Tag~02GU}，
+\href{https://stacks.math.columbia.edu/tag/0476}{Lemma~29.37.17, Tag~0476}，
+\href{https://stacks.math.columbia.edu/tag/0245}{Lemma~35.37.1, Tag~0245}，
+\href{https://stacks.math.columbia.edu/tag/04UV}{Section~95.15, Tag~04UV}，
+\href{https://stacks.math.columbia.edu/tag/06FI}{Theorem~97.17.2, Tag~06FI}，
+\href{https://stacks.math.columbia.edu/tag/06N3}{Theorem~101.21.6, Tag~06N3}。
+étale locus とその底変更、群作用商・torsor の表示、DM atlas、アフィン降下。
+2026年11月19日原文確認。
+
+\bibitem{ELSSmoothAlgebras}
+A.~Elagin, V.~A.~Lunts and O.~M.~Schn\"urer,
+\emph{Smoothness of Derived Categories of Algebras},
+Moscow Math.~J. \textbf{20} (2020), no.~2, 277--309.
+\url{https://arxiv.org/abs/1810.07626}, v2 (2019), Theorems~4.15,4.18.
+\url{https://www.mathjournals.org/mmj/2020-020-002/2020-020-002-003.html}.
+著者版26--27頁の生成定理とその仮定を2026年11月19日に確認。
+
+\bibitem{ToenVaquieObjects}
+B.~To\"en and M.~Vaqui\'e,
+\emph{Moduli of objects in dg-categories},
+Ann.~Sci.~\'Ec.~Norm.~Sup\'er.~(4) \textbf{40} (2007), 387--444.
+\href{https://doi.org/10.1016/j.ansens.2007.05.001}{doi:10.1016/j.ansens.2007.05.001}.
+\url{https://www.numdam.org/article/ASENS_2007_4_40_3_387_0.pdf}.
+Lemma~2.10（405--407頁）、Corollary~2.13、Proposition~2.14。
+
+\bibitem{ToenDefinitionRings}
+B.~To\"en,
+\emph{Anneaux de d\'efinition des dg-alg\`ebres propres et lisses},
+著者版（2007年5月）, 事実 F4（2頁）.
+\url{https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf};
+\url{https://arxiv.org/abs/math/0611546}.
+F4 の perfect 加群の連続性は任意の出発 dg 代数に適用される。
+F5 の pseudoperfect 加群についての hfp 仮定とは区別する。
+
+\bibitem{WWYSklyaninPoisson}
+C.~Walton, X.~Wang and M.~Yakimov,
+\emph{Poisson geometry of PI 3-dimensional Sklyanin algebras},
+Proc.~Lond.~Math.~Soc. (3) \textbf{118} (2019), 1471--1500.
+\url{https://arxiv.org/abs/1704.04975}, v3 (2018),
+Definition--Lemma~2.13（9頁）と Proposition~2.22。
+平行移動点の規約を確認。原典の\cite{ATV}への帰属を保持する。
+
+\bibitem{StacksEllipticTorsion}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/0BFG}{Tag~0BFG, Lemma~39.9.8},
+\href{https://stacks.math.columbia.edu/tag/0BFH}{Tag~0BFH, Lemma~39.9.9}.
+体上の乗法写像の有限性と、標数と互いに素な場合の \'etale 性。
+Hesse 族上の主張には本文の相対微分と properness の議論を加える。
+2026年11月19日確認。
+
+\bibitem{JLLZInfinitesimal}
+A.~Jacovskis, X.~Lin, Z.~Liu and S.~Zhang,
+\emph{Infinitesimal categorical Torelli theorems for Fano threefolds},
+\href{https://arxiv.org/abs/2203.08187v3}{arXiv:2203.08187v3} (2023),
+Theorem~4.4(2)。実際の幾何的 Kodaira--Spencer 写像を使用する。
+
+\bibitem{LurieDAGX}
+J.~Lurie, \emph{Derived Algebraic Geometry X: Formal Moduli Problems},
+November 5, 2011,
+\url{https://www.math.ias.edu/~lurie/papers/DAG-X.pdf},
+Theorems~5.1.9, 5.3.16 and Proposition~5.3.21。
+
+\bibitem{BKPFormalGenerators}
+A.~Blanc, L.~Katzarkov and P.~Pandit,
+\emph{Generators in formal deformations of categories},
+Compos. Math. \textbf{154} (2018), 2055--2089,
+\href{https://doi.org/10.1112/S0010437X18007303}{doi:10.1112/S0010437X18007303};
+\href{https://arxiv.org/abs/1705.00655v1}{arXiv:1705.00655v1}, \S3.3。
+
+\bibitem{BhattAlgebraization}
+B.~Bhatt, \emph{Algebraization and Tannaka duality},
+\href{https://arxiv.org/abs/1404.7483v1}{arXiv:1404.7483v1} (2014),
+Lemma~4.2。
+通常の係数環上の perfect complex の効果化として用い、
+任意の proper dg 代数上の compact 加群へ拡張しない。
+
+\bibitem{StevensonSingularityActions}
+G.~Stevenson, \emph{Subcategories of singularity categories via tensor actions},
+Compos. Math. \textbf{150} (2014), 229--272,
+\href{https://arxiv.org/abs/1105.4698v3}{arXiv:1105.4698v3}, Theorem~6.13。
+
+\bibitem{NeemanCompactLocalization}
+A.~Neeman, \emph{The connection between the K-theory localization theorem of Thomason,
+Trobaugh and Yao and the smashing subcategories of Bousfield and Ravenel},
+Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{25} (1992), 547--566,
+\href{https://doi.org/10.24033/asens.1659}{doi:10.24033/asens.1659}, Lemma~2.2;
+\url{https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/neeman-loc.pdf}。
+
+\bibitem{BMMSCubicTorelli}
+M.~Bernardara, E.~Macr\`i, S.~Mehrotra and P.~Stellari,
+\emph{A categorical invariant for cubic threefolds},
+\href{https://arxiv.org/abs/0903.4414v2}{arXiv:0903.4414v2} (2011), Theorem~1.1。
+複素数体上の定理を用い、拡大体への適用は本文で有限表示により帰着する。
+
+\bibitem{PoonenHypersurfaceAut}
+B.~Poonen, \emph{Varieties without extra automorphisms III: hypersurfaces},
+Finite Fields Appl. \textbf{11} (2005), 230--268,
+\url{https://math.mit.edu/~poonen/papers/projaut.pdf},
+Theorems~1.5--1.6 and Corollary~1.9。
+
+\bibitem{AllcockCubicGIT}
+D.~Allcock, \emph{The moduli space of cubic threefolds},
+J. Algebraic Geom. \textbf{12} (2003), 201--223,
+\href{https://doi.org/10.1090/S1056-3911-02-00313-2}{doi:10.1090/S1056-3911-02-00313-2};
+\url{https://web.ma.utexas.edu/users/allcock/research/3foldgit.pdf}, Theorem~1.1。
+
+
+\bibitem{LeBruynSmithVdBCentral}
+L.~Le~Bruyn, S.~P.~Smith and M.~Van~den~Bergh,
+\textit{Central extensions of three dimensional Artin--Schelter regular algebras},
+Math. Z. \textbf{222} (1996), 171--212,
+\href{https://doi.org/10.1007/PL00004532}{doi:10.1007/PL00004532}.
+\url{https://sites.math.washington.edu/~smith/Research/Central-extns.pdf}.
+
+\bibitem{VancliffQuantumSpaces}
+M.~Vancliff,
+\textit{Non-commutative Spaces for Graded Quantum Groups and Graded Clifford Algebras},
+in R.~Ab{\l}amowicz and B.~Fauser (eds.),
+\textit{Clifford Algebras and their Applications in Mathematical Physics, I},
+Progress in Physics \textbf{18}, Birkh\"auser Boston (2000), 303--320,
+\href{https://doi.org/10.1007/978-1-4612-1368-0_16}{doi:10.1007/978-1-4612-1368-0\_16}.
+\url{https://bpb-us-e1.wpmucdn.com/websites.uta.edu/dist/0/5123/files/2022/10/cliff.pdf}.
+
+\bibitem{PymSurvey}
+B.~Pym,
+\textit{Constructions and classifications of projective Poisson varieties},
+Lett. Math. Phys. \textbf{108} (2018), 573--632,
+\href{https://doi.org/10.1007/s11005-017-0984-5}{doi:10.1007/s11005-017-0984-5},
+\href{https://arxiv.org/abs/1701.08852}{arXiv:1701.08852}.
+
+\bibitem{GualtieriPym}
+M.~Gualtieri and B.~Pym,
+\textit{Poisson modules and degeneracy loci},
+Proc. Lond. Math. Soc. (3) \textbf{107} (2013), no.~3, 627--654,
+\href{https://doi.org/10.1112/plms/pds090}{doi:10.1112/plms/pds090},
+\href{https://arxiv.org/abs/1203.4293}{arXiv:1203.4293}.
+
+\bibitem{UedaYoshinagaJacobian}
+K.~Ueda and M.~Yoshinaga,
+\textit{Logarithmic vector fields along smooth divisors in projective spaces},
+Hokkaido Math. J. \textbf{38} (2009), 409--415,
+\href{https://doi.org/10.14492/hokmj/1258553970}{doi:10.14492/hokmj/1258553970}.
+\url{https://www.math.sci.hokudai.ac.jp/hmj/page/38-3/pdf/HMJ38_0409-0415.pdf}.
+
+\bibitem{HwangSymmetrizer}
+J.-M.~Hwang,
+\textit{Symmetrizer group of a projective hypersurface},
+J. Math. Soc. Japan \textbf{78} (2026), no.~1, 55--62,
+\href{https://doi.org/10.2969/jmsj/93469346}{doi:10.2969/jmsj/93469346},
+\href{https://arxiv.org/abs/2501.08633}{arXiv:2501.08633}.
+
+\bibitem{LinZhangDeformingEquivalences}
+X.~Lin and S.~Zhang,
+\emph{Categorical Torelli and Fourier--Mukai partners of hypersurfaces},
+\href{https://arxiv.org/abs/2611.05915v1}{arXiv:2611.05915v1} (2026),
+Theorem~1.7 and \S2.
+
+\end{thebibliography}
+\end{document}

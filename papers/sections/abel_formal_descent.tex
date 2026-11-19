@@ -1,13 +1,17 @@
-% 2026-11-19 / manuscript-v13
 \section{構造対象付きAbel圏stackの可換点における形式完備化}
 \label{sec:abel-formal-descent}
 
-本節では，前節の標準相対模型と全fpqc stackの形式近傍を比較する．
+本節では，第\ref{sec:abel-formal-cubic}節の標準相対模型と
+全fpqc stackの形式近傍を比較する．
 任意の平坦被覆上の線対象を元のArtin基底に関して持ち上げ，
 三重交叉のscalar cocycleを補正してから，Homと合成だけを降下する．
 最後にframed自己同型を直接計算し，形式変形群oidそのものを表示する．
 ここで形式近傍は特殊ファイバーへの同一視を指定したものとし，
 有限自己同型群を含む無標識の完備化と区別する．
+到達点は系\ref{cor:abel-full-stack-discrete-formal}の群oid値関手の表示である．
+その証明は，定理\ref{thm:abel-stackified-relative-formal}による
+標準模型の本質的全射性と，命題\ref{prop:abel-framed-artin-automorphisms}による
+自己同型の消滅を別々に示してから組み合わせる．
 
 \subsection{任意の平坦被覆上での線対象の持上げと復元}
 \label{subsec:abel-flat-cover-reconstruction}
@@ -821,6 +825,9 @@ framed 形式変形群oid は同型類の離散群oidと自然に同値である
  \frac{\mathbb C[[t_1,\ldots,t_{10},a_{ij}\ (0\le i<j\le4)]]}
  {(a_{ij}a_{kl}-a_{ik}a_{jl}+a_{il}a_{jk}\mid i<j<k<l)}.
 \]
+従ってこの形式近傍は、十次元形式円板と
+$\operatorname{Gr}(2,5)$ のアフィン錐の頂点完備化の積であり、
+Krull 次元は $17$、接空間次元は $20$ である。
 \end{corollary}
 \begin{proof}
 自己同型群が自明な群oidでは，同型な二対象の間の射は一意であり，
@@ -834,6 +841,11 @@ framed 形式変形群oid は同型類の離散群oidと自然に同値である
 標識を外した特殊ファイバーの有限自己同型群はここに含まれず，
 非標識の $2$-群oid における scalar $2$-自己同型についても何も変更していない．
 また，この形式表示は代数化や有限型 atlas の存在を意味しない．
+定理\ref{thm:jacobian-algebraic-abel-substack}の Jacobian 部分 stack は、
+二次包絡の一次中心が階数二となる非可換族から構成されるため、
+この可換点そのものを含まない。
+両者の次元が $17$ であることから、Jacobian 部分 stack が
+全問題の成分または可換点の代数的近傍であるとは結論できない。
 導分の計算と全 Artin section 比較による直接証明であり，
 $HH^1$ による一般の自己同型制御を未確認のまま引用するものではない．
 この直接的適用の初出は未確認である．

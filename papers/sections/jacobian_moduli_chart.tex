@@ -1,10 +1,13 @@
 \section{Jacobian 型 Abel 圏の代数的部分モジュライ}
 \label{sec:jacobian-algebraic-chart}
 
-本節では、前節の任意係数上の全同値比較を用いて、
-実際の有限型 Deligne--Mumford stack を構成する。
-十三係数 ambient の飽和開を先に作り、
-その上の中心三次直線を階数四のベクトル束の torsor として扱う。
+本節の主結果は定理\ref{thm:jacobian-algebraic-abel-substack}である。
+第\ref{sec:general17-relative-algebra}節の任意係数上の全同値比較を用い、
+構造対象だけを標識した Abel 圏の問題の中に、
+滑らかな十七次元 Deligne--Mumford stack を構成する。
+構成は、十三係数の二次包絡の飽和開、普遍的な低次数中心、
+中心三次直線の torsor、全 Abel 同値との比較、という順で進める。
+とくに四次元のファイバーは、中心三次完全列の分裂を選ぶ自由度である。
 商 stack・étale atlas・アフィン降下の一般論は既知の結果であり、
 本節の対象はその具体的な Jacobian 族への適用と、全 Abel 同値との一致である。
 
@@ -328,7 +331,8 @@ $J$ 上の普遍直線部分束で $\mathcal B$ を割って得る三次商は�
 は階数四のベクトル束の加法群の torsor であり、
 スキームで表現可能、アフィン、滑らか、全射で、相対次元四である。
 $T_B^e\times\mathbb A^4\to\mathfrak C_{\mathrm J}$ は étale 全射 atlas であり、
-$\mathfrak C_{\mathrm J}$ は滑らかな十七次元 Deligne--Mumford stack である。
+$\mathfrak C_{\mathrm J}$ は滑らかな既約十七次元の有限型
+Deligne--Mumford stack である。
 \end{proposition}
 
 \begin{proof}
@@ -368,6 +372,8 @@ $T_B^e\to\mathfrak B_{\mathrm J}$ の底変更を取ると
 $T_B^e\times\mathbb A^4\to\mathfrak C_{\mathrm J}$ も étale 全射である。
 これは滑らかな十七次元スキームからの atlas であり、
 $\mathfrak C_{\mathrm J}$ の smooth 性、Deligne--Mumford 性、次元十七が従う。
+$T_B^e\times\mathbb A^4$ は既約な有限型スキームであり、この atlas は全射なので、
+商の既約性と有限型性も従う。
 \end{proof}
 
 \begin{remark}[ファイバーと標識の範囲]
@@ -426,7 +432,7 @@ $\iota$ は $G$-同変である。
 
 \begin{theorem}[Jacobian 型の代数的 Abel 圏部分モジュライ]
 \label{thm:jacobian-algebraic-abel-substack}
-命題\ref{prop:jacobian-affine-four-morphism}の滑らかな十七次元
+命題\ref{prop:jacobian-affine-four-morphism}の滑らかな既約十七次元の有限型
 Deligne--Mumford stack $\mathfrak C_{\mathrm J}=[J/G]$ から、自然な射
 \begin{equation}\label{eq:jacobian-abel-fully-faithful}
  \mathfrak C_{\mathrm J}\longrightarrow

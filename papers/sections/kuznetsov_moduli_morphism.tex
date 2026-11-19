@@ -42,6 +42,20 @@ $\mathfrak C_{\mathrm J}$ の開性を主張する定理ではない。
 そのまま出力する写像と同一視しない。
 本節では形式的認識、係数 perfect な双加群の効果化、Serre 安定な像の生成性を
 順に証明し、最後に有限表示の降下から実際の開集合上の射を得る。
+証明の各段階が与える結論を先にまとめる。
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item 命題\ref{prop:kuznetsov-formal-recognition}は、通常の Artin 基底上の
+三次変形と残余圏変形の\emph{同型類}を比較する。
+\item 命題\ref{prop:kuznetsov-effective-serre-embedding}は、完備離散付値環上で
+係数 perfect な同値核を効果化し、Serre 関手と両立する完全忠実関手を作る。
+\item 補題\ref{lem:kuznetsov-graded-thick-simple}と
+系\ref{cor:kuznetsov-formal-to-generic}は、三次の特異圏に固有の生成性から
+一般ファイバーでの本質的全射性を与える。
+\item 補題\ref{lem:kuznetsov-spread-geometric-model}は、その幾何的模型を
+有限 étale 被覆上へ広げる。粗モジュライへの射は categorical Torelli によって降下し、
+支配性は別に補題\ref{lem:kuznetsov-classical-dominance}で確認する。
+\end{enumerate}
+従って、形式的変形の認識だけから代数的な一般点の幾何性を結論する段階はない。
 
 \subsection{可換三次成分の全Artin形式認識}
 
@@ -78,7 +92,7 @@ $\mathcal D=\operatorname{Ind}(\operatorname{Ku}(X))$ とする。
 
 $\mathcal D$ は proper な compact 部分圏で生成されるので、
 compact 対象間の Ext が有界であり、tamely compactly generated である。
-Lurie \cite[Proposition~5.3.21 and Theorem~5.1.9]{LurieDAGX} により
+Lurie \cite[Definition~5.3.20, Proposition~5.3.21 and Theorem~5.1.9]{LurieDAGX} により
 \[
  \theta:\operatorname{CatDef}^{c}_{\mathcal D}
        \longrightarrow\operatorname{CatDef}^{\wedge}_{\mathcal D}
@@ -96,7 +110,11 @@ $H(\mathfrak g)$ は次数 $-1,1$ にのみ存在する。
 奇数次数の $n$ 個の入力に対する出力次数は偶数なので、すべての高次演算は零である。
 従って通常の Artin 基底上では
 $\pi_0\operatorname{CatDef}^{\wedge}_{\mathcal D}$ は十次元形式円板であり、
-$\pi_1=0$、$\pi_2$ には $HH^0$ に由来する形式的スカラーが残る。
+$\pi_1=0$ である。
+極大イデアルを $\mathfrak m_T$ とすれば、各点で
+$\pi_2\simeq HH^0(\mathcal D)\otimes_k\mathfrak m_T$
+が残る。これは標数零の対数によって $1+\mathfrak m_T$ と同定される
+形式的スカラーであり、上の全単射が高次群oid全体の離散性を意味しない理由である。
 
 一方 $H^0(T_X)=H^2(T_X)=0$、$h^1(T_X)=10$ なので、
 $\operatorname{Def}_X$ は滑らかな十次元形式円板である。
@@ -139,7 +157,8 @@ homotopy coherent な高次の比較を取る。
 大域切断の基底と三次方程式の生成元を互換的に選び、その係数の逆極限を取ると
 $X_R\subset\mathbb P^4_R$ を得る。
 判別式の特殊値は非零であり $R$ の単元なので、この族は滑らかである。
-$\operatorname{Ku}(X_R)\simeq\operatorname{Perf}(D)$ を有限 generator で表示する。
+$\mathcal D=\operatorname{Ku}(X_R)$ と置き、
+$\mathcal D\simeq\operatorname{Perf}(D)$ を有限 generator で表示する。
 相対 smooth な射影三次の perfect 圏とその admissible 成分なので、$D$ は $R$-smooth proper である。
 generator と $D$ は $R_n$ への底変更に両立する。
 
@@ -177,18 +196,18 @@ cone に導来 Nakayama を適用して、この射自体が quasi-isomorphism �
 従って $-\otimes_E^{\mathbf L}P$ は\eqref{eq:kuznetsov-effective-embedding}を与える。
 
 最後に Serre 関手をそれぞれ $S_{\mathcal C},S_{\mathcal D}$ と書く。
-完全忠実性と双対性により
+完全忠実性と両側の enriched Serre 双対性は、$M,N\in\mathcal C$ に自然な同型
 \[
- \mathbf R\operatorname{Hom}_{\mathcal D}
-       (\Phi S_{\mathcal C}M,S_{\mathcal D}\Phi M)
+ \mathbf R\operatorname{Hom}_{\mathcal D}(\Phi N,S_{\mathcal D}\Phi M)
+ \simeq\mathbf R\operatorname{Hom}_{\mathcal C}(M,N)^\vee
  \simeq
- \mathbf R\operatorname{Hom}_{\mathcal C}(M,S_{\mathcal C}M)^\vee.
+ \mathbf R\operatorname{Hom}_{\mathcal C}(N,S_{\mathcal C}M)
 \]
-右辺の trace に対応する射
-$\alpha_M:\Phi S_{\mathcal C}M\to S_{\mathcal D}\Phi M$ を取る。
-trace の自然性により $\alpha$ は自然変換である。
-自然な双対性を表す dg 双加群に enriched Yoneda を適用する構成なので、
-この比較も homotopy coherent である。
+を与える。右辺を $N$ の関手と見て enriched Yoneda を適用すると、
+恒等射 $\operatorname{id}_{S_{\mathcal C}M}$ に対応する射
+$\alpha_M:\Phi S_{\mathcal C}M\to S_{\mathcal D}\Phi M$ を得る。
+この射は source の Serre trace によって特徴付けられ、$M$ に自然である。
+同型を dg 双加群の同型として用いているので、比較は homotopy coherent である。
 特殊ファイバーの $\Phi_0$ は同値なので $\alpha_M\otimes_R k$ は同型である。
 その cone は $D$-perfect、従って $R$-perfect であり、導来 Nakayama により零となる。
 $S_{\mathcal C}$ は自己同値なので逆 Serre に対しても安定である。
@@ -228,6 +247,8 @@ ungraded factorization $Q$ に対して、graded 化 $\mathsf G$ を
  (\mathsf GQ_i)_n=Q_i\quad(n\in\mathbb Z)
 \]
 で定める。$s\in S_e$ は copy $n$ から copy $n+e$ へ $s$ 倍として作用する。
+$\mathsf G(S)\simeq\bigoplus_{a\in\mathbb Z}S(a)$ であり、
+$\mathsf G$ は直和因子を保つので、projective 加群を graded projective 加群へ送る。
 graded factorization を
 $P_1\xrightarrow{d_1}P_0\xrightarrow{d_0}P_1(3)$ と書く規約では、
 $\mathsf Gd_1$ は copy の次数を保ち、$\mathsf Gd_0$ は三だけ増加させる。
@@ -244,7 +265,9 @@ $a=j-n$ による分解が
 特に $P$ は右辺の $a=0$ の直和因子である。
 忘却後に $P$ が contractible なら、contracting homotopy の該当する homogeneous 成分を
 取ることで graded contracting homotopy を得る。
-冪等完備化にも同じ議論を適用できるので $\mathsf F$ は非零性を保つ。
+冪等完備化の対象 $(P,e)$ についても、忘却後の $e$ が null-homotopic なら、
+その null-homotopy の該当する homogeneous 成分が graded な $e$ の null-homotopy を与える。
+従って冪等完備化の上でも $\mathsf F$ は非零性を保つ。
 
 任意の有限階数 graded $Q$ に対し、ungraded の分類から
 $\mathsf FQ\in\operatorname{thick}(\mathsf FP)$ である。
@@ -257,12 +280,15 @@ compact 対象が生成する localizing 圏の compact 部分はその thick �
 $Q\in\operatorname{thick}\{P(a)\}$ を得る。
 
 Orlov の同値 \cite[Theorems~2.5 and~3.10--3.11]{OrlovSingularities} と
-\cite[Corollary~4.1 and the rotation construction]{KuznetsovFractionalCY} の規約で、
+\cite[\S3.3, Corollary~3.18, Lemma~3.19 and Corollary~4.1]{KuznetsovFractionalCY} の規約で、
 次数シフトは rotation $\mathsf R$ に対応する。
 Orlov の半直交分解の window は線束 twist と Serre mutation により
 $\langle\mathcal O,\mathcal O(1)\rangle^\perp$ の window に移して用いる。
 三次三様体では
-$\mathsf R^3=[2]$、$S=\mathsf R^{-2}[3]$、従って $\mathsf R=S[-1]$ である。
+$\mathsf R^3=[2]$、$S=\mathsf R^{-2}[3]$ である。
+後者は $S=\mathsf R[1]$、従って $\mathsf R=S[-1]$ と書ける。
+この二つの公式は単なる $S^3=[5]$ より強く、
+Serre 安定性を\emph{全ての内部次数シフト}に対する安定性へ移すために用いる。
 よって Serre 安定な非零 thick 部分圏には前段の結論を適用できる。
 \end{proof}
 
@@ -302,9 +328,11 @@ $M_i=\sum_{j=0}^2m_{ij}u^{2-j}v^j$、$g=\sum_{j=0}^3g_ju^{3-j}v^j$ と置く。
 \]
 上で $u,v$ を中心変数とし、
 \[
- B_h=R\langle x,y,z,u,v\rangle/
- \bigl([u,-],[v,-],\ [x,y]-h\operatorname{Symm}(F_z),
- [y,z]-h\operatorname{Symm}(F_x),\ [z,x]-h\operatorname{Symm}(F_y)\bigr)
+ \begin{aligned}
+ B_h&=R\langle x,y,z,u,v\rangle/I_h,\\
+ I_h&=\bigl([u,-],[v,-],\ [x,y]-h\operatorname{Symm}(F_z),\\
+ &\hspace{20mm}[y,z]-h\operatorname{Symm}(F_x),\ [z,x]-h\operatorname{Symm}(F_y)\bigr).
+ \end{aligned}
 \]
 を定める。すると次が成立する。
 \begin{enumerate}
@@ -331,10 +359,12 @@ $h=0$ には滑らかな可換三次の点がある。
 \emph{有限の分母と中心元。}
 命題\ref{prop:pair-rains-polynomial}へ
 \[
+ \begin{gathered}
  q=\frac{q_h}{p_h},\qquad t=\frac{r_h}{p_h},\qquad
- \lambda=\frac b{3a},\qquad
+ \lambda=\frac b{3a},\\
  (L_1,L_2,L_3)=\frac{(2u,2\alpha v,2\beta(u+v))}{3a},
  \qquad\widetilde M_i=\frac{M_i}{3a}
+ \end{gathered}
 \]
 を代入する。$q=1+\lambda t$ であり、関係は上記 $B_h$ の関係そのものである。
 Rains の分母は

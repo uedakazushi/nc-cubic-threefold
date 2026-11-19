@@ -12,6 +12,15 @@ De Deken--Lowenの既知の変形比較を適用した上で，
 既知の量子化定理を用いる全Artin結論を区別する．
 大域的な無標識Abel圏の復元や有限型atlasの存在は結論しない．
 
+主結果は定理\ref{thm:abel-cubic-flat-envelope}と
+系\ref{cor:abel-cubic-formal-ring}である．
+そのために、まず既知の Abel／section 比較を適用し、
+任意係数への延長、関係式の有限次数判定、相対 Koszul--AS 双対を準備する．
+全 Artin 基底で包絡の平坦性を与える段階では、
+第\ref{sec:moduli-artin}節の実際の中心商量子化族を用いる．
+fpqc stack 化後にも同じ形式近傍が得られることは、
+第\ref{sec:abel-formal-descent}節で降下を別途証明する．
+
 \subsection{変形の射と特殊ファイバーの固定}
 
 $k=\mathbb C$とし，$X\subset\mathbb P^4_k$を滑らかな三次三様体とする．
@@ -1252,8 +1261,12 @@ $\operatorname{Qcoh}(X)$の平坦Abel $R$-変形$\mathcal D$と，
 内在的な構成$b\mapsto Q(b)$も任意の係数変更と両立する．
 \end{theorem}
 \begin{proof}
-まずLowen\cite[Theorems~3.14 and~3.26]{LowenRinged}を，
-$X$の有限アフィン被覆とその交叉に適用する．
+まず $X$ の有限アフィン被覆を取り、その有限交叉を加える。
+$X$ は分離的なので交叉もアフィンであり、
+これらの開集合に含まれる全てのアフィン開集合は
+$\mathcal O_X$ に関する acyclic basis をなす。
+開集合への準連接層の制限は局所化であるから、
+Lowen\cite[Theorems~3.14 and~3.26]{LowenRinged}の仮定を満たす。
 これにより$\mathcal D$は$\mathcal O_X$のalgebroid変形によって記述できる．
 局所的な構造対象の平坦持上げを大域化する障害は，小拡大の核$I$に対して
 $I\otimes H^2(X,\mathcal O_X)$に，その同型類の差は
@@ -1262,6 +1275,10 @@ $I\otimes H^1(X,\mathcal O_X)$に属する．
 普通の平坦結合代数層$\mathscr A_R$を代表として取れる．
 通常の変形とtwisted変形の同値類がこの条件で全単射になることは
 Yekutieli\cite[Corollary~7.5]{YekutieliTwisted}にも明記されている．
+ここで用いる量子化比較は同論文 Corollary~11.2 であり、
+基礎の可換代数層も変形する Poisson 変形を対象とする。
+$H^1(X,T_X)=0$ を要する同論文 Corollary~11.3 の
+固定された層上の星積表示は用いない。
 
 補題\ref{lem:artin-constructed-family-comparison}により，この$\mathscr A_R$は
 中心三次商$A_R=B_R/(w_R)$のOre局所化に同型である．

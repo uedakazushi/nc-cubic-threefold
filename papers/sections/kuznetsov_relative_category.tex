@@ -180,8 +180,10 @@ $\operatorname{Ku}(X_S)=\langle\mathcal O_{X_S},\mathcal O_{X_S}(1)\rangle^\perp
 $\chi(G,G)=-2925$ である。
 \end{lemma}
 \begin{proof}
-線対象の Euler 数を $h_n=\binom{n+4}{4}-\binom{n+1}{4}$
-（負次数の項は零）で書くと、$h_0,h_1,h_2,h_3,h_4=1,5,15,34,65$ である。
+非負 twist の Euler 数を
+$h_n=\binom{n+4}{4}-\binom{n+1}{4}$（$n\ge0$、$0\le n<3$ では第二項を零とする）
+で書くと、$h_0,h_1,h_2,h_3,h_4=1,5,15,34,65$ である。
+負の twist は同じ Hilbert 関数の零延長で扱わず、線コホモロジーの双対性から計算する。
 二つの評価三角から
 \[
  [G_j]=[\mathcal O(j)]-h_{j-1}[\mathcal O(1)]
@@ -307,9 +309,14 @@ $\mathcal D=\langle\mathcal A,\mathcal B\rangle$ を
 generator を取り $\mathcal D=\operatorname{Perf}(E)$,
 $\mathcal A=\operatorname{Perf}(D)$ と書く。
 包含を $-\otimes_D^{\mathbf L}P$ で表すと、$P$ は $D$-$E$ 双加群である。
-右随伴は compact 対象を保つから、その kernel $Q$ は右 $D$-perfect である。
-左随伴も compact 対象を保つので、その kernel の右 $D$-双対である $P$ は
-左 $D$-perfect である。
+右随伴は compact 対象を保つから、
+$Q=\mathbf R\operatorname{Hom}_E(P,E)$ は右 $D$-perfect である。
+左随伴の kernel を $T$ と書けば、$T$ は $E$-$D$ 双加群で右 $D$-perfect である。
+左随伴性を $D\in\operatorname{Perf}(D)$ に対して評価すると
+\[
+ P\simeq\mathbf R\operatorname{Hom}_D(T,D)
+\]
+を $D$-$E$ 双加群として得る。従って $P$ は左 $D$-perfect である。
 完全忠実性によって $P\otimes_E^{\mathbf L}Q\simeq D$ である。
 $E$ の対角の有限 cell 表示に
 $P\otimes_E^{\mathbf L}(-)\otimes_E^{\mathbf L}Q$ を適用する。

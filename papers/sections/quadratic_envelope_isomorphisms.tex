@@ -1,0 +1,33 @@
+\section{二次包絡によるモジュライ同型類の判定}\label{sec:moduli-iso}
+\begin{theorem}[三次商からのambient復元]\label{thm:moduli-iso}
+$B=T(V)/(R_2)$を次数一生成の二次連結次数付き代数とし、
+$G\in Z(B)_3$を非零正則中心元とする。$A=B/(G)$に対して
+\begin{equation}\label{eq:moduli-envelope}
+ B\simeq T(A_1)/
+ \left\langle\ker(A_1\otimes A_1\longrightarrow A_2)\right\rangle,
+ \qquad \ker(B_3\longrightarrow A_3)=kG
+\end{equation}
+となる。特に第\ref{sec:normal}節の17係数一般族では、
+中心三次対の同型類の次元17が、実際の$A$の
+次数付き同型類の次元でもある。
+さらに$A$が左右noetherianなAS Gorenstein代数で
+injective dimensionが2以上なら、
+$(\qgr A,\OO_A,(1))$から同じ対象を復元できる。
+\end{theorem}
+\begin{proof}
+$G$は次数三なので$A_1=B_1$, $A_2=B_2$である。
+したがって$A$の二次関係の核は$R_2$であり、
+二次関係のみで定義された$B$を復元する。
+商写像の次数三の核は$B_0G=kG$である。
+次数付き同型$A\simeq A'$はこの復元により
+$(B,kG)\simeq(B',kG')$を誘導する。
+偏極付き圏については、AS Gorenstein性より
+$\operatorname{Ext}_A^0(k,A)=\operatorname{Ext}_A^1(k,A)=0$であり、
+Artin--Zhangのsection algebraの自然写像は
+\begin{equation}\label{eq:moduli-section}
+ A\xrightarrow{\ \sim\ }\bigoplus_{n\ge0}
+ \operatorname{Hom}_{\qgr A}(\OO_A,\OO_A(n))
+\end{equation}
+を与える。よって偏極付き圏の同値も次数付き代数の
+同型を誘導する。
+\end{proof}
