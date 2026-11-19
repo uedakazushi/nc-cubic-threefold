@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-plan-v5。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-19 / research-plan-v6。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -40,9 +40,9 @@ Q(A^L)=Q(A)^Lなので三次→ambientの射は全levelに降りる。ただし�
 =\operatorname{Isom}_{gr}(A,A')/\mathbb C^\times.
 \]
 
-Nat(Id)=Cは豊富列から直接従い、O上の同定を残すと2慣性は消える。μ2は次数スカラーGmの部分群であり、追加の2慣性ではない。相対版 `thm:abel-relative-pointed-hom` は有限型C-schemeのfppf siteで、C1–C4を仮定した条件付き定理である。基底非正則の場合、Db(coh)全体へ通常のSerre双対を仮定せず、内在的な有限Tor振幅部分圏を使う。17係数族全体での入力は未確認。有限位数境界の四係数族で得られる範囲は§1.4に記す。
+Nat(Id)=Cは豊富列から直接従い、O上の同定を残すと2慣性は消える。μ2は次数スカラーGmの部分群であり、追加の2慣性ではない。相対版 `thm:abel-relative-pointed-hom` は有限型C-schemeのfppf siteで、C1–C4を仮定した条件付き定理である。基底非正則の場合、Db(coh)全体へ通常のSerre双対を仮定せず、内在的な有限Tor振幅部分圏を使う。17係数族全体での入力は未確認。四係数族ではcompact対象を使う別の内在的選択により全係数基底上で比較できる。§1.4–1.5に記す。
 
-**具体的帰結。** 既存の剛体B_*の4係数regular tails開部分では、既存入力の下でO-marked圏はパラメータfごとに相異なり、Aut_O(qgr A_f)=1。証明は `cor:abel-rigid-four-family`。これは開埋込み、étale chart、bare categoryの相異性を含まない。
+**具体的帰結。** 剛体B_*の全四係数族で、O-marked圏はパラメータごとに相異なる。さらに有限型C基底上の相対同値についてA4→M^Oはmonomorphismとなる。既存PBW・AS・CY・剛体性入力を明記した証明は `prop:rigid-four-family-monomorphism`。正則開上の体上の系 `cor:abel-rigid-four-family` も保持する。これは開埋込み、étale chart、bare categoryの相異性を含まない。
 
 ### 1.3 降下に関する二つの障害
 
@@ -66,7 +66,7 @@ B_*では二次中心の普遍条件も全係数基底上で成立する。A_2/S
 
 **射影模型とC1–C2。** 十分割り切れる偶数ℓについてD=C^(ℓ)、Y=Proj D、𝒜=˜(A_P^(ℓ))を使う。c∈D_1を可逆化すると、Aの次数一生成から1∈T_1T_−1かつ1∈T_−1T_1となり、強い次数付けを得る。この点を省略すると、重み付き中心のProjを使う際に次数剰余類を失い得る。従ってQGr(A_S)≃QCoh(Y_S,𝒜_S)、qgr≃coh。ℓを偶数に取ると通常のSerre生成性・消滅が偶数列へ移る。
 
-全twistのsection飽和は M_m=A_S(m)^(ℓ) 上の中心正則列 u^ℓ,v^ℓ による H^0_(D_+)(M_m)=H^1_(D_+)(M_m)=0 から従う。全Noetherian底変更で同じ証明が使え、負次数Homも零となる。偶数列上のHom作用から完全同値を決定する証明では、列を射影対象と仮定しない。二つの表示を直和の共通全射で比較し、coherent部分からfiltered colimitで全体へ延長する。
+全twistのsection飽和は M_m=A_S(m)^(ℓ) 上の中心正則列 u^ℓ,v^ℓ による H^0_(D_+)(M_m)=H^1_(D_+)(M_m)=0 から従う。全Noetherian底変更で同じ証明が使え、負次数Homも零となる。一般のSは有限型P部分代数のfiltered colimitと書き、標準対象の有限表示性と自由係数作用の随伴から同じ式を得る。従って飽和は任意係数で成立する。偶数列上のHom作用から完全同値を決定する証明では、列を射影対象と仮定しない。二つの表示を直和の共通全射で比較し、coherent部分からfiltered colimitで全体へ延長する。
 
 **局所perfectと相対RHom。** 局所代数Λ=(A_S[c^−1])_0はS上平坦である。局所perfectなK,LのHom複体は、S平坦なΛの有限直和の直和因子を項とする。有限中心の射影模型とStacks Lem36.27.1により大域RHomはS-perfectとなる。任意底変更は有限Čech複体で確認する。ここで導来底変更は代数係数の拡張であり、Y_S自体がS平坦とは限らないので通常のO_Y-導来逆像と無条件に同一視しない。
 
@@ -90,13 +90,40 @@ B_*では二次中心の普遍条件も全係数基底上で成立する。A_2/S
 
 | 相対Hom定理の入力 | 四係数族での状態 |
 |---|---|
-| C1：相対QGr模型・対象／射の降下 | 全係数基底上、Noetherian底変更について証明 |
-| C2：全twist飽和・偶数列・復元・関手決定 | 同上 |
-| C3：内在的有限Tor部分圏・導来底変更 | 一般正則性入力の下で非空開上に供給 |
-| C4：perfect RHomと底変更 | 同じ非空開上に供給 |
-| C4：相対Serre双対、S≅(−2)[3] | 未証明。現在の最優先 |
+| C1：相対QGr模型・対象／射の降下 | 全係数基底上、Noetherian底変更について証明。固定模型のHom降下は任意fpqc被覆 |
+| C2：全twist飽和・偶数列・復元・関手決定 | 飽和は任意係数、豊富列による全射比較はNoetherian底 |
+| 元のC3：有限係数Tor部分圏=局所Perf | 一般正則性入力の下で非空開上 |
+| compact版C3：D(QGr)^c=局所Perf | BDG Thm3.14により全係数基底。全Abel同値が保存 |
+| C4：perfect RHom・相対Serre・底変更 | 局所Perf上で全四係数基底、S≅(−2)[3]。任意Noetherian底変更 |
+| 全相対Homとモジュライ射 | 有限型CサイトでIsom_gr/Gm≅Eq_O、剛体性入力下でA4→M^Oはmonomorphism |
 
-大域dg smooth性、全17係数族への拡張、有限型atlasは別の問題である。局所対角のperfect性だけからこれらを結論しない。
+全17係数族への拡張、有限型atlas、大域dg smooth性は別の問題である。局所対角のperfect性だけからこれらを結論しない。
+
+### 1.5 相対Serre双対と全四係数族の忠実性
+
+詳細な証明は `relative_serre_duality.tex` に集約する。ここでは再利用する構成と、誤用を防ぐ条件だけを記す。
+
+**体上の双加群同定。** 中心Veroneseの生成元から重みℓの多項式環Tを選ぶと、AはT上有限である。Yekutieli1992 Prop5.2と、torsion-of-injectives・balanced一意性を使い、RHom_T(A,R_T)をAのbalanced dualizing complexと**両側加群として**同定する。R_A=A(−2)[4]の入力は既存B_*のCY・AS5と中心正則三次商から供給する。ℓ-Veroneseと層化の後のシフトは[−1]で、射影模型の双対はE_−2[3]となる。体上の片側のSerre対象の一意性だけでは、両側作用の同定を代替できない。
+
+任意の拡大体kでのB_*⊗kのNoetherian性も確認した。f=0の商が有限中心模型からNoetherianであること、G_*が正次数の中心正則元であることを使う。G_*進filtrationの随伴次数付き代数からの斉次イデアル生成元の持上げは、固定した全次数で停止する。任意のNoetherian代数の体拡大がNoetherianである、と仮定しない。
+
+**相対化。** P=C[a,b,c,d]、j:Y→Z=P^N_Pに対し、
+
+\[
+\mathscr D_P=R\mathcal Hom_{\mathcal O_Z}(j_*\mathscr A,\omega_{Z/P}[N])
+\]
+
+を作る。Zは正則、𝒜はP-flatなので、有限O_Z射影分解は任意の係数変更後にも分解である。全residue fieldでの双加群公式とStacks00MIからD_P=W[3]、WはP-flatとなる。V=Hom_𝒜(E_−2,W)に07VKを適用し、RΓ(V)=L[0]（Lは基底直線束）を得る。ここではRΓ(𝒜_s)=κ(s)も必要であり、AS局所コホモロジーで示す。評価L⊗E_−2→Wは各fiberで同型なので大域的にも同型。Pic(P)=0で右加群同型を選び、generic fibreでの双加群同型との差がスカラーであること、WがP-torsion-freeであることから左作用の両立を得る。
+
+**底変更の注意。** 初期のD_Pの底変更はunderlyingなD(O_Z)で作り、左右の乗法への自然性を保持する。𝒜^op⊗_(O_Z)𝒜のP-flatnessは仮定しない。D_P=W[3]とWのflatnessを得た後、H^−3を取った比較がW⊗SとH^−3(D_S)の通常の双加群同型になる。この順序で全係数の真正な双加群同型を得る。Y/P自身のflatnessも不要である。
+
+**Serreとcompact。** 局所𝒜-perfectなK,LのHomはambient O_Z-perfectでもある。射影空間上のGrothendieck双対と有限射影tensor–Homにより、相対Serre式とtraceが自然に得られる。Stacks0B91でproper Homと任意底変更を確認する。BDG Thm3.14により局所Perf=D(QGr)^cなので、完全Abel同値がこれを保つ。Serre同定の選択差は標準線対象上で一つのスカラーとなり、その冪が次数スカラー商に吸収される。Perf圏の全ての自然自己同型がスカラーである、と余分に主張する必要はない。
+
+このcompact版と元の有限係数Tor版C3は別である。体上では全coherent対象が底に関してTor振幅零だが、特異代数層上では全てperfectとは限らない。この例が両者を混同できない理由である。全四係数族のHom比較にgeneric regularityは使わない。
+
+**群スキームとmonomorphism。** Aut_gr(B_*)は二次関係のstabilizerとしてGL5の有限型閉部分群スキームである。標数零のCartierの定理と既存の複素点の剛体性から、群スキームとしてGmに等しい。従って任意のC代数SでA_f≅_gr A_gなら、二次包絡の自己同型は次数スカラーである。三次核の最高symbolγの係数を比較するとf=gが従い、非被約基底でも追加同一視はない。
+
+相対Hom比較と合わせ、有限型C基底T上で射の層は二つの係数写像の閉等化子Eq_T(f,g)が表す層となる。全fpqc stack化後にも、固定模型のHomの任意fpqc降下と標識付き2慣性の自明性から射は増えない。後者だけでは降下の有効性の代わりにならない。従ってA4→M^Oはこのsite上でmonomorphismであるが、開埋込み・成分性・atlasではない。
 
 ## 2. ファイバー、中心条件、正規条件
 
@@ -268,7 +295,7 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-可換点の二次包絡平坦性は§5.3、任意係数変更後の飽和・復元は§5.5で証明済みである。最優先は§1.4の四係数族の非空開上で相対Serre公式を証明し、全O保存同値の相対比較を完成させることである。全Artin残余射の形式幾何化（§10）と、17係数全混合族の非空smooth proper開集合は上位目標として保持する。相対dg模型・対角perfect性・基底変更を確保し、必要なJacobian開部分で正規三次イデアルを保つ周期降下と有限係数incidenceを扱う。P3のrank6模型の全分類や全AS5許容関手の代数性を、その前提にしない。
+可換点の二次包絡平坦性は§5.3、任意係数変更後の飽和・復元は§5.5で証明済みである。四係数族全体の相対Serre公式と全O保存同値の相対比較は§1.5で完成した。最優先は全stack化後の可換点の形式完備化と標準Artin模型の同定である。一般族への拡張では、有限中心性が有限位数の楕円境界に依存することを明示する。全Artin残余射の形式幾何化（§10）と、17係数全混合族の非空smooth proper開集合は上位目標として保持する。相対dg模型・対角perfect性・基底変更を確保し、必要なJacobian開部分で正規三次イデアルを保つ周期降下と有限係数incidenceを扱う。P3のrank6模型の全分類や全AS5許容関手の代数性を、その前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
@@ -362,12 +389,16 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 | [Feyzbakhsh–Liu–Zhang, MPIM23-7](https://archive.mpim-bonn.mpg.de/id/eprint/4904/1/mpim-preprint_2023-7.pdf), Theorems1.1/6.2 and1.2/7.1 | 可換del Pezzo三様体のgluing objectとBrill–Noether復元 | 今回の非可換族で接合データが7方向をどう保持するかを調べる |
 | [Matviichuk–Pym–Schedler, arXiv:2411.10425v1](https://arxiv.org/html/2411.10425v1), Introduction, Theorem1.1 | 適切な非退化条件を満たすq-symmetric/toric型から具体的な量子射影空間を作る | rank2 Rat113へ直接適用する定理ではない。有限係数成分構成の方法比較に使う |
 | [Lin–Zhang, arXiv:2611.05915v1](https://arxiv.org/html/2611.05915v1), §2–3 | 幾何的相対admissible圏・perfect kernelを仮定する同値変形。新しいhypersurface Torelliの結果 | 任意のNC familyを幾何的とする定理ではない。今回の代数化入力と混同しない |
+| [Yekutieli, Dualizing complexes (1992)](https://www.math.bgu.ac.il/~amyekut/publications/dual-com/dual-com.pdf), Def4.1, Props4.6/5.2, Cor5.5, Rem5.7 | balanced双対複体の一意性、有限中心写像、商、trace | 体上で両側加群の同定に使う。次数零部分がPの相対定理として直接引用しない |
+| [Burban–Drozd–Gavran, arXiv:1501.06023v2](https://arxiv.org/pdf/1501.06023), Defs3.1/3.13, Thm3.14 | 非有界導来圏のcompact=局所Perf | Abel同値が保存する内在的部分圏。有限係数Tor圏との一致とは別 |
+| [Stacks00MI](https://stacks.math.columbia.edu/tag/00MI), [07VK](https://stacks.math.columbia.edu/tag/07VK), [0B91](https://stacks.math.columbia.edu/tag/0B91), [0A9W](https://stacks.math.columbia.edu/tag/0A9W), [0B6J](https://stacks.math.columbia.edu/tag/0B6J), [0B6S](https://stacks.math.columbia.edu/tag/0B6S) | flatness、proper base change、射影空間の双対・trace | 有限中心模型の相対化。非平坦な中心Y自体の双対公式を仮定しない |
+| [Stacks047N](https://stacks.math.columbia.edu/tag/047N) | 標数零の有限型群スキームのsmoothness | 既存の複素点剛体性をAut_gr(B_*)=Gmという群スキームの主張へ移す |
 
 近接するfoliation文献とKu変形の文献は、公表用Introductionへ正確に反映する必要がある。現在のAbel変形比較については上記の確認済み一次資料をIntroductionとbibliographyに反映した。残余圏・foliationの関連入力は、公表時の中心定理に応じてさらに照合する。
 
 ## 12. 現在の検証範囲と外部課題との境界
 
-全Abel変形の平坦二次包絡、次数三判定、平方零消滅、形式環の証明を保持する。今回の主な点検対象は任意係数変更のHom・復元・内部fpqc降下、全twistのČech計算、有限中心の射影模型、全中心アフィン片へのExt局所化、相対対角の拡張と内在的perfect部分圏である。主要な証明は別々に読み合わせた。相対Serre公式、全圏の有効降下、大域dg smoothnessを先取りしていない。第三者査読、新規性の網羅調査、全旧証明の独立再証明は未完了。正確な対象ファイル・一次資料・範囲は `validation.json`。
+全Abel変形の平坦二次包絡、次数三判定、平方零消滅、形式環の証明を保持する。今回の点検対象には任意係数変更のHom・復元・内部fpqc降下、全twistのČech計算、有限中心の射影模型、相対対角の拡張に加え、体上の双加群双対化、相対Serreとtraceの底変更、compact版Hom比較、群スキーム剛体性とmonomorphismを含む。主要な証明は別々に読み合わせた。新しい結論は既存PBW・AS・CY・剛体性の明示された入力に依存する。全圏の有効降下と大域dg smoothnessは先取りしていない。第三者査読、新規性の網羅調査、全旧証明の独立再証明は未完了。正確な対象ファイル・一次資料・範囲は `validation.json`。
 
 既存8計算は2026-11-16に実行され、横断slice行列式−5538243375000、Rat113の全Poisson接空間37、二因子stabilizer rank48、低次中心、中心三次式、軌道rank24、分離型codim15を再現した。3保存証明書も一致している。今回そのsourceは変更しておらず、これを今回の再実行と報告しない。
 

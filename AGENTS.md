@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v5。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1・§5）、`papers/sections/finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v11）。
+2026-11-19 / research-plan-v6。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1・§5）、`papers/sections/relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v12）。
 
 ## 最優先の判断基準
 
@@ -8,11 +8,11 @@
 
 ## 直近の優先順位
 
-1. **四係数族の相対Serre公式が最優先。** `finite_order_relative_categories.tex` は既存PBW・有限位数THCR入力の下でC1–C2を全係数基底上、C3とperfect RHom・底変更を非空開上で証明する。残るC4の双対・S≅(−2)[3]を固定CY ambientの相対局所双対と比較する。
-2. **可換点の全Abel Artin変形と任意係数変更の飽和・復元は解決済み。** `thm:abel-cubic-flat-envelope`, `cor:abel-universal-artin-model`, `thm:abel-canonical-relative-formal` を読む。全stack化後の形式完備化との同定には圏自体の有効降下・Artin大域模型が残る。
-3. 17係数族、相対周期降下、有限型incidence、実際のambient射へ拡張する。形式環や有限係数の次元から大域代数性・成分性を先取りしない。
-4. actual residual map、7方向の接合データ、Oの内在認識を進める。
-5. 次数三から全次数への平坦性伝播と平方零消滅は独立に保持する。一般Artinに一次障害式を無補正で反復しない。
+1. **全stack化後の可換点の形式完備化。** 標準係数族と全Abel Artin変形の群oid同値、任意係数変更の飽和・復元、固定模型のHom降下は解決済み。圏自体の有効降下とArtin大域模型を、局所的な線対象の持上げから検討する。
+2. **四係数族の相対比較は全基底で完成した。** `relative_serre_duality.tex` は既存PBW・AS・CY入力の下で局所Perfの相対Serre公式S≅(−2)[3]と底変更を証明する。compact版C3により全O保存同値を比較し、剛体性入力の下で全A4→M^Oのmonomorphismを有限型Cサイト上で得る。正則開への制限は不要。これを未解決として繰り返さない。
+3. 全17係数族、13係数ambient、相対周期降下、有限型incidence、実際のambient射へ拡張する。有限中心手法の有限位数境界という制約を明記する。
+4. 公表単位と初出を照合し、既存B_*のPBW・CY・剛体性入力を独立点検する。新しい一般双対理論とは主張しない。
+5. actual residual map、7方向の接合データ、Oの内在認識を進める。直接的な次数三判定・平方零消滅も保持し、一次障害式を高次へ無補正で反復しない。
 
 H3三次曲面分類は `uedakazushi/nc-cubic-classification` の独立課題。
 
@@ -23,6 +23,8 @@ O-markedは豊富列の存在を要求し選択を忘れ、射にはOを保つ�
 偶数Veroneseのμ2は次数スカラーGmに含まれ、O-marked圏の追加2慣性ではない。相対商は層商であり、大域点集合の商と区別する。Serre式の基底線束、同型のH1障害と対象のH2障害を保持する。
 
 DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同型で割った1群oidの規約で述べ、未切断2-groupoidには拡張しない。滑らかな可換三次点では全Abel Artin変形が相対AS三次incidenceの本質像に入り、同型類関手は17次元・接空間20の環で表される。CFTの構成とYekutieliの既知比較を明示する。各Artin模型は任意の係数変更後にも飽和・復元・相対AS条件を満たす。標準係数族と全Abel変形群oidは同値。固定圏の対象・射の降下と、圏の族自体の有効降下は別であり、全stack化後の形式完備化には後者が残る。有限Aut(X)の商、非切断2群oid、一般の非可換点、大域代数性へ拡張しない。
+
+四係数族の全体で使う内在的圏は非有界導来圏のcompact対象である。元の有限係数Tor部分圏との一致は非空正則開上の別結果。monomorphismは開埋込み・成分性・atlasではない。相対双対の初期基底変更はambient導来圏で扱い、振幅集中とflatnessを得てから真正な双加群同型へ移る。
 
 有限中心Cの任意底変更後は中心準同型C_S→Z(A_S)だけを使い、単射や全中心の底変更可換性は仮定しない。非Noetherian底には大きいQGrを使う。相対アフィン対角のperfect性を大域dg smooth性と同一視しない。
 

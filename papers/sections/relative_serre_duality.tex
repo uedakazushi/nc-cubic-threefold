@@ -1,0 +1,933 @@
+% 2026-11-19 / manuscript v12
+\section{四係数族の相対Serre双対と構造対象付きAbel圏}
+\label{sec:relative-serre-projective}
+
+この節では、有限な中心模型を持つ固定周囲代数の四係数族について、
+体上の双対両側加群の計算を可換係数環上へ移す。
+体を次数零部分とする既存の非可換 Serre 双対定理を、
+次数零部分が多項式環である場合に直接適用することはしない。
+必要な相対双対性は通常の射影空間の Grothendieck 双対性から構成する。
+
+\subsection{仮定と体上の入力}
+
+\[
+ P=\mathbb C[a,b,c,d],\qquad
+ \mathcal A=B_*\otimes_{\mathbb C}P/
+ (G+au^3+bu^2v+cuv^2+dv^3)
+\]
+とし、有限中心模型の節で構成した
+\[
+ C\longrightarrow Z(\mathcal A),\quad
+ D=C^{(\ell)},\quad
+ Y=\operatorname{Proj}D,\quad
+ \mathscr A=\widetilde{\mathcal A^{(\ell)}}
+\]
+を用いる。$\ell$ は十分割り切れる正の整数で、$D$ は次数一で生成される。
+有限個の次数一生成元を選び、閉埋込
+\[
+ j:Y\hookrightarrow Z=\mathbb P^N_P
+\]
+を固定する。$q:Z\to\operatorname{Spec}P$ を射影とする。
+各整数 $m$ に対し
+\[
+ \mathscr E_m=\widetilde{\mathcal A(m)^{(\ell)}}
+\]
+と書く。中心局所化の強い次数付き性により、
+$\mathscr E_m$ は可逆な $\mathscr A$-両側加群であり、
+$\mathscr E_m\otimes_{\mathscr A}\mathscr E_n\simeq\mathscr E_{m+n}$ である。
+ここで $\mathscr E_m$ の $m$ は元の次数であり、
+射影空間または $Y$ の通常の twist と混同しない。
+
+以下の三つの入力を明記する。
+\begin{enumerate}
+\item $\mathcal A_n$ は有限自由 $P$-加群である。
+  従って中心局所化の次数成分として得られる
+  $\mathscr A$ と全ての $\mathscr E_m$ は $P$ 上平坦であり、
+  それらの形成は任意の可換基底変更と可換する。
+\item 任意の $s\in\operatorname{Spec}P$ に対し、$k=\kappa(s)$ と書くと
+  \begin{equation}\label{eq:relative-serre-field-cohom-input}
+  R\Gamma(Y_k,\mathscr A_k)\simeq k[0].
+  \end{equation}
+  これは $\mathcal A_k$ の AS-Gorenstein 次元四、指数二の局所双対性から従う。
+  実際、tail の局所コホモロジー完全列で
+  $H^1(Y_k,\mathscr A_k)=H^2(Y_k,\mathscr A_k)=0$、
+  $H^3(Y_k,\mathscr A_k)\simeq(\mathcal A_k)_{-2}^*=0$ となり、
+  saturation により $H^0(Y_k,\mathscr A_k)=(\mathcal A_k)_0=k$ となる。
+\item 体上の双対両側加群の補題を次の形で用いる。
+  \begin{equation}\label{eq:relative-serre-field-bimodule-input}
+  R\mathcal Hom_{\mathcal O_{Z_k}}
+  (j_{k,*}\mathscr A_k,\omega_{Z_k/k}[N])
+  \simeq j_{k,*}\mathscr E_{-2,k}[3]
+  \end{equation}
+  は $\mathscr A_k$-\emph{両側加群}の導来圏における同型である。
+  この入力は全ての residue field、特に
+  $k=\operatorname{Frac}P$ に対して必要である。
+  その証明は有限中心多項式環上の局所双対性と
+  balanced dualizing complex を比較する補題
+  \ref{lem:finite-central-field-dualizing-bimodule} に置く。
+  右加群としての双対対象の同定だけでは、この入力を代替できない。
+\end{enumerate}
+
+三入力のうち、有限自由性は第\ref{sec:four-parameter-central-model}節で示した。
+体上の二つの双対入力は、下の系\ref{cor:four-parameter-field-dualizing}から従う。
+従って以下の相対化に新たなファイバー正則性の仮定は不要である。
+既存のPBW・AS正則・CY構成への依存は同系に明記する。
+
+\subsection{体上の有限中心模型における双加群双対化}
+
+次の補題では、通常の次数シフトと中心の Veronese 次数を区別する。
+特に $\mathscr E_{-2}$ は通常の次数を $-2$ だけ移す双加群であり、
+中心の射影空間から来る $\mathcal O(-2)$ とは限らない。
+
+\begin{lemma}[有限中心模型の双加群双対化]
+\label{lem:finite-central-field-dualizing-bimodule}
+$k$ を体、$A$ を連結、局所有限、左右 noetherian な
+非負次数付き $k$-代数とする。
+非負次数付きの有限型可換 $k$-代数 $C$、$C_0=k$ から
+$Z(A)$ への次数付き準同型があり、
+$A$ は $C$ 上有限であるとする。
+$C^{(\ell)}$ が次数一で生成されるように $\ell>0$ を選び、
+\[
+ Y=\operatorname{Proj}C^{(\ell)},\qquad
+ \mathscr A=\widetilde{A^{(\ell)}},\qquad
+ \mathscr E_t=\widetilde{A(t)^{(\ell)}}
+\]
+と置く。
+$C^{(\ell)}$ の次数一生成元による閉埋込み
+$j:Y\hookrightarrow Z=\mathbb P^N_k$ を選ぶ。
+さらに $A$ の balanced dualizing complex が
+\begin{equation}\label{eq:field-balanced-dualizing-input}
+ R_A\simeq A(-2)[4]
+ \quad\text{in }D(\operatorname{Gr}A^e)
+\end{equation}
+を満たすとする。
+このとき、$j_*\mathscr A$ の双加群の導来圏において
+\begin{equation}\label{eq:field-groth-dualizing-bimodule}
+ \mathbb D_{\mathscr A/k}
+ :=\mathbf R\mathcal Hom_{\mathcal O_Z}
+       (j_*\mathscr A,\omega_Z[N])
+ \simeq j_*\mathscr E_{-2}[3]
+\end{equation}
+である。
+有限大域次元、$Y$ の正則性、および $\mathscr A$ の正則性は仮定しない。
+体 $k$ の代数閉性も不要である。
+
+右辺に移した双対性の trace は、
+\begin{equation}\label{eq:field-groth-dualizing-trace}
+ \mathbf R\Gamma(Z,\mathbb D_{\mathscr A/k})
+ \xrightarrow{\,\operatorname{ev}_1\,}
+ \mathbf R\Gamma(Z,\omega_Z[N])
+ \xrightarrow{\,\operatorname{Tr}_{Z/k}\,}k
+\end{equation}
+で与えられる。
+balanced dualizing complex の規格化を選べば、
+この trace と有限中心写像の graded trace は一致する。
+規格化を指定しない場合の同型は、その規格化の共通スカラーの自由度を持つ。
+\end{lemma}
+
+\begin{proof}
+$C_\ell$ の上記生成元に対し、
+\[
+ T=k[y_0,\ldots,y_N],\qquad \deg y_i=\ell
+\]
+と置く。
+$C$ は $C^{(\ell)}$ 上有限であり、$T\to C^{(\ell)}$ は全射である。
+従って $T\to C\to A$ は中心に像を持ち、$A$ は $T$ 上有限である。
+$C\to A$ または $T\to A$ の単射性は必要ない。
+$T$ の balanced dualizing complex は
+\[
+ R_T=T(-(N+1)\ell)[N+1]
+\]
+である。
+ここで
+\[
+ S_A=\mathbf R\underline{\operatorname{Hom}}_T(A,R_T)
+\]
+には、左作用と右作用をともに残す。
+具体的には、$R_T$ を表す有界な次数付き $T$-injective 複体 $I$ を取り、
+$\underline{\operatorname{Hom}}_T(A,I)$ に
+\[
+ (a\varphi b)(x)=\varphi(bxa)
+\]
+で $A$-双加群構造を入れる。
+coinduction の随伴と中心性により、この複体は左および右の
+$\mathbf R\underline{\operatorname{Hom}}_T(A,R_T)$ を同時に表す。
+従って \cite[Proposition~5.2]{YekutieliBalanced} により
+$S_A$ は $A$ の dualizing complex である。
+
+この段階で balanced 性を確認しておく。
+$\mathfrak n=T_{>0}$、$\mathfrak m=A_{>0}$ とする。
+$A$ の $T$ 上の有限性により、$A$-加群に対する
+$\mathfrak m$-torsion と $\mathfrak n$-torsion は一致する。
+実際、$A/\mathfrak n^q A$ は有限次元なので、
+ある十分高い次数以上の $A$ の成分は $\mathfrak n^qA$ に含まれる。
+逆向きの包含は次数から従う。
+さらに $A$ の有限個の斉次 $T$-生成元を取ると、各項について
+\[
+ \Gamma_{\mathfrak m}
+    \underline{\operatorname{Hom}}_T(A,I^r)
+ =\underline{\operatorname{Hom}}_T
+    (A,\Gamma_{\mathfrak n}I^r)
+\]
+となる。
+右辺で像の各元を殺す冪が取れるとき、有限個の生成元に対する冪の最大を取れば、
+準同型全体を殺す一つの冪を選べるからである。
+coinduction により左辺の torsion を取る前の各項は $A$-injective であり、
+\cite[Proposition~4.6]{YekutieliBalanced} により
+$\Gamma_{\mathfrak n}I^r$ は次数付き $T$-injective である。
+$T'=\underline{\operatorname{Hom}}_k(T,k)$ と書くと、
+$T$ の balanced 性から
+$\Gamma_{\mathfrak n}I\simeq T'$ を得る。
+従って、左側の torsion について双加群として
+\[
+ \mathbf R\Gamma_{\mathfrak m}(S_A)
+ \simeq\mathbf R\underline{\operatorname{Hom}}_T(A,T')
+ \simeq\underline{\operatorname{Hom}}_k(A,k)=A'
+\]
+となる。
+$T'$ は次数付き $T$-injective なので、最後の式に高次 Ext はない。
+右側の torsion も同じ議論で計算できる。
+よって $S_A$ は balanced であり、balanced dualizing complex の
+双加群としての一意性
+\cite[Definition~4.1 の直後、p.~57]{YekutieliBalanced} により
+\begin{equation}\label{eq:field-central-polynomial-duality}
+ R_A\simeq
+ \mathbf R\underline{\operatorname{Hom}}_T(A,R_T)
+ \quad\text{in }D(\operatorname{Gr}A^e)
+\end{equation}
+を得る。
+以上の議論は、片側の Serre 対象の一意性だけから双加群の同型を推測するものではない。
+
+次に $T$ の次数を $\ell$ で割り、標準次数付き多項式環 $T_0$ と見なす。
+$\operatorname{Gr}T$ は次数の $\ell$ を法とした剰余類で直積分解する。
+$R_T$ は剰余類零に属するので、上の $I$ もこの剰余類だけに取れる。
+すると複体の各項について
+\[
+ \bigl(\underline{\operatorname{Hom}}_T(A,I)\bigr)^{(\ell)}
+ =\underline{\operatorname{Hom}}_{T_0}
+      (A^{(\ell)},I^{(\ell)})
+\]
+である。
+左辺の次数が $\ell$ の倍数である準同型は、$A$ の剰余類零以外を零へ送る。
+また $A^{(\ell)}$ の左右の作用は剰余類零を保つ。
+従って、この同型は両側の作用と両立し、
+\begin{equation}\label{eq:field-veronese-duality}
+ (R_A)^{(\ell)}\simeq
+ \mathbf R\underline{\operatorname{Hom}}_{T_0}
+ \bigl(A^{(\ell)},T_0(-N-1)[N+1]\bigr)
+\end{equation}
+を双加群として得る。
+
+この同型を $Z=\operatorname{Proj}T_0$ 上で層化する。
+導来 Hom と層化の比較はここでも双加群として行える。
+実際、$A^{(\ell)}$ は $T_0$ 上有限なので Hom は標準開集合への局所化と可換であり、
+noetherian 可換環上の injective 加群の局所化は injective である。
+次数付き版は、斉次イデアルの有限表示によって分母を払い、
+次数付き Baer 判定法を適用する同じ証明で従う。
+標準開集合の局所化環は次数一の可逆元を持つので、
+次数零を取る操作は次数付き加群圏と次数零環の加群圏との同値であり、injective 性を保つ。
+従って上で選んだ coinduced 複体の局所化が、
+両側の作用を保持したまま層の導来 Hom を計算する。
+また $\widetilde{T_0(-N-1)}=\omega_Z$ であるから、
+\[
+ \mathbf R\mathcal Hom_{\mathcal O_Z}
+       (j_*\mathscr A,\omega_Z[N])
+ \simeq \widetilde{(R_A)^{(\ell)}}[-1]
+ \simeq j_*\mathscr E_{-2}[3].
+\]
+ここで最後にだけ \eqref{eq:field-balanced-dualizing-input} を用いた。
+
+trace について、有限中心写像の dualizing trace は
+$T\to A$ の双対、すなわち $\varphi\mapsto\varphi(1)$ である。
+中心性により左右の trace は一致する
+\cite[Remark~5.7]{YekutieliBalanced}。
+剰余類零の取り出しと局所化は単位元およびこの評価写像を保ち、
+多項式環の residue の規格化は射影空間の標準 trace を与える。
+従って、比較によって運ばれる trace は
+\eqref{eq:field-groth-dualizing-trace} である。
+既に \eqref{eq:field-balanced-dualizing-input} の同型が選ばれている場合には、
+balanced duality の規格化に合わせてそのスカラーを選ぶ。
+$A_0=k$ なので、$A(-2)$ の次数零の双加群自己同型の自由度は $k^\times$ である。
+\end{proof}
+
+\begin{corollary}[四係数族の全ての体値における untwisted 双対複体]
+\label{cor:four-parameter-field-dualizing}
+命題\ref{prop:moduli-rigid-example}の $B_*$ について、
+補題\ref{lem:pbw}と\ref{lem:CY}の PBW、Koszul AS 正則性、
+中山自己同型が恒等であるという入力を用いる。
+$P\to k$ を任意の体値とし、対応する二変数三次式を $f$ とする。
+\[
+ B_k=B_*\otimes_{\mathbb C}k,\qquad
+ W_k=G_*+f,\qquad A_k=B_k/(W_k)
+\]
+と置くと、次数付き双加群として
+\[
+ R_{B_k}\simeq B_k(-5)[5],\qquad
+ R_{A_k}\simeq A_k(-2)[4]
+\]
+が balanced dualizing complex である。
+従って補題\ref{lem:finite-central-field-dualizing-bimodule}は、
+四係数族の全ての体値に適用できる。
+\end{corollary}
+
+\begin{proof}
+まず noetherian 性の体拡大について説明する。
+定理\ref{thm:central-model-finite}を四つの係数が零である
+$P\to k$ に適用すると、$A_{0,k}=B_k/(G_*)$ は左右 noetherian である。
+$G_*$ の正則性は体拡大で保たれ、
+$G_*$-adic 随伴次数付き環は $A_{0,k}[t]$ である。
+斉次イデアルの随伴次数付きイデアルの有限個の生成元を持ち上げると、
+$\deg G_*=3>0$ により、固定した通常の次数では持上げの帰納法が有限回で終わる。
+従って $B_k$ の斉次左・右イデアルは有限生成である。
+任意の左・右イデアルに通常の次数 filtration を適用すれば、$B_k$ は左右 noetherian である。
+これは任意の体拡大が一般に noetherian 性を保つと主張する議論ではない。
+
+既存の PBW filtration の等式と有限な Koszul 解消は、平坦な体拡大と可換である。
+有限な次数付き双加群射影解消とその CY 同型も体拡大で保たれる。
+よって $B_k$ は Koszul AS 正則で、中山自己同型は恒等であり、
+AS index は Koszul 次元の $5$ である。
+AS 正則代数の balanced dualizing complex と中山自己同型の関係
+\cite[Lemma~3.5 の証明、Theorem~6.3 の証明]{RRZHomological}
+から $R_{B_k}\simeq B_k(-5)[5]$ を双加群として得る。
+
+$W_k$ の最高 $x,y,z$-filtration symbol は、
+$\mathbb C$ 上の正則な中心三次元を体拡大したものであるから、
+$W_k$ は中心正則な次数三の元である。
+中心性を保った二項分解
+\[
+ 0\longrightarrow B_k(-3)
+ \xrightarrow{\,W_k\,}B_k\longrightarrow A_k\longrightarrow0
+\]
+により、左右の相対 Hom はともに、自然な両側の作用を持つ
+$A_k(3-5)[5-1]=A_k(-2)[4]$ を与える。
+ここで通常の normal 元の商に現れる normalizing automorphism は、
+$W_k$ が中心元であるため恒等である。
+従って \cite[Proposition~5.2, Corollary~5.5]{YekutieliBalanced} を
+全射 $B_k\to A_k$ に適用すれば、これが balanced であることも従う。
+この計算によって Nakayama の捩れが新たに導入されることはない。
+\end{proof}
+
+\begin{remark}[入力の範囲]
+この系で使用する $B_*$ の PBW・AS 正則・CY 性は、
+補題\ref{lem:pbw}、\ref{lem:CY}とその引用入力に依存する。
+この系の独立した証明内容は、体拡大との両立、中心三次商の双加群計算、
+および balanced 性の確認である。
+有限中心模型の存在は定理\ref{thm:central-model-finite}に依存する。
+\end{remark}
+
+\subsection{相対双対両側加群の構成と基底変更}
+
+\begin{lemma}\label{lem:relative-serre-ambient-dual}
+$\mathscr A$ を $j$ により $Z$ 上の有限代数層とみなし、
+\[
+ \mathscr D_P=
+ R\mathcal Hom_{\mathcal O_Z}
+ (j_*\mathscr A,\omega_{Z/P}[N]),
+ \qquad \omega_{Z/P}=\mathcal O_Z(-N-1)
+\]
+と置く。この複体は自然に $\mathscr A$-両側加群の複体であり、
+任意の可換 $P$-代数 $S$ に対して自然な同型
+\begin{equation}\label{eq:relative-serre-dual-basechange}
+ \mathscr D_P\otimes_P^{\mathbf L}S\simeq
+ \mathscr D_S:={}
+ R\mathcal Hom_{\mathcal O_{Z_S}}
+ (j_{S,*}\mathscr A_S,\omega_{Z_S/S}[N])
+ \quad\text{in }D(\mathcal O_{Z_S})
+\end{equation}
+を持つ。これは両側作用、$1$ における評価写像、および基底変更の合成と両立する。
+この段階の導来基底変更は、まず underlying な
+$\mathcal O_Z$-perfect 複体の導来基底変更として読む。
+両側作用との両立は、全ての左乗法と右乗法についての自然性を意味する。
+以下で cohomology が一つの $P$-flat 両側加群に集中すると示した後には、
+これは通常の両側加群の係数基底変更そのものになる。
+$\mathscr A^{\mathrm{op}}\otimes_{\mathcal O_Z}\mathscr A$ が
+$P$ 上平坦であるという仮定は用いない。
+\end{lemma}
+
+\begin{proof}
+$P$ は有限 Krull 次元の正則 noetherian 環であり、$Z$ も正則である。
+従って coherent $\mathcal O_Z$-加群 $j_*\mathscr A$ は
+$\mathcal O_Z$ 上 perfect である。
+各 affine open 上で有限長の有限射影 $\mathcal O_Z$-分解を取れる。
+その各項は $P$ 上平坦であり、分解される加群 $j_*\mathscr A$ 自身も $P$ 上平坦である。
+従ってこの分解は任意の $P\to S$ の後にも分解である。
+これは、増大した分解が有界な平坦加群の完全複体であり、
+その cycle が端からの帰納法で平坦となることから従う。
+
+分解の各項は有限射影なので、$\omega$ への Hom は任意の係数基底変更と可換する。
+よって \eqref{eq:relative-serre-dual-basechange} を得る。
+この写像は分解の選択を用いず、導来 Hom の通常の基底変更写像として定義できる。
+したがって局所計算は貼り合わさり、基底変更の合成にも両立する。
+
+両側作用は、$\mathscr A$ の左乗法と右乗法を Hom の第一変数へ作用させて得る。
+例えば通常の Hom の段階では
+$(a\varphi b)(x)=\varphi(bxa)$ である。
+導来 Hom の基底変更写像の自然性はこの二つの作用を保つ。
+同様に、単位写像 $\mathcal O_Z\to j_*\mathscr A$ による反変性が与える
+\begin{equation}\label{eq:relative-serre-evaluation-one}
+ \epsilon_S:\mathscr D_S\longrightarrow\omega_{Z_S/S}[N]
+\end{equation}
+とも両立する。
+両側加群の複体は、$\omega[N]$ の injective 分解 $I^\bullet$ に対する
+$\mathcal Hom_{\mathcal O_Z}(j_*\mathscr A,I^\bullet)$ としても表せる。
+その全項は $Y$ の定義イデアルで消えるため、$Y$ 上の両側加群複体として扱える。
+この説明では、閉埋込 $j$ の導来 direct image が fully faithful であるとは仮定していない。
+\end{proof}
+
+\begin{lemma}[相対振幅零の判定]\label{lem:relative-serre-amplitude-zero}
+$f:Z\to\operatorname{Spec}P$ は上の射影空間とし、
+$K$ を $Z$ 上の perfect 複体とする。
+全ての $s\in\operatorname{Spec}P$ について
+$K\otimes_P^{\mathbf L}\kappa(s)$ が次数零のみに cohomology を持つなら、
+$K\simeq W[0]$ となる coherent 層 $W$ が存在し、$W$ は $P$ 上平坦である。
+\end{lemma}
+
+\begin{proof}
+$z\in Z$、$s=f(z)$ を固定し、局所 noetherian 環の局所準同型
+$R=P_s\to B=\mathcal O_{Z,z}$ を考える。
+$B$ は $R$ 上平坦である。
+$K_z$ を有限個の有限自由 $B$-加群の複体 $F^\bullet$ で表す。
+この複体の $R$ の剰余体への導来 tensor は、通常の tensor で計算できる。
+仮定により $F^\bullet\otimes_R\kappa(s)$ は次数零以外で完全である。
+
+最高の非零次数 $b>0$ がある場合、
+$\operatorname{coker}(F^{b-1}\to F^b)\otimes_R\kappa(s)=0$ である。
+cokernel は有限 $B$-加群であり、$\mathfrak m_RB\subset\mathfrak m_B$ なので
+Nakayama の補題から $F^{b-1}\to F^b$ は全射である。
+$F^b$ は自由であるからこの全射は分裂し、可縮な二項複体を除ける。
+これを繰り返し、$F^i=0$ for $i>0$ としてよい。
+
+残った有限複体の全項は $R$ 上平坦であり、剰余体後に次数零より左で完全である。
+\cite[Lemma~10.99.5, Tag~\texttt{00MI}]{StacksRelativeDuality}により、
+元の複体も次数零より左で完全で、終端 cokernel は $R$ 上平坦となる。
+これを全ての $z$ に適用すると、$K$ の非零 cohomology は $H^0(K)=W$ のみであり、
+$W$ は $P$ 上平坦である。
+\end{proof}
+
+\begin{proposition}[双対両側加群の相対的同定]
+\label{prop:relative-serre-dual-bimodule}
+上記の体上の入力の下で、$\mathscr A$-両側加群の導来圏における同型
+\begin{equation}\label{eq:relative-serre-global-dual}
+ \Theta_P:\mathscr E_{-2}[3]\xrightarrow{\ \sim\ }\mathscr D_P
+\end{equation}
+を選べる。一度この同型を選ぶと、任意の可換 $P$-代数 $S$ に対し
+\begin{equation}\label{eq:relative-serre-all-base-dual}
+ \Theta_S:\mathscr E_{-2,S}[3]\xrightarrow{\ \sim\ }\mathscr D_S
+\end{equation}
+が基底変更に両立して定まる。
+\end{proposition}
+
+\begin{proof}
+補題 \ref{lem:relative-serre-ambient-dual} と
+入力 \eqref{eq:relative-serre-field-bimodule-input} により、
+$\mathscr D_P[-3]$ の全ての導来 fibre は次数零に集中する。
+この複体は $\mathcal O_Z$ 上 perfect なので、
+補題 \ref{lem:relative-serre-amplitude-zero} より
+\[
+ \mathscr D_P\simeq\mathscr W[3]
+\]
+となる coherent な $P$-flat 層 $\mathscr W$ が得られる。
+この同型は、両側加群複体の標準 truncation として取れる。
+従って $\mathscr W$ は $\mathscr A$-両側加群であり、
+$\mathscr W\otimes_P\kappa(s)\simeq\mathscr E_{-2,\kappa(s)}$ は
+両側加群として成立する。
+実際、$\mathscr W$ の $P$-flatness により補題の underlying な導来基底変更は
+通常の $\mathscr W\otimes_P\kappa(s)$ に集中し、
+左右の乗法についての自然性がこの cohomology 同型の両側線型性を与える。
+
+まず右加群としての大域同型を作る。
+\[
+ \mathscr V=
+ \mathcal Hom_{\mathscr A}(\mathscr E_{-2},\mathscr W)
+ \simeq\mathscr W\otimes_{\mathscr A}\mathscr E_2
+\]
+と置く。
+$\mathscr E_2$ は左 $\mathscr A$-加群として局所有限射影であるから、
+$\mathscr V$ は局所的に $\mathscr W$ の有限直和の直和因子となる。
+従って $\mathscr V$ は coherent かつ $P$-flat であり、
+形成は任意の基底変更と可換する。
+その fibre は $\mathscr A_{\kappa(s)}$ と同型なので、
+\eqref{eq:relative-serre-field-cohom-input} により
+\[
+ R\Gamma(Y_{\kappa(s)},\mathscr V_{\kappa(s)})\simeq\kappa(s)[0].
+\]
+
+$Y$ は $P$ 上 proper で、$\mathscr V$ は coherent かつ $P$-flat である。
+\cite[Lemma~30.22.1, Tag~\texttt{07VK}]{StacksRelativeDuality}により
+$R\Gamma(Y,\mathscr V)$ は perfect $P$-複体で、任意の基底変更と可換する。
+その全ての導来 fibre は一次元で次数零に集中するため、
+\[
+ R\Gamma(Y,\mathscr V)\simeq L[0]
+\]
+となる階数一の有限射影 $P$-加群 $L$ が存在する。
+この最後の主張は有限自由複体の局所最小化、または有限射影複体の fibre による
+Tor 振幅判定から従う。
+
+Hom の評価は右 $\mathscr A$-加群写像
+\begin{equation}\label{eq:relative-serre-line-evaluation}
+ e:L\otimes_P\mathscr E_{-2}\longrightarrow\mathscr W
+\end{equation}
+を与える。
+全ての fibre で、これは
+$\operatorname{Hom}_{\mathscr A_k}(\mathscr E_{-2,k},\mathscr W_k)
+ \otimes_k\mathscr E_{-2,k}\to\mathscr W_k$
+と一致する。
+右加群として $\mathscr W_k\simeq\mathscr E_{-2,k}$ であり、
+\[
+ \operatorname{End}_{\mathscr A_k}(\mathscr E_{-2,k})
+ \simeq H^0(Y_k,\mathscr A_k)=k
+\]
+なので、各 fibre の評価は同型である。
+まず有限生成 cokernel に局所 Nakayama を適用すると $e$ は全射である。
+次に右辺が $P$-flat であるため、$\ker e$ の fibre は fibre 写像の核に一致する。
+これも零なので、もう一度局所 Nakayama を適用して $\ker e=0$ を得る。
+
+多項式環 $P$ の Picard 群は零である。
+例えば $P$ が UFD であることから、その可逆イデアルは主イデアルとなる。
+従って $L\simeq P$ を一度選び、右加群同型
+\[
+ e_0:\mathscr E_{-2}\xrightarrow{\sim}\mathscr W
+\]
+を得る。
+
+この同型が左作用も保つことを示す。
+$\eta$ を $\operatorname{Spec}P$ の generic point、$K=\operatorname{Frac}P$ とする。
+体上の両側加群入力により、ある両側加群同型
+$\beta_\eta:\mathscr E_{-2,K}\to\mathscr W_K$ が存在する。
+$\beta_\eta^{-1}e_{0,\eta}$ は右加群の自己同型であり、
+上の End 計算により $K^\times$ の scalar multiplication である。
+したがって $e_{0,\eta}$ は左作用も保つ。
+
+二つの左作用を比較する写像
+\[
+ \Delta:\mathscr A\otimes_{\mathcal O_Y}\mathscr E_{-2}
+ \longrightarrow\mathscr W,\qquad
+ a\otimes x\longmapsto e_0(ax)-a e_0(x)
+\]
+は generic fibre で零である。
+$\mathscr W$ は整域 $P$ 上平坦なので、各 affine open の加群は
+$P$-torsion-free である。
+従って $\mathscr W\to\mathscr W\otimes_P K$ は単射であり、$\Delta=0$ となる。
+よって $e_0$ は両側加群同型である。
+これに shift $[3]$ を施して \eqref{eq:relative-serre-global-dual} を得る。
+
+$\mathscr W$ は $P$-flat なので、任意の $P\to S$ に対して
+補題 \ref{lem:relative-serre-ambient-dual} の ambient な基底変更を cohomology に取ると
+\[
+ \mathscr W\otimes_P S\xrightarrow{\sim}H^{-3}(\mathscr D_S)
+\]
+を得て、$\mathscr D_S$ の他の cohomology は零である。
+左右の乗法との自然性により、この写像は通常の
+$\mathscr A_S$-両側加群の同型である。
+従って $e_0\otimes_P S$ と両側加群複体の標準 truncation を合成すると、
+\eqref{eq:relative-serre-all-base-dual} が
+両側加群の導来圏における真正な同型として得られる。
+この構成で、enveloping algebra に沿う導来係数 tensor の平坦性は必要ない。
+全ての写像は一つの $e_0$ と自然な ambient 比較の cohomology から定まるため、
+係数環の変更の合成に両立する。
+\end{proof}
+
+\begin{remark}[正規化と平坦性の使い分け]
+同型 $L\simeq P$ の選択により、$\Theta_P$ には scalar の正規化の自由度がある。
+これを各 fibre で別々に選び直すことはしない。
+一度選んだ $\Theta_P$ のみから全ての基底上の trace と双対性を定める。
+また、この証明では $Y\to\operatorname{Spec}P$ の平坦性を使わない。
+使うのは $Z=\mathbb P^N_P$ の平坦性と、$\mathscr A$、
+$\mathscr E_m$、$\mathscr W$ の係数環上の平坦性である。
+\end{remark}
+
+\subsection{局所 perfect 対象の相対 Serre 双対性}
+
+可換 noetherian $P$-代数 $S$ を固定する。
+$\operatorname{Perf}(Y_S,\mathscr A_S)$ は、中心の affine open 被覆上で
+有限生成射影右 $\mathscr A_S$-加群の有界複体となる対象の圏とする。
+$K(m)=K\otimes_{\mathscr A_S}\mathscr E_{m,S}$ と書く。
+ここでは、有限 $S$-Tor 振幅を持つ coherent 複体全体がこの圏に等しいとは主張しない。
+
+\begin{lemma}[内部 Hom の双対性]\label{lem:relative-serre-internal-hom}
+$K,L\in\operatorname{Perf}(Y_S,\mathscr A_S)$ に対し、
+自然な同型
+\begin{equation}\label{eq:relative-serre-internal-duality}
+ R\mathcal Hom_{\mathcal O_{Z_S}}
+ \bigl(j_{S,*}R\mathcal Hom_{\mathscr A_S}(K,L),\omega_{Z_S/S}[N]\bigr)
+ \simeq
+ j_{S,*}R\mathcal Hom_{\mathscr A_S}
+ \bigl(L,K\otimes_{\mathscr A_S}^{\mathbf L}\mathscr D_S\bigr)
+\end{equation}
+がある。これは変数 $K,L$、係数基底変更、および評価による pairing に自然である。
+\end{lemma}
+
+\begin{proof}
+局所的に、可換環 $T$ 上有限な代数 $\Lambda$ とその右 perfect 複体を考える。
+$K^*=R\operatorname{Hom}_{\Lambda}(K,\Lambda)$ は左 perfect 複体であり、
+\[
+ R\operatorname{Hom}_{\Lambda}(K,L)
+ \simeq L\otimes_{\Lambda}^{\mathbf L}K^*.
+\]
+係数の双対複体を $J$、$D_\Lambda=R\operatorname{Hom}_T(\Lambda,J)$ と書くと、
+tensor--Hom 随伴と有限射影加群の双対性により
+\begin{align*}
+ R\operatorname{Hom}_T
+  (R\operatorname{Hom}_{\Lambda}(K,L),J)
+ &\simeq
+ R\operatorname{Hom}_{\Lambda}
+  (L,R\operatorname{Hom}_T(K^*,J))\\
+ &\simeq
+ R\operatorname{Hom}_{\Lambda}
+  (L,K\otimes_{\Lambda}^{\mathbf L}D_\Lambda).
+\end{align*}
+第二の同型は $K=\Lambda$ のとき定義そのものである。
+有限直和、shift、cone、直和因子を取ることに両立するため、
+任意の有限射影複体に成立する。
+従って $\Lambda$ の有限 global dimension は必要ない。
+導来随伴を具体的に確かめるには、$J$ の $T$-injective 分解 $I^\bullet$ を取ればよい。
+$\operatorname{Hom}_T(\Lambda,I^q)$ は、右 $\Lambda$-加群の忘却関手が exact であることと
+その右随伴から、右 $\Lambda$-injective である。
+有限射影左加群 $K^*$ に対する $\operatorname{Hom}_T(K^*,I^q)$ もその有限直和の
+直和因子なので、同じ計算が導来 Hom を計算する。
+
+この計算で $D_\Lambda$ の右作用は、
+$\operatorname{Hom}_T(\Lambda,J)$ の引数への左乗法から来る。
+従って最後の右 $\Lambda$-加群構造は
+$K\otimes_\Lambda D_\Lambda$ の正しい右作用であり、
+右加群としての同型だけからこの式を得ているのではない。
+全ての写像は評価と随伴の単位・余単位で定義される。
+そのため局所計算は貼り合わさり、
+\eqref{eq:relative-serre-internal-duality} を与える。
+
+基底変更については、$\mathscr A_S$ が $S$-flat であることから
+局所 perfect 複体は有界な $S$-flat 複体で表せる。
+有限射影間の Hom は $S$-加群として
+$\mathscr A_S$ の有限直和の直和因子である。
+また $j_{S,*}\mathscr A_S$ は補題
+\ref{lem:relative-serre-ambient-dual} の分解を基底変更した
+$\mathcal O_{Z_S}$ 上の有限 perfect 分解を持つ。
+従って $j_{S,*}R\mathcal Hom_{\mathscr A_S}(K,L)$ も
+$\mathcal O_{Z_S}$ 上 perfect である。
+実際、局所有限射影表示の各 Hom の項は
+$j_{S,*}\mathscr A_S$ の有限直和の $\mathcal O_{Z_S}$-直和因子である。
+したがって上の有限射影 Hom と ambient perfect dual の基底変更写像は同型である。
+評価と tensor--Hom 随伴はこれらの基底変更写像に両立する。
+なお、用いている基底変更は係数環に関する導来 tensor、
+または $\mathscr A_S$ に沿う導来 extension of scalars である。
+非平坦であり得る $Y_S\to\operatorname{Spec}S$ に沿う
+通常の $\mathcal O_{Y_S}$-導来 pullback との無条件の同一視はしていない。
+一方、$Z_S\to\operatorname{Spec}S$ は flat なので、
+$Z_S$ 上の複体については係数の導来 tensor が
+$Z_{S'}\to Z_S$ に沿う導来 pullback に一致する。
+\end{proof}
+
+\begin{theorem}[四係数族全体の相対Serre公式]
+\label{thm:relative-serre-projective}
+上記の入力の下で、全ての可換 noetherian $P$-代数 $S$ と
+$K,L\in\operatorname{Perf}(Y_S,\mathscr A_S)$ に対し、
+\begin{equation}\label{eq:relative-serre-formula}
+ R\operatorname{Hom}_S
+ \bigl(R\operatorname{Hom}_{\mathscr A_S}(K,L),S\bigr)
+ \simeq
+ R\operatorname{Hom}_{\mathscr A_S}(L,K(-2)[3])
+\end{equation}
+という自然な同型がある。
+両辺は perfect $S$-複体であり、この同型は任意の noetherian な
+$S\to S'$ による導来基底変更と両立する。
+従って $K\mapsto K(-2)[3]$ はこの perfect 圏の相対 Serre 自己同値である。
+\end{theorem}
+
+\begin{proof}
+$M=j_{S,*}R\mathcal Hom_{\mathscr A_S}(K,L)$ と置く。
+前補題の証明により、$M$ は $\mathcal O_{Z_S}$ 上 perfect である。
+$q_S:Z_S\to\operatorname{Spec}S$ は proper、flat、有限表示なので、
+\cite[Lemma~36.30.4(1), Tag~\texttt{0B91}]{StacksRelativeDuality}により
+$R\Gamma(Z_S,M)$ は perfect $S$-複体であり、
+形成は任意の係数基底変更と可換する。
+
+$q_S:Z_S=\mathbb P^N_S\to\operatorname{Spec}S$ は smooth projective であり、
+その相対双対複体は $\omega_{Z_S/S}[N]$ である。
+従って通常の Grothendieck 双対性は
+\[
+ R\operatorname{Hom}_S(R\Gamma(Z_S,M),S)
+ \simeq
+ R\Gamma\bigl(Z_S,
+ R\mathcal Hom_{\mathcal O_{Z_S}}(M,\omega_{Z_S/S}[N])\bigr)
+\]
+を与える。
+射影空間上の双対複体と trace については
+\cite[Lemma~48.15.1, Tag~\texttt{0A9W}]{StacksRelativeDuality}、
+相対 pairing による上の同型については Remark 48.12.6 を用いる。
+補題 \ref{lem:relative-serre-internal-hom} と
+$\Theta_S$ を代入すると \eqref{eq:relative-serre-formula} を得る。
+右辺が perfect であることは、
+$K(-2)[3]$ も局所 perfect であることから同じ議論で従う。
+
+最後に、同型を与える trace と基底変更の整合性を明示する。
+構造対象の trace は
+\begin{equation}\label{eq:relative-serre-trace-structure}
+ R\Gamma(Y_S,\mathscr E_{-2,S}[3])
+ \xrightarrow{R\Gamma(\Theta_S)}
+ R\Gamma(Z_S,\mathscr D_S)
+ \xrightarrow{R\Gamma(\epsilon_S)}
+ R\Gamma(Z_S,\omega_{Z_S/S}[N])
+ \xrightarrow{\operatorname{Tr}_{q_S}} S
+\end{equation}
+と定義する。
+一般の $K$ に対する trace は、既に構成した双対同型の $L=K$ の場合と
+単位 $\operatorname{id}_K:S\to R\operatorname{Hom}_{\mathscr A_S}(K,K)$ を用いて
+\[
+ \tau_K:R\operatorname{Hom}_{\mathscr A_S}(K,K(-2)[3])
+ \xrightarrow{\sim}
+ R\operatorname{Hom}_S
+  (R\operatorname{Hom}_{\mathscr A_S}(K,K),S)
+ \xrightarrow{(\operatorname{id}_K)^*}S
+\]
+と定義する。$K=\mathscr A_S$ の場合、これは
+\eqref{eq:relative-serre-trace-structure} と一致する。
+この定義は非可換代数の射影加群から両側加群への通常の matrix trace を
+無条件に定義することを避け、導来随伴の評価だけを用いる。
+これと導来合成写像により
+\[
+ R\operatorname{Hom}_{\mathscr A_S}(L,K(-2)[3])
+ \otimes_S^{\mathbf L}
+ R\operatorname{Hom}_{\mathscr A_S}(K,L)
+ \longrightarrow S
+\]
+を得る。
+内部 Hom の補題の評価随伴を追えば、この pairing の転置は
+ちょうど \eqref{eq:relative-serre-formula} の同型である。
+具体的には双対同型の第二変数についての自然性により、
+$f:K\to L$ と $g:L\to K(-2)[3]$ の評価は
+$\tau_K(g\circ f)$ に一致する。複体の場合の符号は導来合成の Koszul 規約に従う。
+したがって、単に全ての fibre で非退化な pairing が存在することを用いているのではない。
+
+$\Theta_S$ は一つの $\Theta_P$ の基底変更であり、
+$\epsilon_S$ は単位の反変性で定まる。
+また $q_S$ は flat なので、全ての $S\to S'$ は $q_S$ と Tor independent である。
+射影空間の trace は任意の基底変更に両立する
+（\cite[Lemma~48.7.1, Remark~48.12.5]{StacksRelativeDuality}）。
+Hom の導来基底変更は上で既に確認されており、
+perfect $S$-複体の $S$-双対も任意の基底変更と可換する。
+従って pairing とその転置は基底変更に両立する。
+評価、随伴、trace のいずれも自然変換であるため、
+変数 $K,L$ の射と合成、および基底変更の合成に関する整合性も成立する。
+\end{proof}
+
+\subsection{内在的な perfect 圏と既存の有限 Tor 条件}
+
+中心模型から定義した局所 perfect 圏は、実際には Abel 圏から内在的に回復できる。
+Burban--Drozd--Gavran, \emph{Minors and resolutions of non-commutative schemes},
+\cite[Definition~3.13, Theorem~3.14]{BDGMinors}により、quasi-compact separated な
+スキーム上の quasi-coherent 代数層に対して
+\[
+ D(\operatorname{QCoh}(Y_S,\mathscr A_S))^c
+ =\operatorname{Perf}(Y_S,\mathscr A_S)
+\]
+となる。左辺は非有界導来圏の compact 対象である。
+Abel 圏の exact equivalence は非有界導来圏へ成分ごとに延長し、
+任意直和を保つので compact 対象を保つ。
+従って、この perfect 圏は選んだ有限中心模型から独立である。
+
+この既知の特徴付けは、有限 $S$-Tor 振幅を持つ coherent 対象全体と
+局所 perfect 圏との一致を意味しない。
+例えば体上では全ての coherent 対象が係数体に関して Tor 振幅零であるが、
+代数層が有限 global dimension を持たなければ全てが perfect となるわけではない。
+元の公理で有限係数 Tor 圏が指定されている場合、
+compact 圏を用いる公理への変更と、その元の公理の証明とは区別する。
+
+\begin{lemma}[compact 版の相対比較で必要な保存性]
+\label{lem:relative-serre-compact-intrinsic}
+相対 Hom 定理の条件 \textup{(C3)} で、$\mathcal P_U$ を
+標準 dg enhancement の compact 対象の full dg 部分圏
+$D(\mathcal C_U)^c$ に置き換える。
+全ての $E_i$ の compact 性と、指定した基底変更による compact 性の保存を仮定する。
+この条件と既存の \textup{(C1),(C2),(C4)} の下で、
+同定対象 $\mathcal P_U$ の保存性、相対 Serre との可換性、
+および構造対象付き相対 Hom 定理の証明は同じ結論を与える。
+有限中心模型では、この compact 性と基底変更による保存性は成立する。
+\end{lemma}
+
+\begin{proof}
+exact $S$-linear Abel 圏同値 $F:\mathcal C_U\to\mathcal C'_U$ は
+複体へ項ごとに作用し、acyclic 複体を保存する。
+圏同値は全ての直和を保つため、誘導される非有界導来同値は compact 対象を保つ。
+標準の injective enhancement を用いるときも、
+acyclic 複体 $M$ と K-injective 複体 $I$ に対して
+\[
+ \operatorname{Hom}^{\bullet}(M,F(I))
+ \simeq\operatorname{Hom}^{\bullet}(F^{-1}(M),I)
+\]
+なので、$F$ は K-injective 複体を保つ。
+従って $S$-複体としての相対 RHom とその合成を保つ dg 同値を得る。
+相対 Serre 双対とその trace を含む表現の dg Yoneda 一意性により
+$F\mathsf S\simeq\mathsf S'F$ が定まり、同値の合成と指定した基底変更に整合する。
+
+有限中心模型では、$\mathscr E_m$ は局所有限射影の右加群である。
+Burban--Drozd--Gavran の compact 性の特徴付けにより、全て compact である。
+係数基底変更の extension of scalars は、局所的な有限射影加群を有限射影加群へ送る。
+有界性と直和因子も保存するため、局所 perfect 対象、従って compact 対象を保存する。
+その相対 RHom と基底変更は既に上で構成したものに一致する。
+
+相対 Hom 定理が後に用いるのは、Serre 軌道に全ての $E_i$ が属すること、
+これらの Hom を双対性と同値が保つこと、そして \textup{(C2)} の豊富列復元だけである。
+これらは全て compact 部分圏上で成立するので、同じ証明が適用できる。
+\end{proof}
+
+\begin{remark}[Serre 表示の変更に必要な scalar の主張]
+\label{rem:relative-serre-scalar-on-lines}
+この比較において、perfect 圏全体の関手の全ての自然自己同型が
+scalar であるとは主張しない。
+必要なのは $T=(-2)[3]$ の二つの表示の比較を line 対象へ制限したときの主張である。
+$\alpha:T\Rightarrow T$ を可逆な自然変換とすると、
+$T(E_i)=E_{i+1}[3]$ と $\operatorname{End}(E_{i+1})=S$ により
+$\alpha_{E_i}$ はある $\lambda_i\in S^\times$ による scalar multiplication となる。
+$\operatorname{Hom}(E_{i+1},E_i)=(\mathcal A_S)_2$ 上の自然性から
+\[
+ (\lambda_{i+1}-\lambda_i)(\mathcal A_S)_2=0
+\]
+を得る。$(\mathcal A_S)_2$ は正の階数の有限局所自由加群なので忠実であり、
+$\lambda_{i+1}=\lambda_i$ となる。
+従って比較は全ての $E_i$ 上で一つの $\lambda\in S^\times$ による。
+Serre の反復では、軌道環の次数 $n$ に $\lambda^{n}$ または
+逆の表示規約では $\lambda^{-n}$ が掛かる。
+いずれも相対同型層で既に割っている次数スカラーである。
+この議論は $S$ の被約性を仮定しない。
+Abel 圏の自然変換を全圏上で決める段階では、
+別途 \textup{(C2)} の豊富列生成性を用いる。
+\end{remark}
+
+\subsection{剛体性の群スキームへの昇格}
+
+\begin{lemma}[周囲の次数付き自己同型群スキーム]
+\label{lem:rigid-ambient-group-scheme}
+$\operatorname{Aut}_{\mathrm{gr}}(B_*)(\mathbb C)=\mathbb C^\times$
+という既存の入力の下で、群スキームとして
+\[
+ \underline{\operatorname{Aut}}_{\mathrm{gr}}(B_*)=\mathbb G_m
+\]
+である。従って任意の可換 $\mathbb C$-代数 $S$ 上でも、
+全ての次数付き $S$-線型自己同型は次数スカラーである。
+\end{lemma}
+
+\begin{proof}
+$V=(B_*)_1\simeq\mathbb C^5$、
+$R_2=\ker(V\otimes V\to(B_*)_2)$ とする。
+$B_*$ は二次代数なので、その次数付き自己同型関手は
+$R_2$ を保つ $\operatorname{GL}(V)$ の閉部分群スキームで表される。
+特にこれは $\mathbb C$ 上有限型である。
+任意の基底上で $g(R_2)\subset R_2$ と書いた閉条件は等号を意味する。
+実際、$R_2$ とその補空間に関する $g\otimes g$ の行列は上三角ブロックであり、
+全体が可逆なので対角ブロックも可逆となる。
+
+標数零の有限型群スキームは Cartier の定理により smooth、従って被約である
+（\cite[Lemma~39.8.2, Tag~\texttt{047N}]{StacksRelativeDuality}）。
+次数スカラーの $\mathbb G_m$ はこの群の閉部分群であり、
+入力により全ての複素閉点を含む。
+両者を $\operatorname{GL}(V)$ の閉部分スキームとしてみると、
+Hilbert の零点定理と被約性から同じ定義イデアルを持つ。
+従って群スキームとして等しい。
+\end{proof}
+
+\begin{corollary}[任意の係数環上の三次商の同型]
+\label{cor:rigid-family-all-coeff-isom}
+$S$ を任意の可換 $\mathbb C$-代数とし、$f,g\in S[u,v]_3$ とする。
+$A_f=B_{*,S}/(G_*+f)$、$A_g=B_{*,S}/(G_*+g)$ に対し
+\[
+ \operatorname{Isom}_{\mathrm{gr},S}(A_f,A_g)
+ =\begin{cases}
+   S^\times & f=g,\\
+   \varnothing & f\ne g
+  \end{cases}
+\]
+であり、$S^\times$ は次数スカラーとして作用する。
+\end{corollary}
+
+\begin{proof}
+三次関係は次数二以下を変えないので、$A_f,A_g$ の二次包絡はともに $B_{*,S}$ である。
+従って次数付き同型は $B_{*,S}$ の自己同型へ一意に延長し、前補題から次数スカラー $\lambda$ である。
+三次核の次数三部分は、それぞれ $S(G_*+f)$、$S(G_*+g)$ である。
+これらの直線が対応するので、ある $r\in S$ により
+\[
+ \lambda^3(G_*+f)=r(G_*+g)
+\]
+と書ける。
+主変数 filtration の最高次 symbol は両方とも固定した $\gamma$ であり、
+この成分を比較すると $r=\lambda^3$ となる。
+$\lambda$ は単元なので $f=g$ である。
+逆に $f=g$ なら全ての次数スカラーが同型を与える。
+この議論では $S$ の被約性も noetherian 性も用いない。
+\end{proof}
+
+\subsection{compact 版比較と stack 化後の射}
+
+\begin{corollary}[全四係数族の相対同型層]
+\label{cor:central-model-relative-hom}
+$T$を有限型$\mathbb C$-スキーム，$f,g:T\to\mathbb A^4$を二つの係数写像とする。
+対応する族の間に，底変更と合成に自然なfppf層の同型
+\[
+ \underline{\operatorname{Eq}}_{\mathcal O,T}(A_f,A_g)
+ \simeq
+ \underline{\operatorname{Isom}}_{\mathrm{gr},T}(A_f,A_g)/\mathbb G_m
+\]
+がある。左辺は構造対象を保つ全ての相対完全同値の自然同型類を含む。
+同定対象上で恒等な2自己同型は自明である。
+ファイバーの有限大域次元または正則性は仮定しない。
+\end{corollary}
+\begin{proof}
+第\ref{sec:four-parameter-central-model}節は条件\textup{(C1),(C2)}と
+普遍的中心二変数条件を与える。
+条件\textup{(C3)}の代わりに，
+補題\ref{lem:relative-serre-compact-intrinsic}のcompact部分圏を使う。
+その上の\textup{(C4)}は定理\ref{thm:relative-serre-projective}で証明した。
+従って定理\ref{thm:abel-relative-pointed-hom}の証明と
+注意\ref{rem:relative-serre-scalar-on-lines}を適用できる。
+元の有限係数Tor振幅部分圏による\textup{(C3)}の全基底上での成立を用いたのではない。
+\end{proof}
+
+ここで定義\ref{def:abel-cubic-pointed}の相対模型としての許容性も確認する。
+固定した$B_*$のKoszul解消とその両側AS双対複体は，
+体上の有限自由構成を係数環へtensorするため任意の底変更後も完全である。
+三次核は固定した非零正則symbol$\gamma$を持ち，
+商の各次数は普遍的に自由なので，$G_*+f$による乗法は任意係数上で左右正則である。
+全shiftのsection飽和は定理\ref{thm:central-model-universal-sections}により
+非noetherian係数も含めて成立する。
+Gabriel商の標準対象列は生成族であり，そのsection代数はこの飽和によって
+元の座標代数に一致する。商関手とその右随伴による復元は任意係数変更に自然である。
+従って四係数族は，指定した全係数変更を備える
+$\mathfrak M^{\mathcal O}_{\mathrm{cub}}$の相対模型を与える。
+非noetherianな底では大きい$\operatorname{QGr}$を使い，局所noetherian性は要求しない。
+
+\begin{proposition}[四係数空間からのモジュライ射の monomorphism]
+\label{prop:rigid-four-family-monomorphism}
+上の入力と compact 版相対比較の下で、四係数族が与える射
+\[
+ \mathbb A^4\longrightarrow\mathfrak M^{\mathcal O}_{\mathrm{cub}}
+\]
+は、有限型 $\mathbb C$-スキームの site に制限すると stack の monomorphism である。
+すなわち、任意の有限型基底$T$と二つの係数写像$f,g:T\to\mathbb A^4$に対し、
+その像の間の射の層は閉等化子スキーム$\operatorname{Eq}_T(f,g)$が表す層である。
+特に$T$全体上の射は$f=g$の場合に一意に存在し、それ以外には存在しない。
+この等化子は係数関数の差で定義され，非被約な構造も保持する。
+\end{proposition}
+
+\begin{proof}
+アフィン上で前系と compact 版比較を組み合わせると、
+次数スカラー商は二つの係数写像の等化子の層に一致する。
+この同定は係数変更と両立するので一般の $T$ へ貼り合わさる。
+
+ここでは stack 化によって新しい射が加わらないことも確認する必要がある。
+固定した二つの標準 Gabriel 係数族の相対同値・自然同型は、
+補題 \ref{lem:abel-canonical-family-equivalences} により
+\emph{任意の fpqc 係数被覆}について降下する。
+従って、有限型 site の外に出る fpqc 被覆上で表された局所的な同値も、
+既に $T$ 上の同値へ降下する。
+
+また構造対象上で恒等な自然自己同型は自明である。
+任意係数における saturation により各標準対象の自己射環は係数環であり、
+隣接 Hom は正階数の自由加群なので、その上のスカラーは全て等しい。
+構造対象上で恒等なら全スカラーが一となり、生成族上の自然性から圏全体で恒等となる。
+したがって標識付き Hom 群oid の同型類は既に fpqc 層であり、
+その stack 化はこの二つの大域模型の間の射を増やさない。
+これでモジュライ stack 上でも同じ等化子の記述を得る。
+\end{proof}
+
+この monomorphism は、モジュライ問題における完全忠実性の主張である。
+開埋込み、モジュライの一つの成分の尽くし、有限型 atlas、
+対角の代数性または任意の基底上での比較定理を追加で意味するものではない。

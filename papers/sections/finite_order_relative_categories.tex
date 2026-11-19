@@ -167,17 +167,19 @@ quasi-coherent 加群圏は locally noetherian Grothendieck 圏である。
 
 \begin{theorem}[任意基底変更後の全次数 saturation]
 \label{thm:central-model-universal-sections}
-任意の noetherian $P$-代数 $S$ と任意の整数 $m$ に対し、標準写像
+任意の可換 $P$-代数 $S$ と任意の整数 $m$ に対し、標準写像
 \[
  (\mathcal A_S)_m\longrightarrow
  \operatorname{Hom}_{\operatorname{QGr}(\mathcal A_S)}
  (\mathcal O,\mathcal O(m))
 \]
-は同型である。これらの同型は任意の noetherian な基底変更、乗法および合成と両立する。
+は同型である。これらの同型は任意の可換な基底変更、乗法および合成と両立する。
 特に負次数の右辺も零である。
+非noetherianな$S$については大きい$\operatorname{QGr}$を用いる。
 \end{theorem}
 
 \begin{proof}
+まず$S$がnoetherianである場合を示す。
 $D_S=D\otimes_P S$、$I=D_{S,+}$ とし、次数付き有限 $D_S$-加群
 $M_m=\mathcal A_S(m)^{(\ell)}$ を考える。
 式 \eqref{eq:central-model-R-free} により、$u^\ell,v^\ell\in (D_S)_1$
@@ -208,14 +210,31 @@ $\widetilde M_m=\mathcal O(m)$、$\mathcal O=\mathscr A_S$ なので、
 \]
 であり、所望の同型を得る。
 ここで用いた写像は、元を左乗法による加群準同型へ送る標準写像そのものである。
-同じ証明が全ての $S$ に適用でき、基底変更前後の標準写像の正方形は可換である。
-従って同型は任意の基底変更に自然であり、乗法と合成にも両立する。
+この段階では、同じ証明が全てのnoetherianな$S$に適用できる。
+
+一般の$S$を、その有限型$P$-部分代数$S_\lambda$のfiltered colimitとして書く。
+$\mathcal D=\operatorname{QGr}(\mathcal A)$とし、$E_m=\mathcal O(m)$と置く。
+$\mathcal D$はlocally noetherianであり、各$E_m$は有限表示対象である。
+補題\ref{lem:abel-arbitrary-coefficient-tails}により
+$\operatorname{QGr}(\mathcal A_S)\simeq\mathcal D_S$であり、
+自由係数作用と忘却の随伴から
+\begin{align*}
+ \operatorname{Hom}_{\mathcal D_S}(S\otimes_P E_0,S\otimes_P E_m)
+ &\simeq\operatorname{Hom}_{\mathcal D}(E_0,S\otimes_P E_m)\\
+ &\simeq\varinjlim_\lambda
+       \operatorname{Hom}_{\mathcal D}(E_0,S_\lambda\otimes_P E_m)\\
+ &\simeq\varinjlim_\lambda(S_\lambda\otimes_P\mathcal A_m)
+  =S\otimes_P\mathcal A_m
+\end{align*}
+となる。各$S_\lambda$はnoetherianなので、最後から二番目の同型には既に証明した場合を使える。
+これは標準section写像を計算したものであり、基底変更前後の正方形は可換である。
+従って同型は任意の基底変更、乗法および合成と両立する。
 \end{proof}
 
 \subsection{偶数列に関する補足}
 
 次の各主張は、上の saturation と区別して記載する。
-これらを用いても相対 Serre 双対はまだ得られない。
+相対Serre双対は第\ref{sec:relative-serre-projective}節で別に構成する。
 
 \begin{proposition}[偶数列の豊富性、復元、関手の決定]
 \label{prop:central-model-even-sequence}
@@ -563,8 +582,10 @@ affine 対角の perfect 性を RSV の Lemma 3.6 により $K$ へ降下して�
 この命題を条件\textup{(C1)--(C4)}の比較へ用いる場合、さらに得られるのは
 非空基底開上の (C3) の内在的部分圏の同定と、その部分圏上の
 perfect な相対 RHom および基底変更である。
-これは (C4) の RHom 部分を満たすが、
-相対 Serre 関手の存在と $(-2)[3]$ という同定は別途証明する必要がある。
+これは(C4)のRHom部分を満たす。
+相対Serre関手の存在と$(-2)[3]$という同定は，
+第\ref{sec:relative-serre-projective}節で全四係数基底上に証明する。
+そこでcompact対象を使えば，Hom比較には本節の非空開への制限が不要となる。
 局所対角の perfect 性から、対応する大域 dg 圏の smooth 性を
 Morita 理論の比較なしに追加の結論として宣言することもしない。
 

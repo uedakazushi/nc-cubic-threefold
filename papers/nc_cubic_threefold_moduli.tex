@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v11}
+\date{2026年11月19日・nc cubic moduli研究草稿 v12}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -133,10 +133,14 @@ Pymの局所量子化比較を通じ、規格化CY変形の対応成分と、
 また低次数中心・偶数Veronese・構造対象付き導来復元と、
 具体的な剛体ambient上の四次元非同型族を条件を明記して扱う。
 有限位数楕円境界を持つ全四係数族には有限な次数付き中心模型を構成し，
-Noetherian底変更，sectionの普遍飽和，偶数列からの復元を証明する。
-一般ファイバーの正則性の下では，非空基底開上で内在的な有限Tor部分圏が
-局所perfect圏に一致し，相対RHomのperfect性と底変更を満たす。
-この族の相対Serre公式は未証明である。
+任意係数変更後のsectionの飽和と偶数列からの復元を証明する。
+有限中心模型を射影空間に埋め込み，双対両側加群を比較することで，
+局所perfect圏上に相対Serre公式$\mathsf S=(-2)[3]$を構成する。
+この公式は特異ファイバーを含む全係数基底上で成立し，任意のNoetherian底変更に両立する。
+compact対象の内在性を使って全構造対象付き相対同値を比較し，
+剛体ambientの四係数族からAbel圏モジュライへの射が
+有限型$\C$-スキーム上でmonomorphismであることを示す。
+一般ファイバーの正則性の下で，有限係数Tor部分圏との一致も非空開上で成立する。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -311,9 +315,22 @@ Rains\cite[Theorem~2.13]{CSBGRainsElliptic}の中心持上げを被約な係数�
 一般tailsの正則性から中心アフィン片の有限大域次元を導き，
 Rennemo--Segal--Van den Bergh\cite[Proposition~2.1 and Corollary~3.9]{CSBGRSVBertini}の
 既知の有限中心・一般射影性の議論を用いて相対対角のperfect性を非空開へ拡張する。
-これにより内在的有限Tor部分圏上のproper性と底変更まで進むが，
-相対Serre公式および大域dg圏のsmooth性の比較は別の問題として残す。
-この組合せの初出は未確認であり，一般的な降下・射影性拡張を新規成果とは主張しない。
+これにより非空開上では，有限係数Tor部分圏と局所perfect圏が一致する。
+
+第\ref{sec:relative-serre-projective}節では別に，四係数族の全体で相対Serre双対を構成する。
+Yekutieli\cite[Proposition~5.2, Corollary~5.5]{YekutieliBalanced}の
+balanced dualizing complexの理論を体上で用い，有限中心射影模型の双対を
+両側加群として同定する。体上のYekutieli--ZhangのSerre定理を，
+次数零係数環が多項式環の場合へ直接拡張したとはみなさない。
+相対化には射影空間上のGrothendieck双対性，flatな係数複体の振幅判定，
+proper pushforwardと基底変更を用いる\cite{StacksRelativeDuality}。
+さらにBurban--Drozd--Gavran\cite[Theorem~3.14]{BDGMinors}の既知の
+compact対象の特徴付けにより，局所perfect圏をAbel圏から内在的に指定する。
+この選択ではファイバーの有限大域次元は不要であり，
+相対Hom比較と剛体四係数族の忠実性は特異ファイバーにも適用できる。
+有限中心性・相対双対・偶数列復元を組み合わせた具体的帰結の初出は未確認である。
+既知の双対定理やcompact性の一般定理を本稿の新規成果とは主張しない。
+全17係数族での相対化と，大域dg圏のsmooth性の比較は別に残る。
 
 
 \paragraph{代数構成の入力.}
@@ -1004,6 +1021,7 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/formal_ambient_comparison.tex}
 \input{papers/sections/central_pair_mixed_derived_rigid.tex}
 \input{papers/sections/finite_order_relative_categories.tex}
+\input{papers/sections/relative_serre_duality.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1042,9 +1060,14 @@ stack化後の全形式完備化との同定には，圏自体の有効降下と
 
 有限位数楕円境界を持つ四係数族では，中心上有限な射影模型により
 相対Hom定理の\textup{(C1),(C2)}を検証した。
-既存の一般正則性の入力の下で，非空基底開上に\textup{(C3)}と
-\textup{(C4)}のperfect RHom・底変更を供給した。
-この開集合について残る主要入力は，相対Serre関手の$(-2)[3]$という同定である。
+さらに全係数基底上で，compact対象として内在的に指定したperfect圏の
+相対Serre関手を$(-2)[3]$と同定し，底変更と両立する双対性を構成した。
+このcompact版の\textup{(C3)}を用いれば，\textup{(C4)}も全体で成立し，
+構造対象を保つ全相対Abel圏同値の同型層が次数付き同型層の$\mathbb G_m$商となる。
+剛体ambientの四係数族は，有限型$\C$-スキーム上のモジュライ問題へ
+monomorphismを与える。これは開埋込みや成分性を主張するものではない。
+元の有限係数Tor部分圏による\textup{(C3)}との一致は，既存の一般正則性の入力の下で
+非空基底開上に成立する。
 
 全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
 smooth properな三次部分の開性と支配性、豊富列を忘れた内部的認識は残っている。
@@ -1479,6 +1502,37 @@ American Mathematical Society, Providence, RI, 2005, xii+159 pp.
 \href{https://doi.org/10.1090/ulect/037}{doi:10.1090/ulect/037}.
 Chapter~6, Proposition~7.2 and Theorem~7.3, pp.~129--130。
 Noetherian局所基底上のKoszul変形原理。本稿の非周期的Artin版には直接証明を与える。
+
+
+\bibitem{YekutieliBalanced}
+A.~Yekutieli,
+\emph{Dualizing complexes over noncommutative graded algebras},
+J. Algebra \textbf{153} (1992), 41--84.
+\href{https://doi.org/10.1016/0021-8693(92)90148-F}{doi:10.1016/0021-8693(92)90148-F};
+\url{https://www.math.bgu.ac.il/~amyekut/publications/dual-com/dual-com.pdf}.
+Definition~4.1と双加群としての一意性（p.~57），Proposition~4.6（p.~59），
+Proposition~5.2，Corollary~5.5，Remark~5.7（pp.~65--68）。2026年11月19日原文確認。
+
+\bibitem{BDGMinors}
+I.~Burban, Yu.~Drozd and V.~Gavran,
+\emph{Minors and resolutions of non-commutative schemes},
+\url{https://arxiv.org/abs/1501.06023}, v2 (2017),
+Definitions~3.1,3.13 and Theorem~3.14。
+quasi-compact separatedな非可換スキームの局所perfect対象とcompact対象の一致。
+2026年11月19日原文確認。
+
+\bibitem{StacksRelativeDuality}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/00MI}{Lemma~10.99.5, Tag~00MI}，
+\href{https://stacks.math.columbia.edu/tag/07VK}{Lemma~30.22.1, Tag~07VK}，
+\href{https://stacks.math.columbia.edu/tag/0B91}{Lemma~36.30.4, Tag~0B91}，
+\href{https://stacks.math.columbia.edu/tag/0A9W}{Lemma~48.15.1, Tag~0A9W}，
+\href{https://stacks.math.columbia.edu/tag/0B6J}{Lemma~48.7.1, Tag~0B6J}，
+\href{https://stacks.math.columbia.edu/tag/0B6S}{Remark~48.12.5, Tag~0B6S}，
+\href{https://stacks.math.columbia.edu/tag/0E4H}{Remark~48.12.6}，
+\href{https://stacks.math.columbia.edu/tag/047N}{Lemma~39.8.2, Tag~047N}。
+振幅とflatness，proper base change，射影空間の双対・trace，Cartierのsmoothness。
+2026年11月19日原文確認。
 
 \end{thebibliography}
 \end{document}
