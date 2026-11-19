@@ -37,6 +37,9 @@ $\mathfrak M^{\mathrm{pt}}$は対象列自体をまだ記憶している．
 
 相対版では第\ref{sec:categorical-moduli-comparison}節と同じく，
 相対Hom，底変更，線束とのテンソル積，およびその整合性を備える圏の族を使う．
+アフィン上の標準Grothendieck模型の底変更には，係数環の作用を備えた対象の圏を用いる．
+非noetherianな係数環には大きな$\operatorname{QGr}$を使い，
+小さい$qgr$への制限はそのAbel性が保証される場合に行う．
 fpqc局所で上記の相対$qgr$/$QGr$模型を持ち，sectionのsaturationと復元が
 指定した全ての底変更後に成立することを要求する．このような模型の間の
 全ての構造対象付き相対完全同値を射として，Hom群oidの同型類を取り，
@@ -55,21 +58,26 @@ fpqc stack化したものを$\mathfrak M^{\OO}_{\mathrm{cub}}$と書く．
 このことが，上記の構造対象付き問題を通常の1-stackとして扱う理由である．
 体上の同じ議論は補題\ref{lem:abel-pointed-scalar-center}に記す．
 
-\begin{remark}[可換三次点での局所完全性]
+\begin{remark}[可換三次点での普遍的な相対模型]
 \label{rem:abel-cubic-essential-image}
 滑らかな可換三次三様体を特殊ファイバーとして固定すると，
-全ての平坦Abel Artin変形は，試験環と底変更をArtin代数に制限した
-上の三次模型で表示できる．
+全ての平坦Abel Artin変形は，任意の係数変更後にも上の三次条件を満たす
+標準Grothendieck模型で表示できる．
 第\ref{sec:abel-formal-cubic}節の定理\ref{thm:abel-cubic-flat-envelope}が
 二次包絡の全次数平坦性，正規正則三次核，相対Koszul--AS性を証明し，
-Artin底変更後のsectionのsaturationと復元は同節のDe Deken--Lowen比較から従う．
-さらに古典的同型類関手は系\ref{cor:abel-cubic-formal-ring}の
+系\ref{cor:abel-universal-artin-model}と\ref{cor:abel-universal-relative-cubic}が
+任意の係数変更後のsectionの飽和と復元，相対解消の両立を証明する．
+固定した模型の対象と射のfpqc降下も同節で示す．
+標準係数族からなる相対変形群oidは全Abel変形群oidに同値であり
+（定理\ref{thm:abel-canonical-relative-formal}），
+その古典的同型類関手は系\ref{cor:abel-cubic-formal-ring}の
 17次元・接空間20次元の完備局所環で表される．
-全スキーム底変更を要求する本節の相対stackの形式完備化との同定には，
-任意の底変更後のsaturationと復元をさらに確認する必要がある．
-この局所完全性は固定した特殊ファイバーのArtin変形問題に関するものであり，
+
+stack化後の全形式完備化との同定について残るのは，
+圏自体の降下が有効で，Artin基底上に大域的な標準模型を持つかという問題である．
+これは固定した圏の対象の降下とは別である．
 有限型atlas，任意の非可換点での局所完全性，または
-特殊ファイバーの自己同型を含めたstack全体の表示とは区別する．
+特殊ファイバーの自己同型を含めたstack全体の表示も，この結論には含めない．
 \end{remark}
 
 \subsection{中心二変数を持つ族の偶数Veronese復元}
@@ -678,6 +686,11 @@ Serre表示の変更は偶数軌道環の次数スカラーを変えるだけで
 得られるAbel圏モジュライが有限型代数スタックであることは，なお別の課題である．
 特に，ファイバーごとの有限大域次元やSerre公式から
 相対RHomのperfect性・基底変更・相対Serre双対を省略しない．
+具体的な有限位数楕円境界の四係数族については，
+第\ref{sec:four-parameter-central-model}節で\textup{(C1),(C2)}を全係数基底上に供給する．
+さらに命題\ref{prop:central-model-intrinsic-perfect-open}は既存の一般正則性入力の下で，
+非空基底開上に\textup{(C3)}と\textup{(C4)}のperfect RHom・底変更を供給する．
+この部分族でなお必要なのは，相対Serre双対と$(-2)[3]$という関手の同定である．
 
 相対Serre関手が$(-2)\otimes L[3]$で表されるときは，
 $L$の局所自明化により上の証明を適用する．

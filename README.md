@@ -1,10 +1,10 @@
 # 非可換三次三様体と非可換P^4のモジュライ
 
-2026-11-19 / research-plan-v4。研究再開は最初に[研究方針](00_research_plan.md)を読む。
+2026-11-19 / research-plan-v5。研究再開は最初に[研究方針](00_research_plan.md)を読む。
 
 **現在は、構造対象Oだけを標識したAbel圏のモジュライとして、非可換三次三様体の射・変形・二次包絡を比較している。** 許容豊富列の存在を条件とし、列の選択を忘れる。数学的重要性、新規性、理解の深化、応用可能性、正確性と実現可能性を総合して研究全体の価値を最大化する。
 
-[主原稿 v10](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
+[主原稿 v11](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
 
 ## 現在の到達点
 
@@ -12,11 +12,13 @@
 - [可換点の全Artin変形](papers/sections/abel_cubic_deformations.tex)：De Deken–Lowenの既知定理を適用し、全Abel変形とsection Z-algebra変形を比較する。自然同型で割った1群oidではO-marking忘却も同値。二次・三次提示、次数3の有限行列による障害、平坦二次包絡からの正規三次核と相対Koszul–AS性を証明する。
 - **滑らかな可換三次点の全Abel Artin変形について、Q(b)の全次数平坦性と正規三次表示を証明した。** CFTの中心量子化を実際に構成し、Yekutieliの比較とsection復元によって全変形を尽くすことを示す。同型類関手の形式環は十次元形式円板とGr(2,5)アフィン錐の積で、次元17・接空間20。未知の同次変形分類は仮定しない。
 - 次数三の平坦性から全次数へ進む非周期的Z代数の直接証明と、滑らかさを要しない平方零基底の障害消滅も収録する。前者の一般原理は既知のKoszul変形原理である。
-- 上の局所完全性はArtin試験環での結論である。全スキーム底変更を要求する相対stackの形式完備化との同定には、普遍的saturationと復元をさらに示す。
+- **任意の係数環への変更後の飽和・復元も証明した。** Artin模型から任意の可換R代数Sへの変更を、大きなGrothendieck圏の係数作用として扱う。固定模型の対象・射のfpqc降下と相対同値の一意的延長も成立する。全stack化後の形式完備化との同定には圏自体の有効降下が残る。
+- 全twistの線対象コホモロジーを任意底変更について計算した。n≥0はH0、n=−1は零、n≤−2はH3だけで、線対象間RHomは普遍的にperfectである。
+- [有限位数境界の相対圏](papers/sections/finite_order_relative_categories.tex)：固定ambient上の四係数族に有限な次数付き中心模型を構成し、C1–C2を全係数基底上で証明する。既存の一般正則性入力の下で、非空開上の内在的有限Tor部分圏=局所Perfと、perfect RHom・底変更も得る。相対Serre公式は未証明。
 - 既存の剛体ambientの4係数regular tails開部分では、指定された入力の下でO-marked圏が相異なり、その自己同型は自明となる。モジュライへの開埋込みや相対smooth proper性は未証明。
 - 既存の41→37、17→13、一般fiber4の有限係数族と、正規超曲面対のgcd周期性の証明を保持する。全AS/Zモジュライの大域成分性とは区別する。
 
-最優先は具体的な非可換chartで相対Hom定理のC1–C4を供給することである。17次元族の非空smooth proper開集合、全Artin残余射、7方向の接合データ、Oも忘れた復元は上位目標として保持する。全AS許容potential locusの有限型性を先に全面解決することは要求しない。
+最優先は、四係数族の非空開上で残る相対Serre公式S≅(−2)[3]を証明し、全O保存同値の相対Hom定理を適用することである。17次元族の非空smooth proper開集合、全Artin残余射、7方向の接合データ、Oも忘れた復元は上位目標として保持する。全AS許容potential locusの有限型性を先に全面解決することは要求しない。
 
 ## 再現
 

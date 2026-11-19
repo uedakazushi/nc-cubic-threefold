@@ -1,4 +1,4 @@
-\section{可換三次点におけるAbel圏の全Artin変形}
+\section{可換三次点の全Artin変形と普遍的な相対模型}
 \label{sec:abel-formal-cubic}
 
 本節では，滑らかな可換三次三様体を特殊ファイバーとして固定する．
@@ -6,6 +6,8 @@ De Deken--Lowenの既知の変形比較を適用した上で，
 全ての平坦Abel Artin変形の二次包絡が平坦な相対Koszul--AS五次元族となり，
 元のsection代数がその正規正則三次商であることを証明する．
 構造対象だけを標識した変形関手の形式局所環も同定する．
+さらに各Artin模型から任意の係数環へ変更した後のHom飽和・tails復元と，
+標準係数族のfpqc降下を証明する．
 証明では，量子化を用いない次数三の平坦性判定・平方零基底の消滅と，
 既知の量子化定理を用いる全Artin結論を区別する．
 大域的な無標識Abel圏の復元や有限型atlasの存在は結論しない．
@@ -123,48 +125,321 @@ $\operatorname{qgr}\widetilde a$に等しい．
 最後に，Indと有限表示対象を取る操作の変形擬関手の同値
 \cite[Theorem~8.8, p.~5472]{LowenVdBDeformation}を用いると第二の同値を得る．
 冪零核を持つ全射についての基底変更の両立は，引用した変形擬関手の同値に含まれる．
-任意の局所Artin射への拡張は次の補題による．
+任意の局所Artin射への拡張は補題\ref{lem:abel-arbitrary-coefficient-tails}による．
+この場合の$\mathcal D_S$の平坦性は
+\cite[Proposition~4.8(5)]{LowenVdBDeformation}から従い，
+以下ではさらに有限性を要しない大きな圏での係数変更を扱う．
 \end{proof}
 
-\begin{lemma}[Artin係数の任意の変更]
+\subsection{任意の係数環への延長と飽和}
+\label{subsec:abel-universal-coefficients}
+
+任意の係数環に対しては大きなGrothendieck圏を用いる．
+$R$-線型Grothendieck圏$\mathcal D$と可換$R$-代数$S$に対し，
+$\mathcal D_S$は$\mathcal D$内の$S$-作用付き対象の圏を表す．
+忘却関手は核，余核，直和およびフィルター余極限を作る．
+任意の$R$-加群$M$とのテンソル積は自由表示と余核によって定義できるので，
+任意の$S$に対して随伴
+\[
+ S\otimes_R-:\mathcal D\rightleftarrows\mathcal D_S:U
+\]
+がある．$\mathcal D$の生成族$(G_\lambda)$から
+$(S\otimes_R G_\lambda)$が$\mathcal D_S$の生成族となるため，
+$\mathcal D_S$もGrothendieck圏である．
+これらの事実では$S$の$R$-加群としての有限表示性を要求しない．
+ただし\cite[\S4, pp.~5451--5454]{LowenVdBDeformation}における
+一般の小さいAbel圏の係数変更には有限表示性の仮定があるので，
+以下の任意係数への拡張は同論文の命題をそのまま適用するのではなく，
+大きな圏の中で直接証明する．
+
+\begin{lemma}[任意係数によるtails商の変更]
+\label{lem:abel-arbitrary-coefficient-tails}
 \label{lem:abel-artin-base-change}
-$b$を定理の$R$-線型$\mathbb Z$-代数の変形とし，$R\to S$を
-局所Artin $k$-代数の任意の射とする．$\mathcal D_S$で
-$R$-線型Abel圏$\mathcal D$内の$S$-対象の圏を表すと，標準的な同値
+$b$を正で次数一生成の$R$-線型$\mathbb Z$-代数とし，各$b_{ij}$が
+$R$-加群として有限生成であるとする．任意の可換$R$-代数$S$について
+標準的な同値
 \[
  \operatorname{Qmod}(S\otimes_R b)
  \simeq \operatorname{Qmod}(b)_S
 \]
-がある．この同値は射の合成と両立する．
+がある．この同値は任意の係数環の射の合成および自由な係数拡張と両立する．
+ここで$\operatorname{Qmod}$は任意の次数付き加群の圏を
+要素ごとのtails torsionで割ったGabriel商を意味する．
+$S$のnoetherian性は仮定しない．
 \end{lemma}
 \begin{proof}
-局所Artin環の射なので$S$は$R$-加群として有限表示である．
-$\mathcal D$が$R$-平坦なら$\mathcal D_S$は$S$-平坦である
-\cite[Proposition~4.8(5), p.~5454]{LowenVdBDeformation}．
-$b$と$S\otimes_R b$はいずれも右noetherianだから，そのQmodは
-加群圏をtails torsionで割ったGabriel商として実現される．
-商関手$L:\operatorname{Mod}(b)\to\operatorname{Qmod}(b)$と
-その完全忠実な右随伴$\omega$に$S$の作用を移すと，随伴
-$L_S\dashv\omega_S$を得る．$L_S$は完全で$\omega_S$は完全忠実なので，
-$L_S$もその核によるGabriel商である．
+まず，この仮定の下でtails torsionがlocalizing Serre部分圏であることを確認する．
+部分対象，商対象および直和については定義から従う．
+拡大の閉性について，ある斉次元$m$の商における像が十分高い次数の作用で
+零になるとする．一つの十分大きい中間次数$n$を固定すると，
+有限生成性から$m b_{in}$は有限個のtorsion元で生成されるので，
+それらをすべて殺す共通の次数を選べる．
+次数一生成により，それ以降の$b_{ij}$の作用は$b_{in}b_{nj}$を経由する．
+従って$m$自体もtorsionである．この議論は$S\otimes_R b$にも適用できる．
 
-一方，$\operatorname{Mod}(b)_S\simeq\operatorname{Mod}(S\otimes_R b)$
-\cite[Proposition~4.4]{LowenVdBDeformation}である．
-この同定の下で$L_S$の核は，基礎$b$-加群がtails torsionである
-$S\otimes_R b$-加群からなる．各斉次元について，十分高い次数の$b$の作用が
-零であることと，十分高い次数の$S\otimes_R b$の作用が零であることは同値である．
-従ってこの核は$S\otimes_R b$のtails torsionに等しく，所望の同値を得る．
-これらの構成は係数の作用を移す標準的な構成なので，射の合成と両立する．
-$\operatorname{coh}$側の基底変更との両立は，有限表示対象を取る操作が
-係数変更と可換であること\cite[Proposition~4.6]{LowenVdBDeformation}による．
+$L:\operatorname{Mod}(b)\to\operatorname{Qmod}(b)$を商関手，
+$\omega$をその完全忠実な右随伴とする．両関手と随伴の単位・余単位は
+$R$-線型なので，$S$の作用を移すことにより
+$L_S\dashv\omega_S$を得る．$L_S$は完全で$\omega_S$は完全忠実だから，
+$L_S$もその核によるGabriel商である．
+一方，作用を展開すれば
+\[
+ \operatorname{Mod}(b)_S\simeq\operatorname{Mod}(S\otimes_R b)
+\]
+を得る．この同定の下で$L_S$の核は，基礎$b$-加群がtorsionである
+$S\otimes_R b$-加群である．$S$-作用と$b$-作用は可換なので，
+ある斉次元を十分高い次数の$b$が殺すことと
+$S\otimes_R b$が殺すことは同値である．従って核は正確にtails torsionとなる．
+合成との両立は作用を移す構成から従う．また$L$は余極限を保つので，
+自由表示によるテンソル積の構成とも両立する．
 \end{proof}
 
-\begin{remark}[相対化の範囲]
-引用した変形擬関手の定義域は$\operatorname{Rng}^0/k$，すなわち
-冪零核を持つ全射である．上の補題は，本節のnoetherianなtails模型では
-任意の局所Artin射にも比較が自然であることを別途確認したものである．
-これは一般のスキーム基底上でのfpqc降下や，有限型代数スタックの存在までは意味しない．
+\begin{lemma}[平坦対象を左変数とする一次拡大の還元]
+\label{lem:abel-flat-object-ext-one}
+$R$を剰余体$k$の局所Artin環，$\mathcal D$を$R$-線型Grothendieck圏とする．
+$E\in\mathcal D$が$R$-平坦であり，$N\in\mathcal D_k$であるとき，
+標準的な同型
+\[
+ \operatorname{Hom}_{\mathcal D}(E,N)
+ \simeq\operatorname{Hom}_{\mathcal D_k}(k\otimes_R E,N),
+ \qquad
+ \operatorname{Ext}^1_{\mathcal D}(E,N)
+ \simeq\operatorname{Ext}^1_{\mathcal D_k}(k\otimes_R E,N)
+\]
+がある．
+\end{lemma}
+\begin{proof}
+Homについては自由な係数変更と忘却の随伴である．
+ExtについてはYoneda拡大を用いる．$k$の自由$R$-加群解消$P_\bullet$を取る．
+各$P_n\otimes_R-$は直和で与えられる完全関手なので，
+対象の短完全列から複体の短完全列とホモロジー長完全列を得る．
+$E$の平坦性により$H_1(P_\bullet\otimes_R E)=0$である．
+従って拡大$0\to N\to M\to E\to0$を還元すると
+\[
+ 0\longrightarrow N\longrightarrow k\otimes_R M
+ \longrightarrow k\otimes_R E\longrightarrow0
+\]
+という$\mathcal D_k$内の拡大を得る．逆に$\mathcal D_k$内の拡大は
+$E\to k\otimes_R E$に沿う引戻しにより$\mathcal D$内の拡大を与える．
+還元後に引き戻した拡大への自然写像は，核$N$と商$E$の上で恒等なので同型である．
+逆順の場合も，核$N$と商$k\otimes_R E$の上で恒等となる自然写像に
+短五項補題を適用する．よって二つの操作は互いに逆であり，
+Baer和とも両立する．ここでは導来随伴や圏全体の十分な射影対象を必要としない．
+\end{proof}
+
+\begin{proposition}[全係数加群に対するsectionの変更]
+\label{prop:abel-universal-line-hom}
+$R$を剰余体$k$の局所Artin環とし，$\mathcal D$を$R$-線型Grothendieck圏とする．
+対象$E_i$が$R$-平坦かつ有限表示であり，
+$b_{ij}=\operatorname{Hom}_{\mathcal D}(E_j,E_i)$が有限自由であると仮定する．
+さらに，特殊ファイバーについて
+\[
+ k\otimes_R b_{ij}\xrightarrow{\sim}
+ \operatorname{Hom}_{\mathcal D_k}(E_{j,k},E_{i,k}),
+ \qquad
+ \operatorname{Ext}^1_{\mathcal D_k}(E_{j,k},E_{i,k})=0,
+ \qquad E_{i,k}=k\otimes_R E_i
+\]
+とする．このとき任意の$R$-加群$M$について自然写像
+\begin{equation}\label{eq:abel-universal-module-hom}
+ M\otimes_R b_{ij}\xrightarrow{\sim}
+ \operatorname{Hom}_{\mathcal D}(E_j,M\otimes_R E_i)
+\end{equation}
+は同型である．特に任意の可換$R$-代数$S$について
+\begin{equation}\label{eq:abel-universal-saturation}
+ S\otimes_R b_{ij}\xrightarrow{\sim}
+ \operatorname{Hom}_{\mathcal D_S}
+ (S\otimes_R E_j,S\otimes_R E_i)
+\end{equation}
+であり，これは積と任意の$S\to T$による係数変更に両立する．
+\end{proposition}
+\begin{proof}
+補題\ref{lem:abel-flat-object-ext-one}と仮定から，$M=k$の場合の
+式\eqref{eq:abel-universal-module-hom}と
+$\operatorname{Ext}^1_{\mathcal D}(E_j,k\otimes_R E_i)=0$を得る．
+有限長の$M$について組成列に関する帰納法を行う．
+$0\to M'\to M\to k\to0$に$-\otimes_R E_i$を施して得る列は，
+$E_i$の平坦性により短完全である．Ext長完全列により
+\[
+ \operatorname{Ext}^1_{\mathcal D}(E_j,M'\otimes_R E_i)=0,
+ \quad
+ \operatorname{Ext}^1_{\mathcal D}(E_j,k\otimes_R E_i)=0
+\]
+から中央の$M$に対するExtの消滅も従う．従ってHomを取った列は短完全である．
+他方，$b_{ij}$は$R$-平坦だから，$-\otimes_R b_{ij}$を施した列も短完全である．
+二つの列を自然写像で比較し，短五項補題を用いて有限長$M$の場合を得る．
+
+一般の$M$は有限生成部分加群のフィルター余極限であり，$R$がArtinなので
+これらの部分加群は有限長である．テンソル積と
+$\operatorname{Hom}_{\mathcal D}(E_j,-)$はこの余極限を保つ．
+後者では$E_j$の有限表示性を用いる．よって一般の$M$についても同型を得る．
+この段階でExtのフィルター余極限との可換性を仮定する必要はない．
+最後に，自由な$S$-作用と忘却の随伴から
+\[
+ \operatorname{Hom}_{\mathcal D_S}(S\otimes_R E_j,S\otimes_R E_i)
+ \simeq\operatorname{Hom}_{\mathcal D}(E_j,S\otimes_R E_i)
+\]
+である．積と係数変更の両立は自然写像の定義から従う．
+\end{proof}
+
+\begin{corollary}[可換三次点の全Artin変形の普遍飽和]
+\label{cor:abel-universal-artin-model}
+定理\ref{thm:abel-cubic-all-artin}の任意の変形$\mathcal D$とその
+$R$-平坦な持上げ$\widetilde E_i$を取る．section代数を$b$とすると，
+任意の可換$R$-代数$S$に対して
+\[
+ \mathcal D_S\simeq\operatorname{Qmod}(S\otimes_R b),\qquad
+ S\otimes_R b_{ij}\simeq
+ \operatorname{Hom}_{\mathcal D_S}
+ (S\otimes_R\widetilde E_j,S\otimes_R\widetilde E_i)
+\]
+である．従って，負の次数のHomの消滅を含む飽和とtailsによる復元が，
+すべての係数変更の後に成立する．
+各$S\otimes_R\widetilde E_i$は$S$-平坦かつ有限表示であり，
+これらは$\mathcal D_S$の生成族をなす．
+\end{corollary}
+\begin{proof}
+$\mathcal D$はlocally noetherianで，各$\widetilde E_i$はnoetherian，
+従って有限表示である．Homの有限自由性と還元の同定は
+定理\ref{thm:abel-cubic-all-artin}に含まれ，特殊ファイバーのExt消滅は
+補題\ref{lem:abel-cubic-acyclicity}である．従って
+補題\ref{lem:abel-arbitrary-coefficient-tails}と
+命題\ref{prop:abel-universal-line-hom}を適用できる．
+任意の$S$-加群$N$について
+$N\otimes_S(S\otimes_R\widetilde E_i)=N\otimes_R\widetilde E_i$
+なので$S$-平坦性も従う．有限表示性は
+\[
+ \operatorname{Hom}_{\mathcal D_S}(S\otimes_R\widetilde E_i,-)
+ =\operatorname{Hom}_{\mathcal D}(\widetilde E_i,U(-))
+\]
+と，$U$がフィルター余極限を保つことから従う．
+元の$\widetilde E_i$が生成族であり，忘却関手$U$が忠実だから，
+同じ随伴により係数変更後の列も生成族となる．
+\end{proof}
+
+\begin{remark}[任意の底における小さい圏の扱い]
+上の系は任意の$S$に対する大きな$\operatorname{Qmod}$についての主張である．
+$S$が非coherentであるとき，その有限表示対象の部分圏がAbel圏であるとは限らず，
+この部分圏を無条件に$qgr$と呼んで置換してはならない．
+$S$がnoetherianの場合は，本研究の模型はnoetherianであり，小さい$qgr$も使える．
+実際，定理\ref{thm:abel-cubic-flat-envelope}で得る次数付き模型$A_R$について
+$I=\mathfrak m_R S$と置くと，$I$は冪零で，平坦性から
+\[
+ \operatorname{gr}_I(S\otimes_R A_R)
+ \simeq\operatorname{gr}_I(S)\otimes_k A_0
+\]
+である．右辺は可換noetherian環なので，有限な$I$-フィルターについて
+生成元を持ち上げることにより$S\otimes_R A_R$は左右noetherianとなる．
 \end{remark}
+
+\subsection{係数対象のfpqc降下と相対同値}
+\label{subsec:abel-coefficient-descent}
+
+\begin{proposition}[Grothendieck圏内の忠実平坦降下]
+\label{prop:abel-coefficient-fpqc-descent}
+$\mathcal D$を$R$-線型Grothendieck圏とする．
+$S\mapsto\mathcal D_S$に標準的な係数変更$T\otimes_S-$を備えると，
+これはアフィン$R$-スキームのfpqc site上の圏のstackとなる．
+従って，系\ref{cor:abel-universal-artin-model}のtails模型は
+任意係数上でfpqc降下を満たす．
+\end{proposition}
+\begin{proof}
+忠実平坦射$S\to T$に対する降下を示す．
+Lazardの定理\cite[Tag~058G]{StacksAbel}により，平坦$S$-加群$T$は
+有限自由加群のフィルター余極限である．従って$T\otimes_S-$は
+$\mathcal D_S$上で完全である．また忠実平坦射$S\to T$は純な単射であり，
+$T/S$も平坦である．これを確認するには，通常の$S$-加群$P$に対する
+$P\to T\otimes_S P$を再び$T$でテンソルする．この写像は積
+$T\otimes_S T\to T$により分裂し，忠実平坦性から元の写像も単射となる．
+通常のTor長完全列から$T/S$の平坦性が従う．
+自由加群解消によるテンソル積のTorは係数加群のフィルター余極限と可換であり，
+Lazard表示から$\operatorname{Tor}_1^S(T/S,M)=0$である．
+従って任意の$M\in\mathcal D_S$についても
+$M\to T\otimes_S M$は単射である．
+従って$T\otimes_S-$は完全かつ保守的である．
+
+降下データを係数拡張と忘却の随伴に対する余作用で書く．
+すなわち$N\in\mathcal D_T$上の降下データは，通常の重なり上の同型と
+cocycle条件を書き換えることにより，$T$-線型写像
+\[
+ \delta:N\longrightarrow T\otimes_S U(N)
+\]
+で
+\[
+ \mu\delta=1_N,
+ \qquad
+ (1_T\otimes\delta)\delta=(1_T\otimes\eta_N)\delta
+\]
+を満たすものと同値である．ここで$\mu$は作用，
+$\eta_N:U(N)\to U(T\otimes_S U(N))$は$1\otimes-$である．
+この書換えは通常の加群降下と同じテンソル積の恒等式であり，
+加群の元の存在を必要としない．通常の加群の場合は
+\cite[Tags~023N, 039Y]{StacksAbel}を参照．
+
+$\mathcal D_S$の中で$M=\ker(\delta-\eta_N)$と置く．
+$T\otimes_S-$の完全性と余結合性から，$\delta$は
+\[
+ \bar\delta:N\longrightarrow T\otimes_S M
+\]
+を経由する．制限された作用$\bar\mu:T\otimes_S M\to N$について
+$\bar\mu\bar\delta=1_N$は余単位条件である．
+逆の合成については，$M$上で$\delta=\eta_N$であることと
+$\delta$の$T$-線型性から$\bar\delta\bar\mu=1_{T\otimes_S M}$を得る．
+よってすべての降下データが有効である．
+射は核$M$に制限することによって一意に降下する．
+自由拡張から出発して核を取り戻す写像は，$T$でテンソルした後に同型となるので，
+保守性から元々同型である．これで降下の同値を得る．
+アフィン上のfpqc被覆はこの忠実平坦降下とその合成に帰着し，
+一般のスキーム上にはアフィン開被覆を使って貼り合わせる．
+\end{proof}
+
+\begin{lemma}[相対同値の標準延長と一意性]
+\label{lem:abel-canonical-family-equivalences}
+$\mathcal D,\mathcal D'$を$R$-線型Grothendieck圏とする．
+すべての$R$-線型圏同値$F:\mathcal D\to\mathcal D'$は，作用を移すことにより
+係数変更と両立する相対同値
+$(F_S:\mathcal D_S\to\mathcal D'_S)_S$を誘導する．
+逆に，これら二つの標準係数族の間の相対線型同値は，
+$S=R$での同値からこの方法で得られるものと自然同型である．
+自然同型と構造対象の同定についても同じ主張が成り立つ．
+また，固定した二つの標準係数族の間の同値と自然同型はfpqc降下を満たす．
+\end{lemma}
+\begin{proof}
+圏同値はすべての余極限を保つので，$F$はテンソル積の自由表示と両立する．
+従って作用を移す構成は任意の係数変更と両立する．
+一意性について，相対同値$G$と$F=G_R$を取り，
+$L=S\otimes_R-$，$L'=S\otimes_R-$をそれぞれの自由係数変更関手とする．
+相対性の同型$G_S L\simeq L'F$の右随伴を取ると，
+圏同値であることから，忘却関手についての整合的な同型
+\[
+ U'G_S\simeq F U
+\]
+を得る．$s\in S$によるスカラー自己射に対する自然性と$G_S$の$S$-線型性により，
+この同型は$S$-作用を保つ．従って$G_S\simeq F_S$である．
+
+自然同型の一意性は，任意の$N\in\mathcal D_S$の標準余等化子表示
+\[
+ L U L U N\rightrightarrows L U N\longrightarrow N
+\]
+から従う．ここで二つの矢印は余単位から作られ，$LUN\to N$は全射である．
+係数変更と両立する自然同型は自由対象上で$R$での成分により決まるので，
+この全射に対する自然性からすべての対象上で決まる．
+構造対象の同定もテンソル積で延長し，同じ一意性を持つ．
+
+忠実平坦な$R\to T$上の同値と重なり上の同型が与えられたとする．
+各$M\in\mathcal D$について$M_T$の像を前命題で$\mathcal D'$へ降下し，
+射にも同じ降下を適用すると$F_R$を得る．
+$T\otimes_R-$が完全かつ保守的なので完全性は降下し，
+局所的な準逆も同じ方法で降下するため$F_R$は同値である．
+$F_T(T\otimes_R-)\simeq T\otimes_R F_R(-)$の随伴mateに上の議論を適用すると，
+任意の$T$-対象上でも$F_T\simeq(F_R)_T$を得る．
+自然同型と構造対象の同定も対象・射の降下により貼り合わさる．
+この降下は自然同型を保持したHom群oidについての主張である．
+構造対象の標識により2自己同型が自明な三次模型では，
+Hom群oidの同型類を取った後のstack化も，固定標準模型間に新しい射を加えない．
+一般の非標識圏で同型類だけを先に取った場合には，同じ結論を主張しない．
+\end{proof}
+
 
 \subsection{関係式と正規三次条件への還元}
 
@@ -971,10 +1246,10 @@ $\operatorname{Qcoh}(X)$の平坦Abel $R$-変形$\mathcal D$と，
   と表示できる．ここで$B_R\otimes_R\mathbb C\simeq\mathbb C[x_0,\ldots,x_4]$，
   $w_R$の還元は$F$である．この表示の選択自体はモジュライのデータに加えない．
 \end{enumerate}
-従って，試験環と底変更を局所Artin代数に制限した
-標準豊富列付き相対正規三次incidenceの本質像は，
+従って標準豊富列付き相対正規三次incidenceの本質像は，
 滑らかな可換三次点の全Abel Artin変形を尽くす．
-内在的な構成$b\mapsto Q(b)$は任意のArtin底変更と両立する．
+各模型は任意の可換$R$-代数への変更後にも飽和・復元を満たす．
+内在的な構成$b\mapsto Q(b)$も任意の係数変更と両立する．
 \end{theorem}
 \begin{proof}
 まずLowen\cite[Theorems~3.14 and~3.26]{LowenRinged}を，
@@ -1023,23 +1298,41 @@ $Q(b)\simeq\check B_R$となる．$B_R$の全次数の自由性から\textup{(i)
 定理\ref{thm:abel-relative-as-lift}により\textup{(ii)}が従う．
 
 最後に，$b_{i,i+2}$は有限自由なので，二次関係を定める核は直和因子であり，
-その形成は全てのArtin底変更に可換である．
+その形成は全ての係数変更に可換である．
 tensor代数と生成idealによる商も底変更に可換だから$Q(b)$もそうである．
 持上げの選択を変えると同型なsection代数が得られ，$Q$はその同型を保つ．
 従って実際のambient変形写像は，存在証明で選んだ量子化座標に依存しない．
+任意の係数変更後の飽和と復元は系\ref{cor:abel-universal-artin-model}から従う．
 \end{proof}
 
-\begin{remark}[ここでの局所完全性の範囲]
-この結果は特殊ファイバーの標識を固定した古典的Artin変形について述べている．
-Artin試験環に制限したsectionのsaturationと復元は，
-定理\ref{thm:abel-cubic-all-artin}の逆構成と底変更の比較から得られる．
-従って，このArtin変形問題では構造対象付き三次条件は追加の変形を排除しない．
-定義\ref{def:abel-cubic-pointed}の全スキーム底変更を要求する相対stackの
-形式完備化と同一視するには，Artin基底から任意の基底への変更後も
-saturationと復元が成立することを別途示す必要がある．
+\begin{corollary}[相対三次条件の普遍性]
+\label{cor:abel-universal-relative-cubic}
+前定理の模型と任意の可換$R$-代数$S$について，
+$A_S=B_S/(w_S)$，$Q(S\otimes_R b)\simeq S\otimes_R Q(b)$であり，
+$w_S$は左右正則である．相対Koszul解消と両側AS双対も任意の係数変更に可換である．
+従って$S\mapsto\mathcal D_S$は，全係数変更後の相対三次条件，
+sectionの飽和，tails復元および対象のfpqc降下を備える標準相対模型となる．
+\end{corollary}
+\begin{proof}
+$0\to B_R(-3)\xrightarrow{w_R}B_R\to A_R\to0$は各次数で
+有限自由$R$-加群の分裂完全列なので，任意の$S$でテンソルしても完全である．
+二次関係の核も分裂するので，二次包絡の形成と係数変更が可換である．
+相対Koszul解消，双加群解消および両側AS双対の各内部次数の複体は
+有界な有限自由$R$-複体で，指定された自由なコホモロジー以外では完全である．
+コホモロジーへの分裂を選び，完全な部分を端から順に分裂すれば，
+任意の$S$によるテンソルの後も同じ解消と双対式を得る．
+飽和・復元は系\ref{cor:abel-universal-artin-model}，
+降下は命題\ref{prop:abel-coefficient-fpqc-descent}による．
+\end{proof}
+
+\begin{remark}[局所完全性と大域の問題]
+この結果は，特殊ファイバーを固定した全ての平坦Abel Artin変形が，
+全係数変更後の条件を満たす相対三次模型を持つことを示す．
 有限型基底上の代数化，smooth proper開集合の存在，相対Hom定理のC1--C4，
-または全ての非可換点での同じ局所表示をここから結論しない．
-また，量子化と独立に選んだPoisson座標との全高次での一致は用いていない．
+または全ての非可換点での同じ局所表示は，なお別の課題である．
+stack化後の全形式完備化と標準模型の変形群oidを同一視するための
+圏自体の有効降下については，本節末で範囲を明記する．
+量子化と独立に選んだPoisson座標との全高次での一致は用いていない．
 \end{remark}
 
 \subsection{構造対象の標識と形式局所環}
@@ -1119,4 +1412,59 @@ $\mathcal R_X$という座標環の選択と，内在的な二次包絡写像は
 モジュライの追加データとして標準的に選ぶことは主張しない．
 また同型類関手の表示は，有限自己同型群を含む無標識stackや
 自然同型を保持した$2$-groupoidの同値を意味しない．
+\end{remark}
+
+\subsection{標準相対模型の形式局所比較}
+
+\begin{theorem}[標準相対Abel模型のArtin形式局所化]
+\label{thm:abel-canonical-relative-formal}
+$X$を滑らかな複素三次三様体，$R$を剰余体$\mathbb C$の局所Artin環とする．
+相対Grothendieck模型について，アフィン基底$\operatorname{Spec}R$上の族とは
+$R$-線型Grothendieck圏$\mathcal D$の標準係数族
+$S\mapsto\mathcal D_S$を意味するという規約を用いる．
+$\mathcal D$は$R$-平坦で，構造対象$\OO_R$は$R$-平坦とし，
+特殊ファイバーを$(\operatorname{Qcoh}(X),\OO_X)$に同定する．
+また，fpqc局所の三次tails模型について全係数変更後の飽和と復元を要求する．
+
+この規約で得る構造対象付き相対模型のArtin変形群oidから
+$R$での圏を取る関手は，群oidの同値
+\[
+ \widehat{\mathfrak M}^{\OO,\mathrm{can}}_{\mathrm{cub},X}(R)
+ \xrightarrow{\ \sim\ }
+ \operatorname{Def}^{\OO}_{\mathrm{ab}}
+ (\operatorname{Qcoh}(X);R)
+\]
+を与える．これは局所Artin環の任意の射に対して自然であり，
+任意係数の族への延長は同値を除いて一意である．
+\end{theorem}
+\begin{proof}
+右辺の変形に対して，定理\ref{thm:abel-cubic-all-artin}と
+定理\ref{thm:abel-cubic-flat-envelope}は，構造対象を次数零の対象として持つ
+三次tails模型を与える．
+系\ref{cor:abel-universal-artin-model}はその模型の飽和と復元を
+任意の係数環について保証し，
+命題\ref{prop:abel-coefficient-fpqc-descent}は標準係数族の降下を保証する．
+従ってすべての右辺の対象が左辺へ延長する．
+逆方向では定義により$R$で評価して右辺の変形を得る．
+射と自然同型についての完全忠実性は
+補題\ref{lem:abel-canonical-family-equivalences}である．
+構造対象の持上げの選択は同型で置換でき，その同定を保つ射の自然同型類を
+取る規約も両側で一致する．
+各構成は係数作用とその合成に関して標準的なので，基底変更の自然性も従う．
+\end{proof}
+
+\begin{remark}[形式局所結論の正確な範囲]
+この定理は標準係数族からなる群oidについての同値である．
+全ての平坦Abel Artin変形が，全係数変更後の条件を満たす相対三次模型を
+与えることは証明された．一方，元の$\mathfrak M^{\OO}_{\mathrm{cub}}$は
+さらにfpqc stack化されている．その操作がArtin基底上で大域的に標準係数族と
+同値でない形式を付け加えないことは，本定理だけからは従わない．
+したがってstack化後の全形式完備化との同定には，圏自体の降下の有効性，
+またはそのArtin対象が大域模型を持つことの追加の証明が必要である．
+単に係数変更関手の存在だけを仮定した任意の
+圏値prestackが，その$R$での値から復元できるとは主張していない．
+また，固定した$\mathcal D$の対象と射のfpqc降下と，任意のGrothendieck圏の
+降下データそのものが有効であるという一般の$2$-降下定理は区別する．
+有限型atlas，代数スタック性，あるいは任意の底における小さい有限表示対象の
+圏のAbel性は，この形式局所同定の結論に含まれない．
 \end{remark}

@@ -265,32 +265,109 @@ $s$は左右正則である。
 この操作で$X$上に平坦な結合$R$代数層
 $\mathscr A_R$が得られる。
 
-\begin{proposition}[偏極とsection algebraの回復]
+\begin{proposition}[全次数コホモロジーと任意底変更]
+\label{prop:artin-ore-universal-cohomology}
 \label{prop:artin-ore-section}
-上のOre局所化層の次数$n$部分を貼り合わせた
-$\mathscr E_n$は可逆両側$\mathscr A_R$加群であり、
+上のOre局所化層の次数$n$部分を貼り合わせた$\mathscr E_n$は
+可逆両側$\mathscr A_R$-加群であり，
+$\mathscr E_p\otimes_{\mathscr A_R}\mathscr E_q\simeq\mathscr E_{p+q}$である。
+この族について，
+任意の可換$R$-代数$S$を取る。$I=\mathfrak mS$，$Q=S/I$，
+$X_Q=X\times_k\operatorname{Spec}Q$と置く。
+$A_S=S\otimes_RA_R$の標準Ore局所化が定める層を
+$\mathscr A_S$，次数$n$部分を$\mathscr E_{n,S}$と書くと，
+任意の整数$n$と$q\ge0$について標準写像
 \[
- \mathscr E_m\otimes_{\mathscr A_R}\mathscr E_n
- \simeq\mathscr E_{m+n}.
+ S\otimes_R H^q(X,\mathscr E_n)
+   \xrightarrow{\sim}H^q(X_Q,\mathscr E_{n,S})
 \]
-$n\ge0$について
+は同型である。この同型は任意の$S\to T$と両立する。
+$S$のnoetherian性・平坦性・有限生成性は仮定しない。
+
+具体的には，$n\ge0$では$H^0(X_Q,\mathscr E_{n,S})=(A_S)_n$であり
+他のコホモロジーは零，$n=-1$では全て零である。
+$n\le-2$では$H^3$だけが非零となり得て，それは階数
+$\dim_k(A_0)_{-n-2}$の有限自由$S$-加群である。
+ここで$A_0=k[x_0,\ldots,x_4]/(F)$である。
+特に全ての整数$p,q$について
 \[
- H^i(X,\mathscr E_n)=0\ (i>0),\qquad
- (A_R)_n\xrightarrow{\sim}H^0(X,\mathscr E_n)
+ \operatorname{Hom}_{\operatorname{Qcoh}(\mathscr A_S)}
+   (\mathscr E_{p,S},\mathscr E_{q,S})
+  \simeq(A_S)_{q-p}
 \]
-が成り立ち、積とも両立し任意のArtin基底変換に可換である。
+が合成と任意底変更に両立して成り立つ。負次数の右辺は零とする。
+線対象間の導来Homも$S$-perfectであり，任意の導来底変更に可換である。
 \end{proposition}
 \begin{proof}
-局所化の一次元は可逆なので強い$\mathbb Z$次数付けと
-両側可逆性が従う。アフィン交叉上では、$\mathscr E_n$の有限な
-$\mathfrak m$進濾過の各商は$\OO_X(n)$の有限直和となり、非負次数に限らず
-高次コホモロジーを持たない。従って有限標準被覆の\v{C}ech複体で
-大域コホモロジーを計算できる。
-$R$の小拡大を順に帰納すると、
-特殊ファイバーの$H^i(X,\OO_X(n))=0$ ($i>0,n\ge0$)
-から高次消滅と$H^0$の有限自由性が得られる。
-特殊化で同型な$(A_R)_n\to H^0(X,\mathscr E_n)$は
-Nakayamaで同型となる。強次数付けにより積との両立も従う。
+次数一の可逆元により各局所化は強く$\mathbb Z$-次数付きである。
+従って各次数部分は可逆両側加群で，そのtensor積は次数の和の部分に一致する。
+$[A_S,A_S]\subset IA_S$と$I^N=0$より，先の冪零交換子によるOre条件の証明は
+$A_S$にも適用できる。各標準開集合では，持上げた次数一元を可逆化した次数零部分を取り，
+その主開集合への制限もOre局所化で定める。
+持上げの差が$IA_S$に入る二つの元は，一方が可逆になれば他方も
+有限の幾何級数により可逆になるので，この制限は持上げに依存しない。
+主開被覆の層条件は$I$進有限濾過の各商における通常の可換環の局所化へ帰着する。
+これにより$X_Q$上の層$\mathscr A_S$と$\mathscr E_{n,S}$が得られる。
+
+逆元を加える普遍性から，任意の有限交叉について
+\[
+ S\otimes_R\bigl(A_R[\widetilde x_{i_0}^{-1},\ldots,
+                      \widetilde x_{i_r}^{-1}]\bigr)_n
+ \simeq\bigl(A_S[\widetilde x_{i_0}^{-1},\ldots,
+                    \widetilde x_{i_r}^{-1}]\bigr)_n
+\]
+である。局所化は乗法写像によるfiltered colimitであり，その次数成分は直和因子なので，
+左辺を作る$R$-加群は平坦である。
+$\mathscr E_{n,S}$の$I$進濾過の各商は
+$\mathcal O_{X_Q}(n)\otimes_Q(I^r/I^{r+1})$であり，
+標準開集合のアフィン交叉上で高次コホモロジーを持たない。
+このアフィン消滅にはnoetherian性は不要である。
+従って有限標準被覆の有界\v{C}ech複体$C_R(n)$，$C_S(n)$が
+大域コホモロジーを計算し，
+$C_S(n)=S\otimes_RC_R(n)$である。$C_R(n)$の各項は$R$-平坦である。
+
+特殊ファイバーの超曲面完全列から
+$H^1(X,\mathcal O_X(n))=H^2(X,\mathcal O_X(n))=0$であり，
+$H^0$は$n\ge0$のときだけ，$H^3$は$n\le-2$のときだけ非零となり得る。
+後者の次元は$\omega_X=\mathcal O_X(-2)$とSerre双対から
+$\dim_k(A_0)_{-n-2}$である。
+これを$R$の長さについて帰納する。
+小拡大$R\twoheadrightarrow R'$の核$J$を$\mathfrak mJ=0$となるように取り，
+$\mathscr E_n$の平坦性による完全列
+\[
+ 0\longrightarrow J\otimes_k\mathcal O_X(n)
+ \longrightarrow\mathscr E_n
+ \longrightarrow\mathscr E_{n,R'}\longrightarrow0
+\]
+を用いる。長完全列から上記以外のコホモロジーは零である。
+唯一非零となり得る次数を$d\in\{0,3\}$，その特殊ファイバーの次元を$h$とすると，
+\[
+ 0\longrightarrow J\otimes_kH^d(X,\mathcal O_X(n))
+ \longrightarrow H^d(X,\mathscr E_n)
+ \longrightarrow H^d(X,\mathscr E_{n,R'})\longrightarrow0
+\]
+を得る。帰納法により右端の$R'$-基底を取り，その像は特殊ファイバーの基底となる。
+これを中央へ持ち上げて$R^h\to H^d(X,\mathscr E_n)$を作り，
+$0\to J^h\to R^h\to(R')^h\to0$と上の完全列を比較する。
+係数乗法の自然性と$\mathfrak mJ=0$により，$a\in J$による持上げ$u$の積は
+左端の$a\otimes\overline u$の像である。従って左端の比較写像は同型であり，
+右端も帰納法で同型である。短い五項補題から中央も同型となる。
+これで$H^d(X,\mathscr E_n)$の有限自由性と特殊化の両立が同時に示された。
+$n\ge0$では，標準写像$(A_R)_n\to H^0(X,\mathscr E_n)$は
+同じ階数の有限自由$R$-加群間の写像で特殊化が同型なので，同型である。
+
+最後に，有界平坦複体$C_R(n)$のコホモロジーは全て有限自由である。
+各全射$Z^q(C_R(n))\to H^q(C_R(n))$の切断を選ぶと，
+零微分複体$\bigoplus_qH^q(C_R(n))[-q]$から$C_R(n)$への擬同型を得る。
+そのconeは有界非輪状平坦複体であり，最高次数からの帰納により各cycleが平坦である。
+従って任意の$S$とのtensor後も非輪状であり，所望の底変更同型を得る。
+同型自体は標準写像によるため切断の選択によらず，底変更の合成に両立する。
+内部Homは強い次数付けと左乗法により
+$\mathcal H om_{\mathscr A_S}(\mathscr E_{p,S},\mathscr E_{q,S})
+\simeq\mathscr E_{q-p,S}$である。$H^0$を取ればHomの主張が従う。
+線対象は各局所化上で射影的なので，線対象間の導来Homも
+同じ有界\v{C}ech複体$C_S(q-p)$で計算できる。
+上で得た有限自由コホモロジーへの擬同型がperfect性と導来底変更を与える。
 \end{proof}
 
 \begin{lemma}[可逆両側偏極の同型類の一意性]

@@ -1,0 +1,570 @@
+\section{有限位数楕円境界を持つ四係数族の中心上有限な相対模型}
+\label{sec:four-parameter-central-model}
+
+この節では、固定した周囲の代数 $B$ における
+中心三次斉次元 $G$ の商だけを動かす。
+係数環と族を
+\[
+ P=\mathbb C[a,b,c,d],\qquad
+ R=P[u,v],\qquad
+ \mathcal A=B\otimes_{\mathbb C}P/
+ (G+au^3+bu^2v+cuv^2+dv^3)
+\]
+と書く。$a,b,c,d$ の通常の次数は零、$u,v,x,y,z$ の通常の次数は一とする。
+以下で用いる入力は、既存の PBW 構成により
+\begin{equation}\label{eq:central-model-filtered-input}
+ \operatorname{gr}_{x,y,z}\mathcal A
+ \simeq H\otimes_{\mathbb C}P[u,v],\qquad
+ H=B(E,\mathcal L,\tau)
+\end{equation}
+となり、$E$ が滑らかな楕円曲線、$\mathcal L$ が豊富な直線束、
+$\tau$ が有限位数の平行移動であることである。
+各 $F_j\mathcal A$ は $R$ 上有限自由で、閉点への基底変更と filtration が両立する。
+また $\mathcal A$ は通常の次数一で生成され、$\mathcal A_0=P$ とする。
+具体的な $B_*$ については、命題\ref{prop:moduli-rigid-example}の
+PBW条件と楕円境界の同定を入力とする。
+境界の平行移動の位数六は補題\ref{CSBGlem:order-six}で確認される。
+
+式 \eqref{eq:central-model-filtered-input} の各斉次部分は $R$ 上自由であるから、
+その基底を filtration に沿って持ち上げると
+\begin{equation}\label{eq:central-model-R-free}
+ \mathcal A\text{ は次数付き }P[u,v]\text{-加群として自由}
+\end{equation}
+である。
+特に任意の可換 $P$-代数 $S$ について、
+$\mathcal A_S=\mathcal A\otimes_P S$ は $S[u,v]$ 上自由であり、
+$u,v$ およびその正冪は普遍的な中心正則列となる。
+
+\subsection{中心元の一様な持上げ}
+
+補題\ref{CSBGlem:global-center-lifting}の中心持上げを，
+$x,y,z$に関するfiltrationへ適用する。
+
+\begin{theorem}[全四係数族の有限な中心模型]
+\label{thm:central-model-finite}
+上述の入力の下で、有限型次数付き可換 $P$-代数
+\[
+ P[u,v]\subset C\subset Z(\mathcal A),\qquad C_0=P
+\]
+であって $\mathcal A$ が $C$ 上有限となるものが存在する。
+任意の noetherian 可換 $P$-代数 $S$ に対し、
+$\mathcal A_S$ は $C_S=C\otimes_P S$ 上有限であり、左右 noetherian である。
+\end{theorem}
+
+\begin{proof}
+補題\ref{CSBGlem:global-center-lifting}を $R_0=P[u,v]$、$U=\mathcal A$ に適用する。
+そこで持ち上げる中心元 $z\in Z(H)_j$ は、通常の次数も $j$ である。
+中心に持ち上げた元を通常の次数で分解すると、各斉次成分も中心に入る。
+通常の次数 $j$ の成分を取れば、最高 filtration symbol は依然として $z$ である。
+従って中心生成元の持上げを通常の次数で斉次に選べる。
+$P[u,v]$ と有限個のこれらの持上げが生成する代数を $C$ とする。
+同補題の filtration 帰納法は $\mathcal A$ の $C$ 上の有限性を与える。
+
+有限生成加群であることは任意の基底変更後にも保たれる。
+$C_S$ は noetherian 環 $S$ 上有限型の可換代数なので noetherian である。
+$\mathcal A_S$ の左イデアルまたは右イデアルの昇鎖は $C_S$-部分加群の昇鎖であり、停止する。
+\end{proof}
+
+\begin{remark}[全中心および非被約基底の扱い]
+\label{rem:central-model-not-full-center}
+ここでは $C=Z(\mathcal A)$ を主張していない。
+また、任意の $P\to S$ の後に $C_S\to\mathcal A_S$ が単射であるとも主張しない。
+必要なのは、中心に像を持つ環準同型
+$C_S\to Z(\mathcal A_S)$ と、その作用に関する有限加群性だけである。
+中心持上げに Rains の定理と被約性を使うのは $P[u,v]$ 上で一度だけであり、
+非被約な $S$ 上でそれらを再適用していない。
+\end{remark}
+
+\begin{corollary}[剛体族の普遍的な二次中心]
+\label{cor:central-model-universal-center-two}
+命題\ref{prop:moduli-rigid-example}の$B_*$とその四係数族について，
+任意の可換$P$-代数$S$に対し
+\[
+ Z(\mathcal A_S)_2=S u^2\oplus S uv\oplus S v^2
+\]
+である．従ってこの族は定義\ref{def:abel-two-center-family}の
+普遍的な中心二変数条件を全係数基底上で満たす．
+この主張では$S$のnoetherian性を仮定しない．
+\end{corollary}
+\begin{proof}
+三次商は二次関係を変えないので，$(\mathcal A)_2$は
+$(B_*)_2\otimes P$であり，$Pu^2\oplus Puv\oplus Pv^2$は
+その定数な直和因子である．従って商は自由rank~12である．
+$(\mathcal A)_1$は自由rank~5，$(\mathcal A)_3$は自由rank~34だから，
+命題\ref{prop:abel-center-rank-open}の有限自由加群間の写像
+\[
+ (\mathcal A)_2/\operatorname{Sym}^2(Pu\oplus Pv)
+ \longrightarrow\operatorname{Hom}_P((\mathcal A)_1,(\mathcal A)_3)
+\]
+を使える．各閉点$s$では，三次元$G_*+f_s$の最高symbolは非零正則な$\gamma$であり，
+補題\ref{lem:moduli-low-center}と\ref{lem:moduli-no-new-quadratic-center}から
+$Z(\mathcal A_s)_2=k(s)u^2\oplus k(s)uv\oplus k(s)v^2$である．
+ここで固定した主変数の三次式の滑らかさと境界translationの位数六を使う．
+従って全閉点がrank~12の開部分に入る．$P$はJacobson環なのでその開部分は全体である．
+写像は局所的に分裂単射であり，任意の$S$への係数変更後も単射である．
+全次数の有限自由性と$S[u,v]$-自由性も既に示したので，定義の他の条件も満たす．
+\end{proof}
+
+\subsection{射影スキーム上の有限代数層と普遍的な section 復元}
+
+以下、$\ell>0$ を十分割り切れる偶数とし、$D=C^{(\ell)}$ が $D_1$ で生成されるように取る。
+\[
+ Y=\operatorname{Proj}D,\qquad
+ \mathscr A=\widetilde{\mathcal A^{(\ell)}}
+\]
+と置く。$Y\to\operatorname{Spec}P$ は射影的で、$\mathscr A$ は有限な
+$\mathcal O_Y$-代数である。任意の noetherian $P$-代数 $S$ について
+$Y_S=\operatorname{Proj}(D\otimes_P S)$ と書き、$\mathscr A_S$ を基底変更した代数層とする。
+中心準同型に核が生じる場合も、この模型をその support とともに用いる。
+
+\begin{proposition}[相対 tails の有限代数層模型]
+\label{prop:central-model-qgr}
+全ての noetherian $P$-代数 $S$ について、基底変更に自然な同値
+\[
+ \operatorname{QGr}(\mathcal A_S)
+ \simeq \operatorname{QCoh}(Y_S,\mathscr A_S),\qquad
+ \operatorname{qgr}(\mathcal A_S)
+ \simeq \operatorname{coh}(Y_S,\mathscr A_S)
+\]
+がある。
+構造対象 $\mathcal O=\pi\mathcal A_S$ は $\mathscr A_S$ に対応し、
+$\mathcal O(m)$ は
+$\widetilde{\mathcal A_S(m)^{(\ell)}}$ に対応する。
+これらの圏は $S$-線型 locally noetherian Grothendieck 圏を与え、
+基底変更の合成および fppf 降下に両立する。
+\end{proposition}
+
+\begin{proof}
+標準開 $D_+(c)$、$c\in D_1=C_\ell$ を取る。
+$\mathcal A_S$ は次数一生成なので、$c$ を次数一元の長さ $\ell$ の積の和で書ける。
+中心局所化 $T=\mathcal A_S[c^{-1}]$ において、その式を最初または最後の因子で切れば
+\[
+ 1\in T_1T_{-1},\qquad 1\in T_{-1}T_1
+\]
+となる。
+従って $T$ は強く $\mathbb Z$-次数付きであり、次数零部分を取る関手は
+次数付き $T$-加群と $T_0$-加群の同値を与える。
+実際 $T_n$ は可逆な $T_0$-両側加群であり、
+$N\mapsto N\otimes_{T_0}T$ が逆関手である。
+
+一方、$\mathcal A_S$ が $C_S$ 上有限なので、$\mathcal A_S$-torsion と
+$C_{S,+}$-torsion は一致する。
+例えば $mC_{S,\geq n}=0$ なら、有限個の斉次 $C_S$-加群生成元の次数の最大値を $e$ として
+$m\mathcal A_{S,\geq n+e}=0$ となる。
+逆方向は $C_S$ の像が中心にあることから直ちに従う。
+標準開上の上記の同値を貼り合わせると tails の同値を得る。
+これは通常の Serre の Proj 対応の証明を有限な代数層に適用したものであり、
+中央の局所化と次数零部分だけで構成される。
+したがって基底変更とその合成に自然である。
+coherent 部分の対応は、環と代数層の noetherian 性から従う。
+
+有限代数層の quasi-coherent 加群は通常の加群とその作用写像の降下として
+fppf 降下を持つ。$Y_S$ が noetherian 射影スキームであることから
+quasi-coherent 加群圏は locally noetherian Grothendieck 圏である。
+固定した二つの模型の間の同値および自然変換の降下には，
+補題\ref{lem:abel-canonical-family-equivalences}を用いる。
+\end{proof}
+
+\begin{theorem}[任意基底変更後の全次数 saturation]
+\label{thm:central-model-universal-sections}
+任意の noetherian $P$-代数 $S$ と任意の整数 $m$ に対し、標準写像
+\[
+ (\mathcal A_S)_m\longrightarrow
+ \operatorname{Hom}_{\operatorname{QGr}(\mathcal A_S)}
+ (\mathcal O,\mathcal O(m))
+\]
+は同型である。これらの同型は任意の noetherian な基底変更、乗法および合成と両立する。
+特に負次数の右辺も零である。
+\end{theorem}
+
+\begin{proof}
+$D_S=D\otimes_P S$、$I=D_{S,+}$ とし、次数付き有限 $D_S$-加群
+$M_m=\mathcal A_S(m)^{(\ell)}$ を考える。
+式 \eqref{eq:central-model-R-free} により、$u^\ell,v^\ell\in (D_S)_1$
+は $M_m$ 上の正則列である。
+商を取ることと Veronese 部分を取ることは可換なので、
+この主張は $\mathcal A_S$ が $S[u,v]$ 上自由であることから従う。
+
+$u^\ell$ の単射性から $H^0_I(M_m)=0$ である。
+また $M_m/u^\ell M_m$ 上では $v^\ell$ が単射なので
+$H^0_I(M_m/u^\ell M_m)=0$ となる。
+local cohomology の長完全列により、$u^\ell$ は $H^1_I(M_m)$ 上でも単射である。
+しかし $H^1_I(M_m)$ は $I$-torsion であり、各元は $u^\ell$ のある冪で消える。
+従って $H^1_I(M_m)=0$ である。
+
+斉次生成元による増大\v{C}ech複体とその次数成分を比較して得られる，
+標準次数付き可換環のProjに対するlocal cohomologyの完全列
+\[
+ 0\longrightarrow H^0_I(M_m)\longrightarrow M_m
+ \longrightarrow\bigoplus_{n\in\mathbb Z}
+ H^0(Y_S,\widetilde M_m(n))\longrightarrow H^1_I(M_m)
+ \longrightarrow0
+\]
+の次数零部分を取る。
+$\widetilde M_m=\mathcal O(m)$、$\mathcal O=\mathscr A_S$ なので、
+\[
+ H^0(Y_S,\widetilde M_m)
+ =\operatorname{Hom}_{\mathscr A_S}(\mathscr A_S,\widetilde M_m)
+\]
+であり、所望の同型を得る。
+ここで用いた写像は、元を左乗法による加群準同型へ送る標準写像そのものである。
+同じ証明が全ての $S$ に適用でき、基底変更前後の標準写像の正方形は可換である。
+従って同型は任意の基底変更に自然であり、乗法と合成にも両立する。
+\end{proof}
+
+\subsection{偶数列に関する補足}
+
+次の各主張は、上の saturation と区別して記載する。
+これらを用いても相対 Serre 双対はまだ得られない。
+
+\begin{proposition}[偶数列の豊富性、復元、関手の決定]
+\label{prop:central-model-even-sequence}
+上記の模型において $E_i=\mathcal O(-2i)$、$i\geq0$ とする。
+\begin{enumerate}
+ \item 任意の coherent 対象は、十分大きい添字を持つ $E_i$ の有限直和の商である。
+ また任意の coherent 対象間の全射 $M\to N$ に対し、
+ $\operatorname{Hom}(E_i,M)\to\operatorname{Hom}(E_i,N)$ は $i\gg0$ で全射である。
+ \item Veronese 関手は基底変更に自然な同値
+ $\operatorname{QGr}(\mathcal A_S)\simeq\operatorname{QGr}(\mathcal A_S^{(2)})$ を与える。
+ 偶数列の section 代数は前定理によって $\mathcal A_S^{(2)}$ となる。
+ \item 二つの完全同値の偶数列上の制限の間に、全ての Hom と合成に両立する同型が与えられたなら、
+ その同型は圏全体の自然同型へ一意的に延びる。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$\ell$ を偶数に選んだので、次数捩れ $(\ell)$ は
+有限代数層模型において $\mathcal O_{Y_S}(1)$ との tensor に一致する。
+通常のSerreの生成性と消滅\cite[Lemma~30.14.2]{StacksProj}を、coherent な $\mathscr A_S$-加群の台となる
+$\mathcal O_{Y_S}$-加群に適用する。
+例えばその大きな twist の $\mathcal O_{Y_S}$-加群としての有限生成切断は、
+$\mathscr A_S$-加群としての $\mathscr A_S$ の有限直和からの全射を与える。
+有限個の剰余類 $2i\bmod\ell$ について同じ議論を行えば (1) を得る。
+
+$\ell$ は二で割れるので、$\mathcal A_S$ と $\mathcal A_S^{(2)}$ は同じ中心標準開上で
+同じ次数零局所化代数を持つ。
+前命題の局所化と貼合せによる構成は、この二つを同じ $\mathscr A_S$-加群圏へ送る。
+これが (2) の同値であり、基底変更にも自然である。
+この同値は$\pi\mathcal A_S(-2i)$を$\pi\mathcal A_S^{(2)}(-i)$へ送る。
+従って商関手$\operatorname{Gr}(\mathcal A_S^{(2)})\to
+\operatorname{QGr}(\mathcal A_S^{(2)})$の右随伴の非負次数部分は，
+この同値の下で$\bigoplus_{i\ge0}\operatorname{Hom}(E_i,-)$に対応する。
+
+(1) により coherent 対象 $M$ は、$E_i$ の有限直和を項とする表示
+$L_1\to L_0\to M\to0$ を持つ。
+二つの完全同値を $F,G$ と書く。
+偶数列上の与えられた同型を有限直和に延ばし、
+表示の余核を取ると $\alpha_M:F(M)\to G(M)$ が得られる。
+固定した全射 $L_0\to M$ に対して、余核上の写像は
+$\alpha_M F(L_0\to M)=G(L_0\to M)\alpha_{L_0}$ という等式で一意に決まり、
+核を覆う $L_1$ の選択には依存しない。
+二つの全射 $L_0\to M$、$L'_0\to M$ を比較するときは、
+共通の全射 $L_0\oplus L'_0\to M$ と、その coherent な核の有限表示を取る。
+この共通表示から得る写像は、各直和因子について上記の等式を満たす。
+$F(L_0)\to F(M)$ と $F(L'_0)\to F(M)$ の全射性により、
+元の二つの表示から得る写像はともにこの写像に等しい。
+
+射 $h:M\to N$ に対しては、全射 $L_0\to M$ と $P_0\to N$ を取り、
+$(h\circ(L_0\to M),P_0\to N):L_0\oplus P_0\to N$ という全射を用いる。
+これから構成した $\alpha_N$ の等式を $L_0$ に制限し、
+$F(L_0)\to F(M)$ が全射であることを使うと
+$\alpha_NF(h)=G(h)\alpha_M$ が得られる。
+この議論は $E_i$ が射影的であることや、表示への任意の射の持上げを仮定しない。
+従って coherent 部分圏で表示によらない自然同型を得る。
+余核表示はその一意性も与える。
+
+最後に、locally noetherian Grothendieck 圏の各対象は
+noetherian 部分対象の filtered colimit であり、
+完全同値は noetherian 対象と全ての colimit を保つ。
+従って coherent 部分圏上の自然同型は圏全体へ一意的に延びる。
+\end{proof}
+
+\subsection{局所 perfect 対象について得られる相対 RHom}
+
+$\operatorname{Perf}(Y_S,\mathscr A_S)$ を、中心標準開上で
+有限生成射影 $\mathscr A_S$-加群の有界複体に同型な対象の dg 圏とする。
+全係数基底上では，これを「有界coherentかつ底$S$上有限Tor振幅」という
+内在的な部分圏と同一視しない。後の命題\ref{prop:central-model-intrinsic-perfect-open}は，
+一般ファイバーの正則性の下で，非空基底開上に限ってその同一性を証明する。
+
+\begin{proposition}[局所 perfect 圏の proper 性と基底変更]
+\label{prop:central-model-perfect-rhom}
+任意の noetherian $P$-代数 $S$ について、全ての $\mathcal O(m)$ は
+$\operatorname{Perf}(Y_S,\mathscr A_S)$ に入る。
+この圏の二対象 $K,L$ の相対 RHom は $S$-perfect である。
+任意の noetherian $S$-代数 $S'$ に対して、標準写像
+\[
+ \operatorname{RHom}_{\mathscr A_S}(K,L)\otimes_S^{\mathbf L}S'
+ \longrightarrow
+ \operatorname{RHom}_{\mathscr A_{S'}}(K_{S'},L_{S'})
+\]
+は同型である。ここで右辺への移行は導来基底変更である。
+正確には、中心 affine chart の代数 $\Lambda$ を使って
+$K_{S'}=K\otimes_{\Lambda}^{\mathbf L}(\Lambda\otimes_SS')$
+と定め、これらを貼り合わせる。
+これは代数の係数拡大であり、$Y_S\to\operatorname{Spec}S$ の平坦性を仮定しないまま
+台の $\mathcal O_{Y_S}$-複体の通常の導来逆像と同一視しない。
+\end{proposition}
+
+\begin{proof}
+中心標準開上で $\mathscr A_S$ は
+$\Lambda=(\mathcal A_S[c^{-1}])_0$ で表される。
+この代数は $S$ 上平坦である。
+実際、次数零局所化は有限自由 $S$-加群
+$(\mathcal A_S)_{j\deg c}$ の filtered colimit である。
+強次数付き性から $(\mathcal A_S[c^{-1}])_m$ は有限生成射影 $\Lambda$-加群であり、
+従って全ての $\mathcal O(m)$ は局所 perfect である。
+
+$K,L$ を局所 perfect とする。
+$\mathbf R\mathcal Hom_{\mathscr A_S}(K,L)$ は有界 coherent な
+$\mathcal O_{Y_S}$-複体である。
+上記の各標準開で有限射影複体を用いて計算する。
+有限射影右$\Lambda$-加群間のHomは，$S$-加群として$\Lambda$の有限直和の直和因子であり，
+従ってこの局所Hom複体は$S$-平坦加群の有界複体となる。
+このHomを自然な右$\Lambda$-加群とみなす必要はない。
+有限個の開を選べるので、底に関する Tor 振幅は一様に有限である。
+$Y_S\to\operatorname{Spec}S$ は射影的なので、
+proper pushforward の perfect 性
+\cite[Lemma 36.27.1, Tag~08EV]{StacksPerfect}
+をこの $\mathcal O_{Y_S}$-複体に適用できる。
+従ってその大域 RHom は $S$-perfect である。
+
+基底変更は、中心標準開とその交叉による有限\v{C}ech 複体で確認する。
+各交叉は affine であり、局所 RHom は有限射影 $\Lambda$-複体で計算できる。
+$\Lambda$ の $S$-平坦性と有限射影性により、この局所計算は導来基底変更と可換する。
+有限\v{C}ech totalization も導来 tensor と可換するので、表示した同型を得る。
+この議論は $Y_S$ 自体が $S$ 上平坦であるとは仮定していない。
+\end{proof}
+
+\subsection{非空開上の相対対角と内在的なperfect部分圏}
+
+全係数基底上では局所perfect圏だけを用いた。
+ここでは一般の幾何学的ファイバーのtails大域次元を入力として，
+有限な中心標準開被覆の各相対対角をperfectにする非空基底開を得る。
+$u\ne0$と$v\ne0$の二chartだけでは$u=v=0$の境界を覆わないため，
+射影中心模型の全標準開被覆を用いる。
+
+\begin{lemma}[中心 affine 開への Ext の局所化]
+\label{lem:central-affine-ext-localization}
+$k$ を体、$Y$ を noetherian 射影 $k$-スキーム、
+$\mathscr A$ を有限な $\mathcal O_Y$-代数とする。
+豊富な可逆層 $\mathcal O_Y(1)$ の切断 $c$ に対し
+$U=Y\setminus V(c)$ が affine であるとし、$j:U\hookrightarrow Y$、
+$\Lambda=\Gamma(U,\mathscr A)$ と置く。
+coherent な右 $\mathscr A$-加群 $M,N$ について、自然な同型
+\[
+ \operatorname{Ext}^i_\Lambda(M|_U,N|_U)
+ \simeq\varinjlim_n
+ \operatorname{Ext}^i_{\mathscr A}(M,N\otimes\mathcal O_Y(n))
+ \qquad(i\geq0)
+\]
+がある。右辺の遷移写像は $c$ による乗法である。
+さらに $\operatorname{coh}(Y,\mathscr A)$ の大域次元が高々 $d$ なら、
+$\operatorname{gldim}\Lambda\leq d$ である。
+\end{lemma}
+
+\begin{proof}
+まず coherent 対象 $M$ に対して、Serre の生成性を繰り返すと、
+各項が $\mathscr A\otimes\mathcal O_Y(-n)$ の有限直和である
+有界上方の分解 $L^\bullet\to M$ を取れる。
+核は常に coherent なので、この操作を任意の長さまで継続できる。
+$L^\bullet$ の各項は局所的に有限自由な $\mathscr A$-加群である。
+$Y$ の有限 affine 開被覆を選ぶと、
+$\mathcal Hom_{\mathscr A}(L^\bullet,N)$ の有限\v{C}ech totalization は
+$\operatorname{RHom}_{\mathscr A}(M,N)$ を計算する。
+sheaf Hom の次数および\v{C}ech の次数はともに非負で、後者は一様に有界である。
+従って固定した total degree に関わる項は有限個である。
+局所有限自由性、affine 上の切断、有限\v{C}ech 複体は filtered colimit と可換するので、
+$\operatorname{Ext}^i_{\mathscr A}(M,-)$ は quasi-coherent 加群の filtered colimit と可換する。
+
+可逆層を局所的に自明化して通常の環の局所化を使えば
+\[
+ j_*j^*N=\varinjlim_n N\otimes\mathcal O_Y(n)
+\]
+となる。
+$Y$ は separated で $U$ は affine なので $j$ は affine である。
+従って quasi-coherent 加群に対する $j_*$ は完全であり、
+$j^*$ との導来随伴と直前の colimit との可換性から表示した Ext 同型を得る。
+ここでcoherent対象間のExtはcoherent圏でもquasi-coherent圏でも同じである。
+実際，locally noetherian Grothendieck圏ではnoetherian対象への任意の全射は，
+あるnoetherian部分対象上で既に全射となる。
+従って\cite[Lemma~13.17.4, Tag~0FCL]{StacksAbel}をnoetherian対象のSerre部分圏に
+適用でき，必要な有界上方導来圏の比較を得る。
+
+任意の有限生成 $\Lambda$-加群 $Q$ は coherent な $\mathscr A$-加群へ延長できる。
+実際、$Q$ の有限個の生成元は
+$\Gamma(U,Q)=\Gamma(Y,j_*Q)$ の切断であり、
+対応する $\mathscr A^{\oplus r}\to j_*Q$ の像は coherent で、$U$ 上では $Q$ に一致する。
+従って大域次元の仮定と Ext の同型により、
+全ての有限生成 $\Lambda$-加群 $Q,Q'$ に対して
+$\operatorname{Ext}^{i}_\Lambda(Q,Q')=0$、$i>d$ となる。
+$\Lambda$ は affine noetherian 可換環上有限なので左右 noetherian である。
+有限生成 $Q$ の有限自由分解における $d$ 次 syzygy は有限生成であり、
+それに対する有限自由全射の核も有限生成である。
+その短完全列は上記の Ext 消滅によって分裂するので、$\operatorname{pd}_\Lambda Q\leq d$ である。
+とくに全ての巡回加群 $\Lambda/I$ の射影次元が高々 $d$ である。
+Baer の判定を dimension shifting とともに使えば、全ての加群の入射次元が高々 $d$ となり、
+$\operatorname{gldim}\Lambda\leq d$ を得る。
+\end{proof}
+
+\begin{lemma}[相対対角と有限 Tor 振幅]
+\label{lem:relative-diagonal-finite-tor}
+$S$ を可換 noetherian 環、$\Lambda$ を $S$ 上平坦な左右 noetherian 代数とする。
+$\Lambda$ が対角両側加群として
+$\Lambda^{\mathrm{op}}\otimes_S\Lambda$ 上 perfect であると仮定する。
+このとき、$K\in D^b_{\mathrm{fg}}(\Lambda)$ に対し
+\[
+ K\in\operatorname{Perf}(\Lambda)
+ \quad\Longleftrightarrow\quad
+ K\text{ は }S\text{ 上有限 Tor 振幅を持つ}.
+\]
+\end{lemma}
+
+\begin{proof}
+左辺から右辺は $\Lambda$ の $S$-平坦性から従う。
+逆に $K$ の $S$-Tor 振幅を $[a,b]$ とする。
+対角 $\Lambda$ の有界有限射影
+$\Lambda^{\mathrm{op}}\otimes_S\Lambda$-分解を $Q^\bullet$ とする。
+任意の左 $\Lambda$-加群 $N$ に対し
+\[
+ K\otimes_\Lambda^{\mathbf L}N
+ \simeq K\otimes_\Lambda^{\mathbf L}Q^\bullet
+              \otimes_\Lambda^{\mathbf L}N
+\]
+を使う。
+$Q^j$ は有限個の外積 $\Lambda\otimes_S\Lambda$ の直和因子なので、
+各項の derived tensor は有限個の
+$K\otimes_S^{\mathbf L}N$ の直和因子である。
+$Q^\bullet$ の長さだけ Tor 振幅を広げれば、全ての $N$ に共通する有界区間を得る。
+従って $K$ は $\Lambda$ 上有限 flat dimension を持つ。
+$\Lambda$ は noetherian で $K$ の cohomology は有界有限生成なので、
+有限生成自由加群の有界上方分解を十分低い次数で切ると、最後の syzygy は有限表示かつ flat になる。
+これは射影的であり、$K$ は perfect である。
+\end{proof}
+
+この補題は有限次元 $S$-加群性を仮定しない。
+$K\otimes_S\Lambda$ は一般には有限生成射影 $\Lambda$-加群ではないので、
+それを誤って有限射影と扱うことは避ける。
+証明でまず得るのは有限 flat dimension であり、
+coherent 性と noetherian 性によって最後に有限射影分解へ移る。
+
+\begin{lemma}[中心上有限な affine 族の一般点からの拡張]
+\label{lem:relative-diagonal-generic-spread}
+$P$ を noetherian 整域、$K=\operatorname{Frac}P$ を標数零の体とする。
+$D$ を有限型可換 $P$-代数、$\Lambda$ を有限な $D$-代数とし、
+$\Lambda$ は $P$ 上平坦であるとする。
+一般 fiber の対角 $\Lambda_K$ が
+$\Lambda_K^{\mathrm{op}}\otimes_K\Lambda_K$ 上 perfect であると仮定する。
+この仮定は、例えば $\Lambda_K$ または $\Lambda_{\overline K}$ が有限大域次元を持てば満たされる。
+このとき
+ある $0\ne p\in P$ に対し $\Lambda_p$ の相対対角は
+$\Lambda_p^{\mathrm{op}}\otimes_{P_p}\Lambda_p$ 上 perfect である。
+その有限射影分解は任意の $P_p$-基底変更へ移せる。
+\end{lemma}
+
+\begin{proof}
+有限大域次元から表示した generic perfect 性が従うという補足を先に確認する。
+Rennemo--Segal--Van den Bergh\cite[Proposition~2.1, Lemmas~3.3--3.6, Corollary~3.9]{CSBGRSVBertini}の証明の
+steps (3)--(5) は、標数零の体上で有限型可換代数上有限な代数について、
+有限大域次元から homological smoothness を導く。
+ここでは彼らの Lemma 3.4（反対代数）、Lemma 3.5（PI 代数の tensor）、
+Lemma 3.6（代数閉包からの降下）が使われる。
+幾何学的一般 fiber $\Lambda_{\overline K}$ の有限大域次元だけを入力とする場合は、
+まず代数閉体上の steps (4) によりその対角を perfect とし、
+Lemma 3.6 により $K$ 上へ降下すればよい。
+
+包絡代数 $\Lambda^{\mathrm{op}}\otimes_P\Lambda$ は
+有限型可換 $P$-代数 $D\otimes_PD$ 上有限であり、
+対角 $\Lambda$ はその有限生成加群である。
+これは同論文 Corollary 3.9 の適用範囲である。
+必要な spreading の議論を明示するため、包絡代数を $\Gamma$ と書き、
+$\Lambda$ の有限生成自由 $\Gamma$-加群による分解を取る。
+$\Gamma$ は noetherian で、$\Lambda_K$ は perfect なので、
+十分高い syzygy $M$ は有限表示であり、$M_K$ は有限生成射影 $\Gamma_K$-加群である。
+有限自由加群を経由する分裂
+\[
+ M_K\xrightarrow{i_K}\Gamma_K^{\oplus r}
+       \xrightarrow{p_K}M_K,\qquad p_Ki_K=1
+\]
+を取る。
+$M$ の有限表示性により Hom は中心局所化と可換するので、
+分母を払えば、ある $0\ne s\in P$ の後で $i_K,p_K$ は $i_s,p_s$ に降りる。
+$p_si_s-1$ は一般点で零であり、$M_s$ の有限個の生成元でその値の分母をさらに払うと、
+ある $0\ne t\in P$ の後で $p_{st}i_{st}=1$ が成り立つ。
+従って $M_{st}$ は有限生成射影であり、相対対角は $\Gamma_{st}$ 上 perfect となる。
+この分裂の分母払いは既知の generic projectivity の議論であり、新規性は主張しない。
+$\Lambda$ は $P$-平坦なので、対角の有界有限射影分解に任意の基底変更を適用しても、
+導来基底変更した対角は通常の $\Lambda\otimes_PS$ と一致する。
+包絡代数も基底変更した包絡代数に一致するため、所望の分解を得る。
+\end{proof}
+
+\begin{proposition}[非空開上の内在的な有限 Tor 部分圏]
+\label{prop:central-model-intrinsic-perfect-open}
+定理\ref{thm:central-model-finite}の仮定を満たす四係数族を考え、
+$K=\operatorname{Frac}P$ とする。
+追加の入力として
+\begin{equation}\label{eq:geometric-generic-tails-input}
+ \operatorname{gldim}\operatorname{qgr}\mathcal A_{\overline K}<\infty
+\end{equation}
+を仮定する。
+ある非零 $p\in P$ が存在し、任意の noetherian $P_p$-代数 $S$ について
+\[
+ \operatorname{Perf}(Y_S,\mathscr A_S)
+ =\{K'\in D^b_{\mathrm{coh}}(Y_S,\mathscr A_S):
+          K'\text{ は }S\text{ 上有限 Tor 振幅を持つ}\}
+\]
+となる。
+この部分圏は代数の係数拡大による導来基底変更に保たれ、
+二対象間の相対 RHom は $S$-perfect であり、任意の noetherian 基底変更と可換する。
+\end{proposition}
+
+\begin{proof}
+$D=C^{(\ell)}$ の有限個の次数一元 $c_i$ により、$Y$ の中心標準開被覆を取る。
+その代数を
+\[
+ D_i=(D[c_i^{-1}])_0,\qquad
+ \Lambda_i=(\mathcal A[c_i^{-1}])_0
+\]
+と書く。
+$D_i$ は有限型可換 $P$-代数であり、$\Lambda_i$ は $D_i$ 上有限で $P$-平坦である。
+後者の平坦性は次数零局所化が有限自由 $P$-加群の filtered colimit であることによる。
+
+仮定 \eqref{eq:geometric-generic-tails-input} と中心模型の同値、
+補題 \ref{lem:central-affine-ext-localization} を
+$Y_{\overline K}$ の各中心 affine 開に適用する。
+各 $\Lambda_{i,\overline K}$ は有限大域次元を持つ。
+従って前補題の議論によって $\Lambda_{i,K}$ の対角は perfect である。
+さらに同補題により、ある非零 $p_i\in P$ の後で $\Lambda_{i,p_i}$ の相対対角は perfect となる。
+$p=\prod_i p_i$ とすれば有限個の chart で同時にこれが成立する。
+この段階で重要なのは $u,v$ の二 chart ではなく、$Y$ 全体を覆う有限中心被覆を用いたことである。
+
+任意の noetherian $P_p$-代数 $S$ に対し、
+$\Lambda_{i,S}$ は $S$-平坦で左右 noetherian であり、相対対角の有限射影分解を持つ。
+補題 \ref{lem:relative-diagonal-finite-tor} によって、各 chart で
+有界 coherent かつ有限 $S$-Tor 振幅を持つ対象は $\Lambda_{i,S}$-perfect に一致する。
+内在的な Tor 振幅の定義は $S$-加群作用から与えられるので、この chart への制限と可換する。
+被覆が有限であるため、局所的な有限 Tor 振幅は共通の有限区間で抑えられる。
+従って表示した大域的な部分圏の同一性を得る。
+基底変更と相対 RHom に関する主張は、有限中心模型における
+命題\ref{prop:central-model-perfect-rhom}から従う。
+\end{proof}
+
+\paragraph{具体的な族への適用入力と残る問題.}
+$B_*$ の固定四係数族については、既存の開な正則性の定理
+\ref{CSBGthm:global-open} が、PBW/Koszul 解消と AS 条件の体拡大への両立の下で
+任意の代数閉拡大体の fiber の正則性を与える。
+これを非零多項式の開集合の geometric generic point へ適用すれば
+式 \eqref{eq:geometric-generic-tails-input} の値は三となる。
+ここで $K$ 自身への tails 大域次元の降下を省略して仮定したわけではない。
+局所化の補題は最初に $\overline K$ 上で適用し、
+affine 対角の perfect 性を RSV の Lemma 3.6 により $K$ へ降下している。
+
+条件\textup{(C1),(C2)}は上の全四係数族で検証された。
+この命題を条件\textup{(C1)--(C4)}の比較へ用いる場合、さらに得られるのは
+非空基底開上の (C3) の内在的部分圏の同定と、その部分圏上の
+perfect な相対 RHom および基底変更である。
+これは (C4) の RHom 部分を満たすが、
+相対 Serre 関手の存在と $(-2)[3]$ という同定は別途証明する必要がある。
+局所対角の perfect 性から、対応する大域 dg 圏の smooth 性を
+Morita 理論の比較なしに追加の結論として宣言することもしない。
+

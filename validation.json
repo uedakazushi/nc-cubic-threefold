@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
-  "version": "research-plan-v4",
-  "scope": "All-Artin quadratic-envelope flatness for all Abelian deformations of smooth cubic threefolds; explicit homogeneous Casimir quantization; actual same-ring deformation comparison; degree-three propagation and square-zero vanishing. New proofs independently read; sources and primary inputs checked. Not a full independent audit of the entire retained manuscript.",
-  "reviewed_repository_commit": "c2efe080fea64bf0c47d132003d0620261d2e7d3",
+  "version": "research-plan-v5",
+  "scope": "Universal coefficient extension, all-shift saturation and reconstruction for Artin cubic Abelian models; internal fpqc descent and canonical-family formal groupoids; all-twist Ore cohomology; finite central four-parameter models; C1-C2 and a nonempty-open intrinsic-perfect/C3 plus proper-RHom comparison. New proofs independently read. Not a full independent audit of all retained results.",
+  "reviewed_repository_commit": "d31ac3530a37dc6e04422860b5d6565060cf87ab",
   "reference_commits": {
     "poisson-p4": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
     "nc-cubic": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
@@ -11,32 +11,41 @@
   "full_mathematical_audit": false,
   "manuscript_changed": true,
   "review": {
-    "definition": "O-marked category problem keeps all exact O-preserving equivalences. Full Abel Artin deformations satisfy relative cubic conditions on the Artin test category. Identification with the formal completion of the stronger all-scheme-base-change stack remains conditional on universal saturation/reconstruction; this scope distinction is explicit.",
+    "definition": "O-marked categories retain all exact O-preserving equivalences. Standard affine Grothendieck models use coefficient-action objects; nonnoetherian bases use big QGr. Every flat cubic Abelian Artin deformation now satisfies arbitrary coefficient-base-change cubic, saturation and reconstruction conditions. Internal descent of fixed models is distinct from effective descent of categories themselves; full stackification completion remains open.",
     "relative_veronese": "Complete proof checked, including universal polynomial embedding, Cech intersection from P-flatness, nonreduced-base conic lifting, mu2 Isom torsor, grading-scalar sheaf quotient, and H1 versus H2 descent. An independent reading found no substantive error; section reconstruction on the conic was made explicit.",
-    "pointed_hom": "Field Hom-groupoid comparison checked: exact equivalences preserve Serre, even orbit algebra, ample reconstruction, scalar kernel, and trivial pointed 2-inertia. Relative comparison is conditional on explicit C1-C4 over finite-type complex schemes with fppf topology. These inputs are not established over the full 17-parameter family.",
+    "pointed_hom": "The retained relative Hom theorem still requires C1-C4. For the finite-order four-parameter family, C1-C2 are now proved on the whole coefficient base, and C3 plus perfect RHom/base change on a nonempty open under the stated geometric-generic regularity input. The relative Serre identification (-2)[3] is not proved. No full17-parameter conclusion.",
     "formal_cubic": "DDL all-Artin comparison and O-marking classical 1-groupoid convention retained. Lowen Thms3.14/3.26, Yekutieli Cors7.5/11.2, and objectwise unique lifts independently checked against original sources. The main full-Abel envelope theorem uses constructed-family surjectivity directly, not prior periodicity or the stronger central-pair injectivity theorem.",
     "envelope_reduction": "All-degree envelope flatness is now proved for every flat Abelian Artin deformation of a smooth complex cubic threefold. Consequently the retained normal-regular cubic kernel and relative Koszul-AS5 proofs apply. This is relative AS over possibly singular Artin bases, not absolute global dimension five.",
     "degree_three_obstruction": "B3=R^34 direct_sum R/I and I=Fitt_34(B3) retained. Complete nilpotent sorting proof establishes degree-three flatness iff all-degree flatness for nonperiodic quadratic Z-algebras with polynomial special fibre. Independently reviewed. General Koszul deformation principle is established literature, PP Ch6 Thm7.3, not claimed new.",
     "rigid_ambient_application": "The O-marked four-parameter corollary uses retained rigid-ambient, finite-order THCR, PBW, low-center and regular-tails inputs. Saturation and Serre conditions are justified via the stated balanced dualizing complex and Yekutieli-Zhang local duality. The whole older rigid-ambient proof was not independently reconstructed in this review.",
-    "retained_results": "Existing finite coefficient 41/37 and17/13 constructions, gcd periodicity, finite-order regularity, Poisson component and residual strategy retained. The Artin comparison has been reworked and reviewed here. Other retained calculations and proofs are not represented as newly rerun or fully audited.",
-    "novelty": "DDL/Lowen/Yekutieli/CFT and the Koszul deformation principle are known inputs. Novelty or priority of the full-Abel quadratic-envelope conclusion, square-zero specialization, relative Hom formulations, and their combination remains unconfirmed; no exhaustive priority claim.",
+    "retained_results": "Existing 41/37 and17/13 coefficient constructions, gcd periodicity, all-Artin envelope, square-zero obstruction and formal-ring proofs retained. The new coefficient and finite-central relative proofs were reviewed here. Unchanged calculations were not rerun and the entire older manuscript was not newly audited.",
+    "novelty": "Known DDL/Lowen/Yekutieli/CFT/Koszul, Rains, RSV, descent and Proj inputs are separated from their concrete application. Priority of universal relative cubic models and the four-parameter categorical comparison remains unconfirmed.",
     "square_zero_obstruction": "Complete proof independently reviewed: Schur residual Theta=delta(q_(i+1)-q_i)=F lambda; delta^2=0 and injectivity on constant three-cochains force lambda=0. Valid for any nonzero cubic, no smoothness, with dim V>=4; written in five-variable case. General Artin I subset m^2 follows by Fitting base change. Nonlinear Jacobi corrections prevent naive higher-order induction.",
     "homogeneous_quantization": "CFT arXiv:math/0012228v3 §3, Thm3.1, Prop3.3 and Cor5.2(iv) checked. Finite nilpotent substitution, graph-degree preservation, alpha=Pi/2 normalization, quadraticity via split-kernel Nakayama, and central cubic regularity supplied explicitly. Full graded Hochschild/Poisson gauge classification is not assumed.",
     "actual_artin_comparison": "Relative Poisson functor is prorepresented by T, using lifted polarization, relative bivector/Jacobi calculations and the formal PGL slice; H0(T_X)=0 removes infinitesimal automorphisms. Yekutieli makes Ass represented by the same T. The actual constructed map has injective 20-dimensional tangent map, hence induces an invertible continuous endomorphism of T. No higher agreement of independent quantization coordinates is assumed.",
-    "central_pair_comparison": "Construction proves surjectivity of actual central-pair-to-Ass map. Injectivity uses unique invertible bimodule polarization, section recovery and quadratic envelope. Framed ring is formal PGL24 torsor over T, with scalar stabilizer removed. Proof reordered to avoid circular dependence on graded formality classification."
+    "central_pair_comparison": "Construction proves surjectivity of actual central-pair-to-Ass map. Injectivity uses unique invertible bimodule polarization, section recovery and quadratic envelope. Framed ring is formal PGL24 torsor over T, with scalar stabilizer removed. Proof reordered to avoid circular dependence on graded formality classification.",
+    "universal_coefficients": "Direct Gabriel localization for arbitrary commutative S; tails torsion verified localizing using finite degree-one generation. Flat-object Ext1 reduction, finite-length induction and fp-source filtered-colimit Hom prove universal saturation. No finite-S/noetherian-S hypothesis is hidden in this argument; small qgr is used only where Abelian.",
+    "coefficient_descent": "Internal faithfully flat descent checked via Lazard, purity/conservativity and coaction equalizer. Exact equivalences extend uniquely by adjoint mates. Hom groupoids retain natural isomorphisms; only O-marked trivial-2-inertia models permit the stated descent after passing to isomorphism classes. Full category 2-descent is not claimed.",
+    "canonical_relative_formal": "Evaluation at the Artin base gives an equivalence between canonical relative cubic models and all O-marked Abel deformations. Arbitrary-base saturation, reconstruction and split relative-AS complexes verified. Completion after stackification can still require global-model/effective-category-descent input.",
+    "universal_line_cohomology": "Finite flat Ore Cech complexes commute arbitrary scalar tensor. Small-extension five-lemma proves finite free cohomology: H0 for n>=0, none for n=-1, H3 of rank h(-n-2) for n<=-2. Locally projective line objects give perfect RHom with arbitrary derived base change. This is a proof, not a numerical experiment.",
+    "finite_central_model": "Rains Thm2.13 hypotheses checked. Reduced finite-type constant-rank commutator kernels lift central symbols; homogeneous lifts give finite graded central C. Arbitrary base change uses C_S as a central action, without claiming its injectivity or full-center base-change equality. Degree-one A makes positive-central localizations strongly graded; finite sheaf-algebra Proj model and C1 established.",
+    "central_universal_sections": "Universal S[u,v]-freeness gives regular u^ell,v^ell on all Veronese modules, hence local cohomology H0/H1 vanishing and all-shift saturation. Even ampleness/Veronese reconstruction proved; natural transformations determined via common epimorphic covers and coherent-to-Ind extension, without falsely treating line objects as projective. C2 verified.",
+    "intrinsic_perfect_open": "Coherent Ext localizes to all central affine charts via twist resolutions, finite Cech and filtered colimits; fg syzygy plus Baer gives chart gldim from geometric-generic tails regularity. RSV finite-central PI smoothness and direct splitting-denominator spread yield relative perfect diagonals on a nonempty base open. Diagonal resolutions imply finite base-Tor equals locally Perf after arbitrary noetherian base change. Global dg Morita smoothness is not asserted.",
+    "relative_rhom": "Local finite-projective module Hom is an S-linear summand of finite copies of S-flat Lambda. Stacks Lem36.27.1 Tag08EV gives perfect global RHom; finite Cech proves coefficient-derived base change. Nonflat central Proj is allowed; ordinary scheme-derived pullback is not silently substituted. No relative Serre formula yet.",
+    "universal_degree_two_center": "For the concrete B_* family, the rank12 commutator map is injective at every closed coefficient point by the retained low-center lemmas. Jacobsonness makes the rank open all of Spec P; split injectivity survives every commutative coefficient base change, including nonnoetherian rings. Full-center base change is not asserted."
   },
   "static": {
-    "tex_inputs": 19,
-    "labels": 351,
-    "references": 353,
-    "citations": 133,
-    "bibliography": 54,
+    "tex_inputs": 20,
+    "labels": 379,
+    "references": 398,
+    "citations": 141,
+    "bibliography": 55,
     "sha256": {
-      "papers/nc_cubic_threefold_moduli.tex": "644c8aec374e6816a438b67f2605baf92e6ff178e93646efc590df346ca4c79a",
+      "papers/nc_cubic_threefold_moduli.tex": "3ed9248adfa44077bca67dda409587dbdbdafd4b3a6d358120f2c7c232d7c741",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "7bed0be351ce4ff5835262c1db567e6fd3a0388d52af8626d6878af505540b36",
-      "papers/sections/categorical_moduli_comparison.tex": "e6dfefa6c918c30f7cdf24122708f256bb39616c7da7e2f4cf0952afc7713eb0",
-      "papers/sections/abel_marked_moduli.tex": "fba358f080ddeaeda5e3cae750d543c508b2efa303db26b2bc4b9868dbaea709",
+      "papers/sections/categorical_moduli_comparison.tex": "01ca7597e876688b4233e195fff0de9ad85d812f0fce550679198f7205f1e1f8",
+      "papers/sections/abel_marked_moduli.tex": "93f57628a00901325b094748e1f5af49a0c28463d4d0040e50ecf9e4ef4ce6e7",
       "papers/sections/projective_three_space_potentials.tex": "66a83e1b1dfda3614a3950e53b5122d827fd3627a5b97461fbc22d114c8895f8",
       "papers/sections/cubic_projective_three_comparison.tex": "97b2aee804b32dc0bff9fb761adcc7fec171528afa372f322e94edc78687f0fe",
       "papers/sections/central_pair_explicit_centers.tex": "498a139797b4b60d53f9594e8986b7300346e6ba9e854ab7994fa60c7926ae37",
@@ -46,11 +55,12 @@
       "papers/sections/mixed_center_picard.tex": "7fed32a8e7d2f491a54bc4072ac3ad395eed5a9c13c094399f3435def53c1504",
       "papers/sections/ambient_periodicity.tex": "93f2ed60eed47a15784cdbd54229b3b981538c5ac3641ac41b6ac4fb65f69ae4",
       "papers/sections/period_forgetting_moduli.tex": "94dafb728d7c6d0019f967839ff0d47436e83b5b6c5c012003868262ac47f860",
-      "papers/sections/central_pair_artin_formal_moduli.tex": "0bf5c86f376dcf5658e0c4932326aa6963026c62c2623fc60405bdd386828928",
-      "papers/sections/abel_cubic_deformations.tex": "25b4ab65abfa66c86360f5ea0030cf507e655d9465d2e4e1d8dd3615643dcd61",
+      "papers/sections/central_pair_artin_formal_moduli.tex": "95ccffb6f835ccb57cd499c7f02557d22fa61c9ac7c77a5383bc00cee544da25",
+      "papers/sections/abel_cubic_deformations.tex": "8579eb8a8ec2a9ac9fbeaba2a596cd13b788367205bb109c3ebf8645c31f119b",
       "papers/sections/formal_ambient_comparison.tex": "8913dd608730e805ebb8ef6cf732a6b12c16cd6e0e547aab79b03a4fbe877281",
       "papers/sections/central_pair_mixed_derived_rigid.tex": "e1cd37709e128d2268ec2f590cbfe92cb4a465922513487043fd968003ae9645",
-      "papers/sections/central_pair_finite_order_regularity.tex": "e04f4b25909da9be5fd5ffb3c9cf0129500881cad68bda61396f93eaea918bb8"
+      "papers/sections/finite_order_relative_categories.tex": "057c2355d813b0dc89ced2e15a85fef5fa2a80401cb6ea81f7b499aa5a0ab88a",
+      "papers/sections/central_pair_finite_order_regularity.tex": "844e6e8da0aa3ef7d5c615ecd87c37ad8a8a6a87a7582f94c53477b602be1843"
     },
     "limit": "Static closure only, not mathematical proof audit.",
     "modified_tex_braces_and_environments": [
@@ -70,12 +80,22 @@
         "environments": "passed"
       },
       {
+        "path": "papers/sections/finite_order_relative_categories.tex",
+        "braces": "passed",
+        "environments": "passed"
+      },
+      {
+        "path": "papers/sections/central_pair_finite_order_regularity.tex",
+        "braces": "passed",
+        "environments": "passed"
+      },
+      {
         "path": "papers/sections/central_pair_artin_formal_moduli.tex",
         "braces": "passed",
         "environments": "passed"
       },
       {
-        "path": "papers/sections/formal_ambient_comparison.tex",
+        "path": "papers/sections/categorical_moduli_comparison.tex",
         "braces": "passed",
         "environments": "passed"
       }
@@ -169,51 +189,60 @@
     "reason": "lualatex.fmt missing; mktexfmt has no lualatex entry. luatexja and ltjsarticle were also not found in the installed TeX tree.",
     "pdf_generated_in_this_review": false,
     "visual_inspection_in_this_review": false,
-    "scope": "LuaLaTeX build of the v10 work attempted and stopped before TeX document processing because the format is missing. Subsequent source consistency checks pass; no PDF or visual check is claimed."
+    "scope": "LuaLaTeX build of v11 attempted; format missing before document processing. Static source closure/braces/environments checked. No PDF or visual verification claimed."
   },
   "open_scope": [
-    "Universal saturation and section reconstruction under arbitrary scheme base changes, to identify the Artin model with the completion of the stronger relative stack",
-    "Verification of relative categorical assumptions C1-C4 on a nonempty explicit finite-type noncommutative chart",
+    "Relative Serre duality and identification with (-2)[3] on the nonempty four-parameter base open; this is the missing main C4 input",
+    "Effective descent of category families/global canonical models over Artin bases, to compare with the full stackified formal completion",
+    "Global dg Morita smoothness from the local finite-central relative diagonals; not asserted here",
     "A nonempty algebraic smooth proper open in the full mixed17-parameter family",
-    "Finite-type algebraicity, algebraization and componenthood for the chosen marked moduli problem",
-    "Relative periodization preserving the normal cubic ideal and its descent over general bases",
-    "The actual all-Artin dg residual map, algebraization and interpretation of the seven residual directions",
+    "Finite-type algebraicity, algebraization and componenthood for the chosen O-marked moduli problem",
+    "Explicit equations for the new nonempty open and a maximal regular locus; current proof is existential",
+    "Relative periodization preserving the normal cubic ideal and descent over general bases",
+    "The actual all-Artin dg residual map and interpretation of the seven residual directions",
     "Intrinsic recognition of O and reconstruction of bare Abelian categories",
-    "Optional direct higher-order obstruction vanishing without quantization and extension to singular cubics",
-    "Higher-coordinate compatibility of independently chosen affine/projective quantizations, not needed for the actual envelope map",
+    "Optional direct higher-order envelope flatness without quantization and extension to singular cubics",
     "Exhaustive priority checking, full independent audit of retained proofs, and PDF compilation/visual verification"
   ],
   "assets": "Current plan, research notes, manuscript sources, unchanged calculation code and small certificates only. No PDF, ZIP, external literature PDFs, intermediate draft fragments, build outputs or caches tracked.",
   "computations_rerun_in_this_review": false,
   "primary_sources_checked": [
     {
-      "key": "CFT",
-      "url": "https://arxiv.org/pdf/math/0012228",
-      "version": "v3",
-      "locations": "§3, Theorem3.1, Proposition3.3 and following polynomiality remark, Corollary5.2(iv)"
+      "key": "LowenVdBDeformation",
+      "url": "https://win.uantwerpen.be/~wlowen/pdf%20papers/TAMS-DeformationTheory.pdf",
+      "locations": "Section4 coefficient objects and finite-presentation restrictions"
     },
     {
-      "key": "YekutieliTwisted",
-      "url": "https://arxiv.org/pdf/0905.0488",
-      "version": "v5",
-      "locations": "Corollaries7.5 and11.2; parameter algebras and varying commutative products in introduction"
-    },
-    {
-      "key": "LowenRinged",
-      "url": "https://arxiv.org/pdf/math/0511197",
+      "key": "CSBGRainsElliptic",
+      "url": "https://arxiv.org/pdf/2107.13540",
       "version": "v2",
-      "locations": "Theorems3.14 and3.26; Theorem1.4 in introduction"
+      "locations": "Theorem2.13, p16; finite-order translation elliptic algebras"
     },
     {
-      "key": "DeDekenLowen",
-      "url": "https://ems.press/content/serial-article-files/30497",
-      "locations": "Theorem4.5, pp495-496; inverse by unique lifted objects"
+      "key": "CSBGRSVBertini",
+      "url": "https://arxiv.org/pdf/1705.01366",
+      "version": "v2",
+      "locations": "Proposition2.1 steps3-6, Lemmas3.3-3.6, Corollary3.9; direct splitting-denominator proof supplied"
     },
     {
-      "key": "PPQuadratic",
-      "url": "https://doi.org/10.1090/ulect/037",
-      "locations": "Chapter6 Proposition7.2 and Theorem7.3, pp129-130",
-      "access": "Original book pages visually checked in scan; publisher metadata checked. Publisher full text access unavailable."
+      "key": "StacksAbel",
+      "urls": [
+        "https://stacks.math.columbia.edu/tag/058G",
+        "https://stacks.math.columbia.edu/tag/023N",
+        "https://stacks.math.columbia.edu/tag/039Y",
+        "https://stacks.math.columbia.edu/tag/0FCL"
+      ],
+      "locations": "Lazard, ordinary module descent, and derived Serre-subcategory comparison"
+    },
+    {
+      "key": "StacksPerfect",
+      "url": "https://stacks.math.columbia.edu/tag/08EV",
+      "locations": "Lemma36.27.1; bounded coherent complex, proper support, finite base Tor dimension"
+    },
+    {
+      "key": "StacksProj",
+      "url": "https://stacks.math.columbia.edu/tag/01YR",
+      "locations": "Lemma30.14.2 and Proposition30.14.4; generation, vanishing and Proj correspondence"
     }
   ]
 }

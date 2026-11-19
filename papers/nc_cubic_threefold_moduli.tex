@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v10}
+\date{2026年11月19日・nc cubic moduli研究草稿 v11}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -86,6 +86,9 @@
 構造対象付き変形の同型類関手は、十次元形式円板と
 $\operatorname{Gr}(2,5)$のアフィン錐の原点完備化の積で表され、
 次元17・接空間20となる。
+各Artin模型は任意の可換係数環への変更後にもsectionの飽和とtails復元を満たす。
+標準係数族の対象・射のfpqc降下と相対同値の一意的延長を示し，
+線対象間の導来Homのperfect性と任意底変更も得る。
 別に、多項式特殊ファイバーを持つ非周期的な二次$\mathbb Z$-代数について、
 次数三の平坦性から全次数の平坦性への直接証明を与える。
 次数三の障害を$125\times100$関係行列の91次小行列式idealで記述し、
@@ -129,6 +132,11 @@ Pymの局所量子化比較を通じ、規格化CY変形の対応成分と、
 中心三次対・構造代数層・斉次環の比較を、独立の証明依存を明示して収録する。
 また低次数中心・偶数Veronese・構造対象付き導来復元と、
 具体的な剛体ambient上の四次元非同型族を条件を明記して扱う。
+有限位数楕円境界を持つ全四係数族には有限な次数付き中心模型を構成し，
+Noetherian底変更，sectionの普遍飽和，偶数列からの復元を証明する。
+一般ファイバーの正則性の下では，非空基底開上で内在的な有限Tor部分圏が
+局所perfect圏に一致し，相対RHomのperfect性と底変更を満たす。
+この族の相対Serre公式は未証明である。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -283,6 +291,30 @@ $\mathbb Z$-代数の二次包絡がこの平坦な量子代数に一致する�
 従って量子化による滑らかな点の全Artin定理と、
 滑らかさを使わない一次の代数的消滅を区別できる。
 これらを合わせた三次包絡定理の初出と新規性の網羅調査は未完了である。
+
+\paragraph{係数変更と有限中心による相対化.}
+第\ref{sec:abel-formal-cubic}節では，Grothendieck圏内の係数作用を使い，
+Artin模型から任意の係数環への変更後のsection復元を証明する。
+小さいAbel圏の係数変更に必要な有限表示仮定
+\cite[\S4]{LowenVdBDeformation}を，無条件に取り除いたと解釈してはならない。
+非noetherianな底では大きなtails圏を用いる。
+平坦対象を左変数とする一次Extの還元と有限表示性から全係数加群へのHom比較を得る。
+対象のfpqc降下はLazardの定理と等化子により直接証明するが，
+任意の圏そのものの降下の有効性とは分ける。
+
+第\ref{sec:four-parameter-central-model}節は別に，固定した有限位数楕円境界の
+四係数族を相対的に扱う。
+Rains\cite[Theorem~2.13]{CSBGRainsElliptic}の中心持上げを被約な係数環上で使い，
+有限な中心部分代数を一度構成した後，任意のnoetherian底変更へ移す。
+全中心の形成が底変更と可換であることは要求しない。
+中心正則列による局所コホモロジー消滅から全twistの飽和を得る。
+一般tailsの正則性から中心アフィン片の有限大域次元を導き，
+Rennemo--Segal--Van den Bergh\cite[Proposition~2.1 and Corollary~3.9]{CSBGRSVBertini}の
+既知の有限中心・一般射影性の議論を用いて相対対角のperfect性を非空開へ拡張する。
+これにより内在的有限Tor部分圏上のproper性と底変更まで進むが，
+相対Serre公式および大域dg圏のsmooth性の比較は別の問題として残す。
+この組合せの初出は未確認であり，一般的な降下・射影性拡張を新規成果とは主張しない。
+
 
 \paragraph{代数構成の入力.}
 三変数 Sklyanin 代数と楕円曲線の対応，次数３の中心元および
@@ -971,6 +1003,7 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/abel_cubic_deformations.tex}
 \input{papers/sections/formal_ambient_comparison.tex}
 \input{papers/sections/central_pair_mixed_derived_rigid.tex}
+\input{papers/sections/finite_order_relative_categories.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1003,8 +1036,15 @@ saturationと相対復元を仮定した範囲で同じ比較射が得られる�
 相対Koszul--AS性と正規三次表示が従い、
 Artin試験環に制限した構造対象付き変形の同型類関手は
 十次元形式円板と$\operatorname{Gr}(2,5)$錐の積で表される。
-全スキーム底変更を要求する相対stackとの接続には、
-普遍的なsectionのsaturationと復元をさらに供給する必要がある。
+任意の係数変更後のsectionの飽和とtails復元，標準係数族の対象・射のfpqc降下も成立する。
+標準相対模型のArtin変形群oidは全Abel変形群oidに同値である。
+stack化後の全形式完備化との同定には，圏自体の有効降下と大域模型の存在をなお確認する。
+
+有限位数楕円境界を持つ四係数族では，中心上有限な射影模型により
+相対Hom定理の\textup{(C1),(C2)}を検証した。
+既存の一般正則性の入力の下で，非空基底開上に\textup{(C3)}と
+\textup{(C4)}のperfect RHom・底変更を供給した。
+この開集合について残る主要入力は，相対Serre関手の$(-2)[3]$という同定である。
 
 全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
 smooth properな三次部分の開性と支配性、豊富列を忘れた内部的認識は残っている。
@@ -1166,7 +1206,14 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/03PK}{Tag~03PK, Lemma~59.28.1}
 （Kummer列），
 \href{https://stacks.math.columbia.edu/tag/0CJZ}{Tag~0CJZ, Section~21.11}
-（gerbeの降下障害）．2026年11月19日確認．
+（gerbeの降下障害），
+\href{https://stacks.math.columbia.edu/tag/058G}{Tag~058G, Theorem~10.81.4}
+（Lazardの定理），
+\href{https://stacks.math.columbia.edu/tag/023N}{Tag~023N, Proposition~35.3.9}，
+\href{https://stacks.math.columbia.edu/tag/039Y}{Tag~039Y, Remark~35.3.11}
+（通常の加群の忠実平坦降下とcosimplicial表示），
+\href{https://stacks.math.columbia.edu/tag/0FCL}{Tag~0FCL, Lemma~13.17.4}
+（Serre部分圏の有界上方導来圏との比較）．2026年11月19日確認．
 
 \bibitem{CFT}
 A.~S.~Cattaneo, G.~Felder and L.~Tomassini,
@@ -1339,7 +1386,16 @@ Equation~(1.3), Theorem~6.2, Lemmas~6.4--6.5,
 The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/0BDK}{Tag~0BDK, Lemma~36.31.3},
 \href{https://stacks.math.columbia.edu/tag/0BCD}{Tag~0BCD, Lemma~15.77.7}.
-perfect複体のファイバーでの単一次数集中と局所自由性。2026年11月14日確認。
+perfect複体のファイバーでの単一次数集中と局所自由性。
+\href{https://stacks.math.columbia.edu/tag/08EV}{Tag~08EV, Lemma~36.27.1}
+（底に関して有限Tor振幅を持つcoherent複体のproper pushforward）を併用する。
+2026年11月19日確認。
+
+\bibitem{StacksProj}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/01YR}{Section~30.14, Tag~01YR},
+特にLemma~30.14.2（coherent層の生成性・消滅）と
+Proposition~30.14.4（標準次数付き環のProj対応）。2026年11月19日確認。
 
 \bibitem{MoriNymanZ}
 I.~Mori and A.~Nyman,
@@ -1399,7 +1455,8 @@ Theorem~8.3, Corollary~7.5 and Proposition~8.4。
 \bibitem{CSBGRSVBertini}
 J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
 \emph{A non-commutative Bertini theorem},
-\url{https://arxiv.org/abs/1705.01366}, v2 (2020), Lemmas~3.4 and 3.5.
+\url{https://arxiv.org/abs/1705.01366}, v2 (2020), Proposition~2.1（証明steps~(3)--(6)），
+Lemmas~3.3--3.6，Corollary~3.9。2026年11月19日原文確認。
 
 \bibitem{CSBGChenGeneralizedSerre}
 X.-W.~Chen, \emph{Generalized Serre duality},

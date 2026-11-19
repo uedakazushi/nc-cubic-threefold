@@ -1,6 +1,6 @@
 # 研究方針：非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v4。研究再開時は最初に本書を読む。GitHub mainを正本とする。今回確認した基点は `c2efe080fea64bf0c47d132003d0620261d2e7d3`。証明は `papers/nc_cubic_threefold_moduli.tex`（v10）とその入力節、補助的な知識は `notes/research_notes.md`、検証状態は `validation.json` に置く。
+2026-11-19 / research-plan-v5。研究再開時は最初に本書を読む。GitHub mainを正本とする。今回確認した基点は `d31ac3530a37dc6e04422860b5d6565060cf87ab`。証明は `papers/nc_cubic_threefold_moduli.tex`（v11）とその入力節、補助的な知識は `notes/research_notes.md`、検証状態は `validation.json` に置く。
 
 ## 1. 恒常的な研究原則と保存許可
 
@@ -16,83 +16,89 @@
 
 ## 2. 現在の目標と定義
 
-**構造対象だけを標識したAbel圏 `(C,O)` のモジュライとして、可換三次三様体と非可換Jacobian族を統一し、有限型の具体的な族で全ての射・局所変形・smooth proper性を比較する。** 滑らかな可換三次点の全Artin局所完全性は証明を得た。現在の主な課題は、形式近傍の結果と非可換の有限係数族を結ぶ相対幾何である。
+**構造対象だけを標識したAbel圏 `(C,O)` のモジュライとして、可換三次三様体と非可換Jacobian族を統一し、実際の射・変形・相対双対を比較する。** 可換三次点では全Abel Artin変形の二次包絡平坦性に加え、各模型から任意の係数環への変更後のsection飽和・復元・対象の降下を得た。具体的な有限位数楕円境界の四係数族では、相対Hom定理のC1–C2を全係数基底上で、C3とperfect RHom・底変更を非空基底開上で供給した。現在の最優先は、この開集合上の相対Serre公式である。
 
-対象には許容三次豊富列の存在を要求し、その選択は記憶しない。射はOを保つ全ての完全線型同値、2射はO上の同定を保つ自然同型である。列保存の既存 `M^pt` と `M^O_cub` は別の問題である。相対模型にはHom、底変更、saturation、復元、降下を明示する。今回の局所完全性はArtin試験環に制限した問題であり、全スキーム底変更を要求する相対stackの形式完備化と同一視するには、普遍的saturationと復元をさらに示す。定義から有限型代数性は従わない。
+対象には許容三次豊富列の存在を要求し、その選択は記憶しない。射はOを保つ全ての完全線型同値であり、既存の列保存 `M^pt` と区別する。相対標準模型のアフィン底変更は係数環の作用付き対象の圏で定義する。非Noetherianな底では大きいQGrを使い、小さいqgrはAbel性が保証される場合に使う。
 
-中心二変数と3次元の二次中心は特定の非可換chartでの復元仮定であり、可換三次点の二次中心は15次元である。この仮定で可換点を定義から除外しない。
+標準係数族の対象・射のfpqc降下と、圏の族そのものの任意の降下データの有効性を区別する。全平坦Abel Artin変形が普遍的な相対三次模型を持つことは証明済みである。一方、fpqc stack化がArtin基底上で新しい大域模型を持たない形式を加えないことは未証明であり、stack化後の全形式完備化との同定にはこの点が残る。
 
-上位目標は、17次元混合族の非空smooth proper開部分、13次元ambientへの一般4次元fiber、実際の残余圏への射と7方向の接合データ、および最終的なOの内在認識である。
+中心二変数と二次中心rank3は非可換chartの復元仮定である。可換点の二次中心は15次元なので、この条件を全体の定義に課さない。17次元全混合族の非空smooth proper開部分、13次元ambientへの一般4次元fiber、実際の残余圏への射と7方向の接合データ、Oの内在認識は上位目標として保持する。
 
-## 3. 現在の到達点と主張の状態
+## 3. 到達点・仮定・証明所在
 
-| 内容 | 現在の状態・証明所在 | 範囲 |
+| 内容 | 状態と証明所在 | 適用範囲 |
 |---|---|---|
-| Oだけを標識する定義 | `abel_marked_moduli.tex`, `def:abel-cubic-pointed` | 全てのO保存完全同値を射に含む。有限型性は未証明 |
-| 相対Veronese・全Homの比較 | 同節の `thm:abel-relative-veronese-isom`, `thm:abel-pointed-field-hom`, `thm:abel-relative-pointed-hom` | 完全な証明を保持。相対HomはC1–C4付き。全17係数族での入力は未証明 |
-| 全Artin Abel／section比較 | `abel_cubic_deformations.tex`, `thm:abel-cubic-all-artin` | DDL Thm4.5の適用。任意Artin底変更も確認。既知一般論の帰結 |
-| 次数三による全平坦性判定 | 同節 `thm:abel-degree-three-propagation` | 任意局所Artin基底・非周期的Z代数。多項式特殊ファイバー。直接証明を独立に点検。一般原理は既知 |
-| 平方零基底の障害消滅 | 同節 `thm:abel-square-zero-degree-three` | 非零三次式なら滑らかさ不要。Koszul微分による直接証明。一般基底では I_i⊂m² |
-| **全Abel変形の平坦二次包絡** | 同節 `thm:abel-cubic-flat-envelope` | **滑らかな可換三次点・全Artin基底で証明**。中心商の量子化を構成し、実際の代数層変形写像とsection復元を比較 |
-| 正規三次核・相対AS5 | 同節 `prop:abel-flat-envelope-normal-cubic`, `thm:abel-relative-as-lift` | 全Abel変形に適用可能。相対的解消・双対であり、Artin基底込みの絶対global dimensionではない |
-| 形式局所環 | 同節 `cor:abel-cubic-formal-ring`、`central_pair_artin_formal_moduli.tex` | `C[[t_1,…,t_10,a_ij]]/(Pfaffian_4(a))`。次元17、接空間20。特殊ファイバーを固定した同型類関手。Aut(X)は未商 |
-| 実際のambient変形射 | `formal_ambient_comparison.tex`, `cor:formal-cubic-ambient-map` | b→Q(b)は量子化座標によらず自然。原点接写像の核10・像10 |
-| 既存の有限係数族と周期性 | 主原稿 `thm:17`, `thm:pair-route-gcd` 等 | 41→37、17→13、一般fiber4、gcd周期性、剛体4係数族の証明を保持。大域成分性とは別 |
+| Oだけを標識した定義、全Hom比較 | `abel_marked_moduli.tex`, `def:abel-cubic-pointed`, `thm:abel-relative-pointed-hom` | 全O保存完全同値。相対Hom定理はC1–C4付き |
+| 全Artin Abel／section比較 | `abel_cubic_deformations.tex`, `thm:abel-cubic-all-artin` | DDL Thm4.5の適用。既知一般論の帰結 |
+| 全Abel変形の平坦二次包絡 | 同節 `thm:abel-cubic-flat-envelope` | 滑らかな可換三次点の全Artin変形。CFT量子化・実際の局所化写像・Yekutieli比較を使用 |
+| 任意係数の飽和・復元 | 同節 `prop:abel-universal-line-hom`, `cor:abel-universal-artin-model` | Artin模型から任意の可換R代数Sへ。非平坦・非Noetherianも含む |
+| 係数族のfpqc降下、相対同値 | 同節 `prop:abel-coefficient-fpqc-descent`, `lem:abel-canonical-family-equivalences` | 固定Grothendieck圏の係数族。全圏の2降下とは別 |
+| 標準相対模型のArtin群oid | 同節 `thm:abel-canonical-relative-formal` | 全O-marked Abel変形群oidと同値。全stack化後の形式完備化とは未同定 |
+| 全twistのコホモロジー | `central_pair_artin_formal_moduli.tex`, `prop:artin-ore-universal-cohomology` | 任意底変更。n≥0はH0、n=−1は零、n≤−2はH3のみ。線対象間RHomもperfect |
+| 四係数族の有限中心模型 | `finite_order_relative_categories.tex`, `thm:central-model-finite` | 既存PBW・有限位数THCR入力。全中心の底変更可換性は不要 |
+| 普遍的二次中心rank3 | 同節 `cor:central-model-universal-center-two` | B_*族、任意可換底変更。全中心の底変更可換性とは別 |
+| C1–C2の具体的供給 | 同節 `prop:central-model-qgr`, `thm:central-model-universal-sections`, `prop:central-model-even-sequence` | 全四係数族、任意Noetherian底変更。大域有限中心模型・偶数豊富列・全射の決定 |
+| 非空開上のC3とproper RHom | 同節 `prop:central-model-intrinsic-perfect-open` | 一般幾何学的tailsの有限大域次元を入力。既存B_*の入力下で非空開が存在。相対Serreは未証明 |
+| 形式局所環 | `cor:abel-cubic-formal-ring` | `C[[t_1,…,t_10,a_ij]]/(Pfaffian_4(a))`、次元17・接空間20。特殊ファイバー固定、Aut(X)未商 |
+| 直接的な平坦性判定・平方零消滅 | `thm:abel-degree-three-propagation`, `thm:abel-square-zero-degree-three` | 非周期的Z代数、平方零基底ではF≠0だけ。全Artin結果と独立した証明を保持 |
+| 既存の有限係数族・周期性 | 主原稿 `thm:17`, `thm:pair-route-gcd` 等 | 41→37、17→13、一般fiber4、gcd周期性、剛体4係数族の証明を保持 |
 
-今回追加した証明は本文を作成し、別々の読み手で主要論理を点検した。これは第三者査読や初出確認の完了を意味しない。新しい全Artin結論は、未確認の同次代数変形分類を仮定せず、CFTの量子化公式とYekutieliの既知定理を明示的に用いる。
+今回の証明は原稿へ統合し、主要な論理を別々に点検した。第三者査読、初出確認、全旧定理の独立再証明の完了は意味しない。Rainsの有限位数楕円代数の中心持上げ、RSVの有限中心代数の一般smoothness／射影性拡張、Stacksのproper pushforwardは既知入力である。
 
-μ2のVeronese持上げは次数スカラーGmに含まれ、O-marked圏の追加2慣性ではない。層商と大域点の商、同型のH¹障害と対象のH²障害を区別する。
+相対ASは非正則基底を含む絶対的大域次元ではない。相対アフィン対角のperfect性から大域dg圏のsmooth性を、Morita比較なしに追加結論としない。Veroneseのμ2は次数スカラーGmに含まれ、O-marked圏の追加2慣性ではない。層商と大域点集合の商、H¹の同型障害とH²の対象障害を区別する。
 
 ## 4. 現在の方針を採る理由
 
-可換点の全Abel変形について、二次包絡の全次数平坦性と正規三次表示を得た。既存原稿の量子化による条件付きの議論を、必要な族の構成だけで成立する証明へ置き換え、豊富列の個別持上げを通して全Abel変形へ戻した。通常の次数付き表示やshiftの持上げを最初から仮定する必要はない。
+可換点の包絡平坦性と、任意底変更後の飽和・復元は既に証明された。これらを未解決課題として繰り返さない。係数環の有限表示性が必要な小さいAbel圏の一般論を無理に拡張せず、大きいGrothendieck模型の直接証明で問題を分離した。
 
-そのため、この可換点での平坦性を未解決の最優先課題として繰り返さない。次数三の直接判定と平方零消滅は、特異三次や他の基底への拡張に有用なので独立した結果として保持するが、滑らかな点での量子化を使わない別証明は副課題とする。
+非可換側では、四係数族全体の有限中心模型を得たため、構造対象のsection復元と有限型の相対圏論を具体的に扱える。一般のtails正則性を中心アフィン片へ局所化し、対角の有限射影分解を開集合へ延長することで、内在的有限Tor部分圏と局所perfect圏の間の隔たりも非空開上で解消した。従って相対Hom定理に必要な未解決入力は、四係数族では主に相対Serre双対へ絞られた。
 
-次に価値が高いのは、既存の実際の17係数非可換族に相対圏論を適用し、形式変形の存在から有限型のAbel圏モジュライへ進むことである。有限係数族の次元の数え直しより、相対smooth proper性、全Hom比較、局所完全性の接続を優先する。
+全17係数族へ一度に拡張するより、この具体的族で全O保存相対同値の比較を完成させることを優先する。ただし中心全体の計算、最大の正則開集合の決定、既知の数値の再計算はその前提にしない。
 
 ## 5. 優先課題と達成基準
 
-### P1：具体的な非可換chartの相対圏論
+### P1：四係数族の相対Serre双対
 
-まず剛体ambient B_* の4係数regular tails開部分を扱う。`abel_marked_moduli.tex` の相対Hom定理のC1–C4を、既存の有限位数境界、PBW、balanced dualizing complexの入力から供給する。
+`finite_order_relative_categories.tex` の非空開上で、内在的有限Tor部分圏に相対Serre関手 `S≅(−2)[3]` を構成し、任意Noetherian底変更との両立を証明する。基底線束による捩れが現れれば明示してfppf局所で扱う。
 
-- 相対dg模型を固定し、RHomのperfect性と任意底変更、Serre双対、section復元を証明する。Artin模型から任意の基底変更後のsaturationへ進む範囲も明示する。
-- regular tailsという各体ファイバーの性質から、相対対角のperfect性へ進む根拠を与える。
-- 達成基準は、明示した非空有限型開集合上でC1–C4が成立し、O-marked圏同値の相対Homが次数付き同型のスカラー商で記述されること。
-- 17係数族全体が必要な仮定を満たすと先取りしない。有限中心を用いる場合はその仮定が成立する部分を指定する。
+- 固定CY／AS5 ambient B_*と中心正則三次商から、相対graded局所双対複体を計算する。
+- 有限中心の射影模型の双対核と比較し、体上のbalanced dualizing formulaを単にファイバーごとに引用して済ませない。
+- 達成基準はC1–C4が同じ非空基底開上で成立し、`Isom_gr/Gm ≅ Eq_O` が実際の相対族に適用できること。開集合の存在証明と具体的な判別多項式の計算は区別する。
+- 大域dg smooth性を述べる場合は、中心アフィン対角から大域核・Morita模型への比較を別途示す。
 
-### P2：形式局所模型と有限型incidenceの接続
+### P2：Artin模型とstack化後の形式完備化
 
-滑らかな可換三次点の形式環と、有限係数Jacobian中心対の間の実際の写像を調べる。完備局所環の同型だけから代数化や大域成分性を結論しない。
+任意底変更の飽和・復元・固定模型間の射の降下は解決済み。残るのは圏自体の降下と、stack化後のArtin対象の大域的な標準模型の存在である。
 
-- 有限窓・周期・三次イデアルの降下を保つ具体的chartを作り、全次数平坦性を一様に保証する方法を示す。
-- 17→13のambient射の一般4次元fiberを、全O保存圏同値で割った問題へ移す。
-- 達成基準は、対象と射を明示した有限型chart、およびその形式完備化との比較。
+- 特殊ファイバーの同定とOの標識を固定し、局所的なO(i)の持上げの降下障害を調べる。
+- 固定圏内の対象の降下と、圏値降下データそのものの有効性を区別する。
+- 達成基準は `M^O_cub` の指定点の形式完備化と、現在証明済みの標準模型のArtin群oidとの同値。有限型atlasの存在を同時に主張しない。
 
-### P3：残余圏とOの標識の除去
+### P3：有限型incidenceと全混合族
 
-実際の全Artin dg残余射を構成し、可換cubicの10次元変形との形式比較と、忘れられる7方向を接合対象・rotation等で記述する。`notes/research_notes.md` §10の条件付き代数補題は、実際の射を得た後に適用する。Oの内在的認識は別の最終課題とし、O-marked定理を裸のAbel圏復元へ読み替えない。
+四係数族の相対比較を得た後に、17係数Jacobian中心対の有限型chart、周期構造と三次イデアルの降下、実際の17→13射へ拡張する。形式局所環の同型だけで代数化・大域成分性を結論しない。有限窓の表示と全次数条件の一様性を明示する。
 
-### 補助課題：直接的な障害消滅と特異三次
+### P4：残余圏とOの内在認識
 
-平方零基底では F≠0 だけで障害が消える。高次ではJacobiatorが現れるため、一次の δ²=0 をそのまま帰納しない。滑らかさを外した全Artin結論、反例、あるいは量子化を使わない一般消滅に明確な利益がある場合に進める。
+全Artin dg残余射を構成し、可換cubicの10次元変形との比較と、忘れられる7方向を接合対象・rotation等で記述する。`notes/research_notes.md` §10の条件付き積分解は実際の射の構成後に適用する。Oを忘れた復元は別の最終課題とする。
+
+補助課題として、特異三次への全Artin拡張、量子化を使わない高次障害消滅を保持する。平方零のδ²=0を高次へ無補正で反復しない。
 
 ## 6. 再開時の具体的着手
 
-1. `abel_cubic_deformations.tex` の `thm:abel-cubic-flat-envelope` と `cor:abel-cubic-formal-ring` を読み、滑らかな可換点の全Artin局所問題が解決済みであることを確認する。
-2. `central_pair_artin_formal_moduli.tex` の構成された族→代数層変形の比較を読む。両関手が同じ環で実際に表されることが、接写像から全Artin同型へ進む根拠である。
-3. `abel_marked_moduli.tex` のC1–C4と `central_pair_finite_order_regularity.tex`、`central_pair_mixed_derived_rigid.tex` を照合し、B_* の開部分について不足する相対入力を一つずつ確定する。
-4. 最初の具体的計算は相対RHom・対角解消・Serre核の構成に結び付ける。合格済みの低次中心や横断行列を目的なく再計算しない。
+1. `finite_order_relative_categories.tex` の最後の命題を読み、非空開上で既に得られた内在的perfect圏とRHomを確認する。
+2. `abel_marked_moduli.tex` のC4を、既存の `central_pair_mixed_derived_rigid.tex` の体上のSerre式と比較し、相対双対複体の構成に着手する。
+3. `abel_cubic_deformations.tex` の標準相対模型定理を読み、全係数変更に関する証明済み事項と、圏自体の降下という残りを確認する。
+4. 新たな計算を行うなら、双対核・中心標準開・相対対角の具体化に結び付ける。変更のない低次中心や横断行列を目的なく再計算しない。
 
 ## 7. 公表方針と新規性
 
-統合稿に価値ある証明を保持する。公表単位は、(a)全Abel三次変形の二次包絡と形式局所完全性、(b)正規超曲面対の周期と内在的復元、(c)混合Jacobian族とO-markedモジュライの相対比較、を中心結果のまとまりで整理する。未完成部分が完成部分を曖昧にするなら分稿する。
+統合稿に価値ある証明を保持する。公表単位は、(a)全Abel三次変形の二次包絡・普遍的相対模型、(b)正規超曲面対の周期と内在復元、(c)有限係数族とO-markedモジュライの相対比較、を中心結果のまとまりで整理する。
 
-DDL、Lowen、Yekutieli、CFT、Polishchuk–Positselskiの一般理論は既知入力である。Grassmannian Poisson錐と17/20の数値だけを新結果にしない。相対Veronese、全Hom比較、二次包絡の全Abel変形への適用、平方零消滅の初出は未確認である。公表前には近接文献と照合し、証明の独立点検を受ける。
+DDL、Lowen、Yekutieli、CFT、Koszul変形原理、Rains、RSV、通常の降下とProj理論は既知入力である。Grassmannian Poisson錐と17/20の数値だけを新結果にしない。全Abel変形への二次包絡の適用、普遍的相対模型、有限中心模型を用いた具体的C1–C3比較の初出と近接文献の網羅照合は未完了。公表前の独立点検と文献比較を続ける。
 
 ## 8. 再現と検証範囲
 
-`python3 scripts/verify.py` が参照・引用とTeX入力の閉包を検査する。組版は `latexmk papers/nc_cubic_threefold_moduli.tex`。LuaLaTeX・latexmk・luatexja・日本語フォントが必要。計算はPython3・SymPyを用いる。生成、証明点検、静的検査、組版、保存を別々に記録する。
+`python3 scripts/verify.py` が参照・引用とTeX入力の閉包を検査する。組版は `latexmk papers/nc_cubic_threefold_moduli.tex`。LuaLaTeX・latexmk・luatexja・日本語フォントが必要。計算はPython3・SymPyを用いる。
 
-既存8計算の実行日とsource hashを保持し、変更のない計算を今回再実行したと報告しない。今回の追加定理は解析的・代数的証明によって点検した。全旧定理の独立全面監査と新規性の網羅調査は未完了。組版環境と実施結果は `validation.json` に従う。
+既存8計算の実行日・source hashを保持し、今回の再実行とは区別する。新しい結果は証明の点検であり数値実験による確認ではない。生成、証明点検、静的検査、組版、保存を分けて記録する。現在のTeX環境は `lualatex.fmt` が欠けており、組版成功・PDFの視覚確認は未完了。正確な実施範囲は `validation.json` に従う。
