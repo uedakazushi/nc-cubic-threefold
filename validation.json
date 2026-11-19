@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
-  "version": "research-plan-v12",
-  "scope": "Constructed a noncanonical dominant algebraic lift of the existing Kuznetsov residual morphism rho from a nonempty open of the17-dimensional O-marked Jacobian Abel moduli to nonzero Poisson cubic-threefold pairs, compatible with forgetting Poisson. A17-dimensional scheme atlas can be shrunk so its composite is etale; no representability, finite-morphism or birational claim for the stack map. Constructed the actual residual map on all framed Abel Artin deformations at every smooth commutative cubic, and a noncanonical formal Poisson-pair isomorphism over this actual Ku base. Formal residual fiber is the completed affine Plucker cone of Gr(2,5), dimension7 and tangent dimension10. Proved failure of naive inverse symmetrization of a quantum central cubic, including on a projective chart. Intrinsic quantization-compatible algebraic dequantization remains unproved.",
-  "reviewed_repository_commit": "c0d93da2b899f37a796f95c5d46b359078486fb1",
+  "version": "research-plan-v13",
+  "scope": "Current Japanese LuaLaTeX manuscript v19. Point-module first-order liftability, classical and quantum point-scheme decompositions, finite point-correspondence reconstruction of the full quadratic envelope and scaled ambient Poisson tensor, projective Poisson/Casimir reconstruction from the embedded scheme alone, Hesse nonrealization, flat closure, and modular residue. Specific Casimir cubic and agreement with the actual Ku residual morphism remain open.",
+  "reviewed_repository_commit": "76382805d3b0c4e6ed5b0d6fe9dfd0a133baca31",
   "reference_commits": {
     "poisson-p4": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
     "nc-cubic": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
@@ -19,7 +19,7 @@
     "degree_three_obstruction": "B3=R^34 direct_sum R/I and I=Fitt_34(B3) retained. Complete nilpotent sorting proof establishes degree-three flatness iff all-degree flatness for nonperiodic quadratic Z-algebras with polynomial special fibre. Independently reviewed. General Koszul deformation principle is established literature, PP Ch6 Thm7.3, not claimed new.",
     "rigid_ambient_application": "The retained PBW, AS5, CY and Aut_gr(B_*)(C)=C* inputs are explicit. Cartier characteristic-zero smoothness upgrades the finite-type automorphism group scheme to Gm. Quadratic envelope and leading gamma coefficient then prove arbitrary-coefficient graded isomorphism iff f=g. Compact relative Hom and fixed-family fpqc Hom descent give a monomorphism A4→M^O on finite-type complex tests. No open immersion, atlas or component assertion.",
     "retained_results": "Existing 41/37 and17/13 constructions, gcd periodicity, all-Artin envelope, square-zero obstruction and formal-ring proofs retained. New universal coefficient, finite central, Serre and full-family relative comparison proofs were reviewed. The complete older PBW/CY/rigid calculation proofs were not newly reconstructed, and unchanged calculations were not rerun.",
-    "novelty": "Fixed-cubic Poisson Grassmannian, deformation quantization inputs and relative transcendence-basis arguments are established results/methods. The current concrete additional work is the all-Abel residual construction, compatible formal product, application to the existing17-dimensional moduli morphism, and explicit naive-center obstruction. These statements have written proofs and internal independent readings. Exhaustive priority checking, full audit of retained inputs and external human review remain unfinished.",
+    "novelty": "Point-scheme/Poisson-zero comparison (Vancliff), single-central-variable point-correspondence reconstruction (Le Bruyn-Smith-Van den Bergh), Jacobian Torelli (Ueda-Yoshinaga/Hwang), and modular residues (Gualtieri-Pym) are established inputs. The current application treats two central variables and a central cubic quotient, length24 scheme structure, partial-gradient/Casimir extraction, finite Hesse embedded nonrealization and shift/residue comparison. Proofs and independent internal readings are recorded; exhaustive priority checking and external peer review remain incomplete.",
     "square_zero_obstruction": "Complete proof independently reviewed: Schur residual Theta=delta(q_(i+1)-q_i)=F lambda; delta^2=0 and injectivity on constant three-cochains force lambda=0. Valid for any nonzero cubic, no smoothness, with dim V>=4; written in five-variable case. General Artin I subset m^2 follows by Fitting base change. Nonlinear Jacobi corrections prevent naive higher-order induction.",
     "homogeneous_quantization": "CFT arXiv:math/0012228v3 §3, Thm3.1, Prop3.3 and Cor5.2(iv) checked. Finite nilpotent substitution, graph-degree preservation, alpha=Pi/2 normalization, quadraticity via split-kernel Nakayama, and central cubic regularity supplied explicitly. Full graded Hochschild/Poisson gauge classification is not assumed.",
     "actual_artin_comparison": "Relative Poisson functor is prorepresented by T, using lifted polarization, relative bivector/Jacobi calculations and the formal PGL slice; H0(T_X)=0 removes infinitesimal automorphisms. Yekutieli makes Ass represented by the same T. The actual constructed map has injective 20-dimensional tangent map, hence induces an invertible continuous endomorphism of T. No higher agreement of independent quantization coordinates is assumed.",
@@ -71,16 +71,23 @@
     "relative_poisson_cone": "Target ambient Brauer-Severi P4 bundle splits because omega_B/V(2D) restricts to O(1). Relative conormal/Euler computations give ranks10/15 and arbitrary base change. Mayanskiy Schouten-Plucker formula plus fiberwise independence of five partial derivatives gives a locally split injection; therefore scheme ideals, not only point sets, agree. Nonzero cone has A6 times Gm big cell and is relatively smooth of dimension7. Poisson scale is retained.",
     "ku_compatible_formal_poisson": "Choose existing quantization comparison Q of R_X=A0[[s1,...,s10]], A0=C[[a_ij]]/Pfaff4. Actual residual r gives rQ=f(s,a), f(s,0)=s. Theta=(f,a) is an A0-linear formal automorphism for the maximal-ideal topology even though A0 is singular. Theta Q^{-1} is over the actual Ku base, identity on commutative locus. Formal fiber is completed cone dimension7/tangent10. No algebraization/convergence or equality of uncorrected Q^{-1} with this lift is asserted.",
     "algebraic_poisson_lift": "For K=C(V), L=C(C_J), choose separating relative transcendence basis t1,...,t7, remove invariant poles and t7=0, and map into a01-notzero Plucker chart. This gives an actual dominant stack morphism over rho, natural under all O-marked equivalences once choices fixed, with finite separable function-field extension. A dominant17-dimensional etale atlas is generically etale over the target; restricting its etale locus and image gives the stated atlas. No proof of degree1 or intrinsic semi-classical meaning.",
-    "symmetrization_obstruction": "Retained Fermat central formula gives w=f-h^2 T/9+u^3+v^3. Generic sym is invertible by its h=0 specialization, with inverse H=f-2h^2 xyz/3+u^3+v^3. Direct derivation yields {x,H}=-2h^3 x(z^3-y^3)/3. Coefficient comparison excludes ideal(H). On u-notzero chart, Hbar is monic cubic in v/u whereas the nonzero bracket has degree0 in v/u, excluding the projective Poisson-subvariety claim as well. Generic H is smooth by Fermat specialization. This is a written algebraic proof, not a new numerical test, and does not disprove corrected dequantization."
+    "symmetrization_obstruction": "Retained Fermat central formula gives w=f-h^2 T/9+u^3+v^3. Generic sym is invertible by its h=0 specialization, with inverse H=f-2h^2 xyz/3+u^3+v^3. Direct derivation yields {x,H}=-2h^3 x(z^3-y^3)/3. Coefficient comparison excludes ideal(H). On u-notzero chart, Hbar is monic cubic in v/u whereas the nonzero bracket has degree0 in v/u, excluding the projective Poisson-subvariety claim as well. Generic H is smooth by Fermat specialization. This is a written algebraic proof, not a new numerical test, and does not disprove corrected dequantization.",
+    "point_first_order": "Flat quadratic dual-number deformation; Jacobi imposed separately; smooth central cubic. Local lifting iff scheme-theoretic projective Poisson zero, including nonreduced tests. Expansion a_n=p+epsilon(b+n*c), central evaluation dF(b)+(n+1)dF(c)+G, and centrality dF(c)=0 checked. No uniqueness or all-order assertion.",
+    "poisson_zero_scheme": "For smooth X and smooth plane cubic base E, zero scheme is E disjoint union D=(F,Fx,Fy,Fz). Gauss finiteness plus Bertini prove D finite; regular sequence gives length24. Explicit reduced Lefschetz witness checked. No genericity needed for the length statement.",
+    "quantum_point_scheme": "Two central variables, fixed-point-free smooth elliptic boundary graph and central cubic annihilation give Pt(B)=E disjoint union C and Pt(A)=E disjoint union D_w. Unit charts and invertible2-minors exclude nilpotent thickening. A proper cubic cut is required for the length24 CI conclusion.",
+    "point_correspondence_recovery": "For the full point-scheme shift graph Gamma_A, H0(I_Gamma_A(1,1)) equals all10 quadratic relations of B. Diagonal D imposes symmetric part in Q; seven central antisymmetric directions plus three elliptic graph relations. Degree3 line-bundle multiplication on E is surjective by pencil trick or plane-cubic projective normality. On the skew/symmetric graph open, q_ij and the actual finite tensor Pi_fin=h*Pi_F are recovered without choosing a logarithm of sigma. Tensor has central weight0 and descends through PGL and all O-preserving equivalences. Not a statement about the low truncated point scheme.",
+    "point_casimir_recovery": "Embedded E and length24 CI D yield U and Q=span(Fx,Fy,Fz). On the non-ST Hesse open lambda*(lambda^3-8)!=0, integrability forces M scalar, giving R_Q=kF plus Sym^3U. Gcd1 and homogeneity identify this with all cubic affine Casimirs. Bare scheme recovers [Pi]; particular Casimir line remains unselected. Relative rank statements are on the existing Jacobian locus, not all pairs(U,Q).",
+    "point_hesse_obstruction": "Boundary curve e_h=3(f3+h^2 detHess(f3)/24). If the full embedded E_h disjoint union D_w were any smooth cubic Poisson zero scheme, the base plane is forced and the quadratic ideal requires B=3lambda A. Exact difference h^2(1+lambda^3) rules this out under stated smoothness, nonzero h and CI assumptions. Does not prohibit abstract-scheme comparisons or corrected dequantization.",
+    "point_flat_limit_residue": "Fermat flat closure specializes to the zero scheme of the NONZERO semiclassical bracket, while the entire commutative point scheme is X0. D_h has3 support points of length8. The right-module shift has velocity xi, modular residue is2xi in the stated Jacobian normalization. Pi_fin at h=0 is zero; Pi_F comes from dividing by the chosen h before reduction."
   },
   "static": {
-    "tex_inputs": 29,
-    "labels": 526,
-    "references": 663,
-    "citations": 241,
-    "bibliography": 78,
+    "tex_inputs": 30,
+    "labels": 555,
+    "references": 690,
+    "citations": 259,
+    "bibliography": 84,
     "sha256": {
-      "papers/nc_cubic_threefold_moduli.tex": "0bda9d0cd0ccd7f1b3f1b7aee94e021841c1df0876dd2bd3c4a2dcb7c93098f0",
+      "papers/nc_cubic_threefold_moduli.tex": "9b6b7c0cf76a33e15d04066488cff866d21a621961ff1a4cdaf7b3cb4e8e5d69",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "7bed0be351ce4ff5835262c1db567e6fd3a0388d52af8626d6878af505540b36",
       "papers/sections/categorical_moduli_comparison.tex": "01ca7597e876688b4233e195fff0de9ad85d812f0fce550679198f7205f1e1f8",
@@ -108,6 +115,7 @@
       "papers/sections/kuznetsov_relative_category.tex": "563182a2aca108b0248fb4cb24d6c23676cef2d793244ec5cfd1758fd2125ee0",
       "papers/sections/kuznetsov_moduli_morphism.tex": "dd1ba12fa1afddb452be23a0ec7ba536d52a1ebb9efbbefb21b0197fa0b39959",
       "papers/sections/poisson_cubic_lifts.tex": "2055b270f44e27d2b12e5b5a92485c981aee288ffd37e0c975cfd90db22882e6",
+      "papers/sections/point_scheme_poisson.tex": "47d76216fdedee66bcaa2231a89af917877f7e49a6230101475fbd6c36b9423f",
       "papers/sections/central_pair_finite_order_regularity.tex": "07b623b111c44ea6ff1d8d6761a1ab0df005dcd5fc594294d9b711bb5db81b10"
     },
     "limit": "Static closure only, not mathematical proof audit.",
@@ -118,20 +126,16 @@
         "environments": "passed"
       },
       {
-        "path": "papers/sections/kuznetsov_relative_category.tex",
-        "braces": "passed",
-        "environments": "passed"
-      },
-      {
-        "path": "papers/sections/poisson_cubic_lifts.tex",
+        "path": "papers/sections/point_scheme_poisson.tex",
         "braces": "passed",
         "environments": "passed"
       }
     ],
-    "markdown_local_links": 20,
+    "markdown_local_links": 21,
     "all_links_exist": true,
     "unchanged_existing_computation_files": 24,
-    "certificate_check_scope": "All24 retained computation assets byte-identical to the confirmed baseline. No numerical calculation or certificate regeneration performed in this review."
+    "unchanged_existing_section_files": 28,
+    "certificate_check_scope": "The nine new identities were executed with exact SymPy arithmetic, and certificate/source hash agreement checked. All24 retained computation assets and all28 previously tracked section sources are byte-identical to the confirmed baseline. No old computations rerun."
   },
   "computations": [
     {
@@ -221,13 +225,24 @@
       "certificate": "computations/commutative_dominance_certificate.json",
       "certificate_sha256": "ea8659fba94c4ebc5f032034fa5f0dfbb31b4a8db9faf6a0f1d6ea0d9ccecabe",
       "separate_invocation_certificate_match": true
+    },
+    {
+      "command": "python3 computations/verify_point_poisson.py --output computations/point_poisson_certificate.json",
+      "exit_code": 0,
+      "executed_on": "2026-11-19",
+      "source_sha256": "9d514eefe9005d084540a5f4e99a0f33f06e83684f18fd92ca7f9c26b6f02042",
+      "sympy_version": "1.14.0",
+      "result": "All9 exact symbolic checks passed: Fermat determinant and shift representative; central cubic multilinear evaluation; Hesse determinant; Hessian correction; nonrealization coefficient; integrability rank8 minor; shift velocity/tangency; reduced24-point witness; Hesse j invariant. No floating-point sampling. Scheme and categorical proofs are separate.",
+      "certificate": "computations/point_poisson_certificate.json",
+      "certificate_sha256": "851459e38d8bb6a3add53580b3e0eeae6e87c0fda88e1c5cd63cabfdd53b8b6b",
+      "source_hash_matches": true
     }
   ],
   "certificates": {
     "rat113_matches_regeneration": true,
     "two_factor_matches_regeneration": true,
     "central_symmetry_matches_regeneration": true,
-    "scope": "The three original retained matches describe 2026-11-16 executions. general17_open records an earlier 2026-11-19 run retained without rerunning. jacobian_etale_point is the present exact run with an independently regenerated identical certificate. Only the finite tangent and nonvanishing inputs are numerical conclusions; categorical/stack assertions have written proofs and reading audits.",
+    "scope": "Retained certificates record previously executed validations, not present reruns. The current point_poisson certificate contains9 exact polynomial/rational identities; categorical and scheme claims depend on the written proofs and internal independent readings.",
     "verification_date": "2026-11-16",
     "general17_open": {
       "verification_date": "2026-11-19",
@@ -256,6 +271,15 @@
       "regeneration_byte_match": true,
       "source_helper_hashes_match": true,
       "checked_on": "2026-11-19"
+    },
+    "point_poisson": {
+      "verification_date": "2026-11-19",
+      "path": "computations/point_poisson_certificate.json",
+      "checks": 9,
+      "all_passed": true,
+      "source_hash_matches": true,
+      "arithmetic": "exact polynomial/rational over Q",
+      "sympy_version": "1.14.0"
     }
   },
   "not_rerun_in_this_review": [
@@ -279,16 +303,16 @@
     "command": "latexmk papers/nc_cubic_threefold_moduli.tex",
     "attempted": false,
     "status": "not_executed_missing_required_format_and_japanese_packages",
-    "reason": "The retained same-date environment diagnosis found no lualatex.fmt, ltjsarticle.cls or luatexja.sty; the prior attempt stopped before body processing. Current v18 was not compiled.",
+    "reason": "The retained same-date diagnosis found no lualatex.fmt, ltjsarticle.cls or luatexja.sty. Current v19 was not compiled; static TeX verification is not a substitute for a build.",
     "environment_diagnosis_on": "2026-11-19",
     "pdf_generated_in_this_review": false,
     "visual_inspection_in_this_review": false,
-    "scope": "Current v18: TeX input/reference/citation closure and modified-file brace/environment checks passed. No PDF or visual typesetting verification.",
-    "current_manuscript": "v18",
+    "scope": "Current v19 input/reference/citation closure and modified-file brace/environment checks passed. No PDF or visual typesetting verification.",
+    "current_manuscript": "v19",
     "current_manuscript_build_executed": false
   },
   "open_scope": [
-    "Choice-independent, quantization-compatible algebraic Poisson lift over the actual Ku morphism rho, including an equivariant corrected correspondence between the quantum degree3 center and classical Casimirs.",
+    "Intrinsic corrected selection of a classical cubic Casimir line from the quantum central line, compatible with all O-preserving equivalences and the actual Ku morphism rho. Finite scaled ambient Poisson tensor is already reconstructed from the embedded point scheme plus shift.",
     "Algebraization/convergence of the chosen Ku-compatible formal isomorphism Theta Q^{-1}, agreement with an actual algebraic lift, and higher-order comparison of rho with the input cubic F.",
     "Birational type of a general seven-dimensional algebraic fiber, degree1 of any finite function-field correspondence, gluing-moduli interpretation, and relation to the four-dimensional envelope torsor.",
     "Formal completeness and openness/local closedness/componenthood of C_J at general noncommutative points inside the entire O-marked Abel moduli problem.",
@@ -300,7 +324,7 @@
     "Direct higher-order envelope flatness without quantization and extension to singular cubics.",
     "Exhaustive priority checking, external peer review, full independent audit of retained proofs, and current PDF compilation/visual verification."
   ],
-  "assets": "Current research plan v12, notes, Japanese LuaLaTeX manuscript v18 with one new integrated Poisson section, necessary sources and24 unchanged computation assets; no archives, duplicate drafts or generated build assets tracked. Previous valid proofs and useful counterexamples retained.",
+  "assets": "Current research plan v13, notes, Japanese LuaLaTeX manuscript v19, one integrated point-scheme/Poisson section, one exact verifier and one small certificate; all28 earlier section files and24 earlier computation assets unchanged. No archives, duplicate drafts, PDFs, ZIPs, generated build files or caches tracked.",
   "primary_sources_checked": [
     {
       "key": "LowenVdBDeformation",
@@ -585,27 +609,70 @@
       "key": "YekutieliTwisted",
       "url": "https://arxiv.org/pdf/0905.0488",
       "locations": "Version5, parameter algebra definition; Theorem11.1 and Corollaries11.2-11.3, printed pp45-47. Complete local Noetherian coefficients, gauge classes, first-order brackets and coefficient/etale naturality. Cor11.3 adds H1(T),H1(D) vanishing."
+    },
+    {
+      "key": "VancliffQuantumSpaces",
+      "url": "https://bpb-us-e1.wpmucdn.com/websites.uta.edu/dist/0/5123/files/2022/10/cliff.pdf",
+      "locations": "Section6, Proposition6.17, Theorem6.18 and Example6.12; parameter-independence hypothesis retained.",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "LeBruynSmithVdBCentral",
+      "url": "https://sites.math.washington.edu/~smith/Research/Central-extns.pdf",
+      "locations": "Theorem4.2.2, Proposition4.2.5 and Proposition4.3.7(1); one-central-variable scope.",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "PymSurvey",
+      "url": "https://arxiv.org/pdf/1701.08852",
+      "locations": "Section3.2.2, pencil base and singular fiber points; version1 local Euler model.",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "GualtieriPym",
+      "url": "https://arxiv.org/pdf/1203.4293",
+      "locations": "Definition4.16, Theorem7.2 and Example7.4; residue=-Tr, Euler residue=-2 partial_z.",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "UedaYoshinagaJacobian",
+      "url": "https://www.math.sci.hokudai.ac.jp/hmj/page/38-3/pdf/HMJ38_0409-0415.pdf",
+      "locations": "Section3 Lemma3, printed p412; use the theorem text, not the abstract missing not.",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "HwangSymmetrizer",
+      "url": "https://arxiv.org/pdf/2501.08633",
+      "locations": "Definition2.1 and Theorems1.3,1.5,1.6. Publication verified with J-STAGE: JMSJ78(1)(2026),55-62,DOI10.2969/jmsj/93469346.",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "AD",
+      "url": "https://arxiv.org/pdf/math/0611590",
+      "locations": "Section2, equations(6)-(8), printed pp4-5: Hesse Weierstrass coefficients and j normalization.",
+      "checked_on": "2026-11-19"
     }
   ],
   "current_proof_review": {
     "files": [
-      "papers/sections/poisson_cubic_lifts.tex",
-      "papers/sections/kuznetsov_relative_category.tex:scope",
-      "notes/research_notes.md:10"
+      "papers/sections/point_scheme_poisson.tex",
+      "papers/nc_cubic_threefold_moduli.tex:Introduction and bibliography",
+      "notes/research_notes.md:10.7"
     ],
     "dependencies": [
-      "papers/sections/abel_cubic_deformations.tex:thm:abel-cubic-flat-envelope(iii),cor:abel-universal-relative-cubic",
-      "papers/sections/central_pair_artin_formal_moduli.tex:prop:artin-ore-universal-cohomology,lem:artin-constructed-family-comparison",
-      "papers/sections/koszul_relative_duality.tex:lem:relative-koszul-torsion-model,lem:relative-cubic-torsion-comparison",
-      "papers/sections/abel_formal_descent.tex:cor:abel-full-stack-discrete-formal",
-      "papers/sections/kuznetsov_moduli_morphism.tex:prop:kuznetsov-formal-recognition,thm:kuznetsov-cubic-moduli-morphism",
+      "papers/sections/poisson_cubic_lifts.tex:prop:relative-poisson-cubic-cone",
+      "papers/sections/jacobian_abel_comparison.tex:thm:general-relative-pointed-hom,eq:general17-elliptic-quotient",
+      "papers/sections/jacobian_moduli_chart.tex:thm:jacobian-algebraic-abel-substack",
       "papers/sections/central_pair_explicit_centers.tex:thm:pair-full-fermat-center"
     ],
-    "method": "Root integration and separate independent readings of the relative Poisson cone, all-Artin residual generator/torsion/Morita framing, formal inverse map, transcendence-basis algebraic lift and central-cubic obstruction. Correct tensor order and A-side unbounded localization made explicit; projective-chart obstruction added. Primary Mayanskiy/Pym/Yekutieli formulas and scope read directly. No blocking gap found in the reviewed arguments; not external human peer review or full reconstruction of retained PBW/quantization inputs.",
+    "method": "Root integration plus separate independent proof readings. Nonreduced first-order tests, unit central charts, scheme decomposition, unknown base-plane forcing, UFD denominator elimination, finite graph reconstruction and central weight0 descent checked. Primary Vancliff, Le Bruyn-Smith-Van den Bergh, Pym, Gualtieri-Pym, Ueda-Yoshinaga, Hwang and Artebani-Dolgachev texts inspected. Not external human peer review or full re-audit of retained proofs.",
     "numerical_calculation_needed": false,
-    "numerical_scope": "No numerical computations or certificate regeneration performed. All24 existing computation assets byte-identical to confirmed baseline. New bracket and ideal nonmembership verified in the written algebraic proof."
+    "exact_symbolic_calculations_executed": true,
+    "numerical_scope": "Nine exact polynomial/rational identities executed; no numerical approximation. All24 preexisting computation assets unchanged and not rerun."
   },
   "existing_computations_rerun_in_this_review": false,
-  "computations_executed_in_this_review": [],
+  "computations_executed_in_this_review": [
+    "python3 computations/verify_point_poisson.py --output computations/point_poisson_certificate.json"
+  ],
   "review_scope": "The review dictionary also records currently valid retained proof dependencies. Only current_proof_review and computations_executed_in_this_review identify the present review. This is not a complete re-audit of every retained result."
 }

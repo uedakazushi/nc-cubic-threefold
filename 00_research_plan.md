@@ -1,6 +1,6 @@
 # 研究方針：非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v12。研究再開時は最初に本書を読む。GitHub mainを正本とする。今回の変更前の確認済み基点は `c0d93da2b899f37a796f95c5d46b359078486fb1`。証明は `papers/nc_cubic_threefold_moduli.tex`（v18）と入力節、補助的知識は `notes/research_notes.md`、検証範囲は `validation.json` に置く。
+2026-11-19 / research-plan-v13。研究再開時は最初に本書を読む。GitHub mainを正本とする。今回の変更前の確認済み基点は `76382805d3b0c4e6ed5b0d6fe9dfd0a133baca31`。証明は `papers/nc_cubic_threefold_moduli.tex`（v19）と入力節、補助的知識は `notes/research_notes.md`、検証範囲は `validation.json` に置く。
 
 ## 1. 恒常的な研究原則と保存許可
 
@@ -24,7 +24,9 @@
 
 全Abel Artin形式近傍にも実際の残余射rを構成した。既存の全Artin中心商表示と、CY orientationを必要としないcompact/proper模型を用いる。rに両立するPoisson形式近傍との非標準的同型があり、形式fiberは7次元・頂点接空間10次元のGr(2,5)アフィン錐である。また、ρ上の相対有理座標を選べば、実際の17次元非空開から非零Poisson構造付き三次の17次元モジュライへの支配的な射も存在する。選択を固定した後には全O保存同値と底変更に両立する。
 
-現在の核心は、補助的な選択を不要とし、非可換構造の量子化としての意味を保つPoisson持上げである。形式同型と実際の有理座標による射の一致・代数化、ρの一般fiberの双有理型、全Abelモジュライ内でのJacobian部分stackの位置は残る。尺度を忘れた射影Poissonモジュライは16次元であり、対象を混同しない。
+point schemeの方向では、一次持上げ可能点をPoisson零点schemeと同定した。有限係数では楕円曲線と長さ24の完全交叉に分かれ、一般の埋込みpoint schemeからambient Poisson直線と五次元三次Casimir空間を復元できる。さらにshiftを付けた点対応からは二次包絡を復元し、有限係数のambient Poisson構造を尺度込みで回復できる。有限Hesse族のpoint schemeを零点schemeそのものにする方法には障害がある。
+
+現在の核心は、このCasimir空間の中から量子中心に対応する三次直線を選び、補助的な選択を不要とし、非可換構造の量子化としての意味を保つPoisson持上げである。形式同型と実際の有理座標による射の一致・代数化、ρの一般fiberの双有理型、全Abelモジュライ内でのJacobian部分stackの位置は残る。尺度を忘れた射影Poissonモジュライは16次元であり、対象を混同しない。
 
 ## 3. 到達点・仮定・証明所在
 
@@ -70,8 +72,16 @@
 | 相対Poisson錐のschemeとしての構造 | 同節 `prop:relative-poisson-cubic-cone` | MayanskiyのSchouten式、相対勾配の分裂単射。任意底変更と両立。非零部分は滑らかで相対次元7 |
 | 実際の開上の非零Poisson持上げ | 同節 `thm:noncanonical-poisson-cubic-lift` | ρ上の相対超越基底による非標準的な支配射。scheme atlas合成は縮小後étale。双有理性は未証明 |
 | 単純な対称化逆像の障害 | 同節 `prop:poisson-naive-symmetrization-fails` | 中心Fermat三次の明示式からPoisson idealでないことを代数的に証明。射影chartでも確認 |
+| 点加群の一次持上げと零点scheme | `point_scheme_poisson.tex`, `prop:first-order-point-poisson-zero` | 平坦な二次一次変形・Poisson括弧・滑らかな中心三次。任意非被約T上で局所的な存在と同値。高次・一意性は含めない |
+| Poisson零点のE⊔D分解 | 同節 `prop:poisson-zero-elliptic-polar` | Xと基底平面三次Eが滑らか。D=(F,Fx,Fy,Fz)は長さ24の完全交叉。一般に被約、特殊例では非被約 |
+| 有限係数の点対応と長さ24 | 同節 `prop:central-two-point-scheme`, `prop:fermat-point-scheme` | u,v中心、境界は固定点なしの楕円graph、wが境界点加群を消す。D_wが真の三次切断 |
+| 点対応からの二次包絡・尺度込みPoisson復元 | `point_scheme_poisson.tex`, `prop:point-correspondence-quadratic-recovery` | 境界smooth graph、D_wがCI。H⁰(I_Γ(1,1))=R_B。graph開でΠ_fin=hΠ_Fを復元。有限σのlogは不要 |
+| 点schemeからPoisson直線とCasimir空間を復元 | 同節 `prop:point-gradient-reconstruction`, `cor:point-full-casimir-space` | 埋込みschemeを使用。非ST境界、Hesseではλ(λ³−8)≠0。R_Q=kF⊕Sym³U、dim5。特定三次・尺度は未選択 |
+| 相対復元と全O保存同値への自然性 | 同節 `prop:point-recovery-relative-descent` | 既存Jacobian locusの開。任意底変更、GL同変、全Hom比較を使用。中心重みのある束自体のPGL降下は主張しない |
+| Hesse族の埋込み零点非実現性 | 同節 `prop:hesse-point-zero-nonrealization` | h≠0、古典・量子境界smooth、有限成分CI。どのsmooth cubicへ替えても同じ埋込み零点にはならない |
+| 半古典極限とshift速度 | 同節 `cor:fermat-point-flat-closure`, `prop:jacobian-modular-shift-comparison` | Fermat平坦閉包の特殊fiber=Z(π₀)だがPt(A₀)=X₀。指定経路でσ′₀=Res_mod/2。有限σの対数は扱わない |
 
-現在の点検は、相対Poisson錐、全Abel残余射、形式逆写像による両立、実際の代数的持上げ、対称化の障害について行った。全Artin模型・Koszul/torsion・線Hom・Ku認識の既存入力を再確認し、別々の読み合わせで具体的な未解消の欠陥は見つからなかった。新たな数値検算を必要とする主張は追加していない。外部査読と既存全証明の独立再証明は未完了であり、新規性の網羅調査も未完了とする。
+現在の点検はpoint schemeの一次持上げ、E⊔Dのscheme分解、偏微分空間からの復元、Hesse非実現性、modular residueとの比較に集中した。別々の読み合わせで、非被約基底の持上げ・中心chartの単元・nilpotentの消去・未知の基底平面の強制・Casimirの分母消去を確認した。Hesse行列式と補正式等の9項目は、新しい厳密記号計算で全て確認した。二次包絡復元は楕円曲線上の線束乗法の全射性による証明を点検した。既知Jacobian Torelliとmodular residue自体は新規成果としない。外部査読・旧全証明の独立再証明・新規性の網羅調査は未完了である。
 
 一般の係数perfect dg代数について「特殊ファイバーsmoothなら一般ファイバーsmooth」という命題(FS)は偽である。反例と、形式compact性・generator開性の別の障害をノート§1.8.2に保存する。上の定理は(FS)に依存せず、相対Serreと三次三様体固有の生成性で証明する。
 
@@ -83,7 +93,7 @@ Abel圏を直接扱うための相対Serre、全O保存同値、有限表示Isom
 
 可換点の全Abel模型には既存の比較定理から通常の中心商表示を選べる。残余操作には左mutation、compact generator、係数perfect Homがあれば足り、相対Serreを再構成する必要はない。この区別により全Abel形式近傍の残余射と、その射に両立する形式Poisson同型まで完成した。非周期的表示であること自体をこの構成の障害とはしない。
 
-実際の開上のPoisson持上げは、相対有理座標の選択で存在するが、それだけでは量子化を記憶する幾何学的対応にならない。中心三次を完全対称化で戻す方法には明示的な反例がある。したがって次は、中心の量子補正・座標変更との同変性・Kuが復元する三次との一致を優先する。
+実際の開上のPoisson持上げは、相対有理座標の選択で存在するが、それだけでは量子化を記憶する幾何学的対応にならない。中心三次の完全対称化逆像には反例があり、point scheme全体を零点schemeとして一致させる方法にも一般Hesse族で障害がある。一方、埋込み点データからambient Poisson直線と五次元Casimir空間を復元できた。したがって点対応を入力にする方向を優先し、その空間の中の中心三次の補正と、Kuが復元する三次との一致を扱う。有限係数の尺度は点対応から復元でき、指定経路の半古典的規格化とは区別する。元のPoissonモジュライ射の存在は非標準的な意味で解決しており、内在的・量子化に両立する射は残る。
 
 O(1)自体を商stack上へ降下させずとも、その基底直線束twistはmutationの評価で消える。これが全O-marked Abel同値に自然な残余圏を取れる理由である。targetの自己同型が自明な開へ制限すれば、粗モジュライへの射は通常の三次モジュライstackへの射ともなる。相対Morita核はétale局所で構成し、大域的な核の存在は結論に含めない。
 
@@ -91,9 +101,11 @@ O(1)自体を商stack上へ降下させずとも、その基底直線束twistは
 
 ### P1：量子化としての意味を保つPoisson持上げ
 
-非零Poissonモジュライへの非標準的な支配射と、可換点でのrに両立する形式同型は証明した。次は二次関係のgraphから得るambient Poisson構造Πと、量子中心Z(B)_3の三次を、古典Casimir空間へ同変に対応させる。まず `prop:poisson-naive-symmetrization-fails` とノート§10.6の中心規格化差を使い、Fermat/Hesse族で補正項を計算する。GL座標変更・binary cubicの加算・中心直線の尺度に関する変換則を明示する。
+まず `point_scheme_poisson.tex` の復元を使う。埋込みpoint schemeの唯一の曲線E_hと有限成分DからU=I(E_h)_1、Q=I(D)_2を取り、R_Q={G:∂_W G⊂Q}=kF⊕Sym³Uを復元した。この部分は証明済みであり、HesseでのHessian一意性はUeda–YoshinagaのJacobian Torelliの具体化である。
 
-達成基準は、補助座標を忘れて全O保存Abel同値の商へ降りる射を作り、その出力三次がρの出力と一致することを示すことである。既存量子化QについてrQがPoisson忘却と一致するかを、まず低次で検算し、高次恒等式または補正の構造を見いだす。形式的なΘ補正の存在だけを、この特定の代数的・同変な対応の完成と扱わない。
+次は、量子中心直線と有限成分の三次イデアル I(D)_3/(V·Q) を、R_Qの特定の三次直線へ補正付きで対応させる。Fermat/Hesse中心の既存公式とHessian補正を使い、まず分離型で候補を定め、mixed係数・中心平行移動・binary cubic加算への変換則を調べる。I(D)_3の三次代表をそのまま古典Casimirにしてはならない。原点のない四次元torsorに標準的な切断が存在するかも別に確認する。
+
+有限係数の尺度はpoint correspondenceから復元できる。H⁰(I_Γ(1,1))=R_Bと二次関係のskew/symmetric graphを使えば、Π_fin=hΠ_Fを得る。これはfinite σの対数を取る操作ではない。指定した量子化経路での半古典構造Π_Fとの比較は、σ′₀=Res_mod/2という一次の式で行う。達成基準は、復元したCasimir空間の中の三次直線を全O保存同値に自然に選び、その三次がρの出力と一致することを証明すること。ambient Πの復元だけをPoisson構造付きcubicへの射の完成と扱わない。
 
 並行して固定Ku(X)と五矢Kronecker圏の接合双加群を調べ、七方向の内在的意味を探る。形式fiberはGr(2,5)錐と分かったが、一般の代数的fiberの双有理性、超越基底による有限拡大の次数1、既存の四次元torsor上でのρの挙動は未証明である。
 
@@ -105,17 +117,17 @@ O(1)自体を商stack上へ降下させずとも、その基底直線束twistは
 
 ### P3：公表単位・先行研究・内在的復元
 
-中心結果として、(a)全Abel三次変形の二次包絡とframed形式近傍、(b)相対双対とJacobian型代数的Abel部分モジュライ、(c)Kuznetsov成分による17→10射とPoisson持上げ・七次元fiberを検討する。論理的なまとまりと新規性を調査して分割・統合を決める。正規超曲面対の周期、既存の有限中心結果など有効な証明は保持する。
+中心結果として、(a)全Abel三次変形の二次包絡とframed形式近傍、(b)相対双対とJacobian型代数的Abel部分モジュライ、(c)Kuznetsov成分による17→10射とPoisson持上げ・七次元fiber、(d)point schemeとPoisson零点・Jacobian復元を検討する。論理的なまとまりと新規性を調査して分割・統合を決める。正規超曲面対の周期、既存の有限中心結果など有効な証明は保持する。
 
 Kuznetsov/JLLZ/Lurie/Bhatt/Stevenson/Orlov/Neeman/BMMSとPBW・CY・連続性の一次入力は、各定理の仮定と本研究の追加部分をIntroductionとノート§11で比較する。初出・新規性の網羅調査、第三者査読、旧PBW/CY・全Artin量子化入力の独立全面監査は未完了。Oを忘れた復元、特異三次への拡張は別課題である。
 
 ## 6. 再開時の具体的着手
 
-1. 本方針の後、ノート§10、`poisson_cubic_lifts.tex`、`kuznetsov_moduli_morphism.tex` を読む。Poisson側の主要な証明は相対錐、全Abel残余、形式同型、実際の持上げ、対称化障害の順に並ぶ。
-2. P1はFermat/Hesseの量子中心から始める。`central_pair_explicit_centers.tex` の中心公式を使い、sym⁻¹をそのまま使わず、古典Casimirへ補正する同変な線型写像を探る。ρとの一致は別途証明する。
-3. 接合による方法では、`G_i=L_O L_O(1)(O(i))`、i=2,3,4のHomと例外pairへの接合加群から変形複体を作る。全tailsのsmooth性や全Abel形式残余を未解決課題として再証明しない。
-4. P2では一般非可換点の全Abel変形を扱う。代数的atlasと全Abel同値はノート§1.6–1.7、一般点のsmooth性は§1.8。§1.8.2の反例により、一般(FS)、形式compact性の無条件効果化、generator開性を使わない。
-5. 支配性とatlasの小証明書は保持する。変更のない計算は具体的なリスクがなければ再実行せず、必要な高次Poisson比較の検算へ集中する。
+1. 本方針の後、ノート§10.7、`point_scheme_poisson.tex`、§10.6と `poisson_cubic_lifts.tex` を読む。今回の主線は一次零点、E⊔24、Casimir復元、有限係数の障害、shift/residueの順である。
+2. P1は五次元空間R_Qと量子中心三次の比較から始める。`central_pair_explicit_centers.tex` の公式を用いて、I(D)_3/(V·Q)からの補正候補を作る。Fermatでのsym⁻¹反例とHesseのB−3λA=h²(1+λ³)を再発防止の制約にする。
+3. 論文に記載した一次持上げ・相対復元は再証明せず、特定のCasimir直線の選択とρとの一致を調べる。尺度込みambient復元には点対応の双線型イデアルを使う。接合による方法ではG_i=L_O L_O(1)(O(i))、i=2,3,4のHomから七方向の変形複体を作る。
+4. P2は一般非可換点の全Abel変形を扱う。既存代数的atlasは§1.6–1.7、smooth性は§1.8。§1.8.2の反例により一般(FS)、compact核の無条件効果化、generator開性を使わない。
+5. 新しい厳密式の再現は `python3 computations/verify_point_poisson.py --output build/point_poisson.json`。既存24計算資産は保持し、具体的なリスクがない限り再実行しない。
 
 ## 7. 主張の境界
 
@@ -126,10 +138,12 @@ Serre自体はcompact圏上の主張であり、全Db(coh)の有限大域次元�
 
 Abel圏側の可換点の全形式比較は、滑らかな複素三次Xを固定したframed Artin近傍である。frameを忘れた有限Aut(X)作用、未切断2群oid、一般の圏2降下、代数化へは広げない。四係数空間のmonomorphismも開埋込み・成分・atlasを意味しない。
 
+point schemeの比較は埋込みデータと指定Jacobian模型に関する。抽象point schemeだけの復元、全NC圏での内在的な点対象の認識、finite hからのcanonical semiclassical parameterは結論しない。FermatのD_hは24個の被約点ではなく3個の台に局所長8を持つ。
+
 ## 8. 再現と検証範囲
 
 `python3 scripts/verify.py` で参照・引用・TeX入力の閉包を検査する。既存のatlas点の小証明書は `python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json` で再現し、`computations/jacobian_etale_point_certificate.json` と比較する。2026-11-19の既存検証で実行し、Dの37次minor=127524、Mの113次minor=844194（ともにmod1000003）、整数上のMD=0、唯一のGLスカラー核、全Δ因子の非零を確認した。小証明書には入力・helper・sourceのhashを含める。M113の再計算は新script内で行い、旧scriptの全再実行とは区別する。
 
-同日の `verify_general17_open.py` の九項目と2026-11-16の既存八計算は有効な検証として保持し、今回の再実行とは扱わない。圏論的な降下・中心束・全Hom比較には書かれた証明と読み合わせがあり、数値検算による証明とはしない。既存の残余射の証明には文献の仮定確認と別々の読み合わせがある。同日の先行検証では `python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json` を実行し、35×42微分行列の35次minorが752849 mod1000003であることとEuler関係を確認した。証明書は入力・source・helperのhashを含む。これは支配性の計算であり、圏の同値を数値計算で証明したものではない。現在のPoisson持上げと対称化反例は記載した代数的証明を点検しており、既存の数値計算を再実行していない。
+同日の `verify_general17_open.py` の九項目と2026-11-16の既存八計算は有効な検証として保持し、今回の再実行とは扱わない。圏論的な降下・中心束・全Hom比較には書かれた証明と読み合わせがあり、数値検算による証明とはしない。既存の残余射の証明には文献の仮定確認と別々の読み合わせがある。同日の先行検証では `python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json` を実行し、35×42微分行列の35次minorが752849 mod1000003であることとEuler関係を確認した。証明書は入力・source・helperのhashを含む。これは支配性の計算であり、圏の同値を数値計算で証明したものではない。既存の計算は今回再実行していない。新しい `verify_point_poisson.py` はSymPyの厳密式で行列式・Hessian補正・非実現性係数・rank8 minor・shift速度等を検算する。小証明書 `point_poisson_certificate.json` にsource hashと入力式を残し、scheme論的・圏論的証明とは区別する。
 
-組版は `latexmk papers/nc_cubic_threefold_moduli.tex`。LuaLaTeX・latexmk・luatexja・日本語フォント、既存計算にはPython3・SymPyが必要。atlas検算と新しい支配性検算はPython3標準ライブラリと同梱helperを使う。同日の先行組版試行は `lualatex.fmt` 不在で本文処理前に停止した。現行v18の組版は実行しておらず、現行PDF生成・視覚確認は未完了である。実施した範囲と未解決点は `validation.json` に記す。
+組版は `latexmk papers/nc_cubic_threefold_moduli.tex`。LuaLaTeX・latexmk・luatexja・日本語フォント、既存計算にはPython3・SymPyが必要。atlas検算と新しい支配性検算はPython3標準ライブラリと同梱helperを使う。同日の先行組版試行は `lualatex.fmt` 不在で本文処理前に停止した。現行v19の組版は実行しておらず、現行PDF生成・視覚確認は未完了である。実施した範囲と未解決点は `validation.json` に記す。

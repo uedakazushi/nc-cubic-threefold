@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v18}
+\date{2026年11月19日・nc cubic moduli研究草稿 v19}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -181,6 +181,13 @@ Serre 安定な非零部分圏の生成性を組み合わせて一般点の幾�
 非零 Poisson 構造付き三次への支配的持上げが存在する。
 この代数的存在と、非可換構造からの内在的な逆量子化を区別し、
 中心三次の単純な対称化逆像が Poisson 超曲面を与えない例を示す。
+さらに、点加群の一次持上げ可能性がPoisson零点schemeに一致することを示す。
+中心二変数を持つ族では、point schemeを楕円曲線と長さ二十四の完全交叉に分解し、
+一般の埋込みpoint schemeから三次Casimir空間とambient Poisson構造の射影類を復元する。
+shiftを含む点対応からは二次包絡の全関係式を復元し、有限係数のPoisson構造を尺度込みで得る。
+有限量子係数のHesse族では、point schemeそのものを滑らかな三次上の
+Poisson零点schemeと一致させられないことも証明する。
+半古典的なpoint shiftの速度は、基底楕円曲線上のmodular residueの半分である。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -261,6 +268,38 @@ Pym \cite[Theorem~2.3, Proposition~2.9 and Theorem~2.10]{Pym} の
 選択を不要とする非可換圏の内在的な Poisson 構造は未解決である。
 中心三次の完全対称化の逆像を使う素朴な方法については、
 命題\ref{prop:poisson-naive-symmetrization-fails}が具体的な障害を与える。
+
+\paragraph{Point schemeとPoisson零点からの復元.}
+点加群とprojective Poisson零点の比較はVancliff
+\cite[\S6, Proposition~6.17 and Theorem~6.18]{VancliffQuantumSpaces}に先行する。
+同定理は非零パラメータで埋込みpoint schemeが一定という仮定を含む。
+本稿の境界Hesse曲線は$h^2$で変わるため、この仮定を満たさない。
+命題\ref{prop:first-order-point-poisson-zero}では、滑らかな中心超曲面について、
+任意の非被約基底も含めた点加群の局所一次持上げを零点schemeで特徴付ける。
+有限係数の点対応については、Le~Bruyn--Smith--Van~den~Bergh
+\cite[Theorem~4.2.2 and Proposition~4.3.7(1)]{LeBruynSmithVdBCentral}の
+一中心変数の先行結果と比較し、二中心変数・中心三次商で
+楕円曲線と長さ二十四の完全交叉というscheme論的分解を得る。
+PencilのPoisson零点の一般的な描像\cite[\S3.2.2]{PymSurvey}も、
+本稿では同じ長さ二十四の極完全交叉として具体化する。
+
+復元命題\ref{prop:point-gradient-reconstruction}は、有限成分の二次イデアルから
+$\langle F_x,F_y,F_z\rangle$を取り出す。
+その一意性にはUeda--Yoshinaga \cite[\S3, Lemma~3]{UedaYoshinagaJacobian}の
+Jacobian Torelliと同じ原理があり、Hwang
+\cite[Definition~2.1 and Theorems~1.5--1.6]{HwangSymmetrizer}のsymmetrizerとも関連する。
+この既知の復元原理を新規結果とはしない。
+追加部分は、埋込みpoint schemeから二つの中心変数を保って
+五次元の三次Casimir空間とambient Poisson直線を復元し、相対化することである。
+他方、命題\ref{prop:hesse-point-zero-nonrealization}は、有限係数のpoint schemeを
+同じ射影空間のどの滑らかな三次上のPoisson零点にもできないことを示す。
+さらに命題\ref{prop:point-correspondence-quadratic-recovery}では、shiftも含む点対応の
+双線型イデアルから二次包絡を復元し、有限係数のambient Poisson構造を尺度込みで得る。
+この点では一中心変数の先行結果\cite[Proposition~4.2.5]{LeBruynSmithVdBCentral}を比較する。
+Gualtieri--Pym \cite[Theorem~7.2]{GualtieriPym}のmodular residueと
+point shiftの一次速度の比較により、零点schemeが失う尺度の意味も明示する。
+特定の三次Casimir直線の選択と$\rho$との一致は未完成であり、
+本節の組合せの新規性についても網羅的な文献確認は未完了である。
 
 一般の$\mathbb Z$-代数による座標模型では、基礎的なデータは
 $(\mathcal C,(E_i)_{i\in\mathbb Z})$という豊富列付きAbel圏である。
@@ -1243,6 +1282,7 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/kuznetsov_relative_category.tex}
 \input{papers/sections/kuznetsov_moduli_morphism.tex}
 \input{papers/sections/poisson_cubic_lifts.tex}
+\input{papers/sections/point_scheme_poisson.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1942,6 +1982,51 @@ D.~Allcock, \emph{The moduli space of cubic threefolds},
 J. Algebraic Geom. \textbf{12} (2003), 201--223,
 \href{https://doi.org/10.1090/S1056-3911-02-00313-2}{doi:10.1090/S1056-3911-02-00313-2};
 \url{https://web.ma.utexas.edu/users/allcock/research/3foldgit.pdf}, Theorem~1.1。
+
+
+\bibitem{LeBruynSmithVdBCentral}
+L.~Le~Bruyn, S.~P.~Smith and M.~Van~den~Bergh,
+\textit{Central extensions of three dimensional Artin--Schelter regular algebras},
+Math. Z. \textbf{222} (1996), 171--212,
+\href{https://doi.org/10.1007/PL00004532}{doi:10.1007/PL00004532}.
+\url{https://sites.math.washington.edu/~smith/Research/Central-extns.pdf}.
+
+\bibitem{VancliffQuantumSpaces}
+M.~Vancliff,
+\textit{Non-commutative Spaces for Graded Quantum Groups and Graded Clifford Algebras},
+in R.~Ab{\l}amowicz and B.~Fauser (eds.),
+\textit{Clifford Algebras and their Applications in Mathematical Physics, I},
+Progress in Physics \textbf{18}, Birkh\"auser Boston (2000), 303--320,
+\href{https://doi.org/10.1007/978-1-4612-1368-0_16}{doi:10.1007/978-1-4612-1368-0\_16}.
+\url{https://bpb-us-e1.wpmucdn.com/websites.uta.edu/dist/0/5123/files/2022/10/cliff.pdf}.
+
+\bibitem{PymSurvey}
+B.~Pym,
+\textit{Constructions and classifications of projective Poisson varieties},
+Lett. Math. Phys. \textbf{108} (2018), 573--632,
+\href{https://doi.org/10.1007/s11005-017-0984-5}{doi:10.1007/s11005-017-0984-5},
+\href{https://arxiv.org/abs/1701.08852}{arXiv:1701.08852}.
+
+\bibitem{GualtieriPym}
+M.~Gualtieri and B.~Pym,
+\textit{Poisson modules and degeneracy loci},
+Proc. Lond. Math. Soc. (3) \textbf{107} (2013), no.~3, 627--654,
+\href{https://doi.org/10.1112/plms/pds090}{doi:10.1112/plms/pds090},
+\href{https://arxiv.org/abs/1203.4293}{arXiv:1203.4293}.
+
+\bibitem{UedaYoshinagaJacobian}
+K.~Ueda and M.~Yoshinaga,
+\textit{Logarithmic vector fields along smooth divisors in projective spaces},
+Hokkaido Math. J. \textbf{38} (2009), 409--415,
+\href{https://doi.org/10.14492/hokmj/1258553970}{doi:10.14492/hokmj/1258553970}.
+\url{https://www.math.sci.hokudai.ac.jp/hmj/page/38-3/pdf/HMJ38_0409-0415.pdf}.
+
+\bibitem{HwangSymmetrizer}
+J.-M.~Hwang,
+\textit{Symmetrizer group of a projective hypersurface},
+J. Math. Soc. Japan \textbf{78} (2026), no.~1, 55--62,
+\href{https://doi.org/10.2969/jmsj/93469346}{doi:10.2969/jmsj/93469346},
+\href{https://arxiv.org/abs/2501.08633}{arXiv:2501.08633}.
 
 \end{thebibliography}
 \end{document}

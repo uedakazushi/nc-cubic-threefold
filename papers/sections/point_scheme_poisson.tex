@@ -1,0 +1,1134 @@
+\section{Point scheme、Poisson零点と古典構造の復元}
+\label{sec:point-scheme-poisson}
+
+本節では点加群とPoisson零点を、一次の持上げ、有限量子係数での埋込みscheme、
+およびそこからの復元という三つの段階で比較する。
+Point schemeとprojective Poisson零点を結び付ける着想自体は既知である。
+Vancliff \cite[\S6, Proposition~6.17 and Theorem~6.18]{VancliffQuantumSpaces}は、
+多項式環の平坦な二次変形でpoint correspondenceが自己同型のgraphをなし、
+非零パラメータで埋込みpoint schemeが一定であるという仮定の下で、
+Poisson零点schemeへの包含を示している。同文献のExample~6.12では等号が失敗する。
+ここで扱うHesse曲線は二次補正で動くため、その一定性の仮定を満たさない。
+
+またLe~Bruyn--Smith--Van~den~Bergh
+\cite[Theorem~4.2.2 and Proposition~4.3.7(1)]{LeBruynSmithVdBCentral}
+は、一つの中心一次変数による一般Sklyanin拡大のpoint varietyが
+楕円曲線と八点からなり、中心超平面の外ではshiftが恒等であることを示している。
+以下は二つの中心一次変数と中心三次商を持つ模型について、
+対応のscheme構造と長さ二十四の有限成分を明示するものである。
+復元で用いるJacobian Torelliとmodular residueも既知の入力として区別する。
+本節の組合せの初出・新規性の網羅的な確認は未完了である。
+
+
+\subsection{点加群の一次持ち上げと Poisson 零点}
+
+$k$ を標数零の体，$R=k[\epsilon]/(\epsilon^2)$ とする．
+$V$ の基底を $x_0,\ldots,x_N$ とし，$B_R$ を
+\[
+ B_R=R\langle x_0,\ldots,x_N\rangle/
+ \bigl(x_ix_j-x_jx_i-\epsilon\widetilde q_{ij}\bigr)_{i<j}
+\]
+で与えられる $R$-平坦な二次次数付き代数とする．
+ここで $\widetilde q_{ij}$ の可換化は二次形式 $q_{ij}$ であり，
+$q_{ji}=-q_{ij}$，$q_{ii}=0$ とする．
+$B_R/\epsilon B_R=\operatorname{Sym}V$ と同一視する．
+二次双ベクトル
+\[
+ \Pi=\sum_{i<j}q_{ij}\,\partial_{x_i}\wedge\partial_{x_j}
+\]
+は Poisson 双ベクトルであると仮定する．
+この最後の仮定は形式的な量子化の一次切断であれば満たされるが，
+双対数上の結合的変形だけから Jacobi 恒等式を結論してはならない．
+
+$w_\epsilon\in Z(B_R)_3$ を次数三の中心元とし，
+$F=w_\epsilon\bmod\epsilon$ と置く．
+$X=V_+(F)\subset\mathbb P(V^*)$ は滑らかであるとする．
+$A_R=B_R/(w_\epsilon)$ と置く．
+中心性より $\Pi^\#dF=0$ であるから，$\Pi$ は $X$ 上の
+Poisson 双ベクトル $\pi_X$ を誘導する．
+以下の議論では $A_R$ の平坦性を別に用いないが，ここでは
+$F$ が非零であることと $B_R$ の平坦性から $A_R$ も $R$-平坦である．
+
+\begin{proposition}[点加群の一次持ち上げ]
+\label{prop:first-order-point-poisson-zero}
+$p\in X(k)$ とする．可換三次環 $A_0=\operatorname{Sym}V/(F)$ の
+点加群 $M(p)$ が $A_R$ 上の $R$-平坦な点加群に持ち上がるための
+必要十分条件は
+\[
+ \pi_X(p)=0
+\]
+である．ここで点加群とは次数零で生成され，各次数成分が
+$R$ 上階数一の自由加群である次数付き右加群を意味する．
+
+さらに任意の $k$-スキーム $T$ と $p:T\to X$ について，
+$p$ に対応する点加群族が $T$ 上 Zariski 局所的に
+$T[\epsilon]$ 上へ持ち上がることと，$p$ が零スキーム
+$Z(\pi_X)\hookrightarrow X$ を経由することは同値である．
+この意味で一次持ち上げ可能点の層は $Z(\pi_X)$ により表現される．
+\end{proposition}
+
+\begin{proof}
+まず $k$-点の場合を示す．$p$ の非零ベクトル表示を同じ文字で
+$p=(p_0,\ldots,p_N)$ と書く．持ち上げの各次数の基底 $m_n$ を
+選べば作用は
+\[
+ m_nx_i=a_{n,i}m_{n+1},\qquad
+ a_{n,i}=p_i+\epsilon b_{n,i}
+ \quad(n\geq0)
+\]
+と書ける．基底の剰余を通常の点加群の基底に同定している．
+二次関係の $\epsilon$ 係数は
+\begin{equation}\label{eq:first-order-point-wedge}
+ q_{ij}(p)=p_i(b_{n+1,j}-b_{n,j})
+                -p_j(b_{n+1,i}-b_{n,i})
+\end{equation}
+となる．従って $c_n=b_{n+1}-b_n$ と置くと
+$\Pi(p)=p\wedge c_n$ である．
+射影空間の接空間は Euler 方向 $kp$ を除いて得られるため，
+この等式は射影化された双ベクトルが $p$ で消えることを意味する．
+$X\hookrightarrow\mathbb P(V^*)$ の接束の単射から
+$\bigwedge^2T_X\hookrightarrow\bigwedge^2T_{\mathbb P(V^*)}|_X$ も
+単射であるので，これは $\pi_X(p)=0$ と同値である．
+以上で必要性が従う．
+
+逆に $\pi_X(p)=0$ と仮定する．あるベクトル $c$ が存在して
+\begin{equation}\label{eq:first-order-point-c}
+ q_{ij}(p)=p_ic_j-p_jc_i
+\end{equation}
+となる．任意のベクトル $b$ に対して
+\begin{equation}\label{eq:first-order-point-action}
+ a_n=p+\epsilon(b+nc)
+\end{equation}
+と置けば，式\eqref{eq:first-order-point-wedge}により
+全ての二次関係を満たす．残る問題は中心三次関係である．
+
+完全対称化により
+\[
+ w_\epsilon=\operatorname{sym}(F)+\epsilon\widetilde w_1,
+ \qquad G=\widetilde w_1\bmod\epsilon\in\operatorname{Sym}^3V
+\]
+と書く．$B_R$ の平坦性により $G$ はこの等式から一意に定まる．
+式\eqref{eq:first-order-point-action}の作用を三つ続けて
+適用し，各単項式の三つの位置について平均を取ると
+\begin{equation}\label{eq:first-order-central-evaluation}
+ m_nw_\epsilon=
+ \epsilon\bigl(dF_p(b)+(n+1)dF_p(c)+G(p)\bigr)m_{n+3}.
+\end{equation}
+実際，$b$ の寄与は通常の微分 $dF_p(b)$ であり，
+$c$ の係数として現れる位置 $n,n+1,n+2$ の平均は $n+1$ である．
+零次の項 $F(p)$ は $p\in X$ により消える．
+
+中心性 $[x_i,w_\epsilon]=0$ の一次項から
+$\Pi^\#dF=0$ を得る．一方，Euler の公式は
+$dF_p(p)=3F(p)=0$ を与える．
+式\eqref{eq:first-order-point-c}をこの中心性に代入すれば
+$dF_p(c)p=0$ となり，$p\neq0$ から
+\[
+ dF_p(c)=0
+\]
+を得る．$X$ は滑らかなので $dF_p\neq0$ である．従って
+$dF_p(b)=-G(p)$ を満たす $b$ を選べる．
+式\eqref{eq:first-order-central-evaluation}は全ての $n$ で消え，
+$A_R$ の作用が定義される．$p_\ell\neq0$ となる $\ell$ を選ぶと
+$a_{n,\ell}$ は全ての $n$ で $R$ の単元である．従ってこの加群は
+$m_0$ で生成され，各次数階数一の自由加群であり，必要な持ち上げを与える．
+
+族についても議論は局所的である．$p_\ell=1$ のチャートでは
+$c_\ell=0$，$c_i=q_{\ell i}(p)$ と置ける．
+射影双ベクトルの零スキームの方程式は
+\begin{equation}\label{eq:projective-poisson-zero-chart}
+ q_{ij}(p)-p_iq_{\ell j}(p)+p_jq_{\ell i}(p)=0
+ \qquad(i,j\neq\ell)
+\end{equation}
+である．これらの等式は任意の係数環上で
+式\eqref{eq:first-order-point-c}と同値である．
+必要性には次数 $0,1,2$ の線束を局所的に自明化すれば十分であり，
+同じ式から $p^*\pi_X=0$ を得る．
+十分性では $X$ の滑らかさより偏微分たちは単位イデアルを生成するので，
+$T$ を Zariski 局所化して $dF_p(b)=-G(p)$ を解ける．
+その後の構成は同じである．この議論は非被約な $T$ にも有効であり，
+得られるものは零スキームの被約台だけではない．
+\end{proof}
+
+\begin{remark}
+この命題は一次の持ち上げの存在を特徴付ける．
+$k[[\hbar]]$ 上への持ち上げ，有限の非零 $\hbar$ における点加群の存在，
+または固定された非可換代数の point scheme と $Z(\pi_X)$ の同型は
+結論していない．高次には追加の障害があり得る．
+また，持ち上げ自体が一意であるとも主張していない．
+\end{remark}
+
+\begin{remark}[一般次数]
+同じ議論は中心元の次数 $d$ に対しても成立する．
+式\eqref{eq:first-order-central-evaluation}の $(n+1)$ を
+$n+(d-1)/2$ に置き換えればよい．
+中心性と $F(p)=0$ により $dF_p(c)=0$ となるので，
+滑らかな中心超曲面に対する必要十分条件は同じである．
+\end{remark}
+
+\begin{remark}[滑らかさの必要性]
+滑らかさを外すと，Poisson 零点であっても中心関係自体が障害となる．
+例えば $B_R=R[x,y]$，$w_\epsilon=x^3+\epsilon y^3$ とし，
+$p=[0:1]\in V_+(x^3)$ を取る．Poisson 双ベクトルは恒等的に零であるが，
+任意の点加群の持ち上げで $x$ の作用係数は $\epsilon$ の倍数，
+$y$ の作用係数は単元である．従って $w_\epsilon$ の作用は非零の
+$\epsilon$ 倍となり，$A_R$ 上の点加群には持ち上がらない．
+\end{remark}
+
+
+\subsection{滑らかな平面三次を基底とするPoisson零点scheme}
+\label{subsec:poisson-zero-geometry}
+
+以下では、零点は接双ベクトルの切断としてのscheme論的零点を意味する。
+滑らかな三次三様体上の非零Poisson構造が二次元線型系から生じることは
+Mayanskiy \cite[\S2.2, Lemma~2 and Theorem~1]{Mayanskiy}による。
+Pencilの基底と特異ファイバーの特異点が零点を与える一般的な描像は
+Pym \cite[\S3.2.2]{PymSurvey}にある。
+次の命題では、この描像を三次三様体についてscheme論的に具体化する。
+ここでの長さ二十四という数値と復元への応用を、先行文献に明記された
+新規な定理として主張するものではない。
+
+\begin{proposition}[平面三次と長さ二十四の完全交叉]
+\label{prop:poisson-zero-elliptic-polar}
+$X=V_+(F)\subset\mathbb P^4_{x,y,z,u,v}$を滑らかな三次三様体とする。
+同型$\wedge^2T_X\simeq\Omega_X^1(2)$のもとで
+$v\,du-u\,dv$に対応する非零Poisson構造を$\pi$とし、
+\[
+ E=X\cap V_+(u,v),\qquad
+ D=V_+(F,F_x,F_y,F_z)
+\]
+と置く。$E$が滑らかな平面三次ならば、$D$は$E$と交わらない
+零次元完全交叉であり、
+\[
+ \operatorname{length}(D)=3\cdot2^3=24,
+ \qquad Z(\pi)=E\sqcup D
+\]
+がschemeとして成立する。$D$の被約性はこの仮定だけからは従わない。
+\end{proposition}
+
+\begin{proof}
+まず$E$の近傍を調べる。$\mathcal O_X(1)$を局所的に自明化し、
+$u,v$を局所関数とみなす。$E\subset X$は滑らかな余次元二の
+完全交叉なので、$du,dv$は$E$上で一次独立である。
+従って各点の近傍で$\Omega_X^1$の基底の一部に延長できる。
+この基底に関する$v\,du-u\,dv$の係数イデアルは$(u,v)$である。
+ゆえに$E$の近傍で$Z(\pi)$は$E$そのものであり、
+この成分に余分な非被約構造や埋込み成分はない。
+
+次に$u\ne0$上で$u=1$とし、$t=v/u$、$f=F/u^3$と書く。
+上の一形式は可逆関数倍を除いて$-dt$になる。
+$f_t$が可逆な開では、関係$df=0$から
+\[
+ dt=-\frac{f_x\,dx+f_y\,dy+f_z\,dz}{f_t}
+\]
+を得るので、零点イデアルは$(f_x,f_y,f_z)$である。
+一方、$f_x,f_y,f_z$のいずれかが可逆な開では$dt$は余接束の基底の
+一部となり、両方の零点イデアルは単位イデアルである。
+$X$の滑らかさにより、これらの開は$u\ne0$を覆う。
+$v\ne0$上でも同様である。従って$X\setminus E$上の零点schemeは$D$と一致する。
+また$F_x,F_y,F_z$の$u=v=0$への制限は、
+滑らかな平面三次$F(x,y,z,0,0)$の三つの偏微分であるから、$D\cap E=\varnothing$である。
+
+$D$が有限であることも確認する。Gauss写像
+\[
+ \gamma:X\longrightarrow(\mathbb P^4)^*,\qquad
+ p\longmapsto[F_x(p):F_y(p):F_z(p):F_u(p):F_v(p)]
+\]
+は$\gamma^*\mathcal O(1)=\mathcal O_X(2)$を満たす。
+この線束はampleなので、$\gamma$のファイバーは正次元の完備曲線を含まない。
+$\gamma$はproperであるから、その像への有限射である。
+Pencilの直線を$\ell=\mathbb P\langle u,v\rangle\subset(\mathbb P^4)^*$と置くと、
+$D=\gamma^{-1}(\ell)$である。Pencilの一般元は$X\setminus E$上でBertiniにより
+滑らかであり、$E$上では$du,dv$の一次独立性からすべての元が滑らかである。
+従って$\ell$は双対多様体$X^\vee=\gamma(X)$に含まれず、
+$\ell\cap X^\vee$は有限である。ゆえに$D$も有限である。
+
+多項式環$S=\mathbb C[x,y,z,u,v]$の同次イデアル
+$(F,F_x,F_y,F_z)$は高さ四であり、四つの生成元は正則列をなす。
+従って$D$は型$(3,2,2,2)$の完全交叉で、長さは二十四である。
+その同次座標環は次元一のCohen--Macaulay環なので、このイデアルは飽和している。
+先に得た局所計算と$D\cap E=\varnothing$を合わせると所望のscheme論的分解を得る。
+\end{proof}
+
+\begin{proposition}[被約な二十四点を持つ非空開]
+\label{prop:poisson-zero-lefschetz-open}
+上の組$(X,\langle u,v\rangle)$のパラメータ空間には、$D$が二十四個の
+相異なる被約点からなり、pencilの各特異ファイバーが一個の通常二重点を持つ
+非空開が存在する。
+\end{proposition}
+
+\begin{proof}
+被約性、臨界点の非退化性、臨界値の相異性はいずれも開条件である。
+非空性を明示的に確認するため
+\[
+ F=\frac{x^3+y^3+z^3}{3}-u^2(x+4y+16z)+u^3+v^3
+\]
+を取る。基底曲線は滑らかなFermat平面三次であり、
+\[
+ F_x=x^2-u^2,\qquad F_y=y^2-4u^2,\qquad F_z=z^2-16u^2.
+\]
+$D$上では$u\ne0$なので、$u=1$とすると
+\[
+ (x,y,z)=(\varepsilon_1,2\varepsilon_2,4\varepsilon_3),\qquad
+ v^3=\frac23(\varepsilon_1+8\varepsilon_2+64\varepsilon_3)-1,
+ \quad \varepsilon_i\in\{1,-1\}.
+\]
+八つの符号和は$\pm55,\pm57,\pm71,\pm73$である。
+従って右辺は相異なる非零数で、二十四個の点と二十四個の臨界値$v$を得る。
+方程式$(F_x,F_y,F_z,F)$の$(x,y,z,v)$に関するJacobian行列式は
+$24xyzv^2\ne0$なので、すべての点は被約である。
+また$F_v=3v^2$を用いて$X$上で$v$を局所関数として解くと、
+臨界点でのそのHessianは
+$-(3v^2)^{-1}\operatorname{diag}(2x,2y,2z)$であり、非退化である。
+
+$X$自体も滑らかである。特異点があれば$F_v=0$から$v=0$となる。
+$u=0$ならすべての座標が零になる。$u\ne0$なら$u=1$に正規化でき、
+上の三つの二次方程式と$F_u=0$から
+$\varepsilon_1+8\varepsilon_2+64\varepsilon_3=3/2$を得るが、これは不可能である。
+以上で必要な非空例を得た。
+\end{proof}
+
+\begin{proposition}[零点曲線による射影Poisson構造の復元]
+\label{prop:poisson-zero-projective-recovery}
+$X$を固定し、命題\ref{prop:poisson-zero-elliptic-polar}の仮定を満たす
+Poisson構造を考える。$Z(\pi)$は射影類$[\pi]$を一意に定める。
+より具体的には、その唯一の一次元成分$E$から
+\[
+ U=H^0(X,\mathcal I_{E/X}(1))=\langle u,v\rangle
+\]
+を復元し、Pl\"ucker直線$\wedge^2U$から$[\pi]$を得る。
+一方、$c\in\mathbb C^\times$に対して$Z(c\pi)=Z(\pi)$なので、
+零点schemeだけでは非零スカラーの尺度は復元できない。
+\end{proposition}
+
+\begin{proof}
+滑らかな平面三次$E$はその基底平面を張る。
+従って$E$上で消える線型形式はちょうど$u,v$の張る二次元空間である。
+命題\ref{prop:relative-poisson-cubic-cone}の同定により、
+この二次元空間の外積が射影Poisson構造を定める。
+最後の主張は切断を可逆な定数倍にしても係数イデアルが変わらないことによる。
+\end{proof}
+
+
+\subsection{二つの中心一次元を持つ代数の点スキーム}
+\label{subsec:point-central-two}
+
+以下では標数零の代数閉体上で、点加群を次数零から生成され各次数の次元が一である
+右次数付き加群とする。族では各次数を可逆層とし、次数零を基底の構造層に同定する。
+その点列を $(p_0,p_1,\ldots)$ と書く。
+
+\begin{proposition}[楕円曲線と定常点の分離]
+\label{prop:central-two-point-scheme}
+$V=\langle x,y,z,u,v\rangle$、$h\ne0$ とし、
+$F\in k[x,y,z,u,v]_3$、$f_3=F|_{u=v=0}$ とする。
+$f_3$ は滑らかな平面三次を定めると仮定する。
+$u,v$ を中心とし、
+\[
+ [y,z]=h\operatorname{sym}(F_x),\qquad
+ [z,x]=h\operatorname{sym}(F_y),\qquad
+ [x,y]=h\operatorname{sym}(F_z)
+\]
+で二次代数 $B$ を定める。
+$S=B/(u,v)$ の二次関係の対応が、滑らかな平面三次 $E$ 上の
+固定点を持たない自己同型 $\sigma:E\to E$ のグラフであると仮定する。
+また中心三次 $w\in B_3$ の $S$ における像は、$E$ の全点加群を
+消す三次の元とする。$A=B/(w)$ と置く。
+
+$w_{\mathrm{ab}}$ は $w$ の可換化での像を表す三次多項式とする。
+代表の違いは $(F_x,F_y,F_z)$ に属するため、次のスキームは代表に依存しない：
+\[
+ C=V(F_x,F_y,F_z),\qquad
+ D_w=V(F_x,F_y,F_z,w_{\mathrm{ab}})\subset\mathbb P^4.
+\]
+このとき点加群の関手は
+\[
+ \operatorname{Pt}(B)=E\amalg C,\qquad
+ \operatorname{Pt}(A)=E\amalg D_w
+\]
+で表される。次数シフトは $E$ 上で $\sigma$、残りの成分上で恒等である。
+$C$ は平面 $V(u,v)$ と交わらない次数八の $(2,2,2)$ 完全交叉曲線である。
+$w_{\mathrm{ab}}$ が $C$ を真に切る場合、$D_w$ は長さ二十四の
+$(2,2,2,3)$ 完全交叉零次元スキームとなる。
+\end{proposition}
+
+\begin{proof}
+二次関係の双線形化の零点スキームを
+$\Gamma_B\subset\mathbb P^4\times\mathbb P^4$ とし、二つの射影座標を $p,q$ と書く。
+中心性は、全ての一次座標 $z_i$ について
+\[
+ u(p)z_i(q)-z_i(p)u(q)=0,\qquad
+ v(p)z_i(q)-z_i(p)v(q)=0
+\]
+を与える。
+$u(p)=1$のchartで第二因子の座標$q_j=1$を局所的に選ぶと、
+中心関係から$1=p_j u(q)$となるので$u(q)$は単元である。
+これは任意の係数環上で成り立つ。
+両方を一に規格化すると $p=q$ となる。
+$v(p)\ne0$ の chart も同じである。
+この対角上で三つの残りの関係は $hF_x=hF_y=hF_z=0$ となるので、
+この部分は $C$ 上の恒等写像のグラフである。
+
+次に $p$ と $q$ が異なる chart を取る。
+ある二座標の小行列式
+$z_i(p)z_j(q)-z_j(p)z_i(q)$ が可逆になる。
+この二座標を使う中心性の二本の式から、スキームとして
+\[
+ u(p)=u(q)=v(p)=v(q)=0
+\]
+が従う。残りは $S$ の二次対応そのものであり、仮定から
+$\Gamma_\sigma\subset E\times E$ となる。
+$\sigma$ に固定点がないため、この小行列式chartは $\Gamma_\sigma$ 全体を覆う。
+
+これらのchartが $\Gamma_B$ を覆うことも確認する。
+幾何点で $u(p)=v(p)=0$ なら中心性から $u(q)=v(q)=0$ であり、
+従って $(p,q)\in\Gamma_\sigma$ である。
+一方、$C$ は $V(u,v)$ と交わらない。
+もし交点があれば、そこでは $(f_3)_x=(f_3)_y=(f_3)_z=0$ となり、
+Eulerの公式と $f_3$ の滑らかさに反する。
+従って上の二つのグラフは互いに交わらず、chart上の計算により
+非被約構造も含めて
+\[
+ \Gamma_B=\Gamma_\sigma\amalg\Delta_C
+\]
+となる。対応が自己同型のグラフなので、二点以上の二次関係を満たす点列、および無限点列は
+初期点から一意に定まり、$\operatorname{Pt}(B)$ の表示を得る。
+
+中心三次を加えると、全ての連続三点で $w$ の三重線型化が零であることを要求する。
+$E$上では仮定により全ての幾何点で零であり、$E$が滑らかで被約なので切断として恒等的に零である。
+定常点列では、どの三点で評価しても $w_{\mathrm{ab}}(p)$ となる。
+よって $\operatorname{Pt}(A)=E\amalg D_w$ であり、族についても成立する。
+
+三つの二次式で切られる $C$ の各成分の次元は一以上である。
+二次元以上の成分は射影次元定理から平面 $V(u,v)$ と交わるため、存在しない。
+従って三つの二次式のイデアルの高さは三で、正則列となる。
+次数は $2^3=8$ である。真の三次切断を加えると正則列は長さ四となり、
+$D_w$ の長さは $2^3\cdot3=24$ である。
+\end{proof}
+
+\begin{remark}[一般点での二十四個の相異なる点]
+全混合係数を動かす族では、$C$ が滑らかで $D_w$ が被約となる条件は非空開である。
+非空性は
+\[
+ F=\frac{x^3+y^3+z^3}{3}
+   -q_1(u,v)x-q_2(u,v)y-q_3(u,v)z+g(u,v)
+\]
+で、三つの二元二次式 $q_i$ の六つの零点を互いに異なるものに取れば分かる。
+$C$ は $x^2=q_1,\ y^2=q_2,\ z^2=q_3$ であり、
+$\mathbb P^1_{u:v}$ 上の三つの二重被覆のファイバー積として滑らかである。
+例えば $q_1=uv,\ q_2=u^2-v^2,\ q_3=u^2-4v^2$ を使える。
+中心三次の $g(u,v)$ を動かす線型系には基点がなく、
+$\mathbb P^1$ への射は有限なので、標数零の一般切断は二十四個の相異なる点となる。
+この説明は、特別な分離型の点スキームも被約だと主張するものではない。
+\end{remark}
+
+
+\subsection{点対応からの二次包絡とPoisson尺度の復元}
+
+\begin{proposition}[点対応の双線型イデアルによる二次包絡の復元]
+\label{prop:point-correspondence-quadratic-recovery}
+命題\ref{prop:central-two-point-scheme}の仮定に加え、$D_w$が
+型$(2,2,2,3)$の零次元完全交叉であるとする。
+$R_B\subset V\otimes V$を$B$の二次関係空間とし、
+\[
+ \Gamma_A=\Gamma_\sigma\amalg\Delta_{D_w}
+ \subset\mathbb P(V^*)\times\mathbb P(V^*)
+\]
+を全埋込みpoint scheme上のshiftのgraphとする。
+これは三点までの切断point schemeそのものとは区別する。このとき
+\[
+ \boxed{H^0(\mathcal I_{\Gamma_A}(1,1))=R_B.}
+\]
+従って埋込みpoint schemeとshiftの組は二次包絡$B$を復元する。
+さらに、二次関係を
+$[x_i,x_j]=\operatorname{sym}(q_{ij})$と一意に書けるgraph開では、
+\[
+ \Pi_{\mathrm{fin}}=\sum_{i<j}q_{ij}\,
+       \partial_{x_i}\wedge\partial_{x_j}
+\]
+をスカラー倍の曖昧さなしに復元する。
+本Jacobian族では$\Pi_{\mathrm{fin}}=h\Pi_F$でありPoisson構造である。
+この構成に有限自己同型の対数を選ぶ操作は含まれない。
+\end{proposition}
+
+\begin{proof}
+標数零なので$V\otimes V$を対称部分と反対称部分に分ける。
+対角$D_w$上の消滅は、対称部分が
+$Q=I(D_w)_2=\langle F_x,F_y,F_z\rangle$に属することと同値である。
+従って候補空間は
+$\operatorname{Alt}^2V\oplus\operatorname{sym}(Q)$で、次元は$10+3=13$である。
+$u,v$を含む反対称tensorの空間は七次元であり、
+$\Gamma_\sigma$上でも恒等的に零である。
+これで割って境界平面へ制限すると、候補は
+\[
+ \operatorname{Alt}^2(V/U)\oplus
+ \operatorname{sym}\langle(f_3)_x,(f_3)_y,(f_3)_z\rangle
+ \subset (V/U)\otimes(V/U)
+\]
+という六次元空間に単射する。
+偏微分の独立性は滑らかな平面三次がconeでないことから従う。
+
+一方、$E$上で$L=\mathcal O_E(1)$、$M=\sigma^*L$と置くと、
+双線型形式の制限は乗法写像
+\[
+ H^0(E,L)\otimes H^0(E,M)\longrightarrow H^0(E,L\otimes M)
+\]
+である。この写像は全射である。
+$L\not\simeq M$なら、$L$の基点を持たない二次元の切断空間を取り、
+base-point-free pencil trickを適用する。
+次数零の非自明線束$M\otimes L^{-1}$の$H^1$は零なので全射となる。
+$L\simeq M$なら、平面三次の二次イデアルが零であることから
+$\operatorname{Sym}^2H^0(E,L)\simeq H^0(E,L^2)$となり、やはり全射である。
+右辺の次元は六なので、$\Gamma_\sigma$の全双線型イデアルの次元は三である。
+
+上の六次元候補には$S=B/(u,v)$の三つの独立な二次関係が含まれる。
+従ってその核は正確に三次元である。
+元の候補に戻した核は$7+3=10$次元で、既に十次元の$R_B$を含むから等しい。
+ここで$R_B$の独立性は、反対称部分への射影が可逆であることからも分かる。
+これで二次包絡の復元を得た。
+
+graph条件の下では、各反対称tensor
+$x_i\otimes x_j-x_j\otimes x_i$を持つ関係は一意である。
+その対称部分を$-\operatorname{sym}(q_{ij})$と書くことにより
+$q_{ij}$が一意に定まり、表示した双ベクトルを得る。
+本族では定義から$q_{yz}=hF_x$と巡回式であり、$u,v$はCasimirだから、
+これは実際に$h\Pi_F$である。
+\end{proof}
+
+\begin{remark}[先行結果と尺度の意味]
+一中心変数の楕円型拡大で、点対応の双線型イデアルから
+二次関係を復元する結果は\cite[Proposition~4.2.5]{LeBruynSmithVdBCentral}にある。
+上の命題では中心三次商を取った後にも、有限成分の二次イデアルが
+変わらないことを使って二中心変数の包絡を復元する。
+点scheme単独からの$[\Pi_F]$復元と異なり、shiftを付けた点対応は
+有限係数の$h\Pi_F$の尺度も保持する。
+特定の量子化経路で半古典構造$\Pi_F$と比較するには、
+指定したパラメータ$h$で割る必要がある。
+この二つの意味の尺度を混同しない。
+\end{remark}
+
+\subsection{埋込み点スキームからの古典Casimir空間の復元}
+
+\label{subsec:point-gradient-reconstruction}
+
+有限成分の二次イデアルから、古典的な偏微分の空間を抽出する。
+点スキームの抽象同型型だけではなく、その $\mathbf P(V^*)$ への埋込みを用いる。
+新規性についての網羅的な文献比較は未完了である。
+
+\begin{proposition}[古典Casimir三次空間の復元]
+\label{prop:point-gradient-reconstruction}
+上の分解 $\operatorname{Pt}(A)=E\amalg D_w$ が成り立ち、
+$D_w$ が次数 $(2,2,2,3)$ の完全交叉であるとする。
+$U=\langle u,v\rangle\subset V$ とし、$F$ の $u=v=0$ への制限が
+\[
+ f_3=\frac{x^3+y^3+z^3}{3}+\lambda xyz,
+ \qquad \lambda(\lambda^3-8)\ne0
+\]
+であると仮定する。埋込み点スキームから
+\[
+ U=I(E)_1,\qquad W=\operatorname{ann}(U)\subset V^*,
+ \qquad Q=I(D_w)_2
+\]
+を復元できる。さらに
+\[
+ R_Q:=\{G\in\operatorname{Sym}^3V\mid
+              \partial_aG\in Q\text{ for every }a\in W\}
+       =kF+\operatorname{Sym}^3U.
+\]
+特に $R_Q$ は五次元である。これによって、$u,v$ をCasimirとする
+古典的な斉次二次Jacobian Poisson bivectorの射影類も復元できる。
+\end{proposition}
+\begin{proof}
+$E$ は平面 $V(u,v)$ を張るので $I(E)_1=U$ である。
+$D_w$ の斉次イデアルは完全交叉の飽和イデアルであり、
+三次の生成元は次数二の部分に寄与しないので
+\[
+ Q=\langle F_x,F_y,F_z\rangle.
+\]
+これら三つの二次形式は、$u=v=0$ への制限の
+$x^2,y^2,z^2$ の各係数から一次独立である。
+
+$G\in R_Q$ に対し、一意な定数行列 $M=(m_{ij})\in\operatorname{Mat}_3(k)$ があり
+\[
+ (G_x,G_y,G_z)^{\mathsf t}=M(F_x,F_y,F_z)^{\mathsf t}
+\]
+となる。偏微分の可換性により $M\operatorname{Hess}_{x,y,z}(F)$ は対称である。
+$u=v=0$ に制限し、$x,y,z$ の係数を比較すれば
+\[
+ H=\operatorname{Hess}(f_3)=
+ \begin{pmatrix}
+  2x&\lambda z&\lambda y\\
+  \lambda z&2y&\lambda x\\
+  \lambda y&\lambda x&2z
+ \end{pmatrix}
+\]
+について $MH$ が対称でなければならない。
+対角成分の差には
+\[
+ \lambda(m_{11}-m_{22})=
+ \lambda(m_{11}-m_{33})=
+ \lambda(m_{22}-m_{33})=0
+\]
+が課される。非対角成分には二組の循環関係
+\[
+ \lambda m_{13}=2m_{21},\quad
+ \lambda m_{21}=2m_{32},\quad
+ \lambda m_{32}=2m_{13},
+\]
+\[
+ \lambda m_{23}=2m_{12},\quad
+ \lambda m_{12}=2m_{31},\quad
+ \lambda m_{31}=2m_{23}
+\]
+が課される。従って $\lambda^3\ne8$ なら全非対角成分は零となり、
+$\lambda\ne0$ なら全対角成分が等しい。ゆえに $M=cI_3$ である。
+以上より $\partial_x(G-cF)=\partial_y(G-cF)=\partial_z(G-cF)=0$ となり、
+標数零より $G-cF\in\operatorname{Sym}^3U$ を得る。逆包含は直接明らかである。
+
+$U$ の基底 $u,v$ と定数体積形式 $0\ne\Omega\in\bigwedge^5V$ を選び、
+\[
+ \iota_{\Pi_F}\Omega=dF\wedge du\wedge dv
+\]
+で斉次二次bivectorを定める。
+$F$ を $cF+g(u,v)$ に替えると $\Pi_F$ は $c\Pi_F$ になる。
+$U$ の基底と体積形式の変更も非零定数倍を与えるだけであるから、
+$[\Pi_F]$ は復元された $U,R_Q$ だけに依存する。
+\end{proof}
+
+\begin{remark}[復元の範囲]
+この命題は有限量子係数での点スキームから古典データを復元する主張であり、
+点スキーム自体をPoisson零スキームと同一視する主張ではない。
+$R_Q/\operatorname{Sym}^3U$ は一次元であるが、そこから $R_Q$ の特定の三次形式を
+選ぶことはしていない。したがって特定の滑らかなcubic threefold、
+中心三次関係の古典的な代表、Poisson bivectorの尺度までは復元していない。
+この条件は本Jacobian族の中では非空開条件であり、例えば $\lambda=1$ で成立する。
+$\lambda=0$ または $\lambda^3=8$ では上の九元連立一次方程式の階数は六に落ちる。
+ただし、その場合でも $F$ のmixed項が追加条件を与え、
+$R_Q=kF+\operatorname{Sym}^3U$ が成立する可能性はある。
+\end{remark}
+
+
+\begin{corollary}[三次Casimir全体の内在的な復元]
+\label{cor:point-full-casimir-space}
+命題\ref{prop:point-gradient-reconstruction}の条件の下で、復元した斉次二次
+Jacobian Poisson括弧の次数三の中心は正確に
+\[
+ Z_{\mathrm{Pois}}(\operatorname{Sym}V)_3
+ =kF\oplus\operatorname{Sym}^3U=R_Q
+\]
+である。ここで中心とはaffine括弧に関するCasimirを意味し、
+射影的なPoisson不変超曲面一般を意味しない。
+\end{corollary}
+\begin{proof}
+三つの偏微分$F_x,F_y,F_z$は正則列なので、共通の非定数因子を持たない。
+三次同次式$G$がCasimirなら
+$F_iG_j-F_jG_i=0$、$i,j\in\{x,y,z\}$である。
+従って分数体上で$G_i=rF_i$となる$r$がある。
+$r=a/b$を既約表示すると、$bG_i=aF_i$と多項式環のUFD性から
+$b$は三つの$F_i$をすべて割る。よって$b$は単元で、$r$は多項式である。
+両辺の斉次次数が二だから$r$は定数であり、
+$G-cF\in k[u,v]_3$となる。逆包含は明らかである。
+このCasimirの記述自体には$\lambda(\lambda^3-8)\ne0$を使わず、
+その仮定は$R_Q$との同定にだけ必要である。
+\end{proof}
+
+\begin{remark}[Jacobian Torelliとの関係]
+可積分な勾配空間からの一意性は既知のJacobian Torelliの特殊例である。
+Ueda--Yoshinaga \cite[\S3, Lemma~3]{UedaYoshinagaJacobian}によれば、
+異なる二つの滑らかな超曲面が同じJacobi idealを持てば、
+その定義式はSebastiani--Thom型である。
+従って上の復元命題は、$f_3$が滑らかで非Sebastiani--Thom型という
+座標に依存しない仮定の下でも成立する。
+実際、$\nabla g=M\nabla f_3$なら、一般の$t$で$M+tI$は可逆であり、
+$g+tf_3$と$f_3$のJacobi idealは等しい。
+この共通の勾配空間は基点を持たないから$g+tf_3$も滑らかである。
+同補題により$g+tf_3$は$f_3$の定数倍となり、$M$はスカラーである。
+平面三次の場合、除外される型は$j=0$に対応する。
+Hwang \cite[Definition~2.1 and Theorems~1.3, 1.5--1.6]{HwangSymmetrizer}
+のsymmetrizerは、このHessianの対称条件を一般的に扱う。
+本稿の追加部分は、埋込みpoint schemeの有限成分から勾配空間を取り出し、
+二つの中心変数を保ってPoisson直線へ戻すことであり、
+Jacobian Torelli自体の新規性は主張しない。
+\end{remark}
+
+\subsection{Hesse曲線の有限補正と零点データの実現判定}
+\begin{proposition}[境界点曲線のHessian補正]
+\label{prop:point-hesse-hessian-correction}
+$f_3=(x^3+y^3+z^3)/3+\lambda xyz$の対称化Jacobian関係について、
+$h\ne0$とする。二次対応の行列式を定める三次式は、非零定数倍を除いて
+\[
+ e_h=A(x^3+y^3+z^3)+Bxyz,
+ \quad A=1-\lambda^2h^2/4,
+ \quad B=3\lambda+(1+\lambda^3/4)h^2
+\]
+であり、
+\[
+ e_h=3\left(f_3+\frac{h^2}{24}\det\operatorname{Hess}(f_3)\right).
+\]
+この曲線が滑らかで二次対応が自己同型のgraphとなる開では、
+境界point schemeは$E_h=V_+(u,v,e_h)$である。
+\end{proposition}
+\begin{proof}
+$p=1-\lambda h/2$、$q=-1-\lambda h/2$、$r=-h$と置く。
+関係は$pyz+qzy+rx^2$とその巡回置換である。
+右点加群の対応行列は
+\[
+ M_h=\begin{pmatrix}rx&qz&py\\pz&ry&qx\\qy&px&rz\end{pmatrix},
+ \qquad \det M_h=(p^3+q^3+r^3)xyz-pqr(x^3+y^3+z^3).
+\]
+代入すると$\det M_h=-he_h$となる。一方、
+\[
+ \det\operatorname{Hess}(f_3)
+ =(8+2\lambda^3)xyz-2\lambda^2(x^3+y^3+z^3)
+\]
+なので二つ目の式も従う。
+滑らかな行列式曲線では行列の階数は二であり、
+第二射影についても同じ計算をすると対応が自己同型のgraphとなる。
+\end{proof}
+
+この補正は有限係数の多項式恒等式であり、一次の近似だけの主張ではない。
+古典的な零曲線$V_+(f_3)$とのずれは二次から始まる。
+量子中心の単純な対称化逆像の補正とは係数も異なる。
+
+
+
+
+\begin{proposition}[零点schemeの線型実現判定]
+\label{prop:poisson-zero-linear-realization}
+$P=V_+(u,v)\subset\mathbb P^4$上の滑らかな平面三次
+$E=V_P(g)$と、$E$と交わらない長さ二十四の零次元scheme
+$D\subset\mathbb P^4$を与える。
+$E\sqcup D$がある滑らかな三次三様体上のPoisson構造の零点schemeとなるための
+必要十分条件は、次の条件を満たす三次式$F$と$c\in\mathbb C^\times$が存在することである：
+\[
+ \begin{gathered}
+ F\in H^0(\mathbb P^4,\mathcal I_D(3)),\qquad
+ F|_P=cg,\\
+ F_x,F_y,F_z\in H^0(\mathbb P^4,\mathcal I_D(2)),\qquad
+ V_+(F)\text{ が滑らか}.
+ \end{gathered}
+\]
+最初の三条件は$(F,c)$に関して線型であり、$c\ne0$と滑らかさは開条件である。
+\end{proposition}
+
+\begin{proof}
+十分性を先に示す。$X=V_+(F)$には$\langle u,v\rangle$に対応する非零Poisson構造がある。
+命題\ref{prop:poisson-zero-elliptic-polar}により、その零点schemeは
+$E\sqcup D'$、$D'=V_+(F,F_x,F_y,F_z)$であり、$D'$の長さは二十四である。
+与えられた線型条件は閉埋込み$D\subset D'$を与える。
+両者の長さが等しいので$D=D'$となる。
+
+必要性では、零Poisson構造なら零点schemeが三次元となるので除外する。
+非零構造にはMayanskiy \cite[Theorem~1]{Mayanskiy}の分類を適用する。
+最初からpencilの基底平面が$P$であるとは仮定しない。
+その基底平面を$P'$とする。$P'\cap X$は零点schemeに含まれる。
+$P'\subset X$なら零点schemeが二次元成分を持つので不可能である。
+従って$P'\cap X$は平面三次であり、$E\sqcup D$の唯一の一次元成分が
+滑らかな既約三次$E$であることから、その台は$E$である。
+ゆえに$P'=\langle E\rangle=P$であり、三次という次数から$P\cap X=E$がschemeとして成立する。
+命題\ref{prop:poisson-zero-elliptic-polar}を適用すれば、残りの必要条件を得る。
+\end{proof}
+
+\begin{proposition}[Hesse型データのPoisson零点schemeとしての非実現性]
+\label{prop:hesse-point-zero-nonrealization}
+$\lambda\in\mathbb C$、$1+\lambda^3\ne0$、$\hbar\in\mathbb C^\times$とし、
+\[
+ A=1-\frac{\lambda^2\hbar^2}{4},\qquad
+ B=3\lambda+\left(1+\frac{\lambda^3}{4}\right)\hbar^2,
+ \qquad e_\hbar=A(x^3+y^3+z^3)+Bxyz
+\]
+と置く。$E_\hbar=V_+(u,v,e_\hbar)$は滑らかと仮定する。
+三つの二次式$Q_x,Q_y,Q_z$は、$P=V_+(u,v)$への制限が
+\[
+ Q_x|_P=x^2+\lambda yz,\qquad
+ Q_y|_P=y^2+\lambda zx,\qquad
+ Q_z|_P=z^2+\lambda xy
+\]
+であるとする。三次式$W$に対して
+$D_\hbar=V_+(Q_x,Q_y,Q_z,W)$が零次元完全交叉ならば、
+同じ$\mathbb P^4$に埋め込まれたどの滑らかな三次三様体$X'$と
+そのPoisson構造$\pi'$に対しても
+\[
+ Z(\pi')\ne E_\hbar\sqcup D_\hbar
+\]
+である。
+\end{proposition}
+
+\begin{proof}
+$1+\lambda^3\ne0$により、$P$上の三つの二次式
+$x^2+\lambda yz,y^2+\lambda zx,z^2+\lambda xy$は共通零点を持たない。
+実際、一つの座標が零ならすべて零となり、三つとも非零なら三式の積から
+$1+\lambda^3=0$となる。従って$D_\hbar$は$P$と交わらない。
+完全交叉のイデアルは飽和しているから、
+\[
+ H^0(\mathbb P^4,\mathcal I_{D_\hbar}(2))
+ =\langle Q_x,Q_y,Q_z\rangle.
+\]
+
+もし所望の$(X',\pi')$が存在したならば、
+命題\ref{prop:poisson-zero-linear-realization}の必要性により
+$X'=V_+(F')$の方程式は$F'|_P=ce_\hbar$、$c\ne0$を満たし、さらに
+\[
+ F'_x|_P=c(3Ax^2+Byz)
+ \in\langle x^2+\lambda yz,y^2+\lambda zx,z^2+\lambda xy\rangle
+\]
+となる。平方単項式の係数を比較すると、この線型結合の係数は
+$(3Ac,0,0)$でなければならない。$yz$係数も比較して$B=3\lambda A$を得る。
+しかし
+\[
+ B-3\lambda A=\hbar^2(1+\lambda^3)\ne0
+\]
+であり、矛盾する。
+\end{proof}
+
+
+\subsection{Fermat族の有限量子係数と平坦極限}
+
+\label{subsec:fermat-point-flat-limit}
+
+\begin{proposition}[Fermat点スキームの明示式]
+\label{prop:fermat-point-scheme}
+$k=\mathbb C$ とし、$u,v$ を中心とする
+\[
+ B_h=k\langle x,y,z,u,v\rangle/
+ ([x,y]-hz^2,[y,z]-hx^2,[z,x]-hy^2,[u,-],[v,-])
+\]
+を考える。
+\[
+ f=\frac{x^3+y^3+z^3}{3},\quad
+ T=xyz+xzy+yxz+yzx+zxy+zyx,\quad
+ w_h=f-\frac{h^2}{9}T+u^3+v^3,\quad A_h=B_h/(w_h)
+\]
+と置く。中心性は定理\ref{thm:pair-full-fermat-center}による。
+$h\ne0$、$h^6+27\ne0$のとき
+\[
+ \operatorname{Pt}(A_h)=E_h\amalg D_h,
+\]
+\[
+ E_h=V(u,v,x^3+y^3+z^3+h^2xyz),
+\]
+\[
+ D_h=V\left(x^2,y^2,z^2,
+           u^3+v^3-\frac{2h^2}{3}xyz\right).
+\]
+$E_h$ は滑らかな平面三次である。
+$D_h$ は長さ二十四で、被約台は
+$[0:0:0:1:\zeta]$、$\zeta^3=-1$ の三点であり、
+各点の局所長は八である。
+\end{proposition}
+
+\begin{proof}
+境界代数の点対応行列は
+\[
+ M(x,y,z)=
+ \begin{pmatrix}
+ -hx&-z&y\\
+ z&-hy&-x\\
+ -y&x&-hz
+ \end{pmatrix},
+ \qquad
+ \det M=-h(x^3+y^3+z^3+h^2xyz).
+\]
+$h^6+27\ne0$ なら表示した三次は滑らかであり、
+行列はその曲線上で常に階数二となる。
+左右の射影について同じ議論をすれば、対応が自己同型のグラフであることが分かる。
+固定点は $x^2=y^2=z^2=0$ を要求するので存在しない。
+
+三次 $w_h$ が境界点加群を消すことは、既存の Sklyanin 中心商表示からも従うが、
+次の恒等式で直接確認できる。
+$p=(x,y,z)$ とし、行列の最初の二行の外積に対応して
+\[
+ q=(xz+hy^2,\ yz-hx^2,\ z^2+h^2xy),\qquad
+ r=\sigma_{\rm pol}(q)
+\]
+と置く。ここで $\sigma_{\rm pol}(X,Y,Z)=(XZ+hY^2,YZ-hX^2,Z^2+h^2XY)$ である。
+$e_h=x^3+y^3+z^3+h^2xyz$ と書けば
+\[
+\begin{aligned}
+ &3\sum_i p_iq_ir_i-h^2\sum_{\{i,j,k\}=\{1,2,3\}}p_iq_jr_k\\
+ &\qquad=
+ 3e_h\left(
+ 2h^4x^2y^2+h^3x^3z-h^3y^3z+h^2xyz^2+z^4
+ \right).
+\end{aligned}
+\]
+左辺は $9(w_h|_{u=v=0})^{\rm ml}(p,q,r)$ である。
+非空chartで零となるので、滑らかな既約曲線全体でこの切断は零である。
+前命題を適用し、$w_h$ の可換像を二次式 $x^2,y^2,z^2$ で簡約すると
+表示した $D_h$ を得る。
+
+$D_h$ は $u\ne0$ に含まれ、そのchartの座標環は
+\[
+ k[x,y,z,v]/(x^2,y^2,z^2,v^3+1-\tfrac{2h^2}{3}xyz).
+\]
+$x^iy^jz^kv^\ell$、$0\le i,j,k\le1,\ 0\le\ell\le2$ が基底であり、長さは二十四。
+被約台は三点で、$v$ の各単根の近傍では $v$ を一意に消去できるので
+局所長は八となる。
+\end{proof}
+
+\begin{corollary}[全点関手の特殊ファイバーと平坦閉包の区別]
+\label{cor:fermat-point-flat-closure}
+$h=0$ を含む十分小さいZariski開基底上で、上の式が定める
+$E_h\amalg D_h$ は平坦な射影族であり、一般点の点スキームのスキーム論的閉包である。
+その特殊ファイバーは
+\[
+ E_0=V(u,v,x^3+y^3+z^3),\qquad
+ D_0=V(x^2,y^2,z^2,u^3+v^3)
+\]
+の非交和である。これは$X_0$上で
+$\{y,z\}=x^2$、$\{z,x\}=y^2$、$\{x,y\}=z^2$、$u,v$がCasimirとなる
+\emph{非零の半古典Poisson構造}$\pi_0$の零点schemeに等しい。
+$\pi_0$は交換子を$h$で割ってから特殊化することで得る。
+一方、$A_0$ 自体の点スキームは滑らかな可換三次
+\[
+ X_0=V\left((x^3+y^3+z^3)/3+u^3+v^3\right)
+\]
+全体である。
+従ってこの平坦閉包を、全点加群関手の特殊ファイバーと同一視しない。
+\end{corollary}
+
+\begin{proof}
+$E_h$ は平面内の三次超曲面の平坦族であり、$h=0$ で滑らかである。
+$D_h$ の上の座標環は、同じ二十四単項式により $k[h]$ 上自由である。
+両者は基底全体で交わらない。
+従って非交和は平坦で、その構造層に $h$-torsion がないため、
+一般ファイバーのスキーム論的閉包に等しい。
+命題\ref{prop:poisson-zero-elliptic-polar}により、この特殊ファイバーは
+$Z(\pi_0)$である。$h=0$の代数は通常の可換三次の斉次環なので、
+全点加群の表示は$X_0$である。
+\end{proof}
+
+
+\begin{corollary}[Fermat point schemeの有限係数での非実現性]
+\label{cor:fermat-point-zero-nonrealization}
+$h\ne0$、$h^6+27\ne0$の上のFermat模型で、
+埋込みscheme$E_h\amalg D_h$は、同じ$\mathbb P^4$の
+どの滑らかな三次三様体上のPoisson零点schemeにもならない。
+\end{corollary}
+\begin{proof}
+$D_h$は表示した型$(2,2,2,3)$の完全交叉なので、
+命題\ref{prop:hesse-point-zero-nonrealization}を$\lambda=0$で適用できる。
+\end{proof}
+
+\begin{remark}[境界曲線の抽象同型型も変わる]
+Artebani--Dolgachev \cite[\S2, equations~(6)--(8)]{AD}のWeierstrass係数に
+$(u_0,u_1)=(1,h^2/6)$を代入すると、通常の規格化で
+\[
+ j(E_h)=\frac{h^6(216-h^6)^3}{(27+h^6)^3}.
+\]
+実際、同文献の$A=12u_1(u_0^3-u_1^3)$、
+$B=2(u_0^6-20u_0^3u_1^3-8u_1^6)$に対して
+$j=1728\cdot4A^3/(4A^3+27B^2)$を計算すれば上式となる。
+従って一般の$E_h$は$j(E_0)=0$の古典境界と抽象的にも同型ではない。
+ただし、これだけで任意の別三次上の零点としての実現を否定するのではなく、
+その強い非実現性には前の二次イデアル比較を使う。
+\end{remark}
+
+\subsection{シフト自己同型の一次速度}
+
+\label{subsec:point-shift-first-order}
+
+\begin{proposition}[Fermat境界に残る一次の量子尺度]
+\label{prop:fermat-shift-velocity}
+Fermat族の $E_h$ は $h$ の一次まで定数族であり、
+点加群のシフト自己同型の一次速度は、$z=1$ のchartで
+\[
+ \xi=y^2\frac{\partial}{\partial x}
+      -x^2\frac{\partial}{\partial y}
+\]
+である。このベクトル場は $E_0$ 上の大域的な非消滅ベクトル場へ延びる。
+$h$ を $ch$ に置き換えると速度は $c\xi$ となる。
+\end{proposition}
+\begin{proof}
+上の点対応式を $z=1$ で規格化すると
+\[
+ \sigma_h(x,y)=
+ \left(\frac{x+hy^2}{1+h^2xy},
+       \frac{y-hx^2}{1+h^2xy}\right).
+\]
+従って $h=0$ における微分は表示した $\xi$ である。
+$\xi(x^3+y^3+1)=0$ なので曲線に接する。
+滑らかな平面三次のresidue一形式を
+$\omega=dx/y^2=-dy/x^2$ と規格化すると $\iota_\xi\omega=1$ である。
+従ってこのchart上のベクトル場は、大域的な非消滅一形式の双対として
+曲線全体へ正則かつ非消滅に延びる。
+尺度に関する主張はchain ruleによる。
+\end{proof}
+
+\begin{remark}[有限自己同型と無限小速度]
+この命題は指定した量子化経路とパラメータ $h$ の下での無限小の主張である。
+有限の自己同型から代数的・一意な対数を取れるとは主張しない。
+また $E_h,D_h$ は $h$ の符号を変えても同じであるが、
+二次関係を反転すると対応の二つの射影が交換されるので
+$\sigma_{-h}=\sigma_h^{-1}$ である。
+したがって裸の点スキームが忘れる情報の一部は、
+点スキームとシフト自己同型の組に残っている。
+\end{remark}
+
+
+\subsection{Modular residueによる尺度の回収}
+
+
+零点schemeが失う尺度を補う自然な微分データとして、canonical Poisson moduleの
+modular residueがある。これは既知の構成であり、
+Gualtieri--Pym \cite[Definition~4.16 and Theorem~7.2]{GualtieriPym}による。
+本稿では同論文の規約
+\[
+ \operatorname{Res}^{0}_{\mathrm{mod}}(\pi)
+ =-\operatorname{Tr}\bigl(D\pi|_{Z(\pi)}\bigr)
+\]
+を採用する。右辺は$\pi$の零点に沿うfirst jetの縮約であり、
+零点scheme自身の接ベクトル場になる。
+
+\begin{proposition}[平面三次とmodular residueによる復元]
+\label{prop:poisson-modular-scale-recovery}
+命題\ref{prop:poisson-zero-elliptic-polar}の仮定のもとで、
+$\eta_\pi=\operatorname{Res}^{0}_{\mathrm{mod}}(\pi)|_E$は
+$E$上の至る所非零な大域接ベクトル場である。
+固定した$X$上では組$(E\subset X,\eta_\pi)$が$\pi$を一意に定める。
+\end{proposition}
+
+\begin{proof}
+$E$の点の近くで$(u,v,z)$を局所座標とし、体積形式を選ぶと、
+ある可逆関数$a$により
+\[
+ \pi=a(u,v,z)(u\partial_u+v\partial_v)\wedge\partial_z
+\]
+と書ける。従って$E$上で
+\[
+ D\pi=a|_E\bigl(du\otimes(\partial_u\wedge\partial_z)
+                  +dv\otimes(\partial_v\wedge\partial_z)\bigr),
+ \qquad \eta_\pi=-2a|_E\partial_z.
+\]
+この式は$\eta_\pi$が非零であることを示す。
+縮約による定義は座標と体積形式に依存せず、局所計算は貼り合わされる。
+局所標準形で$a=1$の場合は
+\cite[Example~7.4]{GualtieriPym}の計算そのものである。
+命題\ref{prop:poisson-zero-projective-recovery}により$E$は$[\pi]$を決め、
+さらに$\eta_{c\pi}=c\eta_\pi$と$\eta_\pi\ne0$から$c$が決まる。
+\end{proof}
+
+\begin{proposition}[Jacobian模型の一般の速度比較]
+\label{prop:jacobian-modular-shift-comparison}
+$X=V_+(F)$と$E=X\cap V_+(u,v)$はともに滑らかとする。
+半古典括弧を、homogeneous coordinate ring上で
+\[
+ \{y,z\}=F_x,\qquad \{z,x\}=F_y,\qquad \{x,y\}=F_z,
+ \qquad \{u,-\}=\{v,-\}=0
+\]
+と規格化する。この規格化を持つ二次変形において、$E_0=E$を持つ相対平面曲線族
+$E_\hbar$上のpoint correspondenceが$\sigma_\hbar$のgraphをなし、$\sigma_0=\mathrm{id}_E$で、
+その一次変形が定義されると仮定する。このとき
+\[
+ \left.\frac{d\sigma_\hbar}{d\hbar}\right|_{\hbar=0}
+ =\frac12\operatorname{Res}^0_{\mathrm{mod}}(\pi)|_E.
+\]
+ここで$\pi$は$X$上に誘導されたPoisson構造である。
+\end{proposition}
+
+\begin{proof}
+$z=1$で$f=F(x,y,1,0,0)$と置く。
+$p'=p+\hbar\delta$をpoint relationの一次項に代入する。
+$yz'-zy'=\hbar F_x+O(\hbar^2)$と
+$zx'-xz'=\hbar F_y+O(\hbar^2)$から
+$\delta_y=-f_x$、$\delta_x=f_y$を得る。
+従ってshiftの速度は$\xi_f=f_y\partial_x-f_x\partial_y$である。
+この計算は二点の差の一次項なので、曲線の変形の局所自明化の選択に依存しない。
+
+一方、degree-zero局所化の括弧を計算すると
+\[
+ \{x/z,u/z\}=uF_y/z^3,\qquad
+ \{x/z,v/z\}=vF_y/z^3,\qquad
+ \{u/z,v/z\}=0.
+\]
+従って$z=1$、$F_y\ne0$では$(x,u,v)$を$X$の局所座標として
+$\pi=F_y(u\partial_x\wedge\partial_u+v\partial_x\wedge\partial_v)$である。
+そのfirst jetを縮約すると
+$\operatorname{Res}^0_{\mathrm{mod}}(\pi)|_E=2f_y\partial_x=2\xi_f$を得る。
+他の座標chartでも同様である。
+\end{proof}
+
+
+\subsection{構造対象付きAbel同値に対する降下の範囲}
+
+
+ここは既存の全相対 Hom 比較定理
+定理\ref{thm:general-relative-pointed-hom}を仮定した帰結である．
+その定理が適用される中心二変数 Jacobian 開では，
+\[
+ \underline{\operatorname{Isom}}_{\mathrm{gr}}(A,A')/\mathbb G_m
+ \simeq
+ \underline{\operatorname{Eq}}_{\mathcal O}
+       (\operatorname{QGr}A,\operatorname{QGr}A')
+\]
+である．次数付き代数の同型は各長さの切断点加群関手，
+それらの切断写像，および次数移動による対応を自然に保つ．
+次数スカラー $x_i\mapsto\lambda x_i$ は次数 $n$ の基底を
+$\lambda^n$ 倍することで吸収されるので，これらの点加群関手上には
+自明に作用する．従って点加群の対応は全ての
+$\mathcal O$-保存 Abel 同値に対してこの開上で降下する．
+この帰結のために大域的な $\mathcal O(1)$ の選択を追加する必要はない．
+ただし一般の Abel 圏において内在的な条件だけで点対象を特徴付けた，
+あるいは任意の五次元 AS 正則代数の点対応が有限段階で自己同型のグラフに
+安定化すると主張しているのではない．
+
+
+\begin{proposition}[復元の相対性とAbel同値への自然性]
+\label{prop:point-recovery-relative-descent}
+既存Jacobian族の中で、命題\ref{prop:point-gradient-reconstruction}の仮定、
+特に$D_w$が相対零次元完全交叉となる条件と
+$\lambda(\lambda^3-8)\ne0$を満たす開を考える。
+埋込みpoint schemeからの$U,Q,R_Q$と$[\Pi]$の構成は代数的であり、
+任意の底変更と両立する。構成は$\operatorname{GL}(V)$-同変であり、
+定理\ref{thm:general-relative-pointed-hom}が適用される開では
+全ての$\mathcal O$-保存Abel同値に自然である。
+shiftを付けた復元についても
+$H^0(\mathcal I_{\Gamma_A}(1,1))=R_B$は相対的に成立し、
+$\Pi_{\mathrm{fin}}$は中心重み零の実際の双ベクトルとして降下する。
+\end{proposition}
+\begin{proof}
+$E$は相対平面三次であり、その一次イデアルは階数二の部分束$U$である。
+相対完全交叉$D$のKoszul解消と底変更から、
+次数二イデアルは階数三の部分束$Q=\langle F_x,F_y,F_z\rangle$である。
+$W=\operatorname{ann}(U)$とすると
+\[
+ R_Q=\ker\left(\operatorname{Sym}^3V\longrightarrow
+ W^*\otimes(\operatorname{Sym}^2V/Q)\right).
+\]
+Hesseの証明に用いた二つの三項循環関係は、$2,\lambda,\lambda^3-8$が
+単元である任意の係数環でそのまま有効である。
+したがって$R_Q=\mathcal O F\oplus\operatorname{Sym}^3U$は階数五の部分束となり、
+任意の底変更と両立する。
+商直線$R_Q/\operatorname{Sym}^3U$からの双ベクトルの射影類も同様である。
+全ての操作は線型形式の空間に関して座標自由なので同変であり、
+前述の次数スカラーの自明性と全Hom比較によりAbel同値に対して降下する。
+中心重みを持つ$U$や$R_Q$そのものが商上の通常のベクトル束になるとは
+主張せず、対応する射影データとその同変構成を降下する。
+
+shift付きの主張では、楕円曲線上の$L\otimes\sigma^*L$は次数六なので
+$H^1$が零で、その切断束は階数六で任意の底変更と両立する。
+上の乗法写像は全ての幾何ファイバーで全射なので相対的にも全射である。
+対角$D$で消える階数十三の候補束は既知の関係部分束$R_B$を含み、
+商は階数三である。この商から境界切断束への写像は全ファイバーで単射なので、
+三次小行列式により局所分裂単射となる。従って非平坦底変更の後にも
+核は正確に$R_B$である。
+最後に$\Pi_{\mathrm{fin}}\in\operatorname{Sym}^2V\otimes\bigwedge^2V^*$の
+$\operatorname{GL}(V)$の中心重みは$2-2=0$なので、
+これは射影類だけでなく実際の双ベクトルとして$\operatorname{PGL}(V)$に降下する。
+\end{proof}
+
+ここでいう開条件は本Jacobian locus内の条件である。
+任意の$(U,Q)$の全Grassmannian上で核の階数五が開になるという主張ではない。
+非空性は、Hesse係数の非空開、完全交叉条件、および
+既存の既約Jacobian atlasの非空開を共通部分に取ることで得る。
+具体的に既存係数では$\lambda=b/(3a)$、$h=3a$なので、追加する非ST条件は
+$b(b^3-216a^3)\ne0$である。境界の中心商表示は
+式\eqref{eq:general17-elliptic-quotient}から得られ、固定点は古典境界の勾配の
+同時零点を要求するので存在しない。
+$C$が$V(u,v)$と交わらないためbinary cubicの線型系は$C$上で基点を持たず、
+その一般元を中心三次へ加えれば真の切断となる。
+点scheme単独からはambient Poisson直線と三次Casimir空間を復元し、
+shiftも含めれば命題\ref{prop:point-correspondence-quadratic-recovery}により
+尺度を持つ$\Pi_{\mathrm{fin}}$まで復元できる。
+その相対版と全$\mathcal O$-保存同値への自然性は直前の命題で証明した。
+量子中心直線に対応する特定の古典Casimir直線と、
+Kuznetsov残余射$\rho$の出力三次との一致は依然として別の問題である。

@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v12。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10・§1.8・§1.7・§5）、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v18）。
+2026-11-19 / research-plan-v13。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10.7・§10.6・§1.8・§1.7・§5）、`papers/sections/point_scheme_poisson.tex`、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v19）。
 
 ## 最優先の判断基準
 
@@ -8,7 +8,7 @@
 
 ## 直近の優先順位
 
-1. **内在的なPoisson持上げ。** 17→10の射ρに両立する、非零Poisson構造付き三次への支配的持上げを非空開上で構成した。相対超越基底を選ぶ非標準的な射であり、量子化の意味は未証明。全Abel可換点では実際の残余rとPoisson忘却に両立する形式同型ΘQ⁻¹を得た。次は量子中心と古典Casimirの同変な補正対応、ρとの一致、形式同型の代数化を調べる。sym⁻¹(w)の反例は `prop:poisson-naive-symmetrization-fails`。
+1. **点データからの内在的Poisson持上げ。** point schemeの一次持上げ可能点=Poisson零点schemeを証明した。有限係数ではE_h⊔D_w、D_wは長さ24のCI。非ST境界の開でU=I(E_h)_1、Q=I(D_w)_2からR_Q=kF⊕Sym³Uと[Π]を復元した。shift付き点対応ではH⁰(I_Γ(1,1))=R_Bにより二次包絡と尺度込みΠ_fin=hΠ_Fも復元した。次はI(D_w)_3/(V·Q)が与える量子三次直線をR_Q内へ補正し、ρの出力三次との一致を調べる。finite hでpoint scheme全体をそのままPoisson零点にする方法はHesse開全体で不可能。σ′₀=Res_mod/2は指定した経路の一次主張で、finite σの代数的対数を取らない。既存の非標準的17→17射と全Abel形式同型は保持する。
 2. **七次元fiberと全M内の位置。** 形式fiberはGr(2,5)アフィン錐の完備化で、次元7・頂点接空間10。一般の代数的fiberの双有理性・有限拡大の次数1は未証明。接合双加群を調べ、既存17→13の四次元torsorとの関係を確かめる。全Abel形式残余は中心商模型とCY不要のcompact/proper入力により完成しており、非周期性を保留理由にしない。一般非可換点の全変形比較、全M内の開性・局所閉性・成分性、有限対角・分離性は未証明。
 3. **証明の有効範囲を保持する。** 全stack化後のframed Abel形式群oid≃Spf R_X、一般族の普遍PBW/CY・全Hom比較、固定剛体ambientの全A4 monomorphism、有限位数境界の4・15・16次元smooth proper族を保持する。残余射の効果化では係数Perfを先に使い、smooth targetにより右perfectを得る。一般(FS)、compact核の無条件形式効果化、generator開性はノート§1.8.2の反例により使用しない。
 4. **公表単位と初出。** 相対双対・Abel比較・部分モジュライ・17→10射について既知のKuznetsov/JLLZ/Lurie/Bhatt/Stevenson/Orlov/Neeman/BMMS等の入力と追加の証明を区別する。初出・新規性の網羅調査と外部査読は未完了。既存PBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
@@ -33,6 +33,8 @@ DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同
 有限中心Cの任意底変更後は中心準同型C_S→Z(A_S)だけを使い、単射や全中心の底変更可換性は仮定しない。非Noetherian底には大きいQGrを使う。相対アフィン対角のperfect性を大域dg smooth性と同一視しない。有限中心模型の大域smooth性は、左右Dbcoh=PerfとELS4.18の外積generator、対角kernelのMorita比較によって別に証明した。torsion曲線上の16次元族はatlasの局所閉部分スキームであり、17次元開や独立の閉部分stackを主張しない。
 
 Poisson持上げは、尺度を記憶する17次元の標的を用いる。射影化した標的は16次元である。相対Poisson錐のscheme方程式はSchouten–Plücker式と勾配の局所分裂単射から得る。可換targetのambientはω_B/V(2D)により射影束へ分裂するが、source上のO(1)降下とは区別する。実際の持上げは選択後には全O保存同値と底変更に両立する。選択独立性、NC交換子との半古典的意味、ΘQ⁻¹との一致は別の課題である。Pymの解析芽同型、Yekutieliの完備局所parameter上の比較を、この特定の大域代数的射と同一視しない。
+
+point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。新しい検算は `verify_point_poisson.py` と9項目の小証明書。
 
 原稿の証明、今回の点検、計算、新規性確認を区別する。追加定理は明記した仮定の下で証明し、初出は未確認。有限Artin基底上の相対ASと絶対global dimension、体上のregular tailsと相対dg smooth proper性、実際のgraded17次元族と裸の導来圏の次元を混同しない。接空間同型だけで成分性や全Artin同値を宣言しない。
 

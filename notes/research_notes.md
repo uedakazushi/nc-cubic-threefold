@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-plan-v12。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-19 / research-plan-v13。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -634,7 +634,7 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。§10の残余射により17次元の非空開上のdg smooth proper性と可換三次への17→10射も完成した。全Abel形式近傍の残余射とPoisson形式fiberも§10.3で完成した。次は量子化の意味を保つ内在的Poisson持上げ、一般fiberの接合データ、全Mとの局所比較を扱う。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
+可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。§10の残余射により17次元の非空開上のdg smooth proper性と可換三次への17→10射も完成した。全Abel形式近傍の残余射とPoisson形式fiberも§10.3で完成した。point schemeからambient Poisson直線とCasimir空間を復元する部分は§10.7で完成した。次は量子中心に対応する特定のCasimir直線、ρとの両立、一般fiberの接合データ、全Mとの局所比較を扱う。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
@@ -722,6 +722,74 @@ G_h^{\mathrm R}-W_h=
 
 **文献の射程。** Pym Theorem 2.3のArtin近似による解析芽同型は、元のKontsevich形式同型とは異なり得る。Proposition 2.9/Theorem 2.10は規格化Koszul CY芽とunimodular Poisson錐の局所比較・成分の全単射である。Yekutieli Cor11.2は完備局所parameter algebra上のgauge同値類を比較し、可換積の変形も許す。固定層上のbracket/star productを扱うCor11.3にはH¹(T_X)=H¹(D_X)=0も必要で、h¹(T_X)=10の三次には直接適用しない。これらの定理の結論には、一般非可換点での標準的な代数的逆量子化、量子中心と古典Casimirの同変対応、指定したρとの両立は含まれていない。
 
+### 10.7 Point scheme、零点scheme、Poisson構造の復元
+
+詳細な証明は `papers/sections/point_scheme_poisson.tex` に統合した。以下は研究を再開するための入力・境界・未解決箇所であり、証明全文は重複させない。
+
+**一次持上げ。** R=k[ε]/ε²、B_Rが平坦な二次変形、[x_i,x_j]=εq̃_ij、Π=Σq_ij∂_i∧∂_jがPoisson、w_εが中心三次、X=V(F) smoothという仮定の下で、M(p)が平坦な点加群へ持ち上がることとπ_X(p)=0は同値（`prop:first-order-point-poisson-zero`）。任意の非被約Tでも、局所的な持上げ可能点の部分関手はZ(π_X)で表される。持上げそのもののモジュライ、一意性、全次数への持上げとは異なる。
+
+作用係数をa_n=p+εb_nとするとq(p)=p∧(b_{n+1}−b_n)。projective零点はΠ(p)=0というaffine条件より弱い。十分性にはa_n=p+ε(b+nc)を用い、中心三次の作用をε(dF(b)+(n+1)dF(c)+G(p))と計算する。中心性とEulerからdF(c)=0、smoothnessからdF(b)=−G(p)を解く。一次結合性だけでJacobiを結論しない。特異Xでは、w=x³+εy³、p=[0:1]がπ=0なのに持ち上がらない反例になる。
+
+**古典・量子のscheme構造。** X=V(F) smooth、E=X∩{u=v=0} smooth、α=vdu−udvに対応するπについて
+\[
+Z(\pi)=E\amalg D,\quad D=V(F,F_x,F_y,F_z),\quad \operatorname{length}D=24.
+\]
+これは一般点だけの主張ではない。Gauss写像の有限性とpencilのBertiniによりDは有限、正則列から型(2,2,2,3)となる。一般Dは被約で、明示例F=Σx³/3−u²(x+4y+16z)+u³+v³は24個の相異なるLefschetz臨界値を与える。
+
+量子側ではu,v中心、[y,z]=h sym(F_x)と巡回関係、境界対応が固定点なしの滑らかな楕円graph、中心三次wがその点加群を消すという仮定の下で
+\[
+\operatorname{Pt}(B)=E_h\amalg C,\quad C=V(F_x,F_y,F_z),
+\qquad\operatorname{Pt}(B/(w))=E_h\amalg D_w,
+\quad D_w=V(F_x,F_y,F_z,w_{\rm ab}).
+\]
+Cは次数8の完全交叉曲線、真の三次切断D_wは長さ24である（`prop:central-two-point-scheme`）。shiftはE_h上のσ、CとD_w上ではid。中心座標が単元のchartと非対角minorが単元のchartで証明するため、nilpotentも含む。全O保存同値への自然性は既存のEq_O=Isom_gr/Gmを使う帰結であり、一般Abel圏で点対象を新たに内在認識したわけではない。
+
+**shiftを付けた有限係数の復元。** Γ_A=Γ_σ⊔Δ_D⊂P⁴×P⁴について
+\[
+H^0(I_{\Gamma_A}(1,1))=R_B
+\]
+を証明した（`prop:point-correspondence-quadratic-recovery`）。対角Dで消えるtensorはAlt²V⊕sym(Q)の13次元。中央二変数を含むantisymmetric部分7次元を除くと6次元候補となり、楕円graphの全bilinear kernelが3次元であることから残るkernelが正確にSklyaninの3関係となる。後者はdeg3線束L,Mの乗法H⁰(L)⊗H⁰(M)→H⁰(LM)の全射性で証明する。L≠Mはpencil trick、L=Mは平面三次に二次関係がないことを使う。
+
+従ってpoint schemeとshiftから二次包絡Bそのものを復元する。skew/symmetric graph開で[x_i,x_j]=sym(q_ij)のq_ijを一意に読み、Π_fin=Σq_ij∂i∧∂j=hΠ_Fを尺度込みで得る。GL同変で全O保存同値に自然、相対版も線束コホモロジーの底変更とunit minorにより成立する。non-ST条件はこのshift付き復元には不要で、下のbare scheme復元にだけ必要。有限σのlogを取らずに尺度が得られる点が有用である。Π_finと、指定経路でhを除いた半古典Π_Fを区別する。
+
+**有限点データからの肯定的復元。** 埋込みschemeからU=I(E_h)_1、W=ann(U)、Q=I(D_w)_2を取る。完全交叉によりQ=〈F_x,F_y,F_z〉。古典境界f₃=Σx³/3+λxyzに対し、smoothness 1+λ³≠0と非ST条件λ(λ³−8)≠0の下で
+\[
+R_Q=\{G\in\operatorname{Sym}^3V:\partial_WG\subset Q\}
+=\mathbb C F\oplus\operatorname{Sym}^3U,
+\qquad\dim R_Q=5.
+\]
+M Hess(f₃)が対称となるMはスカラーだけである。二つの三項cycleによる証明は任意係数環上でも単元条件の下で成立し、対応する9×9系の8次minorはλ²(λ³−8)²。これはUeda–YoshinagaのJacobian Torelliの特殊例であり、Hwangのsymmetrizerの枠組みでも説明される。新規性の確認が必要なのはpoint schemeからの抽出と本族への相対的応用である。
+
+R_Qは実際に全ての三次affine Casimirの空間である。中心条件から分数体上で∇G=r∇F、三偏微分のgcd=1からrの分母が消え、次数からrは定数。Casimir空間が五次元という部分自体は非ST条件を要しない。非ST条件はR_Qとの同定に使う。λ=0,λ³=8ではHesseだけの可積分系がrank6となるが、mixed項でrank8に戻る可能性は残る。
+
+商直線R_Q/Sym³Uからι_ΠΩ=dF∧du∧dvにより[Π]を復元する。F→cF+g(u,v)、Uの基底変更、体積形式の変更はΠのスカラー倍しか変えない。既存Jacobian locus内の開上でkernelは階数5の部分束となり底変更に両立する。全Grassmannianでrank5が開という主張ではない。中心重みのあるU,R_QをそのままPGL商上の通常の束とはしない。
+
+**有限パラメータの障害。** Hesse境界は正確に
+\[
+E_h=V(u,v,e_h),\quad e_h=A\Sigma x^3+Bxyz
+=3\bigl(f_3+h^2\det\operatorname{Hess}(f_3)/24\bigr),
+\]
+\[
+A=1-\lambda^2h^2/4,\quad
+B=3\lambda+(1+\lambda^3/4)h^2.
+\]
+仮にE_h⊔D_wを同じP⁴のsmooth cubic V(G)のPoisson零点にできると、唯一の曲線成分から基底平面が強制され、G|plane=ce_h、G_x∈Qとなる。平方項とyzの係数比較はB=3λAを要求するが、B−3λA=h²(1+λ³)≠0。従ってh≠0で古典・量子境界smooth、D_wがCIという開全体で不可能（`prop:hesse-point-zero-nonrealization`）。これは埋込みを保つ同一視の障害であり、任意の抽象scheme同型や補正付き対応の不存在を示さない。
+
+**Fermatの平坦極限。** [x,y]=hz²と巡回関係、w_h=f−h²T/9+u³+v³では
+\[
+E_h=V(u,v,x^3+y^3+z^3+h^2xyz),\quad
+D_h=V(x^2,y^2,z^2,u^3+v^3-2h^2xyz/3).
+\]
+D_hは24個の被約点ではなく、三つの台の各点に長さ8を持つ。u=1で基底x^iy^jz^kv^ℓ（i,j,k≤1、ℓ≤2）があり、hに関して平坦である。一般point schemeの平坦閉包のh=0 fiberはE₀⊔D₀=Z(π₀)だが、可換代数A₀の全point schemeはX₀全体となる。π₀は交換子をhで割ってから還元した非零の半古典構造である。Hesseのj式はh⁶(216−h⁶)³/(27+h⁶)³なので、一般E_hはE₀と抽象的にも同型でない。
+
+**shiftと尺度。** 固定XではE⊂Xから[π]、さらにη=Res_mod⁰(π)|Eからπ自身を復元できる（ηは至る所非零）。Jacobian括弧の指定した規格化・右点加群の規約で
+\[
+\sigma'_0=\tfrac12\operatorname{Res}_{\rm mod}^0(\pi)|_E.
+\]
+局所的にf=F(x,y,1,0,0)なら速度はf_y∂_x−f_x∂_y。Fermatではy²∂_x−x²∂_yで、dx/y²の双対である。E_hとD_hはh↦−hで変わらないがσ_{−h}=σ_h^{-1}。point scheme単独が失う符号と一次尺度は点対応に残る。ただしこれは指定した量子化経路の一次情報であり、有限σから代数的な対数を定めていない。
+
+**次の未解決箇所。** shift付きでは尺度込みambient Π_finまで復元できたが、R_QからFを選ぶ際にはbinary cubicだけ変える四次元の曖昧さが残る。D_wの三次イデアルI(D_w)_3/(V·Q)が量子中心の可換像の直線を与えるので、これを古典Casimir直線へ補正する同変写像を探る。対称化逆像の失敗とHesseの零点非実現性を制約として使う。特定のCasimirとρが復元する三次との一致まで示して初めて、当初の内在的Poisson cubicへの射に達する。現段階の[Π]復元をその完成と呼ばない。
+
 ## 11. 先行研究との差分と公表前の確認
 
 以下は現在の研究方針に効く一次資料である。定理の全適用や新規性の網羅的確認を完了したという意味ではない。
@@ -784,16 +852,23 @@ G_h^{\mathrm R}-W_h=
 | [Brown–Sridhar, arXiv:2410.07204v2](https://arxiv.org/pdf/2410.07204v2), §2 | 体上のdg Serre双対 | 2025-08-15版。相対任意係数への拡張とは区別 |
 | [Brown–Soto Levins–Sridhar, arXiv:2506.02398v1](https://arxiv.org/pdf/2506.02398v1), Notation1.4, Setup2.1, Cor1.3 | balanced dg双対の存在とperfect tailsのSerre双対、係数体 | 本稿の局所双対→tails双対という方法の近接文献。相対構成の初出は未確認 |
 | [Stacks Project](https://stacks.math.columbia.edu/), Tags03WT/02GU/0476/06FI/06N3/04UV/0245 | étale locusの平坦底変更と開性、商stackの代数性・torsor表示、étale atlasとDM性、fpqcアフィン降下 | 一般理論は既知。Q113の飽和開と普遍中心に適用し、全O保存Abel同値との一致を別に証明。2026-11-19原文確認 |
+| [Vancliff, Non-commutative Spaces for Graded Quantum Groups and Graded Clifford Algebras, Progress in Physics18 (2000),303–320, DOI10.1007/978-1-4612-1368-0_16](https://bpb-us-e1.wpmucdn.com/websites.uta.edu/dist/0/5123/files/2022/10/cliff.pdf), §6 Props6.17/Thm6.18/Example6.12 | projective零点の三次式、非零パラメータでpoint scheme一定という仮定の下の包含、一般の等号失敗 | 本族は境界がh²で動く。一次持上げ・中央三次商・埋込み非実現性と範囲を分ける |
+| [Le Bruyn–Smith–Van den Bergh, Math.Z.222 (1996),171–212, DOI10.1007/PL00004532](https://sites.math.washington.edu/~smith/Research/Central-extns.pdf), Thm4.2.2/Props4.2.5,4.3.7(1) | 一中心変数のSklyanin拡大は一般に楕円曲線＋8点、中心超平面外でshift=id、点対応からrelations復元 | 二中心変数と中心三次商のE⊔長さ24、三次商後の包絡復元 |
+| [Pym, LMP108 (2018),573–632, DOI10.1007/s11005-017-0984-5](https://arxiv.org/pdf/1701.08852), §3.2.2 | pencilの基底と特異fiber点、Euler局所形 | smooth cubicで極完全交叉の長さ24、一般の被約性を具体化 |
+| [Gualtieri–Pym, PLMS107 (2013),627–654, DOI10.1112/plms/pds090](https://arxiv.org/pdf/1203.4293), Def4.16/Thm7.2/Example7.4 | modular residue=−Tr(Dπ)、Euler形で−2∂z | 本Jacobian族の右point shift速度との係数1/2比較 |
+| [Ueda–Yoshinaga, Hokkaido Math.J.38 (2009),409–415, DOI10.14492/hokmj/1258553970](https://www.math.sci.hokudai.ac.jp/hmj/page/38-3/pdf/HMJ38_0409-0415.pdf), §3 Lemma3 p412 | 非STのsmooth hypersurfaceはJacobi idealから復元 | 24点の二次イデアルからpartial-gradient netを抽出し中心二変数を残す |
+| [Hwang, JMSJ78(1) (2026),55–62, DOI10.2969/jmsj/93469346](https://arxiv.org/pdf/2501.08633), Def2.1/Thms1.3,1.5–1.6 | symmetrizer algebra/groupとJacobian mapのfiber | HesseのM Hess対称の明示rank8判定はこの既知原理の特殊例 |
+| [Artebani–Dolgachev, Enseign.Math.55 (2009),235–273, DOI10.4171/LEM/55-3-3](https://arxiv.org/pdf/math/0611590), §2 eqs(6)–(8) | HesseのWeierstrass係数とj | Fermat境界E_hのj変動を具体的に代入計算 |
 
-Abel変形比較とKu残余射について上記の一次入力をIntroductionとbibliographyに反映した。これらの既知定理そのものを新規成果とせず、具体的な17係数族の相対構成・効果化・開集合への降下が追加部分である。近接するfoliation文献も含め、初出・新規性の網羅的照合は未完了である。
+Abel変形比較・Ku残余射・point schemeについて上記の一次入力をIntroductionとbibliographyに反映した。これらの既知定理そのものを新規成果とせず、具体的な17係数族の相対構成・効果化・開集合への降下が追加部分である。近接するfoliation文献も含め、初出・新規性の網羅的照合は未完了である。
 
 ## 12. 現在の検証範囲と外部課題との境界
 
-全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、一般族の相対双対・全Hom比較・代数的部分stack・17→10射は現行証明として保持する。現在の点検対象は、相対Poisson錐、全Abel Artin残余射、rに両立する形式同型、実際の非標準的持上げ、対称化障害である。既存入力の適用条件を再確認し、別々の読み合わせでも具体的な未解消の欠陥は見つからなかった。これは外部査読でも全旧証明の独立再証明でもない。新規性の網羅調査は未完了。対象・一次資料・検証範囲は `validation.json` に区別する。
+全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、一般族の相対双対・全Hom比較・代数的部分stack・17→10射、全Abel残余とPoisson形式同型は現行証明として保持する。現在の点検対象は§10.7の一次点加群持上げ、古典・量子E⊔D分解、点対応からの二次包絡復元、Casimir復元、有限Hesse非実現性、modular residue比較である。非被約底・nilpotent・regular sequence・分母消去等を別々に点検した。これは外部査読でも全旧証明の独立再証明でもない。新規性の網羅調査は未完了。対象と一次資料は `validation.json` に区別する。
 
-計算資産は変更していない。既存検証は横断slice、Rat113接空間、二因子stabilizer、低次中心・中心三次、軌道、分離型、一般17係数開、atlasの微分、古典三次支配性を含む。atlasのD37=127524、M113=844194、支配性の35次minor=752849（mod1000003）、整数上の積零・Euler関係と入力hashは保持する。現在のPoisson持上げと反例は代数的証明の点検によるもので、これらの数値計算を今回再実行したとはしない。反例のPoisson括弧計算とprojective chartのideal判定は本文で直接確認した。
+既存24計算資産は変更せず、今回再実行していない。新しい `verify_point_poisson.py` と小証明書は、Fermat/Hesse行列式、中心三次の三重線型化、Hessian補正、非実現性係数、9×9可積分系の8次minor、shift速度、24点例、j式の9項目を厳密記号計算する。数値近似ではなく有理数係数の恒等式検証であり、point functorの表現可能性・scheme分解・圏論的降下の証明は本文の別の議論による。
 
-現行sourceの参照・引用・TeX入力閉包と変更したTeXの括弧・環境を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止し、日本語クラス・luatexjaも未整備である。現行v18の組版は実行しておらず、現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存は別の状態とする。
+現行sourceの参照・引用・TeX入力閉包と変更したTeXの括弧・環境を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止し、日本語クラス・luatexjaも未整備である。現行v19の組版は実行しておらず、現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存は別の状態とする。
 
 ### H3/PI4の関連知識（本研究の定理の入力ではない）
 

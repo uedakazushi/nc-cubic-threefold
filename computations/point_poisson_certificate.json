@@ -1,0 +1,116 @@
+{
+  "certificate_format_version": 1,
+  "arithmetic": "exact polynomial and rational arithmetic over Q",
+  "source_file": "verify_point_poisson.py",
+  "source_sha256": "9d514eefe9005d084540a5f4e99a0f33f06e83684f18fd92ca7f9c26b6f02042",
+  "sympy_version": "1.14.0",
+  "check_count": 9,
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "name": "fermat_boundary_determinant",
+      "passed": true,
+      "identity": "det(M) = -h*(x^3+y^3+z^3+h^2*x*y*z)",
+      "shift_representative_verified": true
+    },
+    {
+      "name": "fermat_central_multilinearization",
+      "passed": true,
+      "identity": "9*w_ml(p,q,q(q)) = 3*e_h*quotient",
+      "quotient": "2*h^4*x^2*y^2+h^3*x^3*z-h^3*y^3*z+h^2*x*y*z^2+z^4"
+    },
+    {
+      "name": "hesse_boundary_determinant",
+      "passed": true,
+      "identity": "det(M_Hesse) = -h*(A*(x^3+y^3+z^3)+B*x*y*z)",
+      "A": "1-lambda^2*h^2/4",
+      "B": "3*lambda+(1+lambda^3/4)*h^2"
+    },
+    {
+      "name": "hesse_hessian_correction",
+      "passed": true,
+      "identity": "e_h = 3*(f3+h^2*det(Hess(f3))/24)",
+      "hessian_determinant": "(8+2*lambda^3)*x*y*z-2*lambda^2*(x^3+y^3+z^3)"
+    },
+    {
+      "name": "hesse_coefficient_separation",
+      "passed": true,
+      "identity": "B-3*lambda*A = h^2*(1+lambda^3)"
+    },
+    {
+      "name": "gradient_integrability_minor",
+      "passed": true,
+      "matrix_shape": [
+        9,
+        9
+      ],
+      "zero_based_minor_rows": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8
+      ],
+      "zero_based_minor_columns": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "determinant": "lambda^2*(lambda^3-8)^2",
+      "scalar_kernel_verified": true,
+      "rank_on_open": 8,
+      "open_condition": "lambda*(lambda^3-8) != 0"
+    },
+    {
+      "name": "shift_velocity_and_tangency",
+      "passed": true,
+      "chart": "z=1",
+      "velocity": [
+        "y^2",
+        "-x^2"
+      ],
+      "tangent_to": "x^3+y^3+1=0"
+    },
+    {
+      "name": "lefschetz_twenty_four_point_witness",
+      "passed": true,
+      "sign_sums": [
+        -73,
+        -71,
+        -57,
+        -55,
+        55,
+        57,
+        71,
+        73
+      ],
+      "distinct_nonzero_cubic_rhs": [
+        "-149/3",
+        "-145/3",
+        "-39",
+        "-113/3",
+        "107/3",
+        "37",
+        "139/3",
+        "143/3"
+      ],
+      "number_of_branches": 8,
+      "number_of_points": 24,
+      "jacobian_determinant": "24*x*y*z*v^2"
+    },
+    {
+      "name": "fermat_hesse_j_invariant",
+      "passed": true,
+      "j": "h^6*(216-h^6)^3/(27+h^6)^3",
+      "reference": "Artebani--Dolgachev, arXiv:math/0611590, Section 2, equations (6)-(8)"
+    }
+  ]
+}
