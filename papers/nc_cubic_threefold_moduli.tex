@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v17}
+\date{2026年11月19日・nc cubic moduli研究草稿 v18}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -174,6 +174,13 @@ Serre 安定な非零部分圏の生成性を組み合わせて一般点の幾�
 有限表示と categorical Torelli によって開上へ降下する。
 この開では全 compact tails も相対 dg smooth proper である。
 さらに縮小すれば、射は自己同型が自明な三次の開モジュライ上で滑らかで、相対次元は七となる。
+可換三次点の全 Abel Artin 変形に対しても残余射を構成し、
+その射に両立する Poisson 形式近傍との非標準的な同型を得る。
+形式ファイバーは $\operatorname{Gr}(2,5)$ のアフィン錐の頂点完備化である。
+実際の十七次元開集合上でも、相対有理座標の選択によって
+非零 Poisson 構造付き三次への支配的持上げが存在する。
+この代数的存在と、非可換構造からの内在的な逆量子化を区別し、
+中心三次の単純な対称化逆像が Poisson 超曲面を与えない例を示す。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -228,6 +235,32 @@ compact 核の無条件な形式効果性は使わない。
 既知の各一般定理を新規結果とはせず、具体的な相対 Abel 圏の
 十七次元開上での射の構成と支配性を追加部分として扱う。
 この組合せの初出・新規性の網羅的な確認は未完了である。
+
+\paragraph{Poisson モジュライとの比較.}
+滑らかな三次上の射影 Poisson 空間が $\operatorname{Gr}(2,5)$ となることは
+Loray--Pereira--Touzet の既知結果であり、
+Mayanskiy \cite[Theorem~1 and \S2.2]{Mayanskiy} は Schouten 括弧を
+Pl\"ucker 方程式で明示している。
+本稿ではこの式を相対的に用い、勾配の束写像が局所分裂単射であることから、
+非被約底変更を含めて相対 Poisson 錐を同定する。
+Yekutieli \cite[Corollary~11.2]{YekutieliTwisted} の全 Artin 量子化比較と
+本稿の中心商模型を使い、全 Abel 形式近傍上の実際の残余射を構成する。
+幾何的変形上での一致と形式逆写像定理から、残余射に両立する
+Poisson 形式近傍との同型を得る
+（系\ref{cor:abel-poisson-formal-lift}）。
+ここで新たに確認するのは残余操作との両立であり、既知の量子化比較自体を
+新規結果とはしない。
+
+別に、定理\ref{thm:noncanonical-poisson-cubic-lift}の
+実際の開上の持上げは、既存の $\rho$ と相対 Poisson 錐の有理 chart から、
+七つの相対超越基底を選んで構成する。
+この一般的な有理座標による存在論法そのものの新規性は主張しない。
+Pym \cite[Theorem~2.3, Proposition~2.9 and Theorem~2.10]{Pym} の
+局所量子化比較も、特定の代数的逆量子化や $\rho$ との両立を結論してはいない。
+本稿の形式同型の代数化、二つの持上げの一致、
+選択を不要とする非可換圏の内在的な Poisson 構造は未解決である。
+中心三次の完全対称化の逆像を使う素朴な方法については、
+命題\ref{prop:poisson-naive-symmetrization-fails}が具体的な障害を与える。
 
 一般の$\mathbb Z$-代数による座標模型では、基礎的なデータは
 $(\mathcal C,(E_i)_{i\in\mathbb Z})$という豊富列付きAbel圏である。
@@ -1209,6 +1242,7 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/dg_smooth_torsion_families.tex}
 \input{papers/sections/kuznetsov_relative_category.tex}
 \input{papers/sections/kuznetsov_moduli_morphism.tex}
+\input{papers/sections/poisson_cubic_lifts.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1287,6 +1321,15 @@ Kuznetsov 成分の全 Artin 形式認識と、相対 Serre 関手を使った�
 有限表示への降下と categorical Torelli は実際の非空開上の射を与え、
 その射は支配的であり、さらに縮小して相対次元七の滑らかな射にできる。
 同じ開では残余圏と全 compact tails が相対 dg smooth proper である。
+さらに全 Abel Artin 変形の中心商表示、有限 Koszul 模型と
+普遍線コホモロジーから、相対 CY orientation を仮定せずに残余射を構成した。
+その形式ファイバーは七次元の Pl\"ucker 錐の完備化で、頂点接空間は十次元である。
+相対 Poisson 錐には $\mathbb A^6\times\mathbb G_m$ の chart があり、
+これと $\rho$ の相対超越基底により、実際の非空開上にも支配的持上げを得る。
+ただしこの射は選択を含み、一般ファイバーの双有理同定や
+非可換構造に内在する逆量子化を意味しない。
+量子中心からの単純な対称化逆像の障害も明示した。
+
 全大域モジュライの代数性と成分性、任意の非可換点への全 Abel 形式比較の拡張、
 七次元ファイバーの接合データによる明示的分類、構造対象$\mathcal O$そのものの内在的認識は残っている。
 独立に選んだformality座標の下でのactual mapの全高次式の一致も未確認である。

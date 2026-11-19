@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-plan-v11。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-19 / research-plan-v12。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -634,11 +634,11 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。§10の残余射により17次元の非空開上のdg smooth proper性と可換三次への17→10射も完成した。次は七次元fiberの接合データ、全Mとの局所比較、全Abel形式近傍への残余射の拡張を扱う。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
+可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。§10の残余射により17次元の非空開上のdg smooth proper性と可換三次への17→10射も完成した。全Abel形式近傍の残余射とPoisson形式fiberも§10.3で完成した。次は量子化の意味を保つ内在的Poisson持上げ、一般fiberの接合データ、全Mとの局所比較を扱う。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
-## 10. Kuznetsov成分による17→10射と残る形式比較
+## 10. Kuznetsov残余射とPoissonモジュライ
 
 ### 10.1 全Artin基底上の幾何的認識
 
@@ -671,31 +671,24 @@ BMMS Thm1.1のcategorical Torelliにより二重交差上の三次の粗モジ�
 
 **支配性と七次元。** 17係数の古典FとGL5軌道の微分は35×42行列である。`verify_commutative_dominance.py` は35次minor=752849 mod1000003と整数Euler関係を確認する。一般Fはsmoothであり、古典族はM_cubを支配する。ρの像の閉包はh-adic三次族のgeneric値を含むのでspecial値[V(F)]も含む。従ってρは支配的である。自己同型が自明な非空開M_cub°へ移り、generic smoothnessでsourceを縮めると、ある非空開Vへの相対次元7の滑らかな全射となる。相対Kuと全tailsのdg smooth proper性は任意導来底変更に両立する。
 
-**境界。** 三次族・相対Morita核はétale局所で得る。大域の核、全Mの代数性・開性、全17係数点での幾何性、ρの出力が入力Fそのものであることは主張しない。自己同型が自明なtargetでは粗モジュライと三次モジュライstackが一致するため、ρはstackへの射でもある。一般の三次族のambientはBrauer–Severi型でよく、大域O(1)や大域射影座標を結論に付け加えない。
+**境界。** 三次族・相対Morita核はétale局所で得る。大域の核、全Mの代数性・開性、全17係数点での幾何性、ρの出力が入力Fそのものであることは主張しない。自己同型が自明なtargetでは粗モジュライと三次モジュライstackが一致するため、ρはstackへの射でもある。targetの普遍三次族のambient B→Vは、三次因子Dに対してω_B/V(2D)がfiberwise O(1)となるので、実際に射影束へ分裂する（`prop:relative-poisson-cubic-cone`）。Zariski局所で射影座標を選べる。source上のO(1)の大域降下とは別の結論である。
 
-### 10.3 条件付き代数補題：実際の残余射ができれば積分解できる
+### 10.3 全Abel残余射とPoisson形式近傍
 
-A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–5.4の証明により、三次側の古典的Abel Artin変形関手はこのRで実際に表される。ここではCFTとYekutieliの既知入力を用いるが、追加の未確認formality分類は仮定しない。
+**全Abel Artin近傍上の残余射は証明済み。** `prop:abel-artin-actual-residual` は、滑らかな可換三次Xのframed変形に対し、r:Def_ab^O(Qcoh X)→Def_Xを構成する。入力は次の通りであり、詳細な証明は `poisson_cubic_lifts.tex` に置く。
 
-以下の入力を区別する。入力1は§10.1で証明済みである。入力2–3は全Abel変形に対して追加の確認を要する。
+1. `thm:abel-cubic-flat-envelope(iii)` による通常の中心商A_R=B_R/(w_R)の表示。全Abel模型に存在するため、非周期的Z代数表示を直接扱う必要はない。
+2. `cor:abel-universal-relative-cubic` の有限Koszul解消と、CY orientationを使わない `lem:relative-koszul-torsion-model`。A側の非有界Gabriel比較は `lem:relative-cubic-torsion-comparison` のTor₁遷移消滅で保証する。右加群の左随伴は−⊗_B^L Aであり、保守的な右随伴から五線compact generatorを得る。
+3. `prop:artin-ore-universal-cohomology` の係数perfect Homと任意導来底変更。二例外対象の有限左mutationで残余K_Rと係数perfectなEnd(G_R)を得る。右随伴・相対Serre・source smoothnessはこの構成に不要。
+4. O_X(1)の平坦持上げの同型類の一意性。比較のスカラーは評価で相殺し、全framed O保存同値に自然となる。Ind K_Rの指定Morita framingが `prop:kuznetsov-formal-recognition` の実変形の仮定を満たす。可換変形上でrはその三次自身を返す。
 
-1. 可換cubicの標識付き形式変形と、Kの実際のdg/Morita変形の同型類が全Artin基底で同定される。高次scalar自己同型は別に保持する。
-2. 三次側のactual deformationから残余圏を取る操作が、全Artin基底で自然な写像 r を定める。ここには相対dg enhancement、O,O(1)の持上げ、例外性、半直交性、admissibility、任意の底変更を含める。
-3. 可換部分a=0に制限したrは、可換cubicをそのKuに送る幾何的写像と一致する。
+**rに両立する形式同型。** A₀=C[[a_ij]]/(Pfaff₄(a))、R_X=A₀[[s₁,…,s₁₀]]とする。既存量子化比較Q:Poisson形式近傍→全Abel形式近傍を一つ選び、rQをt=f(s,a)と書く。可換部分でf(s,0)=sなので、Θ(s,a)=(f(s,a),a)は特異な係数環A₀上でも形式自己同型となる。`cor:abel-poisson-formal-lift` の同型はΘQ⁻¹であり、rとPoisson忘却に両立し可換部分で恒等である。
 
-このとき、受け皿をk[[t_1,...,t_10]]と書けば r^*(t)=f(s,a)であり、∂f/∂sの原点での行列は可逆である。A_0を固定してsをfへ送る連続自己写像は、形式逆写像定理によりRの自己同型となる。従って
-\[
- R\simeq A_0[[t_1,\ldots,t_{10}]]
-\]
-がk[[t]]-代数として成立する。証明は、aを固定したまま形式的にsを(t,a)から解くことであり、Plücker(a)のイデアルは変わらない。A_0が特異でも、線型s係数の可逆性を使う次数帰納は成立する。
-
-**結論の範囲**：上の入力が満たされれば残余射は非標準的な形式座標でproduct projectionとなり、fiberは7次元のGrassmannian coneの完備化、頂点接空間は10次元である。actual ambient射と独立Poisson座標の全高次互換性を先に解く必要はない。現在未完成なのは入力2–3を全Abel模型へ適用する部分である。実際の中央CY17係数族では§10.2が完成しているが、全Abel変形の非周期的Z代数・正規三次模型へ無条件に転用しない。
-
-この条件付き形式積分解自体は、代数化・収束・全2-stack比較を含まない。実際の17係数族の非空開でのKu同値と代数的射は§10.2で別に証明した。対象X_Aが原稿の係数Fで定義される古典cubicそのものであるとも結論しない。新しいt座標には高次の量子補正があり得る。
+従ってrの形式fiberはGr(2,5)のアフィンPlücker錐の頂点完備化で、次元7・頂点接空間10。ここでは特殊fiberのframeを固定し、自然同型で割った1群oidを用いる。元のQ⁻¹そのもののrとの両立、選択した形式同型の代数化・収束、有限Aut(X)作用や未切断2-stackは結論していない。形式的な幾何座標f(s,a)は高次補正を含み得る。
 
 ### 10.4 7方向と4方向、rotationと接合
 
-二次包絡の一般17→13のfiber4は、固定B内の中心三次直線の選択である。実際の残余射17→10は非空開上で滑らかな七次元fiberを持つ。両者は異なる自由度であり、ρが固定ambientの四次元torsor上で定数であるかも未確認である。
+二次包絡の一般17→13のfiber4は、固定B内の中心三次直線の選択である。実際の残余射17→10は非空開上で滑らかな七次元fiberを持つ。可換点におけるrの形式fiberは§10.3のPlücker錐であるが、一般の代数的fiberが同じ錐と双有理とは未証明である。7方向と4方向は異なる自由度であり、ρが固定ambientの四次元torsor上で定数であるかも未確認である。
 
 可換cubicではrotation R_rotとSerre関手Sについて R_rot^3=[2], S=R_rot^{-2}[3]、従ってR_rot=S[-1]である。同じ式が成立する中心CY三次商に対し、rotationを追加しただけで7方向を回復することは期待できない。一般正規商にnormal automorphismのtwistがある場合は、この式の適用を別に調べる。
 
@@ -708,6 +701,26 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 通常HKRへ戻す際、bivectorのH^1(T_X)方向へのTodd補正はc_1(T_X)とのcontractionの定数倍である。[Hitchin, §5.3, pp.41–42] のcanonical bundleのPoisson module構造により、各Poisson bivector πについて π⌟c_1(T_X)=0。H^2(O_X)方向への補正もFanoの消滅で零である。Poisson cone Gr(2,5)が全bivector空間を線形に張るので、全bivector方向でも補正の影響は零となる。従ってこの一次の消失は通常HKRでも読める。
 
 これは文献の定理と上記contractionからの推論である。§10.2の実際の17係数残余射とは別に、可換点の全Abel形式近傍の接写像を調べる入力である。また§10.3の積分解には、この一次核の同定自体は必要なく、幾何的s方向の可逆性だけを使う。
+
+### 10.6 実際のPoisson持上げと内在的復元の障害
+
+`prop:relative-poisson-cubic-cone` は自己同型のない可換三次の開モジュライV上で、相対Poisson錐P→VがZariski局所的にGr(2,5)のアフィン錐との積になることを示す。Mayanskiy §2.2のSchouten式と、五つの∂_iFが張る写像の局所分裂単射性を用いるため、非被約底変更を含むschemeとしての同定である。非零部分P×は相対次元7、a₀₁≠0のchartはA⁶×G_m。Poissonの尺度を記憶したモジュライは17次元、射影化したものは16次元となる。
+
+`thm:noncanonical-poisson-cubic-lift` はK=C(V)⊂L=C(C_J)の相対超越基底t₁,…,t₇を選び、上のchartの六座標と尺度へ割り当てる。極とt₇=0を除く不変開で、ρに両立する支配的な射が商stackそのものへ降下する。函数体拡大は有限分離で、17次元scheme atlasからの合成は縮小後étale。sourceの有限慣性を除くとは主張せず、射のrepresentability、全体の有限性、次数1、双有理性は結論しない。選択後の射は全O保存同値と底変更に両立するが、非可換構造から指定されたPoisson構造を抽出したものではない。
+
+**量子中心の同定。** 二次関係がΛ²V→Sym²Vのgraphとなる開では、ambientの二次双ベクトルΠをGL(V)-同変に読み取れる。Jacobian成分でΠはPoissonである。しかし中心三次wを古典Casimirへ対応させる操作は別に必要である。
+
+`prop:poisson-naive-symmetrization-fails` はu,v中心、[x,y]=h z²,[y,z]=h x²,[z,x]=h y²のFermat族で、中心元w=f−h²T/9+u³+v³の対称化逆像H=f−2h²xyz/3+u³+v³が失敗することを示す。{x,H}=−2h³x(z³−y³)/3は(H)に入らず、u≠0の射影chartでもH/u³がv/uについてmonicなので失敗が残る。一般のHは滑らかである。中心性は現行の明示公式 `thm:pair-full-fermat-center` に依存し、新たな中心の数値検算ではない。反例の詳細証明は論文に置き、ここでは障害を保持する。
+
+中心規格化の自由度も残る。現行の記法ではRains型と選択したFermat中心の差は
+\[
+G_h^{\mathrm R}-W_h=
+\frac{h^2}{12}L_1L_2L_3+
+\frac{h^3}{6}(L_1m_1-L_2m_2+L_3m_3)
+\]
+である。binary cubicの加算を含むこの変換則を無視して入力Fを復元すると、座標変更に対する同変性を失い得る。補正した中心対応の構成と、その出力がKuのρに一致することが次の核心である。反例はこの補正の不存在を示していない。
+
+**文献の射程。** Pym Theorem 2.3のArtin近似による解析芽同型は、元のKontsevich形式同型とは異なり得る。Proposition 2.9/Theorem 2.10は規格化Koszul CY芽とunimodular Poisson錐の局所比較・成分の全単射である。Yekutieli Cor11.2は完備局所parameter algebra上のgauge同値類を比較し、可換積の変形も許す。固定層上のbracket/star productを扱うCor11.3にはH¹(T_X)=H¹(D_X)=0も必要で、h¹(T_X)=10の三次には直接適用しない。これらの定理の結論には、一般非可換点での標準的な代数的逆量子化、量子中心と古典Casimirの同変対応、指定したρとの両立は含まれていない。
 
 ## 11. 先行研究との差分と公表前の確認
 
@@ -734,10 +747,10 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 | [Stacks 058G](https://stacks.math.columbia.edu/tag/058G), [023N](https://stacks.math.columbia.edu/tag/023N), [039Y](https://stacks.math.columbia.edu/tag/039Y) | Lazard、通常の加群降下 | Grothendieck圏内の等化子による降下は直接証明 |
 | [Stacks 01YR](https://stacks.math.columbia.edu/tag/01YR), [08EV](https://stacks.math.columbia.edu/tag/08EV), [0FCL](https://stacks.math.columbia.edu/tag/0FCL) | Proj上の生成・消滅、proper pushforwardのperfect性、cohとQCohのExt比較 | 0A1Eは節番号、使用するLemma36.27.1の固有tagは08EV。底の平坦性を仮定しない適用を確認 |
 | [Milne, Algebraic Groups, Prop20.7](https://www.jmilne.org/math/Books/iAG2022.pdf); [Stacks 03PK](https://stacks.math.columbia.edu/tag/03PK), [0CJZ](https://stacks.math.columbia.edu/tag/0CJZ), [0FY3](https://stacks.math.columbia.edu/tag/0FY3), [051E](https://stacks.math.columbia.edu/tag/051E) | 非被約C基底上もPGL2=Aut(P¹)、Kummer列、gerbe、Serreの一意性、Artin flat=free | 相対Veronese・Hom比較の一般入力。組合せの初出は未確認 |
-| [Mayanskiy, arXiv:1303.5916](https://arxiv.org/pdf/1303.5916), Theorem 1 | 固定smooth cubicの射影Poisson空間Gr(2,5)。Loray–Pereira–Touzetに帰属。証明のSchouten式はPlücker二次式 | 17という数だけを新規性にしない。有限係数の非可換族・正しい同型類・圏の幾何を示す |
+| [Mayanskiy, arXiv:1303.5916](https://arxiv.org/pdf/1303.5916), Theorem 1、§2.2 Lemma2 | 固定smooth cubicの射影Poisson空間Gr(2,5)。Loray–Pereira–Touzetに帰属。Schouten式を再確認 | 勾配写像の局所分裂により相対scheme方程式へ適用。17という数や錐の同定自体を新規性にしない |
 | [Cukierman–Pereira–Vainsencher, arXiv:0709.4072](https://arxiv.org/pdf/0709.4072), Theorem 2; AFST18(2009),685–715, DOI10.5802/afst.1221 | 有理葉層R(r,d_0,...,d_q)のfoliation schemeでの成分性・一般被約性。r=4,q=2,(1,1,3)を含む | decomposabilityを課さない**全Poisson scheme**の接空間、中心三次incidenceとの関係を明示する |
 | [Corrêa–Muniz, arXiv:2207.12880v5](https://arxiv.org/pdf/2207.12880v5), Corollaries C/D and §5 | P4のrank2 Poisson locusにRat113/Rat122型。π∧π=0を課すlocusの成分を扱う | 全Poisson schemeの一般正則性・量子化moduliと区別。全分類完成の入力として機械的に使わない |
-| [Pym, arXiv:1403.6444](https://arxiv.org/pdf/1403.6444), Definition2.8, Proposition2.9, Theorem2.10 | 一般Vの規格化Koszul CY変形芽とunimodular quadratic Poisson scheme、成分の局所比較 | 解析芽の存在をcanonical quantization map、大域stack、今回の実際の比較写像と同一視しない |
+| [Pym, arXiv:1403.6444](https://arxiv.org/pdf/1403.6444), Theorem2.3と直後、Definition2.8, Proposition2.9, Theorem2.10 | 一般Vの規格化Koszul CY変形芽とunimodular quadratic Poisson scheme、成分の局所比較 | 解析芽の存在をcanonical quantization map、大域stack、今回の実際の比較写像と同一視しない |
 | [Mori–Smith, arXiv:1502.07403v2](https://arxiv.org/pdf/1502.07403v2), Theorem4.2(1) | 滑らかな平面三次からの対称化Jacobian量子代数は全量子化係数λ（0も含む）で3-CY | 相対PBWと5次元ambientへの拡張、指定中心三次対のmoduliを分離して述べる |
 | [Reyes–Rogalski, arXiv:1807.10249v2](https://arxiv.org/pdf/1807.10249v2), Theorem5.15, Lemmas5.9/4.5 | generalized ASとtwisted CYの比較、Nakayamaは中心を固定 | 指定した正規族を保つN周期の構成、可換なd周期とのgcd周期化、相対降下が本稿の組合せ |
 | [Mori–Nyman, regV8](https://faculty.nymana.wwu.edu/regV8.pdf), Theorem4.19; [arXiv:2307.15253](https://arxiv.org/abs/2307.15253) | ASF++と周期的ASF+の関係 | 弱いAS条件と混同しない。gcd対定理の初出は引き続き要確認 |
@@ -776,13 +789,11 @@ Abel変形比較とKu残余射について上記の一次入力をIntroduction�
 
 ## 12. 現在の検証範囲と外部課題との境界
 
-全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、有限中心の射影模型、一般族の相対双対と全Hom比較は現行証明として保持する。今回の中心的点検は、相対残余圏とenriched Serre、全Artin幾何的認識、係数perfectな核の効果化、Serre安定生成性、代数的橋渡し、有限表示・Torelli降下、支配性と相対次元7である。別々の読み合わせで具体的な未解消の欠陥は見つからなかった。これは外部査読でも全旧証明の独立再証明でもない。新規性の網羅調査は未完了。対象ファイル・一次資料・範囲は `validation.json`。
+全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、一般族の相対双対・全Hom比較・代数的部分stack・17→10射は現行証明として保持する。現在の点検対象は、相対Poisson錐、全Abel Artin残余射、rに両立する形式同型、実際の非標準的持上げ、対称化障害である。既存入力の適用条件を再確認し、別々の読み合わせでも具体的な未解消の欠陥は見つからなかった。これは外部査読でも全旧証明の独立再証明でもない。新規性の網羅調査は未完了。対象・一次資料・検証範囲は `validation.json` に区別する。
 
-既存8計算は2026-11-16に実行され、横断slice行列式−5538243375000、Rat113接空間37、二因子stabilizer rank48、低次中心、中心三次式、軌道rank24、分離型codim15を再現した。同日の先行作業では `verify_general17_open.py` の九項目が一致した。これらのsourceは変更しておらず、今回の全再実行とは報告しない。新しい支配性検算では35次minor=752849 mod1000003を実行確認した。計算の詳細と再実行の状態は `validation.json` に記す。
+計算資産は変更していない。既存検証は横断slice、Rat113接空間、二因子stabilizer、低次中心・中心三次、軌道、分離型、一般17係数開、atlasの微分、古典三次支配性を含む。atlasのD37=127524、M113=844194、支配性の35次minor=752849（mod1000003）、整数上の積零・Euler関係と入力hashは保持する。現在のPoisson持上げと反例は代数的証明の点検によるもので、これらの数値計算を今回再実行したとはしない。反例のPoisson括弧計算とprojective chartのideal判定は本文で直接確認した。
 
-今回新たに実行した `verify_jacobian_etale_point.py` は、§1.7の同一有理点でD37非零・M113非零・整数上のMD=0とスカラー核・全Δ因子非零を確認した。独立した再実行で小証明書全体の一致も確認した。旧M113の計算は新script内で再構成しており、旧script全体の実行とは区別する。圏論的な降下と全Hom定理はこの数値計算の結論ではない。
-
-現行sourceの参照・引用・TeX入力閉包を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止した。日本語クラス・luatexjaも実行環境で確認できず、現行v17の組版は実行していない。現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存の各状態を区別する。
+現行sourceの参照・引用・TeX入力閉包と変更したTeXの括弧・環境を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止し、日本語クラス・luatexjaも未整備である。現行v18の組版は実行しておらず、現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存は別の状態とする。
 
 ### H3/PI4の関連知識（本研究の定理の入力ではない）
 

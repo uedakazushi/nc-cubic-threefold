@@ -1,0 +1,465 @@
+\section{Poisson構造付き三次への持上げと形式近傍}
+\label{sec:poisson-cubic-lifts}
+
+定理\ref{thm:kuznetsov-cubic-moduli-morphism}の射を
+$\rho:\mathfrak U\to V$ とし、$V$ は自己同型が自明な滑らかな三次の
+モジュライの非空開とする。本節では Poisson 構造の尺度を記憶する。
+構造を非零スカラー倍で同一視した射影 Poisson モジュライとは区別する。
+全 Abel Artin 近傍では残余射に両立する形式同型を構成し、
+実際の非空開上では座標と有理関数を選んで支配的な持上げを構成する。
+いずれも選択に依存しない逆量子化を主張するものではない。
+
+\subsection{相対Poisson錐とその有理座標}
+
+\begin{proposition}[相対Poisson錐の構造]
+\label{prop:relative-poisson-cubic-cone}
+$f:X\to V$ を普遍的な滑らかな三次族とする。
+相対 Poisson 構造の関手は、$V$ 上アフィン有限表示な錐
+$\mathcal P\to V$ により表される。その零切断の補集合を
+$\mathcal P^\times$ と書く。
+\begin{enumerate}
+\item $V$ の Zariski 開被覆上で
+\[
+ \mathcal P\simeq
+ V\times\operatorname{Spec}
+ \frac{\mathbb C[a_{ij}\mid0\le i<j\le4]}
+ {(a_{ij}a_{kl}-a_{ik}a_{jl}+a_{il}a_{jk}\mid i<j<k<l)}.
+\]
+従って $\mathcal P^\times\to V$ は滑らかで相対次元七である。
+その射影化は相対次元六の Grassmannian 束である。
+\item ある非空開 $V_0\subset V$ 上で、$\mathcal P^\times$ は開部分
+\[
+ \mathcal W\simeq V_0\times\mathbb A^6\times\mathbb G_m
+\]
+を持つ。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+まず族の射影座標について確認する。普遍三次は、
+射影座標 torsor から降下した Brauer--Severi $\mathbb P^4$ 束
+$p:\mathcal B\to V$ の有効 Cartier 因子 $D$ として存在する。
+線束
+\[
+ \mathcal H=\omega_{\mathcal B/V}\otimes\mathcal O_{\mathcal B}(2D)
+\]
+の各幾何学的ファイバーへの制限は $\mathcal O_{\mathbb P^4}(1)$ である。
+これは $-5+2\cdot3=1$ による。
+従って $p_*\mathcal H$ は階数五の局所自由層であり、評価写像は
+$\mathcal B$ をその射影束と同定する。
+この主張は Brauer--Severi 束を自明化する étale 被覆上で通常の
+$\mathcal O(1)$ の計算に帰着し、射自体は評価によって大域的に定まる。
+特にこの三次族の ambient に Brauer 障害は残らない。
+
+$V$ を Zariski 局所化し、この階数五の束と三次方程式の基底直線束を
+自明化すると、$X=V(F)\subset\mathbb P^4_V$ と書ける。
+体積形式と $F$ の尺度もこの表示に従って固定する。
+相対余法完全列、超曲面制限完全列、Euler 完全列から
+\[
+ \mathcal E=f_*\wedge^2T_{X/V}\simeq\mathcal O_V^{10},
+ \qquad
+ \mathcal F=f_*\wedge^3T_{X/V}\simeq\mathcal O_V^{15}
+\]
+を得る。高次直像は零であり、これらの同定は任意の係数変更に両立する。
+具体的には
+$\wedge^2T_{X/V}\simeq\Omega^1_{X/V}(2)$、
+$H^0(\Omega^1_{\mathbb P^4/V}(2))\simeq\wedge^2\mathcal O_V^5$
+を用いる。基底の直線束をまだ自明化していない場合は、対応する基底twistを残す。
+
+相対 Schouten 括弧は $\operatorname{Sym}^2\mathcal E\to\mathcal F$ を与える。
+その二次写像 $\pi\mapsto[\pi,\pi]$ の零点schemeを $\mathcal P$ と定義する。
+これにより族と底変更に関する表現性が得られる。
+
+方程式を確認する。$\epsilon_{ij}=x_jdx_i-x_idx_j$ を対応する
+$\Omega^1(2)$ の基底とし、$\pi=\sum_{i<j}a_{ij}\epsilon_{ij}$ と書く。
+Mayanskiy \cite[\S2.2, Lemma~2 and Theorem~1]{Mayanskiy} の計算は
+\[
+ \begin{aligned}
+ \frac14[\pi,\pi]
+ &=q_{1234}\partial_0F-q_{0234}\partial_1F
+  +q_{0134}\partial_2F-q_{0124}\partial_3F
+  +q_{0123}\partial_4F,\\
+ q_{ijkl}&=a_{ij}a_{kl}-a_{ik}a_{jl}+a_{il}a_{jk}.
+ \end{aligned}
+\]
+を与える。これは係数の多項式恒等式なので相対族でも成立する。
+五つの偏微分の張る写像
+$\mathcal O_V^5\to\mathcal O_V^{15}$ は各幾何学的ファイバーで単射である。
+もし定数係数の非零な線型関係があれば、線型座標変更の後で
+$F$ が一つの変数に依存しなくなり、その三次超曲面が特異になるためである。
+従ってこの写像は局所的に分裂単射である。
+ゆえに Schouten 方程式の係数イデアルは、五つの $q_{ijkl}$ のイデアルと一致する。
+非被約基底への変更後も左逆が残るため、集合論的な一致にとどまらない。
+これは第\ref{sec:moduli-artin}節で用いた相対計算の
+通常の有限型基底上での形でもある。
+
+非零 Pl\"ucker 錐は Grassmannian 上の tautological 直線束の零切断の補集合であり、
+滑らかで次元 $6+1=7$ である。
+さらに $a_{01}\ne0$ の chart では、二形式は一意に
+\[
+ a=\lambda
+ (e_0+u_2e_2+u_3e_3+u_4e_4)
+ \wedge
+ (e_1+v_2e_2+v_3e_3+v_4e_4)
+\]
+と表される。ここで $\lambda=a_{01}\in\mathbb G_m$ であり、
+残り六つの係数は任意である。これが後半の chart を与える。
+\end{proof}
+
+\subsection{全Abel Artin変形上の残余射とPoisson形式近傍}
+\label{subsec:poisson-formal-residual}
+
+以下では滑らかな複素三次三様体 $X$ を固定し、特殊ファイバーの同定を
+持つ通常の局所 Artin $\mathbb C$-代数上の変形を考える。
+構造対象付き Abel 変形の群oidは、標識を保つ自然同型で射を割った規約とする。
+第\ref{sec:abel-formal-descent}節によりこれは同型類の離散群oidと同値である。
+
+\begin{proposition}[全Abel形式近傍上の実際の残余射]
+\label{prop:abel-artin-actual-residual}
+任意の構造対象付き Abel Artin 変形 $\mathcal D_R$ に対し、
+proper な $R$-線型 dg 圏 $\mathcal K_R$ を自然に構成できる。
+特殊ファイバーは $\operatorname{Ku}(X)$ であり、その形成は任意の Artin
+係数変更に両立する。従って自然写像
+\[
+ \begin{aligned}
+ r:\operatorname{Def}^{\mathcal O}_{\mathrm{ab}}(\operatorname{Qcoh}(X))
+ &\longrightarrow
+ \pi_0\operatorname{CatDef}^{c}_{\operatorname{Ind}\operatorname{Ku}(X)}\\
+ &\xrightarrow{\ \sim\ }\operatorname{Def}_X.
+ \end{aligned}
+\]
+がある。最後の同型は命題\ref{prop:kuznetsov-formal-recognition}による。
+可換三次変形に制限した $r$ は、その三次変形自身を返す。
+\end{proposition}
+
+\begin{proof}
+定理\ref{thm:abel-cubic-flat-envelope}\textup{(iii)}により、
+$\mathcal D_R$ を次数別有限自由な通常の二次代数 $B_R$ と
+中心正則三次元 $w_R$ によって
+\[
+ A_R=B_R/(w_R),\qquad
+ \mathcal D_R\simeq\operatorname{QGr}(A_R)
+\]
+と表示できる。この表示は全 Abel Artin 変形について存在する。
+一般の非周期的 $\mathbb Z$-模型をそのまま中央 CY 模型と仮定するのではなく、
+上の既存比較定理を用いて通常の中心商模型を選ぶ。
+本証明では $B_R$ の相対 CY orientation は必要としない。
+
+まず compact generation を確認する。
+系\ref{cor:abel-universal-relative-cubic}により、$B_R$ には任意係数変更後にも
+完全な長さ五の有限二次 Koszul 双加群解消がある。
+これは補題\ref{lem:relative-koszul-torsion-model}の入力\textup{(1)--(2)}を満たす。
+同補題は CY 同型を要求しないので、任意の可換 $R$-代数 $S$ に対し
+\[
+ T_{B,S}=\bigoplus_{i=0}^{4}\mathcal O_{B_S}(i)
+\]
+は $D(\operatorname{QGr}B_S)$ の compact generator である。
+有限二次双加群解消の普遍完全性は、各内部次数で有限自由な複体の還元が
+多項式環の Koszul 対角解消であることからも確認できる。
+その augmentation の余核も係数自由であるため、有限 Artin 基底上の
+分裂持上げにより各内部次数の完全部分は分裂し、任意の $S$ への変更を保つ。
+
+商 $B_S\to A_S$ に沿う restriction は
+\[
+ j_*:D(\operatorname{QGr}A_S)\longrightarrow D(\operatorname{QGr}B_S)
+\]
+を定め、完全、保守的で、任意直和を保つ。
+実際、$A_S$-加群の $A_S$-torsion と $B_S$-torsion は一致し、
+次数付き restriction は完全かつ保守的なので Abel 商へ降りる。
+その導来関手も cohomology 上の保守性から保守的である。
+非有界 Gabriel 商を使う点も確認する。
+補題\ref{lem:relative-cubic-torsion-comparison}の証明で使うのは
+有限 Koszul 解消と中心正則元であり、CY 同型ではない。
+その証明を適用すると、$A_S$-injective $J$ に対する $B_S$ 上の高次 torsion は、
+$\operatorname{Tor}_1^{B_S}(B_S/B_{S,\ge n},A_S)$ の遷移が
+$n$ を三増やすと零になることにより消える。
+従って $A_S$ の derived torsion は $B_S$ の有限幅の模型で計算でき、
+有限 cohomological dimension と直和保存を持つ。
+これにより $D(\operatorname{QGr}A_S)$ は
+$D(\operatorname{Gr}A_S)$ の cohomologically torsion な部分圏による商として扱える。
+中心正則三次による長さ一の解消から
+$-\otimes_{B_S}^{\mathbf L}A_S$ は torsion cohomology を torsion cohomology へ
+送るため、左随伴 $\mathbf Lj^*$ が tails の非有界導来圏上で定まる。
+従って
+\[
+ T_{A,S}=\mathbf Lj^*T_{B,S}
+         =\bigoplus_{i=0}^{4}\mathcal O_{A_S}(i)
+\]
+は compact である。$T_{A,S}$ の全 shift に直交する $N$ に対し、随伴により
+$j_*N$ は $T_{B,S}$ の全 shift に直交するので零である。
+保守性から $N=0$ となり、$T_{A,S}$ は compact generator である。
+この議論は特殊ファイバーでの生成性だけから一般の生成性を推論していない。
+
+命題\ref{prop:artin-ore-universal-cohomology}は、すべての線対象間の
+RHom の係数 perfect 性と任意の導来底変更を与える。
+従って $\mathcal C_S=D(\operatorname{QGr}A_S)^c$ は proper であり、
+\[
+ L_i=\mathcal O_{A_S}(i),\quad
+ \mathbf R\operatorname{Hom}(L_0,L_0)=
+ \mathbf R\operatorname{Hom}(L_1,L_1)=S,\quad
+ \mathbf R\operatorname{Hom}(L_1,L_0)=0.
+\]
+dg evaluation による有限 mutation
+\[
+ P_S=\mathbb L_{L_0}\mathbb L_{L_1}
+\]
+を用い、$\mathcal K_S=\langle L_0,L_1\rangle^\perp$ と置く。
+定理\ref{thm:relative-kuznetsov-projector}の左射影の証明は例外性と
+propernessだけを用いるので、この場合にも適用できる。
+特に
+\[
+ G_S=P_S(L_2\oplus L_3\oplus L_4),\qquad
+ \mathcal K_S=\operatorname{thick}(G_S)
+             \simeq\operatorname{Perf}(E_S),\quad
+ E_S=\mathbf R\operatorname{End}(G_S).
+\]
+有限 mutation と線対象の Hom 比較から $E_S$ は $S$-perfect で、
+任意の $S\to S'$ に対して
+$E_S\otimes_S^{\mathbf L}S'\simeq E_{S'}$ が積と両立する。
+ここでは右随伴、相対 Serre 同型、$\mathcal C_S$ 自体の smoothness を
+仮定していない。
+
+模型からの独立性と自然性を確認する。
+各 Artin 基底上で $L_1$ は $\mathcal O_X(1)$ の平坦持上げである。
+定理\ref{thm:abel-cubic-all-artin}に使った持上げの一意性により、
+特殊ファイバーの同定を保つ完全 Abel 同値は $L_1$ を同型を除いて保つ。
+この比較の選択差は $\operatorname{End}(L_1)^\times=R^\times$ であり、
+評価項 $\mathbf R\operatorname{Hom}(L_1,M)\otimes_R L_1$ 上で相殺する。
+$L_0$ は指定した構造対象である。
+従って両 mutation とその直交部分圏は全ての framed O-marked 同値に自然である。
+任意の Artin 係数変更にも同じ一意性と標準の評価写像が適用できる。
+以上により、特定の通常次数付き表示やその周期構造の選択を
+モジュライのデータに追加せずに $\mathcal K_R$ が定まる。
+
+特殊ファイバーでは通常の例外対を用いるので
+$\mathcal K_k=\operatorname{Ku}(X)$ である。
+実際、
+\[
+ \operatorname{Ind}(\mathcal K_R)=\operatorname{Mod}(E_R),\qquad
+ \operatorname{Mod}(E_R)\otimes_{\operatorname{Mod}(R)}
+                 \operatorname{Mod}(k)
+ \simeq\operatorname{Mod}(E_R\otimes_R^{\mathbf L}k)
+ \simeq\operatorname{Ind}\operatorname{Ku}(X)
+\]
+という指定した Morita framing がある。
+従ってこれは実際の compactly generated 変形であり、
+命題\ref{prop:kuznetsov-formal-recognition}を適用できる。
+同命題の tame 条件は固定特殊圏の条件であり、変形源の smoothness は要求しない。
+可換三次族の場合には構成そのものがその族の相対 Ku だから、最後の主張も従う。
+\end{proof}
+
+\begin{corollary}[残余射に両立するPoisson形式近傍への同型]
+\label{cor:abel-poisson-formal-lift}
+固定した $X$ の上で、Poisson 構造を零に特殊化する変形の形式モジュライを
+$\widehat{\mathfrak P}_{(X,0)}$ とする。非標準的な同型
+\[
+ \widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}
+ \xrightarrow{\ \sim\ }
+ \widehat{\mathfrak P}_{(X,0)}
+\]
+を、前命題の残余射 $r$ と Poisson 構造を忘れる射に両立するように選べる。
+この同型は可換部分上で恒等であり、対応する $r$ の形式ファイバーは
+$\operatorname{Gr}(2,5)$ のアフィン Pl\"ucker 錐の頂点完備化である。
+ファイバーの次元は七、頂点接空間の次元は十である。
+\end{corollary}
+\begin{proof}
+\[
+ A_0=\mathbb C[[a_{ij}\mid0\le i<j\le4]]/
+       (\operatorname{Pfaff}_4(a)),\qquad
+ R_X=A_0[[s_1,\ldots,s_{10}]]
+\]
+と置く。補題\ref{lem:artin-relative-poisson-sheaf}により
+$\widehat{\mathfrak P}_{(X,0)}$ は $R_X$ で表され、
+Poisson 構造を忘れる射は $s$-座標への射である。
+補題\ref{lem:artin-constructed-family-comparison}と全 Abel 比較による
+量子化同型 $Q:\widehat{\mathfrak P}_{(X,0)}\to
+\widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}$ を一つ選ぶ。
+構成により $Q$ は $a=0$ 上で通常の可換三次族を返す。
+
+合成 $rQ$ を十次元幾何的形式座標で
+$t_i=f_i(s,a)$ と書けば、前命題から $f_i(s,0)=s_i$ である。
+従って $s$ に関するJacobianは原点で恒等行列である。
+完備係数環 $A_0$ 上の形式逆写像定理により、
+\[
+ \Theta:(s,a)\longmapsto(f(s,a),a)
+\]
+は $\operatorname{Spf}R_X$ の自己同型である。
+$A_0$ が特異でも、この定理は $s$ の線型係数行列の可逆性から
+極大イデアル次数について帰納して証明できる。
+求める同型は $\Theta Q^{-1}$ である。
+$a$ を固定しているためPl\"ucker方程式は変わらず、
+Poisson忘却との両立と $a=0$ 上での恒等性も従う。
+\end{proof}
+
+\begin{remark}[形式的同型の範囲]
+量子化比較と形式slice、Poisson係数の自明化を選んでいるため、上の同型を
+選択に依存しない脱量子化写像とは呼ばない。
+また元の量子化比較 $Q^{-1}$ が残余射とそのまま両立するとは証明しておらず、
+そのために幾何的座標を $f(s,a)$ へ変更した。
+形式的な無限級数の存在は代数的射の存在や収束を保証しない。
+実際の十七次元開集合上で作る非標準的Poisson構造の選択と、
+この特定の形式同型の代数化・一致は別の主張である。
+\end{remark}
+
+\subsection{実際の開集合上の持上げ}
+
+\begin{theorem}[非標準的な非零Poisson持上げ]
+\label{thm:noncanonical-poisson-cubic-lift}
+$\mathfrak U$ と $V$ をさらに非空開へ縮小すると、
+\[
+ \widetilde\rho:\mathfrak U\longrightarrow\mathcal P^\times,
+ \qquad p\circ\widetilde\rho=\rho
+\]
+となる射が存在する。しかも選択を行えば、次を同時に満たせる。
+\begin{enumerate}
+\item $\widetilde\rho$ は支配的であり、源と標的の有理函数体の拡大は有限分離である。
+\item ある十七次元 scheme の étale atlas $T\to\mathfrak U$ に対し、
+$T\to\mathcal P^\times$ は étale である。
+\end{enumerate}
+ここでは $\widetilde\rho$ の representability を主張しない。
+源の有限 stabilizer が残る可能性があり、函数体上の有限性は
+射全体の有限性や次数一の双有理性を意味しない。
+\end{theorem}
+\begin{proof}
+命題\ref{prop:relative-poisson-cubic-cone}の chart $\mathcal W\simeq V_0\times\mathbb A^6\times\mathbb G_m$ を取る。
+$\rho$ が支配的なので、源を $\rho^{-1}(V_0)$ へ制限してよい。
+単に非零持上げの存在を得るには、この chart の一定の非零点を選び、
+$\rho$ と合成すれば足りる。以下ではさらに支配的な持上げを構成する。
+
+$K=\mathbb C(V)$、$L=\mathbb C(\mathfrak U)$ とする。
+後者は商表示 $\mathfrak C_{\mathrm J}=[J/\operatorname{PGL}_5]$ における
+不変有理函数体 $\mathbb C(J)^{\operatorname{PGL}_5}$ である。
+既存の Rosenlicht 商の次元計算と $\rho$ の支配性から
+\[
+ \operatorname{trdeg}_K L=17-10=7.
+\]
+有限生成体拡大なので、超越基底 $t_1,\ldots,t_7\in L$ を取ると
+$L/K(t_1,\ldots,t_7)$ は有限であり、標数零なので分離的である。
+
+各 $t_i$ を $J$ 上の不変有理関数として表す。
+有限個の極を除いた共通の定義域は非空不変開に取れるため、
+商stackの非空開上の通常の関数へ降下する。
+さらに $t_7$ が単元となるように縮め、命題\ref{prop:relative-poisson-cubic-cone}の chart で
+\[
+ (u_2,u_3,u_4,v_2,v_3,v_4,\lambda)
+ =(t_1,t_2,t_3,t_4,t_5,t_6,t_7)
+\]
+と置く。これが $\rho$ 上の射 $\widetilde\rho$ を与える。
+函数体の準同型は $K(t_1,\ldots,t_7)\hookrightarrow L$ なので、
+この射は支配的で、主張した有限分離拡大を誘導する。
+
+源の既存の十七次元 étale atlas の支配的な既約成分を $T$ とする。
+$\mathbb C(T)/L$ は有限分離拡大である。
+従って合成 $T\to\mathcal P^\times$ は支配的かつ一般点で étale であり、
+非空 étale locus $T^e\subset T$ を持つ。
+その $\mathfrak U$ への像は非空開であり、
+$T^e$ はその像の étale atlas となる。
+これに制限すれば二番目の主張を得る。
+\end{proof}
+
+\begin{remark}[構成の意味と未解決部分]
+この定理は、既に得た $\rho$ と相対 Poisson 錐の有理性から従う。
+座標、非零 Pl\"ucker chart、七つの有理関数の選択に依存し、
+非可換交換子や半古典極限から指定された Poisson 構造を抽出してはいない。
+選択を固定した後には商stack上の実際の射であるから、
+全 $\mathcal O$ 保存 Abel 同値と底変更に両立する。
+未解決なのは補助的な選択からの独立性、非可換構造の量子化としての意味、
+および系\ref{cor:abel-poisson-formal-lift}の形式同型との両立である。
+とくに七次元という次元の一致と上の有限分離拡大から、
+$\rho$ の一般fiberが Poisson 錐と双有理であるとは結論しない。
+\end{remark}
+
+\subsection{量子中心と古典三次の同定に必要な補正}
+
+\begin{proposition}[中心三次の対称化逆像は一般にPoisson超曲面を与えない]
+\label{prop:poisson-naive-symmetrization-fails}
+標数零体 $k$ と不定元 $h$ を取り、$K=k(h)$ とする。
+$u,v$ を中心とする五変数二次代数
+\[
+ B_h=K\langle x,y,z,u,v\rangle/
+ \bigl([u,-],[v,-],[x,y]-hz^2,[y,z]-hx^2,[z,x]-hy^2\bigr)
+\]
+を考える。$f=(x^3+y^3+z^3)/3$、
+$T=xyz+xzy+yxz+yzx+zxy+zyx$ と置く。
+中心三次
+\[
+ w_h=f-\frac{h^2}{9}T+u^3+v^3
+\]
+の完全対称化写像 $\operatorname{sym}:\operatorname{Sym}^3K^5\to(B_h)_3$
+による逆像は
+\[
+ H_h=f-\frac{2h^2}{3}xyz+u^3+v^3
+\]
+である。しかし、二次関係の graph から復元する Poisson 括弧
+\[
+ \{x,y\}=hz^2,\qquad\{y,z\}=hx^2,\qquad\{z,x\}=hy^2,
+ \qquad\{u,-\}=\{v,-\}=0
+\]
+について、$H_h$ は Casimir でなく、$(H_h)$ は Poisson ideal でもない。
+従って、中心三次直線を完全対称化の逆写像で可換三次直線へ送るだけでは、
+Poisson 構造付き三次への写像を定義できない。
+\end{proposition}
+\begin{proof}
+$w_h$ の中心性は定理\ref{thm:pair-full-fermat-center}の
+$L=e=m=0$ の場合である。
+全次数三の対称化は、$h=0$ で通常の対称代数への同型となる。
+相対次数成分の平坦性と有限表示から、その行列式は零関数でなく、
+函数体 $K$ 上では同型である。
+$\operatorname{sym}(xyz)=T/6$ なので、表示した $H_h$ が一意な逆像である。
+一方、$f$ と $u,v$ は上の Poisson 括弧の中心に属し、
+\[
+ \{x,xyz\}=h x(z^3-y^3),
+ \qquad
+ \{x,H_h\}=-\frac{2h^3}{3}x(z^3-y^3)\ne0.
+\]
+この次数四の多項式が $(H_h)$ に入るなら、
+$\{x,H_h\}=\ell H_h$ となる一次式
+$\ell=a_xx+a_yy+a_zz+a_uu+a_vv$ が存在する。
+右辺の $u^4,u^3v,u^3x,u^3y,u^3z$ の係数は
+それぞれ $a_u,a_v,a_x,a_y,a_z$ であるが、左辺は $u$ を含まない。
+従って $\ell=0$ となり矛盾する。
+射影化後にも失敗することを確認する。
+$u\ne0$ の chart で
+$X=x/u,\ Y=y/u,\ Z=z/u,\ V=v/u$ と置くと、
+\[
+ \begin{aligned}
+ \overline H=H_h/u^3
+ &=\frac{X^3+Y^3+Z^3}{3}-\frac{2h^2}{3}XYZ+1+V^3,\\
+ \{X,\overline H\}&=-\frac{2h^3}{3}X(Z^3-Y^3).
+ \end{aligned}
+\]
+$u$ が Poisson 中心なので、右の括弧はこの chart の括弧である。
+$\overline H$ は $V$ に関して monic 三次であるが、括弧は $V$ を含まない
+非零多項式である。従って $(\overline H)$ に属さず、
+射影超曲面 $V_+(H_h)$ もこの ambient 括弧の Poisson 部分多様体ではない。
+なお $V_+(H_h)$ は一般の $h$ で滑らかである。
+実際 $h=0$ では五変数 Fermat 三次なので、その判別式は零多項式ではない。
+この反例の失敗は可換三次の特異性によるものではない。
+\end{proof}
+
+\begin{remark}[この障害の範囲]
+二次関係の graph から ambient の Poisson 構造を復元する操作自体は
+$\operatorname{GL}_5$-同変である。
+問題は、その Poisson ambient の古典 Casimir と量子中心三次との同定にある。
+上の命題は、適切な量子補正を施した中心同定や、別の内在的な逆量子化の
+不存在を主張するものではない。
+また、Kuznetsov 成分から復元した可換三次は、ここでの素朴な $V(H_h)$ と
+同じであるとは証明していない。
+\end{remark}
+
+\begin{remark}[形式量子化文献の適用範囲]
+Yekutieli \cite[Corollary~11.2]{YekutieliTwisted} は
+$H^1(\mathcal O_X)=H^2(\mathcal O_X)=0$ の下で、
+完備局所 parameter algebra 上の Poisson 変形と結合的変形の
+gauge 同値類を比較し、一次括弧と係数変更を保つ。
+可換積自体が変わり得る比較であり、
+固定した層上の bracket と star product の比較である
+同論文 Corollary~11.3 はさらに $H^1(T_X)=H^1(\mathcal D_X)=0$ を要求する。
+三次三様体では $h^1(T_X)=10$ なので、この固定積版を直接は用いない。
+Pym \cite[Theorem~2.3 and the following paragraph]{Pym} の
+解析芽の同型は Artin 近似で得られ、元の Kontsevich 形式同型と一致するとは限らない。
+同論文 Proposition~2.9 と Theorem~2.10 は
+規格化 Koszul CY 変形芽と unimodular Poisson 錐の局所比較を与える。
+これらの定理の結論には、一般の非可換点での標準的な代数的逆量子化、
+量子中心三次と古典 Casimir の同変な対応、
+指定した残余射 $\rho$ との両立は含まれない。
+\end{remark}

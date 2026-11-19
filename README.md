@@ -1,12 +1,16 @@
 # 非可換三次三様体と非可換P^4のモジュライ
 
-2026-11-19 / research-plan-v11。研究再開は最初に[研究方針](00_research_plan.md)を読む。
+2026-11-19 / research-plan-v12。研究再開は最初に[研究方針](00_research_plan.md)を読む。
 
 **現在は、構造対象Oだけを標識したAbel圏のモジュライとして、非可換三次三様体の射・変形・二次包絡を比較している。** 許容豊富列の存在を条件とし、列の選択を忘れる。数学的重要性、新規性、理解の深化、応用可能性、正確性と実現可能性を総合して研究全体の価値を最大化する。
 
-[主原稿 v17](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
+[主原稿 v18](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
 
 ## 現在の到達点
+
+- **[Poisson構造付き三次への持上げ](papers/sections/poisson_cubic_lifts.tex)**：17次元非空開上で、Kuznetsov残余射ρに両立する非零Poisson構造付き三次への支配的な射を構成した。相対有理座標の選択を含む。scheme atlasからの合成は縮小後étaleだが、双有理性や選択を不要とする逆量子化は未証明。
+- **可換点の全Abel形式近傍では、残余射rに両立するPoisson形式近傍との同型まで得た。** 既存の全Artin中心商表示、CY orientationを使わないcompact/proper模型とO(1)持上げの一意性によりrを構成する。量子化比較と形式座標補正を選ぶため非標準的。形式fiberはGr(2,5)アフィン錐の頂点完備化で、次元7・接空間10。
+- **中心三次の単純な対称化逆像には反例がある。** Fermat中心式から得る滑らかな三次が、対応するambient Poisson括弧のPoisson超曲面にならないことを射影chart上でも証明した。量子補正を含む内在的持上げの不存在は主張しない。
 
 - **[Kuznetsov成分による17→10のモジュライ射](papers/sections/kuznetsov_moduli_morphism.tex)**：17次元Jacobian型Abel圏モジュライC_Jの非空開Uから滑らかな可換三次の10次元モジュライへの支配的な射ρを構成した。ρ(c)は残余圏がKu(X_c)とdg Morita同値になる唯一の三次の同型類である。さらに縮小すれば、自己同型が自明なtargetの非空開Vへの相対次元7の滑らかな全射U→Vとなる。
 - **同じ開で残余圏と全compact tailsは相対dg smooth proper。** [相対残余構成](papers/sections/kuznetsov_relative_category.tex)は任意導来底変更と全O-marked Abel同値に自然である。形式的な幾何的認識、係数perfectな核の効果化、Serre安定な像の生成性、有限表示降下とcategorical Torelliを使う。étale局所で三次族と相対同値を得る。
@@ -31,7 +35,7 @@
 - **同じ節で、全O保存相対同値の比較とA4→M^Oのmonomorphismを得る。** Compact対象の内在性、普遍的二次中心、既存B_*の剛体性入力とCartierの定理を使う。非被約な有限型C基底も含め、異なる係数はO-marked圏同値で同一視されない。開埋込み・4次元成分・atlasは主張しない。
 - 既存の41→37、17→13、一般fiber4の有限係数族と、正規超曲面対のgcd周期性の証明を保持する。全AS/Zモジュライの大域成分性とは区別する。
 
-現在の中心課題は、ρの七次元fiberを接合データとして記述すること、全Abelモジュライ内でのJacobian部分stackの位置、全Abel形式近傍への残余射の拡張である。実際の17係数族の幾何化と、全Abelの非周期的Z代数模型の相対残余構成は区別する。一般の係数perfect dg代数について「特殊smoothなら一般smooth」という命題(FS)は偽であり、ノート§1.8.2に反例を記す。今回の証明は相対Serreと三次成分固有の生成性を使う。詳細な達成基準と着手方法は研究方針にある。
+現在の中心課題は、非可換構造の量子化としての意味を保つPoisson持上げ、ρの七次元fiberの接合データ、全Abelモジュライ内でのJacobian部分stackの位置である。全Abel可換点の形式残余は完成した。実際の非標準的持上げと特定の形式同型の一致・代数化は未証明であり、中心三次の補正とKuが復元する三次との一致を優先する。一般の係数perfect dg代数に対する(FS)の反例はノート§1.8.2に保持する。詳細な達成基準は研究方針にある。
 
 ## 再現
 
@@ -53,7 +57,7 @@ python3 computations/verify_central_symmetry.py --output build/central_symmetry.
 
 LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用。新atlas点の検算はPython3標準ライブラリと同梱の多項式helperのみで実行できる。PDF・中間物はGit追跡しない。既存計算の実行日・hashを保持し、今回の再実行とは区別する。
 
-2026-11-19の既存検証ではatlas点の150×38微分行列のrank37、全Poisson微分のrank113、整数上の積零・スカラー核、Δ非消滅を実行確認し、独立再実行の小証明書も一致した。これはstack降下・普遍中心・全Abel同値の計算証明ではなく、それらには書かれた証明と別々の読み合わせがある。今回の残余射の証明は、一次資料の仮定確認と別々の読み合わせを行った。新しい古典三次支配性の証明書を実行し、別実行で再生成した証明書との一致も確認した。既存の数値計算は再実行していない。参照・引用の静的検査も通過した。先行組版試行は `lualatex.fmt` 不在で停止しており、現行v17の組版は実行していない。現行PDF生成・視覚確認は未完了。詳細は[検証状態](validation.json)。
+既存の2026-11-19の計算証明書は、atlasのrank37、全Poisson微分のrank113、Δ非消滅、古典三次への支配性の35次minor等を保持する。今回のPoisson持上げと形式残余の証明は、一次資料・既存入力の適用条件・別々の読み合わせを確認した。対称化反例の括弧とideal判定も記載した代数式から点検した。既存の数値計算は再実行していない。参照・引用の静的検査を行い、組版とは区別する。先行組版試行は `lualatex.fmt` 不在で停止し、現行v18の組版は実行していない。現行PDF生成・視覚確認は未完了。詳細は[検証状態](validation.json)。
 
 ## 関連する独立研究
 

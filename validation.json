@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
-  "version": "research-plan-v11",
-  "scope": "Proved a dominant morphism from a nonempty open of the smooth17-dimensional Jacobian O-marked Abel moduli stack C_J to the10-dimensional moduli of smooth commutative cubic threefolds, characterized by dg Morita equivalence of residual Kuznetsov components. After shrinking to an automorphism-free target open, it is a smooth surjection of relative dimension7. Etale locally there is a cubic family and relative Morita equivalence. Residual categories and full compact tails are relatively dg smooth proper on this17-dimensional open, compatible with arbitrary derived coefficient change. Formal recognition, coefficient-perfect effectivity, enriched Serre comparison, target-specific thick generation, algebraic quantization bridge, finite-presentation spreading, Torelli descent and dominance are supplied. Full-Abelian-formal residual comparison and full-M openness/componenthood remain outside the result.",
-  "reviewed_repository_commit": "8c037c64f686fc825a1c12c8182c40b208556c3b",
+  "version": "research-plan-v12",
+  "scope": "Constructed a noncanonical dominant algebraic lift of the existing Kuznetsov residual morphism rho from a nonempty open of the17-dimensional O-marked Jacobian Abel moduli to nonzero Poisson cubic-threefold pairs, compatible with forgetting Poisson. A17-dimensional scheme atlas can be shrunk so its composite is etale; no representability, finite-morphism or birational claim for the stack map. Constructed the actual residual map on all framed Abel Artin deformations at every smooth commutative cubic, and a noncanonical formal Poisson-pair isomorphism over this actual Ku base. Formal residual fiber is the completed affine Plucker cone of Gr(2,5), dimension7 and tangent dimension10. Proved failure of naive inverse symmetrization of a quantum central cubic, including on a projective chart. Intrinsic quantization-compatible algebraic dequantization remains unproved.",
+  "reviewed_repository_commit": "c0d93da2b899f37a796f95c5d46b359078486fb1",
   "reference_commits": {
     "poisson-p4": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
     "nc-cubic": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
@@ -19,7 +19,7 @@
     "degree_three_obstruction": "B3=R^34 direct_sum R/I and I=Fitt_34(B3) retained. Complete nilpotent sorting proof establishes degree-three flatness iff all-degree flatness for nonperiodic quadratic Z-algebras with polynomial special fibre. Independently reviewed. General Koszul deformation principle is established literature, PP Ch6 Thm7.3, not claimed new.",
     "rigid_ambient_application": "The retained PBW, AS5, CY and Aut_gr(B_*)(C)=C* inputs are explicit. Cartier characteristic-zero smoothness upgrades the finite-type automorphism group scheme to Gm. Quadratic envelope and leading gamma coefficient then prove arbitrary-coefficient graded isomorphism iff f=g. Compact relative Hom and fixed-family fpqc Hom descent give a monomorphism A4→M^O on finite-type complex tests. No open immersion, atlas or component assertion.",
     "retained_results": "Existing 41/37 and17/13 constructions, gcd periodicity, all-Artin envelope, square-zero obstruction and formal-ring proofs retained. New universal coefficient, finite central, Serre and full-family relative comparison proofs were reviewed. The complete older PBW/CY/rigid calculation proofs were not newly reconstructed, and unchanged calculations were not rerun.",
-    "novelty": "All stated general inputs are established literature. New concrete arguments and their combination for the17-dimensional Jacobian Abel family are written and internally reviewed; priority and exhaustive novelty checking are unfinished. This is not external human peer review. Prior retained results are not all independently reproved in this pass.",
+    "novelty": "Fixed-cubic Poisson Grassmannian, deformation quantization inputs and relative transcendence-basis arguments are established results/methods. The current concrete additional work is the all-Abel residual construction, compatible formal product, application to the existing17-dimensional moduli morphism, and explicit naive-center obstruction. These statements have written proofs and internal independent readings. Exhaustive priority checking, full audit of retained inputs and external human review remain unfinished.",
     "square_zero_obstruction": "Complete proof independently reviewed: Schur residual Theta=delta(q_(i+1)-q_i)=F lambda; delta^2=0 and injectivity on constant three-cochains force lambda=0. Valid for any nonzero cubic, no smoothness, with dim V>=4; written in five-variable case. General Artin I subset m^2 follows by Fitting base change. Nonlinear Jacobi corrections prevent naive higher-order induction.",
     "homogeneous_quantization": "CFT arXiv:math/0012228v3 §3, Thm3.1, Prop3.3 and Cor5.2(iv) checked. Finite nilpotent substitution, graph-degree preservation, alpha=Pi/2 normalization, quadraticity via split-kernel Nakayama, and central cubic regularity supplied explicitly. Full graded Hochschild/Poisson gauge classification is not assumed.",
     "actual_artin_comparison": "Relative Poisson functor is prorepresented by T, using lifted polarization, relative bivector/Jacobi calculations and the formal PGL slice; H0(T_X)=0 removes infinitesimal automorphisms. Yekutieli makes Ass represented by the same T. The actual constructed map has injective 20-dimensional tangent map, hence induces an invertible continuous endomorphism of T. No higher agreement of independent quantization coordinates is assumed.",
@@ -48,7 +48,7 @@
     "general17_admissibility": "Central u,v flatness yields universal saturation by a direct Cech-intersection splitting of torsion extensions. The rank12 commutator map is universally split injective, yielding quadratic center Sym²U. Degree-one generation gives even Veronese Gabriel equivalence and fully faithful full-integer section right adjoint without noetherianity. Keeler corrected v5 gives strong noetherianity of the elliptic THCR and filtered algebras; six-step dimension shift and cdΓ_B<=5 give ordinary/even ample sequences over noetherian coefficients.",
     "general17_all_hom": "Exact S-linear equivalences preserve unbounded compacts. Coherent iteration of Serre^-1[3]=(2) identifies the even orbit algebra; choice differences are degree scalars by faithful adjacent Hom. Full-integer Gabriel sections determine actual equivalences, the μ2 Isom lift supplies local degree-one isomorphisms, and marked2-autos vanish. Fixed canonical family fpqc Hom descent is retained. Independent readings found no concrete gap; not external peer review.",
     "general17_finite_isom": "With A1=A1prime=S5 and standard cubic Hilbert ranks, I2⊂V² has rank10 and I3⊂V³ rank91. Quadratic+cubic presentation identifies Eq_O with the closed finitely presented subscheme of PGL5 preserving both relation subbundles, valid for nonreduced S. On the explicit Δ open intersected with the existing slice open, complex Abelian isoclasses have Rosenlicht transcendence degree17. Quadratic envelopes and cubic kernel lines are functorial under every such equivalence. These Isom equations alone do not imply an atlas. The additional Jacobian chart construction supplies a 17-dimensional algebraic full substack; full-stack algebraicity and a claim about all ambient Abelian equivalences remain outside the result.",
-    "scope_consistency": "The plan, notes, abstract, introduction, conclusion and README distinguish the algebraic Jacobian full substack from the entire Abel moduli problem. The residual theorem now proves relative dg smooth properness on a full17-dimensional nonempty open; finite-order4/15/16 families remain valid independent results. All-Artin geometric recognition of Ku is proved, whereas a natural residual map on every full Abel deformation is not yet proved. O(1) need not descend, because base-line twists cancel in mutation. Global Morita kernels and equality of output cubic with input F are not asserted.",
+    "scope_consistency": "Plan, notes, abstract, introduction, conclusion, README and AGENTS distinguish the relative-coordinate algebraic Poisson lift, the Ku-compatible formal isomorphism, and unproved choice-independent dequantization. Full-Abel Artin residual construction is now proved using the existing ordinary central model and CY-free compact/proper inputs. Source O(1) descent is not claimed; the commutative target ambient splits by omega(2D). Full-M algebraicity/componenthood and generic-fiber birationality remain open.",
     "jacobian_etale_atlas": "The dominant equal-dimensional PGL5×T_B→Q113 map is generically etale in characteristic zero. Flat base change of the etale locus and universal group translation give E=G×T_B^e as open subschemes, and Y=a(E) is invariant open. T_B^e→[Y/G] is an actual etale surjective atlas. Quotient algebraicity/DM criteria use checked Stacks results; no extra finite-stabilizer assumption or Pym analytic/formal comparison is needed for this construction.",
     "jacobian_universal_centers": "On every P_B-algebra S, Z(B_S)_1=Su+Sv and Z(B_S)_3=S G + Sym^3(Su+Sv). Low-degree THCR center vanishing and active leading symbols compute closed fibers. PBW splits the candidate centers; the induced finite-projective commutator map is fiberwise injective and locally split, proving arbitrary nonflat base change. On Y use GL5×T_B^e as a further fpqc cover; no global GL lift of the universal PGL element is presumed.",
     "jacobian_affine_four": "J=P_Y(E) minus P_Y(W), with ranks(E,W,L)=(5,4,1), represents splittings of E→L and is a torsor under Hom(L,W). Central weights3 cancel on Hom and projective lines, so the bundle and J descend to PGL. Affine fpqc descent proves C_J→B_J is scheme-representable, affine, smooth, surjective of relative dimension4. Pullback atlas is exactly T_B^e×A4; global zero/splitting is not chosen.",
@@ -59,23 +59,28 @@
     "finite_order_field_scope": "CSBG center-lifting/global-open are explicitly over an arbitrary algebraically closed characteristic-zero field. The proof uses total chart U=D_u[three cubic coefficients], Rains2.13, reduced Jacobson constant-rank matrices and RSV2.1. It does not use very-general points or uncountability. Apply independently to B and Bop; inverse boundary translation preserves finite order.",
     "torsion_base_relative_smooth": "For integral affine Z in T0 with finite-order geometric generic boundary, put F=C(Z)(eleven mixed), K=F(four cubic). Choose Fbar inside Kbar. Fixed ambient regularity over Fbar applies because cubic coefficients remain algebraically independent. Left/right qgr global dimension3 gives Dbcoh=Perf via twist generation, and a finite-central projective model exists at the geometric generic point. Global diagonal lemma, field descent and generic spreading give a nonempty principal open in Z times A15 with arbitrary-base relative smooth properness. Uniform choice of center over the whole base is not needed. Fixed ambient A4 is proved separately, not by assuming every A4 fiber meets an A15 open.",
     "torsion_curves_density": "T0 is an affine open of the Hesse elliptic surface: p=2-b,q=-(2+b),r=-6a,p-q=4 and mu=(p^3+q^3+r^3)/(pqr). WWY2.13 identifies sigma with translation by [p:q:r]. Infinite torsion on each smooth Hesse fiber proves density in T0. E[n] is finite etale over the mu-line, via relative differential n and proper quasi-finiteness; connected components of E[n] intersect T0 are smooth integral affine curves. Every open W in atlas meets one such Z times A15. Intersecting two nonempty opens in that integral16 base proves the dense16-family theorem. No embedded-substack or full17 open claim.",
-    "formal_quantization_route": "Actual18-parameter algebraic h-bridge proved over one finite-denominator base, with d(0)=256. Mori-Smith applies at every h including0. Constant closed-fiber Hilbert rank over the reduced base gives projective pieces on the same base, and potential self-duality gives true relative CY5. The h-notzero chart is a rational coordinate change to the original17-parameter family. Special F is generically smooth by an explicit witness; its GL5 orbit plus17 coefficient differential has rank35 by the new certificate. The formerly proposed general FS implication is false; explicit counterexamples are retained in notes1.8.2 and no proof relies on it.",
+    "formal_quantization_route": "Actual18-parameter algebraic h-bridge proved over one finite-denominator base, with d(0)=256. Mori-Smith applies at every h including0. Constant closed-fiber Hilbert rank over the reduced base gives projective pieces on the same base, and potential self-duality gives true relative CY5. The h-notzero chart is a rational coordinate change to the original17-parameter family. Special F is generically smooth by an explicit witness; its GL5 orbit plus17 coefficient differential has rank35 by the retained certificate. The formerly proposed general FS implication is false; explicit counterexamples are retained in notes1.8.2 and no proof relies on it.",
     "relative_kuznetsov": "Finite dg mutations give the left projector, both adjoints, finite compact generator and enriched relative Serre autoequivalence with inverse and arbitrary derived base change. The residual category descends along every O-marked Abel equivalence even without global O(1). Euler chi(G2,G2)=-9 and chi(G,G)=-2925 guarantee every field fiber is nonzero. Proper relative Kronecker5 gluing proves full tails smooth iff residual smooth.",
     "ku_formal_recognition": "Kuznetsov HH table has only HH0=k, HH2=k10. JLLZ identifies the actual geometric Kodaira-Spencer map. Lurie tame1-proximate comparison is(-1)-truncated, hence pi0-injective. The controlling Lie cohomology is in odd degrees-1,1 only, so transferred minimal L-infinity operations vanish by parity. The geometric formal10-disk fills the hull via the formal inverse theorem, proving recognition on ordinary local Artin bases. pi1=0; scalar pi2 is retained. Universal algebraic comparison gives arbitrary k/C.",
     "ku_effective_serre_embedding": "Compatible kernels are effectivized as coefficient-perfect complexes using Bhatt Lem4.2; derived-complete End_R(P) effectivizes both actions. No Gamma-perfect effectivity is presumed. Smoothness of geometric target implies right-target perfectness. Derived Nakayama on the coefficient-perfect cone of E→End_D(P) gives full faithfulness. Enriched trace/Yoneda gives a coherent Serre comparison, an isomorphism by special-fiber Nakayama. Generic Serre and inverse-Serre stability use E and S_E^-1 E, without assuming every generic object lifts.",
     "ku_serre_thick_generation": "Stevenson Thm6.13 classifies all thick subcategories of an affine locally-hypersurface singularity category; isolated cone singularity gives ungraded simplicity. Explicit gradedization G and forgetting F give GF(P)=direct_sum P(a), and F is conservative by homogeneous contracting homotopies. Finite-rank matrix factorizations are compact; Neeman Lem2.2 turns localizing generation into thick generation. Orlov MF/window equivalence and rotation=S[-1] give Serre-stable thick simplicity for smooth cubic threefold Ku. Together with nonzero Euler this makes the effective generic embedding an equivalence.",
     "ku_spreading_descent": "Field descent first gives smoothness at the17-dimensional function field. Perfect equivalence and inverse kernels, unit and counit descend along filtered coefficient colimits (TV2.10). A closed point of a finitely generated subalgebra gives a finite extension, separable in characteristic0; normalization and localization give a finite-etale cover. Relative kernels and inverse identities spread on an open. BMMS categorical Torelli, extended to k/C by finite-presentation spreading, identifies coarse maps on reduced overlaps; separatedness and etale descent give the actual morphism on C_J. No algebraicity of a general stack of dg categories is assumed.",
     "ku_dominance": "The exact35-minor of the GL5-plus-coefficient differential is nonzero modulo1000003, so the classical17-parameter family dominates cubic moduli. The closure of the residual image contains the generic and hence special points of the h-adic geometric cubic deformation. It therefore contains the dominant classical family. Restriction to the nonempty automorphism-free open and characteristic-zero generic smoothness yield a smooth surjection of relative dimension7.",
-    "counterexamples": "Notes1.8.2 contains checked counterexamples to general compact-Gamma formal effectivity, generator-locus openness even in smooth proper P1, and coefficient-perfect special-smooth→generic-smooth (even with all Artin cuts geometric smooth proper). The last example has cohomological coefficient torsion and does not disprove separately cohomology-flat statements. The current proof uses coefficient-Perf effectivity, enriched Serre and cubic-specific thick generation instead."
+    "counterexamples": "Notes1.8.2 contains checked counterexamples to general compact-Gamma formal effectivity, generator-locus openness even in smooth proper P1, and coefficient-perfect special-smooth→generic-smooth (even with all Artin cuts geometric smooth proper). The last example has cohomological coefficient torsion and does not disprove separately cohomology-flat statements. The current proof uses coefficient-Perf effectivity, enriched Serre and cubic-specific thick generation instead.",
+    "full_abel_artin_residual": "Existing thm:abel-cubic-flat-envelope(iii) supplies A_R=B_R/(w_R) for every full framed Abel Artin deformation. Finite universal Koszul resolution plus B/A derived torsion comparison, requiring inputs(1),(2),(4) but no CY orientation, gives the five-line compact generator via -tensor_B^L A and conservative restriction. Universal line Hom gives coefficient-perfect End(G) and arbitrary derived base change. Unique O_X(1) lift and scalar cancellation give invariance under framed O-marked equivalences. Ind Perf(E_R) with special Morita framing is an actual CatDef_c object; no source-smoothness premise is used. Commutative families map to their own Ku.",
+    "relative_poisson_cone": "Target ambient Brauer-Severi P4 bundle splits because omega_B/V(2D) restricts to O(1). Relative conormal/Euler computations give ranks10/15 and arbitrary base change. Mayanskiy Schouten-Plucker formula plus fiberwise independence of five partial derivatives gives a locally split injection; therefore scheme ideals, not only point sets, agree. Nonzero cone has A6 times Gm big cell and is relatively smooth of dimension7. Poisson scale is retained.",
+    "ku_compatible_formal_poisson": "Choose existing quantization comparison Q of R_X=A0[[s1,...,s10]], A0=C[[a_ij]]/Pfaff4. Actual residual r gives rQ=f(s,a), f(s,0)=s. Theta=(f,a) is an A0-linear formal automorphism for the maximal-ideal topology even though A0 is singular. Theta Q^{-1} is over the actual Ku base, identity on commutative locus. Formal fiber is completed cone dimension7/tangent10. No algebraization/convergence or equality of uncorrected Q^{-1} with this lift is asserted.",
+    "algebraic_poisson_lift": "For K=C(V), L=C(C_J), choose separating relative transcendence basis t1,...,t7, remove invariant poles and t7=0, and map into a01-notzero Plucker chart. This gives an actual dominant stack morphism over rho, natural under all O-marked equivalences once choices fixed, with finite separable function-field extension. A dominant17-dimensional etale atlas is generically etale over the target; restricting its etale locus and image gives the stated atlas. No proof of degree1 or intrinsic semi-classical meaning.",
+    "symmetrization_obstruction": "Retained Fermat central formula gives w=f-h^2 T/9+u^3+v^3. Generic sym is invertible by its h=0 specialization, with inverse H=f-2h^2 xyz/3+u^3+v^3. Direct derivation yields {x,H}=-2h^3 x(z^3-y^3)/3. Coefficient comparison excludes ideal(H). On u-notzero chart, Hbar is monic cubic in v/u whereas the nonzero bracket has degree0 in v/u, excluding the projective Poisson-subvariety claim as well. Generic H is smooth by Fermat specialization. This is a written algebraic proof, not a new numerical test, and does not disprove corrected dequantization."
   },
   "static": {
-    "tex_inputs": 28,
-    "labels": 519,
-    "references": 640,
-    "citations": 235,
+    "tex_inputs": 29,
+    "labels": 526,
+    "references": 663,
+    "citations": 241,
     "bibliography": 78,
     "sha256": {
-      "papers/nc_cubic_threefold_moduli.tex": "e939c60d797f231c864e96bef29b8fa46149258aa917aa0e5508e0c7ea67f77f",
+      "papers/nc_cubic_threefold_moduli.tex": "0bda9d0cd0ccd7f1b3f1b7aee94e021841c1df0876dd2bd3c4a2dcb7c93098f0",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "7bed0be351ce4ff5835262c1db567e6fd3a0388d52af8626d6878af505540b36",
       "papers/sections/categorical_moduli_comparison.tex": "01ca7597e876688b4233e195fff0de9ad85d812f0fce550679198f7205f1e1f8",
@@ -100,8 +105,9 @@
       "papers/sections/jacobian_abel_comparison.tex": "4374ceed421c139607e8510354ee551002f1abd696a69d8f313a796e5e77fce9",
       "papers/sections/jacobian_moduli_chart.tex": "b725cc9f281c15025e2548a1cd82fb9687e4749984c971e24bc2e6f0a4aca720",
       "papers/sections/dg_smooth_torsion_families.tex": "268a3e9e2eeb9c0c7d324501b8c18d18c8ba37ec8c8679b7e124498a9ef8812b",
-      "papers/sections/kuznetsov_relative_category.tex": "0606a429546ff767fb006de6c44706f10d70f1f859837203b27879d488dd2051",
+      "papers/sections/kuznetsov_relative_category.tex": "563182a2aca108b0248fb4cb24d6c23676cef2d793244ec5cfd1758fd2125ee0",
       "papers/sections/kuznetsov_moduli_morphism.tex": "dd1ba12fa1afddb452be23a0ec7ba536d52a1ebb9efbbefb21b0197fa0b39959",
+      "papers/sections/poisson_cubic_lifts.tex": "2055b270f44e27d2b12e5b5a92485c981aee288ffd37e0c975cfd90db22882e6",
       "papers/sections/central_pair_finite_order_regularity.tex": "07b623b111c44ea6ff1d8d6761a1ab0df005dcd5fc594294d9b711bb5db81b10"
     },
     "limit": "Static closure only, not mathematical proof audit.",
@@ -112,27 +118,20 @@
         "environments": "passed"
       },
       {
-        "path": "papers/sections/dg_smooth_torsion_families.tex",
-        "braces": "passed",
-        "environments": "passed"
-      },
-      {
         "path": "papers/sections/kuznetsov_relative_category.tex",
         "braces": "passed",
         "environments": "passed"
       },
       {
-        "path": "papers/sections/kuznetsov_moduli_morphism.tex",
+        "path": "papers/sections/poisson_cubic_lifts.tex",
         "braces": "passed",
         "environments": "passed"
       }
     ],
-    "markdown_local_links": 19,
+    "markdown_local_links": 20,
     "all_links_exist": true,
-    "unchanged_existing_computation_files": 22,
-    "certificate_source_and_input_hashes_match": true,
-    "new_certificate_independent_regeneration_match": true,
-    "certificate_check_scope": "New dominance certificate regenerated in a separate invocation and byte-equal; source/helper hashes verified. Existing computation assets byte-identical to baseline, not rerun."
+    "unchanged_existing_computation_files": 24,
+    "certificate_check_scope": "All24 retained computation assets byte-identical to the confirmed baseline. No numerical calculation or certificate regeneration performed in this review."
   },
   "computations": [
     {
@@ -265,6 +264,7 @@
     "computations/verify_central_pair_centers.py",
     "computations/verify_central_pair_orbits.py",
     "computations/verify_central_symmetry.py",
+    "computations/verify_commutative_dominance.py",
     "computations/verify_directed_p3_syzygy.py",
     "computations/verify_general17_open.py",
     "computations/verify_jacobian_etale_point.py",
@@ -279,27 +279,28 @@
     "command": "latexmk papers/nc_cubic_threefold_moduli.tex",
     "attempted": false,
     "status": "not_executed_missing_required_format_and_japanese_packages",
-    "reason": "Current kpsewhich checks return no lualatex.fmt, ltjsarticle.cls or luatexja.sty. The retained same-date build attempt stopped before body processing. Current v17 was not compiled.",
+    "reason": "The retained same-date environment diagnosis found no lualatex.fmt, ltjsarticle.cls or luatexja.sty; the prior attempt stopped before body processing. Current v18 was not compiled.",
     "environment_diagnosis_on": "2026-11-19",
     "pdf_generated_in_this_review": false,
     "visual_inspection_in_this_review": false,
-    "scope": "Current v17: TeX input/reference/citation closure and modified-file brace/environment checks passed. No PDF or visual typesetting verification.",
-    "current_manuscript": "v17",
+    "scope": "Current v18: TeX input/reference/citation closure and modified-file brace/environment checks passed. No PDF or visual typesetting verification.",
+    "current_manuscript": "v18",
     "current_manuscript_build_executed": false
   },
   "open_scope": [
-    "Moduli interpretation and explicit classification of the smooth seven-dimensional fibers over a fixed Ku(X), including the relation to the existing four-dimensional quadratic-envelope torsor.",
-    "Formal completeness and openness/local closedness/componenthood of C_J inside the full O-marked Abel moduli problem; finite Hom comparison alone does not prove lifting of every deformation.",
-    "Concrete finite stabilizers/residual slice identifications, separatedness or finite diagonal and global coarse moduli for C_J.",
-    "Finite-type algebraicity, atlas and componenthood for the entire O-marked Abel moduli problem.",
-    "Explicit equations for the existential geometric residual/smooth proper open and a maximal regular locus; output cubic equations and possible quantum corrections to the input F.",
-    "A residual dg construction on every full-Abelian Artin deformation, including nonperiodic Z-algebra and normal-cubic models, needed for the conditional formal product statement in notes10.3.",
-    "Global Morita kernel and polarization descent; the proved equivalences are etale-local. Unframed finite-Aut(X) action and full2-stack comparison remain separate.",
-    "Relative periodization preserving the normal cubic ideal over general bases, intrinsic recognition of O, and reconstruction of bare Abel categories.",
-    "Optional direct higher-order envelope flatness without quantization and extension to singular cubics.",
+    "Choice-independent, quantization-compatible algebraic Poisson lift over the actual Ku morphism rho, including an equivariant corrected correspondence between the quantum degree3 center and classical Casimirs.",
+    "Algebraization/convergence of the chosen Ku-compatible formal isomorphism Theta Q^{-1}, agreement with an actual algebraic lift, and higher-order comparison of rho with the input cubic F.",
+    "Birational type of a general seven-dimensional algebraic fiber, degree1 of any finite function-field correspondence, gluing-moduli interpretation, and relation to the four-dimensional envelope torsor.",
+    "Formal completeness and openness/local closedness/componenthood of C_J at general noncommutative points inside the entire O-marked Abel moduli problem.",
+    "Concrete finite stabilizers/residual slice identifications, separatedness or finite diagonal, and global coarse moduli for C_J.",
+    "Finite-type algebraicity and atlas for the entire O-marked Abel moduli problem.",
+    "Explicit equations for the existential geometric residual/smooth proper open and a maximal regular locus.",
+    "Global Morita kernel and source polarization descent; unframed finite-Aut(X) action and full2-stack comparison. The commutative target ambient splitting is proved separately.",
+    "Relative periodization preserving normal cubic ideals over general bases, intrinsic recognition of O, and reconstruction of bare Abel categories.",
+    "Direct higher-order envelope flatness without quantization and extension to singular cubics.",
     "Exhaustive priority checking, external peer review, full independent audit of retained proofs, and current PDF compilation/visual verification."
   ],
-  "assets": "Current research plan v11, notes, Japanese LuaLaTeX manuscript v17, necessary source/code and small certificates; no old archives or generated build assets. Two new integrated sections give relative Ku and the17→10 morphism. Existing valid proofs and22 computation assets retained unchanged.",
+  "assets": "Current research plan v12, notes, Japanese LuaLaTeX manuscript v18 with one new integrated Poisson section, necessary sources and24 unchanged computation assets; no archives, duplicate drafts or generated build assets tracked. Previous valid proofs and useful counterexamples retained.",
   "primary_sources_checked": [
     {
       "key": "LowenVdBDeformation",
@@ -569,29 +570,42 @@
       "url": "https://web.ma.utexas.edu/users/allcock/research/3foldgit.pdf",
       "locations": "Theorem1.1, author PDF page2 visually checked by parallel reviewer: smooth cubic threefolds are GIT stable",
       "checked_on": "2026-11-19"
+    },
+    {
+      "key": "Mayanskiy",
+      "url": "https://arxiv.org/pdf/1303.5916",
+      "locations": "Section2.2, Lemma2 and Theorem1, printed pp9-11: exact Schouten formula, five Plucker quadrics and attribution to Loray-Pereira-Touzet. Used with relative split-gradient argument."
+    },
+    {
+      "key": "Pym",
+      "url": "https://arxiv.org/pdf/1403.6444",
+      "locations": "Theorem2.3 and following paragraph, printed p7: analytic germ isomorphism via Artin approximation may differ from the given Kontsevich formal isomorphism. Definition2.8, Proposition2.9 and Theorem2.10: normalized CY germ/component comparison."
+    },
+    {
+      "key": "YekutieliTwisted",
+      "url": "https://arxiv.org/pdf/0905.0488",
+      "locations": "Version5, parameter algebra definition; Theorem11.1 and Corollaries11.2-11.3, printed pp45-47. Complete local Noetherian coefficients, gauge classes, first-order brackets and coefficient/etale naturality. Cor11.3 adds H1(T),H1(D) vanishing."
     }
   ],
   "current_proof_review": {
     "files": [
-      "papers/sections/kuznetsov_relative_category.tex",
-      "papers/sections/kuznetsov_moduli_morphism.tex",
-      "notes/research_notes.md:1.8.2,10"
+      "papers/sections/poisson_cubic_lifts.tex",
+      "papers/sections/kuznetsov_relative_category.tex:scope",
+      "notes/research_notes.md:10"
     ],
     "dependencies": [
-      "papers/sections/dg_smooth_torsion_families.tex",
-      "papers/sections/koszul_relative_duality.tex",
-      "papers/sections/jacobian_abel_comparison.tex",
-      "papers/sections/jacobian_moduli_chart.tex",
-      "papers/sections/central_pair_explicit_centers.tex"
+      "papers/sections/abel_cubic_deformations.tex:thm:abel-cubic-flat-envelope(iii),cor:abel-universal-relative-cubic",
+      "papers/sections/central_pair_artin_formal_moduli.tex:prop:artin-ore-universal-cohomology,lem:artin-constructed-family-comparison",
+      "papers/sections/koszul_relative_duality.tex:lem:relative-koszul-torsion-model,lem:relative-cubic-torsion-comparison",
+      "papers/sections/abel_formal_descent.tex:cor:abel-full-stack-discrete-formal",
+      "papers/sections/kuznetsov_moduli_morphism.tex:prop:kuznetsov-formal-recognition,thm:kuznetsov-cubic-moduli-morphism",
+      "papers/sections/central_pair_explicit_centers.tex:thm:pair-full-fermat-center"
     ],
-    "method": "Root integration and separate parallel readings of relative projector/adjoints/enriched Serre/Euler/gluing, all-fiber algebraic PBW/CY bridge, formal recognition/effectivity, graded-MF generation, finite-field spreading/Torelli descent and dominance. No blocking gap identified in these reviews; clarifications on coherent towers, enriched Serre, generator-only generic stability and Orlov windows integrated. Counterexamples directly checked. Existing full-Abel and older PBW proofs retained, not all independently reconstructed. Not external human peer review.",
-    "numerical_calculation_needed": true,
-    "numerical_scope": "Only new classical dominance matrix computed; certificate independently regenerated by a separate invocation and byte-matched. Existing22 computation files unchanged and their scripts not rerun."
+    "method": "Root integration and separate independent readings of the relative Poisson cone, all-Artin residual generator/torsion/Morita framing, formal inverse map, transcendence-basis algebraic lift and central-cubic obstruction. Correct tensor order and A-side unbounded localization made explicit; projective-chart obstruction added. Primary Mayanskiy/Pym/Yekutieli formulas and scope read directly. No blocking gap found in the reviewed arguments; not external human peer review or full reconstruction of retained PBW/quantization inputs.",
+    "numerical_calculation_needed": false,
+    "numerical_scope": "No numerical computations or certificate regeneration performed. All24 existing computation assets byte-identical to confirmed baseline. New bracket and ideal nonmembership verified in the written algebraic proof."
   },
   "existing_computations_rerun_in_this_review": false,
-  "computations_executed_in_this_review": [
-    "python3 computations/verify_commutative_dominance.py --output build/commutative_dominance_independent.json"
-  ],
-  "review_scope": "The review dictionary also records currently valid retained proof dependencies. Only current_proof_review and computations_executed_in_this_review identify the present review. This is not a complete re-audit of every retained result.",
-  "existing_differential_recomputed_inside_new_script": "The new35x42 cubic differential is distinct from the retained150x38 atlas and375x150 Poisson differentials. It reuses only polynomial/rank helpers from verify_rat113_tangent.py; those older full calculations were not rerun."
+  "computations_executed_in_this_review": [],
+  "review_scope": "The review dictionary also records currently valid retained proof dependencies. Only current_proof_review and computations_executed_in_this_review identify the present review. This is not a complete re-audit of every retained result."
 }
