@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v16}
+\date{2026年11月19日・nc cubic moduli研究草稿 v17}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -166,19 +166,68 @@ potential 複体と中心二変数の Koszul 双対から相対 CY 同型を構�
 係数上 perfect な dg 代数の一般点からの拡張によって相対 dg smooth proper な族を得る。
 境界を固定した十五次元族、および torsion 曲線上の十六次元族の非空開を構成し、
 後者の合併が十七次元 atlas に稠密であることを示す。
-十七次元 atlas 自体の dg smooth な非空開は未証明である。
+さらに相対例外対から残余圏を任意係数上で構成し、
+Kuznetsov 成分を通じて十七次元部分 stack の非空開から
+可換三次三様体の十次元モジュライへの支配的な射を構成する。
+可換点の全 Artin 認識、係数 perfect な双加群の効果化、
+Serre 安定な非零部分圏の生成性を組み合わせて一般点の幾何性を証明し、
+有限表示と categorical Torelli によって開上へ降下する。
+この開では全 compact tails も相対 dg smooth proper である。
+さらに縮小すれば、射は自己同型が自明な三次の開モジュライ上で滑らかで、相対次元は七となる。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
 \tableofcontents
 
 \section{Introduction：主張と先行研究}\label{sec:intro}
-本稿の主問題は、非可換cubic threefoldをそのambientとは独立なデータから
-定義し、復元された非可換$\PP^4$へのモジュライ射の像とファイバーを調べることである。
+本稿の主問題は、非可換 cubic threefold を構造対象付き Abel 圏として扱い、
+二次包絡と Kuznetsov 成分から得る二つのモジュライ射を構成することである。
 \emph{一つの三次からambientが一意に定まることは、
 同じambientに一つしか三次がないことを意味しない。}
 本稿の中心三次族では後者に四次元の自由度があり、
 $17\longrightarrow13$という次元の射が自然に現れる。
+一方、定理\ref{thm:kuznetsov-cubic-moduli-morphism}では、
+同じ十七次元部分モジュライの非空開から可換三次の十次元モジュライへ
+Kuznetsov 成分による支配的な射を構成する。
+後者はさらに縮小して相対次元七の滑らかな射にできる。
+
+\paragraph{Kuznetsov 成分からの射と既知結果の役割.}
+可換三次の成分について、Kuznetsov \cite[Theorem~8.9]{KuznetsovHochschild}
+は Hochschild コホモロジーを計算し、
+Jacovskis--Lin--Liu--Zhang \cite[Theorem~4.4(2)]{JLLZInfinitesimal}
+は幾何的な Kodaira--Spencer 写像が同型であることを示している。
+本稿ではこれらに Lurie の tame な compactly generated 圏の変形比較
+\cite[Theorems~5.1.9, 5.3.16 and Proposition~5.3.21]{LurieDAGX} を適用し、
+通常の全 Artin 基底上で実際の圏変形の同型類が三次の変形から来ることを示す。
+スカラーの二次自己同型は残し、変形空間全体を離散群oidと同一視しない。
+この形式的認識だけでは、一般ファイバーの幾何性やモジュライ射の存在は従わない。
+
+次の追加段階が本稿の相対構成である。
+Bhatt \cite[Lemma~4.2]{BhattAlgebraization} により同値核の
+\emph{係数環上の} perfect 複体とその作用を効果化し、
+smooth な幾何的 target を使って完全忠実な埋込みを作る。
+指定した相対 dg Serre 双対と trace が像の Serre 安定性を保証する。
+Stevenson \cite[Theorem~6.13]{StevensonSingularityActions} の
+局所 hypersurface の特異部分圏分類に graded 化の議論と
+Neeman \cite[Lemma~2.2]{NeemanCompactLocalization} を加え、
+滑らかな三次の成分の非零 Serre 安定 thick 部分圏が全体であることを得る。
+ここでは Orlov の matrix factorization 比較
+\cite[Theorems~2.5 and~3.10--3.11]{OrlovSingularities} と
+rotation の公式 \cite{KuznetsovFractionalCY} を用いる。
+実際の有限係数量子化族と非零 Euler 数によって、この議論を
+十七次元 Jacobian 一般点へ適用する。
+
+最後に perfect 核の有限表示降下
+\cite[Lemma~2.10]{ToenVaquieObjects} と
+Bernardara--Macr\`i--Mehrotra--Stellari の categorical Torelli
+\cite[Theorem~1.1]{BMMSCubicTorelli} を用いて、非空開上の射を降下する。
+Torelli は既に幾何的と分かった成分から三次の一意性を与える入力であり、
+非可換族の幾何性そのものは上の効果化・生成性で証明する。
+一般の proper dg 代数に対する特殊点からの smoothness の持上げや
+compact 核の無条件な形式効果性は使わない。
+既知の各一般定理を新規結果とはせず、具体的な相対 Abel 圏の
+十七次元開上での射の構成と支配性を追加部分として扱う。
+この組合せの初出・新規性の網羅的な確認は未完了である。
 
 一般の$\mathbb Z$-代数による座標模型では、基礎的なデータは
 $(\mathcal C,(E_i)_{i\in\mathbb Z})$という豊富列付きAbel圏である。
@@ -1158,6 +1207,8 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/jacobian_abel_comparison.tex}
 \input{papers/sections/jacobian_moduli_chart.tex}
 \input{papers/sections/dg_smooth_torsion_families.tex}
+\input{papers/sections/kuznetsov_relative_category.tex}
+\input{papers/sections/kuznetsov_moduli_morphism.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1231,8 +1282,13 @@ $\mathcal O(1)$ と $(-2)[3]$ の無捩れな表示は atlas 上で扱い、
 この証明は既知の外積 generator、有限中心 Bertini、perfect 加群の連続性と、
 本稿の相対五線 dg 模型を組み合わせる。
 
-全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
-十七次元 atlas の一般点の dg smooth 性とその非空開、構造対象$\mathcal O$そのものの内在的認識は残っている。
+Kuznetsov 成分の全 Artin 形式認識と、相対 Serre 関手を使った効果化により、
+十七次元一般点の残余圏を可換三次の成分と同定した。
+有限表示への降下と categorical Torelli は実際の非空開上の射を与え、
+その射は支配的であり、さらに縮小して相対次元七の滑らかな射にできる。
+同じ開では残余圏と全 compact tails が相対 dg smooth proper である。
+全大域モジュライの代数性と成分性、任意の非可換点への全 Abel 形式比較の拡張、
+七次元ファイバーの接合データによる明示的分類、構造対象$\mathcal O$そのものの内在的認識は残っている。
 独立に選んだformality座標の下でのactual mapの全高次式の一致も未確認である。
 本稿は公表準備用の研究草稿であり、新しい結果の初出調査と
 保持した既存証明の全面独立監査は未完了である。
@@ -1240,6 +1296,7 @@ $\mathcal O(1)$ と $(-2)[3]$ の無捩れな表示は atlas 上で扱い、
 既存の17係数slice、分離型余次元15、混合中心、相対Picard、
 偶数Veronese、条件付き導来復元、固定剛体ambientと有限位数境界の結果は保持した。
 計算証明書は主に
+\nolinkurl{computations/verify_commutative_dominance.py}、
 \nolinkurl{computations/verify_jacobian_etale_point.py}、
 \nolinkurl{computations/verify_general17_open.py}、
 \nolinkurl{computations/verify_two_factor_stabilizer.py}、
@@ -1641,7 +1698,7 @@ Corollary~4.1。
 A.~Kuznetsov,
 \emph{Hochschild homology and semiorthogonal decompositions},
 \href{https://arxiv.org/abs/0904.4330v1}{arXiv:0904.4330v1} (2009).
-Theorem~8.3, Corollary~7.5 and Proposition~8.4。
+Theorems~8.3, 8.9, Corollary~7.5 and Proposition~8.4。
 
 \bibitem{CSBGRSVBertini}
 J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
@@ -1786,6 +1843,62 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 体上の乗法写像の有限性と、標数と互いに素な場合の \'etale 性。
 Hesse 族上の主張には本文の相対微分と properness の議論を加える。
 2026年11月19日確認。
+
+\bibitem{JLLZInfinitesimal}
+A.~Jacovskis, X.~Lin, Z.~Liu and S.~Zhang,
+\emph{Infinitesimal categorical Torelli theorems for Fano threefolds},
+\href{https://arxiv.org/abs/2203.08187v3}{arXiv:2203.08187v3} (2023),
+Theorem~4.4(2)。実際の幾何的 Kodaira--Spencer 写像を使用する。
+
+\bibitem{LurieDAGX}
+J.~Lurie, \emph{Derived Algebraic Geometry X: Formal Moduli Problems},
+November 5, 2011,
+\url{https://www.math.ias.edu/~lurie/papers/DAG-X.pdf},
+Theorems~5.1.9, 5.3.16 and Proposition~5.3.21。
+
+\bibitem{BKPFormalGenerators}
+A.~Blanc, L.~Katzarkov and P.~Pandit,
+\emph{Generators in formal deformations of categories},
+Compos. Math. \textbf{154} (2018), 2055--2089,
+\href{https://doi.org/10.1112/S0010437X18007303}{doi:10.1112/S0010437X18007303};
+\href{https://arxiv.org/abs/1705.00655v1}{arXiv:1705.00655v1}, \S3.3。
+
+\bibitem{BhattAlgebraization}
+B.~Bhatt, \emph{Algebraization and Tannaka duality},
+\href{https://arxiv.org/abs/1404.7483v1}{arXiv:1404.7483v1} (2014),
+Lemma~4.2。
+通常の係数環上の perfect complex の効果化として用い、
+任意の proper dg 代数上の compact 加群へ拡張しない。
+
+\bibitem{StevensonSingularityActions}
+G.~Stevenson, \emph{Subcategories of singularity categories via tensor actions},
+Compos. Math. \textbf{150} (2014), 229--272,
+\href{https://arxiv.org/abs/1105.4698v3}{arXiv:1105.4698v3}, Theorem~6.13。
+
+\bibitem{NeemanCompactLocalization}
+A.~Neeman, \emph{The connection between the K-theory localization theorem of Thomason,
+Trobaugh and Yao and the smashing subcategories of Bousfield and Ravenel},
+Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{25} (1992), 547--566,
+\href{https://doi.org/10.24033/asens.1659}{doi:10.24033/asens.1659}, Lemma~2.2;
+\url{https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/neeman-loc.pdf}。
+
+\bibitem{BMMSCubicTorelli}
+M.~Bernardara, E.~Macr\`i, S.~Mehrotra and P.~Stellari,
+\emph{A categorical invariant for cubic threefolds},
+\href{https://arxiv.org/abs/0903.4414v2}{arXiv:0903.4414v2} (2011), Theorem~1.1。
+複素数体上の定理を用い、拡大体への適用は本文で有限表示により帰着する。
+
+\bibitem{PoonenHypersurfaceAut}
+B.~Poonen, \emph{Varieties without extra automorphisms III: hypersurfaces},
+Finite Fields Appl. \textbf{11} (2005), 230--268,
+\url{https://math.mit.edu/~poonen/papers/projaut.pdf},
+Theorems~1.5--1.6 and Corollary~1.9。
+
+\bibitem{AllcockCubicGIT}
+D.~Allcock, \emph{The moduli space of cubic threefolds},
+J. Algebraic Geom. \textbf{12} (2003), 201--223,
+\href{https://doi.org/10.1090/S1056-3911-02-00313-2}{doi:10.1090/S1056-3911-02-00313-2};
+\url{https://web.ma.utexas.edu/users/allcock/research/3foldgit.pdf}, Theorem~1.1。
 
 \end{thebibliography}
 \end{document}

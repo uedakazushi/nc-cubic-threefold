@@ -1,0 +1,396 @@
+\section{相対Kuznetsov成分の構成と降下}
+\label{sec:relative-kuznetsov-construction}
+
+この節では第\ref{sec:relative-koszul-line-cohomology}節の
+相対入力を満たす三次商 $A=B/(w)$ を扱う。
+基底 $P$ 上の dg smoothness は仮定しない。
+任意の可換 $P$-代数 $S$ に対し
+\[
+ \mathcal C_S=D(\operatorname{QGr}(A_S))^c,
+ \qquad L_{i,S}=\mathcal O_{A_S}(i)
+\]
+と置く。以下の圏と関手は、非有界導来圏の標準 dg 増強で取る。
+従って評価写像の cone は dg 関手として構成し、
+単なる三角圏上での非関手的な cone の選択には依存しない。
+
+\subsection{相対例外対と有限な射影関手}
+
+\begin{theorem}[任意係数上の相対残余圏]
+\label{thm:relative-kuznetsov-projector}
+上の入力の下で、次が成り立つ。
+\begin{enumerate}
+\item $(L_{0,S},L_{1,S})$ は $S$-線型相対例外対であり、
+\[
+ \mathbf R\operatorname{Hom}(L_{i,S},L_{i,S})\simeq S,
+ \quad\mathbf R\operatorname{Hom}(L_{1,S},L_{0,S})=0,
+ \quad\mathbf R\operatorname{Hom}(L_{0,S},L_{1,S})\simeq (A_S)_1.
+\]
+最後の加群は階数五の有限射影 $S$-加群である。
+\item 相対 dg 部分圏
+\[
+ \mathcal K_S=\{M\in\mathcal C_S\mid
+  \mathbf R\operatorname{Hom}(L_{0,S},M)=
+  \mathbf R\operatorname{Hom}(L_{1,S},M)=0\}
+\]
+は admissible であり、半直交分解
+\begin{equation}\label{eq:relative-kuznetsov-sod}
+ \mathcal C_S=\langle\mathcal K_S,L_{0,S},L_{1,S}\rangle
+\end{equation}
+がある。
+\item $\mathsf L_L(M)=\operatorname{Cone}
+ (\mathbf R\operatorname{Hom}(L,M)\otimes_S^{\mathbf L}L\to M)$
+と置くと、
+\begin{equation}\label{eq:relative-kuznetsov-left-projector}
+ \mathsf P_S=\mathsf L_{L_{0,S}}\circ\mathsf L_{L_{1,S}}
+\end{equation}
+は包含 $\mathcal K_S\hookrightarrow\mathcal C_S$ の左随伴である。
+特に右側の $L_1$ に沿う mutation を先に行う。
+\item
+\begin{equation}\label{eq:relative-kuznetsov-generator}
+ G_S=\mathsf P_S\bigl(L_{2,S}\oplus L_{3,S}\oplus L_{4,S}\bigr)
+\end{equation}
+は $\mathcal K_S$ の classical generator であり、
+\[
+ E_{\mathcal K,S}=\mathbf R\operatorname{Hom}(G_S,G_S),
+ \qquad\mathcal K_S\simeq\operatorname{Perf}(E_{\mathcal K,S})
+\]
+を得る。$E_{\mathcal K,S}$ は $S$-perfect である。
+\item 任意の係数環の射 $S\to S'$ について、射影関手と上記 generator は
+導来係数延長と両立し、標準比較
+\[
+ E_{\mathcal K,S}\otimes_S^{\mathbf L}S'
+ \xrightarrow{\ \sim\ }E_{\mathcal K,S'}
+\]
+は dg 代数の quasi-isomorphism である。
+従って $\mathcal K_S$ は arbitrary derived base change と両立する
+実際の相対 proper dg 圏を与える。
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+例外対の表示は定理\ref{thm:relative-cubic-universal-line-cohomology}
+で差 $j-i=0,-1,1$ を取ったものである。
+係数 perfect 性は系\ref{cor:relative-cubic-compact-proper}による。
+従って $\mathsf L_L$ の定義に現れる評価写像とその cone は compact 対象の範囲にある。
+
+まず相対例外対象 $L$ に対し、評価三角へ
+$\mathbf R\operatorname{Hom}(L,-)$ を適用すると
+$\mathbf R\operatorname{Hom}(L,\mathsf L_L(M))=0$ となる。
+実際、最初の射は例外性により恒等写像である。
+$\mathsf L_{L_1}$ の後で $\mathsf L_{L_0}$ を適用しても、
+$\mathbf R\operatorname{Hom}(L_1,L_0)=0$ により前者の直交性は保たれる。
+従って $\mathsf P_S(M)\in\mathcal K_S$ である。
+また $N\in\mathcal K_S$ なら両評価項が零なので $\mathsf P_S(N)\simeq N$ である。
+各評価三角に $\mathbf R\operatorname{Hom}(-,N)$ を適用して
+\[
+ \mathbf R\operatorname{Hom}(\mathsf P_S(M),N)
+ \simeq\mathbf R\operatorname{Hom}(M,N)
+\]
+を得る。これが左随伴性である。
+二つの評価三角を貼り合わせれば、$M\to\mathsf P_S(M)$ の fiber は
+$\langle L_0,L_1\rangle$ に属する。
+これは半直交性と合わせて分解\eqref{eq:relative-kuznetsov-sod}を与える。
+
+右随伴を具体的に構成する。
+定理\ref{thm:koszul-cubic-relative-serre}の相対 Serre 自己同値を
+$\mathsf S_{\mathcal C}=(-2)[3]$ と置き、$F_i=\mathsf S_{\mathcal C}(L_i)$ とする。
+係数 perfect 双対性から
+\[
+ \mathcal K_S={}^{\perp}\langle F_0,F_1\rangle,
+ \qquad\mathbf R\operatorname{Hom}(F_1,F_0)=0.
+\]
+相対例外対象 $F$ に対し
+\[
+ \mathsf R_F(M)=\operatorname{Cone}\bigl(
+ M\longrightarrow\mathbf R\operatorname{Hom}(M,F)^\vee
+                      \otimes_S^{\mathbf L}F\bigr)[-1]
+\]
+と置く。ここで $(-)^\vee=\mathbf R\operatorname{Hom}_S(-,S)$ であり、
+射は完全双対性による余評価である。
+$\mathbf R\operatorname{Hom}(-,F)$ を適用すれば
+$\mathbf R\operatorname{Hom}(\mathsf R_F(M),F)=0$ となる。
+さらに $\mathbf R\operatorname{Hom}(F_1,F_0)=0$ により
+\[
+ \mathsf Q_S=\mathsf R_{F_1}\circ\mathsf R_{F_0}
+\]
+は $\mathcal K_S$ に値を取り、その上で恒等である。
+$N\in\mathcal K_S$ に対し二つの余評価三角へ
+$\mathbf R\operatorname{Hom}(N,-)$ を適用すると
+\[
+ \mathbf R\operatorname{Hom}(N,\mathsf Q_S(M))
+ \simeq\mathbf R\operatorname{Hom}(N,M)
+\]
+を得る。従って $\mathsf Q_S$ は包含の右随伴であり、admissibility が従う。
+
+系\ref{cor:relative-cubic-compact-proper}により
+$\mathcal C_S=\operatorname{thick}(\bigoplus_{i=0}^4L_i)$ である。
+exact な射影関手 $\mathsf P_S$ は有限 cone、shift、直和因子を保ち、
+$\mathsf P_S(L_0)=\mathsf P_S(L_1)=0$ である。
+任意の $N\in\mathcal K_S$ は $N\simeq\mathsf P_S(N)$ なので
+$\mathcal K_S=\operatorname{thick}(G_S)$ を得る。
+dg Morita 同値と $E_{\mathcal K,S}$ の係数 perfect 性も従う。
+
+最後に全ての評価・余評価写像は自然であり、
+それらの係数 Hom 複体は perfect である。
+系\ref{cor:relative-cubic-compact-proper}の任意底変更比較を使うと、
+テンソル積、双対、有限 cone は全て導来係数延長と両立する。
+従って $\mathsf P_S(M)$ と $G_S$ の底変更を得る。
+同じ比較を $G_S$ の自己 Hom に適用すれば、積と両立する
+$E_{\mathcal K,S}$ の標準底変更同型を得る。
+$G_{S'}$ は前段の議論によって $\mathcal K_{S'}$ の generator であるから、
+これは圏全体の Morita 基底変更比較でもある。
+\end{proof}
+
+\begin{corollary}[残余圏の相対 Serre 自己同値]
+\label{cor:relative-kuznetsov-serre}
+$i:\mathcal K_S\hookrightarrow\mathcal C_S$ を包含とする。
+相対 Serre 自己同値とその逆は
+\[
+ \mathsf S_{\mathcal K}=i^!\mathsf S_{\mathcal C}i,
+ \qquad \mathsf S_{\mathcal K}^{-1}=i^*\mathsf S_{\mathcal C}^{-1}i
+\]
+で与えられる。trace、pairing とこれらの関手は任意の導来係数延長と両立する。
+\end{corollary}
+\begin{proof}
+随伴と $\mathcal C_S$ の相対 Serre 双対により
+$\mathbf R\operatorname{Hom}_{\mathcal K}(M,N)^\vee
+ \simeq\mathbf R\operatorname{Hom}_{\mathcal K}(N,i^!\mathsf S_{\mathcal C}iM)$
+を得る。逆 Serre に対して同じ計算を行うと第二の関手を得る。
+両者の合成は Yoneda により恒等関手となる。
+随伴を上の有限 mutation で構成したため、その底変更も成立する。
+\end{proof}
+
+\begin{remark}[可換ファイバー]
+$A_S$ が滑らかな相対三次超曲面 $X_S\subset\mathbb P^4_S$ の斉次座標環である場合、
+上の構成は通常の
+$\operatorname{Ku}(X_S)=\langle\mathcal O_{X_S},\mathcal O_{X_S}(1)\rangle^\perp$
+そのものである。従ってこの構成を非可換族の相対 Kuznetsov 成分と呼べる。
+非可換一般点における幾何性は、第\ref{sec:kuznetsov-moduli-morphism}節で別に証明する。
+\end{remark}
+
+\begin{lemma}[残余生成元の非消滅を与える Euler 数]
+\label{lem:relative-kuznetsov-nonzero-euler}
+任意の体値ファイバーにおいて、$G_i=\mathsf P(\mathcal O(i))$ と置くと
+\[
+ [G_2]=[\mathcal O(2)]-5[\mathcal O(1)]+10[\mathcal O],
+ \qquad\chi(G_2,G_2)=-9.
+\]
+特に $G_2$ は全ての体値ファイバーで非零である。
+生成元 $G=G_2\oplus G_3\oplus G_4$ 自身については
+$\chi(G,G)=-2925$ である。
+\end{lemma}
+\begin{proof}
+線対象の Euler 数を $h_n=\binom{n+4}{4}-\binom{n+1}{4}$
+（負次数の項は零）で書くと、$h_0,h_1,h_2,h_3,h_4=1,5,15,34,65$ である。
+二つの評価三角から
+\[
+ [G_j]=[\mathcal O(j)]-h_{j-1}[\mathcal O(1)]
+           +(5h_{j-1}-h_j)[\mathcal O],\qquad j=2,3,4
+\]
+となる。$\chi(\mathcal O,G_2)=\chi(\mathcal O(1),G_2)=0$ より
+\[
+ \chi(G_2,G_2)=\chi(\mathcal O(2),G_2)
+   =1-5\cdot0+10\cdot(-1)=-9.
+\]
+最後の $-1$ は線コホモロジーの
+$\mathbf R\operatorname{Hom}(\mathcal O(2),\mathcal O)\simeq k[-3]$ による。
+同じ計算で
+\[
+ \bigl(\chi(G_i,G_j)\bigr)_{i,j=2}^4
+ =\begin{pmatrix}-9&-36&-90\\-45&-189&-486\\-126&-540&-1404\end{pmatrix}.
+\]
+全成分の和は $-2925$ である。
+これらは普遍的線コホモロジーと評価三角からの厳密な整数計算であり、
+特定ファイバーの数値的近似ではない。
+\end{proof}
+
+\subsection{一次 twist の対象降下を必要としない圏の降下}
+
+\begin{lemma}[基底上の可逆加群に対する不変性]
+\label{lem:kuznetsov-line-twist-invariance}
+$\ell$ を可逆 $S$-加群とする。相対例外対象 $L$ と $L\otimes_S\ell$ は
+同じ $S$-線型 thick 部分圏を生成し、同じ直交圏を定める。
+さらに評価関手と left mutation には標準同型
+\[
+ \mathbf R\operatorname{Hom}(L\otimes_S\ell,-)
+             \otimes_S^{\mathbf L}(L\otimes_S\ell)
+ \simeq \mathbf R\operatorname{Hom}(L,-)\otimes_S^{\mathbf L}L,
+ \qquad\mathsf L_{L\otimes\ell}\simeq\mathsf L_L
+\]
+がある。この比較は可逆加群のテンソル積に関して coherent である。
+\end{lemma}
+\begin{proof}
+最初の比較では左辺を
+$\mathbf R\operatorname{Hom}(L,-)\otimes_S\ell^\vee\otimes_S L\otimes_S\ell$
+と書き、評価 $\ell^\vee\otimes_S\ell\simeq S$ を用いる。
+これは $L$ の評価写像と両立するので cone にも降りる。
+テンソル積についての coherence は可逆加群の評価の自然性と結合則による。
+生成圏の等式は $\ell$ と $\ell^\vee$ による両方向のテンソル積から従う。
+\end{proof}
+
+\begin{theorem}[構造対象付き十七次元 chart からの残余圏の射]
+\label{thm:jacobian-residual-dg-map}
+定理\ref{thm:jacobian-algebraic-abel-substack}の十七次元 chart
+$\mathfrak C_J=[J/\operatorname{PGL}_5]$ 上で、上の相対入力を満たす領域を取る。
+相対 residual construction は構造対象付き Abel 同値を保つ Morita 同値に自然であり、
+射
+\begin{equation}\label{eq:jacobian-residual-dg-map}
+ \kappa:\mathfrak C_J\longrightarrow\mathfrak{Cat}^{\mathrm{proper}}_{\mathrm{dg}}
+\end{equation}
+を定める。右辺は small idempotent-complete proper $S$-線型 dg 圏と
+Morita 同値からなる高次群oidの fpqc stack 化を表す。
+この記号は右辺の代数 stack 性を主張するものではない。
+また、$\mathcal O(1)$ 自体の大域降下を仮定しない。
+\end{theorem}
+\begin{proof}
+定理\ref{thm:general-relative-pointed-hom}により、
+構造対象付き相対 Abel 同値は fpqc 局所的に graded algebra 同型に由来する。
+graded 同型は $L_i$ を対応する $L_i'$ へ送り、導来圏上で評価写像を保つので
+$\mathcal K_S$ と $\mathcal K_S'$ の Morita 同値を誘導する。
+局所持上げの変更は grading scalar である。
+grading scalar $\epsilon_\lambda$ に対して、構造対象を保つ比較は
+\[
+ F_{\epsilon_\lambda}(M)
+       =M\otimes_{A,\epsilon_\lambda}A\longrightarrow M,
+ \qquad m_d\otimes b\longmapsto\lambda^d m_db
+\]
+で与えられ、$\lambda$ の積と両立する。
+これを残余圏に制限すれば、重なり上の比較と cocycle の coherence を得る。
+同じ内容を $\mathcal O(1)$ の局所持上げで述べれば、異なる持上げは
+基底の可逆加群を tensor する違いであり、
+補題\ref{lem:kuznetsov-line-twist-invariance}が評価写像と射影関手の比較を与える。
+従って残余圏の descent data は一次 twist 対象の自明化に依存しない。
+対象・射・比較の基底変更自然性は
+定理\ref{thm:relative-kuznetsov-projector}による。
+これらを fpqc stack 化すると\eqref{eq:jacobian-residual-dg-map}を得る。
+\end{proof}
+
+\begin{remark}[dg 圏への射と三次モジュライへの射]
+\eqref{eq:jacobian-residual-dg-map}の終域は dg 圏のモジュライである。
+可換三次三様体のモジュライへの射を得るには、
+ある非空開上で $\mathcal K_S$ が可換三次族の Kuznetsov 成分であることと、
+その族の再構成の代数性・降下を別途示す必要がある。
+その証明は第\ref{sec:kuznetsov-moduli-morphism}節で与える。
+体値圏の categorical Torelli が与える一意性だけでは、
+この存在と相対代数性を代用できない。
+\end{remark}
+
+\subsection{全圏と残余圏の smoothness の同値}
+
+\begin{lemma}[係数 perfect 加群と smooth dg 代数]
+\label{lem:relative-smooth-perfect-module}
+$D$ を $S$-上 dg smooth な dg 代数とする。
+右 $D$-加群 $N$ が $S$-perfect なら $D$-perfect である。
+\end{lemma}
+\begin{proof}
+対角 $D$ は $D^{\mathrm{op}}\otimes_S^{\mathbf L}D$ の有限 cell と直和因子から得られる。
+これに $N\otimes_D^{\mathbf L}(-)$ を適用すると
+$N\simeq N\otimes_D^{\mathbf L}D$ は
+$N\otimes_S^{\mathbf L}D$ の有限 cone と直和因子から得られる。
+$N$ が $S$-perfect なので後者は右 $D$-perfect であり、結論を得る。
+\end{proof}
+
+\begin{lemma}[相対有限 gluing の smoothness]
+\label{lem:relative-finite-gluing-smoothness}
+$\mathcal D$ を classical generator を持つ $S$-proper dg 圏とし、
+$\mathcal D=\langle\mathcal A,\mathcal B\rangle$ を
+両成分の包含が左右随伴を持つ半直交分解とする。
+このとき
+\[
+ \mathcal D\text{ は }S\text{-smooth}
+ \quad\Longleftrightarrow\quad
+ \mathcal A,\mathcal B\text{ はともに }S\text{-smooth}.
+\]
+\end{lemma}
+\begin{proof}
+まず smoothness が両側 admissible 成分へ降りることを確認する。
+generator を取り $\mathcal D=\operatorname{Perf}(E)$,
+$\mathcal A=\operatorname{Perf}(D)$ と書く。
+包含を $-\otimes_D^{\mathbf L}P$ で表すと、$P$ は $D$-$E$ 双加群である。
+右随伴は compact 対象を保つから、その kernel $Q$ は右 $D$-perfect である。
+左随伴も compact 対象を保つので、その kernel の右 $D$-双対である $P$ は
+左 $D$-perfect である。
+完全忠実性によって $P\otimes_E^{\mathbf L}Q\simeq D$ である。
+$E$ の対角の有限 cell 表示に
+$P\otimes_E^{\mathbf L}(-)\otimes_E^{\mathbf L}Q$ を適用する。
+自由 $E$-双加群の像は $P\otimes_S^{\mathbf L}Q$ であり、これは
+$P$ の左 perfect 性と $Q$ の右 perfect 性から $D$-双加群として perfect である。
+従って $D$ の対角は perfect である。$\mathcal B$ も同様である。
+
+逆向きを示す。
+半直交分解の dg 模型は、二つの生成元を対角に置いた上三角 gluing
+\[
+ \Gamma=\begin{pmatrix}D&M\\0&F\end{pmatrix}
+\]
+と Morita 同値である。
+これは二つの充満 dg 部分圏間の消える向きの acyclic Hom を零に置き換えて得られる。
+この置換は quasi-fully faithful であり、pretriangulated idempotent 完備化が全圏を生成する。
+$D,F$ は smooth なので $D\otimes_S^{\mathbf L}F^{\mathrm{op}}$ も smooth である。
+$\mathcal D$ の properness により $M$ は $S$-perfect であり、
+前補題から $M$ は $D$-$F$ 双加群として perfect である。
+
+冪等元 $e_D,e_F$ を使うと、対角双加群には三角
+\[
+ \Gamma e_D\otimes_D^{\mathbf L}M\otimes_F^{\mathbf L}e_F\Gamma
+ \longrightarrow
+ \bigl(\Gamma e_D\otimes_D^{\mathbf L}D\otimes_D^{\mathbf L}e_D\Gamma\bigr)
+ \oplus
+ \bigl(\Gamma e_F\otimes_F^{\mathbf L}F\otimes_F^{\mathbf L}e_F\Gamma\bigr)
+ \longrightarrow\Gamma
+\]
+がある。
+二項から対角への射は積であり、最初の射は共通の off-diagonal 項を
+二つの場所へ逆符号で入れる。
+各 corner で計算すればこの三角が分かる。
+必要なら $D,F,M$ を相対 flat な dg 模型に置き換えて計算する。
+左右の corner による induction は、自由双加群を
+$\Gamma$ の自由双加群の直和因子へ送るので perfect 性を保つ。
+$D,F,M$ はそれぞれの双加群圏で perfect であるから、三角の最初の二項は
+$\Gamma$-双加群として perfect であり、対角 $\Gamma$ も perfect である。
+\end{proof}
+
+\begin{corollary}[smoothness の同値]
+\label{cor:relative-kuznetsov-smooth-equivalence}
+定理\ref{thm:relative-kuznetsov-projector}の状況で
+\[
+ \mathcal C_S\text{ は }S\text{-dg smooth}
+ \quad\Longleftrightarrow\quad
+ \mathcal K_S\text{ は }S\text{-dg smooth}.
+\]
+従って、ある基底上で残余圏を滑らかな相対可換三次族の Kuznetsov 成分と同定できれば、
+全非可換 tails 圏の dg smoothness も従う。
+\end{corollary}
+\begin{proof}
+$\langle L_0,L_1\rangle$ は、二頂点と階数五の矢印加群を持つ相対 Kronecker 代数の
+perfect 圏である。頂点の対角項と一つの矢印項による長さ一の相対双加群解消があり、
+$S$-smooth である。
+定理\ref{thm:relative-kuznetsov-projector}の admissibility と
+前補題を適用する。
+\end{proof}
+
+\begin{remark}[既知の gluing 定理との関係]
+体上では上三角 gluing の smoothness は
+D.~Orlov, \emph{Smooth and proper noncommutative schemes and gluing of DG categories},
+Adv. Math. \textbf{302} (2016), 59--105,
+arXiv:1402.7364v5, Theorem~3.25
+（同論文の参照 [LS, 3.24]）に述べられている。
+同定理は体上で記述されているので、本節では任意係数環に必要な対角三角の証明を示した。
+ここに用いた一般的な mutation と gluing の議論自体の新規性は主張しない。
+本研究への適用点は、既に構成した任意係数上の proper 模型、有限 generator、
+相対 Serre 双対、全構造対象付き同値比較を結び付けることにある。
+\end{remark}
+
+\subsection{適用範囲に関する確認事項}
+
+上の構成は central-CY 相対入力を満たす十七係数 atlas とその任意係数延長に適用される。
+一方、定理\ref{thm:abel-stackified-relative-formal}で現れる全 Artin Abel 模型は、
+一般には非周期的な $\mathbb Z$-代数と normal 三次元で記述される。
+その全体に本節の定理をそのまま適用するには、同じ compact/proper 入力または
+それに代わる Artin 係数上の有限 dg 模型を別途供給する必要がある。
+対象 $\mathcal O_X(1)$ の $\operatorname{Ext}^1,\operatorname{Ext}^2$ の消滅は
+持上げの存在・同型を除く一意性には使えるが、それだけでは dg properness と
+arbitrary derived base change の証明を代用しない。
+
+本節の相対 residual functor、降下、smoothness 比較を入力として、
+次節では十七次元 chart の非空開上に可換三次モジュライへの射を構成する。
+全 Artin Abel 模型の残余射とその形式積分解は、上記の適用範囲の違いを残す。

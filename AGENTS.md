@@ -1,18 +1,18 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v10。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1.8・§1.7・§5）、`papers/sections/dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v16）。
+2026-11-19 / research-plan-v11。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10・§1.8・§1.7・§5）、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v17）。
 
 ## 最優先の判断基準
 
-数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し、研究全体の価値を最大化する。現在の目標は、構造対象Oだけを標識したAbel圏としてnc cubic threefoldのモジュライを定め、実際の射・全Artin変形・二次包絡の比較を完成すること。17次元混合族のsmooth proper開部分、13次元ambient、残余圏の幾何化は上位目標として保持する。
+数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し、研究全体の価値を最大化する。現在の目標は、構造対象Oだけを標識したAbel圏としてnc cubic threefoldのモジュライを定め、実際の射・全Artin変形・二次包絡の比較を完成すること。17次元族のsmooth proper開と残余圏の幾何化は達成した。七次元fiberの構造と全Abelモジュライ内の位置を次の目標とする。
 
 ## 直近の優先順位
 
-1. **一般Jacobian部分モジュライのdg smooth開。** 17次元DM stack C_Jと13次元DM stack B_J、相対A4 torsorと全Mへの完全忠実性は構成した。有限位数境界上の相対4・15・16次元smooth proper開と、16次元族の稠密性を証明した。次は17次元一般点のsmooth性を示し、証明済みgeneric spreadingを適用する。ノート§1.8の量子化函数体単射と未証明の形式持上げ(FS)を出発点にし、閉点のsmooth性や稠密性から一般点の結論を出さない。パラメータstackのsmooth性からは従わない。
-2. **全Mとの局所比較と残余有限群。** 既存の全Hom比較は持上げの存在を保証しない。一般の非可換点の全Artin Abel変形との比較で、全M内の開性・局所閉性・成分性を検討する。有限stabilizerの具体化と有限残余同一視を扱う。有限対角・分離性は未証明。
-3. **完了範囲を保持する。** 可換点の全stack化後のframed形式群oid≃Spf R_X、一般族の普遍PBW/CY・全Hom比較、固定剛体ambientの全A4 monomorphismは各々明示した範囲で完成。元の有限Tor版C3とcompact版を区別する。
-4. 公表単位と初出を照合する。相対双対・全Hom比較と代数的部分モジュライはMori–Smith/BT/EG/Keller/Keeler/Stacks Project等の既知入力を組み合わせる。相対構成の初出は未確認。既存B_*のPBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
-5. actual residual map、7方向の接合データ、Oの内在認識を進める。直接的な次数三判定・平方零消滅も保持し、一次障害式を高次へ無補正で反復しない。
+1. **七次元fiberの接合データ。** 17次元Jacobian部分モジュライの非空開から可換三次の10次元モジュライへの支配的な射ρを証明した。さらに縮小すれば自己同型が自明なtargetの非空開への相対次元7の滑らかな全射となる。相対Kuと全compact tailsのdg smooth proper性もこの開で完成した。次は固定Ku(X)と五矢Kronecker圏の接合双加群を変形し、七方向を記述する。既存17→13の階数4torsorとは区別する。
+2. **全Abel形式近傍への残余射と全M内の位置。** Kuの全Artin幾何的認識は完成したが、全Abel変形の非周期的Z代数・一般正規模型での相対残余構成は未完成。ノート§10.3の入力2–3を確認する。一般非可換点の全Artin比較では接空間一致だけを成分判定に用いない。全M内の開性・局所閉性・成分性、有限対角・分離性は未証明。
+3. **証明の有効範囲を保持する。** 全stack化後のframed Abel形式群oid≃Spf R_X、一般族の普遍PBW/CY・全Hom比較、固定剛体ambientの全A4 monomorphism、有限位数境界の4・15・16次元smooth proper族を保持する。残余射の効果化では係数Perfを先に使い、smooth targetにより右perfectを得る。一般(FS)、compact核の無条件形式効果化、generator開性はノート§1.8.2の反例により使用しない。
+4. **公表単位と初出。** 相対双対・Abel比較・部分モジュライ・17→10射について既知のKuznetsov/JLLZ/Lurie/Bhatt/Stevenson/Orlov/Neeman/BMMS等の入力と追加の証明を区別する。初出・新規性の網羅調査と外部査読は未完了。既存PBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
+5. Oの内在認識、ρの出力三次の具体化、七方向と四方向の関係を進める。直接的な次数三判定・平方零消滅も保持し、一次障害式を高次へ無補正で反復しない。
 
 H3三次曲面分類は `uedakazushi/nc-cubic-classification` の独立課題。
 

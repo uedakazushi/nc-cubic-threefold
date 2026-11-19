@@ -1,6 +1,6 @@
 # 研究方針：非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v10。研究再開時は最初に本書を読む。GitHub mainを正本とする。今回の変更前の確認済み基点は `3f9b49fe89de88beb1efe76070325825869bacb1`。証明は `papers/nc_cubic_threefold_moduli.tex`（v16）と入力節、補助的知識は `notes/research_notes.md`、検証範囲は `validation.json` に置く。
+2026-11-19 / research-plan-v11。研究再開時は最初に本書を読む。GitHub mainを正本とする。今回の変更前の確認済み基点は `8c037c64f686fc825a1c12c8182c40b208556c3b`。証明は `papers/nc_cubic_threefold_moduli.tex`（v17）と入力節、補助的知識は `notes/research_notes.md`、検証範囲は `validation.json` に置く。
 
 ## 1. 恒常的な研究原則と保存許可
 
@@ -16,11 +16,13 @@
 
 ## 2. 現在の目標と定義
 
-**構造対象だけを標識したAbel圏 `(C,O)` のモジュライとして、可換三次三様体と非可換Jacobian族を統一し、実際の射・変形・二次包絡を比較する。** 一般Jacobian族について、滑らかな有限型17次元Deligne–Mumford stack `C_J=[J/PGL5]` と全O-marked問題への完全忠実な射を構成した。全O保存同値を含む、そのfpqc局所模型からなる全部分stackである。さらに13次元の滑らかなDM stack `B_J=[Y/PGL5]` への二次包絡射は、階数4ベクトル束のtorsorであり、スキームで表現可能・アフィン・滑らか・全射となる。
+**構造対象だけを標識したAbel圏 `(C,O)` のモジュライとして非可換三次三様体を扱い、そのKuznetsov成分から可換三次を復元し、失われる七次元の幾何を明らかにする。** 一般Jacobian族の滑らかな有限型17次元Deligne–Mumford stack `C_J=[J/PGL5]` と、全O-marked問題への完全忠実な射を構成した。その非空開 `U` から滑らかな可換三次の10次元粗モジュライ `M_cub` への支配的な射 `ρ` を証明した。さらに自己同型が自明なtargetの非空開 `V` とsourceを選べば `ρ:U→V` は相対次元7の滑らかな全射となる。étale局所的には三次族と相対dg Morita同値を持ち、残余圏・全compact tailsはいずれも相対dg smooth properである。
 
-可換三次点の全fpqc stack化後のframed形式群oidは、17次元・接空間20次元のPfaffian形式環で表される。固定剛体ambientの全四係数族のmonomorphism、一般族の任意係数上の相対Serreと全Hom比較も保持する。有限位数境界を固定した15次元族、および境界のtorsion曲線を動かす16次元族に、相対dg smooth properな非空開を構成した。後者は17次元atlasの任意の非空開と交わり、その合併は稠密である。次の核心は17次元一般点のdg smooth性、全Mの変形との局所比較、実際の残余射である。パラメータstackのsmooth性から個々の圏のdg smooth性は従わない。
+別に、13次元の滑らかなDM stack `B_J=[Y/PGL5]` への二次包絡射は階数4ベクトル束のtorsorである。17→10の七次元fiberと17→13の四次元fiberを区別する。可換三次点の全fpqc stack化後のframed Abel形式群oidは、17次元・接空間20次元のPfaffian形式環で表される。これらと固定剛体ambientの全四係数monomorphism、有限位数境界の4・15・16次元smooth proper族は有効な成果として保持する。
 
-対象には許容三次豊富列の存在を要求し、その選択は記憶しない。射はOを保つ全完全線型同値であり、列保存の問題と区別する。標準模型の底変更は係数作用付き対象の圏で定義し、非Noetherian底では大きいQGrを用いる。比較に使う内在的部分圏は `D(QGr A)^c` である。中心二変数と二次中心rank3は非可換部分族の復元条件であり、二次中心15次元の可換点を全体の定義から除外しない。
+対象には許容三次豊富列の存在を要求し、その選択は記憶しない。射はOを保つ全完全線型同値である。標準模型の底変更は係数作用付き対象の圏で定義し、非Noetherian底では大きいQGrを用いる。内在的compact圏は `D(QGr A)^c`。中心二変数・二次中心rank3は非可換部分族の復元条件であり、可換点を全体の定義から除外しない。
+
+現在の核心は、七次元fiberの接合データによる記述、全Abelモジュライ内でのJacobian部分stackの位置、可換点の全Abel形式近傍上への残余射の拡張である。実際の17係数族の結果を、非周期的Z代数や一般の正規三次模型へ無条件に延長しない。
 
 ## 3. 到達点・仮定・証明所在
 
@@ -51,73 +53,70 @@
 | 一次・三次中心の任意底変更 | 同節 `prop:general13-universal-centers` | Δ開の低次THCR中心、PBW分裂、交換子写像の局所分裂単射。非平坦底変更を含む |
 | 実際の17→13射 | 同節 `prop:jacobian-affine-four-morphism` | 中心完全列の分裂torsor。中心重みの相殺により階数4ベクトル束がPGL商へ降下 |
 | 17次元の代数的Abel部分モジュライ | 同節 `thm:jacobian-algebraic-abel-substack` | 有限関係窓と全Hom比較、PGL scalar coherence。任意係数で完全忠実、全M内の開性・局所閉性・成分性は未証明 |
-
 | 有限中心模型の大域dg smooth性 | `dg_smooth_torsion_families.tex`, `prop:seed-finite-central-global-smooth` | 完全体上有限型分離Y、coherent代数、左右Dbcoh=Perf。ELS4.18の外積生成と対角kernelのdg Morita比較 |
 | 一般点からの相対smooth proper開 | 同節 `lem:dg-generic-spreading`, `lem:dg-smooth-field-descent` | 係数上perfectなdg代数。TV2.10の連続性、compactなsourceからの射降下、係数-perfect cone。hfpを仮定しない |
 | 有限位数境界上の4・15次元相対開 | 同節 `prop:seed-fixed-ambient-relative-smooth`, `prop:seed-torsion-base-relative-smooth` | 固定ambient、または固定境界の全混合係数。左右の幾何学的一般正則性、有限中心模型、一般点の対角、任意係数変更 |
 | 稠密に分布する16次元smooth proper族 | 同節 `thm:seed-sixteen-dimensional-dense-families` | Hesse族のtorsion曲線Z上でZ×A15の非空開。atlasの任意の非空開W内にもそのような16次元族がある |
-| smooth proper複素点の稠密性 | 同節 `thm:seed-smooth-points-dense` | 17次元atlasおよびC_Jで成立。17次元一般点のsmooth性や非空開は未証明 |
+| smooth proper複素点の稠密性 | 同節 `thm:seed-smooth-points-dense` | 17次元atlasおよびC_Jで成立。一般点のsmooth性は下記の残余射により別に証明 |
+| 相対Kuznetsov成分・Serre・降下 | `kuznetsov_relative_category.tex`, `thm:relative-kuznetsov-projector` 等 | 二例外対象の有限mutation、両側随伴、係数perfect generator、任意導来底変更。O(1)の基底線束twistは評価で相殺 |
+| 可換三次成分の全Artin認識 | `kuznetsov_moduli_morphism.tex`, `prop:kuznetsov-formal-recognition` | Kuznetsovの全HH表、JLLZの実際のKS同型、Lurieのtame比較。π0の同定でありscalar π2は残る |
+| 形式同値の効果化と生成性 | 同節 `prop:kuznetsov-effective-serre-embedding`, `lem:kuznetsov-graded-thick-simple` | Bhattの係数Perf効果化、相対dg Serre比較、Stevensonの孤立hypersurface分類とgraded化。一般的なcompact-kernel効果性やgenerator開性は不使用 |
+| 17→10の支配的な射・滑らかな七次元fiber | 同節 `thm:kuznetsov-cubic-moduli-morphism` | 実際の代数的量子化族、Euler−9、函数体単射、perfect核の有限表示降下、categorical Torelli、35次minor |
+| 17次元族の非空開上のdg smooth proper性 | 同定理と `kuznetsov_relative_category.tex` | 幾何的Kuとのétale局所Morita同値、相対Kronecker5 gluing、任意導来底変更 |
 
-今回の新しい証明は、大域対角のMorita比較、一般点からの拡張、体拡大降下、torsion曲線上の15・16次元族である。別々の読み合わせで仮定、左右の正則性、一般点での体の順序、次元と稠密性を確認した。ELS4.18、TV2.10/F4、WWY2.13、Rains2.13、RSV2.1の一次資料を確認した。既存の固定ambient正則性の証明は代数閉標数零体へ適用でき、複素数体固有の位相や非可算性を使わないことを明示した。
+新しい二節の証明について、相対射影・Serre・Euler・PBW/CY橋渡し、全Artin認識・効果化、graded生成性・有限表示降下・Torelli降下を分けて読み合わせた。支配性の35次minorを実行検算した。これは外部査読でも、既存全証明の独立再証明でもない。既知入力と本研究の具体的な組合せを区別し、初出・新規性の網羅調査は未完了とする。
 
-原稿にある証明、今回の点検、数値計算、外部査読を区別する。atlasのrank37・113とΔ非消滅など既存計算は、実行日と証明書を保持し今回は再実行していない。一般的な外積生成・連続性・有限中心Bertiniは既知であり、この具体的な相対構成の初出・新規性の網羅調査と第三者査読は未完了である。
+一般の係数perfect dg代数について「特殊ファイバーsmoothなら一般ファイバーsmooth」という命題(FS)は偽である。反例と、形式compact性・generator開性の別の障害をノート§1.8.2に保存する。上の定理は(FS)に依存せず、相対Serreと三次三様体固有の生成性で証明する。
 
 ## 4. 現在の方針を採る理由
 
-一般族への拡張は、有限中心性に代えて有限Koszul対角解消と相対CY同型を使うことで成立した。任意係数の相対Serreと全O保存同値比較、有限なIsom方程式は解決した範囲として扱う。詳細はノート§1.6と現行論文に保持する。
+Abel圏を直接扱うための相対Serre、全O保存同値、有限表示Isomと代数的部分stackは完成した。一般族の個々の圏のdg smooth性については、有限位数境界の稠密性だけでは一般点に進めない。そこで可換三次への量子化退化を用い、残余圏を通じて幾何性を回復する。形式的に幾何的なKuを認識し、係数perfect複体として同値核を効果化すると完全忠実な埋込みが得られる。相対Serreのtrace比較と、Serre安定な非零thick部分圏はKu全体になるという生成補題が全射性を与える。
 
-代数的部分モジュライは、13係数ambientを先に商にする方法で構成した。37次元の関係graph成分に対する作用とsliceの射が等次元・支配的なので、標数零で非空étale locusを持つ。同変性によりこの開は `PGL5×T_B^e` となり、飽和像Yの商に実際のétale atlasを与える。中心三次直線の相対A4 torsorをその上に載せることで、17次元stackと17→13射が同時に得られる。17係数slice自体が大域正規形であるという仮定は不要である。
+この構成は17次元一般点へ函数体単射で届き、有限表示の降下により非空開へ広がる。Torelliにより三次の同型類が一意なので、核の選択に依存せずモジュライ射が降下する。したがって元の目標のうち、17次元の非空dg smooth proper開と可換三次モジュライへの射は解決した範囲である。全M内の開性・局所閉性・成分性、七次元fiberの具体的分類は残る。
 
-元の目標のうち、実際のJacobian族をAbel圏の代数的モジュライとして扱うことは、この全部分stackについて解決した。全Mの局所変形を尽くすこと、成分性、17次元一般点のdg smooth性は未解決である。有限関係窓での局所閉性と、全Abel問題内での局所閉性を混同しない。以後は同じ商構成を反復せず、個々の圏の幾何的正則性と全Mとの関係に進む。
-
-大域dg smooth性は、有限中心射影模型の対角を外積generatorで生成することで解決した。有限位数境界の稠密性と、一般点からの拡張を組み合わせると、4・15・16次元の相対開と稠密性を得る。17次元の一般境界は無限位数であり、この証明はそこへ転用しない。有限中心の局所対角・有限係数Tor振幅の比較も保持する。固定B_*は(a,b)=(1/3,0)でq³−r³=0となりΔ開の外にあるため、新atlasとの交わりはtorsion曲線の議論で別に証明した。可換点の形式降下・framed自己同型消滅も保持する。
+O(1)自体を商stack上へ降下させずとも、その基底直線束twistはmutationの評価で消える。これが全O-marked Abel同値に自然な残余圏を取れる理由である。targetの自己同型が自明な開へ制限すれば、粗モジュライへの射は通常の三次モジュライstackへの射ともなる。相対Morita核はétale局所で構成し、大域的な核の存在は結論に含めない。
 
 ## 5. 優先課題と達成基準
 
-### P1：Jacobian部分モジュライのdg smooth開
+### P1：七次元fiberの幾何と接合
 
-compact圏のproper性と相対SerreはΔ開上で完成した。有限位数境界の4・15・16次元族の相対dg smooth proper開と、その稠密性も完成した。残る目標は **17次元atlasの一般点** のdg smooth性である。
+`ρ:U→V` は相対次元7の滑らかな全射である。固定した可換三次Xに対し、Ku(X)と五矢Kronecker圏を接合して得るO-marked tailsの変形を、接合双加群と二例外対象の配置から記述する。まず `G_i=L_O L_O(1)(O(i))`、i=2,3,4のHomと、例外pairへの接合加群を計算し、ρの接写像の核がどの変形を表すかを確定する。Feyzbakhsh–Liu–Zhangのgluing objectとの比較を入口とするが、一対象だけで七方向を尽くすとは仮定しない。
 
-- 一般点でsmooth性が分かれば `lem:dg-generic-spreading` により非空主開が得られる。未知の一般的なopennessやhfpを仮定する必要はない。
-- 具体的な経路は、滑らかな可換三次を特殊ファイバーとする `K[[h]]` 上の有限係数量子化である。一般17係数への函数体写像は `a'=ha,b'=hb,m'=h^−1m` と中心の規格化に応じたgの変換で単射になる。ノート§1.8に係数変換、明示的な滑らかな可換例、相対CY入力を記す。
-- 未解決の核心は、係数-perfectなdg代数Eについて、特殊ファイバーのdg smooth性から `K((h))` 上の通常の対角がperfectとなることを示す持上げ命題(FS)。形式的compact generatorの存在や有限graded-free模型だけでは代用しない。E^e自体は導来完備だが、無限bar解消の完備化と有限cell retractを区別する。
-- (FS)の適用定理を仮定ごとに確定するか、この五線dg模型に固有の有限対角分解を直接構成する。有限位数の稠密性から一般点の結論を出さない。
-- 達成基準は17次元atlasの非空開上の相対dg smooth proper性と任意底変更の証明。特異ファイバーを含む既存Serre公式、有限中心の結果は保持する。
+達成基準は、一般fiberの局所モジュライ解釈と七次元という次元の構造的説明、可能なら固定Ku上の接合データによる代数的表示である。既存17→13の四次元torsorとの関係、ρがそのtorsor上で定数かどうかも別途調べる。入力三次形式Fをρの出力と同一視せず、高次補正の有無を計算する。
 
-### P2：全Mとの局所比較、有限自己同型、公表単位
+### P2：全Abel形式近傍とJacobian部分stackの位置
 
-`C_J→M^O` は完全忠実だが、形式的にすべての変形を尽くすとは未証明である。一般の一点のAbel変形群oidと、関係窓の変形群oidを比較する。接空間一致だけを成分判定に使わず、持上げの存在・障害と全Artin比較を明示する。到達点はこの部分が全M内で開、局所閉、または成分となるための必要条件と十分条件の確定である。
+可換点の全Abel形式環は確定しており、Kuの全Artin形式認識も証明した。ただし全Abel模型は非周期的Z代数・正規三次商を含み、中央CY模型用の相対残余構成をそのまま適用できるとは未証明である。ノート§10.3の条件付き積分解では、全Artin基底上の自然な残余射と幾何的部分での一致を完成させる。対象の持上げ・compact性・例外性・admissibility・相対dg Serreを、一般の全Abel模型について確認する。
 
-一般の有限stabilizerと有限残余正規形も具体化する。幾何学的stabilizerの有限性だけから対角の有限性・商の分離性・大域coarse moduliを宣言しない。周囲の分類はprojectively gradedの範囲であり、ambientの全O保存Abel同値との比較は別課題である。
+一般非可換点では全Abel変形群oidと有限関係窓の変形群oidを比較する。接空間一致だけを成分判定に用いず、小拡大の持上げと障害を扱う。全M内での開性・局所閉性・成分性の必要十分条件を得ることが達成基準である。有限stabilizer、対角の有限性、分離性も別々に調べる。
 
-公表単位は、(a)全Abel三次変形の二次包絡とframed形式近傍、(b)正規超曲面対の周期・内在復元、(c)有限Koszul解消の相対双対、Jacobian型Abel圏の代数的部分モジュライ、稠密な相対smooth proper部分族、を中心結果として検討する。分割を目的化せず、価値ある証明を保持する。Mori–Smith/BT/EG/Keller/KeelerとStacks Projectの既知入力、近年の双対論との仮定の差をIntroductionに記した。具体的な相対構成・応用の初出は未確認であり、公表前の独立点検を要する。
+### P3：公表単位・先行研究・内在的復元
 
-### P3：残余射とOの内在認識
+中心結果として、(a)全Abel三次変形の二次包絡とframed形式近傍、(b)相対双対とJacobian型代数的Abel部分モジュライ、(c)Kuznetsov成分による17→10射と七次元fiberを検討する。論理的なまとまりと新規性を調査して分割・統合を決める。正規超曲面対の周期、既存の有限中心結果など有効な証明は保持する。
 
-全Artin dg残余射を実際に構成し、可換cubicの10次元変形と忘れられる7方向を接合対象等で記述する。ノート§10の条件付き積分解は、実際の射と対象の変形擬関手を確立してから適用する。源のframed形式群oidは確定済みである。
-
-Oを忘れた復元、任意の非可換点の形式比較、特異三次への全Artin拡張、量子化を使わない高次障害消滅は別課題として保持する。
+Kuznetsov/JLLZ/Lurie/Bhatt/Stevenson/Orlov/Neeman/BMMSとPBW・CY・連続性の一次入力は、各定理の仮定と本研究の追加部分をIntroductionとノート§11で比較する。初出・新規性の網羅調査、第三者査読、旧PBW/CY・全Artin量子化入力の独立全面監査は未完了。Oを忘れた復元、特異三次への拡張は別課題である。
 
 ## 6. 再開時の具体的着手
 
-1. ノート§1.8と `dg_smooth_torsion_families.tex` を読み、相対4・15・16次元開、稠密性、17次元一般点という三つの範囲を確認する。既知の外積生成と対角のMorita比較が大域smooth性の入力である。
-2. P1では§1.8の量子化係数変換と未証明命題(FS)から着手する。`koszul_relative_duality.tex` の五線generator、係数-perfectなEと任意dg基底変更を使う。一般点のsmooth性を証明した後だけ `lem:dg-generic-spreading` を適用する。
-3. atlasとAbel同値の定義を参照する場合はノート§1.7、`jacobian_moduli_chart.tex`、`jacobian_abel_comparison.tex` を読む。中心重み、大域的原点やO(1)の未選択、全M内の開性の未証明を保持する。
-4. 可換点の全Artin比較はノート§5.6、有限中心幾何は§1.4–1.5にある。指定有理点の横断行列・Δ証明書は有効だが、その点のcubicのdg smooth性を証明するものではない。変更のない計算は具体的なリスクがない限り再実行しない。
+1. 本方針の後、ノート§10と `kuznetsov_relative_category.tex`、`kuznetsov_moduli_morphism.tex` を読む。主定理は `thm:kuznetsov-cubic-moduli-morphism`。形式認識、係数perfect効果化、Serre安定生成性、有限表示降下の順序を維持する。
+2. P1では相対残余generatorと例外pairの接合双加群から始める。全tailsのsmooth性は既に得ているので、その証明を反復せず、七次元fiberを記述する変形複体を作る。
+3. P2ではノート§10.3の入力2–3を確認する。全Artinの幾何的Ku認識は完成済みだが、全Abel族からの残余射とは別の結果である。
+4. 代数的atlasと全Abel同値はノート§1.6–1.7、有限中心と一般点からのsmooth性拡張は§1.8。ノート§1.8.2の反例により、一般(FS)、形式compact性からの無条件効果化、generatorの開性を使わない。
+5. 支配性の入力は `commutative_dominance_certificate.json`。既存atlasの横断性証明書と役割を区別し、変更のない計算は具体的なリスクがなければ再実行しない。
 
 ## 7. 主張の境界
 
 一般族の結論は明示Δ開の標準模型と、その中のétale開 `T_B^e` からfpqc局所的に得られる族についてである。`C_J` 自体の有限型代数性・smooth性・次元17は証明したが、全Mの代数性やその中の開性・局所閉性・成分性は未証明である。全17係数空間の全点、任意のGrothendieck圏、Oを忘れた圏、裸の導来圏へ拡張しない。次数スカラー商はfpqc層商であり、大域点集合の単純な商ではない。Veroneseのμ2はGmに含まれ、追加2慣性ではない。
 
 中心一次束Uと三次束Eの中心重みは1と3であり、それら自体をPGL商へ通常のベクトル束として降下させない。Hom(L,Sym³U)の重み0だけが必要である。O(1)や無捩れなSerre式の大域降下も結論しない。周囲を同定まで固定した2-fiberはA4 torsorだが、周囲の同型類だけを固定すると有限自己同型の作用が残り得る。
-Serre自体はcompact圏上の主張であり、全Db(coh)の有限大域次元やdg smoothnessは含まない。dg smooth性は上記の有限位数境界上の相対開で別に証明した。16次元族はatlasの局所閉部分スキームであり、独立の閉部分stackや17次元開と同一視しない。相対CY/AS性と非正則基底を含む絶対的大域次元を混同しない。有限中心模型では中心準同型の単射性や全中心の底変更可換性を仮定しない。
+Serre自体はcompact圏上の主張であり、全Db(coh)の有限大域次元やdg smoothnessは含まない。dg smooth性は有限位数境界上の相対開に加え、残余射の定理により17次元の非空開でも別に証明した。16次元族はatlasの局所閉部分スキームであり、独立の閉部分stackや17次元開と同一視しない。相対CY/AS性と非正則基底を含む絶対的大域次元を混同しない。有限中心模型では中心準同型の単射性や全中心の底変更可換性を仮定しない。
 
-可換点の全形式比較は、滑らかな複素三次Xを固定したframed Artin近傍である。frameを忘れた有限Aut(X)作用、未切断2群oid、一般の圏2降下、代数化へは広げない。四係数空間のmonomorphismも開埋込み・成分・atlasを意味しない。
+Abel圏側の可換点の全形式比較は、滑らかな複素三次Xを固定したframed Artin近傍である。frameを忘れた有限Aut(X)作用、未切断2群oid、一般の圏2降下、代数化へは広げない。四係数空間のmonomorphismも開埋込み・成分・atlasを意味しない。
 
 ## 8. 再現と検証範囲
 
 `python3 scripts/verify.py` で参照・引用・TeX入力の閉包を検査する。既存のatlas点の小証明書は `python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json` で再現し、`computations/jacobian_etale_point_certificate.json` と比較する。2026-11-19の既存検証で実行し、Dの37次minor=127524、Mの113次minor=844194（ともにmod1000003）、整数上のMD=0、唯一のGLスカラー核、全Δ因子の非零を確認した。小証明書には入力・helper・sourceのhashを含める。M113の再計算は新script内で行い、旧scriptの全再実行とは区別する。
 
-同日の `verify_general17_open.py` の九項目と2026-11-16の既存八計算は有効な検証として保持し、今回の再実行とは扱わない。圏論的な降下・中心束・全Hom比較には書かれた証明と読み合わせがあり、数値検算による証明とはしない。今回のdg smooth性の証明は文献の仮定確認と証明の読み合わせを行い、新たな数値計算は行っていない。
+同日の `verify_general17_open.py` の九項目と2026-11-16の既存八計算は有効な検証として保持し、今回の再実行とは扱わない。圏論的な降下・中心束・全Hom比較には書かれた証明と読み合わせがあり、数値検算による証明とはしない。今回の残余射の証明には文献の仮定確認と別々の読み合わせがある。新しく `python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json` を実行し、35×42微分行列の35次minorが752849 mod1000003であることとEuler関係を確認した。証明書は入力・source・helperのhashを含む。これは支配性の計算であり、圏の同値を数値計算で証明したものではない。
 
-組版は `latexmk papers/nc_cubic_threefold_moduli.tex`。LuaLaTeX・latexmk・luatexja・日本語フォント、既存計算にはPython3・SymPyが必要。新atlas検算はPython3標準ライブラリと同梱helperを使う。同日の先行組版試行は `lualatex.fmt` 不在で本文処理前に停止した。環境が同じなのでv16では再試行せず、現行PDF生成・視覚確認は未完了である。実施した範囲と未解決点は `validation.json` に記す。
+組版は `latexmk papers/nc_cubic_threefold_moduli.tex`。LuaLaTeX・latexmk・luatexja・日本語フォント、既存計算にはPython3・SymPyが必要。atlas検算と新しい支配性検算はPython3標準ライブラリと同梱helperを使う。同日の先行組版試行は `lualatex.fmt` 不在で本文処理前に停止した。現行v17の組版は実行しておらず、現行PDF生成・視覚確認は未完了である。実施した範囲と未解決点は `validation.json` に記す。

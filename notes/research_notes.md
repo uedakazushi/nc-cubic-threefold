@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-plan-v10。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-19 / research-plan-v11。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -214,9 +214,9 @@ Y上では普遍二次代数が存在する。`GL5×T_B^e→Y` のfpqc被覆でs
 
 固定Bとその同定を含む2-fiberはA4 torsorだが、Bの同型類だけを固定した同型類には有限Aut_gr(B)/Gmの作用が残り得る。B_Jの射はprojectively graded同型であり、周囲の全O保存Abel同値を分類したとはしない。
 
-### 1.8 相対 dg smooth proper な部分族と残る一般点
+### 1.8 相対 dg smooth proper な部分族と一般点の幾何化
 
-**現在の確定範囲。** 詳細証明は `papers/sections/dg_smooth_torsion_families.tex`。固定有限位数ambientではA4、境界(a,b)だけを固定して混合11係数も動かすとA15、それをHesse族のtorsion曲線Z上で動かすとZ×A15の非空開に相対dg smooth proper性が成立する。全て任意の可換係数変更と両立する。17次元atlasの任意の非空開Wの中にも、後者の16次元族の非空開を取れる。従ってsmooth proper複素点はatlasとC_Jに稠密である。17次元一般点のsmooth性とその非空開は未証明。
+**現在の確定範囲。** 詳細証明は `papers/sections/dg_smooth_torsion_families.tex`。固定有限位数ambientではA4、境界(a,b)だけを固定して混合11係数も動かすとA15、それをHesse族のtorsion曲線Z上で動かすとZ×A15の非空開に相対dg smooth proper性が成立する。全て任意の可換係数変更と両立する。17次元atlasの任意の非空開Wの中にも、後者の16次元族の非空開を取れる。従ってsmooth proper複素点はatlasとC_Jに稠密である。さらに17次元一般点のsmooth性とその非空開は、§10と `kuznetsov_moduli_morphism.tex` の残余射の定理で証明した。有限位数の稠密性から一般点へ推論するものではない。
 
 **証明の構造。** `prop:seed-finite-central-global-smooth` は完全体上の有限型分離Yとcoherent代数Aについて、左右Dbcoh=Perfから大域dg smooth性を得る。ELS4.18によりG∨⊠Gが外積代数のDbcohを生成するため、対角δ_*Aがそのthick閉包に入る。Künneth・有限Čech・有限射影tensor–Homにより、dg Moritaで対角E∈Perf(E^op⊗E)へ移す。O_Y-flat性は仮定しない。局所affine対角のperfect性と大域対角を省略して同一視しない。
 
@@ -226,9 +226,9 @@ Y上では普遍二次代数が存在する。`GL5×T_B^e→Y` のfpqc被覆でs
 
 **torsion曲線と旧例の位置。** p=2−b、q=−(2+b)、r=−6a、p−q=4により、T0はHesse elliptic schemeの開部分である。逆写像はa=−2r/[3(p−q)]、b=−2(p+q)/(p−q)。µ=(p³+q³+r³)/(pqr)で、境界のσは原点[1:−1:0]の下でP=[p:q:r]による平行移動。各E_µのtorsion点は稠密であり、E[n]∩T0の非空連結成分はsmooth integral affine曲線になる。相対[n]の微分はn倍で可逆、properかつ有限fiberなので有限étale。Z×A15の次元は16である。旧B_*は(a,b)=(1/3,0)、(p,q,r)=(2,−2,−2)でq³−r³=0となるため新Δ開の外にあり、旧例を新atlasの点とは扱わない。
 
-#### 1.8.1 17次元一般点へ向かう量子化の係数変換
+#### 1.8.1 17次元一般点へ届く量子化の係数変換
 
-これは現在有効な着手情報であり、次の(FS)を解決した結果とはしない。係数a,b,α,β,m_ij,g_jを代数的独立に取り、その函数体をKとする。既存 `central_pair_explicit_centers.tex` の一様な有限係数量子化をR=K[[h]]へ移すと、B_h/(h)=K[x,y,z,u,v]、中心三次w_hの還元は一般三次Fとなる。
+代数的18係数橋渡し族の完全な証明は `kuznetsov_moduli_morphism.tex` の `prop:kuznetsov-algebraic-bridge` にある。以下は規格化を再開時に確認するための要点である。係数a,b,α,β,m_ij,g_jを代数的独立に取り、その函数体をKとする。既存 `central_pair_explicit_centers.tex` の一様な有限係数量子化をR=K[[h]]へ移すと、B_h/(h)=K[x,y,z,u,v]、中心三次w_hの還元は一般三次Fとなる。
 
 Fの幾何学的smooth性には明示的な証人
 
@@ -258,25 +258,176 @@ a'=ha,\quad b'=hb,\quad \alpha'=\alpha,\quad
 
 canonicalな未スケールRains中心を用い、三次関係を3aで割る規約ではg'_j=g_j/(3ah³)。中心を3a'倍する規約ではg'_j=h^−2g_jとなる。同じ三次直線を表すが、中心の規格化とgの変換を必ず同時に行う。前者の逆写像はa=a'/h、b=b'/h、m_ij=hm'_ij、g_j=3a'h²g'_j。C(h)上で可逆なので一般17係数の函数体はK((h))へ単射となり、atlasの一般点を与える。
 
-相対CY/Koszul入力は、三変数potential複体の各全次数が有限自由R複体で、mod hが多項式Koszul解消となることから、degreewise Nakayamaで完全性を得る。augmentationの次数成分も自由なので係数上の完全列は分裂し、任意底変更を保つ。CY5への移行ではT=R[u,v]、D=B_h^op⊗_R B_h、C=B_h^op⊗_T B_hとし、中心差d_u,d_vの正則列でRHom_D(C,D)=C(2)[−2]を得る。相対CY3の自己双対とchange of ringsを用いてRHom_D(B_h,D)=B_h(5)[−5]となる。単純なtensor複体の形を無条件に仮定しない。ここまでの係数の橋渡しと、商のdg smooth性は別である。
+橋渡し族は形式係数だけでなく、有限の分母を反転した被約な18次元係数環上に構成する。p_h=2−hb、q_h=2+hb、r_h=6haとし、d(h)=p_h q_h(q_h³−r_h³)(p_h³+r_h³)を用いるとd(0)=256。Mori–Smith Thm4.2(1)はh=0を含む全幾何学的ファイバーに適用できる。全fiberで一定のHilbert rankと被約性により、同じ基底上で全次数の射影性を得る。Rains中心の最高記号が非零であること、fiberの整域性、PBW、potentialの真正な自己双対から、普遍的中心正則性と相対CY/Koszul入力を得る。次数ごとの開集合を無限に交差しない。有限の対角解消・CYの詳細は現行論文へ集約する。
 
-#### 1.8.2 未証明の形式持上げ命題と方法の障害
+#### 1.8.2 形式効果性・生成性・smoothness に対する反例
 
-必要な命題は、標数零体K、R=K[[h]]、E∈Perf(R)に対し
+以下では \(k\) は体、\(R=k[[h]]\)、\(R_n=R/(h^n)\)（\(n\ge1\)）、\(K=k((h))\) とし、cohomological grading と右 dg 加群を用いる。`perfect` は有限 cell 加群の retract であることを意味する。underlying graded 加群が有限自由であることとは区別する。以下の三例は、それぞれの記載した仮定の下で反例となることを直接検証した。可換三次への射の証明は、これらが否定する一般原理を使用しない。
+
+**(a) proper な dg 代数上の compact 加群の形式系は、一般には compact 加群として効果化できない。**
+
+次の dg 代数と右 dg 加群を取る。
 
 \[
-E\otimes_R^{\mathbf L}K\text{ が dg smooth}
-\quad\Longrightarrow\quad
-E\otimes_R K((h))\text{ が dg smooth}.\tag{FS}
+ \Gamma_R=R\oplus R\varepsilon,
+ \qquad |\varepsilon|=1,\quad\varepsilon^2=0,\quad d_\Gamma=0,
+ \qquad M_R=(\Gamma_R,d_M),\quad d_M(1)=h\varepsilon,
+ \quad d_M(\varepsilon)=0.
 \]
 
-この一般性の(FS)について、適用できる一次資料の定理と自己完結した証明は未確定。もしこの族に対して示せれば、上の函数体単射、`lem:dg-smooth-field-descent`、`lem:dg-generic-spreading`を順に使い17次元の非空開を得る。新しい16次元定理の証明は(FS)に依存しない。
+\(\Gamma_R\) と \(M_R\) はともに \(R\)-perfect である。\(M_n=M_R\otimes_R R_n\)、\(\Gamma_n=\Gamma_R\otimes_R R_n\) と置くと、\((M_n)_n\) は互換的な形式系であり、**各 \(M_n\) は \(\Gamma_n\)-perfect だが、\(M_R\) は \(\Gamma_R\)-perfect ではない**。
 
-EがR-perfectなのでD=E^op⊗_R^L EもR-perfectであり、D自体は導来h完備である。従って包絡dg代数そのものの通常／導来完備tensorの差を障害とするのは適切でない。残る問題は、完備した無限bar解消の収束するホモトピーや、全Artin切断での情報から、**通常のD加群導来圏における有限cellのretract**を得る段階である。
+各有限段階の perfectness を示す。\(C_n=R_n[t]\)、\(N_n=C_n/(t)\) とし、\(N_n\) の自由解消
 
-有限generated graded-freeに微分を載せただけの模型は、有限半自由filtrationを持つとは限らない。例えばΓ=R⊕Rε、|ε|=1、ε²=0、d_Γ=0上の(Γ,d_M=hε·−)では、表示された微分は一つのcellの内部を回り、表示自体は有限半自由filtrationを与えない。この例を(FS)の反例として扱わない。残すべき注意はgraded-freeとperfectの取り違えである。
+\[
+ P_n=[C_n\xrightarrow{t}C_n]
+\]
 
-文献の適用限界：Toën–Vaquié Cor2.13/Prop2.14はsmooth proper⇒hfp⇒smoothであり、hfpを未証明のまま仮定すると循環する。[Toën, Finitude homotopique…](https://www.math.univ-toulouse.fr/~btoen/dgalgsat.pdf), Lem3.14はbounded smooth部分前層のquasi-compactnessであり、smooth locusの開性ではない。[Blanc–Katzarkov–Pandit, Generators in formal deformations of categories](https://arxiv.org/pdf/1705.00655), Compos. Math.154 (2018), 2055–2089, DOI10.1112/S0010437X18007303は形式変形でのcompact generatorを扱い、この対角のperfect性を直接与える定理としては使用しない。Etingof–Ginzburgのcentral quotientの議論も、今回確認した範囲で(FS)の代替にはならない。
+を次数 \(-1,0\) に置く。スカラーを対角作用に、\(\varepsilon\) を次数一の写像 \(P_n^{-1}\to P_n^0\) の恒等行列に送る写像
+
+\[
+ \Gamma_n\longrightarrow\operatorname{End}_{C_n}(P_n)
+\]
+
+は dg 代数の quasi-isomorphism である。実際、右辺のコホモロジーは次数 \(0,1\) でそれぞれ \(R_n\)、他では零であり、この写像はその二つの生成元を与える。
+
+\(L_n=C_n/(t+h)\) と置く。\(t+h\) は monic なので非零因子であり、\(L_n\in\operatorname{Perf}(C_n)\) である。\(C_n/(t^n)\) の \(t\)-進 filtration の各商は \(N_n\) だから
+
+\[
+ C_n/(t^n)\in\operatorname{thick}(N_n).
+\]
+
+\(L_n\) が perfect であることから、これを tensor する操作は
+
+\[
+ L_n\otimes_{C_n}^{\mathbf L}C_n/(t^n)
+ \in\operatorname{thick}(C_n/(t^n))
+ \subset\operatorname{thick}(N_n)
+\]
+
+を与える。左辺は \(t^n:L_n\to L_n\) の cone である。\(L_n\) 上で \(t=-h\) かつ \(h^n=0\) なので、この cone は \(L_n\oplus L_n[1]\) であり、retract を取って \(L_n\in\operatorname{thick}(N_n)\) を得る。
+
+従って \(\mathbf R\operatorname{Hom}_{C_n}(N_n,L_n)\) は、\(N_n\) を \(\Gamma_n\) へ送る Hom 関手により \(\Gamma_n\)-perfect となる。これは次数 \(0,1\) の複体
+
+\[
+ [R_n\xrightarrow{h}R_n]
+\]
+
+であり、\(\varepsilon\) は次数零項から次数一項への恒等写像として作用する。符号については Hom 複体の微分が \(-t\) で、\(L_n\) 上では \(t=-h\) であることを使った。従って、この右 \(\Gamma_n\)-加群は指定した \(M_n\) そのものである。
+
+一方、\(M_R\) が \(\Gamma_R\)-perfect だと仮定する。augmentation \(\Gamma_R\to R\) に沿って
+
+\[
+ Q=M_R\otimes_{\Gamma_R}^{\mathbf L}R
+\]
+
+を作ると \(Q\) は \(R\)-perfect である。特殊ファイバーでは \(M_R\otimes_R k=\Gamma_k\) なので \(Q\otimes_R^{\mathbf L}k\simeq k\) である。一般ファイバーでは \(M_R\otimes_RK=[K\xrightarrow{h}K]\simeq0\) なので \(Q\otimes_RK=0\) である。有限自由複体で表せる \(R\)-perfect 複体の Euler characteristic は特殊・一般ファイバーで等しいはずだが、ここではそれぞれ \(1,0\) となり、矛盾する。
+
+別の compact 加群による同じ形式系の効果化も存在しない。もし \(Q'\in\operatorname{Perf}(\Gamma_R)\) が compatible な同型 \(Q'\otimes_R^{\mathbf L}R_n\simeq M_n\) を持てば、\(\Gamma_R\) の \(R\)-perfectness により \(Q'\) も \(R\)-perfect である。\(Q'\) と \(M_R\) は導来 \(h\)-完備なので、作用を含めて逆極限を取り
+
+\[
+ Q'\simeq\mathbf R\varprojlim_nM_n\simeq M_R
+\]
+
+となり、上の非 perfectness に反する。従って
+\(\operatorname{Perf}(\Gamma_R)\to\varprojlim_n\operatorname{Perf}(\Gamma_n)\)
+は essentially surjective ではない。\(\operatorname{Perf}(R)\) 自体についての形式効果性とは矛盾しない。
+
+**(b) smooth proper な幾何的圏の中でも、与えた perfect 対象が generator である locus は一般に開ではない。**
+
+\(Y=\mathbb P^1_k\times\mathbb A^1_k\) とし、第二因子の座標を \(h\) とする。\(p\in\mathbb P^1(k)\) を固定し、その点で消える切断 \(s\in H^0(\mathbb P^1,\mathcal O(1))\) を取る。次の余核で perfect な coherent sheaf \(\mathcal E\) を定める。
+
+\[
+ 0\longrightarrow\mathcal O_Y
+ \xrightarrow{(h,s)}\mathcal O_Y\oplus\mathcal O_Y(1)
+ \longrightarrow\mathcal E\longrightarrow0.
+\]
+
+これは \(0\to\mathcal O_Y\to\mathcal E\to\mathcal O_{p\times\mathbb A^1}\to0\) も満たすので、\(\mathbb A^1\) 上平坦である。ファイバーは
+
+\[
+ \mathcal E_0\simeq\mathcal O\oplus k_p,
+ \qquad \mathcal E_h\simeq\mathcal O(1)\quad(h\ne0)
+\]
+
+である。\(P=\mathcal E\oplus\mathcal O_Y(1)\) と置くと、\(P_0\) は \(\mathcal O\oplus\mathcal O(1)\) を直和因子に持つので \(\operatorname{Perf}(\mathbb P^1_k)\) の generator である。しかし \(h\ne0\) では \(P_h\simeq\mathcal O(1)^{\oplus2}\) となり、
+
+\[
+ \mathbf R\operatorname{Hom}_{\mathbb P^1}(\mathcal O(1),\mathcal O)
+   =\mathbf R\Gamma(\mathbb P^1,\mathcal O(-1))=0
+\]
+
+なので generator でない。従って、特殊ファイバーで generator であることだけから一般ファイバーの生成性を推論できない。
+
+**(c) 係数 perfect な proper dg 族に対する一般的な特殊 smoothness から一般 smoothness への推論は偽である。**
+
+\(X=\mathbb P^1_R\)、\(G=\mathcal O_X\oplus\mathcal O_X(1)\)、\(p_R=p\times\operatorname{Spec}R\) と置き、
+
+\[
+ T=\operatorname{cone}(h:G\to G)\oplus\mathcal O_{p_R},
+ \qquad E_R=\mathbf R\operatorname{End}_X(T)
+\]
+
+を取る。\(T\) は \(X\)-perfect で、\(X/R\) は smooth proper だから、\(E_R\) は \(R\)-perfect であり、任意の導来係数延長に沿う自己 Hom の比較が成立する。
+
+特殊ファイバーは \(T_0\simeq G_0\oplus G_0[1]\oplus k_p\) なので generator であり、\(E_R\otimes_R^{\mathbf L}k\) は \(\operatorname{Perf}(\mathbb P^1_k)\) と Morita 同値で、dg smooth proper である。さらに **すべての有限段階** \(R_n\) でも \(T_n\) は generator である。実際、octahedral axiom により
+
+\[
+ \operatorname{cone}(h^n:G_n\to G_n)
+ \in\operatorname{thick}\bigl(\operatorname{cone}(h:G_n\to G_n)\bigr).
+\]
+
+\(h^n=0\) なので左辺は \(G_n\oplus G_n[1]\) である。相対 Beilinson 解消により \(G_n\) は \(\operatorname{Perf}(\mathbb P^1_{R_n})\) を生成するため、
+
+\[
+ \operatorname{Perf}(E_R\otimes_R^{\mathbf L}R_n)
+ \simeq\operatorname{Perf}(\mathbb P^1_{R_n})
+\]
+
+となる。
+
+一般ファイバーでは \(h\) が可逆なので \(T_K\simeq k_{p_K}\) であり、
+
+\[
+ E_R\otimes_RK
+ \simeq\mathbf R\operatorname{End}_{\mathbb P^1_K}(k_{p_K})
+ \simeq K\oplus K\varepsilon,
+ \qquad |\varepsilon|=1,\quad\varepsilon^2=0,
+ \quad d=0.
+\]
+
+最後の dg 代数としての同値は、\(p_K\) を含む affine 座標 \(t\) 上の解消 \([K[t]\xrightarrow{t}K[t]]\) に対する (a) と同じ自己 Hom 計算で得られる。この exterior dg 代数 \(\Gamma_K\) は smooth ではない。実際、その augmentation 加群 \(K\) の半自由解消は
+
+\[
+ F=\bigoplus_{j\ge0}e_j\Gamma_K,
+ \qquad |e_j|=0,\quad d(e_0)=0,\quad
+ d(e_j)=e_{j-1}\varepsilon\ (j\ge1)
+\]
+
+で与えられる。\(e_0\) を \(1\)、他を零に送る augmentation の下で \(H^0(F)=K\)、\(H^1(F)=0\) であり、他の次数には項がない。\(j\) による filtration は半自由 filtration である。\(K\) と tensor すると微分が零になるため、
+
+\[
+ K\otimes_{K\oplus K\varepsilon}^{\mathbf L}K
+ \simeq\bigoplus_{r\ge0}K
+\]
+
+となる。各 summand は次数零にある。従って右辺は \(K\)-perfect ではなく、augmentation 加群 \(K\) は exterior dg 代数上 perfect ではない。一方、smooth な dg \(K\)-代数では係数上 perfect な加群は perfect 対角の tensor 表示によりその代数上 perfect となるので、smoothness に矛盾する。
+
+以上により、一般の係数 perfect な dg 代数についての含意
+
+\[
+ E_R\otimes_R^{\mathbf L}k\text{ が dg smooth}
+ \quad\Longrightarrow\quad
+ E_R\otimes_RK\text{ が dg smooth}
+\]
+
+は成立しない。全 Artin 切断が smooth proper な幾何的圏と Morita 同値であるという条件を追加しても、同じ例で成立しない。ここでは \(H^*(E_R)\) の \(R\)-平坦性を仮定しておらず、その平坦性を要求する別の命題まで否定してはいない。実際、この例の \(\operatorname{cone}(h:G\to G)\simeq G/hG\) の恒等射は、\(H^0(E_R)\) の非零の \(h\)-torsion 直和因子に属するので、コホモロジーの係数平坦性は成立しない。
+
+**現在の証明が用いる追加構造。** `papers/sections/kuznetsov_moduli_morphism.tex` の `prop:kuznetsov-effective-serre-embedding` は、形式的 kernel をまず係数環 \(R\) 上の perfect 複体として効果化する。幾何的 target の smoothness から片側 perfectness を得るので、(a) の否定する \(\Gamma\)-perfect な効果性を仮定しない。生成性も (b) のような一般の開性からは導かず、相対 Serre 比較を効果化して像を target の Serre 関手で安定にし、`lem:kuznetsov-graded-thick-simple` の三次成分に固有の生成性を使う。一般ファイバーの非零性は別途 Euler pairing で保証する。
+
+(c) の target \(\operatorname{Perf}(\mathbb P^1_K)\) には、非零で真の Serre 安定な thick 部分圏 \(\operatorname{thick}(k_{p_K})\) が存在する。実際、Serre 関手は \(-\otimes\mathcal O(-2)[1]\) なので \(k_{p_K}\) を \(k_{p_K}[1]\) へ送る。三次の Kuznetsov 成分について証明した「非零の Serre 安定な thick 部分圏は全体」という性質が、この例のような退化を排除する。したがって三つの反例は、現在の Serre 比較と三次成分の生成性を用いる証明に抵触しない。
+
+文献の適用範囲も区別する。Toën–Vaquié Cor2.13/Prop2.14のsmooth proper⇒hfp⇒smoothを、hfp未証明の族へ適用しない。[Toën, Finitude homotopique…](https://www.math.univ-toulouse.fr/~btoen/dgalgsat.pdf), Lem3.14はbounded smooth部分前層のquasi-compactnessである。BKPのcompact generatorの形式変形定理は通常の包絡代数上の対角perfectnessを無条件に与えない。一方、BKP §3.3に記載されたLurieの比較は§10.1で対象を指定して使用する。
 
 ## 2. ファイバー、中心条件、正規条件
 
@@ -475,7 +626,7 @@ poisson-p4の参照mainはf118dfbfc5bb9b7a394d1985b4800b6228eebaf6。smooth cubi
 
 Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基底付きAbel/Z形式模型の37次元成分でもある。頂点完備化が整域であることは斉次最低項の積で示し、一般正則性にはexcellenceを使う。中心三次incidenceの支配的成分の射影閉包を取り、可換ambientの全fiberに沿って完備化すると、flat base changeとformal functionsにより像の形式閉包はこの成分全体となる。特定の一点Fの完備化だけの支配性とは異なる。
 
-閉包に現れる全特殊cubicは可換多項式環で非零正則なので、Artin持上げでも各乗法のunit minorから正則性と商の自由性が従う。この完備incidenceは正規三次型のモジュライへ写る。smooth properな三次部分だけが同じ成分を支配するかは未証明。
+閉包に現れる全特殊cubicは可換多項式環で非零正則なので、Artin持上げでも各乗法のunit minorから正則性と商の自由性が従う。この完備incidenceは正規三次型のモジュライへ写る。実際のJacobian成分では§10によりdg smooth properな非空開を得たので、その17→13の像はambientの非空開を含む。任意の形式incidenceや全AS成分について同じ結論を主張しない。
 
 一般中心はk[a,b,c]、重み(1,1,3)。中心3次5次元からfiberP4、ambient37・incidence41、PGL軌道24を引いて13・17。GL商stackは共通Gmの慣性のため12・16。Poissonスカラー射影化では36。可換cubic忘却fiber7=6 moving plane+1 Poisson scaleと、ambient忘却fiber4を混同しない。
 
@@ -483,13 +634,13 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。次は17次元一般点のdg smooth性と全Mの変形との局所比較を扱う。全Artin残余射の形式幾何化（§10）も上位目標である。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
+可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。§10の残余射により17次元の非空開上のdg smooth proper性と可換三次への17→10射も完成した。次は七次元fiberの接合データ、全Mとの局所比較、全Abel形式近傍への残余射の拡張を扱う。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
-## 10. 残余圏の形式幾何化：既知入力と条件付き積分解
+## 10. Kuznetsov成分による17→10射と残る形式比較
 
-### 10.1 一次文献で確定している入力
+### 10.1 全Artin基底上の幾何的認識
 
 Xを滑らかな複素三次三様体、K=Ku(X)とする。Kuznetsov [KuzHH, Theorem 8.9] は
 \[
@@ -502,23 +653,33 @@ HH^p(K)=
 \]
 を計算している。Jacovskis–Lin–Liu–Zhang [JLLZ, Theorem 4.4(2)] では、**実際の幾何的接写像** H^1(T_X)→HH^2(K) が同型であり、HH^2(K)からHom(H^{2,1}(X),H^{1,2}(X))への作用γは単射である。これらは既知結果であって本研究の新規成果ではない。
 
-標識付きdg/Morita変形の制御定理とhullの存在を正しく適用すれば、HH^1=HH^3=0は、同型類の形式変形を10変数の滑らかなhullで表す強い根拠になる。しかし対象とする変形関手・enhancement・同値・基底変更を指定する必要がある。HH^0=\mathbb Cによるスカラーの2自己同型は残るので、同型類関手／scalar rigidificationと完全な2-stackを同一視しない。
+**全Artin認識は証明した。** `prop:kuznetsov-formal-recognition` は任意のk/Cと通常の局所Artin k-代数Tについて、幾何的Def_X(T)と実際のcompactly generated dg圏変形のπ0を同定する。proper compact圏はtameなので、Lurie DAG X Prop5.3.21/Thm5.1.9により実変形から形式hullへの射は(−1)-truncated、特にπ0上単射である。HH[1]のコホモロジーは次数−1,1のみで、極小L∞演算は次数の偶奇から全て零。hullのπ0は十次元形式円板となる。JLLZの実際の接写像と形式逆写像定理により幾何的変形がhullを尽くすため、実変形のπ0も尽くす。π1=0だがHH0由来のscalar π2は残る。証明と原典の位置は論文にある。
 
-### 10.2 Poisson一次方向の消失：既知結果からの推論
+### 10.2 実際の17係数族：相対構成、効果化、開上への降下
 
-通常HKRで HH^2(X)=H^1(T_X)⊕H^0(∧^2T_X)、各直和因子の次元は10である。JLLZ Theorem 3.11のsqrt(td)補正HKRを用いた可換図式では、bivectorがH^1(Ω_X^2)に作用する先はH^1(O_X)=0である。γが単射なので、補正HKRでのbivector方向はHH^2(K)への制限で消える。
+**相対残余圏。** `kuznetsov_relative_category.tex` では任意係数上で二例外対象O,O(1)を取り、P=L_O L_O(1)により残余圏Kを構成する。O(1)に基底直線束をtensorしても評価が相殺するので、残余圏は全O-marked Abel同値に自然で、C_Jへ降下する。両側随伴とenriched相対Serreも構成した。generatorはG=P(O(2)⊕O(3)⊕O(4))。G2=P(O(2))に対しχ(G2,G2)=−9であり、すべての体fiberの非零性が従う。全tailsがsmoothであることとKがsmoothであることは、相対Kronecker5成分とのgluingから同値である。
 
-通常HKRへ戻す際、bivectorのH^1(T_X)方向へのTodd補正はc_1(T_X)とのcontractionの定数倍である。[Hitchin, §5.3, pp.41–42] のcanonical bundleのPoisson module構造により、各Poisson bivector πについて π⌟c_1(T_X)=0。H^2(O_X)方向への補正もFanoの消滅で零である。Poisson cone Gr(2,5)が全bivector空間を線形に張るので、全bivector方向でも補正の影響は零となる。従ってこの一次の消失は通常HKRでも読める。
+**効果化の順序。** `prop:kuznetsov-effective-serre-embedding` でR=k[[h]]、R-perfect E、相対dg/enriched Serre、特殊fiber Ku(X0)を仮定する。全Artin認識で互換的な三次X_nとMorita kernel P_nを得る。三次方程式はX_Rへ効果化できる。Bhatt Lem4.2によってP_nのunderlying係数perfect複体をPへ効果化し、導来完備なEnd_R(P)への作用写像を極限で効果化する。まだ包絡代数上のcompact性は主張しない。target D=End(Ku(X_R)のgenerator)がsmoothなので右D-perfect性が従う。E→End_D(P)のconeは係数perfectかつ特殊fiberで零だから、Nakayamaにより完全忠実なΦ:Perf E→Ku(X_R)を得る。
 
-これは文献の定理と上記contractionからの推論である。今回の有限係数非可換族からの残余写像を全次数で構成した証明ではない。また以下の積分解には、この一次核の同定自体は必要なく、幾何的s方向の可逆性だけを使う。
+**Serre安定性と全射性。** traceからの自然変換ΦS_E→S_DΦはdg/enriched Yonedaで構成される。特殊fiberで同型なので、係数perfect coneへのNakayamaにより全体で同型。一般fiberの像の両側Serre安定性はgenerator EとS_E^{-1}Eで確認すれば足り、全generic対象の持上げは不要である。
+
+`lem:kuznetsov-graded-thick-simple` は滑らかな三次XのKu(X)の非零Serre安定thick部分圏が全体であることを証明する。Stevenson Thm6.13で孤立hypersurfaceのungraded特異圏の全thick部分圏を分類し、忘却Fとgraded化GのGF(P)=⊕P(a)を使ってgraded側へ戻す。有限階数MFのcompact性とNeeman Lem2.2により有限thick生成に戻せる。Orlovの同値とrotation R=S[−1]によりSerre安定性が次数シフト安定性になる。Euler−9による非零性と合わせ、generic ΦはMorita同値である。一般(FS)やgeneratorの開性は使わない。
+
+**17係数一般点と開集合。** §1.8.1の代数的橋渡しと函数体単射を用い、実際の17次元atlasの一般点が体拡大後に幾何的Kuとなる。まずsmooth性を体降下し、perfectな同値核・逆核・unit・counitを有限生成部分環へ降ろす。その閉点から有限拡大K'/Kを取り、標数零で有限étale被覆へ広げる。TV Lem2.10の連続性と係数perfect coneの消滅により、非空開の被覆上で相対Morita同値を得る。
+
+BMMS Thm1.1のcategorical Torelliにより二重交差上の三次の粗モジュライ値は幾何点ごとに一致する。二重交差は被約、targetは分離的なので射として一致し、étale降下する。同じ議論をatlasのgroupoidにも適用して、C_Jの非空開U上のρ:U→M_cubを得る。複素数上のTorelliの拡大体版は有限生成被約C代数へのspreadingで確認する。
+
+**支配性と七次元。** 17係数の古典FとGL5軌道の微分は35×42行列である。`verify_commutative_dominance.py` は35次minor=752849 mod1000003と整数Euler関係を確認する。一般Fはsmoothであり、古典族はM_cubを支配する。ρの像の閉包はh-adic三次族のgeneric値を含むのでspecial値[V(F)]も含む。従ってρは支配的である。自己同型が自明な非空開M_cub°へ移り、generic smoothnessでsourceを縮めると、ある非空開Vへの相対次元7の滑らかな全射となる。相対Kuと全tailsのdg smooth proper性は任意導来底変更に両立する。
+
+**境界。** 三次族・相対Morita核はétale局所で得る。大域の核、全Mの代数性・開性、全17係数点での幾何性、ρの出力が入力Fそのものであることは主張しない。自己同型が自明なtargetでは粗モジュライと三次モジュライstackが一致するため、ρはstackへの射でもある。一般の三次族のambientはBrauer–Severi型でよく、大域O(1)や大域射影座標を結論に付け加えない。
 
 ### 10.3 条件付き代数補題：実際の残余射ができれば積分解できる
 
 A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–5.4の証明により、三次側の古典的Abel Artin変形関手はこのRで実際に表される。ここではCFTとYekutieliの既知入力を用いるが、追加の未確認formality分類は仮定しない。
 
-次の三つを追加の入力とする。
+以下の入力を区別する。入力1は§10.1で証明済みである。入力2–3は全Abel変形に対して追加の確認を要する。
 
-1. 可換cubicの標識付き形式変形と、Kの適切にrigidifyしたdg/Morita形式変形が、全Artin基底で同定される。
+1. 可換cubicの標識付き形式変形と、Kの実際のdg/Morita変形の同型類が全Artin基底で同定される。高次scalar自己同型は別に保持する。
 2. 三次側のactual deformationから残余圏を取る操作が、全Artin基底で自然な写像 r を定める。ここには相対dg enhancement、O,O(1)の持上げ、例外性、半直交性、admissibility、任意の底変更を含める。
 3. 可換部分a=0に制限したrは、可換cubicをそのKuに送る幾何的写像と一致する。
 
@@ -528,17 +689,25 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 \]
 がk[[t]]-代数として成立する。証明は、aを固定したまま形式的にsを(t,a)から解くことであり、Plücker(a)のイデアルは変わらない。A_0が特異でも、線型s係数の可逆性を使う次数帰納は成立する。
 
-**結論の範囲**：上の入力が満たされれば残余射は非標準的な形式座標でproduct projectionとなり、fiberは7次元のGrassmannian coneの完備化、頂点接空間は10次元である。actual ambient射と独立Poisson座標の全高次互換性を先に解く必要はない。現在未構成なのは主として入力2の全Artin相対残余射であり、本節はそれを完成したとは宣言しない。入力1の制御定理の正確な適用も確認する。
+**結論の範囲**：上の入力が満たされれば残余射は非標準的な形式座標でproduct projectionとなり、fiberは7次元のGrassmannian coneの完備化、頂点接空間は10次元である。actual ambient射と独立Poisson座標の全高次互換性を先に解く必要はない。現在未完成なのは入力2–3を全Abel模型へ適用する部分である。実際の中央CY17係数族では§10.2が完成しているが、全Abel変形の非周期的Z代数・正規三次模型へ無条件に転用しない。
 
-形式的な積分解は、一般非零パラメータでのKu同値、代数化・収束・全2-stack比較を含まない。対象X_Aが原稿の係数Fで定義される古典cubicそのものであるとも結論しない。新しいt座標には高次の量子補正があり得る。
+この条件付き形式積分解自体は、代数化・収束・全2-stack比較を含まない。実際の17係数族の非空開でのKu同値と代数的射は§10.2で別に証明した。対象X_Aが原稿の係数Fで定義される古典cubicそのものであるとも結論しない。新しいt座標には高次の量子補正があり得る。
 
 ### 10.4 7方向と4方向、rotationと接合
 
-二次包絡の一般17→13のfiber4は、固定B内の中心三次直線の選択である。将来の残余射17→10のfiber7は別の自由度であり、現状はまず形式的に扱う。
+二次包絡の一般17→13のfiber4は、固定B内の中心三次直線の選択である。実際の残余射17→10は非空開上で滑らかな七次元fiberを持つ。両者は異なる自由度であり、ρが固定ambientの四次元torsor上で定数であるかも未確認である。
 
 可換cubicではrotation R_rotとSerre関手Sについて R_rot^3=[2], S=R_rot^{-2}[3]、従ってR_rot=S[-1]である。同じ式が成立する中心CY三次商に対し、rotationを追加しただけで7方向を回復することは期待できない。一般正規商にnormal automorphismのtwistがある場合は、この式の適用を別に調べる。
 
 [Feyzbakhsh–Liu–Zhang, Theorems 1.1/6.2 and 1.2/7.1] は可換del Pezzo三様体について、Q_X=ker(H^0(O_X(1))⊗O_X→O_X(1))、E_X=i^!Q_X∈Ku(X)というgluing objectを使うBrill–Noether復元と特徴づけを与える。これは接合データを調べる具体的入口となる。本研究の非可換7方向をE_X一個だけで記述できるとは未確認であり、例外pair側の5矢Kronecker圏と残余圏の接合双加群全体を候補とする。
+
+### 10.5 Poisson一次方向の消失：既知結果からの推論
+
+通常HKRで HH^2(X)=H^1(T_X)⊕H^0(∧^2T_X)、各直和因子の次元は10である。JLLZ Theorem 3.11のsqrt(td)補正HKRを用いた可換図式では、bivectorがH^1(Ω_X^2)に作用する先はH^1(O_X)=0である。γが単射なので、補正HKRでのbivector方向はHH^2(K)への制限で消える。
+
+通常HKRへ戻す際、bivectorのH^1(T_X)方向へのTodd補正はc_1(T_X)とのcontractionの定数倍である。[Hitchin, §5.3, pp.41–42] のcanonical bundleのPoisson module構造により、各Poisson bivector πについて π⌟c_1(T_X)=0。H^2(O_X)方向への補正もFanoの消滅で零である。Poisson cone Gr(2,5)が全bivector空間を線形に張るので、全bivector方向でも補正の影響は零となる。従ってこの一次の消失は通常HKRでも読める。
+
+これは文献の定理と上記contractionからの推論である。§10.2の実際の17係数残余射とは別に、可換点の全Abel形式近傍の接写像を調べる入力である。また§10.3の積分解には、この一次核の同定自体は必要なく、幾何的s方向の可逆性だけを使う。
 
 ## 11. 先行研究との差分と公表前の確認
 
@@ -569,15 +738,22 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 | [Cukierman–Pereira–Vainsencher, arXiv:0709.4072](https://arxiv.org/pdf/0709.4072), Theorem 2; AFST18(2009),685–715, DOI10.5802/afst.1221 | 有理葉層R(r,d_0,...,d_q)のfoliation schemeでの成分性・一般被約性。r=4,q=2,(1,1,3)を含む | decomposabilityを課さない**全Poisson scheme**の接空間、中心三次incidenceとの関係を明示する |
 | [Corrêa–Muniz, arXiv:2207.12880v5](https://arxiv.org/pdf/2207.12880v5), Corollaries C/D and §5 | P4のrank2 Poisson locusにRat113/Rat122型。π∧π=0を課すlocusの成分を扱う | 全Poisson schemeの一般正則性・量子化moduliと区別。全分類完成の入力として機械的に使わない |
 | [Pym, arXiv:1403.6444](https://arxiv.org/pdf/1403.6444), Definition2.8, Proposition2.9, Theorem2.10 | 一般Vの規格化Koszul CY変形芽とunimodular quadratic Poisson scheme、成分の局所比較 | 解析芽の存在をcanonical quantization map、大域stack、今回の実際の比較写像と同一視しない |
-| [Mori–Smith, arXiv:1502.07403v2](https://arxiv.org/pdf/1502.07403v2), Theorem4.2(1) | 滑らかな平面三次からの対称化Jacobian量子代数は3-CY | 相対PBWと5次元ambientへの拡張、指定中心三次対のmoduliを分離して述べる |
+| [Mori–Smith, arXiv:1502.07403v2](https://arxiv.org/pdf/1502.07403v2), Theorem4.2(1) | 滑らかな平面三次からの対称化Jacobian量子代数は全量子化係数λ（0も含む）で3-CY | 相対PBWと5次元ambientへの拡張、指定中心三次対のmoduliを分離して述べる |
 | [Reyes–Rogalski, arXiv:1807.10249v2](https://arxiv.org/pdf/1807.10249v2), Theorem5.15, Lemmas5.9/4.5 | generalized ASとtwisted CYの比較、Nakayamaは中心を固定 | 指定した正規族を保つN周期の構成、可換なd周期とのgcd周期化、相対降下が本稿の組合せ |
 | [Mori–Nyman, regV8](https://faculty.nymana.wwu.edu/regV8.pdf), Theorem4.19; [arXiv:2307.15253](https://arxiv.org/abs/2307.15253) | ASF++と周期的ASF+の関係 | 弱いAS条件と混同しない。gcd対定理の初出は引き続き要確認 |
 | [Sierra, arXiv:math/0608791](https://arxiv.org/pdf/math/0608791), Proposition3.3, Corollary4.4 | principal Z-algebra、compression、Zhang twisting system | 周期の選択・共役・相対降下を別々に記述する |
 | [Rains, arXiv:2107.13540v2](https://arxiv.org/pdf/2107.13540v2), Theorem2.13 | torsion translationの楕円代数のfiltered deformationでは中心もfiltered deformationになる | finite-order境界の入力。一般infinite-orderへそのまま適用しない |
 | [Rennemo–Segal–Van den Bergh, arXiv:1705.01366v2](https://arxiv.org/pdf/1705.01366v2), Proposition2.1, proof(6)–(7) | 有限型可換代数上有限な代数のgeneric smoothnessと相対perfect diagonal | finite-center仮定を供給する。一般AS5やqgrのsmooth proper性への無条件の近道ではない |
-| [KuzHH: Kuznetsov, arXiv:0904.4330](https://arxiv.org/pdf/0904.4330), Theorem8.9 | cubic3の残余圏の全HH^p表 | actual NC residual familyと幾何的変形への全次数写像が新たに必要 |
+| [KuzHH: Kuznetsov, arXiv:0904.4330](https://arxiv.org/pdf/0904.4330), Theorem8.9 | cubic3の残余圏の全HH^p表 | 相対NC residualと全Artin認識を本稿で構成し、効果化・降下で開集合の射へ移す |
 | [JLLZ: Jacovskis–Lin–Liu–Zhang, arXiv:2203.08187v3](https://arxiv.org/pdf/2203.08187v3), Theorems3.11 and4.4(2) | 幾何的接写像の同型、γ単射、補正HKRの図式 | 次元一致だけでなくactual mapを使う。形式/代数的な比較の区別を保つ |
-| [Hitchin, arXiv:1008.0973](https://arxiv.org/pdf/1008.0973), §5.3 pp.41–42 | canonical bundleのPoisson module構造とπ⌟c_1(T)=0 | §10.2のTodd補正確認に使う |
+| [Lurie, DAG X](https://www.math.ias.edu/~lurie/papers/DAG-X.pdf), Thms5.1.9/5.3.16, Prop5.3.21; [Blanc–Katzarkov–Pandit, arXiv:1705.00655](https://arxiv.org/pdf/1705.00655), §3.3 | tame compactly generated変形からhullへの(−1)-truncated比較、centerによる形式変形制御 | π0単射と実際の幾何的KSを組み合わせ、通常Artin基底で全認識。scalar π2を保持 |
+| [Bhatt, arXiv:1404.7483](https://arxiv.org/pdf/1404.7483), Lem4.2 | 完備環上のPerfとArtin切断の∞圏極限の同値 | underlying係数perfect複体と作用を効果化。包絡dg代数上のcompact性の効果化とはしない |
+| [Stevenson, arXiv:1105.4698v3](https://arxiv.org/pdf/1105.4698v3), Thm6.13 | Noetherian局所hypersurface環の全thick特異部分圏を分類 | 孤立特異点への適用、graded化とcompactnessから次数シフト安定なMFの生成性を得る |
+| [Orlov, arXiv:math/0503632v3](https://arxiv.org/pdf/math/0503632), Thms2.5/3.10–3.11; [Neeman, Ann. Sci. ENS25 (1992),547–566](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/neeman-loc.pdf), Lem2.2 | graded MF・特異圏・Fano残余圏の比較、compact生成localizing圏のcompact部分 | windowを合わせ、rotation=Serre[−1]で三次成分のSerre安定thick生成を得る |
+| [Bernardara–Macrì–Mehrotra–Stellari, arXiv:0903.4414v2](https://arxiv.org/pdf/0903.4414v2), Thm1.1 | 滑らかな三次三様体はKuznetsov成分の同値から一意に復元 | 有限表示spreadingで拡大体へ適用。被約な二重交差上で粗モジュライ射を降下 |
+| [Poonen, Finite Fields Appl.11 (2005),230–268](https://math.mit.edu/~poonen/papers/projaut.pdf), Thms1.1/1.5/1.6, Cor1.9 | 自己同型が自明なsmooth hypersurfaceの非空開 | targetで粗モジュライとstackを同一視し、相対次元7の滑らかな全射に制限 |
+| [Allcock, J. Algebraic Geom.12 (2003),201–223](https://web.ma.utexas.edu/users/allcock/research/3foldgit.pdf), Thm1.1 | cubic threefoldのGIT安定性判定。smooth cubicは安定 | 分離的な十次元粗モジュライを用いる。author PDFの定理を画像で確認 |
+| [Hitchin, arXiv:1008.0973](https://arxiv.org/pdf/1008.0973), §5.3 pp.41–42 | canonical bundleのPoisson module構造とπ⌟c_1(T)=0 | §10.5のTodd補正確認に使う |
 | [Feyzbakhsh–Liu–Zhang, MPIM23-7](https://archive.mpim-bonn.mpg.de/id/eprint/4904/1/mpim-preprint_2023-7.pdf), Theorems1.1/6.2 and1.2/7.1 | 可換del Pezzo三様体のgluing objectとBrill–Noether復元 | 今回の非可換族で接合データが7方向をどう保持するかを調べる |
 | [Matviichuk–Pym–Schedler, arXiv:2411.10425v1](https://arxiv.org/html/2411.10425v1), Introduction, Theorem1.1 | 適切な非退化条件を満たすq-symmetric/toric型から具体的な量子射影空間を作る | rank2 Rat113へ直接適用する定理ではない。有限係数成分構成の方法比較に使う |
 | [Lin–Zhang, arXiv:2611.05915v1](https://arxiv.org/html/2611.05915v1), §2–3 | 幾何的相対admissible圏・perfect kernelを仮定する同値変形。新しいhypersurface Torelliの結果 | 任意のNC familyを幾何的とする定理ではない。今回の代数化入力と混同しない |
@@ -596,17 +772,17 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 | [Brown–Soto Levins–Sridhar, arXiv:2506.02398v1](https://arxiv.org/pdf/2506.02398v1), Notation1.4, Setup2.1, Cor1.3 | balanced dg双対の存在とperfect tailsのSerre双対、係数体 | 本稿の局所双対→tails双対という方法の近接文献。相対構成の初出は未確認 |
 | [Stacks Project](https://stacks.math.columbia.edu/), Tags03WT/02GU/0476/06FI/06N3/04UV/0245 | étale locusの平坦底変更と開性、商stackの代数性・torsor表示、étale atlasとDM性、fpqcアフィン降下 | 一般理論は既知。Q113の飽和開と普遍中心に適用し、全O保存Abel同値との一致を別に証明。2026-11-19原文確認 |
 
-近接するfoliation文献とKu変形の文献は、公表用Introductionへ正確に反映する必要がある。現在のAbel変形比較については上記の確認済み一次資料をIntroductionとbibliographyに反映した。残余圏・foliationの関連入力は、公表時の中心定理に応じてさらに照合する。
+Abel変形比較とKu残余射について上記の一次入力をIntroductionとbibliographyに反映した。これらの既知定理そのものを新規成果とせず、具体的な17係数族の相対構成・効果化・開集合への降下が追加部分である。近接するfoliation文献も含め、初出・新規性の網羅的照合は未完了である。
 
 ## 12. 現在の検証範囲と外部課題との境界
 
-全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、有限中心の射影模型、一般族の相対双対と全Hom比較は現行証明として保持する。今回の中心的点検は、étale飽和開、中心一次・三次の任意底変更、相対四次元torsorと中心重み、有限関係窓、全Abel同値への降下と完全忠実性である。別々の読み合わせで具体的な未解消の欠陥は見つからなかった。これは外部査読でも全旧証明の独立再証明でもない。新規性の網羅調査は未完了。対象ファイル・一次資料・範囲は `validation.json`。
+全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、有限中心の射影模型、一般族の相対双対と全Hom比較は現行証明として保持する。今回の中心的点検は、相対残余圏とenriched Serre、全Artin幾何的認識、係数perfectな核の効果化、Serre安定生成性、代数的橋渡し、有限表示・Torelli降下、支配性と相対次元7である。別々の読み合わせで具体的な未解消の欠陥は見つからなかった。これは外部査読でも全旧証明の独立再証明でもない。新規性の網羅調査は未完了。対象ファイル・一次資料・範囲は `validation.json`。
 
-既存8計算は2026-11-16に実行され、横断slice行列式−5538243375000、Rat113接空間37、二因子stabilizer rank48、低次中心、中心三次式、軌道rank24、分離型codim15を再現した。同日の先行作業では `verify_general17_open.py` の九項目が一致した。これらのsourceは変更しておらず、今回の全再実行とは報告しない。
+既存8計算は2026-11-16に実行され、横断slice行列式−5538243375000、Rat113接空間37、二因子stabilizer rank48、低次中心、中心三次式、軌道rank24、分離型codim15を再現した。同日の先行作業では `verify_general17_open.py` の九項目が一致した。これらのsourceは変更しておらず、今回の全再実行とは報告しない。新しい支配性検算では35次minor=752849 mod1000003を実行確認した。計算の詳細と再実行の状態は `validation.json` に記す。
 
 今回新たに実行した `verify_jacobian_etale_point.py` は、§1.7の同一有理点でD37非零・M113非零・整数上のMD=0とスカラー核・全Δ因子非零を確認した。独立した再実行で小証明書全体の一致も確認した。旧M113の計算は新script内で再構成しており、旧script全体の実行とは区別する。圏論的な降下と全Hom定理はこの数値計算の結論ではない。
 
-現行sourceの参照・引用・TeX入力閉包を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止した。日本語クラス・luatexjaも実行環境で確認できず、同じ環境でv16を再試行していない。現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存の各状態を区別する。
+現行sourceの参照・引用・TeX入力閉包を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止した。日本語クラス・luatexjaも実行環境で確認できず、現行v17の組版は実行していない。現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存の各状態を区別する。
 
 ### H3/PI4の関連知識（本研究の定理の入力ではない）
 

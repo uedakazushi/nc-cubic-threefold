@@ -1,0 +1,643 @@
+\section{Kuznetsov成分による可換三次モジュライへの射}
+\label{sec:kuznetsov-moduli-morphism}
+
+$M_{\mathrm{cub}}$ を滑らかな可換三次三様体の粗モジュライ空間とする。
+これは滑らかな三次形式の開部分 $H\subset\mathbb P(\operatorname{Sym}^3\mathbb C^5)$
+の $\operatorname{PGL}_5$ による幾何学的商であり、分離的な十次元既約代数多様体である。
+滑らかな三次の GIT 安定性には \cite[Theorem~1.1]{AllcockCubicGIT} を用いる。
+自己同型が自明な三次の非空開部分を $M_{\mathrm{cub}}^\circ$ と書く。
+この開上では粗モジュライと通常の三次モジュライ stack は一致する。
+この開の存在は \cite[Theorems~1.5--1.6 and Corollary~1.9]{PoonenHypersurfaceAut}
+による。$[H/\operatorname{PGL}_5]$ は滑らかなので、$M_{\mathrm{cub}}^\circ$ も滑らかである。
+
+\begin{theorem}[十七次元から十次元への残余射]
+\label{thm:kuznetsov-cubic-moduli-morphism}
+定理\ref{thm:jacobian-algebraic-abel-substack}の
+十七次元 Jacobian 型 Abel 圏モジュライ $\mathfrak C_{\mathrm J}$ には
+非空開部分 stack $\mathfrak U$ と支配的な射
+\begin{equation}\label{eq:kuznetsov-seventeen-ten}
+ \rho:\mathfrak U\longrightarrow M_{\mathrm{cub}}
+\end{equation}
+が存在する。任意の幾何学的点 $c$ に対し、$\rho(c)=[X_c]$ は
+\[
+ \mathcal K_c\simeq\operatorname{Ku}(X_c)
+\]
+を満たす滑らかな可換三次の唯一の同型類である。
+同値は dg Morita 同値として取れる。さらに次を満たすように縮小できる。
+\begin{enumerate}
+\item $\mathfrak U$ の étale 被覆上に滑らかな三次族と相対 Morita 同値が存在する。
+相対残余圏と全 compact tails 圏は dg smooth proper であり、任意の導来底変更と両立する。
+\item $\rho$ は $M_{\mathrm{cub}}^\circ$ のある非空開部分 $V$ に値を取り、
+$\rho:\mathfrak U\to V$ は相対次元七の滑らかな全射である。
+従って $\mathfrak U\to V\subset\mathfrak M_{\mathrm{cub}}^{\mathrm{sm}}$
+は可換三次のモジュライ stack への実際の射でもある。
+\end{enumerate}
+特に十七次元の scheme atlas の非空開 $U$ 上にも
+$U\to M_{\mathrm{cub}}$ という射を得る。
+\end{theorem}
+
+これは全 O-marked Abel モジュライの代数性やその中での
+$\mathfrak C_{\mathrm J}$ の開性を主張する定理ではない。
+また、式\eqref{eq:kuznetsov-seventeen-ten}を、量子化の入力三次形式を
+そのまま出力する写像と同一視しない。
+本節では形式的認識、係数 perfect な双加群の効果化、Serre 安定な像の生成性を
+順に証明し、最後に有限表示の降下から実際の開集合上の射を得る。
+
+\subsection{可換三次成分の全Artin形式認識}
+
+\begin{proposition}[通常のArtin基底上の幾何的認識]
+\label{prop:kuznetsov-formal-recognition}
+$k/\mathbb C$ を体拡大、$X/k$ を滑らかな三次三様体、
+$\mathcal D=\operatorname{Ind}(\operatorname{Ku}(X))$ とする。
+特殊ファイバーを同定した変形を考える。
+通常の局所 Artin $k$-代数 $T$ 上で、自然写像
+\[
+ \operatorname{Def}_X(T)\longrightarrow
+ \pi_0\operatorname{CatDef}^{c}_{\mathcal D}(T),\qquad
+ X_T\longmapsto\operatorname{Ind}(\operatorname{Ku}(X_T))
+\]
+は全単射である。右辺は compactly generated な線型圏の実際の変形空間の同型類を表す。
+これは高次自己同型まで含む変形空間を離散化された左辺と同一視する主張ではない。
+\end{proposition}
+\begin{proof}
+用いる Hochschild 計算と幾何的 Kodaira--Spencer 写像は
+\begin{equation}\label{eq:kuznetsov-formal-hh}
+ HH^i(\operatorname{Ku}(X))=
+ \begin{cases}k&i=0,\\ k^{10}&i=2,\\0&i\ne0,2,\end{cases}
+ \qquad
+ H^1(X,T_X)\xrightarrow{\sim}HH^2(\operatorname{Ku}(X))
+\end{equation}
+である。前者は \cite[Theorem~8.9]{KuznetsovHochschild}、
+後者は \cite[Theorem~4.4(2)]{JLLZInfinitesimal} である。
+後者では単なる次元の一致でなく、三次の変形から成分の変形へ誘導される
+実際の写像が同型であることを使う。
+これらは普遍的な滑らかな三次族上の代数的コホモロジーとその射として定まり、
+複素閉点で同型であることから普遍族上で同型となるため、任意の $k/\mathbb C$ に適用できる。
+成分を $\langle\mathcal O(-1),\mathcal O\rangle^\perp$ とする規約との差は
+線束 twist による同値である。
+
+$\mathcal D$ は proper な compact 部分圏で生成されるので、
+compact 対象間の Ext が有界であり、tamely compactly generated である。
+Lurie \cite[Proposition~5.3.21 and Theorem~5.1.9]{LurieDAGX} により
+\[
+ \theta:\operatorname{CatDef}^{c}_{\mathcal D}
+       \longrightarrow\operatorname{CatDef}^{\wedge}_{\mathcal D}
+\]
+は $(-1)$-truncated である。従って $\pi_0$ 上単射であり、
+各点の $\pi_i$、$i\ge1$ 上同型である。
+同じ結論と接複体 $HH(\mathcal D)[2]$ は
+\cite[\S3.3]{BKPFormalGenerators} にも明記されている。
+Lurie の Theorem~5.3.16 による形式 hull の同定と、標数零の形式変形理論から、
+可換 Artin 環への制限は $H^i(\mathfrak g)=HH^{i+1}(\mathcal D)$ を持つ
+dg Lie 代数 $\mathfrak g$ により制御される。
+
+$H(\mathfrak g)$ は次数 $-1,1$ にのみ存在する。
+移送した極小 $L_\infty$ 構造の $n$ 項演算は次数 $2-n$ を持つ。
+奇数次数の $n$ 個の入力に対する出力次数は偶数なので、すべての高次演算は零である。
+従って通常の Artin 基底上では
+$\pi_0\operatorname{CatDef}^{\wedge}_{\mathcal D}$ は十次元形式円板であり、
+$\pi_1=0$、$\pi_2$ には $HH^0$ に由来する形式的スカラーが残る。
+
+一方 $H^0(T_X)=H^2(T_X)=0$、$h^1(T_X)=10$ なので、
+$\operatorname{Def}_X$ は滑らかな十次元形式円板である。
+実際の幾何的写像の接写像は\eqref{eq:kuznetsov-formal-hh}の同型である。
+形式逆写像定理により
+$\operatorname{Def}_X\to\pi_0\operatorname{CatDef}^{\wedge}_{\mathcal D}$ は同型である。
+幾何的変形は実際の compactly generated な変形を与えるので、
+$\theta$ の $\pi_0$ 上の像は hull の全体を含む。
+単射性と合わせて主張を得る。
+\end{proof}
+
+\subsection{形式的同値からSerre安定な埋込みへ}
+
+\begin{proposition}[係数perfectな効果化とSerre比較]
+\label{prop:kuznetsov-effective-serre-embedding}
+$R=k[[h]]$、$R_n=R/(h^{n+1})$ とし、$E$ を $R$-perfect な dg $R$-代数とする。
+$\mathcal C=\operatorname{Perf}(E)$ が、自然な双加群 pairing を備えた
+dg/enriched な相対 Serre 自己同値を持ち、その構造が底変更に両立し、
+$\mathcal C\otimes_R k\simeq\operatorname{Ku}(X_0)$ と仮定する。
+このとき滑らかな相対三次 $X_R/R$ と完全忠実な $R$-線型 dg 関手
+\begin{equation}\label{eq:kuznetsov-effective-embedding}
+ \Phi:\operatorname{Perf}(E)\longrightarrow\operatorname{Ku}(X_R)
+\end{equation}
+が存在する。$\Phi$ の特殊ファイバーは指定した同値であり、
+像は target の相対 Serre 関手とその逆で安定である。
+ここでは $E$ の dg smoothness は仮定しない。
+\end{proposition}
+\begin{proof}
+命題\ref{prop:kuznetsov-formal-recognition}により
+$\operatorname{Perf}(E\otimes_R^{\mathbf L}R_n)\simeq\operatorname{Ku}(X_n)$
+となる三次変形 $X_n/R_n$ を得る。
+認識の自然性と形式表現性により $X_n$ は互換的に取れる。
+同値も互換的に選べる。実際、一段上の同値の還元と既に選んだ同値との差は
+特殊ファイバー上恒等な自己同値であり、前証明の $\pi_1=0$ により同型である。
+隣接する比較を逐次選び、$\infty$ 圏内で tower の合成として
+homotopy coherent な高次の比較を取る。
+スカラーの二次自己同型を消滅したものとは扱わない。
+
+三次の偏極は $H^1(\mathcal O)=H^2(\mathcal O)=0$ により互換的に持ち上がる。
+大域切断の基底と三次方程式の生成元を互換的に選び、その係数の逆極限を取ると
+$X_R\subset\mathbb P^4_R$ を得る。
+判別式の特殊値は非零であり $R$ の単元なので、この族は滑らかである。
+$\operatorname{Ku}(X_R)\simeq\operatorname{Perf}(D)$ を有限 generator で表示する。
+相対 smooth な射影三次の perfect 圏とその admissible 成分なので、$D$ は $R$-smooth proper である。
+generator と $D$ は $R_n$ への底変更に両立する。
+
+互換的な同値を $E_n$--$D_n$ 双加群 $P_n$ で表す。
+各 $P_n$ は右 $D_n$-perfect であるため $R_n$-perfect である。
+Bhatt \cite[Lemma~4.2]{BhattAlgebraization} の $\infty$ 圏としての同値
+\[
+ \operatorname{Perf}(R)\simeq\varprojlim_n\operatorname{Perf}(R_n)
+\]
+により、underlying complex は $P\in\operatorname{Perf}(R)$ に効果化される。
+作用の効果化も確認する。
+$\mathbf R\operatorname{End}_R(P)$ は $R$-perfect、従って導来 $h$-完備であり、
+$E_1$-代数として
+\[
+ \mathbf R\operatorname{End}_R(P)
+ \simeq\varprojlim_n\mathbf R\operatorname{End}_{R_n}(P_n).
+\]
+代数の極限は underlying 加群で計算される。
+$\Gamma=E\otimes_R^{\mathbf L}D^{\mathrm{op}}$ からの写像空間は target の極限を保つので、
+\[
+ \operatorname{Map}_{\operatorname{Alg}_R}
+       (\Gamma,\mathbf R\operatorname{End}_R(P))
+ \simeq\varprojlim_n
+ \operatorname{Map}_{\operatorname{Alg}_{R_n}}
+       (\Gamma_n,\mathbf R\operatorname{End}_{R_n}(P_n)).
+\]
+従って互換的な作用が $E$--$D$ 双加群構造を与える。
+この段階で $P$ が $\Gamma$-perfect であるとは主張しない。
+
+$D$ が $R$-smooth なので、補題\ref{lem:relative-smooth-perfect-module}から
+$P$ は右 $D$-perfect である。
+左作用による射 $E\to\mathbf R\operatorname{End}_D(P)$ の両辺は $R$-perfect であり、
+その特殊ファイバーは $P_0$ の同値性により quasi-isomorphism である。
+cone に導来 Nakayama を適用して、この射自体が quasi-isomorphism であることを得る。
+従って $-\otimes_E^{\mathbf L}P$ は\eqref{eq:kuznetsov-effective-embedding}を与える。
+
+最後に Serre 関手をそれぞれ $S_{\mathcal C},S_{\mathcal D}$ と書く。
+完全忠実性と双対性により
+\[
+ \mathbf R\operatorname{Hom}_{\mathcal D}
+       (\Phi S_{\mathcal C}M,S_{\mathcal D}\Phi M)
+ \simeq
+ \mathbf R\operatorname{Hom}_{\mathcal C}(M,S_{\mathcal C}M)^\vee.
+\]
+右辺の trace に対応する射
+$\alpha_M:\Phi S_{\mathcal C}M\to S_{\mathcal D}\Phi M$ を取る。
+trace の自然性により $\alpha$ は自然変換である。
+自然な双対性を表す dg 双加群に enriched Yoneda を適用する構成なので、
+この比較も homotopy coherent である。
+特殊ファイバーの $\Phi_0$ は同値なので $\alpha_M\otimes_R k$ は同型である。
+その cone は $D$-perfect、従って $R$-perfect であり、導来 Nakayama により零となる。
+$S_{\mathcal C}$ は自己同値なので逆 Serre に対しても安定である。
+すべての比較を有限 generator に適用すれば、任意の導来底変更後にも同じ比較が成立する。
+一般ファイバーの像の両側 Serre 安定性には、$M=E$ と
+$M=S_{\mathcal C}^{-1}E$ の比較だけで十分である。
+一般ファイバーの全対象が $R$ 上へ持ち上がるとは仮定しない。
+\end{proof}
+
+\subsection{三次成分に固有の生成性}
+
+\begin{lemma}[次数シフトで安定な部分圏の生成]
+\label{lem:kuznetsov-graded-thick-simple}
+$S=k[x_0,\ldots,x_4]$、$f\in S_3$ とし、$V(f)\subset\mathbb P^4_k$ は滑らかとする。
+有限階数の graded matrix factorization の冪等完備化を $\mathcal F$ と書く。
+非零の $P\in\mathcal F$ に対し
+\[
+ \operatorname{thick}\{P(a)\mid a\in\mathbb Z\}=\mathcal F.
+\]
+従って $\operatorname{Ku}(V(f))$ の非零 thick 部分圏が
+Serre 関手とその逆で安定なら、それは全体である。
+\end{lemma}
+\begin{proof}
+$S/(f)$ の特異点集合は原点だけである。
+Stevenson \cite[Theorem~6.13]{StevensonSingularityActions} は、
+Noetherian かつ局所的に hypersurface な環の特異圏の全 thick 部分圏を
+特異点集合の特殊化閉部分集合で分類する。
+従って ungraded matrix factorization 圏の冪等完備化では、
+どの非零対象も全体を thick-generate する。
+affine な定理を使っており、ここに追加の tensor 安定性の仮定はない。
+
+graded 圏への移行を明示する。
+忘却関手を $\mathsf F$ とし、任意階数の graded projective 加群による
+matrix factorization の大きい homotopy 圏を考える。
+ungraded factorization $Q$ に対して、graded 化 $\mathsf G$ を
+\[
+ (\mathsf GQ_i)_n=Q_i\quad(n\in\mathbb Z)
+\]
+で定める。$s\in S_e$ は copy $n$ から copy $n+e$ へ $s$ 倍として作用する。
+graded factorization を
+$P_1\xrightarrow{d_1}P_0\xrightarrow{d_0}P_1(3)$ と書く規約では、
+$\mathsf Gd_1$ は copy の次数を保ち、$\mathsf Gd_0$ は三だけ増加させる。
+これで二つの合成は $f$ 倍になる。
+$\mathsf G$ は homotopy、cone、直和因子を保ち、
+copy の添字の平行移動 $\mathsf GQ_i(3)\simeq\mathsf GQ_i$ により shift とも両立する。
+
+graded $P$ について、copy $n$ にある元の元来の内部次数を $j$ とすると、
+$a=j-n$ による分解が
+\[
+ \mathsf G\mathsf F(P)\simeq\bigoplus_{a\in\mathbb Z}P(a)
+\]
+を与える。$d_0$ は $j,n$ をともに三増加させるので、この分解は微分とも両立する。
+特に $P$ は右辺の $a=0$ の直和因子である。
+忘却後に $P$ が contractible なら、contracting homotopy の該当する homogeneous 成分を
+取ることで graded contracting homotopy を得る。
+冪等完備化にも同じ議論を適用できるので $\mathsf F$ は非零性を保つ。
+
+任意の有限階数 graded $Q$ に対し、ungraded の分類から
+$\mathsf FQ\in\operatorname{thick}(\mathsf FP)$ である。
+$\mathsf G$ を適用し、上の分解と $Q$ の直和因子表示を使うと
+$Q\in\operatorname{Loc}\{P(a)\}$ を得る。
+有限階数 factorization は、大きい homotopy 圏で compact である。
+実際、各 Hom 複体は有限生成射影加群からの Hom で計算され、直和と可換する。
+compact 対象が生成する localizing 圏の compact 部分はその thick 閉包である
+\cite[Lemma~2.2]{NeemanCompactLocalization}から、
+$Q\in\operatorname{thick}\{P(a)\}$ を得る。
+
+Orlov の同値 \cite[Theorems~2.5 and~3.10--3.11]{OrlovSingularities} と
+\cite[Corollary~4.1 and the rotation construction]{KuznetsovFractionalCY} の規約で、
+次数シフトは rotation $\mathsf R$ に対応する。
+Orlov の半直交分解の window は線束 twist と Serre mutation により
+$\langle\mathcal O,\mathcal O(1)\rangle^\perp$ の window に移して用いる。
+三次三様体では
+$\mathsf R^3=[2]$、$S=\mathsf R^{-2}[3]$、従って $\mathsf R=S[-1]$ である。
+よって Serre 安定な非零 thick 部分圏には前段の結論を適用できる。
+\end{proof}
+
+\begin{corollary}[非零一般ファイバーの幾何性]
+\label{cor:kuznetsov-formal-to-generic}
+命題\ref{prop:kuznetsov-effective-serre-embedding}の状況で、
+$\operatorname{Perf}(E\otimes_R k((h)))\ne0$ とする。
+このとき\eqref{eq:kuznetsov-effective-embedding}の一般ファイバーは Morita 同値である。
+\end{corollary}
+\begin{proof}
+完全忠実関手の像は冪等完備な thick 部分圏であり、
+Serre 比較の底変更により Serre とその逆で安定である。
+非零性と前補題により像は全体である。
+\end{proof}
+
+\subsection{可換三次を含む代数的な十八係数の橋渡し族}
+\label{subsec:kuznetsov-algebraic-bridge}
+
+\begin{proposition}[完備化を使わない相対量子化族]
+\label{prop:kuznetsov-algebraic-bridge}
+独立変数 $a,b,\alpha,\beta,m_{ij},g_j,h$ を取り、
+\[
+ F=a(x^3+y^3+z^3)+bxyz+ux^2+\alpha vy^2+\beta(u+v)z^2
+       +\sum_{i=1}^3M_i(u,v)x_i+g(u,v),
+\]
+$M_i=\sum_{j=0}^2m_{ij}u^{2-j}v^j$、$g=\sum_{j=0}^3g_ju^{3-j}v^j$ と置く。
+さらに
+\[
+ p_h=2-hb,\qquad q_h=2+hb,\qquad r_h=6ha,
+ \qquad d(h)=p_hq_h(q_h^3-r_h^3)(p_h^3+r_h^3)
+\]
+と定める。$d(0)=256$ である。
+係数環
+\[
+ R=\mathbb C[a,b,\alpha,\beta,m_{ij},g_j,h,
+                 \{a(27a^3+b^3)d(h)\}^{-1}]
+\]
+上で $u,v$ を中心変数とし、
+\[
+ B_h=R\langle x,y,z,u,v\rangle/
+ \bigl([u,-],[v,-],\ [x,y]-h\operatorname{Symm}(F_z),
+ [y,z]-h\operatorname{Symm}(F_x),\ [z,x]-h\operatorname{Symm}(F_y)\bigr)
+\]
+を定める。すると次が成立する。
+\begin{enumerate}
+\item $B_h$ に中心三次元 $w_h$ が代数的に存在し、
+\[
+ B_h/(h)=R/(h)[x,y,z,u,v],\qquad w_h\bmod h=F
+\]
+となる。
+\item $B_h$ と $A_h=B_h/(w_h)$ は、
+第\ref{sec:relative-koszul-line-cohomology}節の相対入力 (1)--(4) を満たす。
+従って任意の可換 $R$-代数上で五つの線対象が compact generator を与え、
+その自己 Hom dg 代数は係数 perfect であり、相対 Serre 双対と
+任意の導来係数延長比較が成立する。
+\item $\operatorname{Spec}R$ は整な有限型十八次元基底であり、
+$h=0$ には滑らかな可換三次の点がある。
+\item $h\ne0$ 上の族は、係数変換と二つの中心変数の変更により
+既存の十七係数族と一致する。
+その係数写像は支配的である。
+従って $\operatorname{Spec}R$ の任意の非空開から、十七係数族の一般点へ到達する。
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{有限の分母と中心元。}
+命題\ref{prop:pair-rains-polynomial}へ
+\[
+ q=\frac{q_h}{p_h},\qquad t=\frac{r_h}{p_h},\qquad
+ \lambda=\frac b{3a},\qquad
+ (L_1,L_2,L_3)=\frac{(2u,2\alpha v,2\beta(u+v))}{3a},
+ \qquad\widetilde M_i=\frac{M_i}{3a}
+\]
+を代入する。$q=1+\lambda t$ であり、関係は上記 $B_h$ の関係そのものである。
+Rains の分母は
+\[
+ q(q^3-t^3)(q+1)(1+t^3)
+ =\frac{4q_h(q_h^3-r_h^3)(p_h^3+r_h^3)}{p_h^8}
+\]
+なので $R$ 上で可逆である。
+active 定数項を零に規格化した Rains 元を $G_t^{\mathrm R}$ と置き、
+\[
+ w_h=3aG_t^{\mathrm R}+g(u,v)
+\]
+とする。この有限有理式は $R$ 上で定義され、中心的である。
+$q(0)=1,t(0)=0$ なので $w_h\bmod h=F$ となる。
+
+\emph{同一の代数的基底上での全次数の射影性。}
+$R_0=\mathbb C[a,b,h,\{a(27a^3+b^3)\}^{-1}]$ とし、
+active 最高次部分の代数を $S_h$ と書く。
+その関係は固定した滑らかな平面三次
+$f_3=a(x^3+y^3+z^3)+bxyz$ に量子化係数 $h$ を付けたものである。
+Mori--Smith \cite[Theorem~4.2(1)]{MS} は
+$A_{f,\lambda}$ について全ての $\lambda$ を許し、$\lambda=0$ も含む。
+従って $R_0$ の全ての幾何学的ファイバーは
+三次元 Koszul AS 正則 CY 整域であり、Hilbert 級数は $(1-s)^{-3}$ である。
+$h=0$ ではこれは多項式環である。
+
+各 $(S_h)_n$ は有限な語の加群の有限表示商であり、全閉点で
+階数 $\binom{n+2}{2}$ を持つ。
+$R_0$ は被約な有限型 $\mathbb C$-環なので、表示行列の高すぎる小行列式は
+全閉点で零であることから恒等的に零となる。
+必要な階数の小行列式が可逆な局所開上で行列を標準形へ直せば、
+$(S_h)_n$ は $R_0$-有限射影であり、任意の底変更と両立する。
+ここでは次数ごとに基底を縮小していない。
+全次数で同じ $R_0$ 上に一定階数が成立することを使っている。
+
+$Q=R[u,v]$ と置く。
+active 次数を下げる cyclic potential の項に対する PBW 定理
+\cite[Theorem~3.1]{BT}\cite[Proposition~7.3.1(ii)]{EG} を各閉点に適用する。
+各 $(S_h)_n$ への語の全射を係数線型に分裂し、その持上げを $B_h$ に取る。
+最高 active 次数からの帰納法でこれらは $Q$-加群として $B_h$ を生成する。
+有限の関係があれば全閉点の PBW 基底でその係数が零となり、
+被約性により関係自体が零となる。
+従って
+\[
+ \operatorname{gr}_{\mathrm{active}}B_h\simeq S_h\otimes_{R_0}Q,
+ \qquad B_h\simeq\bigoplus_{n\ge0}(S_h)_n\otimes_{R_0}Q
+\]
+を得る。後の同型は濾過付き $Q$-加群としての非標準的な分裂である。
+特に $B_h$ は $Q$-射影で、全次数成分は有限射影 $R$-加群となる。
+この分裂から PBW 同型は非平坦なものも含む任意の係数延長後に保たれる。
+
+\emph{正則三次商。}
+各幾何学的ファイバーの $B_h$ は、随伴次数付きが
+$S_h\otimes k[u,v]$ であるため整域である。
+Rains 元の active 最高記号は各ファイバーで非零である。
+実際、命題\ref{prop:pair-rains-polynomial}の三次関係行列の小行列式
+$-q^5(q^3-t^3)^2$ は $R$ 上可逆であり、同命題の整列基底表示に現れる
+$(q+1)(1+t^3)$ および $(q+1)(q^3-t^3)$ も可逆である。
+$3a$ も可逆なので、この最高記号は零にならない。
+従って全閉点で $w_h$ は正則である。
+有限射影加群の写像
+\[
+ B_{h,n-3}\xrightarrow{w_h}B_{h,n}
+\]
+は全閉点で単射で一定階数を持つので、その cokernel は有限射影であり、
+各次数の完全列は係数線型に分裂する。
+これで $A_{h,n}$ の階数
+$\binom{n+4}{4}-\binom{n+1}{4}$ と、任意の底変更後の正則性を得る。
+楕円境界の滑らかさや、その translation の有限位数性はこの議論に不要である。
+
+\emph{真正な相対 CY と有限 Koszul 対角。}
+命題\ref{prop:general17-relative-cy-koszul}の証明を、この基底上で反復できる。
+具体的には
+\[
+ \Phi_h=xyz-yxz-h\operatorname{Symm}(F-g)
+\]
+の三変数 potential 双加群複体を $Q$ 上で作る。
+各全次数は有限射影 $R$-加群の有限複体であり、
+各閉点では PBW 濾過によって三次元 CY の potential 解消となる。
+従って同一基底上で分裂完全であり、任意の係数延長後にも完全である。
+cyclic Hessian の反転恒等式が、この複体の真正な双加群自己双対
+$K_Q^\vee\simeq K_Q(3)[-3]$ を与える。
+$B_h$ の $Q$-射影性により二つの中心差
+$u_L-u_R,v_L-v_R$ は $B_h\otimes_R B_h^{\mathrm{op}}$ 上で正則列である。
+その Koszul 双対と change of rings を使うと
+\[
+ \mathbf R\underline{\operatorname{Hom}}_{B_h\otimes_RB_h^{\mathrm{op}}}
+ (B_h,B_h\otimes_RB_h^{\mathrm{op}})\simeq B_h(5)[-5]
+\]
+を得る。この同型は相対双加群として自然で、任意の底変更と両立する。
+
+最後に全ファイバーの五次元 Koszul 性を使い、二次関係から定める
+有限交わり $W_i$ は $0\le i\le5$ で階数 $\binom5i$、$W_6=0$ となる。
+有限行列の一定階数により $W_i$ は有限射影で、基底変更と可換である。
+標準 Koszul 双加群複体の各全次数は全閉点で完全な有限射影複体なので、
+同じ基底上で普遍的に完全である。
+これで相対入力 (1)--(4) が揃う。
+全ての次数にわたる正確性を、有限個の次数の開条件から推測したのではなく、
+同一基底の全ファイバーに適用できる PBW/CY 定理から証明したことに注意する。
+
+\emph{可換な滑らかな点。}
+$h=0$ において
+\[
+ F_*=x^3+y^3+z^3+ux^2+u^3+v^3
+\]
+を取る。この係数は $a=1,b=0,\alpha=\beta=0,M_i=0,g=u^3+v^3$ に対応し、
+基底 $R$ の条件を満たす。
+偏微分の同時零点は $y=z=v=0$ および
+$x(3x+2u)=0$, $x^2+3u^2=0$ を満たす。
+$x=0$ なら $u=0$、$x=-2u/3$ なら $31u^2/9=0$ なので、
+射影空間に同時零点は存在しない。
+必要なら $F$ の射影 Jacobian 判別式をさらに反転しても、
+この点と整性・支配性は保たれる。
+
+\emph{十七係数一般点への支配性。}
+$h\ne0$ で $u'=hu,v'=hv$ と置くと、周囲の関係式は
+\[
+ a'=ha,\qquad b'=hb,\qquad
+ \alpha'=\alpha,\quad\beta'=\beta,\qquad m'_{ij}=h^{-1}m_{ij}
+\]
+を持つ標準十七係数族の形になる。
+中心三次を canonical な未スケールの $G^{\mathrm R}$ で規格化する場合、
+$w_h$ を可逆元 $3a$ で割り
+\[
+ g'_j=\frac{g_j}{3ah^3}
+\]
+を使う。中心を $3a'G^{\mathrm R}$ に規格化する場合は
+$w_h$ を $h$ 倍して $g'_j=h^{-2}g_j$ とする。
+いずれも同じ三次直線を記述し、規格化を途中で混在させない。
+前者について逆変換は
+\[
+ a=a'/h,\qquad b=b'/h,\qquad
+ m_{ij}=hm'_{ij},\qquad g_j=3a'h^2g'_j
+\]
+である。
+従って $\mathbb C(h)$ 上で係数変換は双有理であり、
+十七係数空間の函数体は $\operatorname{Frac}(R)$ に単射となる。
+既存の $\Delta$ 開と étale chart の開を引き戻しても非空であり、
+これは主張する一般点での一致と支配性を与える。
+\end{proof}
+
+\begin{remark}[この橋渡しが解決する点]
+ここでは $\mathbb C[[h]]$ 上の次数ごとの Nakayama だけから
+有限型の開近傍を推論していない。
+固定した滑らかな $f_3$ に対し Mori--Smith の定理が全量子化係数 $h$ で成立すること、
+低次 potential の PBW 定理、有限な Rains 公式を組み合わせ、
+初めから一つの有限型代数的基底上で任意係数の proper dg 族を作った。
+この命題自体は三次商の dg smoothness も残余圏の幾何性も主張しない。
+それらを証明するための、滑らかな可換点と十七次元一般点を結ぶ実際の代数的族を供給する。
+\end{remark}
+
+
+\subsection{有限表示への降下と粗モジュライの降下}
+
+\begin{lemma}[幾何的一般点からの開上の幾何的模型]
+\label{lem:kuznetsov-spread-geometric-model}
+$T$ を滑らかな整有限型 $\mathbb C$-スキーム、$K=\mathbb C(T)$ とし、
+$E_T$ を係数 perfect な dg 代数族とする。
+ある体拡大 $L/K$ 上で
+$\operatorname{Perf}(E_L)\simeq\operatorname{Ku}(Y_L)$ となる滑らかな三次が存在すると仮定する。
+すると $T$ の非空開 $T'$ と有限 étale 全射 $V\to T'$ 上に、
+滑らかな三次族 $Y_V$ および相対 Morita 同値
+$\operatorname{Perf}(E_V)\simeq\operatorname{Ku}(Y_V)$ が存在する。
+また、この同値によって一意に定まる射 $T'\to M_{\mathrm{cub}}$ がある。
+\end{lemma}
+\begin{proof}
+$E_L$ は smooth proper なので、補題\ref{lem:dg-smooth-field-descent}により $E_K$ もそうである。
+三次の有限個の係数は有限生成 $K$-部分代数 $B\subset L$ へ降り、
+判別式を反転して滑らかな三次 $Y_B$ を得る。
+その相対成分の generator の自己 Hom 代数を $D_B$ とする。
+$D_B$ は $B$-smooth proper である。
+$L$ 上の同値 kernel は
+$E_K\otimes_K D_B^{\mathrm{op}}$ の底変更上の perfect 加群である。
+perfect 加群の連続性 \cite[Lemma~2.10]{ToenVaquieObjects} により、
+$B$ を有限生成 $K$-部分代数として拡大すれば、その kernel と逆 kernel、
+unit と counit が $B$ 上へ降りる。
+tensor 積とこれらの射の cone は $B$-perfect であり、$L$ 上で零となる。
+有限個の分母を反転して、二つの cone をともに零にできる。
+ここでは両側の smooth proper 性により相対 kernel と Hom の有限性を確保している。
+
+非空な $\operatorname{Spec}B$ の閉点を取ると、有限体拡大 $K'/K$ 上で
+三次と同値が存在する。標数零なので $K'/K$ は分離的である。
+$T$ の正規化を取り有限 étale になる非空開へ制限する。
+さらに一般点から perfect kernel と逆 kernel、unit、counit を広げ、
+三次の判別式と係数 perfect な cone の support を除く。
+正規化の射は有限なので、除く閉部分の像も閉であり、
+$T$ 自体を縮小することで被覆のすべての点上に模型を得る。
+必要な相対 smoothness は補題\ref{lem:dg-generic-spreading}により先に確保できる。
+
+この被覆の二重交差 $V\times_{T'}V$ は滑らか、特に被約である。
+二つの三次の成分は同じ $E$ と同値なので、各幾何学的点で
+categorical Torelli \cite[Theorem~1.1]{BMMSCubicTorelli} により同型である。
+従って $M_{\mathrm{cub}}$ への二つの写像は点ごとに一致する。
+分離的な target への二写像の等化子は閉部分空間であり、
+被約な source の全点を含むので source 全体である。
+よって étale 降下から $T'\to M_{\mathrm{cub}}$ を得る。
+
+ここで用いた Torelli の一次資料は複素数体上である。
+拡大体上の適用は次のように帰着する。
+二つの滑らかな三次と perfect 同値 kernel を有限生成被約 $\mathbb C$-環へ広げ、
+同値性を保つ開へ制限する。
+すべての複素閉点で二つの粗モジュライ写像は一致し、
+Jacobson 性、被約性、分離性から写像自体が一致する。
+これを元の体へ戻せば、その代数閉包上で同型類が等しい。
+従って解析的な Torelli を未確認のまま任意の体へ拡張してはいない。
+\end{proof}
+
+\begin{lemma}[通常の三次族の支配性]
+\label{lem:kuznetsov-classical-dominance}
+命題\ref{prop:kuznetsov-algebraic-bridge}の $h=0$ の十七係数三次族は
+$M_{\mathrm{cub}}$ を支配する。
+\end{lemma}
+\begin{proof}
+三次形式の三十五次元ベクトル空間への写像
+$\operatorname{GL}_5\times\mathbb A^{17}\to\operatorname{Sym}^3(\mathbb C^5)$
+の微分を考える。二十五本の列は $x_a\partial F/\partial x_b$、
+残る十七本は係数についての偏微分である。
+\[
+ (a,b,\alpha,\beta)=(3,5,2,3),\qquad
+ (m_{ij})=\begin{pmatrix}1&1&2\\2&3&1\\1&4&5\end{pmatrix},
+ \qquad(g_0,g_1,g_2,g_3)=(1,2,3,4)
+\]
+において、この $35\times42$ 整数行列の指定した三十五次小行列式は
+$752849\pmod{1000003}$ である。
+従って標数零で階数三十五となり、写像は支配的である。
+行と列の全指定、入力、再生成コードは
+\texttt{computations/commutative\_dominance\_certificate.json} と
+\texttt{computations/verify\_commutative\_dominance.py} にある。
+同じ計算で Euler 恒等式 $\sum_i x_iF_{x_i}=3F$ は整数上で確認する。
+
+滑らかな三次の locus は非空開であり、橋渡し命題の $F_*$ が非空性の証人である。
+従って上の支配性を滑らかな locus と $a(27a^3+b^3)\ne0$ へ制限しても保たれる。
+幾何学的商を取れば主張を得る。
+この行列計算は categorical な幾何性の証明ではなく、通常の三次族の支配性だけを証明する。
+\end{proof}
+
+\begin{proof}[定理\ref{thm:kuznetsov-cubic-moduli-morphism}の証明]
+橋渡し命題の十七個の係数の函数体を
+$K=\mathbb C(a,b,\alpha,\beta,m_{ij},g_j)$ とし、$R=K[[h]]$ に底変更する。
+$d(0)\ne0$ なのでこれは許される。
+特殊ファイバーは滑らかな三次 $X_0=V(F)$ である。
+定理\ref{thm:relative-kuznetsov-projector} と
+系\ref{cor:relative-kuznetsov-serre} により、
+残余圏は係数 perfect な代数 $E_R$ で表示され、底変更に両立する相対 Serre 自己同値を持つ。
+従って命題\ref{prop:kuznetsov-effective-serre-embedding}を適用できる。
+補題\ref{lem:relative-kuznetsov-nonzero-euler}の
+$\chi(G_2,G_2)=-9$ は一般ファイバーでも成立するので、その残余圏は非零である。
+系\ref{cor:kuznetsov-formal-to-generic}から
+\begin{equation}\label{eq:kuznetsov-geometric-generic}
+ \mathcal K_{K((h))}\simeq\operatorname{Ku}(X_{K((h))})
+\end{equation}
+を得る。
+
+橋渡し命題の可逆な係数変換により、十七次元 atlas の函数体
+$K_{17}$ は $K((h))$ に単射として入り、左辺はその一般点の残余圏の底変更である。
+補題\ref{lem:kuznetsov-spread-geometric-model}を atlas に適用すると、
+非空開 $U$ 上に étale 局所の三次模型と相対同値、射
+$\rho_U:U\to M_{\mathrm{cub}}$ を得る。
+残余圏が相対 smooth proper であることと、
+系\ref{cor:relative-kuznetsov-smooth-equivalence}から全 compact tails も相対 smooth proper となる。
+
+étale atlas $T\to\mathfrak C_{\mathrm J}$ における $U$ の像を $\mathfrak U$ とする。
+étale 射は開なので、これは非空開部分 stack である。
+$U\times_{\mathfrak U}U$ は étale 局所的に滑らかで被約である。
+残余圏は定理\ref{thm:jacobian-residual-dg-map}により O-marked 同値に沿って降下する。
+従って二重交差上の二つの粗モジュライ写像は、Torelli と被約性により一致する。
+étale 降下により\eqref{eq:kuznetsov-seventeen-ten}を得る。
+同じ議論は、得られた射の各幾何点での特徴付けと一意性を与える。
+
+支配性を確認する。$\rho$ の像の閉包を $Z\subset M_{\mathrm{cub}}$ とする。
+式\eqref{eq:kuznetsov-geometric-generic}と Torelli により、
+$R$ 上の三次 $X_R$ の一般点は $Z$ に値を取る。
+$R$ は整域で $Z$ は閉なので、その特殊点 $[X_0]=[V(F)]$ も $Z$ に入る。
+補題\ref{lem:kuznetsov-classical-dominance}により、この特殊点は
+通常の三次モジュライの一般点を支配する。
+従って $Z=M_{\mathrm{cub}}$ であり $\rho$ は支配的である。
+
+最後に target を自己同型が自明な開 $M_{\mathrm{cub}}^\circ$ に制限する。
+支配性により source の逆像は非空である。
+source と target は標数零で滑らかであるため、generic smoothness により
+さらに非空開へ縮小すれば $\rho$ は滑らかになる。
+その像 $V$ は開であり、そこへの射は全射で相対次元 $17-10=7$ である。
+$M_{\mathrm{cub}}^\circ$ はモジュライ stack と一致するので、stack への射も得る。
+三次族と残余同値については、構成した étale 被覆上の相対模型を用いる。
+\end{proof}
+
+\begin{remark}[粗モジュライ、族、同値kernelの区別]
+自己同型を持つ三次を含む粗モジュライへの射について、点ごとの Torelli は
+被約な二重交差上の写像の一致に使った。
+任意基底上の categorical Torelli や全自己同値群の一致を仮定したのではない。
+自己同型が自明な開へ縮小すれば、普遍三次族の引戻しが source 上に存在する。
+その相対成分との Morita 同値 kernel は étale 局所に構成しており、
+source 全体で単一の kernel を選べることや、その選択の一意性は主張しない。
+大域的な $\mathcal O(1)$ の選択も不要である。
+\end{remark}
+
+\begin{remark}[主張の確実性と既知入力]
+本節の証明は、既存の相対 PBW/CY/proper/Serre 定理と代数的 chart を入力とする。
+Hochschild 計算、infinitesimal Torelli、Lurie の形式 hull 比較、
+Bhatt の perfect complex の効果化、Stevenson の特異圏の分類、
+Orlov 比較、categorical Torelli、perfect kernel の連続性は既知の結果である。
+それらの適用範囲を明記して、実際の十七係数族の一般点の幾何性とモジュライ射を証明した。
+この具体的な組合せと応用の初出は未確認であり、独立の査読を終えたものではない。
+一般の proper dg 族における compact kernel の形式効果性や
+生成性の開性は使っていない。これらに対する反例と適用範囲の境界は研究ノートに保持する。
+\end{remark}
