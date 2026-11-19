@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v12}
+\date{2026年11月19日・nc cubic moduli研究草稿 v13}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -89,6 +89,12 @@ $\operatorname{Gr}(2,5)$のアフィン錐の原点完備化の積で表され�
 各Artin模型は任意の可換係数環への変更後にもsectionの飽和とtails復元を満たす。
 標準係数族の対象・射のfpqc降下と相対同値の一意的延長を示し，
 線対象間の導来Homのperfect性と任意底変更も得る。
+さらに，fpqc被覆の係数環が非Noetherianでも元のArtin基底上で変形比較を適用し，
+線対象の還元上恒等なscalar cocycleをAmitsur複体で消す。
+Homと合成の降下から大域模型を構成することで，
+定義したstackの可換三次点での全形式完備化を全Abel変形群oidと同定する。
+特殊ファイバー上で恒等となる自己同値は，section代数の導分の計算によって
+標識を保つ自然同型を除き恒等となるため，この形式群oid自体が上記の形式環で表される。
 別に、多項式特殊ファイバーを持つ非周期的な二次$\mathbb Z$-代数について、
 次数三の平坦性から全次数の平坦性への直接証明を与える。
 次数三の障害を$125\times100$関係行列の91次小行列式idealで記述し、
@@ -305,6 +311,24 @@ Artin模型から任意の係数環への変更後のsection復元を証明す�
 平坦対象を左変数とする一次Extの還元と有限表示性から全係数加群へのHom比較を得る。
 対象のfpqc降下はLazardの定理と等化子により直接証明するが，
 任意の圏そのものの降下の有効性とは分ける。
+
+第\ref{sec:abel-formal-descent}節では，滑らかな可換三次点に限り，
+stack化後のArtin対象が大域的な標準模型を持つことをさらに証明する。
+任意の忠実平坦な$R\to S$について，De Deken--Lowenの定理を
+非coherentであり得る$S\to S/\mathfrak mS$へ直接適用せず，
+元のcoherentな$R\to\C$と特殊圏$\operatorname{Qcoh}(X_{S/\mathfrak mS})$に適用する。
+局所的な線対象の持上げを比較する同型の三重交叉のずれは
+$1+\mathfrak mS^{\otimes_R3}$に入り，有限な対数と
+忠実平坦Amitsur完全性\cite[Tag~023M]{StacksAbel}によって除去できる。
+ここで用いる変形比較とAmitsur完全性は既知の一般結果であり，
+本稿が追加するのは，指定した三次Abel圏stackの全形式完備化への適用と，
+実際の遷移同値を再現するsection模型の構成である。
+この適用の初出は未確認であり，任意の圏の一般的な有効$2$-降下定理とは主張しない。
+さらに，三次section代数の導分は全て頂点scalarによる内的導分であることを示す。
+二次可換関係が隣接導分の差をscalarに制限し，三次関係と
+滑らかな三次式の偏微分の正則列が残りの一様な導分をscalarに制限する。
+小拡大についての帰納法によりframed自己同値の自然同型類は自明となり，
+同型類関手の既存の表示が群oid値の形式表示へ強まる．
 
 第\ref{sec:four-parameter-central-model}節は別に，固定した有限位数楕円境界の
 四係数族を相対的に扱う。
@@ -1018,6 +1042,7 @@ Artin--Zhangのsection algebraの自然写像は
 
 \input{papers/sections/central_pair_artin_formal_moduli.tex}
 \input{papers/sections/abel_cubic_deformations.tex}
+\input{papers/sections/abel_formal_descent.tex}
 \input{papers/sections/formal_ambient_comparison.tex}
 \input{papers/sections/central_pair_mixed_derived_rigid.tex}
 \input{papers/sections/finite_order_relative_categories.tex}
@@ -1056,7 +1081,11 @@ Artin試験環に制限した構造対象付き変形の同型類関手は
 十次元形式円板と$\operatorname{Gr}(2,5)$錐の積で表される。
 任意の係数変更後のsectionの飽和とtails復元，標準係数族の対象・射のfpqc降下も成立する。
 標準相対模型のArtin変形群oidは全Abel変形群oidに同値である。
-stack化後の全形式完備化との同定には，圏自体の有効降下と大域模型の存在をなお確認する。
+任意のfpqc被覆上で線対象を持ち上げ，scalar cocycleを補正して
+Homと合成を降下させることで，stack化後のArtin対象にも大域模型を構成した。
+従ってこの同値は，特殊ファイバーを固定した全形式完備化について成立する。
+さらにframed自己同型の直接消滅により，この群oid自体が
+$\operatorname{Spf}\mathcal R_X$と同値となる．
 
 有限位数楕円境界を持つ四係数族では，中心上有限な射影模型により
 相対Hom定理の\textup{(C1),(C2)}を検証した。
@@ -1232,9 +1261,13 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 （gerbeの降下障害），
 \href{https://stacks.math.columbia.edu/tag/058G}{Tag~058G, Theorem~10.81.4}
 （Lazardの定理），
+\href{https://stacks.math.columbia.edu/tag/023M}{Tag~023M, Lemma~35.3.6}
+（忠実平坦な拡大Amitsur複体の完全性），
 \href{https://stacks.math.columbia.edu/tag/023N}{Tag~023N, Proposition~35.3.9}，
 \href{https://stacks.math.columbia.edu/tag/039Y}{Tag~039Y, Remark~35.3.11}
 （通常の加群の忠実平坦降下とcosimplicial表示），
+\href{https://stacks.math.columbia.edu/tag/058S}{Tag~058S, Proposition~10.83.3}
+（有限射影加群の忠実平坦降下），
 \href{https://stacks.math.columbia.edu/tag/0FCL}{Tag~0FCL, Lemma~13.17.4}
 （Serre部分圏の有界上方導来圏との比較）．2026年11月19日確認．
 

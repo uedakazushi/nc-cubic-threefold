@@ -1,0 +1,859 @@
+% 2026-11-19 / manuscript-v13
+\section{構造対象付きAbel圏stackの可換点における形式完備化}
+\label{sec:abel-formal-descent}
+
+本節では，前節の標準相対模型と全fpqc stackの形式近傍を比較する．
+任意の平坦被覆上の線対象を元のArtin基底に関して持ち上げ，
+三重交叉のscalar cocycleを補正してから，Homと合成だけを降下する．
+最後にframed自己同型を直接計算し，形式変形群oidそのものを表示する．
+ここで形式近傍は特殊ファイバーへの同一視を指定したものとし，
+有限自己同型群を含む無標識の完備化と区別する．
+
+\subsection{任意の平坦被覆上での線対象の持上げと復元}
+\label{subsec:abel-flat-cover-reconstruction}
+
+$k=\mathbb C$、$R$ を剰余体 $k$ の可換局所 Artin $k$-代数とする。
+$\mathfrak m=\mathfrak m_R$ とし、$S$ を任意の平坦な可換 $R$-代数とする。
+$S$ は noetherian または coherent とは仮定しない。
+\[
+ I=\mathfrak mS,\qquad Q=S/I
+\]
+と書く。$X/k$ は固定した滑らかな三次三様体である。
+この小節で既存の Abel 圏変形定理を適用する係数全射は、終始
+\[
+ R\longrightarrow k
+\]
+である。非 coherent であり得る $S\to Q$ に、coherent な係数環を仮定する
+定理を直接適用することはしない。
+
+\begin{lemma}[平坦な線型圏の Gabriel 商]
+\label{lem:abel-flat-quotient-over-artin}
+$R$ を可換 coherent 環、$c$ を Hom が $R$-平坦な小さい $R$-線型圏とする。
+$\pi:\operatorname{Mod}(c)\to\mathcal D$ を $R$-線型 Gabriel 商とし、
+その完全忠実な右随伴を $\omega$ とする。
+このとき $\mathcal D$ は Lowen--Van den Bergh の意味で $R$-flat である。
+従って上記の平坦な $R\to S$ と、全 Hom が $S$-flat な tails 模型 $c_S$ について、
+$\operatorname{Qmod}(c_S)$ は $R$-flat である。
+\end{lemma}
+
+\begin{proof}
+\cite[Proposition~3.7]{LowenVdBDeformation} により
+$\operatorname{Mod}(c)$ は $R$-flat である。
+$J$ を $\mathcal D$ の injective 対象とすると、$\pi$ が exact なので
+$\omega J$ は $\operatorname{Mod}(c)$ の injective 対象である。
+同論文 Proposition~3.4 により $\omega J$ は $R$-coflat である。
+任意の有限表示 $R$-加群 $M$ に対し、内部 $\operatorname{Hom}_R(M,-)$ は
+有限直和間の写像の kernel で計算される。
+$\pi$ は exact なので、この kernel と可換し、
+\[
+ \operatorname{Hom}_R(M,J)
+ \simeq\pi\operatorname{Hom}_R(M,\omega J)
+\]
+となる。従って $J$ は $R$-coflat である。
+再び Proposition~3.4 により $\mathcal D$ は $R$-flat である。
+最後の主張は $S$-flat な Hom が $R$ 上も flat であることから従う。
+ここでは $S$ の coherent 性も、$R$ 上の有限表示性も使わない。
+\end{proof}
+
+\begin{lemma}[元の Artin 係数から平坦被覆の係数への平坦性]
+\label{lem:abel-flat-coefficient-upgrade}
+$\mathcal D$ を $S$-線型 Grothendieck 圏、$E\in\mathcal D$ を
+$R$-flat な対象とする。
+$E_0=Q\otimes_S E=k\otimes_R E$ が
+$\mathcal D_k$ において $Q$-flat であれば、$E$ は $S$-flat である。
+ここで任意の係数環 $T$ に関する対象の flatness は、
+全ての $T$-加群に対する $-\otimes_T E$ の完全性で定義する。
+coherent な係数環では、これは有限表示加群で試す通常の定義と一致する。
+\end{lemma}
+
+\begin{proof}
+Grothendieck 圏では任意直和が exact なので、係数加群の自由分解により
+内部 Tor が定義できる。有限表示加群上の $R$-flatness は、
+filtered colimit の完全性から全ての $R$-加群上の完全性を意味する。
+$k$ の自由 $R$-分解 $P_\bullet\to k$ を取る。
+$S$ が $R$-flat なので $S\otimes_RP_\bullet$ は
+$Q=S\otimes_Rk$ の自由 $S$-分解であり、
+\[
+ \operatorname{Tor}^S_q(Q,E)
+ =\operatorname{Tor}^R_q(k,E)=0\qquad(q>0),
+ \quad Q\otimes_SE=E_0.
+\]
+任意の $Q$-加群 $M$ について、自由 $Q$-分解を取り、
+その項が $\operatorname{Tor}^S_{>0}(-,E)$ に関して acyclic であることを使う。
+通常の二重分解による係数変更から
+\[
+ M\otimes_S^{\mathbf L}E
+ \simeq M\otimes_Q^{\mathbf L}E_0
+\]
+を得る。右辺は $E_0$ の $Q$-flatness により次数零に集中する。
+この計算は係数加群の自由分解とその tensor だけからなり、
+$\mathcal D$ に十分な射影対象があるとは仮定していない。
+
+$I^N=0$ となる $N$ を取る。
+任意の $S$-加群 $M$ は有限 filtration
+\[
+ M\supset IM\supset\cdots\supset I^NM=0
+\]
+を持ち、その商は $Q$-加群である。
+前段の消滅と Tor の長完全列を帰納的に適用すると
+$\operatorname{Tor}^S_q(M,E)=0$ for $q>0$ となる。
+従って $E$ は $S$-flat である。
+\end{proof}
+
+\begin{lemma}[平坦被覆上の線対象と section 復元]
+\label{lem:abel-flat-cover-reconstruction}
+$S$-線型 Grothendieck 圏 $\mathcal D$ は $R$-flat であり、
+$Q$-線型同値
+\[
+ \iota:\operatorname{Qcoh}(X_Q)\xrightarrow{\sim}\mathcal D_k
+ \quad\bigl(X_Q=X\times_k\operatorname{Spec}Q\bigr)
+\]
+が指定されているとする。
+$E_{i,0}=\iota(\mathcal O_{X_Q}(-i))$ と置く。
+このとき以下が成立する。
+\begin{enumerate}
+\item 各 $E_{i,0}$ は $\mathcal D$ 内に $S$-flat な持上げ $E_i$ を持つ。
+還元同型を付けた $S$-flat な持上げの群oidは連結である。
+各 $E_i$ は有限表示対象であり、
+\[
+ \operatorname{End}_{\mathcal D}(E_i)=S,
+ \qquad \operatorname{Aut}(E_i,E_{i,0})=1+I
+\]
+である。最初の同型は scalar action による標準写像である。
+\item section $\mathbb Z$-代数
+\[
+ b_{ij}=\operatorname{Hom}_{\mathcal D}(E_j,E_i)
+\]
+は $i>j$ で零であり、$i\leq j$ では有限自由 $S$-加群である。
+その階数は $h_{j-i}=\dim_k H^0(X,\mathcal O_X(j-i))$ であり、
+$b$ は正、連結、次数一生成である。
+\item 任意の $S$-加群 $M$ と任意の $i,j$ に対し、標準写像
+\begin{equation}\label{eq:abel-flat-cover-universal-hom}
+ M\otimes_S b_{ij}\xrightarrow{\sim}
+ \operatorname{Hom}_{\mathcal D}(E_j,M\otimes_S E_i)
+\end{equation}
+は同型であり、
+$\operatorname{Ext}^1_{\mathcal D}(E_j,M\otimes_S E_i)=0$ である。
+\item section functor は $S$-線型同値
+\[
+ \mathcal D\simeq\operatorname{Qmod}(b)
+\]
+を与える。任意の可換 $S$-代数 $T$ に対し、
+\[
+ \mathcal D_T\simeq\operatorname{Qmod}(T\otimes_S b),
+ \qquad
+ \operatorname{Hom}_{\mathcal D_T}(T\otimes_SE_j,T\otimes_SE_i)
+ =T\otimes_S b_{ij}
+\]
+が成立する。これらは係数変更の合成、乗法、section functor と両立する。
+この部分では $T$ の平坦性も noetherian 性も不要である。
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+まず $\operatorname{Qcoh}(X_Q)$ を $k$-線型 Grothendieck 圏として見る。
+その列 $(\mathcal O_{X_Q}(n))_{n\in\mathbb Z}$ は
+De Deken--Lowen の意味で $\mathbb Z$-generating である。
+この事実には noetherian 性は必要ない。
+例えば $X$ の通常の section 代数 $a$ と
+補題\ref{lem:abel-arbitrary-coefficient-tails} を用いると
+\[
+ \operatorname{Qmod}(Q\otimes_ka)
+ \simeq\operatorname{Qcoh}(X)_Q
+ \simeq\operatorname{Qcoh}(X_Q)
+\]
+となり、標準対象が上記の列に対応する。
+第二の同値は affine 射 $X_Q\to X$ の準連接加群の記述による。
+
+有限 affine 標準被覆の \v Cech 複体を使うと、任意の $Q$-加群 $M$ について
+\begin{equation}\label{eq:abel-flat-cover-special-ext}
+ \operatorname{Ext}^q_{\operatorname{Qcoh}(X_Q)}
+ (\mathcal O_{X_Q}(-j),M\otimes_Q\mathcal O_{X_Q}(-i))
+ \simeq M\otimes_kH^q(X,\mathcal O_X(j-i)).
+\end{equation}
+これは $k$ 上の複体を $M$ と tensor する計算であり、
+$M$ の $Q$-flatness を仮定しない。
+三次三様体の中間コホモロジー消滅により、$q=1,2$ の右辺は零である。
+特に有限次元 $k$-ベクトル空間を係数とする必要な消滅も成立する。
+体 $k$ 上では全ての対象は係数に関して flat である。
+
+従って coherent な全射 $R\to k$ に
+\cite[Theorem~4.5, pp.~495--496]{DeDekenLowen} を適用できる。
+同定理は Grothendieck 圏と $\mathbb Z$-generating 列を扱い、
+Hom の有限次元性、圏の locally noetherian 性、または locally coherent 性を仮定しない。
+これにより $R$-flat な持上げ $E_i$ が得られ、
+その非負方向の Hom が $R$-flat な線型変形 $b$ をなし、
+\[
+ k\otimes_R b_{ij}\simeq Q\otimes_k a_{ij},\qquad
+ \mathcal D\simeq\operatorname{Qmod}(b)
+\]
+となる。持上げの群oidの連結性は、
+\cite[Theorems~6.11--6.12 の双対版]{LowenObstruction}
+と自己 Ext の一次・二次消滅からも従う。
+ここで $\operatorname{End}(E_{i,0})=Q$ であり、
+$E_{i,0}$ を $k$ 上の例外対象と呼ぶ必要はない。
+
+$S$ の scalar action は section 代数 $b$ の中心に作用する。
+$b_{ij}$ は $R$-flat であり、その $Q$ 還元は $Q^{h_{j-i}}$ である。
+還元の基底を持ち上げて $S^{h_{j-i}}\to b_{ij}$ を作る。
+$S^{h_{j-i}}$ と $b_{ij}$ はともに $R$-flat であり、
+任意の $R$-flat 加群 $V$ には
+\[
+ \mathfrak m^rV/\mathfrak m^{r+1}V
+ \simeq(\mathfrak m^r/\mathfrak m^{r+1})
+       \otimes_k(V/\mathfrak mV)
+\]
+が成り立つ。
+従って上の写像は有限 $\mathfrak m$-filtration の全ての商で同型であり、
+元の写像も同型である。
+この議論では加群が $R$ 上有限生成であるとは仮定していない。
+従って $b_{ij}$ は主張した有限自由加群となる。
+$i=j$ では還元基底を $1$ と選べるので、同型は標準の scalar action
+$S\to\operatorname{End}(E_i)$ そのものである。
+
+負方向については、$E_i$ の $\mathfrak m$-filtration の商が
+\[
+ \mathfrak m^rE_i/\mathfrak m^{r+1}E_i
+ \simeq(\mathfrak m^r/\mathfrak m^{r+1})\otimes_k E_{i,0}
+\]
+であることを使う。還元と包含の随伴により、$E_j$ からこの商への Hom は
+$E_{j,0}$ からの特殊ファイバーの Hom に等しい。
+$i>j$ のときそれは零なので、有限 filtration について帰納すると
+$\operatorname{Hom}(E_j,E_i)=0$ を得る。
+次数一成分の積による生成性も、還元上の生成性と cokernel への冪零 Nakayama によって従う。
+従って $b$ は $S$ 上正、連結、次数一生成である。
+この有限生成性により通常の tails torsion は localizing であり、
+DDL の $\operatorname{Qmod}$ は通常の Gabriel 商と一致する。
+
+ここで $E_i$ の $S$-flatness を直接確認できる。
+section functor
+$H:\mathcal D\to\operatorname{Mod}(b)$、
+$H(N)_i=\operatorname{Hom}_{\mathcal D}(E_i,N)$ は、
+$S$-線型性により precomposition と postcomposition の scalar action が一致するので
+$S$-線型である。
+その左随伴 $\pi$ も $S$-線型であり、DDL によって exact な Gabriel quotient となる。
+$E_i=\pi(b(-,i))$ であり、representable $b(-,i)$ は各成分が $S$-自由なので
+$S$-flat な対象である。
+$\pi$ は直和と cokernel を保つため任意の係数 tensor と可換し、exact なので
+$E_i$ も $S$-flat である。
+逆に $S$-flat な対象は $R\to S$ の平坦性により $R$-flat なので、
+持上げの群oidの連結性は $S$-flat な持上げ全体について成り立つ。
+従ってこの主要な復元の証明は、
+補題\ref{lem:abel-flat-coefficient-upgrade} の一般的な内部 Tor 計算を使わずにも完結する。
+
+次に任意係数の Hom を証明する。
+$N_0\in\mathcal D_k$ に対し、$E_j$ の $R$-flatness と
+\cite[Proposition~4.7 の双対版]{LowenVdBDeformation} から
+\begin{equation}\label{eq:abel-flat-cover-ext-reduction}
+ \operatorname{Ext}^q_{\mathcal D}(E_j,N_0)
+ \simeq\operatorname{Ext}^q_{\mathcal D_k}(E_{j,0},N_0)
+ \quad(q\geq0)
+\end{equation}
+となる。すなわち、係数全射 $R\to k$ の Tor を用いる change-of-rings
+spectral sequence が、$E_j$ の flatness により退化する。
+$q=0$ は左随伴 $k\otimes_R-$ の通常の随伴そのものであり、
+$q=1$ だけなら補題\ref{lem:abel-flat-object-ext-one} の
+拡大の還元と引戻しによる Yoneda の証明も使える。
+
+$M$ が $Q$-加群の場合、
+\eqref{eq:abel-flat-cover-special-ext} と
+\eqref{eq:abel-flat-cover-ext-reduction} により
+\eqref{eq:abel-flat-cover-universal-hom} と必要な $\operatorname{Ext}^1$ 消滅を得る。
+一般の $S$-加群 $M$ については有限 $I$-filtration を使う。
+$E_i$ と $b_{ij}$ は $S$-flat なので、係数の短完全列は
+$-\otimes_SE_i$ と $-\otimes_Sb_{ij}$ の下で短完全列のままである。
+Hom--Ext の長完全列により $\operatorname{Ext}^1$ の消滅は拡大について閉じており、
+Hom の標準写像も短完全列の比較から同型となる。
+有限 filtration の長さについて帰納して任意の $M$ に結論を得る。
+
+有限表示性も noetherian 性なしに確認できる。
+$E_{i,0}$ は直線束なので、任意の準連接層を第二変数とする全ての Ext は、
+有限 affine 被覆の \v Cech 複体で計算でき、filtered colimit と可換する。
+式 \eqref{eq:abel-flat-cover-ext-reduction} により、
+同じことが $\mathcal D_k$ に値を持つ filtered diagram について成立する。
+一般の filtered diagram $N_\lambda$ は
+$\mathfrak m^rN_\lambda/\mathfrak m^{r+1}N_\lambda$ により有限に分解する。
+Grothendieck 圏の filtered colimit は exact なので、
+これらの filtration とその商を取る操作と可換する。
+長完全 Ext 列の比較を filtration の長さについて帰納すると、
+全ての $\operatorname{Ext}^q_{\mathcal D}(E_i,-)$ が filtered colimit と可換する。
+特に $q=0$ により $E_i$ は有限表示である。
+
+持上げの還元 frame を保つ自己同型は、$\operatorname{End}(E_i)=S$ のうち
+$Q$ で $1$ となる単元である。従ってその群は $1+I$ である。
+
+最後に、既に確認した $S$-線型 section 同値と、任意の可換 $S$-代数 $T$ に対して
+補題\ref{lem:abel-arbitrary-coefficient-tails} を適用すれば
+$\mathcal D_T\simeq\operatorname{Qmod}(T\otimes_Sb)$ を得る。
+係数作用の自由拡張と忘却の随伴により
+\begin{align*}
+ \operatorname{Hom}_{\mathcal D_T}(T\otimes_SE_j,T\otimes_SE_i)
+ &\simeq\operatorname{Hom}_{\mathcal D}(E_j,T\otimes_SE_i)\\
+ &\simeq T\otimes_Sb_{ij}.
+\end{align*}
+これは標準の乗法写像であるため、合成と係数変更の合成に両立する。
+有限表示性も自由拡張・忘却の随伴と忘却の filtered colimit 保存から保たれる。
+
+特に $S\to T$ が平坦な場合、$T\otimes_SE_i$ は $T$-flat、従って $R$-flat であり、
+$T_0=T/\mathfrak mT$ 上の $\mathcal O_{X_{T_0}}(-i)$ を持ち上げる。
+$T\otimes_Sb$ の Hom は $T$-自由なので、
+補題\ref{lem:abel-flat-quotient-over-artin} により $\mathcal D_T$ は $R$-flat である。
+この場合の Hom の係数変更は、任意係数の議論とは独立にも確認できる。
+元の係数全射 $R\to k$ に対する DDL の定理を $\mathcal D_T$ に適用すると、
+\[
+ T\otimes_S b_{ij}\longrightarrow
+ \operatorname{Hom}_{\mathcal D_T}(T\otimes_SE_j,T\otimes_SE_i)
+\]
+の両辺は $R$-flat であり、還元は
+$T_0\otimes_k a_{ij}$ の恒等写像となる。
+有限 $\mathfrak m$-filtration の各商を比較すれば同型である。
+従って fpqc 被覆の多重交叉で必要な Hom の係数変更は、
+$E_i$ の有限表示性を前提とせずに成立する。
+\end{proof}
+
+\begin{remark}[section 復元の相対性と圏同値との整合性]
+\label{rem:abel-flat-cover-reconstruction-natural}
+上の同値は選んだ線対象とその全 Hom に関して自然である。
+実際、係数作用の忘却を $U:\mathcal D_T\to\mathcal D$ とすると、
+任意の $N\in\mathcal D_T$ に対して
+\[
+ H_T(N)_i
+ =\operatorname{Hom}_{\mathcal D_T}(T\otimes_SE_i,N)
+ \simeq\operatorname{Hom}_{\mathcal D}(E_i,UN)=H(UN)_i
+\]
+となる。右辺には $N$ の係数作用から $T$ が作用し、この同型はその作用と両立する。
+従って $H_T$ は $H$ を係数作用付き対象へ延長した functor であり、
+Gabriel 商の係数変更と合わせて、復元同値の相対性を与える。
+
+さらに $F:\mathcal D\to\mathcal D'$ を $S$-線型完全同値とし、
+$\theta_i:F(E_i)\xrightarrow{\sim}E_i'$ を指定する。
+これらは section 代数の同型 $\phi:b\xrightarrow{\sim}b'$ を定める。
+全ての $N$ について、完全忠実性と $\theta_i$ による同型
+\[
+ \operatorname{Hom}_{\mathcal D}(E_i,N)
+ \xrightarrow{\sim}\operatorname{Hom}_{\mathcal D'}(E_i',FN)
+\]
+は、$\phi$ による module 構造の移送と両立する。
+従って $H'F$ は $H$ の $\phi$ による移送と自然同型である。
+section functor $H'$ の完全忠実性から、$F$ は
+$\phi$ から復元される $\operatorname{Qmod}$ の同値と自然同型になる。
+これらの同型は合成と係数変更に両立する。
+この議論で線対象が射影対象であるとは仮定しておらず、
+線対象の有限表示による射の持上げも必要ない。
+\end{remark}
+
+\begin{remark}[実際の降下に供給する内容と残る段階]
+この補題は、fpqc 被覆上の局所圏を、固定した特殊線対象の平坦持上げと
+section $\mathbb Z$-代数で表示する。
+被覆やその多重交叉の係数環が非 noetherian であっても適用できる。
+局所対象を別の局所対象へ移す $S$-線型同値は平坦持上げを平坦持上げへ送り、
+還元上の frame を保つ比較同型の差は正確に $1+\mathfrak mS$ である。
+従って、残る降下はこの群の cocycle と section 代数の加群降下に帰着する。
+
+ただし持上げの群oidが連結であることだけから、比較同型が三重交叉で
+cocycle 条件を満たすとは結論しない。
+その差の $2$-cocycle を別途消す必要がある。
+またこの補題だけで、任意の Grothendieck 圏の $2$-降下の有効性を主張するものではない。
+局所圏の特殊ファイバーへの同値 $\iota$ と被覆上の実際の transition functor は、
+固定した係数族の Hom 降下を用いて先に実現しておく。
+\end{remark}
+
+\begin{remark}[一次文献の正確な適用範囲]
+\begin{enumerate}
+\item De Deken--Lowen, \S4.1, p.~493 は $R\to k$ を coherent 可換環の冪零全射、
+$k$ を有限表示 $R$-加群と仮定する。
+Theorem~4.5, pp.~495--496 はこの設定の Grothendieck 圏に適用され、
+圏の noetherian 性や Hom の有限性は追加仮定でない。
+従って本補題では $R\to k$ を固定したまま特殊圏を
+$\operatorname{Qcoh}(X_Q)$ に取り換えられる。
+\item 同論文 Proposition~4.6 の「connected」「locally finite」を
+$k$ 上の $Q\otimes_ka$ にそのまま適用していない。
+一般にその対角 End は $Q$ であり、$k$ ではない。
+$S$ 上の有限自由性と connected 性は本補題内で別に証明した。
+\item Lowen--Van den Bergh, \S4, pp.~5451--5454 の一般の係数変更命題には
+coherent 性と係数加群の有限表示性がある。
+任意の $R\to S$ に Proposition~4.8 を直接適用して平坦性を結論していない。
+Gabriel 商の平坦性は補題\ref{lem:abel-flat-quotient-over-artin} の直接証明で供給する。
+\item Lowen, \S6.4, Theorems~6.11--6.12 は、coherent な係数環の冪零変形に対する
+対象と射の障害理論である。本文で coflat 版を述べ、\S5.2 で flat 版への双対化を明記する。
+本補題で使うのは Artin 係数 $R\to k$ に対するその flat 版である。
+\end{enumerate}
+\end{remark}
+
+\subsection{fpqc stack 化後の Artin 形式近傍}
+
+この小節では、特殊ファイバーとの同一視を指定した形式変形を扱う。
+$x=(\operatorname{Qcoh}(X),\mathcal O_X)$ とし、
+$\widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}(R)$ の対象は
+$\mathfrak M^{\mathcal O}_{\mathrm{cub}}(R)$ の対象 $\xi$ と同型
+$\iota:\xi_{\mathbb C}\xrightarrow{\sim}x$ の組とする。
+射は $\iota$ を保つものとする。
+この定義では、$\xi$ 自身が $R$ 上の大域的な標準係数模型を持つことを仮定しない。
+
+\begin{lemma}[還元上恒等な scalar の Amitsur 複体]
+\label{lem:abel-unipotent-amitsur}
+$R$ を局所 Artin $\mathbb C$-代数、$\mathfrak m$ をその極大イデアルとし、
+$R\to S$ を忠実平坦な可換環準同型とする。
+$S^{[q]}=S^{\otimes_R(q+1)}$ と置く。
+還元上恒等な単元の余単体群
+\[
+ U(S^{[q]})=
+ \ker\bigl((S^{[q]})^\times\longrightarrow
+          (S^{[q]}/\mathfrak mS^{[q]})^\times\bigr)
+ =1+\mathfrak mS^{[q]}
+\]
+の \v{C}ech cohomology は正次数で零である。
+特に、$U(S^{[2]})$ に値を持つ descent の二次 cocycle は
+$U(S^{[1]})$ に値を持つ一次 cochain の coboundary であり、
+一次 cocycle も零次 cochain の coboundary である。
+$S$ または $S/\mathfrak mS$ の noetherian 性、有限型性、Artin 性は必要ない。
+\end{lemma}
+
+\begin{proof}
+$\mathfrak m^{N+1}=0$ を満たす $N$ を取る。
+任意の可換 $R$-代数 $T$ 上の有限多項式
+\[
+ \log(1+z)=\sum_{r=1}^N\frac{(-1)^{r+1}}r z^r,
+ \qquad
+ \exp(z)=\sum_{r=0}^N\frac1{r!}z^r
+\]
+は、$1+\mathfrak mT$ と加法群 $\mathfrak mT$ の互いに逆な同型である。
+可換性と標数零を用いており、これらの同型は全ての係数写像に自然である。
+$S^{[q]}$ は $R$ 上平坦なので、
+\[
+ \mathfrak m\otimes_R S^{[q]}\xrightarrow{\sim}
+ \mathfrak mS^{[q]}.
+\]
+従って、上の乗法的余単体群の複体は、対数によって
+\[
+ \mathfrak m\longrightarrow\mathfrak m\otimes_R S
+ \longrightarrow\mathfrak m\otimes_R S^{[1]}
+ \longrightarrow\mathfrak m\otimes_R S^{[2]}
+ \longrightarrow\cdots
+\]
+という拡大 Amitsur 複体に移る。
+この複体の完全性は忠実平坦降下の基本計算
+\cite[Lemma~35.3.6, Tag~023M]{StacksAbel}である。
+具体的には $S$ に係数変更すると、環準同型
+$S\to S\otimes_R S$ が積による retraction を持つため縮約を持ち、
+元の完全性は忠実平坦性から従う。
+指数を取り戻せば主張を得る。
+\end{proof}
+
+\begin{theorem}[stack 化後の全 Artin 対象の大域模型]
+\label{thm:abel-stackified-relative-formal}
+$X$ を滑らかな複素三次三様体とする。
+定義\ref{def:abel-cubic-pointed}の全ての構造対象付き相対完全同値を射とする
+fpqc stack $\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ について、
+任意の局所 Artin $\mathbb C$-代数 $R$ 上の自然な関手
+\begin{equation}\label{eq:abel-full-stack-formal-equivalence}
+ \widehat{\mathfrak M}^{\mathcal O,\mathrm{can}}_{\mathrm{cub},X}(R)
+ \longrightarrow
+ \widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}(R)
+\end{equation}
+は群oidの同値である。
+従って、定理\ref{thm:abel-canonical-relative-formal}の比較は
+\[
+ \widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}(R)
+ \simeq
+ \operatorname{Def}^{\mathcal O}_{\mathrm{ab}}
+       (\operatorname{Qcoh}(X);R)
+\]
+へ延びる。
+これは局所 Artin 環の任意の射に自然であり、
+得られる大域模型の任意の係数環への標準延長は、もとの相対対象と同値である。
+\end{theorem}
+
+\begin{proof}
+\emph{局所代表と実際の遷移同値。}
+$\mathfrak m=\mathfrak m_R$ とし、
+$(\xi,\iota)\in\widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}(R)$ を取る。
+stack 化の局所表示により、あるアフィン忠実平坦被覆 $R\to S$ 上で
+$\xi_S$ は許容な標準 tails 係数族 $\mathcal D$ により表せる。
+ここで $S$ を Artin 環に取れるとは仮定しない。
+$S_0=S/\mathfrak mS$ と置く。
+
+重なり上の二つの標準係数模型の間に stack の射があるとき、
+補題\ref{lem:abel-canonical-family-equivalences}の Hom 降下により、
+その射は実際の構造対象付き相対完全同値によって表される。
+同じ理由で、$\iota$ を $S_0$ 上へ制限した射は、実際の同値
+\[
+ \mathcal D_{S_0}\simeq
+ \operatorname{Qcoh}(X\times_{\mathbb C}\operatorname{Spec}S_0)
+\]
+によって表せる。
+従って、特殊ファイバー上の被覆を新たに選んで $R$ 上へ持ち上げる必要はない。
+
+二つの marked 同値の間に同型があれば、その marked 自然同型は一意である。
+実際、許容な列上の End は係数環であり、隣接 Hom の忠実性と生成性から
+自然自己同型は一つの scalar で、構造対象の標識がこれを $1$ にする。
+よって、重なり上の遷移同値を $F_{12}$ と書くと、三重の重なり上には
+一意な marked 自然同型
+\[
+ a_{123}:F_{23}F_{12}\xRightarrow{\sim}F_{13}
+\]
+があり、四重の重なり上の pentagon はこの一意性から成立する。
+これは実際の遷移データを得る議論であり、圏の一般的な有効 $2$-降下を
+仮定する議論ではない。
+
+\emph{各線対象の framed descent。}
+局所 tails 模型の Hom は $S$-flat であり、$S$ は $R$-flat なので、
+補題\ref{lem:abel-flat-quotient-over-artin}により $\mathcal D$ は $R$-flat である。
+補題\ref{lem:abel-flat-cover-reconstruction}を、元の Artin 環
+$R\twoheadrightarrow\mathbb C$ に対して適用する。
+その特殊圏は $\mathbb C$-線型圏
+$\operatorname{Qcoh}(X_{S_0})$ であり、$S_0$ を体と見なしていない。
+各 $i\in\mathbb Z$ について、$\mathcal O_{X_{S_0}}(-i)$ の平坦な持上げ
+$E_{i,S}\in\mathcal D$ と、その還元の同定を取れる。
+$i=0$ では、もとから与えられている構造対象 $E_{0,S}=\mathcal O_S$ と
+その還元同定を用いる。
+同補題は任意の平坦な $R$-係数環に適用できるから、
+$S^{[q]}$ 上でもこれらの持上げの同型類は一意であり、
+\[
+ \operatorname{End}(E_{i,S^{[q]}})=S^{[q]},\qquad
+ \operatorname{Aut}(E_{i,S^{[q]}},\text{還元同定})
+       =1+\mathfrak mS^{[q]}.
+\]
+したがって二重の重なり上で、還元の同定を保つ同型
+\[
+ \phi_{i,12}:F_{12}(E_{i,1})\xrightarrow{\sim}E_{i,2}
+\]
+を選べる。
+$\phi_{0,12}$ は構造対象に既に指定された同型とし、変更しない。
+
+三重の重なり上で descent のずれを
+\[
+ \phi_{i,23}F_{23}(\phi_{i,12})
+ =c_{i,123}\,\phi_{i,13}a_{123,E_{i,1}}
+\]
+によって定める。
+左右の写像は還元後に一致するので
+$c_{i,123}\in1+\mathfrak mS^{[2]}$ である。
+遷移同値は係数線型で scalar を保つため、pentagon は
+$c_i$ が可換群値の二次 \v{C}ech cocycle であることを意味する。
+補題\ref{lem:abel-unipotent-amitsur}により
+$c_i=\delta u_i$ となる $u_i\in1+\mathfrak mS^{[1]}$ が取れる。
+$\phi_{i,12}$ を $u_{i,12}^{-1}\phi_{i,12}$ に変更すると、
+厳密な descent の等式を得る。
+$i=0$ では最初から $c_0=1$ なので $u_0=1$ とする。
+全ての添字に同じ被覆 $R\to S$ を使い、この補正を各添字について行う。
+無限積の群が quasi-coherent であることや、
+無限個の線束を一つの有限表示被覆で自明化できることは用いない。
+
+この計算は、特殊ファイバーで trivialization を指定した線対象の lift gerbe の
+band が $\mathbb G_m$ 全体ではなく $1+\mathfrak m\mathcal O$ であることを利用している。
+可換 band の gerbe に対する通常の cocycle 補正と同じ計算である
+\cite[Lemma~21.11.1]{StacksAbel}。
+ここでは必要な二次 cocycle を固定した被覆上で直接消しており、
+一般の $\mathbb G_m$-gerbe の分類は使用していない。
+
+\emph{section 代数の通常の加群降下。}
+\[
+ b^S_{ij}=\operatorname{Hom}_{\mathcal D}(E_{j,S},E_{i,S})
+\]
+と置く。局所再構成補題により、これは標準 Hilbert 関数の階数を持つ
+有限自由 $S$-加群であり、特に重なりを定める平坦な係数変更と可換する。
+補正後の $\phi_i$ と $F_{12}$ を用いて
+\[
+ f\longmapsto\phi_{i,12}\,F_{12}(f)\,\phi_{j,12}^{-1}
+\]
+とすれば、$b^S_{ij}$ に通常の $S/R$-加群降下データが入る。
+この降下データは単位と合成を保つ。
+忠実平坦な加群降下と有限射影性の降下
+\cite[Proposition~35.3.9, Tag~023N;
+ Proposition~10.83.3, Tag~058S]{StacksAbel}
+により、有限射影 $R$-加群 $b_{ij}$ とその積を得る。
+$R$ は局所環なので各 $b_{ij}$ は有限自由である。
+結合律と単位律は $S$ で確認でき、これらは一つの $R$-線型
+$\mathbb Z$-代数 $b$ を定める。
+
+還元の同定を保つように $\phi_i$ を選んだので、還元後の降下データは
+\[
+ \operatorname{Hom}_X(\mathcal O_X(-j),\mathcal O_X(-i))
+       \otimes_{\mathbb C}S_0
+\]
+の標準降下データである。
+従って $b\otimes_R\mathbb C\simeq\check A_X$ である。
+負次数の成分の消滅と次数一生成も、局所再構成補題および忠実平坦性から従う。
+ここで降下したのは通常の加群、積、単位のみである。
+Grothendieck 圏全体の降下の有効性は仮定していない。
+
+\emph{大域模型と局所代表の比較。}
+$b$ は $\check A_X$ の平坦な $R$-線型変形なので、
+De Deken--Lowen の変形比較
+\cite[Theorem~4.5]{DeDekenLowen}
+により $\mathcal D_R=\operatorname{Qmod}(b)$ は
+$\operatorname{Qcoh}(X)$ の平坦 Abel 変形である。
+その次数零の標準対象を構造対象とする。
+定理\ref{thm:abel-cubic-flat-envelope}と
+系\ref{cor:abel-universal-relative-cubic}により、これは任意の係数変更後の
+相対三次条件・飽和・復元を備える許容な標準模型である。
+この段階で、持上げた新しい局所列の section 代数が予め
+相対三次条件を満たすことを仮定してはいない。
+大域の平坦 Abel Artin 変形を構成してから、その既存の定理を適用している。
+
+局所再構成と係数変更の Gabriel 比較から
+\[
+ (\mathcal D_R)_S
+ \simeq\operatorname{Qmod}(S\otimes_R b)
+ \simeq\operatorname{Qmod}(b^S)
+ \simeq\mathcal D
+\]
+を得る。
+ここで再構成と実際の遷移同値との両立を直接確認する。
+section 関手を
+\[
+ H_S(M)_i=\operatorname{Hom}_{\mathcal D}(E_{i,S},M)
+\]
+と書くと、再構成は $\pi H_S:\mathcal D\to\operatorname{Qmod}(b^S)$
+という同値である。
+$\phi_i$ による前合成と $F_{12}$ の完全忠実性は、
+$H_2F_{12}$ と $H_1$ の代数移送を、通常の加群の段階で自然に同定する。
+この同定は Hom の合成から定義した $b^S$ の descent 写像と一致する。
+従って $\pi$ を適用した後にも、再構成は actual な $F_{12}$ と可換する。
+構造対象の descent は変更していないから、これらは marked 自然同型である。
+
+任意の $S$-代数 $T$ と $N\in\mathcal D_T$ に対する自由係数作用の随伴
+\[
+ \operatorname{Hom}_{\mathcal D_T}(T\otimes_S E_{i,S},N)
+ \simeq\operatorname{Hom}_{\mathcal D}(E_{i,S},U(N))
+\]
+は、右辺をその自然な $T$-作用付き加群と見れば、section 関手と係数作用が
+両立することを示す。
+$\pi$ の係数変更には補題\ref{lem:abel-arbitrary-coefficient-tails}を適用できる。
+よってこの再構成の相対同値は標準係数延長そのものであり、
+全てのさらなる係数変更に両立する。
+これは補題\ref{lem:abel-canonical-family-equivalences}の延長の一意性とも一致する。
+重なり上での同型は marked $2$-自己同型の消滅により coherent であり、
+$\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ の射の降下を使うと
+$(\mathcal D_R)_\bullet\simeq\xi$ を得る。
+還元の同定との両立も、各 $E_i$ とその Hom の還元の構成から従う。
+これで \eqref{eq:abel-full-stack-formal-equivalence} の本質的全射性を得る。
+
+完全忠実性は、固定した二つの標準係数族の間の marked 同値と自然同型の
+降下、すなわち補題\ref{lem:abel-canonical-family-equivalences}である。
+従って構成に使った被覆、持上げ、cocycle の補正の選択にかかわらず、
+元の $\xi$ とその射が同じ canonical 部分群oidによって回復される。
+ここで比較関手そのものは標準模型から stack 化への自然な関手であり、
+これらの選択を用いて定義したものではない。
+よって各 Artin 環で示した同値は、Artin 環の任意の射に自然である。
+最後に定理\ref{thm:abel-canonical-relative-formal}を合成する。
+\end{proof}
+
+\begin{corollary}[全 stack の framed 形式局所環]
+\label{cor:abel-full-stack-formal-ring}
+特殊ファイバー $X$ との同一視を保った
+$\widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}$ の同型類関手は、
+系\ref{cor:abel-cubic-formal-ring}の完備局所環 $\mathcal R_X$ で表される。
+特に Krull 次元は $17$、接空間次元は $20$ である。
+\end{corollary}
+\begin{proof}
+前定理と系\ref{cor:abel-cubic-formal-ring}を合成する。
+\end{proof}
+
+\begin{remark}[主張の境界]
+この定理は、選んだ滑らかな可換三次点における Artin 形式近傍について、
+fpqc stack 化が新たな非標準形式を付け加えないことを証明する。
+全ての基底上の任意の Grothendieck 圏に対する有効 $2$-降下定理、
+非可換な全ての点での同じ局所完全性、代数化、有限型 atlas、
+対角の代数性は結論に含めない。
+また、特殊ファイバーへの同一視を忘れる場合は、その自己同型の作用を残す必要があり、
+この framed 形式局所環だけをそのまま無標識の stack と同一視しない。
+\end{remark}
+
+\subsection{framed Artin 変形の自己同型の消滅}
+
+ここでは，特殊ファイバーとの同一視を保つ射を，
+構造対象を保つ自然同型で割った $1$-群oid の規約を使う．
+全 Abel Artin 比較と section 復元を用いれば，
+Hochschild コホモロジーによる一般の射の制御定理を追加せずに，
+この群oid の自己同型が自明であることを直接示せる．
+
+\begin{lemma}[三次 section 代数の導分]
+\label{lem:abel-cubic-section-derivations}
+$k=\mathbb C$，$A=\operatorname{Sym}_k(V)/(F)$ とし，
+$\dim_kV=5$，$F\in\operatorname{Sym}^3_kV$ は滑らかな射影三次三様体を定めるとする．
+$a=\check A$ をその付随 $\mathbb Z$-代数とし，
+$J$ を有限次元 $k$-ベクトル空間とする．
+任意の $k$-線型導分
+\[
+ d_{ij}:a_{ij}\longrightarrow J\otimes_k a_{ij}
+\]
+で，単位上零かつ $d(xy)=d(x)y+xd(y)$ を満たすものは，
+ある族 $\lambda_i\in J$，$\lambda_0=0$ により
+\[
+ d_{ij}(x)=(\lambda_i-\lambda_j)x
+\]
+と表される．
+\end{lemma}
+\begin{proof}
+次数一生成により $d$ は
+$D_i=d_{i,i+1}\in J\otimes_k\operatorname{End}_k(V)$ により決まる．
+二次関係は $\bigwedge^2V$ であるから，$v,w\in V$ について
+\[
+ (D_i-D_{i+1})(v)w-(D_i-D_{i+1})(w)v=0
+ \quad\text{in }J\otimes_k\operatorname{Sym}^2V.
+\]
+$J$ の基底について成分ごとに考えると，この条件を満たす
+$T\in\operatorname{End}_k(V)$ は scalar である．
+実際，基底 $x_p,x_q$ を $v,w$ に代入すると，
+$T(x_p)x_q-T(x_q)x_p=0$ の係数比較から非対角成分が零となり，
+全ての対角成分が等しくなる．
+従って $D_i=M+s_i\operatorname{Id}_V$ と書ける．
+
+$\lambda_0=0$ とし，両方向の有限な再帰により
+$\lambda_i-\lambda_{i+1}=s_i$ を解く．
+導分 $x\mapsto(\lambda_i-\lambda_j)x$ を差し引くと，
+全ての隣接成分が同じ $M$ に等しくなる．
+この導分は各区間で $\operatorname{Sym}V$ の通常の次数零導分 $D_M$ を誘導する．
+三次関係 $F$ を保つことから
+\[
+ D_M(F)\in J\otimes_k kF
+\]
+である．
+
+再び $J$ の各成分について，$D_M(F)=cF$ とする．
+Euler の等式 $\sum_px_p\partial_pF=3F$ により
+$M'=M-(c/3)\operatorname{Id}_V$ は
+\[
+ \sum_p M'(x_p)\,\partial_pF=0
+\]
+を満たす．
+滑らかさと Euler の等式から，五つの二次式
+$\partial_0F,\ldots,\partial_4F$ の共通零点はアフィン空間の原点だけである．
+従ってこれらは五変数多項式環の斉次パラメータ系であり，
+多項式環の Cohen--Macaulay 性から正則列である．
+その Koszul 解消において一次 syzygy の生成元は，係数が次数二の
+Koszul syzygy である．係数が次数一の syzygy は存在しないので
+$M'(x_p)=0$ が全ての $p$ について成り立つ．
+よって $M$ は scalar である．
+
+残った一様 scalar $c'\in J$ も，
+$\lambda_i=-ic'$ と置けば
+$\lambda_i-\lambda_{i+1}=c'$ により除ける．
+これは $\lambda_0=0$ を保つ．
+以上の二つの族を加えれば主張を得る．
+\end{proof}
+
+\begin{proposition}[framed Artin 自己同型の消滅]
+\label{prop:abel-framed-artin-automorphisms}
+$X/\mathbb C$ を滑らかな三次三様体とする．
+任意の局所 Artin $\mathbb C$-代数 $R$ と，
+$\operatorname{Def}^{\mathcal O}_{\rm ab}(\operatorname{Qcoh}(X);R)$ の対象
+$(\mathcal D,\mathcal O_R,\iota)$ について，この framed $1$-群oid における
+自己同型群は自明である．
+\end{proposition}
+\begin{proof}
+$R$ の長さについて帰納する．$R=\mathbb C$ では frame を保つという条件が，
+自己同値を恒等の自然同型類に限定する．
+一般の場合，$0\ne J\subset\mathfrak m_R$，
+$\mathfrak m_RJ=0$ を満たすイデアルを選び，$R'=R/J$ と置く．
+構造対象付き自己同値 $F:\mathcal D\to\mathcal D$ が与えられたとする．
+帰納法により，その $R'$-係数変更には marked 自然同型
+$\eta':F_{R'}\xRightarrow{\sim}\operatorname{Id}_{\mathcal D_{R'}}$ がある．
+
+全 Artin 比較の標準線対象を $E_i$，$E_0=\mathcal O_R$ とし，
+$b_{ij}=\operatorname{Hom}_{\mathcal D}(E_j,E_i)$ と置く．
+各 $b_{ij}$ は有限自由であり，$b\otimes_R\mathbb C=\check A_X$ である．
+$F$ は係数テンソル積を保つため $F(E_i)$ も平坦であり，
+特殊ファイバー上で $E_i$ と同定される．
+持上げの同型類の一意性により同型
+$\phi_i:F(E_i)\xrightarrow{\sim}E_i$ を選べる．
+$i=0$ では $F$ に指定された構造対象の標識を使う．
+
+任意の $i$ で $\phi_i$ の還元と $\eta'_{E_{i,R'}}$ の差は
+$\operatorname{End}(E_{i,R'})=R'$ の単元である．
+$R^\times\to(R')^\times$ は全射なので，$\phi_i$ を scalar で補正し，
+その還元を $\eta'_{E_{i,R'}}$ に一致させる．
+$i=0$ では $\eta'$ が marked なので既に一致しており，変更しない．
+
+この選択は section 代数の自己同型
+\[
+ \alpha_{ij}(x)=\phi_iF(x)\phi_j^{-1}
+\]
+を与え，$\alpha\equiv1\pmod J$ である．
+$\delta=\alpha-1$ と置くと，$J^2=0$ により積に関する導分則が成り立つ．
+$\mathfrak m_RJ=0$ と $R$-線型性により $\delta$ は
+\[
+ d:\check A_X\longrightarrow J\otimes_{\mathbb C}\check A_X
+\]
+へ因子化する．ここでは $b$ の有限自由性により
+$Jb_{ij}\simeq J\otimes_{\mathbb C}(b_{ij}/\mathfrak m_Rb_{ij})$
+を用いる．
+前補題により
+$\delta_{ij}(x)=(\lambda_i-\lambda_j)x$，$\lambda_0=0$ と書ける．
+
+$u_i=1+\lambda_i\in R^\times$ と置けば
+$u_ixu_j^{-1}=x+(\lambda_i-\lambda_j)x$ なので，
+$\phi_i$ を $u_i^{-1}\phi_i$ に取り換えると section 上の自己同型は恒等になる．
+$u_0=1$ であるから構造対象の標識は保たれる．
+
+最後に，この列上の同型を全圏へ延長する．
+$H(M)_i=\operatorname{Hom}_{\mathcal D}(E_i,M)$ とすると，
+\[
+ \operatorname{Hom}(E_i,FM)
+ \xrightarrow{\ \circ\phi_i\ }
+ \operatorname{Hom}(FE_i,FM)
+ \xrightarrow{\sim}\operatorname{Hom}(E_i,M)
+\]
+は $b$-加群の同型 $HF\simeq H$ を与える．
+section 上の作用を恒等にしたことが $b$-線型性を保証する．
+tails 商後の $\pi H$ は同値なので，これから
+$F\xRightarrow{\sim}\operatorname{Id}_{\mathcal D}$ を得る．
+これは $E_0$ 上で指定された標識に一致する．
+従って $F$ は marked 自然同型で割った自己同型群では恒等であり，帰納法が閉じる．
+\end{proof}
+
+\begin{corollary}[離散な framed 形式近傍]
+\label{cor:abel-full-stack-discrete-formal}
+定理\ref{thm:abel-stackified-relative-formal}の同値の下で，
+framed 形式変形群oid は同型類の離散群oidと自然に同値である．
+従って系\ref{cor:abel-cubic-formal-ring}の非標準的な座標同定を選ぶと，
+局所 Artin $\mathbb C$-代数上の群oid値関手として
+\[
+ \widehat{\mathfrak M}^{\mathcal O}_{\mathrm{cub},X}
+ \simeq \operatorname{Spf}\mathcal R_X
+\]
+を得る．右辺は連続な局所 $\mathbb C$-代数準同型の集合を離散群oidとして扱う．
+ここで
+\[
+ \mathcal R_X=
+ \frac{\mathbb C[[t_1,\ldots,t_{10},a_{ij}\ (0\le i<j\le4)]]}
+ {(a_{ij}a_{kl}-a_{ik}a_{jl}+a_{il}a_{jk}\mid i<j<k<l)}.
+\]
+\end{corollary}
+\begin{proof}
+自己同型群が自明な群oidでは，同型な二対象の間の射は一意であり，
+同型類の離散群oidへの標準関手は同値である．
+これは基底変更に自然である．
+前命題，全 stack 化後の比較，同型類関手の既存の prorepresentability を合成する．
+\end{proof}
+
+\begin{remark}[規約と範囲]
+消えたものは，特殊ファイバーへの同一視を保つ自己同値の自然同型類である．
+標識を外した特殊ファイバーの有限自己同型群はここに含まれず，
+非標識の $2$-群oid における scalar $2$-自己同型についても何も変更していない．
+また，この形式表示は代数化や有限型 atlas の存在を意味しない．
+導分の計算と全 Artin section 比較による直接証明であり，
+$HH^1$ による一般の自己同型制御を未確認のまま引用するものではない．
+この直接的適用の初出は未確認である．
+\end{remark}
+
+\begin{remark}[一次方向の障害と完全交叉性]
+\label{rem:abel-formal-quadratic-obstruction}
+この表示の非可換座標を二形式
+$a=\sum_{i<j}a_{ij}e_i\wedge e_j$と書くと，方程式は$a\wedge a=0$である．
+全ての方程式が二次なので，双対数環上では十個の$a_{ij}$を独立に選べる．
+しかし例えば$t=0$，$a_{01}=a_{23}=\varepsilon$，他の$a_{ij}=0$は
+$\C[\varepsilon]/(\varepsilon^2)$上の変形を定める一方，
+$\C[\varepsilon]/(\varepsilon^3)$上へは持ち上がらない．
+実際，任意の持上げの$(0,1,2,3)$-Pfaffianは
+$\varepsilon^2$となり，二次の座標補正では消せない．
+
+形式環の埋込み次元は$20$，Krull次元は$17$である．
+五つの二次Pfaffianはその次数二部分で線型独立なので，
+最小関係数は$5$であり，余次元$3$に等しくない．
+従ってこの形式近傍は完全交叉ではない．
+これらは既に同定したGrassmannian錐の形式環の具体的な帰結であり，
+新しい独立な変形分類を主張するものではない．
+\end{remark}
