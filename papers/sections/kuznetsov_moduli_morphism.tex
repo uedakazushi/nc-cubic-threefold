@@ -231,13 +231,33 @@ $S=k[x_0,\ldots,x_4]$、$f\in S_3$ とし、$V(f)\subset\mathbb P^4_k$ は滑ら
 Serre 関手とその逆で安定なら、それは全体である。
 \end{lemma}
 \begin{proof}
-$S/(f)$ の特異点集合は原点だけである。
-Stevenson \cite[Theorem~6.13]{StevensonSingularityActions} は、
-Noetherian かつ局所的に hypersurface な環の特異圏の全 thick 部分圏を
-特異点集合の特殊化閉部分集合で分類する。
-従って ungraded matrix factorization 圏の冪等完備化では、
+$R=S/(f)$ と置く。$\operatorname{Sing}R$ は原点だけである。
+冪等完備化を含めて ungraded 側の生成性を確認するため、
+$\mathcal S(R)=K_{\mathrm{ac}}(\operatorname{Inj}R)$ を用いる。
+これは compact 生成圏であり、
+\cite[Theorem~3.1(3) and Notation~3.2]{StevensonSingularityActions} により
+\[
+ \operatorname{Kar}D_{\mathrm{sg}}(R)\simeq\mathcal S(R)^c
+\]
+である。Stevenson \cite[Theorem~6.13]{StevensonSingularityActions} は、
+Noetherian かつ局所的に hypersurface な環について、
+$\mathcal S(R)$ の全 localizing 部分圏を $\operatorname{Sing}R$ の部分集合で分類する。
+従って任意の非零 compact 対象 $M$ に対し
+$\operatorname{Loc}(M)=\mathcal S(R)$ であり、
+compact 生成定理 \cite[Lemma~2.2]{NeemanCompactLocalization} から
+$\operatorname{thick}(M)=\mathcal S(R)^c$ となる。
+ここでは affine な定理を使っている。
+全 localizing 部分圏の $D(R)$-作用に対する安定性は
+\cite[Lemma~3.10]{StevensonSingularityActions} により自動的である。
+
+Orlov \cite[Theorem~3.9]{OrlovLandauGinzburg} を
+正則 affine 空間 $\operatorname{Spec}S$ と函数 $f$ に適用すると、
+有限階数 ungraded matrix factorization 圏は $D_{\mathrm{sg}}(R)$ と同値である。
+$f$ は非定数なので $k[t]\to S$, $t\mapsto f$ は単射であり、
+$S$ は $k[t]$ 上 torsion-free、従って平坦である。
+これで同定理の平坦性の仮定も満たす。
+よって ungraded matrix factorization 圏の冪等完備化では、
 どの非零対象も全体を thick-generate する。
-affine な定理を使っており、ここに追加の tensor 安定性の仮定はない。
 
 graded 圏への移行を明示する。
 忘却関手を $\mathsf F$ とし、任意階数の graded projective 加群による
@@ -661,13 +681,12 @@ source 全体で単一の kernel を選べることや、その選択の一意�
 大域的な $\mathcal O(1)$ の選択も不要である。
 \end{remark}
 
-\begin{remark}[主張の確実性と既知入力]
+\begin{remark}[証明の入力と適用範囲]
 本節の証明は、既存の相対 PBW/CY/proper/Serre 定理と代数的 chart を入力とする。
 Hochschild 計算、infinitesimal Torelli、Lurie の形式 hull 比較、
 Bhatt の perfect complex の効果化、Stevenson の特異圏の分類、
 Orlov 比較、categorical Torelli、perfect kernel の連続性は既知の結果である。
 それらの適用範囲を明記して、実際の十七係数族の一般点の幾何性とモジュライ射を証明した。
-この具体的な組合せと応用の初出は未確認であり、独立の査読を終えたものではない。
 一般の proper dg 族における compact kernel の形式効果性や
 生成性の開性は使っていない。これらに対する反例と適用範囲の境界は研究ノートに保持する。
 \end{remark}

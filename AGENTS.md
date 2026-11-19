@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v14。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10.7・§10.6・§1.8・§1.7・§5）、`papers/sections/point_scheme_poisson.tex`、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc-cubic-threefold-moduli.tex`（v20）。
+2026-11-19 / research-plan-v15。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§10.7・§10.6・§1.8・§1.7・§5）、`papers/sections/point_scheme_poisson.tex`、`papers/sections/poisson_cubic_lifts.tex`、`papers/sections/kuznetsov_relative_category.tex` と `kuznetsov_moduli_morphism.tex`、`dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc-cubic-threefold-moduli.tex`（v21）。
 
 ## 最優先の判断基準
 
@@ -23,7 +23,7 @@ O-markedは豊富列の存在を要求し選択を忘れ、射にはOを保つ�
 
 DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同型で割った1群oidの規約で述べ、未切断2-groupoidには拡張しない。滑らかな可換三次点では全Abel Artin変形が相対AS三次incidenceの本質像に入り、同型類関手は17次元・接空間20の環で表される。CFTの構成とYekutieliの既知比較を明示する。各Artin模型は任意の係数変更後にも飽和・復元・相対AS条件を満たす。標準係数族と全Abel変形群oidは同値。固定圏の対象・射の降下と圏の族自体の有効降下は別である。滑らかな可換点のframed Artin近傍については、元のArtin基底でDDLを適用し、1+mのscalar cocycleを対数とAmitsurで消してHom・合成を降下することで大域模型を得た。二次関係と三次勾配の正則列による導分計算からframed自己同値の自然同型類も自明であり、全形式群oidは離散なSpf R_Xとなる。有限Aut(X)の商、非切断2群oid、一般の非可換点、大域代数性へ拡張しない。
 
-一般17係数族の明示Δ開では、有限Koszul対角解消と真正なCY同型を全係数環で構成した。A側のtorsion双対をdg局所化の両側へ移してSerreを得る。偶数Gabriel右随伴により、全S上で実際の完全Abel同値を復元する。有限表示Isomに加えて、PGL5×T_B→Q113のétale locusの飽和Yと中心三次直線Jを用い、[J/PGL5]という有限型17次元DM全部分stackを構成した。全Mの代数性やその中での開性・局所閉性・成分性は未確定。
+一般17係数族の明示Δ開では、有限Koszul対角解消と真正なCY同型を全係数環で構成した。A側のtorsion双対をdg局所化の両側へ移してSerreを得る。偶数Gabriel右随伴により、全S上で実際の完全Abel同値を復元する。有限表示Isomに加えて、PGL5×T_B→Q113のétale locusの飽和Yと中心三次直線Jを用い、[J/PGL5]という有限型17次元DM全部分stackを構成した。全Mの代数性やその中での開性・局所閉性・成分性は未確定。普遍PBWの閉点検出は被約な有限型の普遍基底で行い、そこで得た分裂を任意底変更する。CYの符号は `eq:general17-cy-chain-signs`、全偶数section Z代数の整合は `eq:abel-even-section-coherence` を参照する。
 
 中心束U,E,LにはGLの中心重みがあり、そのままPGL商上の通常の束としない。Hom(L,Sym³U)は重み0で降下し、C_J→B_Jはそのtorsorである。O(1)、無捩れなSerre式、大域的な原点の降下は未証明。周囲の同定付き2-fiberと、同型類だけを固定した有限自己同型商を区別する。B_Jはprojectively gradedなambient問題であり、ambientの全O保存Abel同値を分類したとはしない。
 
@@ -33,7 +33,7 @@ DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同
 
 Poisson持上げは、尺度を記憶する17次元の標的を用いる。射影化した標的は16次元である。相対Poisson錐のscheme方程式はSchouten–Plücker式と勾配の局所分裂単射から得る。可換targetのambientはω_B/V(2D)により射影束へ分裂するが、source上のO(1)降下とは区別する。実際の持上げは選択後には全O保存同値と底変更に両立する。選択独立性、NC交換子との半古典的意味、ΘQ⁻¹との一致は別の課題である。Pymの解析芽同型、Yekutieliの完備局所parameter上の比較を、この特定の大域代数的射と同一視しない。
 
-point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。点Poissonの9項目とétale atlas点はv20で再実行し既存証明書に一致した。実行状態の正本は `validation.json`。
+point schemeの復元には埋込みとscheme構造を使う。Fermat有限部分は3個の台×長さ8で、24個の被約点ではない。R_Qのrank5はJacobian locusの開で述べ、全Grassmannianの開性としない。Ueda–Yoshinaga/HwangのJacobian復元原理、Vancliffの一定point scheme仮定、Gualtieri–Pymのmodular residueを既知結果として明記する。相対CYの40自由語・6項目、中心式、17係数開を本版で検算した。点Poisson・étale点・Eulerの保持検証とは実行状態を区別し、正本を `validation.json` に置く。
 
 原稿の証明、今回の点検、計算、新規性確認を区別する。追加定理は明記した仮定の下で証明し、初出は未確認。有限Artin基底上の相対ASと絶対global dimension、体上のregular tailsと相対dg smooth proper性、実際のgraded17次元族と裸の導来圏の次元を混同しない。接空間同型だけで成分性や全Artin同値を宣言しない。
 

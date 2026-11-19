@@ -41,7 +41,7 @@ $\mathfrak M^{\mathrm{pt}}$は対象列自体をまだ記憶している．
 非noetherianな係数環には大きな$\operatorname{QGr}$を使い，
 小さい$qgr$への制限はそのAbel性が保証される場合に行う．
 fpqc局所で上記の相対$qgr$/$QGr$模型を持ち，sectionのsaturationと復元が
-指定した全ての底変更後に成立することを要求する．このような模型の間の
+任意の底変更後に成立することを要求する．このような模型の間の
 全ての構造対象付き相対完全同値を射として，Hom群oidの同型類を取り，
 fpqc stack化したものを$\mathfrak M^{\OO}_{\mathrm{cub}}$と書く．
 この構成は相対模型の条件と底変更構造を明示したモジュライ問題であり，
@@ -53,10 +53,19 @@ fpqc stack化したものを$\mathfrak M^{\OO}_{\mathrm{cub}}$と書く．
 
 実際，任意の許容な豊富列について$\End(E_i)=\OO_T$であり，
 隣接Homは正の階数の局所自由層である．自然自己変換の$E_i$上のスカラーは
-隣接Homの忠実性により全て等しく，豊富性から圏全体の変換を決定する．
+隣接Homの忠実性により全て等しく，列の生成性から圏全体の変換を決定する．
 従って$\OO=E_0$上で恒等である2自己同型は自明である．
 このことが，上記の構造対象付き問題を通常の1-stackとして扱う理由である．
 体上の同じ議論は補題\ref{lem:abel-pointed-scalar-center}に記す．
+
+標準Grothendieck模型の間では，底環上の完全線型同値は，
+係数環の作用を移すことにより任意の係数変更へ標準的に延長される．
+補題\ref{lem:abel-canonical-family-equivalences}はこの延長の一意性と，
+固定模型間の同値・自然同型のfpqc降下を証明する．
+従って上の2自己同型の消滅を合わせると，固定模型間のHom群oidの同型類は既に層であり，
+stack化はこれら二つの模型の間に新しい射を加えない．
+対象の側には局所模型の捩れた形式が加わり得るため，
+このHomの結論と大域的な代数模型の存在とは区別する．
 
 \begin{remark}[可換三次点での普遍的な相対模型]
 \label{rem:abel-cubic-essential-image}
@@ -471,8 +480,25 @@ $H_A\simeq(2)$であり，$H_A$は標準heartを保つ．
  \simeq R'
 \end{align*}
 を誘導する．同じ可換同型を反復して用いるため，この写像は積を保つ．
-負の冪も用いれば，偶数豊富列のすべての相対Homにおける写像が定まる．
-仮定\textup{(i)}と豊富列による復元により，これらのHomと合成上の作用は
+ここで正の軌道環だけでなく，偶数列のsection $\mathbb Z$-代数全体との両立を確認する．
+$\gamma:FH_A\xrightarrow{\sim}H_{A'}F$の正負の整合的な反復を
+$\gamma^{(n)}:FH_A^n\xrightarrow{\sim}H_{A'}^nF$とする．
+$E_i=H_A^{-i}\OO_A$，$E'_i=H_{A'}^{-i}\OO_{A'}$と置けば，
+\[
+ \alpha_i=H_{A'}^{-i}(\alpha)\circ\gamma^{(-i)}_{\OO_A}
+      :F(E_i)\xrightarrow{\sim}E'_i
+\]
+は$\alpha_0=\alpha$を満たす．反復の整合性と自然性から，標準同定
+$\check R_{ij}=R_{j-i}\simeq\Hom(E_j,E_i)$の下で
+\begin{equation}\label{eq:abel-even-section-coherence}
+ \check\phi_{ij}(a)
+   :=\alpha_iF(a)\alpha_j^{-1}
+   =\phi_{R,j-i}(a)
+       \qquad(i\leq j)
+\end{equation}
+となる．従って$\phi_R$は全ての添字でのHomと合成に対する$F$の作用を表している．
+仮定\textup{(i)}と定理\ref{thm:categorical-marked-equivalence}の豊富列による復元により，
+これらのHomと合成上の作用は
 $F$と構造対象上の同定$\alpha$を自然同型まで決定する．
 
 仮定\textup{(iii)}で$\phi_R$を$\phi_A:A\xrightarrow{\sim}A'$へ持ち上げる．
@@ -508,8 +534,11 @@ $1$または$\varepsilon_{-1}$である．従って$\phi$は次数スカラー�
 \begin{remark}[Serre同定の選択と次数スカラー]
 \label{rem:abel-pointed-serre-normalization}
 上の証明で$H_A\simeq(2)$の選択を変更する場合，その差は
-$(2)$の自然自己同型である．補題\ref{lem:abel-pointed-scalar-center}により
-それは一つのスカラーであり，$n$回の反復においてその$n$乗として作用する．
+$(2)$の自然自己同型である．これを標準heartに制限し，逆シフトを合成すると，
+$\operatorname{Id}_{\mathcal C_A}$の自然自己同型となる．
+補題\ref{lem:abel-pointed-scalar-center}により，この制限は一つのスカラーである．
+全ての軌道対象$H_A^n\OO_A$はheartに属するため，
+軌道環に関する$n$回の反復にはその$n$乗が作用する．
 従って誘導される偶数軌道環の同型の変化は次数スカラーに限られる．
 二つの平方根による持上げの差$\varepsilon_{-1}$も，
 全次数スカラー$k^\times$の部分群である．
@@ -560,8 +589,13 @@ Grothendieck圏で，構造対象$\OO_U$と次数捩れを持つ．
  \mathcal Hom_{\mathcal C_U}(\OO_U,\OO_U(m))
 \]
 は同型であり，任意の有限型基底変更と両立する．
-偶数列$E_i=\OO_U(-2i)$は豊富で，そのsection関手は
-$\mathcal C_U$と$\operatorname{QGr}(A_U^{(2)})$との復元同値を与える．
+偶数列$E_i=\OO_U(-2i)$はnoetherian対象の部分圏で相対的に豊富とする．
+すなわち，任意のnoetherian対象と整数$r$に対して，
+添字$i\geq r$の$E_i$の有限直和からその対象への全射が存在し，
+noetherian対象間の全射への$\operatorname{Hom}(E_i,-)$の適用は
+$i\gg0$で全射となる．大きい圏では任意直和による生成とsection関手を用い，
+sectionをtailsへ送ることで
+$\mathcal C_U\simeq\operatorname{QGr}(A_U^{(2)})$という復元同値を得ると仮定する．
 この同値は基底変更に自然とし，偶数列上のHomと合成への作用は
 完全同値を自然同型まで決定すると仮定する．
 最後の条件は，ファイバーごとの豊富性だけから結論せず，
@@ -650,7 +684,8 @@ $E_i=\OO_U(-2i)$を$E'_i$へ送る．
  \mathcal Hom\bigl(\OO_U,(\mathsf S_U^{-1}[3])^n\OO_U\bigr)
  \xrightarrow{\sim}(A'_U)^{(2)}
 \]
-を得る．
+を得る．正負の反復を式\eqref{eq:abel-even-section-coherence}と同様に用いれば，
+これは偶数列のsection $\mathbb Z$-代数全体に対する$F$の作用とも両立する．
 定理\ref{thm:abel-relative-veronese-isom}により，これは
 さらに有限\'etale局所で$A_U\simeq A'_U$へ持ち上がる．
 その構造移送と$F$は偶数列のHomと合成上で一致するので，
@@ -681,13 +716,10 @@ Serre表示の変更は偶数軌道環の次数スカラーを変えるだけで
 局所的な比較は全体に貼り合わさる．
 \end{proof}
 
-\begin{remark}[この相対定理で解決していないこと]
+\begin{remark}[相対比較の入力と全Jacobian族への拡張]
 \label{rem:abel-relative-pointed-scope}
 本定理は，必要な相対圏論の入力を供給したとき，
 体上の定理\ref{thm:abel-pointed-field-hom}を族の同型層へ拡張できることを示す．
-既存の17次元全混合族で\textup{(C1)}--\textup{(C4)}が成立すること，
-その成立範囲が非空な代数的開集合であること，
-得られるAbel圏モジュライが有限型代数スタックであることは，なお別の課題である．
 特に，ファイバーごとの有限大域次元やSerre公式から
 相対RHomのperfect性・基底変更・相対Serre双対を省略しない．
 具体的な有限位数楕円境界の四係数族については，
@@ -700,6 +732,15 @@ $(-2)[3]$という関手の同定を，全四係数基底上で証明する．
 （補題\ref{lem:relative-serre-compact-intrinsic}）．
 この内在的な選択によって，特異ファイバーを含めて全相対Hom比較を得る．
 元の有限係数Tor振幅による\textup{(C3)}との一致は，依然として上述の非空開上の主張である．
+
+全混合17次元族にもcompact対象を用いる経路を適用する．
+命題\ref{prop:general17-abel-admissible}と
+第\ref{sec:relative-koszul-line-cohomology}節の相対入力により，
+定理\ref{thm:general-relative-pointed-hom}は任意の可換係数環上で
+全ての構造対象付き同値を次数スカラーのfpqc商層として記述する．
+さらに定理\ref{thm:jacobian-algebraic-abel-substack}は，
+この全Hom比較を用いて17次元の有限型Deligne--Mumford部分stackを構成する．
+この経路は，元の\textup{(C3)}を特異ファイバー上まで拡張することを必要としない．
 
 相対Serre関手が$(-2)\otimes L[3]$で表されるときは，
 $L$の局所自明化により上の証明を適用する．

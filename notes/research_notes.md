@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-notes-v14 / 主論文 manuscript-v20。現在有効な研究知識。詳細証明は主論文 `papers/nc-cubic-threefold-moduli.tex` とその `papers/sections` に保持する。H3/PI4曲面の関連知識は§12で本研究の入力と区別する。
+2026-11-19 / research-notes-v15 / 主論文 manuscript-v21。現在有効な研究知識。詳細証明は主論文 `papers/nc-cubic-threefold-moduli.tex` とその `papers/sections` に保持する。H3/PI4曲面の関連知識は§12で本研究の入力と区別する。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -158,13 +158,17 @@ A_{-n-2}^{\vee}[-3]&n\le-2.
 
 楕円曲線Eのbilinear graphを相対的に構成し、σ,σ²,σ³≠1を明示式で保証する。正次数1–3のTHCR中心は消え、Rains中心式ΩによりS_top/(Ω)=Hとなる。閉点上のPBWと有限行列の定階数からB,AをP[u,v]上射影にし、中心三次元wの普遍正則性を得る。Rains公式の分母は全てΔの単元である。
 
-**相対CYの実際のorientation。** P[u,v]上の三変数potential複体はcyclic Hessianのflip恒等式によって自己双対である。中心差u_L−u_R,v_L−v_RのKoszul双対を重ね、Θ_(B/P)=B(5)[−5]を得る。右enveloping algebra加群を双加群へ戻すflip規約を固定した。指定した有限二次Koszul解消でもorientationをchain mapで表し、その有界P-flat acyclic coneにより任意底変更を確認する。体上のAS/CY定理だけから相対orientationを貼り合わせていない。
+**閉点検出の使用範囲。** 普遍PBWの証明は、被約な有限型環P₀およびQ=P[u,v]での一定階数行列と有限射影切断の閉点検出に依存する。選んだ語の持上げの間の関係は、有限個の射影summand内で零と判定する。その後に各濾過段階を分裂して任意係数へ移すため、非被約・非Noetherianな変更先で閉点検出を繰り返す必要はない。正確な濾過付き写像ηと次数別の議論は `prop:general17-universal-pbw`。
+
+**相対CYの実際のorientation。** P[u,v]上の三変数potential複体はcyclic Hessianのflip恒等式によって自己双対である。双加群をD=B⊗_Q B^opの左加群で書き、右加群をτ_Dで戻す。cochain双対の微分d^j(f)=(−1)^(j+1)f d_Kに対する符号は(+,-,+,-)であり、全基底対応を `eq:general17-cy-chain-signs` に置く。中心差u_L−u_R,v_L−v_Rの順序付きKoszul双対はD(2)[−2]を与え、Θ_(B/P)=Θ_(B/Q)(2)[−2]=B(5)[−5]となる。左D作用は右掛算への前合成から計算し、単なる片側同型で代用しない。指定した有限二次Koszul解消でもorientationをchain mapで表し、その有界P-flat acyclic coneにより任意底変更を確認する。
+
+`computations/verify_relative_cy.py` と `relative_cy_certificate.json` は、active次数0–3の全40自由語に対する合成、flip Hessian、cochain符号、規格化の恒等式を保持する。potentialへの線型性により任意の中央係数を含む。これはPBWや解消の完全性の計算証明ではなく、完全性は次数別の有限射影分裂と有限濾過で証明する。
 
 **許容性と全同値。** P[u,v]上のflatnessからČech交わりとtorsion拡大の分裂を使って全shift飽和を得る。二次中心のrank12交換子写像は分裂単射なので、Z(A_S)_2=Sym²(Su⊕Sv)は任意Sで成立する。偶数Veronese同値QGrA≃QGrA^(2)は次数一生成から直接証明し、全偶数線とHom・合成によるGabriel右随伴が実際の同値を決定する。豊富列を射影列と仮定しない。
 
 Noetherian係数では、degree3nの楕円線束列をKeelerの訂正版のample filter判定へ適用し、H、S_top、B、Aの左右Noetherian性を得る。Γ_Bの幅5と六段の有限自由部分解消で高次数のΓコホモロジー消滅を示し、通常列・偶数列の豊富性を得る。これは一般Abelモジュライへ実際の相対模型を送るための確認である。
 
-Serreの一意性から全O保存完全同値はH=Serre^−1[3]=(2)の一貫した軌道を保つ。偶数切断を復元し、μ2-torsorで次数一へ局所的に持ち上げる。選択差は次数スカラーであり、marked自然2自己同型は自明。従って `thm:general-relative-pointed-hom` は任意C代数上でfpqc層としてEq_O=Isom_gr/Gmを与える。
+Serreの一意性から全O保存完全同値はH=Serre^−1[3]=(2)の一貫した軌道を保つ。正負の整合的な反復からα_i:F(H^−iO)→H′^−iO′を選ぶと、全てのi≤jでsection Z代数に誘導する写像が同じφ_(R,j−i)となる（`eq:abel-even-section-coherence`）。零番の行だけの比較で同値を結論しない。偶数切断を復元し、μ2-torsorで次数一へ局所的に持ち上げる。Serre表示の差は、体上の有界Serre版ではheartに、任意係数のcompact版では全偶数軌道対象に制限してスカラーと判定する。選択差は次数スカラーであり、marked自然2自己同型は自明。固定模型のHomは既に層なのでstack化は新しい射を加えないが、捩れた対象は加わり得る。従って `thm:general-relative-pointed-hom` は任意C代数上でfpqc層としてEq_O=Isom_gr/Gmを与える。
 
 さらにA₁=A′₁=S⁵なら、I₂=ker(V²→A₂)のrankは10、I₃=ker(V³→A₃)のrankは91である。Eq_OはPGL₅内でg^⊗2 I₂=I′₂、g^⊗3 I₃=I′₃を満たす閉部分スキームであり、S上有限表示である。全同値の比較によって既存17次元Rosenlicht変動がO-marked Abel圏にも移り、二次包絡の17→13射が全同値に自然となる。
 
@@ -669,7 +673,7 @@ HH^p(K)=
 
 **Serre安定性と全射性。** 完全忠実性と両側のenriched Serre双対から、sourceのNの関手RHom_D(ΦN,S_DΦM)がRHom_C(N,S_CM)で表される。N=S_CMで恒等射に対応する射を取り、dg/enriched Yonedaにより自然変換α_M:ΦS_CM→S_DΦMを構成する。この段階ではS_DΦMがΦの像に入ることを仮定せず、source上の関手の表現性だけを使う。特殊fiberでα_Mは同型であり、そのconeはD-perfect、従って係数perfectなので、導来Nakayamaにより全体で同型となる。この順序で像のSerre安定性を得る。一般fiberの像の両側Serre安定性はgenerator EとS_C^{-1}Eで確認すれば足り、全generic対象の持上げは不要である。
 
-`lem:kuznetsov-graded-thick-simple` は滑らかな三次XのKu(X)の非零Serre安定thick部分圏が全体であることを証明する。Stevenson Thm6.13で孤立hypersurfaceのungraded特異圏の全thick部分圏を分類し、忘却Fとgraded化GのGF(P)=⊕P(a)を使ってgraded側へ戻す。有限階数MFのcompact性とNeeman Lem2.2により有限thick生成に戻せる。Orlovの同値とrotation R=S[−1]によりSerre安定性が次数シフト安定性になる。Euler−9による非零性と合わせ、generic ΦはMorita同値である。一般(FS)やgeneratorの開性は使わない。
+`lem:kuznetsov-graded-thick-simple` は滑らかな三次XのKu(X)の非零Serre安定thick部分圏が全体であることを証明する。R_f=k[x₀,…,x₄]/(f)とし、Stevenson Thm3.1(3)・Notation3.2でKar D_sg(R_f)=S(R_f)^cと同定する。Thm6.13は全localizing部分圏を分類するので、孤立特異点の場合に非零compact対象MはLoc(M)=S(R_f)を満たし、Neeman Lem2.2からthick(M)=S(R_f)^cとなる。Orlov math/0302304v2 Thm3.9がungraded MFへの橋である。k[t]→k[x], t↦fのtorsion-free性から平坦性を確認する。graded側にはGF(P)=⊕P(a)で戻し、有限階数MFのcompact性から有限thick生成を得る。graded Orlov比較とrotation R=S[−1]によりSerre安定性が全内部次数シフト安定性になる。これは既知の分類・比較定理から導く補題として位置付け、独立の分類原理の新規性は主張しない。Euler−9による非零性と合わせ、generic ΦはMorita同値である。一般(FS)やgeneratorの開性は使わない。
 
 **17係数一般点と開集合。** §1.8.1の代数的橋渡しと函数体単射を用い、実際の17次元atlasの一般点が体拡大後に幾何的Kuとなる。まずsmooth性を体降下し、perfectな同値核・逆核・unit・counitを有限生成部分環へ降ろす。その閉点から有限拡大K'/Kを取り、標数零で有限étale被覆へ広げる。TV Lem2.10の連続性と係数perfect coneの消滅により、非空開の被覆上で相対Morita同値を得る。
 
@@ -835,7 +839,8 @@ D_hは24個の被約点ではなく、三つの台の各点に長さ8を持つ�
 | [JLLZ: Jacovskis–Lin–Liu–Zhang, arXiv:2203.08187v3](https://arxiv.org/pdf/2203.08187v3), Theorems3.11 and4.4(2) | 幾何的接写像の同型、γ単射、補正HKRの図式 | 次元一致だけでなくactual mapを使う。形式/代数的な比較の区別を保つ |
 | [Lurie, DAG X](https://www.math.ias.edu/~lurie/papers/DAG-X.pdf), Def5.3.20, Thms5.1.9/5.3.16, Prop5.3.21; [Blanc–Katzarkov–Pandit, arXiv:1705.00655](https://arxiv.org/pdf/1705.00655), §3.3 | tame compactly generated変形からhullへの(−1)-truncated比較、centerによる形式変形制御 | π0単射と実際の幾何的KSを組み合わせ、通常Artin基底で全認識。π₂=HH⁰⊗m≃1+mを保持し、群oid全体の離散化は主張しない |
 | [Bhatt, arXiv:1404.7483](https://arxiv.org/pdf/1404.7483), Lem4.2 | 完備環上のPerfとArtin切断の∞圏極限の同値 | underlying係数perfect複体と作用を効果化。包絡dg代数上のcompact性の効果化とはしない |
-| [Stevenson, arXiv:1105.4698v3](https://arxiv.org/pdf/1105.4698v3), Thm6.13 | Noetherian局所hypersurface環の全thick特異部分圏を分類 | 孤立特異点への適用、graded化とcompactnessから次数シフト安定なMFの生成性を得る |
+| [Stevenson, arXiv:1105.4698v3](https://arxiv.org/pdf/1105.4698), Thm3.1(3), Notation3.2, Lem3.10, Thm6.13 | Noetherianかつ局所的にhypersurfaceなaffine環の全localizing特異部分圏を分類。compact部分はKar D_sgと同値で、tensor作用安定性は自動 | 孤立特異点では非零compact対象が全体を生成。冪等完備化を経由してgraded化とcompactnessへ接続 |
+| [Orlov, arXiv:math/0302304v2](https://arxiv.org/pdf/math/0302304), §3.1, Thm3.9 | 正則affine空間と平坦な函数Wについて、有限階数ungraded MFと零ファイバーの特異圏が同値 | 本稿ではW=f。非定数fによるk[t]→Sとtorsion-free性から平坦性を得る。全critical fiberをまとめるCor3.10とは区別 |
 | [Orlov, arXiv:math/0503632v3](https://arxiv.org/pdf/math/0503632), Thms2.5/3.10–3.11; [Neeman, Ann. Sci. ENS25 (1992),547–566](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/neeman-loc.pdf), Lem2.2 | graded MF・特異圏・Fano残余圏の比較、compact生成localizing圏のcompact部分 | windowを合わせ、rotation=Serre[−1]で三次成分のSerre安定thick生成を得る |
 | [Kuznetsov, J. reine angew. Math.753 (2019),239–267; arXiv:1509.07657v2](https://arxiv.org/pdf/1509.07657), §3.3, Cor3.18, Lem3.19, Cor4.1 | 滑らかなFano hypersurfaceのrotationとSerre関手の公式。三次三様体ではR_rot³=[2], S=R_rot⁻²[3] | 二つの式からR_rot=S[−1]を得て、Serre安定性をgraded shift安定性に移す。S³=[5]だけで同定しない |
 | [Bernardara–Macrì–Mehrotra–Stellari, arXiv:0903.4414v2](https://arxiv.org/pdf/0903.4414v2), Thm1.1 | 滑らかな三次三様体はKuznetsov成分の同値から一意に復元 | 有限表示spreadingで拡大体へ適用。被約な二重交差上で粗モジュライ射を降下 |
@@ -873,19 +878,21 @@ Abel変形比較・Ku残余射・point schemeについて上記の一次入力�
 
 全Abel変形の平坦二次包絡、次数三判定、平方零消滅、全stackのframed形式環、一般族の相対双対・全Hom比較・代数的部分stack・17→10射、全Abel残余とPoisson形式同型を、詳細証明付きの現行成果として保持する。証明の所在と、この公表準備で実際に点検した範囲は区別する。
 
-**重点監査の範囲。** Jacobian atlasの飽和開・普遍中心・スカラー重み・階数四torsorと全Hom比較、可換点の平坦包絡・任意係数変更・framed形式降下、CFT–Yekutieliの一次資料の仮定を点検した。残余側では全Artin認識、係数perfectな核と作用の効果化、非循環なSerre比較、三次成分の生成性、有限表示への降下とTorelliの使用範囲を点検した。相対双対節も全体を通読し、有界幅Koszul torsion模型、A/BのTor比較、真正な双加群作用、両側dg局所化からSerre traceへの鎖と非平坦底変更を重点点検した。普遍PBW計算とcyclic Hessianの全符号展開を独立に再証明したものではない。点データ側では§10.7の一次持上げ、E⊔Dのscheme分解、点対応からの二次包絡復元、Casimir復元、有限Hesse非実現性、modular residue比較を、非被約底・冪零係数・正則列・分母消去を含めて点検した。各主張は相対PBW/CY・tails/proper/Serre等の本文入力に依存する。重点箇所以外を含む全証明の独立全面監査、外部査読、新規性・初出の網羅確認は完了していない。
+**重点監査の範囲。** Jacobian atlasの飽和開・普遍中心・スカラー重み・階数四torsor、可換点の平坦包絡・任意係数変更・framed形式降下、CFT–Yekutieliの適用仮定を点検した。相対双対では有界幅Koszul torsion模型、A/BのTor比較、真正な双加群作用、両側dg局所化からSerre traceへの鎖を点検した。普遍PBW/CYでは閉点の一定階数から係数射影分裂への移行、potential解消の全微分と双対符号、中心差のKoszul双対、五次元Koszul解消の任意底変更を読み合わせた。
 
-**実行した厳密計算。** 以下は証明の通読とは別に、コードまたは整数式を実行して確認した項目である。計算コードと保持証明書は変更していない。
+全O保存Homの上流4節は全体を通読し、相対Veronese交差、平方根被覆、線束の捩れ、偶数section Z代数、固定模型のHom降下とstack化を点検した。残余側では全Artin認識、係数perfectな核と高次作用の効果化、非循環なSerre比較、冪等完備化を含む生成性、有限表示とTorelli降下を点検した。点データ側では§10.7の一次持上げ、scheme分解、二次包絡・Casimir復元、Hesse非実現性、modular residue比較を点検した。これらは指定範囲の別々の読み合わせであり、外部基礎定理の全証明の再証明、形式的証明検証、全文献の優先権調査ではない。主要な主張は本文に明記した相対PBW/CY・proper/Serre等の入力に依存し、全証明の独立全面監査と外部査読は未完了である。
+
+**本版で実行した厳密計算。** 証明の通読とは別に、次のコードを実行した。追加した相対CY以外の計算コードと保持証明書は変更していない。
 
 | 対象 | 実行結果と範囲 |
 |---|---|
-| `computations/verify_point_poisson.py` | Fermat/Hesse行列式、中心三次の三重線型化、Hessian補正、非実現性係数、9×9可積分系の8次minor、shift速度、24点例、j式を含む九項目が成功。出力は `point_poisson_certificate.json` とbyte単位で一致 |
-| `computations/verify_jacobian_etale_point.py` | chart rank 37、方程式rank 113、scalar kernel、Jacobianとchartの積の厳密な零、Δ≠0を確認。出力は `jacobian_etale_point_certificate.json` とbyte単位で一致 |
-| `lem:relative-kuznetsov-nonzero-euler` の整数式 | Python標準ライブラリによる再計算でEuler行列、χ(G₂,G₂)=−9、χ(G,G)=−2925を確認 |
+| `computations/verify_relative_cy.py` | 全40自由語に対する六項目が成功。新しい `relative_cy_certificate.json` と出力がbyte単位で一致。完全性・PBW・射影性は本文の証明による |
+| `computations/verify_central_pair_centers.py` | 339語・162関係・rank144、三交換子、三つの41項中心恒等式、平行移動・Rains差、三次minorが成功 |
+| `computations/verify_general17_open.py` | 明示したΔの非消滅点と九項目が成功。既存証明書とのbyte一致は追加検査していない |
 
-点データの計算は有理数係数の多項式・有理式の恒等式検証であり、数値近似ではない。point functorの表現可能性、scheme分解、圏論的降下の証明は本文の別の議論による。上記以外の保持計算については再実行済みとは扱わない。
+点・Poissonの九項目、étale点のrank37/113、Euler行列のχ(G₂,G₂)=−9とχ(G,G)=−2925には実行済みの検証情報を保持するが、本版で再実行したとは扱わない。これらを含め、ソース・証明書のhashと実行日は `validation.json` を参照する。point functorの表現可能性、scheme分解、圏論的降下の証明は有限計算とは別である。
 
-**組版と配布時の状態。** 主稿manuscript-v20の最終LuaLaTeX組版は、全33入力を含む260ページのPDF生成に成功した。最終logでoverfull hbox、未定義の参照・引用、欠字はいずれも零であり、全文PDF抽出テキストのページ外bboxも零である。静的検査はlabel 560、参照705、引用224、文献85件を対象とし、既存29節の入力保持、主稿から抽出した3節と新しいroot名の整合を確認した。主定理、部見出し、主要な数式、付録、文献を含む代表32頁を画像化して目視し、文字切れ・重なり・欠字がないことと、目次・部見出しのページ整合を確認した。全文260頁を一行ずつ目視したわけではない。最終確認結果は `validation.json` に記録した。生成、静的検査、証明点検、計算実行、組版、保存は別々の状態として記録する。
+**組版と配布時の状態。** 主稿manuscript-v21の最終LuaLaTeX組版は、全33入力を含む263ページのPDF生成に成功した。最終logでoverfull hbox、未定義の参照・引用、欠字はいずれも零であり、全263頁のPDF抽出テキストのページ外bboxも零である。静的検査はlabel 563、参照733、引用229、文献83件を対象とした。32節の入力と既存ラベルを保持し、254個の証明環境と全結果環境の保持を確認した。変更した証明・数式、主定理、部見出し、付録、文献を含む代表40頁を画像化して目視し、文字切れ・重なり・欠字がないことと、目次・部見出しのページ整合を確認した。全文263頁を一行ずつ目視したわけではない。最終確認結果は `validation.json` に記録した。生成、静的検査、証明点検、計算実行、組版、保存は別々の状態として記録する。
 
 ### H3/PI4の関連知識（本研究の定理の入力ではない）
 

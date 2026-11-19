@@ -53,6 +53,11 @@ $a=1/6,b=0$ では $(p,q,r)=(2,-2,-1)$ であり、
 である。$a(27a^3+b^3)$ の可逆性により、古典的な最高次三次式は滑らかである。
 Mori--Smith \cite[Theorem~4.2(1), Proposition~2.8 and Corollary~2.9]{MS} から、その全ての複素体値は
 三次元 Koszul AS 正則 CY 整域となる。
+正確には $f_3=a(x^3+y^3+z^3)+bxyz$ に対する同論文の $A_{f_3,1}$ であり、
+上の関係式はその三関係を二倍したものである。
+同 Proposition~2.8 の証明にある次数付き解消は
+$0\to\mathscr S(-3)\to\mathscr S(-2)^3\to\mathscr S(-1)^3\to\mathscr S\to\C\to0$
+なので、各閉点での Hilbert 級数は $(1-t)^{-3}$ である。
 ここで使うのは commutator を含む potential の場合であり、
 同論文の対称 potential に現れる別の例外条件を混同しない。
 
@@ -148,18 +153,34 @@ $Q=P[u,v]$ と置くと、$B$ と $A$ は $Q$-射影加群であり、active 次
 \begin{proof}
 まず各 $\mathscr S_n$ は有限自由な語の加群の有限表示商であり、全閉点で
 次元 $\binom{n+2}{2}$ を持つ。
-被約な有限型 $\C$-基底上の一定階数の行列を局所的に標準形へ直すと、
-$\mathscr S_n$ は有限局所自由で、任意の基底変更に両立することが分かる。
-ここで行列の必要な小行列式が全閉点で零なら、基底の被約性により恒等的に零である。
+ここで用いる閉点からの議論を明示する。
+被約な有限型 $\C$-環上の有限行列が全閉点で階数 $\ell$ を持つなら、
+$(\ell+1)$ 次小行列式は全て零であり、$\ell$ 次小行列式の可逆開集合が基底を覆う。
+各開集合で行列を単位行列と零行列の直和へ直せるので、
+その核・像・余核は有限局所自由となり、形成は任意の基底変更に両立する。
+これを関係行列に適用して $\mathscr S_n$ の有限射影性を得る。
 各語の加群から $\mathscr S_n$ への全射の $P_0$-線形分裂を選ぶ。
 
-active 次数を下げる帰納法により、これらの持上げは $B$ を $Q$-加群として生成する。
-全閉点への特殊化では、低次 cyclic potential に対する PBW 定理
-\cite[Theorem~3.1]{BT}\cite[Proposition~7.3.1(ii)]{EG} が適用できる。
-従って持上げ間の有限 $Q$-線形関係を全閉点で評価すれば全係数が零となる。
-有限射影加群の切断は被約な有限型基底の全閉点で検出されるので、関係自体が零である。
-よって $B\simeq\bigoplus_{n\geq0}\mathscr S_n\otimes_{P_0}Q$ が
-濾過付き $Q$-加群として成り立ち、第一の associated graded 同型は普遍的である。
+active 次数を下げる帰納法により、これらの持上げは濾過付き全射
+\[
+ \eta:\bigoplus_{n\geq0}\mathscr S_n\otimes_{P_0}Q\longrightarrow B
+\]
+を与える。
+$\operatorname{Spec}Q$ の各閉点では $u,v$ も複素数へ特殊化し、
+potential の最高 active 次数は三、残りは高々二となる。
+従って、直前の三次元 CY 入力に対する Berger--Taillefer の PBW 定理
+\cite[Theorem~3.1]{BT} が適用できる。
+Etingof--Ginzburg \cite[Proposition~7.3.1(ii)]{EG} はこの結果を同じ形で述べている。
+各閉点で $\eta$ は濾過付き同型である。
+いま $\ker\eta$ の元は有限個の $\mathscr S_n\otimes Q$ の直和に属し、
+その全閉点での値は零となる。
+この有限射影加群の切断は被約な有限型環 $Q$ の全閉点で検出されるので、元自身も零である。
+よって $\eta$ は濾過付き $Q$-加群同型である。
+持上げを通常の全次数に斉次に取っているので、この同型はその次数も保つ。
+各濾過段階と successive quotient が $Q$-射影となり、
+任意の $P\to S$ の後にも同じ分裂で associated graded を計算できる。
+これが第一の associated graded 同型の普遍性であり、
+非被約な $S$ 上で閉点検出を繰り返すことはしない。
 
 Rains 公式への代入を明示する。最高次三次式を $3a$ で割り、
 \[
@@ -200,7 +221,8 @@ Hilbert 級数と $H_n$ の階数を比較すると
 
 $w$ の最高記号が $\Omega$ であるから、濾過付き正則元で割る標準の
 最高次数からの帰納法により第二の associated graded 同型を得る。
-その各次数商 $H_n\otimes Q$ は射影なので、濾過を次数ごとに分裂できる。
+その各次数商 $H_n\otimes Q$ は次数付き射影なので、
+通常の全次数を保って濾過を次数ごとに分裂できる。
 従って $A\simeq\bigoplus_{n\geq0}H_n\otimes_{P_0}Q$ であり、
 正則性と associated graded の計算は非平坦な基底変更後にも有効である。
 通常の全次数で各成分を数えれば階数公式と最後の分裂完全列を得る。
@@ -233,6 +255,13 @@ $Q=P[u,v]$ を係数環とし、三つの active 変数の cyclic potential を
 \]
 と取る。$r_i=\partial_{x_i}\Phi$ は $B$ の三関係である。
 $D=B\otimes_QB^{\mathrm{op}}$ と書く。
+双加群は左 $D$-加群として扱い、反自己同型
+\[
+ \tau_D(a\otimes b^{\mathrm{op}})=b\otimes a^{\mathrm{op}}
+\]
+によって右 $D$-加群を左 $D$-加群へ戻す。
+すなわち右加群 $N$ に対応する双加群の作用は
+$a\cdot n\cdot b=n\cdot(b\otimes a^{\mathrm{op}})$ である。
 形式的な基底 $e_i,f_i,e$ の全次数をそれぞれ $1,2,3$ として
 \[
  0\longrightarrow D(-3)\longrightarrow D(-2)^3
@@ -245,44 +274,79 @@ $D=B\otimes_QB^{\mathrm{op}}$ と書く。
  d_3(1\otimes e\otimes1)&=
        \sum_i(x_i\otimes f_i\otimes1-1\otimes f_i\otimes x_i)
 \end{align*}
-である。$\mathcal D$ は active 語の一文字を順に中間因子へ置く普遍微分で、
+である。この複体を $K_Q$ と呼び、$D$ の項を cochain 次数零に置く。
+$\mathcal D$ は active 語の一文字を順に中間因子へ置く普遍微分で、
 $Q$ 上では零とする。
-cyclic 恒等式 $\sum_i[x_i,r_i]=0$ によりこれは複体となる。
+自由 $Q$-代数の語 $\xi$ に対し
+\begin{gather*}
+ \partial^{\mathrm{nc}}_{x_j}(\xi)
+   =\sum_{\xi=a x_j b}a\otimes b^{\mathrm{op}},\\
+ H_{ji}=\partial^{\mathrm{nc}}_{x_j}(r_i),\qquad
+ \delta_i=x_i\otimes1-1\otimes x_i^{\mathrm{op}}
+\end{gather*}
+と書く。従って $d_2(f_i)=\sum_jH_{ji}e_j$ である。
+係数を左に書くこの規約では
+\[
+ \sum_jH_{ji}\delta_j=r_i\otimes1-1\otimes r_i^{\mathrm{op}},\qquad
+ \sum_i\delta_iH_{ji}=r_j\otimes1-1\otimes r_j^{\mathrm{op}}.
+\]
+第一式は普遍微分の telescoping、第二式は
+cyclic 恒等式 $\sum_i[x_i,r_i]=0$ の普遍微分である。
+従って関係 $r_i=0$ を課した $D$ 上で $d_1d_2=d_2d_3=0$ となる。
 active 濾過の associated graded は $\mathscr S$ の三次元 potential 解消を
 $Q$ へ延長した複体である。
 この $Q$-延長前の $\mathscr S$ の複体の各次数は有限射影 $P_0$-加群の有限複体で、
-全閉点で完全であるから、
-局所的に分裂して普遍的に完全である。
+全閉点で完全である。
+各次数を固定し、その増大複体を右端から順に分裂すれば、
+各閉点の近傍で contractible となる。
+有限型基底の閉点がこの近傍で全て覆われるので、複体は局所的に分裂完全である。
+従って $Q$ への延長と任意の係数変更の後にも完全である。
 濾過が各全次数で有限であることから、元の複体も全基底変更後に完全である。
 
 自己双対はファイバーの CY 性から推論しない。
-基底 $e_i,f_i$ を対応させ、$1,e$ を対応させる双対写像を使う。
-中間微分について必要な恒等式は
+中間微分について必要な恒等式は、上の反転規約で
 \[
- \partial^{\mathrm{nc}}_{x_j}(\partial_{x_i}\Phi)
- =\operatorname{flip}\bigl(
-       \partial^{\mathrm{nc}}_{x_i}(\partial_{x_j}\Phi)\bigr)
+ H_{ji}=\tau_D(H_{ij})
 \]
 である。これは各 cyclic 語における二つの文字の位置を入れ替える恒等式であり、
 全ての係数環上で成立する。
-両端の微分は対応する差 $x_i\otimes1-1\otimes x_i$ から一致する。
-双対複体の標準符号を入れれば、真正な双加群複体としての自己双対
-$K_Q^\vee\simeq K_Q(3)[-3]$ を得る。
-これは Berger--Taillefer \cite[arXiv v2, Theorem~3.6 の証明, pp.~9--12]{BT} の
-明示的な微分・符号・cyclic Hessian 恒等式を、上の射影性と普遍的完全性の下で
-$Q$ 上にそのまま書いたものである。
+両端では $\tau_D(\delta_i)=-\delta_i$ である。
+$K_Q^\vee=\underline{\operatorname{Hom}}_D(K_Q,D)$ の微分を
+$d^j(f)=(-1)^{j+1}f\circ d_{K_Q}$ とする。
+右作用を $\tau_D$ で戻した後、三つの微分の係数は順に
+$-\tau_D(\delta_i)$、$\tau_D(H_{ji})$、$-\tau_D(\delta_i)$ となる
+（中間では行と列を交換する）。
+一方 $K_Q(3)[-3]$ の微分は $-d_{K_Q}$ なので、同型
+\begin{equation}\label{eq:general17-cy-chain-signs}
+ \begin{aligned}
+ &\Psi:K_Q^\vee\xrightarrow{\sim}K_Q(3)[-3],\\
+ &1^\vee\mapsto e,\quad e_i^\vee\mapsto-f_i,\quad
+ f_i^\vee\mapsto e_i,\quad e^\vee\mapsto-1
+ \end{aligned}
+\end{equation}
+は全ての微分と可換する。
+これは真正な双加群複体の同型であり、内部次数も保つ。
+この構成は Berger--Taillefer \cite[arXiv v2, Theorem~3.6 の証明, pp.~9--12]{BT} の
+potential 解消と cyclic Hessian 恒等式を、ここで固定した cochain 符号で
+$Q$ 上に書いたものである。
+\nolinkurl{computations/verify_relative_cy.py} は次数零から三までの全自由語を基底として、
+二つの合成恒等式、$H_{ji}=\tau_D(H_{ij})$、および
+\eqref{eq:general17-cy-chain-signs} の符号を有理数上で独立に展開する。
+この有限検算は上の完全性や PBW の証明を代替しない。
 従って $\Theta_{B/Q}\simeq B(3)[-3]$ である。
 
 次に $C=B\otimes_PB^{\mathrm{op}}$ と置く。
-作用の規約を固定する。$B$-双加群は左 $C$-加群として扱い、
-その双対は右 $C$-加群である。
-右 $C$-加群 $N$ を双加群へ戻す作用は
-$a\cdot n\cdot b=n\cdot(b\otimes a^{\mathrm{op}})$ とする。
+同じ反転規約を $C$ にも用いる。この反転は商 $C\to D$ と可換する。
 $B$ は $Q$-射影なので、$C$ は
 $Q\otimes_P Q=P[u_L,v_L,u_R,v_R]$ 上平坦である。
 従って $z_1=u_L-u_R,z_2=v_L-v_R$ は $C$ 上の中心正則列であり、
 $D=C/(z_1,z_2)$ である。
-順序 $(z_1,z_2)$ を固定した Koszul 解消とその双対は
+順序 $(z_1,z_2)$ を固定した Koszul 解消を
+\[
+ 0\longrightarrow C(-2)\xrightarrow{(-z_2,z_1)^{\mathrm t}}
+ C(-1)^2\xrightarrow{(z_1,z_2)}C\longrightarrow D\longrightarrow0
+\]
+と取る。その双対は
 \[
  \mathbf R\underline{\operatorname{Hom}}_C(D,C)\simeq D(2)[-2]
 \]
@@ -292,15 +356,21 @@ $D=C/(z_1,z_2)$ である。
 唯一のコホモロジーは通常の $D$--$C$ 双加群 $D(2)$ であり、
 その左作用は $d$ の任意の $C$-持上げによる右掛算を
 中心 Koszul 解消の chain map へ持ち上げて計算できる。
-商においてこれは左からの通常の $d$ の掛算となり、右作用は $C\to D$ を通る。
+具体的には、$C$-線型写像 $f_x:C\to C$ を $f_x(1)=x$ で表せば、
+右掛算 $R_{\widetilde d}$ との前合成は
+$(f_x\circ R_{\widetilde d})(1)=\widetilde d x$ を与える。
+従って cohomology 上では左からの通常の $d$ の掛算となり、右作用は $C\to D$ を通る。
+単一 cohomology 次数への集中により、この作用の計算は
+真正な $D$--$C$ 双加群の導来同型を与える。
 導来随伴と前段の自己双対を合わせれば
-\[
+\begin{align*}
  \mathbf R\underline{\operatorname{Hom}}_C(B,C)
- \simeq
+ &\simeq
  \mathbf R\underline{\operatorname{Hom}}_D
-   \bigl(B,\mathbf R\underline{\operatorname{Hom}}_C(D,C)\bigr)
+   \bigl(B,\mathbf R\underline{\operatorname{Hom}}_C(D,C)\bigr)\\
+ &\simeq\Theta_{B/Q}(2)[-2]
  \simeq B(5)[-5].
-\]
+\end{align*}
 この随伴は右 $C$-作用を保持している。
 最後の同型は $\Theta_{B/Q}$ の右 $D$-作用を $C\to D$ で制限したものであり、
 最初に固定した反転規約により通常の $B$-双加群となる。
@@ -317,13 +387,25 @@ $V=B_1\simeq P^5$、$R_2=\ker(V\otimes_PV\to B_2)$ とし
  \ \subset V^{\otimes i}\qquad(i\geq2)
 \]
 と置く。
-各体値で、active 濾過の associated graded は
+各複素閉点で、active 濾過の associated graded は
 Koszul 代数 $\mathscr S\otimes k[u,v]$ である。
-全次数ごとに有限な filtered bar 複体の spectral sequence により $B$ も Koszul である。
+通常の全次数 $n$ を固定すると、reduced bar 複体の長さは高々 $n$ で、
+active 濾過も零から $n$ の範囲にある。
+従ってその spectral sequence は収束し、associated graded の Tor が
+homological degree と内部次数の対角上にのみ存在することから、$B$ も Koszul である。
 Hilbert 級数 $(1-t)^{-5}$ から、その Koszul 双対の階数は
 $\binom5i$、$i>5$ で零となる。
-$W_i$ は有限射影加群間の有限行列の核として表せるので、
-$2\leq i\leq6$ の一定階数により $W_i$ は有限射影で基底変更と可換する。
+$W_i$ は自然な写像
+\[
+ V^{\otimes i}\longrightarrow
+ \bigoplus_{j=0}^{i-2}
+ V^{\otimes j}\otimes_P B_2\otimes_P V^{\otimes(i-2-j)}
+\]
+の核である。
+$B_2$ は有限射影なので $R_2$ の形成は基底変更と可換し、
+この写像の各閉点での核は、その fibre の Koszul 空間そのものである。
+前命題で用いた一定階数の議論を $2\leq i\leq6$ に適用すると、
+$W_i$ は有限射影で、その形成は任意の基底変更と可換する。
 特に $W_6=0$ であり、高次の交わりも零である。
 標準の Koszul 双加群複体の各内部次数は有限射影複体で、
 全閉点で完全だから相対的にも分裂完全である。
@@ -600,7 +682,9 @@ $F(\mathcal O_A)\simeq\mathcal O_{A'}$ と上の可換同型を反復するこ�
 \[
  \phi_R:A^{(2)}\xrightarrow{\sim}(A')^{(2)}
 \]
-を与える．双対の表示を変更する自然変換の各線対象上の成分は単元である．
+を与える．正負の反復の整合性を式\eqref{eq:abel-even-section-coherence}と同様に用いれば，
+この $\phi_R$ は偶数列の section $\mathbb Z$-代数全体に対する $F$ の作用を記述する．
+双対の表示を変更する自然変換の各線対象上の成分は単元である．
 隣接する偶数線の Hom は正階数の有限射影 $S$-加群 $A_2$ なので忠実であり，
 自然性からこれらの単元は全て等しい．従って表示の変更は $\phi_R$ を
 一つの次数スカラーで変更するだけである．

@@ -1,6 +1,6 @@
 # 研究方針：非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v14。再開時は最初に本書を読む。主論文は `papers/nc-cubic-threefold-moduli.tex`（公表準備稿v20）、補助的な知識は `notes/research_notes.md`、実行済み検証の状態は `validation.json` にある。GitHub `uedakazushi/nc-cubic-threefold-moduli` のmainを正本とし、この現行一式だけから再開する。
+2026-11-19 / research-plan-v15。再開時は最初に本書を読む。主論文は `papers/nc-cubic-threefold-moduli.tex`（公表準備稿v21）、補助的な知識は `notes/research_notes.md`、実行済み検証の状態は `validation.json` にある。GitHub `uedakazushi/nc-cubic-threefold-moduli` のmainを正本とし、この現行一式だけから再開する。
 
 ## 1. 恒常的な研究原則と保存許可
 
@@ -48,10 +48,10 @@
 
 ### P0：中心結果の公表前検証と文章の完成
 
-1. 相対Koszul双対から両側dg局所化・Serre traceへの論理鎖は重点点検済みである。次は `jacobian_abel_comparison.tex` の普遍PBW入力とcyclic Hessianの全符号展開を点検し、閉点でのMori–Smith/PBW入力から係数環上の有限射影複体へ移る各段階を再導出する。任意非平坦・非Noetherian底変更の主張を有限係数の検算だけで代替しない。
-2. 残余射の形式認識→係数Perf効果化→Serre安定像の生成性→有限表示・Torelli降下は重点点検済みである。全O保存Hom比較の上流にある相対Veronese復元・豊富列比較を通して点検し、偶数偏極から次数一へ戻す際の層商・線束の捩れ・非被約底の扱いを確認する。既知一般定理と追加証明の区別はIntroduction・ノート§11に維持する。
-3. 全Artin平坦包絡・framed降下・残余形式射の整合を確認する。Yekutieli Cor11.2は可換積も動かす。H1(T)=0を要求するCor11.3は使用しない。
-4. 主要な先行研究の新規性・初出調査を広げる。一次資料照合済みと、未確認の優先権を区別する。主張・証明・引用・図式・組版に未解決の欠落がないことが公表版の達成基準である。外部査読済みとは記載しない。
+1. 中心定理の上流では、普遍PBWの閉点検出から有限射影分裂への移行、cyclic Hessianの符号、二つの中心差によるCY3からCY5への移行を重点点検済みである。本文の `eq:general17-cy-chain-signs` と `verify_relative_cy.py` が符号の再確認の入口となる。任意非平坦・非Noetherian底変更は分裂完全性の証明に依存し、自由語の検算だけで代替しない。
+2. 相対Veronese・豊富列比較から全O保存Homへの経路、形式認識→係数Perf効果化→Serre安定像の生成性→有限表示・Torelli降下を重点点検済みである。偶数sectionの全Z代数は `eq:abel-even-section-coherence`、冪等完備化後の生成性は `lem:kuznetsov-graded-thick-simple` に明示した。公表前の整合確認では、主定理A–Dの基底と開条件を各証明へ辿り、全M、C_J、残余射の開U、点復元の開を混同する表現を残さない。
+3. 残る独立点検は、主結果に使う補助構成の全証明へ広げる。まず `central_pair_finite_order_regularity.tex` と `finite_order_relative_categories.tex` の有限中心・正則開・perfect圏の比較を読み、RainsとBertiniの仮定を各使用箇所に照合する。有限位数の15/16次元族の議論を、17次元一般点の幾何化の代用にしない。全Artin側ではYekutieli Cor11.2が可換積も動かすこと、H1(T)=0を要求するCor11.3を使用しないことを保持する。
+4. 主定理A–Dごとに近接文献との新規性・初出調査を進める。一次資料の適用箇所を確認したことと優先権の確認を区別する。特異圏分類、Serre復元、量子化という既知一般原理自体を本稿の新規性に数えない。主張・証明・引用・組版に未解決の欠落がないことが公表版の達成基準であり、外部査読済みとは記載しない。
 
 ### P1：量子中心に対応する古典三次と七次元fiber
 
@@ -86,13 +86,14 @@
 ```sh
 python3 scripts/verify.py
 latexmk papers/nc-cubic-threefold-moduli.tex
+python3 computations/verify_relative_cy.py --output build/relative_cy.json
 python3 computations/verify_point_poisson.py --output build/point_poisson.json
 python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json
 python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json
 ```
 
-組版先は `build/`。PDF・中間物・ログは追跡しない。上の三つの計算出力は `computations/` 内の対応する小証明書と比較する。その他の中心・PBW・slice・stabilizerの既存コードと証明書は維持し、具体的なリスクがあるものを選んで再実行する。
+組版先は `build/`。PDF・中間物・ログは追跡しない。上の四つの計算出力は `computations/` 内の対応する小証明書と比較する。相対CYの検算はPython標準ライブラリだけを用いる。その他の中心・PBW・slice・stabilizerのコードと証明書は維持し、具体的なリスクがあるものを選んで再実行する。
 
-v20では中心結果を担う諸節の証明の読み合わせと一次資料の仮定確認を実施し、点・Poissonの9項目と実際のétale点の証明書を再生成して既存出力との一致を確認した。残余generatorのEuler行列も整数で再計算した。CFTの普遍公式とYekutieliの比較の適用範囲も点検した。これらは全論文の独立再証明・全文献の網羅調査・外部査読を意味しない。正確な現行ソースhash、組版・視覚確認の結果、再実行した計算と維持した計算の区別は `validation.json` に記載する。
+中心結果を担う諸節の読み合わせと一次資料の仮定確認に加え、普遍PBW/CYと相対Veronese・全Hom比較を点検した。本版では次数0–3の全40自由語による六項目の恒等式・符号検算、明示中心式、17係数開の九項目を実行した。点・Poisson、étale点、残余generatorのEuler行列の保持証明書は、ソース変更の有無と最後の実行情報を区別して扱う。これらは全論文の独立再証明・全文献の網羅調査・外部査読を意味しない。現行ソースhash、組版・視覚確認、再実行と保持の区別は `validation.json` に記載する。
 
 H3非可換三次曲面分類は `uedakazushi/nc-cubic-classification` の独立研究であり、この研究の次の作業として自動的に開始しない。

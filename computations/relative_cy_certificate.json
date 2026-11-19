@@ -1,0 +1,30 @@
+{
+  "status": "pass",
+  "active_potential_word_basis_size": 40,
+  "active_degrees": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "checks": {
+    "cyclic_commutator_identity": true,
+    "flip_hessian_identity": true,
+    "d1_d2_equals_relation_difference": true,
+    "d2_d3_equals_relation_difference": true,
+    "cochain_self_duality_signs": true,
+    "commutator_and_symmetrization_normalizations": true
+  },
+  "conventions": {
+    "tensor_product": "(a,b)(c,d)=(ac,db) in B tensor B^op",
+    "hessian": "H[j,i]=partial_j^nc(partial_i^cyc Phi)",
+    "dual_differential": "d^j(f)=(-1)^(j+1) f d_K",
+    "self_duality_signs": [
+      1,
+      -1,
+      1,
+      -1
+    ]
+  },
+  "scope": "free-word identities and cochain signs only; no exactness or PBW assertion"
+}

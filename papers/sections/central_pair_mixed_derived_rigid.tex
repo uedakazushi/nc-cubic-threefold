@@ -222,8 +222,8 @@ chain ruleで勾配の式を積分すると、差は$k[u,v]_3$に入る。
 \end{proof}
 
 \subsection{射影自己同型のない明示ambient}
-次の例は元の中心三次対原稿第21節にあったものであり、
-正則な中心商の開集合の存在は、中心商論文の有限位数境界に関する定理から従う。
+次の例では、補題\ref{CSBGlem:order-six}の位数六の楕円境界を用いる。
+正則な中心商の開集合の存在は、定理\ref{CSBGthm:global-open}から従う。
 
 \begin{proposition}[明示的な剛体ambient：中心の入力を指定]
 \label{prop:moduli-rigid-example}
@@ -264,10 +264,8 @@ chain ruleで勾配の式を積分すると、差は$k[u,v]_3$に入る。
 さらに、$f$の非空Zariski開部分ではtailsが正則で大域次元3となる。
 \end{proposition}
 \begin{proof}
-Fermat型の混合中心の普遍公式
-\href{https://github.com/uedakazushi/nc-cubic/blob/main/papers/support/papers/sections/fermat_mixed_universal_center.tex}
-{（nc-cubic論文A）}へ
-$A=u,B=v,C=u+v,D=E=H=g=0,h=1$を代入すれば
+定理\ref{thm:pair-full-fermat-center}の全係数中心式へ
+$L_i=m_i=0$、$e_1=v,e_2=u+v,e_3=u,h=1$を代入すれば
 上記の$G_*$とその中心性が得られる。
 指定されたTHCRでは平行移動の位数が6なので
 次数一・二の中心は零、次数三では$k\Omega_1$である。

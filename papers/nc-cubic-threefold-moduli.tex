@@ -62,7 +62,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体のAbel圏モジュライ\\二次包絡とKuznetsov残余射}
 \author{}
-\date{2026年11月19日・公表準備稿 v20}
+\date{2026年11月19日・公表準備稿 v21}
 \hypersetup{pdftitle={非可換三次三様体のAbel圏モジュライ},pdfsubject={二次包絡とKuznetsov残余射}}
 \begin{document}
 \maketitle
@@ -326,9 +326,10 @@ Lurie の tame な compactly generated 圏の変形比較
 smooth な幾何的 target への完全忠実な埋込みを得る。
 相対 Serre trace が像を Serre 安定にする。
 
-Stevenson \cite[Theorem~6.13]{StevensonSingularityActions} の孤立 hypersurface の
-特異部分圏分類に graded 化を加え、Orlov の比較
-\cite[Theorems~2.5,3.10--3.11]{OrlovSingularities}と
+Stevenson \cite[Theorems~3.1(3),6.13]{StevensonSingularityActions} の孤立 hypersurface の
+特異部分圏分類を冪等完備化まで用い、Orlov の ungraded・graded の比較
+\cite[Theorem~3.9]{OrlovLandauGinzburg}
+\cite[Theorems~2.5,3.10--3.11]{OrlovSingularities}、graded 化、および
 Neeman \cite[Lemma~2.2]{NeemanCompactLocalization} の compact 生成を用いると、
 非零 Serre 安定 thick 部分圏は三次成分全体となる。
 この段階が埋込みを同値にする。
@@ -415,8 +416,8 @@ $\mathfrak C_{\mathrm J}$ の滑らかさはパラメータ stack の性質で�
 それが $\rho$ の出力する三次に一致することを示すことである。
 全モジュライ内での位置、七次元ファイバー、構造対象を忘れた復元については
 第\ref{sec:status}節にまとめる。
-本稿は公表準備稿であり、新規性の網羅調査と全証明の独立監査は未完了である。
-検証と再現の詳細は研究ノートを参照されたい。
+本稿は公表準備稿であり、各結果の初出・新規性の網羅調査と全証明の独立監査は未完了である。
+検証範囲は研究ノートに記す。
 
 \clearpage
 \part{構造対象付き圏とJacobian中心三次族}
@@ -536,7 +537,7 @@ The Stacks Project Authors,
 \href{https://stacks.math.columbia.edu/tag/02KH}{Tag~02KH}
 （flat base change）、
 \href{https://stacks.math.columbia.edu/tag/02OC}{Tag~02OC}
-（formal functions）。2026年11月14日確認。
+（formal functions）。2026年11月14日閲覧。
 
 \bibitem{RRGeneralizedAS}
 M.~L.~Reyes and D.~Rogalski,
@@ -617,7 +618,7 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/058S}{Tag~058S, Proposition~10.83.3}
 （有限射影加群の忠実平坦降下），
 \href{https://stacks.math.columbia.edu/tag/0FCL}{Tag~0FCL, Lemma~13.17.4}
-（Serre部分圏の有界上方導来圏との比較）．2026年11月19日確認．
+（Serre部分圏の有界上方導来圏との比較）．2026年11月19日閲覧．
 
 \bibitem{CFT}
 A.~S.~Cattaneo, G.~Felder and L.~Tomassini,
@@ -637,7 +638,7 @@ Theorem~2.4 and the following Remarks~2;
 \emph{Poisson部分多様体から見る射影四空間の成分分類},
 現行研究原稿、\nolinkurl{papers/poisson_subvariety_incidence_ja.tex},
 三次延長定理と三次incidenceのファイバー命題。
-参照commit \texttt{f118dfb} (2026-11-13確認)。
+参照commit \texttt{f118dfb}。
 \url{https://github.com/uedakazushi/poisson-p4/blob/f118dfbfc5bb9b7a394d1985b4800b6228eebaf6/papers/poisson_subvariety_incidence_ja.tex}.
 公刊済みの外部文献ではなく、関連プロジェクトの証明を持つ研究入力である。
 
@@ -720,15 +721,16 @@ Adv. Math. \textbf{281} (2015), 1216--1241,
 \bibitem{Rains}
 E.~M.~Rains,
 \textit{Filtered deformations of elliptic algebras},
-\href{https://arxiv.org/abs/2107.13540}{arXiv:2107.13540v2},
-\S2, Theorem~2.13.
+\href{https://arxiv.org/abs/2107.13540v2}{arXiv:2107.13540v2} (2022),
+\S2, Theorem~2.13 and its preceding discussion.
 
 \bibitem{RSVdB}
 J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
 \textit{A non-commutative Bertini theorem},
 J. Noncommut. Geom. \textbf{13} (2019), 609--616,
 \href{https://doi.org/10.4171/JNCG/334}{doi:10.4171/JNCG/334},
-\href{https://arxiv.org/abs/1705.01366}{arXiv:1705.01366v2}.
+\href{https://arxiv.org/abs/1705.01366v2}{arXiv:1705.01366v2} (2020),
+Proposition~2.1, Lemmas~3.3--3.6 and Corollary~3.9.
 
 \bibitem{Rosenlicht}
 M.~Rosenlicht,
@@ -775,7 +777,7 @@ J. Algebra 455 (2016), 137--163;
 \url{https://arxiv.org/abs/1307.8415}.
 arXiv v1のLemma~4.4（Reesの補題）と公刊版のTheorem~5.8
 （twisted matrix factorizationと特異圏）を版を区別して用いる。
-既存の有限位数議論の参照はTheorems~4.7 and~5.5。
+有限位数の議論にはTheorems~4.7 and~5.5を用いる。
 
 \bibitem{BSWPotentials}
 R.~Bocklandt, T.~Schedler and M.~Wemyss,
@@ -793,13 +795,13 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 perfect複体のファイバーでの単一次数集中と局所自由性。
 \href{https://stacks.math.columbia.edu/tag/08EV}{Tag~08EV, Lemma~36.27.1}
 （底に関して有限Tor振幅を持つcoherent複体のproper pushforward）を併用する。
-2026年11月19日確認。
+2026年11月19日閲覧。
 
 \bibitem{StacksProj}
 The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/01YR}{Section~30.14, Tag~01YR},
 特にLemma~30.14.2（coherent層の生成性・消滅）と
-Proposition~30.14.4（標準次数付き環のProj対応）。2026年11月19日確認。
+Proposition~30.14.4（標準次数付き環のProj対応）。2026年11月19日閲覧。
 
 \bibitem{MoriNymanZ}
 I.~Mori and A.~Nyman,
@@ -808,14 +810,14 @@ Appl. Categ. Structures \textbf{33} (2025), article~14.
 \href{https://doi.org/10.1007/s10485-025-09806-2}{doi:10.1007/s10485-025-09806-2};
 \url{https://arxiv.org/abs/2307.15253}.
 Theorem~4.19, Lemma~5.24, Theorems~6.4 and~6.11。
-著者版\url{https://faculty.nymana.wwu.edu/regV8.pdf}で該当箇所を確認。
+著者版：\url{https://faculty.nymana.wwu.edu/regV8.pdf}。
 
 \bibitem{ASZ4Canonical}
 \texttt{uedakazushi/asz4},
 \emph{四次元二次AS正則$\mathbb Z$-代数の分類：
 4周期表示・1周期構造の忘却・全分類への有限atlas},
 \nolinkurl{papers/asz4_classification.tex}, 定理\texttt{canonical-four}。
-参照commit \texttt{91b4504}、2026年11月14日確認。
+参照commit \texttt{91b4504}。
 \url{https://github.com/uedakazushi/asz4/blob/91b45047739187fc5acb6f906b25e48f49a42c2d/papers/asz4_classification.tex}.
 関連プロジェクトの研究入力であり、公刊済み文献として扱わない。
 
@@ -824,14 +826,19 @@ V.~Bhatoy, C.~Ingalls, F.~LaRoche and R.~Nookala,
 \emph{Some components of the moduli space of Koszul Artin--Schelter regular algebras of dimension four},
 \href{https://arxiv.org/abs/2511.08390v1}{arXiv:2511.08390v1}
 (2025年11月11日), \S2.3, Proposition~5.1 and Theorem~5.8。
-preprint本文を確認。本稿では定義と同値関係を比較し、その成分判定を証明の入力にしない。
+本稿では定義と同値関係を比較し、その成分判定を証明の入力にしない。
 
 \bibitem{BIDiscrete}
 V.~Bhatoy and C.~Ingalls,
 \emph{Discrete Invariants of Koszul Artin--Schelter Regular Algebras of Dimension four},
 \href{https://arxiv.org/abs/2602.13178v1}{arXiv:2602.13178v1}
 (2026年2月13日), Introduction。
-preprint本文を確認し、公刊情報は未確認。
+
+\bibitem{OrlovLandauGinzburg}
+D.~Orlov,
+\emph{Triangulated categories of singularities and D-branes in Landau--Ginzburg models},
+\href{https://arxiv.org/abs/math/0302304v2}{arXiv:math/0302304v2}
+(2004), \S3.1 and Theorem~3.9。
 
 \bibitem{OrlovSingularities}
 D.~Orlov,
@@ -856,25 +863,9 @@ A.~Kuznetsov,
 \href{https://arxiv.org/abs/0904.4330v1}{arXiv:0904.4330v1} (2009).
 Theorems~8.3, 8.9, Corollary~7.5 and Proposition~8.4。
 
-\bibitem{CSBGRSVBertini}
-J.~V.~Rennemo, E.~Segal and M.~Van den Bergh,
-\emph{A non-commutative Bertini theorem},
-\url{https://arxiv.org/abs/1705.01366}, v2 (2020), Proposition~2.1（証明steps~(3)--(6)），
-Lemmas~3.3--3.6，Corollary~3.9。2026年11月19日原文確認。
-
 \bibitem{CSBGChenGeneralizedSerre}
 X.-W.~Chen, \emph{Generalized Serre duality},
 \url{https://arxiv.org/abs/math/0610258}, Theorem~3.10.
-
-\bibitem{CSBGRainsElliptic}
-E.~M.~Rains, \emph{Filtered deformations of elliptic algebras},
-\url{https://arxiv.org/abs/2107.13540}, v2 (2022), Theorem~2.13 and its preceding discussion.
-
-\bibitem{CSBGYZSerre}
-A. Yekutieli and J. J. Zhang,
-\emph{Serre duality for noncommutative projective schemes},
-Proc. Amer. Math. Soc. 125 (1997), 697--707;
-\url{https://doi.org/10.1090/S0002-9939-97-03782-9}.
 
 \bibitem{PPQuadratic}
 A.~Polishchuk and L.~Positselski,
@@ -892,7 +883,7 @@ J. Algebra \textbf{153} (1992), 41--84.
 \href{https://doi.org/10.1016/0021-8693(92)90148-F}{doi:10.1016/0021-8693(92)90148-F};
 \url{https://www.math.bgu.ac.il/~amyekut/publications/dual-com/dual-com.pdf}.
 Definition~4.1と双加群としての一意性（p.~57），Proposition~4.6（p.~59），
-Proposition~5.2，Corollary~5.5，Remark~5.7（pp.~65--68）。2026年11月19日原文確認。
+Proposition~5.2，Corollary~5.5，Remark~5.7（pp.~65--68）。
 
 \bibitem{BDGMinors}
 I.~Burban, Yu.~Drozd and V.~Gavran,
@@ -900,7 +891,6 @@ I.~Burban, Yu.~Drozd and V.~Gavran,
 \url{https://arxiv.org/abs/1501.06023}, v2 (2017),
 Definitions~3.1,3.13 and Theorem~3.14。
 quasi-compact separatedな非可換スキームの局所perfect対象とcompact対象の一致。
-2026年11月19日原文確認。
 
 \bibitem{StacksRelativeDuality}
 The Stacks Project Authors, \emph{The Stacks Project}.
@@ -913,13 +903,12 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/0E4H}{Remark~48.12.6}，
 \href{https://stacks.math.columbia.edu/tag/047N}{Lemma~39.8.2, Tag~047N}。
 振幅とflatness，proper base change，射影空間の双対・trace，Cartierのsmoothness。
-2026年11月19日原文確認。
+2026年11月19日閲覧。
 
 \bibitem{KellerDgCategories}
 B.~Keller, \emph{On differential graded categories},
 \url{https://arxiv.org/abs/math/0601185v5} (2006).
 \S2.1（可換係数環の規約），Theorems~3.4,3.8(c), \S3.8。
-2026年11月19日原文確認。
 
 \bibitem{KeelerAmpleFilters}
 D.~S.~Keeler, \emph{Ample filters of invertible sheaves},
@@ -927,25 +916,21 @@ J. Algebra \textbf{259} (2003), no.~1, 243--283;
 Corrigendum, J. Algebra \textbf{507} (2018), 592--598.
 \url{https://arxiv.org/abs/math/0108068v5}（訂正を含む2018年6月2日版）。
 Theorem~1.3, Proposition~2.7, Theorem~7.14。
-2026年11月19日原文確認。
 
 \bibitem{MizunoZDuality}
 Y.~Mizuno, \emph{Dualizing complexes over $\mathbb Z$-algebras},
 \url{https://arxiv.org/abs/2509.13073v3}（2026年9月4日版）。
 \S2の係数体の規約とTheorem~5.8の有限global dimension仮定を参照。
-2026年11月19日原文確認。
 
 \bibitem{BrownSridharSerre}
 M.~K.~Brown and P.~Sridhar, \emph{Serre duality for dg-algebras},
 \url{https://arxiv.org/abs/2410.07204v2}（2025年8月15日版）。
-\S2の係数体の規約を参照。2026年11月19日原文確認。
-
+\S2の係数体の規約を参照。
 \bibitem{BrownSotoSridharBalanced}
 M.~K.~Brown, A.~J.~Soto Levins and P.~Sridhar,
 \emph{Existence of balanced dualizing dg-modules},
 \url{https://arxiv.org/abs/2506.02398v1}（2025年6月3日版）。
 Notation~1.4, Setup~2.1, Corollary~1.3。
-2026年11月19日原文確認。
 
 \bibitem{StacksAlgebraicChart}
 The Stacks Project Authors, \emph{The Stacks Project}.
@@ -957,7 +942,7 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/06FI}{Theorem~97.17.2, Tag~06FI}，
 \href{https://stacks.math.columbia.edu/tag/06N3}{Theorem~101.21.6, Tag~06N3}。
 étale locus とその底変更、群作用商・torsor の表示、DM atlas、アフィン降下。
-2026年11月19日原文確認。
+2026年11月19日閲覧。
 
 \bibitem{ELSSmoothAlgebras}
 A.~Elagin, V.~A.~Lunts and O.~M.~Schn\"urer,
@@ -965,7 +950,7 @@ A.~Elagin, V.~A.~Lunts and O.~M.~Schn\"urer,
 Moscow Math.~J. \textbf{20} (2020), no.~2, 277--309.
 \url{https://arxiv.org/abs/1810.07626}, v2 (2019), Theorems~4.15,4.18.
 \url{https://www.mathjournals.org/mmj/2020-020-002/2020-020-002-003.html}.
-著者版26--27頁の生成定理とその仮定を2026年11月19日に確認。
+生成定理は著者版26--27頁。
 
 \bibitem{ToenVaquieObjects}
 B.~To\"en and M.~Vaqui\'e,
@@ -990,7 +975,7 @@ C.~Walton, X.~Wang and M.~Yakimov,
 Proc.~Lond.~Math.~Soc. (3) \textbf{118} (2019), 1471--1500.
 \url{https://arxiv.org/abs/1704.04975}, v3 (2018),
 Definition--Lemma~2.13（9頁）と Proposition~2.22。
-平行移動点の規約を確認。原典の\cite{ATV}への帰属を保持する。
+平行移動点の規約については原典\cite{ATV}も参照。
 
 \bibitem{StacksEllipticTorsion}
 The Stacks Project Authors, \emph{The Stacks Project}.
@@ -998,7 +983,7 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/0BFH}{Tag~0BFH, Lemma~39.9.9}.
 体上の乗法写像の有限性と、標数と互いに素な場合の \'etale 性。
 Hesse 族上の主張には本文の相対微分と properness の議論を加える。
-2026年11月19日確認。
+2026年11月19日閲覧。
 
 \bibitem{JLLZInfinitesimal}
 A.~Jacovskis, X.~Lin, Z.~Liu and S.~Zhang,
@@ -1029,7 +1014,8 @@ Lemma~4.2。
 \bibitem{StevensonSingularityActions}
 G.~Stevenson, \emph{Subcategories of singularity categories via tensor actions},
 Compos. Math. \textbf{150} (2014), 229--272,
-\href{https://arxiv.org/abs/1105.4698v3}{arXiv:1105.4698v3}, Theorem~6.13。
+\href{https://arxiv.org/abs/1105.4698v3}{arXiv:1105.4698v3},
+Theorem~3.1(3), Notation~3.2, Lemma~3.10 and Theorem~6.13。
 
 \bibitem{NeemanCompactLocalization}
 A.~Neeman, \emph{The connection between the K-theory localization theorem of Thomason,

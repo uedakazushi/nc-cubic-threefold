@@ -19,8 +19,8 @@ $A,B,C\in U$、$D,E,H\in\Sym^2U$、$g\in\Sym^3U$を任意に取る。
 の右辺を完全対称化して読む。$T=xyz+xzy+yxz+yzx+zxy+zyx$、
 $\operatorname{sym}(xy)=(xy+yx)/2$とする。
 
-\begin{remark}[既存原稿の全混合中心元と検算状態]\label{rem:full-mixed-center}
-既存の技術稿の中心元の表示は、現在の規約で
+\begin{remark}[Fermat規格化の全混合中心元]\label{rem:full-mixed-center}
+定理\ref{thm:pair-full-fermat-center}の中心元は、上の係数では
 \begin{align}\label{eq:full-mixed-center}
 \Omega_h={}&\frac{x^3+y^3+z^3}{3}-\frac{h^2}{9}T\notag\\
 &+A\left(\operatorname{sym}(xy)+\frac{h^4}{18}z^2\right)
@@ -69,7 +69,7 @@ $Q,R'\in Z(S_h)_2=0$。従って$\Delta=0$。
 \]
 これが全ての一次混合6方向の持上げの表示である。
 命題\ref{prop:mixed-center-jet-unique}の一意性自体は、
-既存の中心公式を仮定しない独立した証明である。
+式\eqref{eq:full-mixed-center}を仮定しない独立した証明である。
 $h=0$では$Z(S_0)_2\ne0$なので適用しない。
 \end{remark}
 
@@ -107,6 +107,8 @@ $t\mapsto t^n$型で、その源も$\mathbb G_m$である。
 しかし量子化後に別の可換cubic $Y$や平面が動く比較、
 分岐被覆を介した多価対応、形式局所同値の不存在は結論しない。
 一般の非零パラメータでのrotation付き可換復元に必要な比較は未完成である。
-有限Artin底での線束生成残余pairと相対MFの比較は、
-論文CのArtin残余比較の節で扱う。
+有限Artin底での残余圏の構成と可換三次としての形式認識は、
+命題\ref{prop:abel-artin-actual-residual}と
+命題\ref{prop:kuznetsov-formal-recognition}で証明する。
+これらは、rotationや追加の線対象を保つ相対MF比較を主張するものではない。
 \end{remark}

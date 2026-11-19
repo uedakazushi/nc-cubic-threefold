@@ -1,6 +1,6 @@
 # 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v14・主稿v20。
+2026-11-19 / research-plan-v15・主稿v21。
 
 構造対象Oを保つ全ての完全Abel圏同値を射として、非可換三次三様体のモジュライと、二次包絡・Kuznetsov残余圏による二つの射を研究する。
 
@@ -30,6 +30,7 @@ Introductionで主定理A–Dと先行研究との関係を述べる。第I部�
 ```sh
 python3 scripts/verify.py
 latexmk papers/nc-cubic-threefold-moduli.tex
+python3 computations/verify_relative_cy.py --output build/relative_cy.json
 python3 computations/verify_point_poisson.py --output build/point_poisson.json
 python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json
 python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json
@@ -37,7 +38,7 @@ python3 computations/verify_commutative_dominance.py --output build/commutative_
 
 LuaLaTeX、latexmk、luatexja、日本語フォント、Python3、SymPyを用いる。既定の日本語フォントはNoto Serif CJK、利用できない場合はHarano Aji Mincho。`.latexmkrc` とVS Codeの設定はルートからのLuaLaTeXビルドに対応する。出力は `build/nc-cubic-threefold-moduli.pdf`。
 
-計算の出力は `computations/` の対応する小証明書と比較する。`verify.py` はTeX入力・参照・引用の静的検査であり、数学的証明の検証を代替しない。PDF・中間物・ZIP・キャッシュはGit追跡しない。GitHub mainに現行一式を保存し、旧版の取得なしに再開できる構成を保つ。
+計算の出力は `computations/` の対応する小証明書と比較する。`verify_relative_cy.py` はPython標準ライブラリだけで全40自由語の恒等式とcochain符号を検算し、PBW・解消の完全性は本文で別に証明する。`verify.py` はTeX入力・参照・引用の静的検査であり、数学的証明の検証を代替しない。PDF・中間物・ZIP・キャッシュはGit追跡しない。GitHub mainに現行一式を保存し、旧版の取得なしに再開できる構成を保つ。
 
 ## 関連する独立研究
 
