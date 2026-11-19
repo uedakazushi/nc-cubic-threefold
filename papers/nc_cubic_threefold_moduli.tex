@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v13}
+\date{2026年11月19日・nc cubic moduli研究草稿 v14}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -147,6 +147,16 @@ compact対象の内在性を使って全構造対象付き相対同値を比較�
 剛体ambientの四係数族からAbel圏モジュライへの射が
 有限型$\C$-スキーム上でmonomorphismであることを示す。
 一般ファイバーの正則性の下で，有限係数Tor部分圏との一致も非空開上で成立する。
+さらに，一般十七係数族の明示的な非空開集合上では，有限中心性を用いずに
+同じ相対比較を任意の可換係数環へ拡張する。
+potential 複体と中心二変数の Koszul 双対から相対 CY 同型を構成し，
+有限双加群解消で torsion 関手と全 twist のコホモロジーを計算する。
+五つの線対象は非有界 tails の compact generator となり，
+導来局所化の双加群双対から compact 全体の相対 Serre 同型を得る。
+偶数 Gabriel 切断の完全忠実性により，全構造対象付き同値は
+次数付き同型の次数スカラー商に一致する。
+その同型層は次数二・三の関係による $\PGL_5$ の閉部分スキームで表され，
+一般の構造対象付き Abel 圏同型類も十七次元分変動する。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -354,7 +364,41 @@ compact対象の特徴付けにより，局所perfect圏をAbel圏から内在�
 相対Hom比較と剛体四係数族の忠実性は特異ファイバーにも適用できる。
 有限中心性・相対双対・偶数列復元を組み合わせた具体的帰結の初出は未確認である。
 既知の双対定理やcompact性の一般定理を本稿の新規成果とは主張しない。
-全17係数族での相対化と，大域dg圏のsmooth性の比較は別に残る。
+一般族の相対化は，次の有限中心を使わない方法で別に扱う。
+
+\paragraph{有限相対解消と一般十七係数族.}
+第\ref{sec:relative-koszul-line-cohomology}節は，次数ごとに有限射影な係数，
+普遍的な有限 Koszul 双加群解消，真正な相対 CY 同型，中心三次の分裂完全列を入力とする。
+Reyes--Rogalski\cite[Proposition~4.12]{RRGeneralizedAS}の体上の有限係数双対に対応する
+tensor--Hom 計算を，有限射影係数について直接行う。
+これにより derived torsion の有界模型を作り，非 noetherian 基底でも
+torsion acyclicity，compact 生成，任意係数変更を証明する。
+Keller\cite[Theorems~3.4,3.8(c)]{KellerDgCategories}の dg Morita 表示と
+homological epimorphism の両側局所化から，
+局所化後の高次射とも両立する双加群双対と trace を構成する。
+ここでは線対象間の Ext の次元だけから自然な Serre pairing を結論しない。
+
+Yekutieli--Zhang\cite{YZ}に続く Brown--Sridhar\cite{BrownSridharSerre}，
+Brown--Soto Levins--Sridhar\cite{BrownSotoSridharBalanced}，
+Mizuno\cite{MizunoZDuality}は，graded/dg/$\mathbb Z$-代数の局所双対と Serre 双対を扱う。
+これらは係数体上の定理であり，Mizuno の Theorem~5.8 は
+$\operatorname{qgr}$ の有限大域次元も仮定する。
+本稿の任意係数環上の結論は，そのような定理を無条件に底変更したものではなく，
+上記の有限相対解消を備えた中心三次商に対する具体的な構成である。
+この構成や適用の初出・新規性は未確認である。
+
+第\ref{sec:general17-relative-algebra}節では，明示した $\Delta\ne0$ 上で
+一般十七係数族が相対入力を満たすことを確認する。
+CY 同型は Berger--Taillefer\cite[arXiv v2, Theorem~3.6 の証明]{BT}の
+potential 複体の厳密な自己双対と，二つの中心差の Koszul 双対から構成する。
+楕円境界の相対 twisted homogeneous coordinate algebra と
+Keeler\cite[Theorems~1.3,7.14]{KeelerAmpleFilters}を用いることで，
+noetherian 係数環上の模型の許容性も有限位数を仮定せず確認する。
+任意係数上の全同値比較には，偶数 Gabriel 右随伴を使い，
+coherent 部分圏の豊富性への依存を外す。
+この結果，十七係数族の全 $\mathcal O$-保存同値，同型層の有限な方程式，
+二次包絡の自然性が得られる。
+一般族の dg smooth locus と，モジュライ全体の代数化は別に残る。
 
 
 \paragraph{代数構成の入力.}
@@ -411,6 +455,10 @@ ambientの5周期の直接証明も保持する。上記組合せの初出の網
 第\ref{sec:pair-generic-component}節はPoisson成分と規格化CY成分を結び、
 第\ref{sec:ambient-incidence}節で、中心条件の有限行列によるincidence、
 忘却射の微分とその障害、およびstackの次元規約を明示する。
+第\ref{sec:relative-koszul-line-cohomology}節で有限相対Koszul解消から
+任意係数上のSerre双対を構成し、
+第\ref{sec:general17-relative-algebra}節で実際の一般十七係数族への適用、
+全$\mathcal O$保存同値の比較、同型層の有限表示と十七次元変動を証明する。
 
 \input{papers/sections/intrinsic_cubic_reconstruction.tex}
 \input{papers/sections/algebraic_moduli_foundations.tex}
@@ -1047,6 +1095,8 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/central_pair_mixed_derived_rigid.tex}
 \input{papers/sections/finite_order_relative_categories.tex}
 \input{papers/sections/relative_serre_duality.tex}
+\input{papers/sections/koszul_relative_duality.tex}
+\input{papers/sections/jacobian_abel_comparison.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1098,8 +1148,16 @@ monomorphismを与える。これは開埋込みや成分性を主張するも�
 元の有限係数Tor部分圏による\textup{(C3)}との一致は，既存の一般正則性の入力の下で
 非空基底開上に成立する。
 
+一般十七係数族についても、式\eqref{eq:general17-coefficient-ring}の明示開集合上で
+相対PBW・CY・Koszul入力を構成し、有限中心を使わない相対Serre双対を得た。
+任意の可換係数環上の全$\mathcal O$保存同値は次数スカラーを除いた代数同型に一致し、
+同型層は二次・三次関係を保つ$\PGL_5$の有限表示閉部分スキームである。
+従って複素体上の一般のAbel圏同型類も十七次元分変動し、
+二次包絡への十三次元ambient射はこの全同値関係に両立する。
+これらはcompact圏上のproper性とSerre双対を含むが、dg smooth性を含まない。
+
 全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
-smooth properな三次部分の開性と支配性、豊富列を忘れた内部的認識は残っている。
+smooth properな三次部分の開性と支配性、構造対象$\mathcal O$そのものの内在的認識は残っている。
 独立に選んだformality座標の下でのactual mapの全高次式の一致も未確認である。
 本稿は公表準備用の研究草稿であり、新しい結果の初出調査と
 保持した既存証明の全面独立監査は未完了である。
@@ -1107,6 +1165,7 @@ smooth properな三次部分の開性と支配性、豊富列を忘れた内部�
 既存の17係数slice、分離型余次元15、混合中心、相対Picard、
 偶数Veronese、条件付き導来復元、固定剛体ambientと有限位数境界の結果は保持した。
 計算証明書は主に
+\nolinkurl{computations/verify_general17_open.py}、
 \nolinkurl{computations/verify_two_factor_stabilizer.py}、
 \nolinkurl{computations/verify_rat113_tangent.py}、
 \nolinkurl{computations/independent/verify_generic17_slice.py}
@@ -1565,6 +1624,38 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/0E4H}{Remark~48.12.6}，
 \href{https://stacks.math.columbia.edu/tag/047N}{Lemma~39.8.2, Tag~047N}。
 振幅とflatness，proper base change，射影空間の双対・trace，Cartierのsmoothness。
+2026年11月19日原文確認。
+
+\bibitem{KellerDgCategories}
+B.~Keller, \emph{On differential graded categories},
+\url{https://arxiv.org/abs/math/0601185v5} (2006).
+\S2.1（可換係数環の規約），Theorems~3.4,3.8(c), \S3.8。
+2026年11月19日原文確認。
+
+\bibitem{KeelerAmpleFilters}
+D.~S.~Keeler, \emph{Ample filters of invertible sheaves},
+J. Algebra \textbf{259} (2003), no.~1, 243--283;
+Corrigendum, J. Algebra \textbf{507} (2018), 592--598.
+\url{https://arxiv.org/abs/math/0108068v5}（訂正を含む2018年6月2日版）。
+Theorem~1.3, Proposition~2.7, Theorem~7.14。
+2026年11月19日原文確認。
+
+\bibitem{MizunoZDuality}
+Y.~Mizuno, \emph{Dualizing complexes over $\mathbb Z$-algebras},
+\url{https://arxiv.org/abs/2509.13073v3}（2026年9月4日版）。
+\S2の係数体の規約とTheorem~5.8の有限global dimension仮定を参照。
+2026年11月19日原文確認。
+
+\bibitem{BrownSridharSerre}
+M.~K.~Brown and P.~Sridhar, \emph{Serre duality for dg-algebras},
+\url{https://arxiv.org/abs/2410.07204v2}（2025年8月15日版）。
+\S2の係数体の規約を参照。2026年11月19日原文確認。
+
+\bibitem{BrownSotoSridharBalanced}
+M.~K.~Brown, A.~J.~Soto Levins and P.~Sridhar,
+\emph{Existence of balanced dualizing dg-modules},
+\url{https://arxiv.org/abs/2506.02398v1}（2025年6月3日版）。
+Notation~1.4, Setup~2.1, Corollary~1.3。
 2026年11月19日原文確認。
 
 \end{thebibliography}

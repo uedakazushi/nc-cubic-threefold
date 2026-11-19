@@ -1,13 +1,16 @@
 # 非可換三次三様体と非可換P^4のモジュライ
 
-2026-11-19 / research-plan-v7。研究再開は最初に[研究方針](00_research_plan.md)を読む。
+2026-11-19 / research-plan-v8。研究再開は最初に[研究方針](00_research_plan.md)を読む。
 
 **現在は、構造対象Oだけを標識したAbel圏のモジュライとして、非可換三次三様体の射・変形・二次包絡を比較している。** 許容豊富列の存在を条件とし、列の選択を忘れる。数学的重要性、新規性、理解の深化、応用可能性、正確性と実現可能性を総合して研究全体の価値を最大化する。
 
-[主原稿 v13](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
+[主原稿 v14](papers/nc_cubic_threefold_moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [Codex指示](AGENTS.md)。
 
 ## 現在の到達点
 
+- **[有限中心に依存しない相対Serre双対](papers/sections/koszul_relative_duality.tex)**：有限射影Koszul対角解消と相対CY5同型、中心正則三次商の下で、任意の可換係数環に対しcompact tailsはproperでSerre関手(−2)[3]を持つ。真正な双加群局所双対とdg局所化から自然なpairing・traceを構成し、非平坦・非Noetherianな底変更も含める。
+- **[実際の一般17係数族への適用](papers/sections/jacobian_abel_comparison.tex)**：明示した非空開Δ≠0上で、普遍PBW、相対CY/Koszul、二次中心、飽和・偶数Gabriel復元、Noetherian係数での許容性を証明した。全O保存同値はfpqc層としてIsom_gr/Gmであり、二次・三次関係を保つPGL5の有限表示閉部分スキームにより表される。
+- **この開集合ではO-marked Abel圏の同型類も一般に17次元分変動する。** 既存のgraded Rosenlicht商との比較による。二次包絡への17→13射も全O保存同値と両立する。全モジュライのatlas・成分性、Oを忘れた圏の次元、dg smoothnessは含まない。
 - [構造対象付きAbel圏](papers/sections/abel_marked_moduli.tex)：相対偶数Veronese復元、Isomのμ2-torsor、次数スカラー商、Oを保つ全Abel同値のHom群oidを、明示した仮定の下で証明する。相対圏の比較にはC1–C4、またはcompact版C3を用いる。二次中心rank3は非可換部分族の条件で、可換三次点を含む全体の定義ではない。
 - [可換点の全Artin変形](papers/sections/abel_cubic_deformations.tex)：De Deken–Lowenの既知定理を適用し、全Abel変形とsection Z-algebra変形を比較する。自然同型で割った1群oidではO-marking忘却も同値。二次・三次提示、次数3の有限行列による障害、平坦二次包絡からの正規三次核と相対Koszul–AS性を証明する。
 - **滑らかな可換三次点の全Abel Artin変形について、Q(b)の全次数平坦性と正規三次表示を証明した。** CFTの中心量子化を実際に構成し、Yekutieliの比較とsection復元によって全変形を尽くすことを示す。同型類関手の形式環は十次元形式円板とGr(2,5)アフィン錐の積で、次元17・接空間20。未知の同次変形分類は仮定しない。
@@ -20,12 +23,13 @@
 - **同じ節で、全O保存相対同値の比較とA4→M^Oのmonomorphismを得る。** Compact対象の内在性、普遍的二次中心、既存B_*の剛体性入力とCartierの定理を使う。非被約な有限型C基底も含め、異なる係数はO-marked圏同値で同一視されない。開埋込み・4次元成分・atlasは主張しない。
 - 既存の41→37、17→13、一般fiber4の有限係数族と、正規超曲面対のgcd周期性の証明を保持する。全AS/Zモジュライの大域成分性とは区別する。
 
-可換点の全framed形式近傍の同定を踏まえ、次は有限中心性への依存を分離して全17係数族の相対Serre・全同値比較へ進む。全Artin残余射、7方向の接合データ、Oも忘れた復元は上位目標として保持する。詳細な達成基準と具体的着手は研究方針に記す。
+可換点の全framed形式近傍と、一般17係数族のΔ開上の全同値比較を踏まえ、次は有限表示されたIsomを使った代数的部分モジュライとdg smooth開の構成へ進む。全Artin残余射、7方向の接合データ、Oも忘れた復元は上位目標として保持する。詳細な達成基準と具体的着手は研究方針に記す。
 
 ## 再現
 
 ```sh
 python3 scripts/verify.py
+python3 computations/verify_general17_open.py
 latexmk papers/nc_cubic_threefold_moduli.tex
 python3 computations/independent/verify_generic17_slice.py
 python3 computations/independent/verify_generic17_center.py
@@ -37,7 +41,7 @@ python3 computations/verify_central_pair_orbits.py
 python3 computations/verify_central_symmetry.py --output build/central_symmetry.json
 ```
 
-LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用。PDF・中間物はGit追跡しない。既存8計算の実行日・hashは検証記録に保持し、今回の再実行とは区別する。形式降下・自己同型消滅を含む新しい証明は読み合わせと参照検査を行った。組版は実行環境の `lualatex.fmt` 不在で停止し、今回のPDF生成・視覚確認は未完了。詳細は[検証状態](validation.json)。
+LuaLaTeX・latexmk・luatexja・日本語フォント、Python3・SymPyを使用。PDF・中間物はGit追跡しない。既存8計算の実行日・hashは検証記録に保持し、今回の再実行とは区別する。新しい相対双対・一般族の入力・全Hom比較は別々に読み合わせ、参照検査も行った。2026-11-19に一般17係数開の九項目の厳密検算を実行し、[小証明書](computations/general17_open_certificate.json)に保存した。これは圏論的定理の計算証明ではない。現環境での先行組版試行は `lualatex.fmt` 不在で停止した。v14のPDF再生成・視覚確認は未完了。詳細は[検証状態](validation.json)。
 
 ## 関連する独立研究
 

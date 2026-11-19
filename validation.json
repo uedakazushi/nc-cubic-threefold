@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
-  "version": "research-plan-v7",
-  "scope": "Full fpqc-stackified framed Artin completion at a smooth complex cubic: arbitrary flat-cover line reconstruction, unipotent scalar Amitsur correction, effective descent of section Hom and composition, exact transition compatibility, and direct vanishing of framed automorphisms. Previous envelope, quantization/formal-ring and four-parameter relative results retained. New proofs independently read by collaborating agents; no external peer review or full re-audit of all older results.",
-  "reviewed_repository_commit": "58ce4963c64383e9dfc1b6f19b82f6413abec774",
+  "version": "research-plan-v8",
+  "scope": "Universal relative Serre duality from a finite projective Koszul diagonal and an actual relative CY5 orientation; all hypotheses supplied on an explicit nonempty open of the general17 Jacobian family. All exact O-marked Abelian equivalences over arbitrary coefficient rings equal the fpqc grading-scalar quotient of graded isomorphisms; finite equations in PGL5, dimension17 variation, and compatibility with the quadratic-envelope map. Retained formal-completion and four-parameter results remain in force in their stated scopes.",
+  "reviewed_repository_commit": "48a1e3ecafa491a0cf93a69f973eeb88863bc681",
   "reference_commits": {
     "poisson-p4": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
     "nc-cubic": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
@@ -13,7 +13,7 @@
   "review": {
     "definition": "All exact O-preserving equivalences are retained. The full fpqc-stackified framed Artin completion at a smooth cubic is now equivalent to all flat Abelian deformations; nonnoetherian covers are handled in big QGr using the original Artin coefficient map. This does not assert general category 2-descent or a finite-type atlas.",
     "relative_veronese": "Complete proof checked, including universal polynomial embedding, Cech intersection from P-flatness, nonreduced-base conic lifting, mu2 Isom torsor, grading-scalar sheaf quotient, and H1 versus H2 descent. An independent reading found no substantive error; section reconstruction on the conic was made explicit.",
-    "pointed_hom": "The original C1-C4 theorem is retained. A compact version of C3 is proved and used for the whole finite-order four-parameter family: D(QGr)^c equals local Perf by BDG Thm3.14; all exact Abelian equivalences preserve it. Full relative Serre and Hom comparison hold over every finite-type complex base, including singular and nonreduced fibres. The original finite-base-Tor C3 still agrees only on the separately constructed nonempty open.",
+    "pointed_hom": "Original C1-C4 and finite-central compact versions retained. The general finite-Koszul version supplies proper compact Serre duality and reconstructs all exact O-preserving Abelian equivalences over every commutative C-algebra, using full-integer even Gabriel sections and the relative Veronese lift. Eq_O=Isom_gr/Gm is an fpqc sheaf statement, not a quotient of global point sets.",
     "formal_cubic": "DDL all-Artin comparison and O-marking classical 1-groupoid convention retained. Lowen Thms3.14/3.26, Yekutieli Cors7.5/11.2, and objectwise unique lifts independently checked against original sources. The main full-Abel envelope theorem uses constructed-family surjectivity directly, not prior periodicity or the stronger central-pair injectivity theorem.",
     "envelope_reduction": "All-degree envelope flatness is now proved for every flat Abelian Artin deformation of a smooth complex cubic threefold. Consequently the retained normal-regular cubic kernel and relative Koszul-AS5 proofs apply. This is relative AS over possibly singular Artin bases, not absolute global dimension five.",
     "degree_three_obstruction": "B3=R^34 direct_sum R/I and I=Fitt_34(B3) retained. Complete nilpotent sorting proof establishes degree-three flatness iff all-degree flatness for nonperiodic quadratic Z-algebras with polynomial special fibre. Independently reviewed. General Koszul deformation principle is established literature, PP Ch6 Thm7.3, not claimed new.",
@@ -40,16 +40,24 @@
     "flat_cover_reconstruction": "DDL Thm4.5 applied to original coherent R→C and the C-linear category QCoh(X_{S/mS}); no coherent/noetherian S assumption. Flatness of tails over R follows via injective/coflat criterion and exact Gabriel quotient. R-flat finite m-filtration proves S-free section Hom; representable images then give S-flat line objects. Universal Hom/Ext1 uses finite mS-filtration, and all-q Ext reduction + finite affine Cech gives finite presentation. Companions and primary hypotheses independently reviewed.",
     "unipotent_amitsur_descent": "Actual framed overlaps yield defects in 1+m S^(tensor3), not full Gm. Finite log/exp identifies the cosimplicial group with m tensor S^(tensor•); Stacks023M exactness kills the defects. E0 retains its original marking. Finite-projective Hom and composition descend by023N/058S; DDL plus retained cubic envelope/universal admissibility then gives global model. Componentwise section Hom naturality identifies actual transitions. No Brauer-vanishing or general category-descent premise.",
     "framed_automorphisms": "Direct section derivation proof: quadratic commutativity forces adjacent derivations to differ by scalars; vertex scalars normalized at0 reduce to one M; D_M(F) in CF, Euler subtraction and regular quadratic gradient Koszul syzygies force M scalar. Small-extension induction mJ=0 aligns line comparisons via units, kills the inner derivation and extends marked natural isomorphism via section Hom. Independently audited. No additional general HH1 control theorem assumed.",
-    "full_discrete_formal_ring": "All framed automorphism classes vanish, so the full stackified framed Artin groupoid is equivalent to its discrete pi0, represented noncanonically by the retained20-variable/five-Pfaffian ring of dimension17. Unframed Aut(X), unrestricted2-groupoids, algebraization and atlas claims excluded. Explicit nonliftable epsilon bivector and non-complete-intersection consequence proved, without numerical testing."
+    "full_discrete_formal_ring": "All framed automorphism classes vanish, so the full stackified framed Artin groupoid is equivalent to its discrete pi0, represented noncanonically by the retained20-variable/five-Pfaffian ring of dimension17. Unframed Aut(X), unrestricted2-groupoids, algebraization and atlas claims excluded. Explicit nonliftable epsilon bivector and non-complete-intersection consequence proved, without numerical testing.",
+    "general_relative_torsion": "Finite Koszul diagonal yields bounded exact-functor models for RΓ_B, including nonnoetherian coefficients and unbounded complexes. Each B/B_>=n is finite coefficient-projective. Torsion acyclicity, localizing generation, derived Gabriel quotient, and Rω preserving coproducts are proved. Cubic Tor1 transition vanishes after increasing n by3, so A-injectives are B-torsion acyclic.",
+    "general_local_duality": "Finite coefficient-projective tensor-Hom CY duality gives RΓ_B(B)=B∨(5)[-5]. Central quotient Rees coinduction gives RΓ_A(A)=A∨(2)[-4]. Mixed B-A actions are promoted to true A-bimodule actions only after single-degree concentration, using the heart and the surjection B→A. Derived restriction is not assumed fully faithful. The standard triangle and its maps, not only ranks, commute arbitrary base change.",
+    "general_dg_serre": "Left-A-action injective resolution supplies strict graded dg A→Q; dg Yoneda identifies restriction with Rω, so Q⊗^L_AQ=Q. Dualizing Γ→A→Q and applying both-sided Q-localization kills torsion A∨ and yields Q∨=Q(-2)[3] as a genuine Q-bimodule, retaining higher actions. Tensor-Hom evaluation supplies cyclic trace and Serre for every compact; finite line models verify arbitrary derived base change. No dg smoothness asserted.",
+    "general17_actual_inputs": "Explicit Δ in jacobian_abel_comparison.tex is nonzero at a=1/6,b=0. The relative elliptic graph has σ,σ²,σ³ nonidentity; degree1-3 THCR centers vanish. Rains denominators are units. Closed-fiber PBW plus reduced constant-rank matrices and projective splittings give universally projective B,A and regular central w. Potential self-duality over P[u,v] is constructed by the cyclic-Hessian identity; central difference Koszul duality yields true Θ_B/P=B(5)[-5]. Finite quadratic Koszul diagonal and its orientation survive every base change. Primary MS/BT/EG hypotheses read; not inferred solely from fiber CY predicates.",
+    "general17_admissibility": "Central u,v flatness yields universal saturation by a direct Cech-intersection splitting of torsion extensions. The rank12 commutator map is universally split injective, yielding quadratic center Sym²U. Degree-one generation gives even Veronese Gabriel equivalence and fully faithful full-integer section right adjoint without noetherianity. Keeler corrected v5 gives strong noetherianity of the elliptic THCR and filtered algebras; six-step dimension shift and cdΓ_B<=5 give ordinary/even ample sequences over noetherian coefficients.",
+    "general17_all_hom": "Exact S-linear equivalences preserve unbounded compacts. Coherent iteration of Serre^-1[3]=(2) identifies the even orbit algebra; choice differences are degree scalars by faithful adjacent Hom. Full-integer Gabriel sections determine actual equivalences, the μ2 Isom lift supplies local degree-one isomorphisms, and marked2-autos vanish. Fixed canonical family fpqc Hom descent is retained. Independent readings found no concrete gap; not external peer review.",
+    "general17_finite_isom": "With A1=A1prime=S5 and standard cubic Hilbert ranks, I2⊂V² has rank10 and I3⊂V³ rank91. Quadratic+cubic presentation identifies Eq_O with the closed finitely presented subscheme of PGL5 preserving both relation subbundles, valid for nonreduced S. On the explicit Δ open intersected with the existing slice open, complex Abelian isoclasses have Rosenlicht transcendence degree17. Quadratic envelopes and cubic kernel lines are functorial under every such equivalence. This does not prove a17-dimensional atlas, full-stack algebraicity, or a claim about unmarked ambient Abelian categories.",
+    "scope_consistency": "Removed two obsolete retained-section warnings about missing rigidity certificates and finite-order regularity, replacing them with references to the current coordinate-change proof and order-six/generic-regularity results. No re-audit of all older proofs is claimed."
   },
   "static": {
-    "tex_inputs": 22,
-    "labels": 425,
-    "references": 473,
-    "citations": 166,
-    "bibliography": 58,
+    "tex_inputs": 24,
+    "labels": 470,
+    "references": 546,
+    "citations": 189,
+    "bibliography": 63,
     "sha256": {
-      "papers/nc_cubic_threefold_moduli.tex": "32b88cea1e8739968b862f00944603ef23971c44a7ae32327248444f68a812b7",
+      "papers/nc_cubic_threefold_moduli.tex": "e3b7c458e30390c046766fe222f8b271cd175e42a0e21b6cdc9e372810a29359",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "7bed0be351ce4ff5835262c1db567e6fd3a0388d52af8626d6878af505540b36",
       "papers/sections/categorical_moduli_comparison.tex": "01ca7597e876688b4233e195fff0de9ad85d812f0fce550679198f7205f1e1f8",
@@ -63,13 +71,15 @@
       "papers/sections/mixed_center_picard.tex": "7fed32a8e7d2f491a54bc4072ac3ad395eed5a9c13c094399f3435def53c1504",
       "papers/sections/ambient_periodicity.tex": "93f2ed60eed47a15784cdbd54229b3b981538c5ac3641ac41b6ac4fb65f69ae4",
       "papers/sections/period_forgetting_moduli.tex": "94dafb728d7c6d0019f967839ff0d47436e83b5b6c5c012003868262ac47f860",
-      "papers/sections/central_pair_artin_formal_moduli.tex": "95ccffb6f835ccb57cd499c7f02557d22fa61c9ac7c77a5383bc00cee544da25",
+      "papers/sections/central_pair_artin_formal_moduli.tex": "f1efd0008953abfbea58d415990f87f806a2d043b2ef037778f30d4889212d1b",
       "papers/sections/abel_cubic_deformations.tex": "bf75ca7db80429f9d68a71105dce19f38c61462db1c4d9e33ba8d40a40c2c451",
       "papers/sections/abel_formal_descent.tex": "8c8df2691715d859acdbda5780d0bf6f919f708adc03bfd909b8462d9f64c7a3",
       "papers/sections/formal_ambient_comparison.tex": "8913dd608730e805ebb8ef6cf732a6b12c16cd6e0e547aab79b03a4fbe877281",
-      "papers/sections/central_pair_mixed_derived_rigid.tex": "e1cd37709e128d2268ec2f590cbfe92cb4a465922513487043fd968003ae9645",
+      "papers/sections/central_pair_mixed_derived_rigid.tex": "fb517e5d7cde58d04c3ace82332e83d052adf830b7e90ccc50082c01b77ea53d",
       "papers/sections/finite_order_relative_categories.tex": "324588a206796b2faf66a409e568a08d40e7053f6e8246fbd3c00b19a0fffdab",
       "papers/sections/relative_serre_duality.tex": "cfe8ea7c2f5fee03f9db5001c614ae0ddf96ba75f317c3075b5b2f2efac0f51d",
+      "papers/sections/koszul_relative_duality.tex": "4e31563bd09026e911484a83e085a28ebe26380c5919e1ee9a4bcba1ba53bb57",
+      "papers/sections/jacobian_abel_comparison.tex": "8778a92f9ad71cca6e202373a01378cf080af35c1ff49970ab7a33aa9fa136bb",
       "papers/sections/central_pair_finite_order_regularity.tex": "844e6e8da0aa3ef7d5c615ecd87c37ad8a8a6a87a7582f94c53477b602be1843"
     },
     "limit": "Static closure only, not mathematical proof audit.",
@@ -80,17 +90,22 @@
         "environments": "passed"
       },
       {
-        "path": "papers/sections/abel_cubic_deformations.tex",
+        "path": "papers/sections/koszul_relative_duality.tex",
         "braces": "passed",
         "environments": "passed"
       },
       {
-        "path": "papers/sections/abel_formal_descent.tex",
+        "path": "papers/sections/jacobian_abel_comparison.tex",
         "braces": "passed",
         "environments": "passed"
       },
       {
-        "path": "papers/sections/abel_marked_moduli.tex",
+        "path": "papers/sections/central_pair_mixed_derived_rigid.tex",
+        "braces": "passed",
+        "environments": "passed"
+      },
+      {
+        "path": "papers/sections/central_pair_artin_formal_moduli.tex",
         "braces": "passed",
         "environments": "passed"
       }
@@ -152,14 +167,30 @@
       "source_sha256": "e648b6e3b09f3d07b30ec07cd0688b62cae45f698e85111e55a24d8bf808177e",
       "executed_on": "2026-11-16",
       "result": "PASS: v-cubic symmetry, both determinant-character conventions, 2x5 toy obstruction, all nilpotent orders by weight"
+    },
+    {
+      "command": "python3 computations/verify_general17_open.py",
+      "exit_code": 0,
+      "source_sha256": "2ffbbb866cfb52a334d982bb9f8107603dbf8c6b056b52337a630e3d125f3310",
+      "executed_on": "2026-11-19",
+      "result": "All9 exact checks passed: elliptic determinant, first/second iterates, curve equation, third-iterate minor, nonempty Δ witness, and three Rains denominator identities. Does not verify categorical theorems.",
+      "certificate": "computations/general17_open_certificate.json",
+      "certificate_sha256": "2155ccbc3e34570a6b9024fcf696a4664088bc2efe0cf0cb359c93076bf7b795"
     }
   ],
   "certificates": {
     "rat113_matches_regeneration": true,
     "two_factor_matches_regeneration": true,
     "central_symmetry_matches_regeneration": true,
-    "scope": "Retained exact checks and matching certificates from the stated date; current computation sources have matching hashes. Not rerun on 2026-11-19. They do not establish global stack algebraicity, relative smoothness, or dg Morita equivalence.",
-    "verification_date": "2026-11-16"
+    "scope": "The three retained matches and their verification_date describe the2026-11-16 runs, with unchanged computation-source hashes. The separate general17_open record is a new2026-11-19 exact run. No computation establishes relative Serre, global stack algebraicity, or dg smoothness.",
+    "verification_date": "2026-11-16",
+    "general17_open": {
+      "verification_date": "2026-11-19",
+      "path": "computations/general17_open_certificate.json",
+      "checks": 9,
+      "all_passed": true,
+      "matches_stdout": true
+    }
   },
   "not_rerun_in_this_review": [
     "computations/independent/verify_generic17_center.py",
@@ -184,25 +215,24 @@
     "reason": "lualatex.fmt missing; mktexfmt has no lualatex entry. luatexja and ltjsarticle were also not found in the installed TeX tree.",
     "pdf_generated_in_this_review": false,
     "visual_inspection_in_this_review": false,
-    "scope": "Current manuscript v13 has static closure/braces/environments checks only. A preceding same-date v11 LuaLaTeX attempt stopped before body processing because lualatex.fmt was missing; unchanged environment was not retried for v13. No current PDF or visual verification claimed.",
-    "current_manuscript": "v13",
+    "scope": "Current manuscript v14 has static closure/braces/environments checks only. A preceding same-date v11 LuaLaTeX attempt stopped before body processing because lualatex.fmt was missing; unchanged environment was not retried for v14. No current PDF or visual verification claimed.",
+    "current_manuscript": "v14",
     "current_manuscript_build_executed": false
   },
   "open_scope": [
-    "Unframed finite-Aut(X) action and algebraization of the now established framed Artin formal scheme; general category 2-descent remains outside this result",
-    "Global dg Morita smoothness from the local finite-central relative diagonals; not asserted here",
-    "Extension of full relative Serre/Hom comparison beyond the finite-order central family to the full17-parameter family",
-    "A nonempty algebraic smooth proper open in the full mixed17-parameter family",
-    "Finite-type algebraicity, algebraization and componenthood for the chosen O-marked moduli problem",
-    "Explicit equations for the new nonempty open and a maximal regular locus; current proof is existential",
+    "Algebraic submoduli for the constructed general17 family: analyze the PGL5-saturated image in the finite relation parameter space and the source/target morphisms of the now finitely presented Isom groupoid",
+    "Finite-type algebraicity, algebraization, atlas and componenthood for the entire O-marked moduli problem; finite Isom schemes between known models alone do not prove these",
+    "A nonempty dg smooth open in the general17 mixed family; compact properness and relative Serre are now proved on the explicit Δ open",
+    "Global dg Morita smoothness from local finite-central relative diagonals; not asserted here",
+    "Explicit equations for the finite-central four-parameter regular open and a maximal regular locus; that regularity proof remains existential, unlike the explicit general17 Serre open",
+    "Unframed finite-Aut(X) action and algebraization of the established framed Artin formal scheme; general category2-descent remains outside this result",
     "Relative periodization preserving the normal cubic ideal and descent over general bases",
     "The actual all-Artin dg residual map and interpretation of the seven residual directions",
     "Intrinsic recognition of O and reconstruction of bare Abelian categories",
     "Optional direct higher-order envelope flatness without quantization and extension to singular cubics",
     "Exhaustive priority checking, full independent audit of retained proofs, and PDF compilation/visual verification"
   ],
-  "assets": "Current plan, research notes, manuscript sources, unchanged calculation code and small certificates only. No PDF, ZIP, external literature PDFs, intermediate draft fragments, build outputs or caches tracked.",
-  "computations_rerun_in_this_review": false,
+  "assets": "Current plan, research notes, manuscript sources, necessary calculation code and small certificates only. New general17 exact-check script and a small certificate included. No PDF, ZIP, external literature PDFs, intermediate draft fragments, build outputs or caches tracked.",
   "primary_sources_checked": [
     {
       "key": "LowenVdBDeformation",
@@ -293,13 +323,83 @@
       ],
       "locations": "Lemma35.3.6 augmented Amitsur exact for anymodule; Proposition35.3.9 effective module descent; Proposition10.83.3 finiteprojective descent; Lemma21.11.1 gerbe cocycle correction for comparison only",
       "checked_on": "2026-11-19"
+    },
+    {
+      "key": "MS",
+      "url": "https://arxiv.org/pdf/1502.07403v2",
+      "locations": "Theorem4.2(1), Proposition2.8, Corollary2.9: commutator-containing smooth cubic potential is Koszul AS3 CY and a domain",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "BT",
+      "url": "https://arxiv.org/pdf/math/0610112v2",
+      "locations": "Theorems3.1/3.6, pp9-12: potential PBW and explicit bimodule differential, signs, cyclic-Hessian flip and self-duality",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "EG",
+      "url": "https://arxiv.org/pdf/0709.3593v4",
+      "locations": "Proposition7.3.1(ii), Theorem3.3.2: all lower cyclic potential perturbations and central element input",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "RRGeneralizedAS",
+      "url": "https://arxiv.org/pdf/1807.10249v2",
+      "locations": "Proposition4.12: finite proper-module CY tensor-Hom duality; relative finite-projective argument supplied directly",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "CSBGCCKM",
+      "url": "https://arxiv.org/pdf/1307.8415v1",
+      "locations": "Lemma4.4 and proof of Lemma4.5: Rees lemma with grading shifts; v1 numbering distinguished from publication",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "KellerDgCategories",
+      "url": "https://arxiv.org/pdf/math/0601185v5",
+      "locations": "Section2.1 commutative ground ring, Theorems3.4/3.8(c), Section3.8: compact generation and dg Morita",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "KeelerAmpleFilters",
+      "url": "https://arxiv.org/pdf/math/0108068v5",
+      "locations": "Corrected2018 version: Theorem1.3 conditionA4, Proposition2.7, Theorem7.14; noetherian coefficient base permitted",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "MizunoZDuality",
+      "url": "https://arxiv.org/pdf/2509.13073v3",
+      "locations": "2026-09-04 version: Section2 field convention, Theorem5.8 finite qgr global dimension; comparison context only",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "BrownSridharSerre",
+      "url": "https://arxiv.org/pdf/2410.07204v2",
+      "locations": "2025-08-15 version: Section2 field coefficient convention; not applied as arbitrary-base relative theorem",
+      "checked_on": "2026-11-19"
+    },
+    {
+      "key": "BrownSotoSridharBalanced",
+      "url": "https://arxiv.org/pdf/2506.02398v1",
+      "locations": "Notation1.4, Setup2.1, Corollary1.3: field-coefficient balanced dg duality and perfect-tails Serre; comparison context only",
+      "checked_on": "2026-11-19"
     }
   ],
   "current_proof_review": {
     "files": [
-      "papers/sections/abel_formal_descent.tex"
+      "papers/sections/koszul_relative_duality.tex",
+      "papers/sections/jacobian_abel_comparison.tex"
     ],
-    "method": "Root reading and independent parallel agent audits of local reconstruction, scalar cocycle descent, actual-transition compatibility and framed derivation/automorphism proof. Primary source hypotheses read. Not human peer review.",
-    "numerical_calculation_needed": false
-  }
+    "consistency_edits": [
+      "papers/sections/central_pair_mixed_derived_rigid.tex",
+      "papers/sections/central_pair_artin_formal_moduli.tex"
+    ],
+    "method": "Root reading plus independent parallel agent audits of universal torsion/line cohomology, actual general17 relative PBW/CY input, strict dg localization/bimodule Serre, admissibility, arbitrary-base full Hom, finite Isom equations and Rosenlicht consequence. Relevant primary source hypotheses read. Not external human peer review and not a full independent reproof of all retained results.",
+    "numerical_calculation_needed": true,
+    "numerical_scope": "Only the explicit elliptic polynomial identities, denominator identities and nonvanishing witness; the categorical results have written proofs and reading audits."
+  },
+  "existing_computations_rerun_in_this_review": false,
+  "computations_executed_in_this_review": [
+    "computations/verify_general17_open.py"
+  ]
 }

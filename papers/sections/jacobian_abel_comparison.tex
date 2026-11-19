@@ -1,0 +1,719 @@
+\section{一般十七係数族と構造対象付き Abel 圏の比較}
+\label{sec:general17-relative-algebra}
+
+有限中心による射影模型とは別に、二つの中心一次変数と
+有限な potential 複体を用いて、一般十七係数族の相対入力を構成する。
+以下の基底は明示的な非空開集合であり、楕円曲線の自己同型の
+有限位数性を要求しない。
+大きい $\operatorname{QGr}$、切断の飽和性、相対 CY 同型、偶数列による復元は
+任意の可換係数環への基底変更について述べる。
+noetherian 性は最後に、noetherian な係数環について別に証明する。
+
+\subsection{明示的な開集合と楕円境界}
+
+定理\ref{thm:17}の式を
+\begin{equation}\label{eq:general17-explicit-potential}
+ F=a(x^3+y^3+z^3)+bxyz+ux^2+\alpha vy^2+\beta(u+v)z^2
+   +\sum_{i=1}^3 M_i(u,v)x_i+g(u,v)
+\end{equation}
+と書く。ここで $(x_1,x_2,x_3)=(x,y,z)$、
+$M_i=\sum_{j=0}^2m_{ij}u^{2-j}v^j$、
+$g=\sum_{j=0}^3g_ju^{3-j}v^j$ である。
+以下の $p,q,r$ は Rains 公式の $q$ とは異なる。
+\begin{align*}
+ p&=2-b,&q&=-(2+b),&r&=-6a,\\
+ D_E&=(p^3+q^3+r^3)^3-27p^3q^3r^3,\\
+ L_6&=p^6+q^6+r^6-p^3q^3-q^3r^3-r^3p^3,\\
+ \Delta&=a(27a^3+b^3)\,pqr\,D_E
+ (p^3-q^3)(q^3-r^3)(r^3-p^3)L_6.
+\end{align*}
+\begin{equation}\label{eq:general17-coefficient-ring}
+ P_0=\C[a,b,\Delta^{-1}],\qquad
+ P=P_0[\alpha,\beta,(m_{ij})_{1\leq i\leq3,\,0\leq j\leq2},g_0,g_1,g_2,g_3]
+\end{equation}
+と置く。これは十七次元の整域である。
+$a=1/6,b=0$ では $(p,q,r)=(2,-2,-1)$ であり、
+表示した七つの因子は順に
+\[
+ \frac1{48},\quad4,\quad-1729,\quad16,\quad-7,\quad-9,\quad193
+\]
+となるので $\Delta\ne0$ である。
+必要なら定理\ref{thm:17}の slice の非零小行列式も反転する。
+その多項式と $\Delta$ の積は零多項式ではないので、共通開集合も非空である。
+表示した多項式恒等式と非消滅点は
+\nolinkurl{computations/verify_general17_open.py} で有理数上に再現できる。
+これは slice の横断性の条件と相対代数の条件を同じ数値点で確認したという主張ではない。
+
+最高次の三変数代数を $\mathscr S$ と書く。その関係は
+\[
+ p yz+q zy+r x^2=0,\qquad
+ p zx+q xz+r y^2=0,\qquad
+ p xy+q yx+r z^2=0
+\]
+である。$a(27a^3+b^3)$ の可逆性により、古典的な最高次三次式は滑らかである。
+Mori--Smith \cite[Theorem~4.2(1), Proposition~2.8 and Corollary~2.9]{MS} から、その全ての複素体値は
+三次元 Koszul AS 正則 CY 整域となる。
+ここで使うのは commutator を含む potential の場合であり、
+同論文の対称 potential に現れる別の例外条件を混同しない。
+
+\begin{lemma}[楕円境界の相対表示]\label{lem:general17-relative-elliptic-boundary}
+$P_0$ 上の滑らかな平面三次曲線
+\[
+ \mathscr E:\quad pqr(X^3+Y^3+Z^3)-(p^3+q^3+r^3)XYZ=0
+\]
+には、三つの双線形関係で定まる $P_0$-自己同型 $\sigma$ が存在する。
+全ての幾何学的ファイバーで $\sigma,\sigma^2,\sigma^3$ は恒等でない。
+$\mathcal L=\mathcal O_{\mathscr E}(1)$ とし
+\[
+ \mathcal L_n=\mathcal L\otimes\sigma^*\mathcal L\otimes\cdots
+       \otimes(\sigma^{n-1})^*\mathcal L,
+ \qquad H=\bigoplus_{n\geq0}\Gamma(\mathscr E,\mathcal L_n)
+\]
+を twisted homogeneous coordinate algebra とする。
+$H_0=P_0$、$H_n$ は $n\geq1$ について階数 $3n$ の有限射影 $P_0$-加群で、
+$H$ の形成は任意の基底変更と可換する。
+標準の切断写像 $\mathscr S\to H$ は次数付き全射である。
+\end{lemma}
+
+\begin{proof}
+双線形関係の第一変数側の行列は
+\[
+ M(X,Y,Z)=
+ \begin{pmatrix}
+ rX&qZ&pY\\pZ&rY&qX\\qY&pX&rZ
+ \end{pmatrix}.
+\]
+その行列式は $\mathscr E$ の方程式の負である。
+$pqrD_E$ の可逆性により各ファイバーは滑らかである。
+$\mathscr E$ 上で行列の階数が一以下なら、全ての二次小行列式が零となり、
+行列式の全偏微分も零となるので矛盾する。
+従って階数は常に二で、核の可逆部分加群が第二射影座標を定める。
+第二変数側の行列でも同じ議論が成立するので、双線形関係の対応の両射影は同型である。
+これにより $\sigma$ を得る。この構成は任意の基底変更に両立する。
+
+切断 $O=(1:-1:0)$ に対して直接計算すると
+\[
+ \sigma O=(p:q:r),\qquad
+ \sigma^2O=
+ \bigl(q(r^3-p^3):p(q^3-r^3):r(p^3-q^3)\bigr).
+\]
+$r$ および $r(p^3-q^3)$ が可逆なので、前二者は $O$ と異なる。
+$M(\sigma^2O)$ の第一・第二行の外積の第三成分は $-pqr^2L_6$ であり、
+これも可逆である。従って $\sigma^3O$ の第三成分は零でなく、$\sigma^3O\ne O$ である。
+これらは係数環上の多項式恒等式である。
+
+$\mathcal L_n$ のファイバー次数は $3n$ である。
+種数一の曲線の線束コホモロジーと proper flat base change から、
+$n\geq1$ では $R^1f_*\mathcal L_n=0$、$f_*\mathcal L_n$ は階数 $3n$ の有限局所自由加群であり、
+任意の基底変更と可換する。
+$H_0=P_0$ とその基底変更は平面三次の標準完全列からも直接従う。
+双線形関係は $\sigma$ のグラフ上で零なので、次数一切断から $\mathscr S\to H$ が定まる。
+
+全射性をファイバーで確認する。
+滑らかな楕円曲線上で $L$ の次数が三、$M$ の次数が三以上なら
+$H^0(L)\otimes H^0(M)\to H^0(LM)$ は全射である。
+実際、$H^0(L)$ の基点のない二次元部分空間の pencil の完全列を使えば、
+$\deg M>3$、または $\deg M=3$ かつ $M\not\simeq L$ の場合は
+$H^1(ML^{-1})=0$ から従う。
+$M\simeq L$ の場合は平面三次の埋込みに二次関係がないことから従う。
+よって各ファイバーで $H$ は次数一生成である。
+切断加群が有限局所自由であることと Nakayama の補題から、相対的にも全射となる。
+\end{proof}
+
+\subsection{普遍 PBW 性と中心正則三次元}
+
+\begin{proposition}[全係数にわたる射影性と正則性]
+\label{prop:general17-universal-pbw}
+$P$ 上で \eqref{eq:general17-explicit-potential} の関係により $B$ を定める。
+命題\ref{prop:pair-rains-polynomial}の規格化で中心三次元 $w=\mathcal G+g(u,v)$ を選び、
+$A=B/(w)$ と置ける。
+各 $B_n,A_n$ は有限射影 $P$-加群であり、
+\[
+ \operatorname{rank}_P B_n=\binom{n+4}{4},\qquad
+ \operatorname{rank}_P A_n=\binom{n+4}{4}-\binom{n+1}{4}
+\]
+である。右辺の負次数項は零と読む。
+$Q=P[u,v]$ と置くと、$B$ と $A$ は $Q$-射影加群であり、active 次数の濾過について
+\begin{equation}\label{eq:general17-relative-associated-graded}
+ \operatorname{gr}B\simeq\mathscr S\otimes_{P_0}Q,
+ \qquad \operatorname{gr}A\simeq H\otimes_{P_0}Q.
+\end{equation}
+これらの同型、$w$ の正則性、および各次数の完全列
+\[
+ 0\longrightarrow B_{n-3}\xrightarrow{w}B_n\longrightarrow A_n\longrightarrow0
+\]
+は任意の可換 $P$-代数への基底変更後にも成立する。
+\end{proposition}
+
+\begin{proof}
+まず各 $\mathscr S_n$ は有限自由な語の加群の有限表示商であり、全閉点で
+次元 $\binom{n+2}{2}$ を持つ。
+被約な有限型 $\C$-基底上の一定階数の行列を局所的に標準形へ直すと、
+$\mathscr S_n$ は有限局所自由で、任意の基底変更に両立することが分かる。
+ここで行列の必要な小行列式が全閉点で零なら、基底の被約性により恒等的に零である。
+各語の加群から $\mathscr S_n$ への全射の $P_0$-線形分裂を選ぶ。
+
+active 次数を下げる帰納法により、これらの持上げは $B$ を $Q$-加群として生成する。
+全閉点への特殊化では、低次 cyclic potential に対する PBW 定理
+\cite[Theorem~3.1]{BT}\cite[Proposition~7.3.1(ii)]{EG} が適用できる。
+従って持上げ間の有限 $Q$-線形関係を全閉点で評価すれば全係数が零となる。
+有限射影加群の切断は被約な有限型基底の全閉点で検出されるので、関係自体が零である。
+よって $B\simeq\bigoplus_{n\geq0}\mathscr S_n\otimes_{P_0}Q$ が
+濾過付き $Q$-加群として成り立ち、第一の associated graded 同型は普遍的である。
+
+Rains 公式への代入を明示する。最高次三次式を $3a$ で割り、
+\[
+ \lambda=\frac b{3a},\quad h=3a,\quad
+ t=\frac{6a}{2-b}=-\frac rp,\quad
+ q_{\mathrm R}=\frac{2+b}{2-b}=-\frac qp
+\]
+と置く。対角係数は
+$L_1=2u/(3a), L_2=2\alpha v/(3a), L_3=2\beta(u+v)/(3a)$、
+一次係数は $M_i/(3a)$ である。
+公式の分母は
+\[
+ D(t)=q_{\mathrm R}(q_{\mathrm R}^3-t^3)(q_{\mathrm R}+1)(1+t^3).
+\]
+ここで $q_{\mathrm R}+1=4/p$、
+$q_{\mathrm R}^3-t^3=(r^3-q^3)/p^3$、
+$1+t^3=(p^3-r^3)/p^3$ であるから、全て $\Delta\ne0$ 上で可逆である。
+同命題の有限公式は、active 定数部分が零の $\mathcal G$ と、
+全ファイバーで非零な最高記号 $\Omega\in Z(\mathscr S)_3$ を与える。
+四つの自由な定数係数はこの規格化で $g$ と書く。
+別の可逆な規格化を使う場合は、その係数変換も同時に行う。
+
+各体値の $H$ は $k(\mathscr E)[t,t^{-1};\sigma]$ に埋め込まれる。
+次数 $d>0$ の中心元 $ct^d\ne0$ があれば、次数一切断との可換性から
+$\sigma^d$ はその比を全て固定する。
+その比は $k(\mathscr E)$ を生成するので $\sigma^d=\mathrm{id}$ となる。
+前補題により $d=1,2,3$ は起こらない。
+従って中心元 $\Omega$ の $H_3$ における像は全閉点で零である。
+$H_3$ は有限射影、$P_0$ は被約なので、像は大域的に零である。
+各閉点で $\mathscr S$ は整域、$\Omega\ne0$ なので、$\Omega$ は正則である。
+Hilbert 級数と $H_n$ の階数を比較すると
+\begin{equation}\label{eq:general17-elliptic-quotient}
+ 0\longrightarrow\mathscr S(-3)\xrightarrow{\Omega}\mathscr S
+   \longrightarrow H\longrightarrow0
+\end{equation}
+は各次数で有限局所自由加群の完全列となる。
+局所的な分裂により、この列は任意の基底変更後にも完全である。
+
+$w$ の最高記号が $\Omega$ であるから、濾過付き正則元で割る標準の
+最高次数からの帰納法により第二の associated graded 同型を得る。
+その各次数商 $H_n\otimes Q$ は射影なので、濾過を次数ごとに分裂できる。
+従って $A\simeq\bigoplus_{n\geq0}H_n\otimes_{P_0}Q$ であり、
+正則性と associated graded の計算は非平坦な基底変更後にも有効である。
+通常の全次数で各成分を数えれば階数公式と最後の分裂完全列を得る。
+\end{proof}
+
+\subsection{相対 CY orientation と有限 Koszul 対角解消}
+
+\begin{proposition}[全係数に両立する五次元 CY 入力]
+\label{prop:general17-relative-cy-koszul}
+命題\ref{prop:general17-universal-pbw}の $B$ には、任意の基底変更に両立する
+真正な次数付き双加群の同型
+\begin{equation}\label{eq:general17-relative-cy-orientation}
+ \mathbf R\underline{\operatorname{Hom}}_{B\otimes_PB^{\mathrm{op}}}
+       (B,B\otimes_PB^{\mathrm{op}})\simeq B(5)[-5]
+\end{equation}
+がある。さらに標準の二次 Koszul 双加群複体
+\[
+ K_B^{-i}=B\otimes_P W_i\otimes_P B\quad(0\leq i\leq5)
+\]
+は $B$ の解消であり、各 $W_i$ は内部次数 $i$ の有限射影加群、
+$\operatorname{rank} W_i=\binom5i$、$W_0=P$、$W_5$ は可逆である。
+片側を augmentation と tensor した複体は $P$ の解消となる。
+全ての完全性は任意の可換基底変更後にも保たれる。
+\end{proposition}
+
+\begin{proof}
+$Q=P[u,v]$ を係数環とし、三つの active 変数の cyclic potential を
+\[
+ \Phi=xyz-yxz-\operatorname{Symm}(F-g)
+\]
+と取る。$r_i=\partial_{x_i}\Phi$ は $B$ の三関係である。
+$D=B\otimes_QB^{\mathrm{op}}$ と書く。
+形式的な基底 $e_i,f_i,e$ の全次数をそれぞれ $1,2,3$ として
+\[
+ 0\longrightarrow D(-3)\longrightarrow D(-2)^3
+   \longrightarrow D(-1)^3\longrightarrow D\longrightarrow B\longrightarrow0
+\]
+を作る。微分は双加群表記で
+\begin{align*}
+ d_1(1\otimes e_i\otimes1)&=x_i\otimes1-1\otimes x_i,\\
+ d_2(1\otimes f_i\otimes1)&=\mathcal D(r_i),\\
+ d_3(1\otimes e\otimes1)&=
+       \sum_i(x_i\otimes f_i\otimes1-1\otimes f_i\otimes x_i)
+\end{align*}
+である。$\mathcal D$ は active 語の一文字を順に中間因子へ置く普遍微分で、
+$Q$ 上では零とする。
+cyclic 恒等式 $\sum_i[x_i,r_i]=0$ によりこれは複体となる。
+active 濾過の associated graded は $\mathscr S$ の三次元 potential 解消を
+$Q$ へ延長した複体である。
+この $Q$-延長前の $\mathscr S$ の複体の各次数は有限射影 $P_0$-加群の有限複体で、
+全閉点で完全であるから、
+局所的に分裂して普遍的に完全である。
+濾過が各全次数で有限であることから、元の複体も全基底変更後に完全である。
+
+自己双対はファイバーの CY 性から推論しない。
+基底 $e_i,f_i$ を対応させ、$1,e$ を対応させる双対写像を使う。
+中間微分について必要な恒等式は
+\[
+ \partial^{\mathrm{nc}}_{x_j}(\partial_{x_i}\Phi)
+ =\operatorname{flip}\bigl(
+       \partial^{\mathrm{nc}}_{x_i}(\partial_{x_j}\Phi)\bigr)
+\]
+である。これは各 cyclic 語における二つの文字の位置を入れ替える恒等式であり、
+全ての係数環上で成立する。
+両端の微分は対応する差 $x_i\otimes1-1\otimes x_i$ から一致する。
+双対複体の標準符号を入れれば、真正な双加群複体としての自己双対
+$K_Q^\vee\simeq K_Q(3)[-3]$ を得る。
+これは Berger--Taillefer \cite[arXiv v2, Theorem~3.6 の証明, pp.~9--12]{BT} の
+明示的な微分・符号・cyclic Hessian 恒等式を、上の射影性と普遍的完全性の下で
+$Q$ 上にそのまま書いたものである。
+従って $\Theta_{B/Q}\simeq B(3)[-3]$ である。
+
+次に $C=B\otimes_PB^{\mathrm{op}}$ と置く。
+作用の規約を固定する。$B$-双加群は左 $C$-加群として扱い、
+その双対は右 $C$-加群である。
+右 $C$-加群 $N$ を双加群へ戻す作用は
+$a\cdot n\cdot b=n\cdot(b\otimes a^{\mathrm{op}})$ とする。
+$B$ は $Q$-射影なので、$C$ は
+$Q\otimes_P Q=P[u_L,v_L,u_R,v_R]$ 上平坦である。
+従って $z_1=u_L-u_R,z_2=v_L-v_R$ は $C$ 上の中心正則列であり、
+$D=C/(z_1,z_2)$ である。
+順序 $(z_1,z_2)$ を固定した Koszul 解消とその双対は
+\[
+ \mathbf R\underline{\operatorname{Hom}}_C(D,C)\simeq D(2)[-2]
+\]
+を与える。この同型は残る両側作用を保持する。
+ここで左辺の左 $D$-作用は定義域 $D$ の右掛算による前合成、
+右 $C$-作用は値域の右掛算である。
+唯一のコホモロジーは通常の $D$--$C$ 双加群 $D(2)$ であり、
+その左作用は $d$ の任意の $C$-持上げによる右掛算を
+中心 Koszul 解消の chain map へ持ち上げて計算できる。
+商においてこれは左からの通常の $d$ の掛算となり、右作用は $C\to D$ を通る。
+導来随伴と前段の自己双対を合わせれば
+\[
+ \mathbf R\underline{\operatorname{Hom}}_C(B,C)
+ \simeq
+ \mathbf R\underline{\operatorname{Hom}}_D
+   \bigl(B,\mathbf R\underline{\operatorname{Hom}}_C(D,C)\bigr)
+ \simeq B(5)[-5].
+\]
+この随伴は右 $C$-作用を保持している。
+最後の同型は $\Theta_{B/Q}$ の右 $D$-作用を $C\to D$ で制限したものであり、
+最初に固定した反転規約により通常の $B$-双加群となる。
+$D$ は $C$-perfect、$B$ は $D$-perfect なので $B$ は $C$-perfect である。
+この構成の規格化は active 三変数の体積と $(u,v)$ の順序によるものであり、
+中山自己同型や基底上の未指定の線束を後から挿入していない。
+有限射影複体と表示した恒等式により、全ての同型は任意の基底変更に両立する。
+
+最後に二次 Koszul 解消を整える。
+$V=B_1\simeq P^5$、$R_2=\ker(V\otimes_PV\to B_2)$ とし
+\[
+ W_i=\bigcap_{j=0}^{i-2}
+ V^{\otimes j}\otimes R_2\otimes V^{\otimes(i-2-j)}
+ \ \subset V^{\otimes i}\qquad(i\geq2)
+\]
+と置く。
+各体値で、active 濾過の associated graded は
+Koszul 代数 $\mathscr S\otimes k[u,v]$ である。
+全次数ごとに有限な filtered bar 複体の spectral sequence により $B$ も Koszul である。
+Hilbert 級数 $(1-t)^{-5}$ から、その Koszul 双対の階数は
+$\binom5i$、$i>5$ で零となる。
+$W_i$ は有限射影加群間の有限行列の核として表せるので、
+$2\leq i\leq6$ の一定階数により $W_i$ は有限射影で基底変更と可換する。
+特に $W_6=0$ であり、高次の交わりも零である。
+標準の Koszul 双加群複体の各内部次数は有限射影複体で、
+全閉点で完全だから相対的にも分裂完全である。
+これで普遍的完全性を得る。
+この複体を片側 $B$-加群として見れば、射影対象 $B$ の有界な射影解消であるから分裂する。
+従って augmentation との tensor も解消となる。
+先に構成した CY 同型をこの指定した解消でも表せる。
+実際、$K_B^\vee$ は有界な射影右 $C$-複体なので、導来同型は chain map
+$K_B^\vee\to B(5)[-5]$ により表される。
+その cone は有界かつ acyclic で、各内部次数の全項は $P$-flat である。
+従って cone は任意の基底変更後にも acyclic であり、
+この有限 Koszul 模型で表した orientation も全係数変更に両立する。
+\end{proof}
+
+\subsection{切断の普遍的飽和性と二次中心}
+
+\begin{lemma}[中心二変数による飽和性]
+\label{lem:two-central-variables-universal-saturation}
+$S$ は任意の可換環とし、$A$ は $A_0=S$ の非負次数付き、次数一生成代数で、
+$A_1$ は有限生成とする。
+中心一次元 $u,v$ が与える $S[u,v]$-加群として $A$ が平坦なら、
+全ての $m\in\mathbb Z$ について $A(m)$ は tails の Gabriel 局所化に対して閉じている。
+従って
+\[
+ A_n\xrightarrow{\sim}
+ \operatorname{Hom}_{\operatorname{QGr}A}(\mathcal O,\mathcal O(n))
+ \qquad(n\in\mathbb Z)
+\]
+である。$A$ の $S[u,v]$-平坦性が任意の係数変更後にも保たれる場合、
+この同型も全ての係数変更、積、合成に自然である。
+\end{lemma}
+
+\begin{proof}
+$S[u,v]$ の二つの変数の Čech 列を平坦な $A(m)$ と tensor すると
+\[
+ 0\longrightarrow A(m)\longrightarrow A(m)_u\oplus A(m)_v
+     \longrightarrow A(m)_{uv}
+\]
+は初めの二箇所で完全である。
+また $u$ は $A(m)$ 上正則である。
+tails-torsion 加群 $T$ は $u,v$ の局所化で零となるので
+$\operatorname{Hom}_{\operatorname{Gr}A}(T,A(m))=0$ である。
+拡大 $0\to A(m)\to E\to T\to0$ を取る。
+局所化により $E_u\simeq A(m)_u$、$E_v\simeq A(m)_v$ となる。
+二つの自然な写像を合わせると、次数付き $A$-線形な retraction
+\[
+ E\longrightarrow A(m)_u\mathop{\times}_{A(m)_{uv}}A(m)_v=A(m)
+\]
+を得る。
+従って $\operatorname{Ext}^1_{\operatorname{Gr}A}(T,A(m))=0$ である。
+これは Gabriel 商の右随伴 $\omega$ の本質像に属するための条件なので
+$A(m)\simeq\omega\pi A(m)$ となる。
+自由対象 $A$ との随伴を取れば切断同型を得る。
+全ての写像が局所化と標準切断から定まるので自然性も従う。
+ここでは高次コホモロジーの消滅や noetherian 性を使用していない。
+\end{proof}
+
+\begin{proposition}[任意係数上の切断と二次中心]
+\label{prop:general17-universal-saturation-center}
+\eqref{eq:general17-coefficient-ring} の任意の可換 $P$-代数 $S$ について
+\[
+ (A_S)_n\simeq
+ \operatorname{Hom}_{\operatorname{QGr}(A_S)}(\mathcal O,\mathcal O(n)),
+ \qquad
+ Z(A_S)_2=S u^2\oplus S uv\oplus S v^2
+\]
+が成り立ち、全ての係数変更に両立する。
+\end{proposition}
+
+\begin{proof}
+命題\ref{prop:general17-universal-pbw}により
+$A_S$ は $S[u,v]$-射影なので、第一の主張は前補題である。
+各複素体値で、補題\ref{lem:general17-relative-elliptic-boundary}と
+\eqref{eq:general17-elliptic-quotient}から
+$Z(\mathscr S)_1=Z(\mathscr S)_2=0$ となる。
+最高 active 記号を取れば $Z(B)_2=\operatorname{Sym}^2\langle u,v\rangle$ であり、
+補題\ref{lem:moduli-no-new-quadratic-center}によって $Z(A)_2$ も同じである。
+
+普遍性を単なるファイバーの等式から推論しない。
+PBW 分裂により $P u^2\oplus Puv\oplus Pv^2\subset A_2$ は直和因子である。
+その商は階数十二の有限射影加群であり、三つの交換子による写像
+\[
+ A_2/(P u^2\oplus Puv\oplus Pv^2)\longrightarrow A_3^{\oplus3}
+\]
+は全閉点で単射である。
+最大階数の小行列式が局所的に可逆となるので、この写像は局所的に分裂単射である。
+従って任意の、非平坦な基底変更後にも核は零であり、表示した中心の等式を得る。
+\end{proof}
+
+\subsection{偶数 Gabriel 切断による全同値の復元}
+
+\begin{lemma}[任意係数上の偶数 Veronese 局所化]
+\label{lem:general-even-gabriel-reconstruction}
+$A$ は可換環 $S$ 上の非負次数付き、次数一生成代数で、$A_1$ は有限生成とする。
+$R=A^{(2)}$ と置くと、偶数成分を取る関手は同値
+\[
+ \operatorname{QGr}A\xrightarrow{\sim}\operatorname{QGr}R
+\]
+を誘導する。
+さらに全ての整数 $i$ を用いた切断関手
+\[
+ \omega_{\mathrm{ev}}(N)_i=
+ \operatorname{Hom}_{\operatorname{QGr}A}(\mathcal O(-2i),N)
+\]
+は、偶数 Veronese の Gabriel 右随伴そのものであり、完全忠実である。
+これらは任意の係数作用の延長に両立する。
+\end{lemma}
+
+\begin{proof}
+$F(M)=M^{(2)}$、$G(N)=N^{\mathrm{dbl}}\otimes_{R^{\mathrm{dbl}}}A$ と置く。
+ここで dbl は次数を二倍にする操作である。
+$FG=\operatorname{id}$ であり、counit $GFM\to M$ は偶数成分で同型である。
+その核と余核は偶数成分が零なので、次数一生成性により $A_{\geq1}$ で消える。
+従って両者は tails-torsion である。
+
+$F$ は torsion を保つ。逆に $FM$ が torsion なら、偶数次数の斉次元は
+十分大きい偶数次数の右因子で消え、次数一生成性から全ての十分高い次数で消える。
+奇数次数の斉次元 $m$ については、$A_1$ の有限個の生成元 $x_j$ に対する
+偶数次数の元 $mx_j$ を同時に消す bound を取ればよい。
+これにより $M$ も torsion となる。
+$FG=\operatorname{id}$ から $G$ も torsion を保ち、
+同じ反映性により torsion 同値を torsion 同値へ送る。
+従って商上で $F,G$ は互いに逆となる。
+
+$F(\pi A(-2i))=\pi R(-i)$ である。
+$\operatorname{Gr}R\to\operatorname{QGr}R$ の右随伴の第 $i$ 成分は
+$\operatorname{Hom}(\pi R(-i),-)$ なので、表示した関手を得る。
+Gabriel 右随伴は完全忠実である。
+係数作用の延長との整合性は、局所化の係数作用比較と
+\[
+ \operatorname{Hom}_{\mathcal D_T}(T\otimes_SE,N)
+   =\operatorname{Hom}_{\mathcal D}(E,UN)
+\]
+に含まれる $T$-作用から従う。
+\end{proof}
+
+\begin{remark}[同値の復元に必要なデータ]
+従って、全偶数線対象とその間の全ての Hom を保つ完全同値は、
+この切断関手を通して実際の関手として自然同型まで復元される。
+線対象上の一致から一般の対象への射の持上げを仮定する必要はない。
+相対 Serre 同型が偶数線列を内在的に識別する場合、
+この補題を直接使える。
+これは全整数添字の Gabriel 切断に関する主張であり、
+正の次数だけの切断、あるいは coherent 部分圏の ample 条件と混同しない。
+\end{remark}
+
+\subsection{Noetherian 係数環上の模型の許容性}
+
+\begin{proposition}[有限位数に依存しない相対 strong noetherian 性]
+\label{prop:general17-strong-noetherian}
+任意の可換 noetherian $P$-代数 $S$ に対し、
+$H_S,\mathscr S_S,B_S,A_S$ は左右 noetherian である。
+\end{proposition}
+
+\begin{proof}
+$\mathscr E_S\to\operatorname{Spec}S$ は滑らかな射影種数一曲線で、
+$\deg(\mathcal L_n|_{\mathscr E_s})=3n$ である。
+任意の可逆層 $\mathcal H$ のファイバー次数は局所一定であり、
+noetherian な準コンパクト基底上では有限個の値を取る。
+従って $n\gg0$ なら $\mathcal H\otimes\mathcal L_n$ は全てのファイバーで正次数を持つ。
+proper morphism のファイバー上の ampleness 判定
+\cite[Proposition~2.7]{KeelerAmpleFilters} により相対 ample であり、
+基底が affine なので ample である。
+Keeler \cite[Theorem~1.3, condition~(A4)]{KeelerAmpleFilters} から
+$(\mathcal L_n)$ は ample sequence となり、
+同 \cite[Theorem~7.14]{KeelerAmpleFilters} により $H_S$ は左右 noetherian である。
+ここでは corrected arXiv v5 の定理を用いている。
+$\sigma$ の有限位数性は使っていない。
+
+中心正則元 $\Omega$ による下降濾過の associated graded は
+$\operatorname{gr}_{\Omega}(\mathscr S_S)=H_S[z]$ である。
+これは noetherian なので、任意の斉次片側イデアルの associated graded の有限斉次生成元を持ち上げる。
+最高 $\Omega$-adic 成分を順に引く操作は、固定した通常次数では
+$\deg\Omega=3$ によって有限回で止まる。
+よって元の斉次イデアルも有限生成である。
+通常次数の最高成分を取る帰納法により、非斉次イデアルも有限生成となる。
+従って $\mathscr S_S$ は左右 noetherian である。
+最後に \eqref{eq:general17-relative-associated-graded} と
+正の active 濾過についての最高成分からの帰納法を適用すれば、
+$B_S,A_S$ の左右 noetherian 性を得る。
+この最後の議論は各元の active 次数が有限であることだけを用いる。
+\end{proof}
+
+
+
+\begin{proposition}[相対 Abel 模型の許容性]
+\label{prop:general17-abel-admissible}
+$P$ 上の $A$ は，定義\ref{def:abel-cubic-pointed}の相対模型を与える．
+任意の noetherian $P$-代数 $S$ 上で
+$\operatorname{qgr}(A_S)$ は noetherian Abel 圏であり，
+$(\mathcal O(-i))_{i\in\mathbb Z}$ および偶数列は豊富である．
+任意の可換 $P$-代数上では大きい $\operatorname{QGr}$ 模型を用い，
+相対 AS 解消，切断の飽和，Gabriel 復元および標準の係数延長が成立する．
+\end{proposition}
+\begin{proof}
+相対 AS 解消は命題\ref{prop:general17-relative-cy-koszul}の augmentation と
+双対から得られ，三次核の左右正則性と標準 Hilbert 関数は
+命題\ref{prop:general17-universal-pbw}である．
+普遍的な飽和と偶数復元は，直前の二つの結果による．
+標準線対象は $S$-平坦である．実際，$A_S(i)$ は $S$-平坦であり，
+$S$-加群との tensor を完全な商関手 $\pi$ に通せばよい．
+
+noetherian な $S$ については，命題\ref{prop:general17-strong-noetherian}により
+$qgr$ が Abel である．豊富性の高次消滅も明示する．
+有限生成次数付き $A_S$-加群 $M$ を，有限生成 $B_S$-加群とみる．
+$B_S$ は noetherian なので，有限生成次数付き自由加群による最初の六段の解消
+\[
+ 0\to K_6\to F_5\to\cdots\to F_0\to M\to0
+\]
+を取れる．命題\ref{prop:relative-as5-local-cohomology}から，
+全ての $F_i$ の局所コホモロジーは内部次数が上に有界である．
+共通の上界を超える内部次数 $n$ では，長完全列の dimension shifting により
+\[
+ H^q(R\Gamma_{B_S}M)_n
+ \simeq H^{q+6}(R\Gamma_{B_S}K_6)_n=0\qquad(q\geq0)
+\]
+となる．最後には cohomological dimension が五以下であることを使った．
+補題\ref{lem:relative-cubic-torsion-comparison}と局所化三角から，
+$n\gg0$ では $R\omega_A\pi_A M$ の第 $n$ 成分は $M_n[0]$ に一致する．
+これが必要な Serre 消滅である．
+
+有限生成加群の高い truncation から，任意に遠い負の線対象の有限和による
+全射を得る．全射に沿う Hom の持上げは，その kernel に対する上の
+$\operatorname{Ext}^1$ 消滅による．従って標準列は豊富である．
+偶数列についても，同じ消滅と偶数 Veronese の Gabriel 同値を適用できる．
+
+任意係数延長の標準模型は
+補題\ref{lem:abel-arbitrary-coefficient-tails}による係数作用付き対象の圏と一致する．
+同補題の次数一有限生成性の条件はここで満たされている．
+係数延長の合成と対象・射の fpqc 降下は既存の係数降下補題による．
+このように非 noetherian な底には大きい圏を使い，
+小さい $qgr$ の Abel 性を余分に仮定してはいない．
+\end{proof}
+
+\subsection{任意の係数環上の全ての構造対象付き同値}
+
+\begin{theorem}[compact 双対と偶数 Gabriel 復元による相対 Hom]
+\label{thm:general-relative-pointed-hom}
+$S$ を可換 $\mathbb C$-代数とし，$A,A'$ を第\ref{sec:relative-koszul-line-cohomology}節の相対入力\textup{(1)--(4)}を満たす
+中心三次商とする．さらに両者は
+定義\ref{def:abel-two-center-family}の普遍的な中心二変数条件を満たすとする．
+標準の係数族について，任意の可換 $S$-代数への変更に自然な fpqc 層の同型
+\begin{equation}\label{eq:general-relative-pointed-hom}
+ \underline{\operatorname{Isom}}_{\mathrm{gr},S}(A,A')/\mathbb G_m
+ \xrightarrow{\sim}
+ \underline{\operatorname{Eq}}_{\mathcal O,S}
+       (\operatorname{QGr}A,\operatorname{QGr}A')
+\end{equation}
+がある．右辺には構造対象を保つ全ての完全線型同値を含め，
+自然同型で割った同型類を取る．構造対象上の同定を保つ自然自己同型は自明である．
+この結論に $S$ の noetherian 性や三次商の正則性は必要ない．
+左辺は層商であり，大域的な同型の集合を $S^\times$ で割った集合と
+無条件には同一視しない．
+\end{theorem}
+
+\begin{proof}
+完全 $S$-線型同値 $F$ は非有界複体に項別に作用し，
+標準 dg enhancement の同値を誘導する．同値は直和を保つため compact 対象を保つ．
+線対象は系\ref{cor:relative-cubic-compact-proper}により compact であり，
+定理\ref{thm:koszul-cubic-relative-serre}の双対は
+この内在的部分圏上で成り立つ．相対 RHom とその係数双対を保つこと，
+および表現対象の Yoneda 一意性から，指定した双対と両立する同型
+\[
+ F\mathsf S_A\simeq\mathsf S_{A'}F,
+ \qquad \mathsf S_A=(-2)[3],\quad\mathsf S_{A'}=(-2)[3]
+\]
+を得る．これは全ての Abel 同値に適用でき，列保存を仮定していない．
+
+$H_A=\mathsf S_A^{-1}[3]\simeq(2)$ と置く．
+$F(\mathcal O_A)\simeq\mathcal O_{A'}$ と上の可換同型を反復することで，
+全ての整数 $i$ に対する偶数線対象の同定と，その全ての Hom の同定を得る．
+反復には一つの可換同型を一貫して用いるので，合成も保たれる．
+普遍的な section の飽和から，これは次数付き代数同型
+\[
+ \phi_R:A^{(2)}\xrightarrow{\sim}(A')^{(2)}
+\]
+を与える．双対の表示を変更する自然変換の各線対象上の成分は単元である．
+隣接する偶数線の Hom は正階数の有限射影 $S$-加群 $A_2$ なので忠実であり，
+自然性からこれらの単元は全て等しい．従って表示の変更は $\phi_R$ を
+一つの次数スカラーで変更するだけである．
+
+補題\ref{lem:general-even-gabriel-reconstruction}の偶数 Gabriel 復元により，
+\[
+ N\longmapsto\bigoplus_{i\in\mathbb Z}
+   \operatorname{Hom}(\mathcal O_A(-2i),N)
+\]
+は $\operatorname{QGr}A\simeq\operatorname{QGr}(A^{(2)})$ の右随伴に一致し，
+完全忠実である．従って全偶数線とその Hom・合成に対する作用は，
+$F$ を自然同型まで決定する．ここでは線対象を射影対象と仮定せず，
+coherent 対象の有限表示にも依存しない．
+
+定理\ref{thm:abel-relative-veronese-isom}により，$\phi_R$ の
+$A\simeq A'$ への持上げ層は $\mu_2$-torsor であり，fpqc 局所で持上げ $\phi$ を選べる．
+$\phi$ による構造移送と $F$ は偶数 Gabriel 右随伴の下で同じ作用を持つので，
+構造対象の同定を保つ自然同型を持つ．これで層としての全射性が従う．
+
+核を調べるため，$\phi\in\operatorname{Aut}_{\mathrm{gr},S}(A)$ の構造移送が
+標識付き恒等関手に自然同型であるとする．その $\mathcal O_A(-2i)$ 上の成分を
+$\lambda_i\in S^\times$ とし，$\lambda_0=1$ とする．
+隣接 Hom 上の自然性により $\phi|_{A_2}=c\operatorname{id}$ となる
+$c\in S^\times$ があり，次数一生成性から
+$\phi|_{A_{2n}}=c^n\operatorname{id}$ となる．
+忠実平坦な平方根被覆上で $\lambda^2=c$ を選ぶと，
+$\varepsilon_\lambda^{-1}\phi$ は偶数部分上で恒等である．
+偶数復元の $\mu_2$ も次数スカラーに含まれるため，$\phi$ は局所的に次数スカラーである．
+逆に次数スカラーの構造移送は次数ごとのスカラーにより標識付き恒等関手に同型となる．
+これで単射性を得る．
+
+自然自己同型の各偶数線上の成分も $S^\times$ に属し，
+隣接 Hom の忠実性から全て等しい．構造対象上で恒等なら全て一であり，
+偶数線が生成族であることから圏全体で恒等である．
+標準係数族の任意係数延長と固定模型の fpqc Hom 降下は
+補題\ref{lem:abel-canonical-family-equivalences}により両立する．
+従ってここで得た局所同型は指定した stack 化後にも正確に全ての射を記述する．
+構造移送，Serre の反復，Gabriel 右随伴の各構成から，合成と係数変更への自然性も従う．
+\end{proof}
+
+\begin{corollary}[同型層の有限な方程式]
+\label{cor:general-relative-isom-scheme}
+前定理の下で，さらに $A,A'$ は標準 Hilbert 関数
+$H_A(t)=(1-t^3)/(1-t)^5$ を持つとする．
+$A_1\simeq(A')_1\simeq S^5$ を自明化する．
+$V=S^5$ とし，$d=2,3$ に対して
+\[
+ I_d=\ker(V^{\otimes d}\to A_d),\qquad
+ I'_d=\ker(V^{\otimes d}\to A'_d)
+\]
+と置く．これらはそれぞれ階数 $10,91$ の部分束である．
+このとき式\eqref{eq:general-relative-pointed-hom}の層は
+\begin{equation}\label{eq:general-finite-isom-equations}
+ \left\{[g]\in\operatorname{PGL}_{5,S}:\
+    g^{\otimes2}I_2=I'_2,\quad g^{\otimes3}I_3=I'_3\right\}
+\end{equation}
+で表される．従ってこれは $S$ 上アフィンかつ有限表示のスキームである．
+この記述は非被約な係数環を含む．
+\end{corollary}
+
+\begin{proof}
+$A$ は二次関係と一つの三次関係で表示されるので，
+次数一の可逆写像が代数同型へ延びる必要十分条件は表示した二条件である．
+$A_2,A_3$ は有限射影で，それぞれ階数 $15,34$ だから，$I_2,I_3$ は主張した部分束となる．
+$\operatorname{GL}_5$ 上の二つの部分束の対応条件は Grassmannian への写像による閉条件であり，
+次数スカラーの中心 $\mathbb G_m$ はこの条件に自明に作用する．
+従って条件は $\operatorname{PGL}_5$ 上に降下し，閉部分スキームを定める．
+局所的な包含条件は，両部分束の階数が等しく $g$ が可逆であることから等号を意味する．
+この議論は体値の点だけを使わない．
+$\operatorname{GL}_5\to\operatorname{PGL}_5$ は fpqc $\mathbb G_m$-torsor なので，
+この閉部分スキームは正確に次数スカラーの層商を表す．
+\end{proof}
+
+これは二つの指定した族の間の射を有限な方程式で記述する結果である．
+一般の Abel 圏の有効降下，モジュライ全体の代数性，有限型 atlas，
+またはパラメータ族の開埋込みは，この同型層の表示だけからは従わない．
+
+
+\begin{corollary}[一般十七次元の Abel 圏変動と二次包絡]
+\label{cor:general17-abel-moduli-comparison}
+$P$ を式\eqref{eq:general17-coefficient-ring}とする．
+族 $A/P$ は $\operatorname{Spec}P\to\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ を定める．
+この族から任意の基底へ引き戻した二対象の間には，
+定理\ref{thm:general-relative-pointed-hom}の全同値比較と
+系\ref{cor:general-relative-isom-scheme}の有限表示が成り立つ．
+全ての係数環上で compact 圏の相対 Serre 関手は $(-2)[3]$ である．
+
+複素体値の一般の $\mathcal O$-marked Abel 圏同型類は十七次元分動く．
+正確には，定理\ref{thm:17}の Rosenlicht 商の超越次数十七が，
+全ての $\mathcal O$-保存 Abel 同値で割った同型類にもそのまま対応する．
+また，そのような同値は二次包絡
+\[
+ B=T(A_1)/(\ker(A_1\otimes A_1\to A_2))
+\]
+を次数スカラーを除いた同型まで復元し，三次核の直線も保つ．
+従って既存の十七係数から十三係数 ambient への射は，
+この範囲で全ての構造対象付き Abel 同値と両立する．
+\end{corollary}
+\begin{proof}
+相対模型の許容性は命題\ref{prop:general17-abel-admissible}である．
+命題\ref{prop:general17-universal-pbw}と
+\ref{prop:general17-relative-cy-koszul}は
+第\ref{sec:relative-koszul-line-cohomology}節の四入力を全て供給し，
+命題\ref{prop:general17-universal-saturation-center}は普遍中心条件を供給する．
+従って相対 Serre 定理と全 Hom 比較を適用できる．
+十七次元という結論は，複素体上で Abel 同値が次数付き同型と正確に一致することと，
+定理\ref{thm:17}による．二次包絡は次数二の関係だけから作られるので，
+代数同型に関して自然である．次数スカラーは包絡の次数スカラーへ移り，
+三次核も元の同型により対応する．この構成は係数変更に両立する．
+\end{proof}
+
+この結論は，十七係数の正規形が大域的に一意であることを意味しない．
+有限な残余同一視は保持する．また，$\mathcal O$ を忘れた圏，
+裸の導来圏，モジュライ全体の成分性・代数性・有限型 atlas，
+および一般十七係数族の dg smooth locus は別の問題である．
+この節では有限中心性も全ファイバーの tails の正則性も使っていない．

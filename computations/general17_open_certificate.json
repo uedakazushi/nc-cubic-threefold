@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "checks": {
+    "determinant": true,
+    "sigma_O": true,
+    "sigma_squared_O": true,
+    "second_iterate_on_curve": true,
+    "third_iterate_minor": true,
+    "nonempty_open": true,
+    "rains_cubic_denominator": true,
+    "rains_last_denominator": true,
+    "rains_sum_denominator": true
+  },
+  "witness": {
+    "a": "1/6",
+    "b": "0",
+    "p": "2",
+    "q": "-2",
+    "r": "-1"
+  },
+  "factor_values": {
+    "smooth_top": "1/48",
+    "pqr": "4",
+    "smooth_point_curve": "-1729",
+    "p3_minus_q3": "16",
+    "q3_minus_r3": "-7",
+    "r3_minus_p3": "-9",
+    "third_iterate_factor": "193"
+  },
+  "scope": "exact polynomial identities and nonempty-open witness only"
+}
