@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v8。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1.6・§5）、`papers/sections/koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v14）。
+2026-11-19 / research-plan-v9。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1.7・§1.6・§5）、`papers/sections/jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v15）。
 
 ## 最優先の判断基準
 
@@ -8,10 +8,10 @@
 
 ## 直近の優先順位
 
-1. **一般17係数族の代数的部分モジュライ。** 明示Δ開上の相対Serreと全O保存同値比較は完成した。Isomは二次・三次関係を保つPGL5の有限表示閉部分スキームである。次はPGL5×17係数sliceの像を調べ、源・標的射のflatness/smoothnessを確認して部分モジュライを構成する。全Mのatlas・成分は先取りしない。
-2. **一般族のdg smooth開。** Compact圏のproper性とS≅(−2)[3]は任意係数で証明済み。Smoothnessは別の対角perfect性の問題として扱う。有限中心・有限位数性を一般族へ転用しない。
+1. **一般Jacobian部分モジュライのdg smooth開。** 17次元DM stack C_Jと13次元DM stack B_J、相対A4 torsorと全Mへの完全忠実性は構成した。次はatlas上の五線compact generatorのdg自己準同型代数の対角から、各圏のdg smoothな非空開を示す。パラメータstackのsmooth性からは従わない。
+2. **全Mとの局所比較と残余有限群。** 既存の全Hom比較は持上げの存在を保証しない。一般の非可換点の全Artin Abel変形との比較で、全M内の開性・局所閉性・成分性を検討する。有限stabilizerの具体化と有限残余同一視を扱う。有限対角・分離性は未証明。
 3. **完了範囲を保持する。** 可換点の全stack化後のframed形式群oid≃Spf R_X、一般族の普遍PBW/CY・全Hom比較、固定剛体ambientの全A4 monomorphismは各々明示した範囲で完成。元の有限Tor版C3とcompact版を区別する。
-4. 公表単位と初出を照合する。新しい二節はMori–Smith/BT/EG/Keller/Keeler等の既知入力と直接の相対証明を組み合わせる。相対構成の初出は未確認。既存B_*のPBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
+4. 公表単位と初出を照合する。相対双対・全Hom比較と代数的部分モジュライはMori–Smith/BT/EG/Keller/Keeler/Stacks Project等の既知入力を組み合わせる。相対構成の初出は未確認。既存B_*のPBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
 5. actual residual map、7方向の接合データ、Oの内在認識を進める。直接的な次数三判定・平方零消滅も保持し、一次障害式を高次へ無補正で反復しない。
 
 H3三次曲面分類は `uedakazushi/nc-cubic-classification` の独立課題。
@@ -24,7 +24,9 @@ O-markedは豊富列の存在を要求し選択を忘れ、射にはOを保つ�
 
 DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同型で割った1群oidの規約で述べ、未切断2-groupoidには拡張しない。滑らかな可換三次点では全Abel Artin変形が相対AS三次incidenceの本質像に入り、同型類関手は17次元・接空間20の環で表される。CFTの構成とYekutieliの既知比較を明示する。各Artin模型は任意の係数変更後にも飽和・復元・相対AS条件を満たす。標準係数族と全Abel変形群oidは同値。固定圏の対象・射の降下と圏の族自体の有効降下は別である。滑らかな可換点のframed Artin近傍については、元のArtin基底でDDLを適用し、1+mのscalar cocycleを対数とAmitsurで消してHom・合成を降下することで大域模型を得た。二次関係と三次勾配の正則列による導分計算からframed自己同値の自然同型類も自明であり、全形式群oidは離散なSpf R_Xとなる。有限Aut(X)の商、非切断2群oid、一般の非可換点、大域代数性へ拡張しない。
 
-一般17係数族の明示Δ開では、有限Koszul対角解消と真正なCY同型を全係数環で構成した。A側のtorsion双対をdg局所化の両側へ移してSerreを得る。偶数Gabriel右随伴により、全S上で実際の完全Abel同値を復元する。Isomの有限表示は既知模型間の主張であり、全Mの代数性は未確定。
+一般17係数族の明示Δ開では、有限Koszul対角解消と真正なCY同型を全係数環で構成した。A側のtorsion双対をdg局所化の両側へ移してSerreを得る。偶数Gabriel右随伴により、全S上で実際の完全Abel同値を復元する。有限表示Isomに加えて、PGL5×T_B→Q113のétale locusの飽和Yと中心三次直線Jを用い、[J/PGL5]という有限型17次元DM全部分stackを構成した。全Mの代数性やその中での開性・局所閉性・成分性は未確定。
+
+中心束U,E,LにはGLの中心重みがあり、そのままPGL商上の通常の束としない。Hom(L,Sym³U)は重み0で降下し、C_J→B_Jはそのtorsorである。O(1)、無捩れなSerre式、大域的な原点の降下は未証明。周囲の同定付き2-fiberと、同型類だけを固定した有限自己同型商を区別する。B_Jはprojectively gradedなambient問題であり、ambientの全O保存Abel同値を分類したとはしない。
 
 四係数族の全体で使う内在的圏は非有界導来圏のcompact対象である。元の有限係数Tor部分圏との一致は非空正則開上の別結果。monomorphismは開埋込み・成分性・atlasではない。相対双対の初期基底変更はambient導来圏で扱い、振幅集中とflatnessを得てから真正な双加群同型へ移る。
 

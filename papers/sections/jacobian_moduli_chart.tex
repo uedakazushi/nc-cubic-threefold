@@ -1,0 +1,533 @@
+\section{Jacobian 型 Abel 圏の代数的部分モジュライ}
+\label{sec:jacobian-algebraic-chart}
+
+本節では、前節の任意係数上の全同値比較を用いて、
+実際の有限型 Deligne--Mumford stack を構成する。
+十三係数 ambient の飽和開を先に作り、
+その上の中心三次直線を階数四のベクトル束の torsor として扱う。
+商 stack・étale atlas・アフィン降下の一般論は既知の結果であり、
+本節の対象はその具体的な Jacobian 族への適用と、全 Abel 同値との一致である。
+
+\subsection{同変な飽和写像からの étale atlas}
+
+以下の補題は、有限な同型層の方程式に加えて、実際の atlas を作るために用いる。
+商 stack の代数性は既知の定理を使い、必要な étale 被覆をここで具体的に構成する。
+
+\begin{lemma}[等次元な同変飽和写像]
+\label{lem:equivariant-etale-saturation}
+$k$ を標数零の体、$G$ を滑らかな幾何学的整な有限型アフィン群、
+$T$ を滑らかな幾何学的整な有限型 $k$-スキーム、$Z$ を整な有限型 $k$-スキームとする。
+$G$ は $Z$ に作用し、写像 $j:T\to Z$ による
+\[
+ a:G\times T\longrightarrow Z,\qquad(g,t)\longmapsto g\cdot j(t)
+\]
+が支配的で、$\dim Z=\dim G+\dim T$ と仮定する。
+$a$ の étale locus を $E$、単位切断 $T\to G\times T$ によるその逆像を $T^e$ と置く。
+このとき $T^e$ は非空開部分であり、
+\[
+ E=G\times T^e,\qquad Y=a(E)
+\]
+となる。$Y$ は非空な $G$-不変開部分で、$a:E\to Y$ は étale 全射である。
+従って
+\[
+ T^e\longrightarrow[Y/G]
+\]
+は étale 全射 atlas であり、$[Y/G]$ は滑らかな $\dim T$ 次元の
+既約 Deligne--Mumford stack である。
+$Z$ が分離的なら、その対角はアフィンかつ有限表示である。
+\end{lemma}
+
+\begin{proof}
+等次元性から $k(Z)\subset k(G\times T)$ は有限拡大であり、標数零なので分離的である。
+源の一般点では局所環の写像はこの体の拡大そのものであり、平坦で、
+相対微分加群は零である。射は局所有限表示なので、
+étale 判定\cite[Lemma~29.37.15]{StacksAlgebraicChart}により一般点で étale となる。
+従ってその étale locus $E$ は非空開部分である。
+
+$G$ の左移動と $Z$ の作用は $a$ と可換する。
+étale locus の平坦底変更との両立\cite[Lemma~29.37.17]{StacksAlgebraicChart}を $G\to\operatorname{Spec}k$ に適用し、
+$G\times G\times T$ と $G\times Z$ 上の移動同型を用いれば、
+$E$ は群スキームの作用について $G$-不変である。
+この不変な開部分を単位切断へ引き戻してから再び移動すると
+$E=G\times T^e$ を得る。
+これは $k$-点だけについての不変性ではなく、開部分スキームの等式である。
+
+étale 射は開写像\cite[Lemma~29.37.13]{StacksAlgebraicChart}なので、$Y=a(E)$ は開部分である。
+同変性により $Y$ は $G$-不変であり、$E\to Y$ は étale 全射となる。
+$G$ は滑らかなので、作用群oidの二射影は滑らかかつ有限表示であり、
+商 $[Y/G]$ は代数的 stack である
+\cite[Theorem~97.17.2]{StacksAlgebraicChart}。
+$Y\to[Y/G]$ による $T^e\to[Y/G]$ の底変更は
+\[
+ G\times T^e\longrightarrow Y
+\]
+そのものである。従って $T^e\to[Y/G]$ は étale 全射である。
+これで Deligne--Mumford 性を得る
+\cite[Theorem~101.21.6]{StacksAlgebraicChart}。
+$T^e$ が滑らかで次元 $\dim T$ であるため、商も同じ次元で滑らかであり、
+$Y$ の既約性から商の既約性も従う。
+
+最後に $Z$ が分離的なら $Y$ も分離的である。
+商の対角を $Y\times Y$ へ引き戻すと
+\[
+ G\times Y\longrightarrow Y\times Y,\qquad(g,y)\longmapsto(y,gy)
+\]
+となる。この写像は $G\times Y\times Y$ 内の閉グラフを経由し、
+$G$ がアフィン有限型なのでアフィンかつ有限表示である。
+この性質を忠実平坦降下して対角の主張を得る。
+対角の proper 性や商の分離性は、この議論からは主張しない。
+\end{proof}
+
+\begin{proposition}[Jacobian 周囲の具体的な étale atlas]
+\label{prop:jacobian-ambient-etale-chart}
+$G=\operatorname{PGL}(V)$、$V=\C^5$ とする。
+式\eqref{eq:general17-coefficient-ring}から四つの $g_j$ を除いた基底を
+\[
+ T_B=\operatorname{Spec}
+ \C[a,b,\Delta^{-1}][\alpha,\beta,(m_{ij})]
+\]
+とし、二次関係を記録する写像を $j_B:T_B\to Q_{113}$ と書く。
+$Q_{113}$ は命題\ref{prop:quantum-113-component}の graph 像に被約構造を入れたものとする。
+作用写像
+\[
+ a_B:G\times T_B\longrightarrow Q_{113}
+\]
+に前補題を適用できる。
+従って $T_B$ の非空開 $T_B^e$ と $Q_{113}$ の非空 $G$-不変開 $Y$ が得られ、
+\[
+ G\times T_B^e\longrightarrow Y,\qquad
+ T_B^e\longrightarrow\mathfrak B_{\mathrm J}:=[Y/G]
+\]
+はそれぞれ étale 全射および étale 全射 atlas である。
+$\mathfrak B_{\mathrm J}$ は滑らかな既約十三次元 Deligne--Mumford stack である。
+さらに $T_B^e$ は次の有理点 $t_0$ を含む：
+\[
+ (a,b,\alpha,\beta)=(3,5,2,3),\qquad
+ (m_{ij})=
+ \begin{pmatrix}1&1&2\\2&3&1\\1&4&5\end{pmatrix}.
+\]
+\end{proposition}
+
+\begin{proof}
+分解 $V^{\otimes2}=\wedge^2V\oplus\operatorname{Sym}^2V$ は線型変換と両立するので、
+その graph chart と $Q_{113}$ は $G$-不変である。
+次数二の関係部分束は命題\ref{prop:general17-universal-pbw}により任意の底変更に両立するため、
+$j_B$ はスキームの射である。
+定理\ref{thm:17}の十三係数横断性と、$Q_{113}$ の三十七次元性から、
+$a_B$ は支配的である。
+$\dim G+\dim T_B=24+13=37$ なので、前補題を適用できる。
+この適用では $Q_{113}$ の graph 表示と次元を用いるだけであり、
+Pym の形式的・解析的な成分比較を atlas の存在の入力にはしていない。
+
+指定した点での非空性も直接検証できる。
+$t_0$ の式は \eqref{eq:rat113-test-F} の $F_*$ であり、
+$\Delta$ の七因子の値は
+\[
+2562,\quad-378,\quad-237100440304,\quad316,\quad5489,\quad-5805,\quad31963501
+\]
+となる。従って $t_0\in T_B$ である。
+
+二次 bivector の百五十係数を座標とする。
+$\operatorname{GL}_5$ の二十五方向と十三係数 slice の微分を合わせた行列を $D$ とすると、
+$D$ は $150\times38$ の整数行列である。
+$E_{ab}$ が変数 $x_b$ を $x_a$ へ送る規約で、軌道方向の成分は
+\[
+ (D_{ab}\Pi)_{ij}
+ =x_a\partial_b\Pi_{ij}
+  -\delta_{ib}\Pi_{aj}-\delta_{jb}\Pi_{ia}
+\]
+となる。五つの対角方向の和は整数上で零である。
+\nolinkurl{computations/verify_jacobian_etale_point.py}は、
+\nolinkurl{computations/jacobian_etale_point_certificate.json}で指定した
+三十七次小行列式について
+\[
+ \det D_{37}\equiv127524\pmod{1000003}
+\]
+を与える。従って $\operatorname{rank}_{\mathbb Q}D=37$ であり、
+核はちょうど上記の同時スカラー一方向である。
+
+全 Jacobi・発散方程式の微分を $M$ とすると、同じコードは
+$M D=0$ を整数上で確認し、既存の $113$ 次小行列式
+\eqref{eq:rat113-minor-certificates}も再現する。
+従って $\dim\ker M=150-113=37$ である。
+$Q_{113}$ の次元は三十七で、その接空間は $\ker M$ に含まれるので、
+$j_B(t_0)$ は $Q_{113}$ の滑らかな点である。
+$\operatorname{PGL}_5$ へ移るとスカラー核が除かれ、
+$(1,t_0)$ における $d a_B$ は接空間の同型となる。
+源・標的がこの点で滑らかかつ同次元であるため、Jacobian 判定により
+$a_B$ は $(1,t_0)$ で étale である。
+従って $t_0\in T_B^e$ を得る。
+ここで有限体を用いたのは整数行列式の非零判定だけであり、
+積零とスカラー核は整数上の恒等式として確認している。
+\end{proof}
+
+\subsection{周囲の普遍的な低次数中心}
+
+三次式の四つの定数係数を除いた基底を
+\[
+ P_B=\C[a,b,\Delta^{-1}]
+       [\alpha,\beta,(m_{ij})_{1\leq i\leq3,\,0\leq j\leq2}],
+ \qquad T_B=\operatorname{Spec}P_B
+\]
+と書く。$B$ の関係は $g(u,v)$ に依存しない。
+命題\ref{prop:general17-universal-pbw}で選んだ中心三次元を
+$\mathcal G\in B_3$ とし、$U=P_Bu\oplus P_Bv$ と置く。
+
+\begin{proposition}[中心一次・三次束の普遍性]
+\label{prop:general13-universal-centers}
+任意の可換 $P_B$-代数 $S$ に対し、
+\begin{equation}\label{eq:general13-universal-centers}
+ Z(B_S)_1=Su\oplus Sv,
+ \qquad
+ Z(B_S)_3=S\mathcal G\oplus\operatorname{Sym}^3_S(Su\oplus Sv)
+\end{equation}
+である。これらは $(B_S)_1,(B_S)_3$ の直和因子であり、
+形成は任意の係数変更と可換する。
+\end{proposition}
+
+\begin{proof}
+まず複素閉点上で計算する。
+補題\ref{lem:general17-relative-elliptic-boundary}により
+楕円境界の $\sigma,\sigma^2,\sigma^3$ は恒等でない。
+従って twisted homogeneous coordinate algebra $H$ の
+次数一、二、三の中心は零である。
+完全列\eqref{eq:general17-elliptic-quotient}より
+\[
+ Z(\mathscr S)_1=Z(\mathscr S)_2=0,
+ \qquad Z(\mathscr S)_3=k\Omega.
+\]
+最後の等式では、中心元の $H$ への像が中心であることと、
+$\ker(\mathscr S_3\to H_3)=k\Omega$ を用いた。
+
+$B$ の active 濾過の associated graded は
+$\mathscr S\otimes k[u,v]$ である。
+次数一の中心元の active 次数が正なら、その最高記号は
+$Z(\mathscr S)_1$ に属するので零となり、矛盾する。
+従って $Z(B)_1=ku\oplus kv$ である。
+次数三の中心元では、active 次数三の最高記号は $k\Omega$ に属する。
+対応する $\mathcal G$ のスカラー倍を引けば active 次数は二以下となる。
+次いで $Z(\mathscr S)_2=Z(\mathscr S)_1=0$ により
+active 次数を順に零まで下げられるので、残りは $k[u,v]_3$ に属する。
+この議論で必要なのは次数三までの中心であり、全中心の記述ではない。
+
+次に任意係数への普遍性を示す。
+PBW 分裂と
+$\mathscr S_3/P_0\Omega\simeq H_3$ の有限射影性により、
+\[
+ E_1=U\subset B_1,
+ \qquad E_3=P_B\mathcal G\oplus\operatorname{Sym}^3U\subset B_3
+\]
+は有限局所自由な直和因子である。
+実際、$E_3$ の active 零部分は $P_B[u,v]_3$ 全体であり、
+active 三部分では直和因子 $P_B\Omega$ を持つ。
+$B_3/E_3$ の残る濾過商は有限射影なので、この商自体も有限射影である。
+
+$E_d$ は中心なので、$d=1,3$ について交換子写像は
+\[
+ \overline\delta_d:B_d/E_d\longrightarrow B_{d+1}^{\oplus3},
+ \qquad \overline c\longmapsto([c,x],[c,y],[c,z])
+\]
+を誘導する。$u,v$ は中心なので、三つの交換子で十分である。
+この写像は前段の計算により全複素閉点で単射である。
+$P_B$ は有限型 $\C$-代数の局所化であり Jacobson なので、
+各点の近傍で最大階数の小行列式が可逆となる。
+従って $\overline\delta_d$ は局所的に分裂単射である。
+この単射性は任意の、非平坦な係数変更後にも保たれ、
+\eqref{eq:general13-universal-centers}を得る。
+\end{proof}
+
+命題\ref{prop:jacobian-ambient-etale-chart}で構成した
+$G=\operatorname{PGL}(V)$-不変開集合 $Y$ と、その étale 全射
+\[
+ G\times T_B^e\longrightarrow Y
+\]
+を用いる。$Y$ 上の普遍関係部分束を $R\subset V^{\otimes2}\otimes\mathcal O_Y$ とし、
+$\mathcal B=T(V\otimes\mathcal O_Y)/(R)$ と置く。
+$G$ の元を $\operatorname{GL}(V)$ へ持ち上げる fpqc 被覆上では、
+$\mathcal B$ は上の $B$ の係数変更と同型である。
+従って各 $\mathcal B_d$ は有限局所自由であり、
+命題\ref{prop:general13-universal-centers}と忠実平坦降下により
+\[
+ \mathcal U=Z(\mathcal B)_1,
+ \qquad \mathcal E=Z(\mathcal B)_3,
+ \qquad \mathcal W=\operatorname{Sym}^3\mathcal U\subset\mathcal E
+\]
+はそれぞれ階数二、五、四の部分束となる。
+これらの中心の形成は $Y$ 上の任意の基底変更と可換する。
+ここでは核の普遍性を fpqc 被覆上の分裂単射により確認しており、
+幾何ファイバーの次元だけから非被約な底への結論を出していない。
+商 $\mathcal L=\mathcal E/\mathcal W$ は可逆層である。
+
+\subsection{中心三次直線のアフィン四次元 torsor}
+
+\begin{lemma}[射影超平面の補集合と分裂の torsor]
+\label{lem:central-cubic-splitting-torsor}
+任意のスキーム $Y$ 上の有限局所自由層の完全列
+\[
+ 0\longrightarrow\mathcal W\longrightarrow\mathcal E
+   \xrightarrow{q}\mathcal L\longrightarrow0
+\]
+を考え、$\mathcal L$ の階数を一とする。
+$\PP_Y(\mathcal E)$ は一次元部分束を表す規約とし、
+\[
+ J=\PP_Y(\mathcal E)\setminus\PP_Y(\mathcal W),
+ \qquad \mathcal V_4=\mathcal Hom_Y(\mathcal L,\mathcal W)
+\]
+と置く。$\mathcal W$ の階数が四なら、$J$ は
+階数四のベクトル束 $\mathcal V_4$ の加法群の torsor である。
+この同定は任意の底変更に自然であり、
+$J\to Y$ はアフィン、滑らか、全射で、相対次元四である。
+\end{lemma}
+
+\begin{proof}
+$Y$-スキーム $S$ に対して $J(S)$ は、
+直線部分束 $N\subset\mathcal E_S$ であって、
+$q|_N:N\to\mathcal L_S$ が各ファイバーで非零となるものからなる。
+可逆層間のこの写像は同型である。
+従って $N$ は一意な右逆射
+$s:\mathcal L_S\to\mathcal E_S$、$q\circ s=1$ の像となる。
+逆に右逆射の像は直線直和因子であり、$J(S)$ の点を与える。
+よって $J$ は $q$ の分裂の層を表す。
+
+二つの分裂の差は一意に
+$\mathcal Hom_S(\mathcal L_S,\mathcal W_S)$ の切断であり、
+$\mathcal V_4$ は分裂の層に自由かつ推移的に作用する。
+局所自由層の列は Zariski 局所で分裂するので、
+$J$ は局所的に $\mathbb A^4_Y$ に同型である。
+特に主張した射の性質が従う。
+分裂を一つ選ばない限り、$J$ 自体を零切断付きベクトル束とは同一視しない。
+\end{proof}
+
+上で得た中心束の列にこの補題を適用する。
+$T_B^e$ 上では Rains の規格化された中心元 $\mathcal G$ が分裂を与えるので、
+\begin{equation}\label{eq:jacobian-cubic-chart-pullback}
+ J\times_Y T_B^e\simeq T_B^e\times\mathbb A^4,
+ \qquad
+ (t,g_0,g_1,g_2,g_3)\longmapsto
+ [\mathcal G_t+\textstyle\sum_{j=0}^3g_j u^{3-j}v^j].
+\end{equation}
+これは体値の点の対応ではなく、分裂の関手の同型である。
+特に任意の非被約基底も含む。
+$J$ 上の普遍直線部分束で $\mathcal B$ を割って得る三次商は、
+この被覆上で既存の十七係数族と一致する。
+その次数ごとの平坦性と許容性は
+命題\ref{prop:general17-universal-pbw}および
+命題\ref{prop:general17-abel-admissible}により供給される。
+
+\begin{proposition}[代数的周囲への相対アフィン四次元射]
+\label{prop:jacobian-affine-four-morphism}
+上の $Y$、$J$ と $G=\operatorname{PGL}(V)$ に対して、
+\[
+ \mathfrak B_{\mathrm J}=[Y/G],\qquad
+ \mathfrak C_{\mathrm J}=[J/G]
+\]
+と置く。自然な射
+\begin{equation}\label{eq:jacobian-affine-four-stack-map}
+ \mathfrak C_{\mathrm J}\longrightarrow\mathfrak B_{\mathrm J}
+\end{equation}
+は階数四のベクトル束の加法群の torsor であり、
+スキームで表現可能、アフィン、滑らか、全射で、相対次元四である。
+$T_B^e\times\mathbb A^4\to\mathfrak C_{\mathrm J}$ は étale 全射 atlas であり、
+$\mathfrak C_{\mathrm J}$ は滑らかな十七次元 Deligne--Mumford stack である。
+\end{proposition}
+
+\begin{proof}
+まず線型化の重みを確認する。
+$\mathcal B_d$ には自然な $\operatorname{GL}(V)$-線型化があり、
+中心スカラー $\lambda I$ は $\lambda^d$ として作用する。
+従って $\mathcal U,\mathcal W,\mathcal E,\mathcal L$ の中心重みは
+それぞれ $1,3,3,3$ である。
+$\mathcal U$ や $\mathcal E$ 自体を
+$[Y/\operatorname{PGL}(V)]$ 上の通常のベクトル束として降下させてはいない。
+
+一方、$\mathcal V_4=\mathcal Hom(\mathcal L,\mathcal W)$ の中心重みは零である。
+$\operatorname{GL}(V)\to G$ が fpqc $\mathbb G_m$-torsor であることから、
+その作用写像と線型化は $G$ へ降下する。
+$J$ の点は $\mathcal E$ 内の直線なので、中心スカラーは $J$ にも自明に作用し、
+$J$ には $G$-作用がある。
+前補題の加法作用と torsor 同型は $\operatorname{GL}(V)$-同変であるから
+$G$-同変となる。
+
+従って $\mathcal V_4$ は $\mathfrak B_{\mathrm J}$ 上の階数四のベクトル束
+$\overline{\mathcal V}_4$ を定め、$[J/G]$ はその加法群の torsor となる。
+より具体的に、$S\to\mathfrak B_{\mathrm J}$ を
+$G$-torsor $P\to S$ と $G$-同変写像 $P\to Y$ で表示する。
+その上の2-ファイバー積は
+$P\times_YJ$ の $G$-同変な降下である。
+$P\times_YJ\to P$ はアフィンなので、fpqc アフィン降下によって
+$S$ 上のアフィンスキームを与える。
+同時に $\mathcal V_4$ とその作用も降下し、
+このアフィンスキームが $\overline{\mathcal V}_{4,S}$ の torsor であると分かる。
+これで表現可能性、アフィン性、滑らかさ、全射性、相対次元を得る。
+商 stack の torsor 表示とアフィン降下については
+\cite[Section~95.15 and Lemma~35.37.1]{StacksAlgebraicChart}を参照する。
+
+$T_B^e\to\mathfrak B_{\mathrm J}$ の底変更を取ると
+\eqref{eq:jacobian-cubic-chart-pullback}になる。
+前者は命題\ref{prop:jacobian-ambient-etale-chart}の étale 全射 atlas なので、
+$T_B^e\times\mathbb A^4\to\mathfrak C_{\mathrm J}$ も étale 全射である。
+これは滑らかな十七次元スキームからの atlas であり、
+$\mathfrak C_{\mathrm J}$ の smooth 性、Deligne--Mumford 性、次元十七が従う。
+\end{proof}
+
+\begin{remark}[ファイバーと標識の範囲]
+周囲 $B$ とその同定を固定した幾何学的2-ファイバーは
+$J_B$ であり、中心三次元を一つ選べば $\mathbb A^4$ となる。
+周囲の同型類だけを固定して同定を忘れた同型類の集合には、
+有限群 $\operatorname{Aut}_{\mathrm{gr}}(B)/\mathbb G_m$ の作用が残り得る。
+この有限群が自明であるとは主張しない。
+
+$\mathfrak B_{\mathrm J}$ は周囲の\emph{次数付き}代数を射影的な生成元変換で比較する stack である。
+周囲の全ての $\mathcal O$-保存 Abel 圏同値を分類する、という追加主張は含まない。
+また、この命題の smooth 性はパラメータ stack の smooth 性であり、
+三次商の各 compact 導来圏の dg smooth 性とは異なる。
+\end{remark}
+
+\subsection{有限な関係窓による三次族の表示}
+
+\begin{lemma}[中心三次直線の関係窓への埋込み]
+\label{lem:jacobian-relation-window-immersion}
+命題\ref{prop:jacobian-affine-four-morphism}の $J\to Y$ に対して、
+商 $A$ の二次・三次関係を取る写像
+\[
+ \iota:J\longrightarrow
+ X:=\operatorname{Gr}(10,V^{\otimes2})
+       \times\operatorname{Gr}(91,V^{\otimes3})
+\]
+は $G$-同変な局所閉埋込みである。
+ここで Grassmannian は指定した階数の部分束を表す規約である。
+この記述は任意の係数環上の点について成立する。
+\end{lemma}
+
+\begin{proof}
+$Y$ 上の二次関係部分束を $R$、その二次代数を $\mathcal B$ とする。
+$\mathcal B_3$ は階数三十五の局所自由層なので、
+\[
+ K_3=\ker(V^{\otimes3}\otimes\mathcal O_Y\to\mathcal B_3)
+\]
+は階数九十の部分束である。
+これは $V\otimes R+R\otimes V$ の像である。
+$\mathcal B_3$ 内の直線部分束 $N$ を取ることは、
+$K_3$ を含む階数九十一の部分束 $I_3\subset V^{\otimes3}\otimes\mathcal O_Y$ を取ることと同値である。
+この対応は $I_3$ を $N$ の逆像、$N$ を $I_3/K_3$ とするものであり、
+任意の基底変更に両立する。
+従って $\PP_Y(\mathcal B_3)$ は、第二の Grassmannian の $Y$ への引戻しの中で、
+$K_3$ を含むという閉条件により表示される。
+
+中心束 $\mathcal E\subset\mathcal B_3$ は部分束なので、
+$\PP_Y(\mathcal E)$ は $\PP_Y(\mathcal B_3)$ の閉部分である。
+$J$ はそこから $\PP_Y(\mathcal W)$ を除いた開部分である。
+$Y$ 自体も第一の Grassmannian の局所閉部分であるから、主張の局所閉埋込みを得る。
+全ての操作は線型変換と両立し、中心スカラーは部分束に自明に作用するため、
+$\iota$ は $G$-同変である。
+\end{proof}
+
+\subsection{代数的な部分モジュライと全 Abel 同値}
+
+\begin{theorem}[Jacobian 型の代数的 Abel 圏部分モジュライ]
+\label{thm:jacobian-algebraic-abel-substack}
+命題\ref{prop:jacobian-affine-four-morphism}の滑らかな十七次元
+Deligne--Mumford stack $\mathfrak C_{\mathrm J}=[J/G]$ から、自然な射
+\begin{equation}\label{eq:jacobian-abel-fully-faithful}
+ \mathfrak C_{\mathrm J}\longrightarrow
+ \mathfrak M^{\mathcal O}_{\mathrm{cub}}
+\end{equation}
+がある。この射は任意の係数環上で完全忠実である。
+その本質像は、fpqc 局所で
+$T_B^e\times\mathbb A^4$ 上の十七係数族の引戻しに同値となる対象からなる全部分 stack である。
+特にこの全部分 stack は、有限型の代数的 Deligne--Mumford stack として表される。
+その対角はアフィン、有限表示かつ非分岐である。
+
+二次包絡への射は、この同定の下で
+\[
+ \mathfrak C_{\mathrm J}\longrightarrow\mathfrak B_{\mathrm J}
+\]
+という相対アフィン四次元 torsor に一致する。
+この主張は周囲を次数スカラーを除いた次数付き同型で比較するものである。
+\end{theorem}
+
+\begin{proof}
+$J$ 上には普遍中心直線部分束
+$\mathcal N\subset\mathcal B_3|_J$ があり、
+\[
+ \mathcal A=T(V\otimes\mathcal O_J)/(R,\widetilde{\mathcal N})
+\]
+を得る。ここで $\widetilde{\mathcal N}$ は三次語の加群における逆像であり、
+表示は $\mathcal B/(\mathcal N)$ と同じ意味である。
+$G\times T_B^e\to Y$ と、さらに
+$\operatorname{GL}(V)\to G$ による fpqc 被覆の上では、
+この代数は既存の十七係数族の引戻しに次数付き同型となる。
+従って命題\ref{prop:general17-universal-pbw}と
+\ref{prop:general17-abel-admissible}による平坦性と許容性を持ち、
+$J\to\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ が定まる。
+普遍的な $G$ の元を大域的に $\operatorname{GL}(V)$ へ持ち上げたとは仮定していない。
+
+この射の $G$-同変性を構成する。
+$g\in G(S)$ は fpqc 局所で $\widetilde g\in\operatorname{GL}(V)(S)$ に持ち上がる。
+その持上げは代数の構造移送により、構造対象の同定を備える完全 Abel 同値を与える。
+二つの持上げは次数スカラー $\varepsilon_\lambda$ だけ異なる。
+右次数付き加群に対する構造移送を
+$F_{\varepsilon_\lambda}(M)=M\otimes_{A,\varepsilon_\lambda}A$ と書くと、
+\[
+ m_d\otimes b\longmapsto\lambda^d m_db
+\]
+は $F_{\varepsilon_\lambda}(M)\to M$ の自然な次数付き同型である。
+この写像は $M=A$ のとき標準の構造対象の同定に一致し、
+$\lambda\mu$ に関する合成も保つ。
+従って持上げの差は標識付き自然同型で消える。
+
+定理\ref{thm:general-relative-pointed-hom}により、構造対象上で恒等な自然自己同型は自明である。
+従ってこれらの標識付き自然同型は一意であり、三重・四重交叉上の整合性も従う。
+同型類を射とする現在の $1$-stack の規約では、
+$G\times J$ 上の同変同型は合成に関する cocycle 条件を満たす。
+商 stack の torsor 表示と stack 化の普遍性
+\cite[Section~95.15]{StacksAlgebraicChart}から
+\eqref{eq:jacobian-abel-fully-faithful}を得る。
+この操作は $G$-torsor が大域的に $\operatorname{GL}_5$-torsorへ持ち上がることや、
+降下後の対象が大域的な次数付き代数で表示されることを要求しない。
+
+完全忠実性を示す。
+$S$ 上の二点 $x,x':S\to J$ に対し、商 stack の同型層は transporter
+\[
+ \{g\in G_S:g\cdot x=x'\}
+\]
+である。前補題の関係窓の復元により、これは
+$\underline{\operatorname{Isom}}_{\mathrm{gr}}(A_x,A_{x'})/\mathbb G_m$ に等しい。
+この同定は三次直線を関係部分束の商として復元するので、非被約な $S$ にも成立する。
+一方、両対象を同時に fpqc 局所化して十七係数模型へ戻せば、
+定理\ref{thm:general-relative-pointed-hom}により、この層は全ての
+$\mathcal O$-保存 Abel 圏同値の層と一致する。
+固定模型の Hom 降下も同定されているため、局所的な一致は元の $S$ 上へ降下する。
+任意の $\mathfrak C_{\mathrm J}$ の二対象も fpqc 局所で $J$ 上の対象に戻るので、
+全ての対象間の完全忠実性が従う。
+
+本質像の記述では、$T_B^e\times\mathbb A^4$ が
+$\mathfrak C_{\mathrm J}$ の étale 全射 atlas であることを用いる。
+この atlas の模型へ fpqc 局所的に同値な対象には、
+完全忠実性により一意な同型降下データが持ち上がる。
+$\mathfrak C_{\mathrm J}$ 自体が stack であるため、このデータは有効である。
+よって記述した本質像は全部分 stack となる。
+
+対角のアフィン性と有限表示性は、$J$ が分離有限型であることと
+$G$ のアフィン性から、補題\ref{lem:equivariant-etale-saturation}の対角の議論と同様に得る。
+非分岐性は Deligne--Mumford 性による。
+最後に二次包絡は二次関係部分束だけから復元され、三次核は $I_3/K_3$ である。
+従って全同値に自然な二次包絡射は、構成した $[J/G]\to[Y/G]$ と一致する。
+\end{proof}
+
+\begin{remark}[大域降下と主張の境界]
+この定理は、指定した全部分問題について有限型の atlas を構成する。
+全 $\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ の代数性、
+その中での開埋込み・局所閉埋込み・成分性は結論していない。
+像の条件は\emph{族が fpqc 局所で模型へ戻ること}であり、
+各幾何ファイバーの同型類だけについての条件ではない。
+一方、補題\ref{lem:jacobian-relation-window-immersion}により、
+有限な関係窓の商 $[X/G]$ の中では局所閉部分 stack として表示できる。
+
+$\mathcal O$ は標識付き同値により降下するが、
+$\mathcal O(1)$ や次数一の shift が大域的に降下するとは主張しない。
+相対 Serre 関手の $(-2)[3]$ という表示は指定した étale atlas 上のものであり、
+中心重みや基底線束の問題を無視して全商上へ同じ表示を付けない。
+また、パラメータ stack の smooth 性は、各三次圏の dg smooth 性と別である。
+幾何学的 stabilizer は有限であるが、自明性・商の分離性・対角の有限性は未証明である。
+\end{remark}

@@ -1,8 +1,8 @@
 {
   "date": "2026-11-19",
-  "version": "research-plan-v8",
-  "scope": "Universal relative Serre duality from a finite projective Koszul diagonal and an actual relative CY5 orientation; all hypotheses supplied on an explicit nonempty open of the general17 Jacobian family. All exact O-marked Abelian equivalences over arbitrary coefficient rings equal the fpqc grading-scalar quotient of graded isomorphisms; finite equations in PGL5, dimension17 variation, and compatibility with the quadratic-envelope map. Retained formal-completion and four-parameter results remain in force in their stated scopes.",
-  "reviewed_repository_commit": "48a1e3ecafa491a0cf93a69f973eeb88863bc681",
+  "version": "research-plan-v9",
+  "scope": "Constructed the actual smooth finite-type 17-dimensional DM stack C_J=[J/PGL5], fully faithfully mapping to the fpqc stack of O-marked cubic Abelian categories over arbitrary coefficient rings. The smooth 13-dimensional ambient stack B_J=[Y/PGL5] has an explicit etale atlas obtained from the action-plus-slice map. C_J→B_J is a rank-four vector-bundle torsor, representable by schemes, affine, smooth and surjective. Universal degree-one/three centers, scalar coherence and finite relation-window comparison are proved. Full-stack algebraicity/openness/componenthood, dg smoothness, separatedness and finite diagonal remain unproved.",
+  "reviewed_repository_commit": "a9baf7b836fd43205cf531e3df316ba9944e0e74",
   "reference_commits": {
     "poisson-p4": "f118dfbfc5bb9b7a394d1985b4800b6228eebaf6",
     "nc-cubic": "aca196334df7d8acc32574e3cb166fc8e1ea6cba",
@@ -11,7 +11,7 @@
   "full_mathematical_audit": false,
   "manuscript_changed": true,
   "review": {
-    "definition": "All exact O-preserving equivalences are retained. The full fpqc-stackified framed Artin completion at a smooth cubic is now equivalent to all flat Abelian deformations; nonnoetherian covers are handled in big QGr using the original Artin coefficient map. This does not assert general category 2-descent or a finite-type atlas.",
+    "definition": "All exact O-preserving equivalences are retained. The full fpqc-stackified framed Artin completion at a smooth cubic is now equivalent to all flat Abelian deformations; nonnoetherian covers are handled in big QGr using the original Artin coefficient map. This does not assert general category 2-descent or a finite-type atlas for the full moduli problem. The Jacobian full substack has a separately constructed finite-type etale atlas.",
     "relative_veronese": "Complete proof checked, including universal polynomial embedding, Cech intersection from P-flatness, nonreduced-base conic lifting, mu2 Isom torsor, grading-scalar sheaf quotient, and H1 versus H2 descent. An independent reading found no substantive error; section reconstruction on the conic was made explicit.",
     "pointed_hom": "Original C1-C4 and finite-central compact versions retained. The general finite-Koszul version supplies proper compact Serre duality and reconstructs all exact O-preserving Abelian equivalences over every commutative C-algebra, using full-integer even Gabriel sections and the relative Veronese lift. Eq_O=Isom_gr/Gm is an fpqc sheaf statement, not a quotient of global point sets.",
     "formal_cubic": "DDL all-Artin comparison and O-marking classical 1-groupoid convention retained. Lowen Thms3.14/3.26, Yekutieli Cors7.5/11.2, and objectwise unique lifts independently checked against original sources. The main full-Abel envelope theorem uses constructed-family surjectivity directly, not prior periodicity or the stronger central-pair injectivity theorem.",
@@ -19,7 +19,7 @@
     "degree_three_obstruction": "B3=R^34 direct_sum R/I and I=Fitt_34(B3) retained. Complete nilpotent sorting proof establishes degree-three flatness iff all-degree flatness for nonperiodic quadratic Z-algebras with polynomial special fibre. Independently reviewed. General Koszul deformation principle is established literature, PP Ch6 Thm7.3, not claimed new.",
     "rigid_ambient_application": "The retained PBW, AS5, CY and Aut_gr(B_*)(C)=C* inputs are explicit. Cartier characteristic-zero smoothness upgrades the finite-type automorphism group scheme to Gm. Quadratic envelope and leading gamma coefficient then prove arbitrary-coefficient graded isomorphism iff f=g. Compact relative Hom and fixed-family fpqc Hom descent give a monomorphism A4→M^O on finite-type complex tests. No open immersion, atlas or component assertion.",
     "retained_results": "Existing 41/37 and17/13 constructions, gcd periodicity, all-Artin envelope, square-zero obstruction and formal-ring proofs retained. New universal coefficient, finite central, Serre and full-family relative comparison proofs were reviewed. The complete older PBW/CY/rigid calculation proofs were not newly reconstructed, and unchanged calculations were not rerun.",
-    "novelty": "DDL/Lowen/Yekutieli/CFT/Koszul, ordinary Amitsur/module descent and prior duality inputs are established literature. Novelty/priority of the specific full cubic formal stack application, direct automorphism argument, and retained four-parameter comparison remain unconfirmed.",
+    "novelty": "DDL/Lowen/Yekutieli/CFT/Koszul and prior duality inputs, ordinary module/affine descent, generic-etale arguments and quotient-stack theory are established literature. Priority of the concrete cubic formal-stack application, relative duality, full Abelian comparison and Jacobian DM submoduli construction remains unconfirmed. No new general quotient-stack theory is claimed.",
     "square_zero_obstruction": "Complete proof independently reviewed: Schur residual Theta=delta(q_(i+1)-q_i)=F lambda; delta^2=0 and injectivity on constant three-cochains force lambda=0. Valid for any nonzero cubic, no smoothness, with dim V>=4; written in five-variable case. General Artin I subset m^2 follows by Fitting base change. Nonlinear Jacobi corrections prevent naive higher-order induction.",
     "homogeneous_quantization": "CFT arXiv:math/0012228v3 §3, Thm3.1, Prop3.3 and Cor5.2(iv) checked. Finite nilpotent substitution, graph-degree preservation, alpha=Pi/2 normalization, quadraticity via split-kernel Nakayama, and central cubic regularity supplied explicitly. Full graded Hochschild/Poisson gauge classification is not assumed.",
     "actual_artin_comparison": "Relative Poisson functor is prorepresented by T, using lifted polarization, relative bivector/Jacobi calculations and the formal PGL slice; H0(T_X)=0 removes infinitesimal automorphisms. Yekutieli makes Ass represented by the same T. The actual constructed map has injective 20-dimensional tangent map, hence induces an invertible continuous endomorphism of T. No higher agreement of independent quantization coordinates is assumed.",
@@ -47,17 +47,22 @@
     "general17_actual_inputs": "Explicit Δ in jacobian_abel_comparison.tex is nonzero at a=1/6,b=0. The relative elliptic graph has σ,σ²,σ³ nonidentity; degree1-3 THCR centers vanish. Rains denominators are units. Closed-fiber PBW plus reduced constant-rank matrices and projective splittings give universally projective B,A and regular central w. Potential self-duality over P[u,v] is constructed by the cyclic-Hessian identity; central difference Koszul duality yields true Θ_B/P=B(5)[-5]. Finite quadratic Koszul diagonal and its orientation survive every base change. Primary MS/BT/EG hypotheses read; not inferred solely from fiber CY predicates.",
     "general17_admissibility": "Central u,v flatness yields universal saturation by a direct Cech-intersection splitting of torsion extensions. The rank12 commutator map is universally split injective, yielding quadratic center Sym²U. Degree-one generation gives even Veronese Gabriel equivalence and fully faithful full-integer section right adjoint without noetherianity. Keeler corrected v5 gives strong noetherianity of the elliptic THCR and filtered algebras; six-step dimension shift and cdΓ_B<=5 give ordinary/even ample sequences over noetherian coefficients.",
     "general17_all_hom": "Exact S-linear equivalences preserve unbounded compacts. Coherent iteration of Serre^-1[3]=(2) identifies the even orbit algebra; choice differences are degree scalars by faithful adjacent Hom. Full-integer Gabriel sections determine actual equivalences, the μ2 Isom lift supplies local degree-one isomorphisms, and marked2-autos vanish. Fixed canonical family fpqc Hom descent is retained. Independent readings found no concrete gap; not external peer review.",
-    "general17_finite_isom": "With A1=A1prime=S5 and standard cubic Hilbert ranks, I2⊂V² has rank10 and I3⊂V³ rank91. Quadratic+cubic presentation identifies Eq_O with the closed finitely presented subscheme of PGL5 preserving both relation subbundles, valid for nonreduced S. On the explicit Δ open intersected with the existing slice open, complex Abelian isoclasses have Rosenlicht transcendence degree17. Quadratic envelopes and cubic kernel lines are functorial under every such equivalence. This does not prove a17-dimensional atlas, full-stack algebraicity, or a claim about unmarked ambient Abelian categories.",
-    "scope_consistency": "Removed two obsolete retained-section warnings about missing rigidity certificates and finite-order regularity, replacing them with references to the current coordinate-change proof and order-six/generic-regularity results. No re-audit of all older proofs is claimed."
+    "general17_finite_isom": "With A1=A1prime=S5 and standard cubic Hilbert ranks, I2⊂V² has rank10 and I3⊂V³ rank91. Quadratic+cubic presentation identifies Eq_O with the closed finitely presented subscheme of PGL5 preserving both relation subbundles, valid for nonreduced S. On the explicit Δ open intersected with the existing slice open, complex Abelian isoclasses have Rosenlicht transcendence degree17. Quadratic envelopes and cubic kernel lines are functorial under every such equivalence. These Isom equations alone do not imply an atlas. The additional Jacobian chart construction supplies a 17-dimensional algebraic full substack; full-stack algebraicity and a claim about all ambient Abelian equivalences remain outside the result.",
+    "scope_consistency": "The plan, notes, introduction, abstract, conclusion and retained general-Hom section distinguish the algebraic Jacobian full substack from full-M algebraicity/openness/componenthood. Parameter-stack smoothness is distinct from categorical dg smoothness. O and the rank-four Hom bundle descend; O(1), individual nonzero-central-weight center bundles and an untwisted Serre expression are not asserted to descend to the PGL quotient.",
+    "jacobian_etale_atlas": "The dominant equal-dimensional PGL5×T_B→Q113 map is generically etale in characteristic zero. Flat base change of the etale locus and universal group translation give E=G×T_B^e as open subschemes, and Y=a(E) is invariant open. T_B^e→[Y/G] is an actual etale surjective atlas. Quotient algebraicity/DM criteria use checked Stacks results; no extra finite-stabilizer assumption or Pym analytic/formal comparison is needed for this construction.",
+    "jacobian_universal_centers": "On every P_B-algebra S, Z(B_S)_1=Su+Sv and Z(B_S)_3=S G + Sym^3(Su+Sv). Low-degree THCR center vanishing and active leading symbols compute closed fibers. PBW splits the candidate centers; the induced finite-projective commutator map is fiberwise injective and locally split, proving arbitrary nonflat base change. On Y use GL5×T_B^e as a further fpqc cover; no global GL lift of the universal PGL element is presumed.",
+    "jacobian_affine_four": "J=P_Y(E) minus P_Y(W), with ranks(E,W,L)=(5,4,1), represents splittings of E→L and is a torsor under Hom(L,W). Central weights3 cancel on Hom and projective lines, so the bundle and J descend to PGL. Affine fpqc descent proves C_J→B_J is scheme-representable, affine, smooth, surjective of relative dimension4. Pullback atlas is exactly T_B^e×A4; global zero/splitting is not chosen.",
+    "jacobian_all_abel_full_substack": "The G-equivariant locally closed embedding J→Gr(10,V^2)×Gr(91,V^3) recovers the central cubic line as I3/K3, including nonreduced bases. Scalar structure transport is canonically marked-isomorphic to the identity by m_d tensor b→lambda^d m_d b, coherently under products. All-Hom comparison on simultaneous fpqc slice covers descends, giving C_J→M^O fully faithful for all coefficient rings. Its essential image is the full substack of families locally modeled on the atlas, not a fiberwise geometric-point condition.",
+    "jacobian_scope": "C_J and B_J are smooth finite-type DM stacks of dimensions17 and13 with affine finite-presentation unramified diagonals. Geometric stabilizers are finite, but triviality, finite diagonal, proper inertia, separatedness and global coarse moduli are not proved. The inclusion into full M is not asserted representable/open/locally closed/formally complete. B_J uses projectively graded ambient isomorphisms, not all O-marked ambient Abelian equivalences."
   },
   "static": {
-    "tex_inputs": 24,
-    "labels": 470,
-    "references": 546,
-    "citations": 189,
-    "bibliography": 63,
+    "tex_inputs": 25,
+    "labels": 482,
+    "references": 573,
+    "citations": 197,
+    "bibliography": 64,
     "sha256": {
-      "papers/nc_cubic_threefold_moduli.tex": "e3b7c458e30390c046766fe222f8b271cd175e42a0e21b6cdc9e372810a29359",
+      "papers/nc_cubic_threefold_moduli.tex": "1f910c0a8a7815afa1d647f153750fc3f85920cdda2adf5051d31f58bdb3a63c",
       "papers/sections/intrinsic_cubic_reconstruction.tex": "b8f3fdf0a802d1bfabb45b79f614682c3080bf218242d8230be2a94c99b0f690",
       "papers/sections/algebraic_moduli_foundations.tex": "7bed0be351ce4ff5835262c1db567e6fd3a0388d52af8626d6878af505540b36",
       "papers/sections/categorical_moduli_comparison.tex": "01ca7597e876688b4233e195fff0de9ad85d812f0fce550679198f7205f1e1f8",
@@ -79,7 +84,8 @@
       "papers/sections/finite_order_relative_categories.tex": "324588a206796b2faf66a409e568a08d40e7053f6e8246fbd3c00b19a0fffdab",
       "papers/sections/relative_serre_duality.tex": "cfe8ea7c2f5fee03f9db5001c614ae0ddf96ba75f317c3075b5b2f2efac0f51d",
       "papers/sections/koszul_relative_duality.tex": "4e31563bd09026e911484a83e085a28ebe26380c5919e1ee9a4bcba1ba53bb57",
-      "papers/sections/jacobian_abel_comparison.tex": "8778a92f9ad71cca6e202373a01378cf080af35c1ff49970ab7a33aa9fa136bb",
+      "papers/sections/jacobian_abel_comparison.tex": "4374ceed421c139607e8510354ee551002f1abd696a69d8f313a796e5e77fce9",
+      "papers/sections/jacobian_moduli_chart.tex": "b725cc9f281c15025e2548a1cd82fb9687e4749984c971e24bc2e6f0a4aca720",
       "papers/sections/central_pair_finite_order_regularity.tex": "844e6e8da0aa3ef7d5c615ecd87c37ad8a8a6a87a7582f94c53477b602be1843"
     },
     "limit": "Static closure only, not mathematical proof audit.",
@@ -90,26 +96,20 @@
         "environments": "passed"
       },
       {
-        "path": "papers/sections/koszul_relative_duality.tex",
-        "braces": "passed",
-        "environments": "passed"
-      },
-      {
         "path": "papers/sections/jacobian_abel_comparison.tex",
         "braces": "passed",
         "environments": "passed"
       },
       {
-        "path": "papers/sections/central_pair_mixed_derived_rigid.tex",
-        "braces": "passed",
-        "environments": "passed"
-      },
-      {
-        "path": "papers/sections/central_pair_artin_formal_moduli.tex",
+        "path": "papers/sections/jacobian_moduli_chart.tex",
         "braces": "passed",
         "environments": "passed"
       }
-    ]
+    ],
+    "markdown_local_links": 15,
+    "all_links_exist": true,
+    "unchanged_existing_computation_files": 20,
+    "certificate_source_and_input_hashes_match": true
   },
   "computations": [
     {
@@ -176,13 +176,25 @@
       "result": "All9 exact checks passed: elliptic determinant, first/second iterates, curve equation, third-iterate minor, nonempty Δ witness, and three Rains denominator identities. Does not verify categorical theorems.",
       "certificate": "computations/general17_open_certificate.json",
       "certificate_sha256": "2155ccbc3e34570a6b9024fcf696a4664088bc2efe0cf0cb359c93076bf7b795"
+    },
+    {
+      "command": "python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json",
+      "exit_code": 0,
+      "source_sha256": "6598ac39aa31a52e3bc28671abf95ff8b99371b847c28fad9d639934903ad62f",
+      "executed_on": "2026-11-19",
+      "result": "Exact rank_Q D=37 for the actual 150x38 GL5-orbit plus thirteen-slice differential; 37-minor=127524 mod1000003, unique scalar kernel. Reconstructed M gives MD=0 over Z and the existing 113-minor=844194 mod1000003. All seven Delta factors nonzero at the same rational point. Input polynomial explicitly matched to the listed slice coefficients.",
+      "certificate": "computations/jacobian_etale_point_certificate.json",
+      "certificate_sha256": "8be18a57e754fed5d665166c04ede4f1ec0c551197e56f3d96951aada2d64338",
+      "helper_sha256": "5daf959e2dabf77d6fc5c937e5d5556a5411b5d8603657fb053db43c191d4487",
+      "input_sha256": "e42a28ae5fab6f580e64399318300b753d91c3a2f7352caf3685191673448ebd",
+      "independent_rerun_certificate_match": true
     }
   ],
   "certificates": {
     "rat113_matches_regeneration": true,
     "two_factor_matches_regeneration": true,
     "central_symmetry_matches_regeneration": true,
-    "scope": "The three retained matches and their verification_date describe the2026-11-16 runs, with unchanged computation-source hashes. The separate general17_open record is a new2026-11-19 exact run. No computation establishes relative Serre, global stack algebraicity, or dg smoothness.",
+    "scope": "The three original retained matches describe 2026-11-16 executions. general17_open records an earlier 2026-11-19 run retained without rerunning. jacobian_etale_point is the present exact run with an independently regenerated identical certificate. Only the finite tangent and nonvanishing inputs are numerical conclusions; categorical/stack assertions have written proofs and reading audits.",
     "verification_date": "2026-11-16",
     "general17_open": {
       "verification_date": "2026-11-19",
@@ -190,6 +202,19 @@
       "checks": 9,
       "all_passed": true,
       "matches_stdout": true
+    },
+    "jacobian_etale_point": {
+      "verification_date": "2026-11-19",
+      "path": "computations/jacobian_etale_point_certificate.json",
+      "all_passed": true,
+      "independent_regeneration_matches": true,
+      "chart_rank_Q": 37,
+      "equation_rank_Q": 113,
+      "minor37_mod_1000003": 127524,
+      "minor113_mod_1000003": 844194,
+      "integer_MD_zero": true,
+      "unique_GL_scalar_kernel": true,
+      "delta_nonzero_at_same_point": true
     }
   },
   "not_rerun_in_this_review": [
@@ -204,7 +229,8 @@
     "computations/verify_rat113_tangent.py",
     "computations/verify_split_codimension.py",
     "computations/verify_surface_incidence.py",
-    "computations/verify_two_factor_stabilizer.py"
+    "computations/verify_two_factor_stabilizer.py",
+    "computations/verify_general17_open.py"
   ],
   "build": {
     "command": "latexmk papers/nc_cubic_threefold_moduli.tex",
@@ -215,14 +241,15 @@
     "reason": "lualatex.fmt missing; mktexfmt has no lualatex entry. luatexja and ltjsarticle were also not found in the installed TeX tree.",
     "pdf_generated_in_this_review": false,
     "visual_inspection_in_this_review": false,
-    "scope": "Current manuscript v14 has static closure/braces/environments checks only. A preceding same-date v11 LuaLaTeX attempt stopped before body processing because lualatex.fmt was missing; unchanged environment was not retried for v14. No current PDF or visual verification claimed.",
-    "current_manuscript": "v14",
+    "scope": "Current manuscript v15 has static input/reference/citation closure and modified-file brace/environment checks only. A preceding same-date v11 LuaLaTeX attempt stopped before body processing because lualatex.fmt was missing; unchanged environment was not retried for v15. No current PDF or visual verification claimed.",
+    "current_manuscript": "v15",
     "current_manuscript_build_executed": false
   },
   "open_scope": [
-    "Algebraic submoduli for the constructed general17 family: analyze the PGL5-saturated image in the finite relation parameter space and the source/target morphisms of the now finitely presented Isom groupoid",
+    "Nonempty relative dg smooth open inside the constructed smooth DM Jacobian substack; test perfectness of the compact-generator dg algebra diagonal, independently of parameter-stack smoothness",
+    "Formal completeness and openness/local closedness/componenthood of C_J inside the full O-marked moduli problem; full faithful Hom comparison alone does not prove lifting of all noncommutative deformations",
+    "Concrete finite stabilizers/residual slice identifications, separatedness or finite diagonal and global coarse moduli for the constructed substack; not consequences of geometric stabilizer finiteness alone",
     "Finite-type algebraicity, algebraization, atlas and componenthood for the entire O-marked moduli problem; finite Isom schemes between known models alone do not prove these",
-    "A nonempty dg smooth open in the general17 mixed family; compact properness and relative Serre are now proved on the explicit Δ open",
     "Global dg Morita smoothness from local finite-central relative diagonals; not asserted here",
     "Explicit equations for the finite-central four-parameter regular open and a maximal regular locus; that regularity proof remains existential, unlike the explicit general17 Serre open",
     "Unframed finite-Aut(X) action and algebraization of the established framed Artin formal scheme; general category2-descent remains outside this result",
@@ -232,7 +259,7 @@
     "Optional direct higher-order envelope flatness without quantization and extension to singular cubics",
     "Exhaustive priority checking, full independent audit of retained proofs, and PDF compilation/visual verification"
   ],
-  "assets": "Current plan, research notes, manuscript sources, necessary calculation code and small certificates only. New general17 exact-check script and a small certificate included. No PDF, ZIP, external literature PDFs, intermediate draft fragments, build outputs or caches tracked.",
+  "assets": "Current plan, research notes, Japanese LuaLaTeX manuscript sources, necessary code and small certificates only. Includes jacobian_moduli_chart.tex and its exact-point script/certificate. No PDF, ZIP, external literature PDFs, standalone intermediate audit drafts, build output or caches tracked.",
   "primary_sources_checked": [
     {
       "key": "LowenVdBDeformation",
@@ -383,23 +410,40 @@
       "url": "https://arxiv.org/pdf/2506.02398v1",
       "locations": "Notation1.4, Setup2.1, Corollary1.3: field-coefficient balanced dg duality and perfect-tails Serre; comparison context only",
       "checked_on": "2026-11-19"
+    },
+    {
+      "key": "StacksAlgebraicChart",
+      "urls": [
+        "https://stacks.math.columbia.edu/tag/03WT",
+        "https://stacks.math.columbia.edu/tag/02GU",
+        "https://stacks.math.columbia.edu/tag/0476",
+        "https://stacks.math.columbia.edu/tag/06FI",
+        "https://stacks.math.columbia.edu/tag/06N3",
+        "https://stacks.math.columbia.edu/tag/04UV",
+        "https://stacks.math.columbia.edu/tag/0245"
+      ],
+      "locations": "Lemmas29.37.13/15/17: etale openness, local criterion and flat base change of the etale locus; Theorem97.17.2: quotient algebraicity; Theorem101.21.6: etale atlas and DM; Section95.15: torsor presentation; Lemma35.37.1: effective affine fpqc descent",
+      "checked_on": "2026-11-19"
     }
   ],
   "current_proof_review": {
     "files": [
+      "papers/sections/jacobian_moduli_chart.tex"
+    ],
+    "dependencies": [
+      "papers/sections/jacobian_abel_comparison.tex",
       "papers/sections/koszul_relative_duality.tex",
-      "papers/sections/jacobian_abel_comparison.tex"
+      "papers/sections/central_pair_generic_component.tex",
+      "papers/nc_cubic_threefold_moduli.tex:thm:17"
     ],
-    "consistency_edits": [
-      "papers/sections/central_pair_mixed_derived_rigid.tex",
-      "papers/sections/central_pair_artin_formal_moduli.tex"
-    ],
-    "method": "Root reading plus independent parallel agent audits of universal torsion/line cohomology, actual general17 relative PBW/CY input, strict dg localization/bimodule Serre, admissibility, arbitrary-base full Hom, finite Isom equations and Rosenlicht consequence. Relevant primary source hypotheses read. Not external human peer review and not a full independent reproof of all retained results.",
+    "method": "Root reading and separate parallel agent readings of the etale saturation construction, universal low centers, torsor/weight descent, relation-window immersion, scalar coherence and all-Abelian-Hom full faithfulness. Generic-etale/quotient/torsor primary sources checked. Earlier mathematical results retained as stated, not all independently reproved. This is not external human peer review.",
     "numerical_calculation_needed": true,
-    "numerical_scope": "Only the explicit elliptic polynomial identities, denominator identities and nonvanishing witness; the categorical results have written proofs and reading audits."
+    "numerical_scope": "New exact common-point action-plus-slice and full-Poisson differential certificate, scalar kernel and Delta factors. Independent rerun matches the small certificate. Mathematical stack/descent/Abelian arguments are not numerical conclusions."
   },
   "existing_computations_rerun_in_this_review": false,
   "computations_executed_in_this_review": [
-    "computations/verify_general17_open.py"
-  ]
+    "computations/verify_jacobian_etale_point.py"
+  ],
+  "review_scope": "The review dictionary also records currently valid retained proof dependencies. Only current_proof_review and computations_executed_in_this_review identify the present review. This is not a complete re-audit of every retained result.",
+  "existing_differential_recomputed_inside_new_script": "The old M113 differential/minor is reconstructed as part of verify_jacobian_etale_point.py; the entire standalone old script was not rerun."
 }

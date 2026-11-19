@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v14}
+\date{2026年11月19日・nc cubic moduli研究草稿 v15}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -157,6 +157,11 @@ potential 複体と中心二変数の Koszul 双対から相対 CY 同型を構�
 次数付き同型の次数スカラー商に一致する。
 その同型層は次数二・三の関係による $\PGL_5$ の閉部分スキームで表され，
 一般の構造対象付き Abel 圏同型類も十七次元分変動する。
+さらに、作用と十三係数 slice の étale locus を用い、
+この族を分類する滑らかな十七次元 Deligne--Mumford 部分 stack を構成する。
+二次包絡への射は、滑らかな十三次元 Deligne--Mumford stack 上の
+階数四のベクトル束の torsor であり、スキームで表現可能なアフィン滑らかな射となる。
+有限な関係窓と全同値比較から、この部分 stack の Abel 圏問題への完全忠実性を示す。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -399,6 +404,32 @@ coherent 部分圏の豊富性への依存を外す。
 この結果，十七係数族の全 $\mathcal O$-保存同値，同型層の有限な方程式，
 二次包絡の自然性が得られる。
 一般族の dg smooth locus と，モジュライ全体の代数化は別に残る。
+
+
+\paragraph{有限型の Abel 圏部分モジュライ.}
+第\ref{sec:jacobian-algebraic-chart}節では、既存の三十七次元 graph 成分
+$Q_{113}$ と十三係数 slice $T_B$ に対する
+$\PGL_5\times T_B\to Q_{113}$ の étale locus を用いる。
+その飽和像 $Y$ は不変開部分で、$T_B^e\to[Y/\PGL_5]$ が étale atlas となる。
+$Y$ 上の普遍中心の完全列
+$0\to\operatorname{Sym}^3\mathcal U\to\mathcal E\to\mathcal L\to0$
+を構成し、その分裂の torsor $J$ を取る。
+$[J/\PGL_5]\to[Y/\PGL_5]$ は相対次元四のアフィン滑らかな射であり、
+前節の全同値比較によって $[J/\PGL_5]$ は
+$\mathfrak M^{\mathcal O}_{\mathrm{cub}}$ の全部分 stack と同定される。
+この部分 stack は有限型、滑らか、十七次元であり、有限な幾何学的 stabilizer を持つ。
+
+使う一般論は、étale locus の平坦底変更、étale 写像の開性、
+群作用商の代数性と torsor 表示、および fpqc アフィン降下である
+\cite[Lemmas~29.37.13,29.37.15,29.37.17,35.37.1,
+Section~95.15, Theorems~97.17.2,101.21.6]{StacksAlgebraicChart}。
+これらの一般原理自体を新しい結果とはしない。
+本稿では、明示した相対 PBW/CY 族と普遍中心の分裂単射により
+その仮定を任意係数へ対応させ、全ての $\mathcal O$-保存 Abel 同値を含む部分問題を表す。
+さらに、同じ有理数係数点で $150\times38$ 軌道・slice 行列の階数三十七と
+全 Poisson 接空間の次元三十七を厳密に検証する。
+この適用の初出は未確認であり、全モジュライの代数性、
+その中の開性・局所閉性・成分性、および各圏の dg smooth 性は結論しない。
 
 
 \paragraph{代数構成の入力.}
@@ -1097,6 +1128,7 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/relative_serre_duality.tex}
 \input{papers/sections/koszul_relative_duality.tex}
 \input{papers/sections/jacobian_abel_comparison.tex}
+\input{papers/sections/jacobian_moduli_chart.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1154,7 +1186,14 @@ monomorphismを与える。これは開埋込みや成分性を主張するも�
 同型層は二次・三次関係を保つ$\PGL_5$の有限表示閉部分スキームである。
 従って複素体上の一般のAbel圏同型類も十七次元分変動し、
 二次包絡への十三次元ambient射はこの全同値関係に両立する。
-これらはcompact圏上のproper性とSerre双対を含むが、dg smooth性を含まない。
+さらに、この族の fpqc 局所模型からなる全部分 stack を
+滑らかな有限型十七次元 Deligne--Mumford stack として構成した。
+二次包絡の十三次元 stack への射は階数四のベクトル束の torsor であり、
+スキームで表現可能なアフィン滑らかな全射となる。
+このパラメータ stack の smooth 性と、compact 圏の proper 性・相対 Serre 双対は、
+各圏の dg smooth 性を意味しない。
+$\mathcal O(1)$ と $(-2)[3]$ の無捩れな表示は atlas 上で扱い、
+全商上への降下を追加仮定なしに主張しない。
 
 全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
 smooth properな三次部分の開性と支配性、構造対象$\mathcal O$そのものの内在的認識は残っている。
@@ -1165,6 +1204,7 @@ smooth properな三次部分の開性と支配性、構造対象$\mathcal O$そ�
 既存の17係数slice、分離型余次元15、混合中心、相対Picard、
 偶数Veronese、条件付き導来復元、固定剛体ambientと有限位数境界の結果は保持した。
 計算証明書は主に
+\nolinkurl{computations/verify_jacobian_etale_point.py}、
 \nolinkurl{computations/verify_general17_open.py}、
 \nolinkurl{computations/verify_two_factor_stabilizer.py}、
 \nolinkurl{computations/verify_rat113_tangent.py}、
@@ -1656,6 +1696,18 @@ M.~K.~Brown, A.~J.~Soto Levins and P.~Sridhar,
 \emph{Existence of balanced dualizing dg-modules},
 \url{https://arxiv.org/abs/2506.02398v1}（2025年6月3日版）。
 Notation~1.4, Setup~2.1, Corollary~1.3。
+2026年11月19日原文確認。
+
+\bibitem{StacksAlgebraicChart}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/03WT}{Lemma~29.37.13, Tag~03WT}，
+\href{https://stacks.math.columbia.edu/tag/02GU}{Lemma~29.37.15, Tag~02GU}，
+\href{https://stacks.math.columbia.edu/tag/0476}{Lemma~29.37.17, Tag~0476}，
+\href{https://stacks.math.columbia.edu/tag/0245}{Lemma~35.37.1, Tag~0245}，
+\href{https://stacks.math.columbia.edu/tag/04UV}{Section~95.15, Tag~04UV}，
+\href{https://stacks.math.columbia.edu/tag/06FI}{Theorem~97.17.2, Tag~06FI}，
+\href{https://stacks.math.columbia.edu/tag/06N3}{Theorem~101.21.6, Tag~06N3}。
+étale locus とその底変更、群作用商・torsor の表示、DM atlas、アフィン降下。
 2026年11月19日原文確認。
 
 \end{thebibliography}
