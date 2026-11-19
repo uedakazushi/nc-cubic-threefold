@@ -1,0 +1,467 @@
+\section{有限位数境界上の相対 dg smooth proper 族}
+\label{sec:dg-smooth-torsion-families}
+
+本節では、構成済みの十七次元 Jacobian atlas の中で、
+十六次元の局所閉部分族の非空開上に相対 dg smooth proper 性を証明する。
+このような部分族の合併は atlas に稠密である。
+十七次元 atlas 自体の非空開は、この結果には含めない。
+五線 compact generator の係数上 perfect 性を既存の入力とし、
+有限中心の射影模型に対する大域対角の議論を加える。
+
+\subsection{係数上 perfect な dg 代数の一般点からの広がり}
+\label{sec:dg-generic-spreading}
+
+以下では dg 代数は結合的かつ単位的であり、テンソル積と enveloping algebra は
+すべて導来の意味で用いる。\(R\) 上の dg 代数 \(E\) に対し
+\(E^e=E^{\mathrm{op}}\otimes_R^{\mathbf L}E\) と書く。
+\(E\) が \(R\)-proper であるとは \(E\in\operatorname{Perf}(R)\)、
+\(R\)-smooth であるとは対角加群 \(E\in\operatorname{Perf}(E^e)\)
+であることをいう。
+
+\begin{lemma}[一般点からの smoothness の広がり]
+\label{lem:dg-generic-spreading}
+\(R\) を整域である Noether 環、\(K=\operatorname{Frac}(R)\) とし、
+\(E\) を \(E\in\operatorname{Perf}(R)\) を満たす \(R\)-dg 代数とする。
+\(E_K=E\otimes_R^{\mathbf L}K\) が \(K\)-smooth ならば、
+ある \(0\ne f\in R\) に対し \(E_f\) は \(R_f\)-smooth proper である。
+したがって任意の \(R_f\)-代数 \(S\) に対し \(E_f\otimes_{R_f}^{\mathbf L}S\)
+は \(S\)-smooth proper である。
+\end{lemma}
+
+\begin{proof}
+\(D=E^e\) とおく。\(E\) が係数上 perfect なので \(D\) も
+\(R\)-perfect である。\(R\) の非零元による局所化の filtered system に対し、
+perfect dg 加群は有限段階で定義できる：
+\[
+ \mathop{\mathrm{colim}}_{0\ne g\in R}\operatorname{Perf}(D_g)
+ \simeq \operatorname{Perf}(D_K).
+\]
+これは To\"en--Vaqui\'e\cite[Lemma~2.10]{ToenVaquieObjects}、または
+To\"en\cite[事実 F4]{ToenDefinitionRings}による。この連続性に \(D\) の homotopical finite presentation
+は必要ない。有限 cell 加群とその retract の有限個のデータを降下させる性質である。
+
+仮定より \(E_K\in\operatorname{Perf}(D_K)\) であるから、
+ある \(g\ne0\) と \(P\in\operatorname{Perf}(D_g)\) を選んで
+\(P_K\simeq E_K\) とできる。この同型を \(\alpha_K\) とする。
+source \(P\) の perfectness により、任意の \(D_g\)-加群 \(M\) について
+\[
+ \mathbf R\operatorname{Hom}_{D_g}(P,M)\otimes_{R_g}^{\mathbf L}K
+ \simeq
+ \mathbf R\operatorname{Hom}_{D_K}(P_K,M_K)
+\]
+が成り立つ。自由加群 \(D_g[n]\) に対して明らかであり、
+有限直和・有限 cone・retract に関して保たれるためである。
+ここでは target \(M\) の \(D_g\)-perfectness を仮定していない。
+したがって \(M=E_g\) として \(\alpha_K\) の有限個の分母を払い、
+さらに局所化し、記号を変えずに書けば射
+\(\alpha:P\longrightarrow E_g\) を得る。
+
+その cone \(C\) は \(R_g\)-perfect である。
+実際、\(D_g\) は \(R_g\)-perfect なので制限関手は
+\(\operatorname{Perf}(D_g)\) を \(\operatorname{Perf}(R_g)\) に送る。
+よって \(P\) と \(E_g\) はともに係数上 perfect である。
+また \(C_K=0\) である。
+係数上 perfect な複体のコホモロジーは有限個の有限生成加群であり、
+各 \(H^i(C)\) は \(K\) への局所化後に消える。
+有限個の生成元を殺す非零元を掛け合わせると、さらにある局所化上で
+\(C=0\) となる。したがってその上で \(E\simeq P\) は
+\(E^e\)-perfect、すなわち smooth である。
+properness および smoothness の任意の導来基底変換による保存は、
+perfect 複体および perfect 対角加群の基底変換から従う。
+\end{proof}
+
+\begin{lemma}[体拡大からの降下]
+\label{lem:dg-smooth-field-descent}
+\(k\subset L\) を体拡大、\(E\) を \(k\)-proper な dg 代数とする。
+\(E_L\) が \(L\)-smooth ならば \(E\) は \(k\)-smooth である。
+\end{lemma}
+
+\begin{proof}
+\(D=E^{\mathrm{op}}\otimes_k E\) とする。
+\(L\) をその有限生成 \(k\)-部分代数の filtered colimit とみなし、
+上記と同じ perfect 加群の連続性を適用する。
+ある有限生成整域 \(A\subset L\) と \(P\in\operatorname{Perf}(D_A)\)
+および同型 \(P_L\simeq E_L\) が存在する。
+source \(P\) の compactness によって、\(A\) を必要なら大きくして、
+この同型を射 \(\alpha:P\to E_A\) として定義できる。
+cone \(C\) は \(A\)-perfect であり \(C\otimes_A L=0\) を満たす。
+\(\operatorname{Frac}(A)\subset L\) の忠実平坦性から
+\(C_{\operatorname{Frac}(A)}=0\)、したがって非零元を一つ逆にすると
+\(C=0\) とできる。こうして \(E_A\in\operatorname{Perf}(D_A)\)
+となる有限生成 \(k\)-整域 \(A\subset L\) が得られた。
+
+\(\operatorname{Spec}(A)\) の閉点を取り、その剰余体を \(k'\) とする。
+Zariski の補題により \([k':k]<\infty\) である。
+\(E_{k'}\) は \(D_{k'}\)-perfect であり、
+\(D_{k'}\) は \(D\)-加群として有限自由なので、
+制限した \(E_{k'}\) は \(D\)-perfect である。
+\(\lambda(1)=1\) を満たす \(k\)-線型写像 \(\lambda:k'\to k\) を選ぶと
+\[
+ E\longrightarrow E\otimes_k k'
+   \xrightarrow{\,1\otimes\lambda\,}E
+\]
+の合成は恒等写像である。いずれも \(D\)-線型なので、
+\(E\) は \(D\)-perfect 加群の retract、したがって \(D\)-perfect である。
+\end{proof}
+
+\subsection{大域対角を扱うための補題}
+
+\begin{proposition}[左右の正則性から大域 dg smooth 性へ]
+\label{prop:seed-finite-central-global-smooth}
+$k$ を完全体、$Y$ を有限型分離 $k$-スキーム、$\mathscr A$ を
+coherent な $\mathcal O_Y$-代数とする。
+左右それぞれについて
+\[
+ \mathrm D^b(\operatorname{coh}\mathscr A)
+   =\operatorname{Perf}(Y,\mathscr A),\qquad
+ \mathrm D^b(\operatorname{coh}\mathscr A^{\mathrm{op}})
+   =\operatorname{Perf}(Y,\mathscr A^{\mathrm{op}})
+\]
+と仮定する。すると $\operatorname{Perf}_{\mathrm{dg}}(Y,\mathscr A)$ は
+$k$ 上 dg smooth である。さらに $Y$ が $k$ 上 proper なら、この dg 圏は proper である。
+\end{proposition}
+
+\begin{proof}
+$Y$ は noetherian J-2 スキームである。
+Elagin--Lunts--Schn\"urer\cite[Theorem~4.15]{ELSSmoothAlgebras}により
+$\mathrm D^b(\operatorname{coh}\mathscr A)$ は classical generator $G$ を持つ。
+仮定により $G$ は $\mathscr A$-perfect である。
+以下、$\mathscr A$-加群は右加群とする。
+双対
+\[
+ G^\vee=\mathbf R\mathcal Hom_{\mathscr A}(G,\mathscr A)
+\]
+は右 $\mathscr A^{\mathrm{op}}$-perfect であり、perfect 加群の双対は反同値なので、
+第二の仮定により $G^\vee$ は
+$\mathrm D^b(\operatorname{coh}\mathscr A^{\mathrm{op}})$ の classical generator となる。
+
+$Y\times_kY$ 上で
+\[
+ \mathscr B=\mathscr A^{\mathrm{op}}\boxtimes_k\mathscr A,
+ \qquad K=G^\vee\boxtimes_kG
+\]
+と置く。Elagin--Lunts--Schn\"urer\cite[Theorem~4.18]{ELSSmoothAlgebras}は、完全体上の
+noetherian J-2 スキームと coherent 代数に対して、
+\emph{任意に選んだ}二つの classical generator の外積が
+外積代数の有界 coherent 導来圏を厚く生成することを述べている。
+従って
+\[
+ \mathrm D^b(\operatorname{coh}\mathscr B)=\operatorname{thick}(K).
+\]
+分離性により対角 $\delta:Y\hookrightarrow Y\times_kY$ は閉埋込みであり、
+$\delta_*\mathscr A$ は coherent な右 $\mathscr B$-加群である。
+右作用は、局所的に
+$m\cdot(a^{\mathrm{op}}\otimes b)=amb$ と与える。
+ゆえに $\delta_*\mathscr A\in\operatorname{thick}(K)$ である。
+
+$E=\mathbf R\operatorname{Hom}_{\mathscr A}(G,G)$ と置く。
+有限 affine 被覆の \v Cech 模型と perfect 加群の tensor--Hom 恒等式から
+\[
+ \mathbf R\operatorname{Hom}_{\mathscr B}(K,K)
+       \simeq E^{\mathrm{op}}\otimes_k E,
+ \qquad
+ \mathbf R\operatorname{Hom}_{\mathscr B}(K,\delta_*\mathscr A)
+       \simeq E
+\]
+を得る。後者は $E^{\mathrm{op}}\otimes_kE$-加群の同型であり、右辺は対角作用を持つ。
+次数零では $f\cdot(e_1^{\mathrm{op}}\otimes e_2)=e_1fe_2$ であり、
+一般の次数では通常の Koszul 符号を入れる。
+この比較は局所的に $G$ を有限生成射影 $\mathscr A$-加群の有界複体で表して確かめ、
+\v Cech 複体で大域化できる。
+$\mathscr A$ が $\mathcal O_Y$ 上平坦であるとは仮定していない。
+外積の基底が体 $k$ であることと、$\mathscr A$-perfect 性を用いる。
+
+第一の同型により、$\mathbf R\operatorname{Hom}_{\mathscr B}(K,-)$ は
+$\operatorname{thick}(K)$ を
+$\operatorname{Perf}(E^{\mathrm{op}}\otimes_kE)$ に移す。
+第二の同型と $\delta_*\mathscr A\in\operatorname{thick}(K)$ から、
+対角 $E$ は $E^{\mathrm{op}}\otimes_kE$ 上 perfect である。
+Morita 不変性により、これが所望の dg smooth 性である。
+
+$Y$ が proper なら、二つの perfect $\mathscr A$-複体の導来内部 Hom は
+有界 coherent $\mathcal O_Y$-複体である。
+その大域切断は有界かつ各次数有限次元なので、proper 性も従う。
+\end{proof}
+
+\begin{remark}[局所対角と大域対角の役割]
+有限中心の affine chart の対角が perfect であることだけを、
+大域 dg smooth 性の証明と同一視していない。
+上の証明で大域化を担う入力は、外積 classical generator の生成定理と
+$\delta_*\mathscr A$ に対する dg Morita 比較である。
+この命題の一般形の初出は未確認であり、
+主張の新規性は既知の Elagin--Lunts--Schn\"urer の生成定理と区別する。
+\end{remark}
+
+\subsection{有限位数境界の点は二係数開集合に稠密である}
+
+$T_0=\operatorname{Spec}\mathbb C[a,b,\Delta^{-1}]$ とし、
+現行原稿の規約
+\[
+ p=2-b,\qquad q=-(2+b),\qquad r=-6a
+\]
+を用いる。$p-q=4$ なので
+\[
+ \mathbb A^2_{a,b}\xrightarrow{\sim}
+ \{[p:q:r]\in\mathbb P^2\mid p-q\ne0\},
+ \qquad
+ a=-\frac{2r}{3(p-q)},\quad
+ b=-\frac{2(p+q)}{p-q}.
+\]
+従って $T_0$ はこの射影平面の非空開集合と同一視できる。
+
+\begin{lemma}[torsion 境界パラメータの稠密性]
+\label{lem:seed-torsion-boundary-dense}
+$T_0(\mathbb C)$ において、楕円境界の自己同型 $\sigma$ が
+有限位数を持つ点の集合は Zariski 稠密である。
+\end{lemma}
+
+\begin{proof}
+$pqr$ が可逆な開集合上で
+\[
+ \mu=\frac{p^3+q^3+r^3}{pqr}
+\]
+を取る。$\Delta\ne0$ の条件は $\mu^3\ne27$ を含む。
+$\mu$ のファイバーは、滑らかな Hesse 三次曲線
+\[
+ E_\mu:\quad X^3+Y^3+Z^3-\mu XYZ=0
+\]
+の開部分である。
+Sklyanin の同定により、$O=[1:-1:0]$ を原点とすると、
+そのパラメータにおける $\sigma$ は
+$P=[p:q:r]\in E_\mu$ による平行移動である。
+ここで関係の規約は
+$pyz+qzy+rx^2=0$ とその巡回式であり、
+Walton--Wang--Yakimov\cite[Definition--Lemma~2.13]{WWYSklyaninPoisson}と一致する。
+
+任意の非空開集合 $W\subset T_0$ を取る。
+ある閉点 $w\in W$ と $\mu_0=\mu(w)$ を選ぶと、
+$W\cap E_{\mu_0}$ は滑らかな既約楕円曲線 $E_{\mu_0}$ の非空開集合である。
+複素楕円曲線の torsion 点は無限集合であり、
+既約曲線の真の閉集合は有限なので Zariski 稠密である。
+従って $W\cap E_{\mu_0}$ に torsion 点 $P$ が存在する。
+その平行移動 $\sigma$ は有限位数である。
+これで任意の非空 $W$ との交わりが得られた。
+\end{proof}
+
+\begin{remark}
+torsion の位数を一つに固定していない。
+任意の指定された有限個の位数を除いても、
+各楕円曲線上には無限個の torsion 点が残るので同じ証明が成立する。
+特に $\Delta$ の小位数除外条件は障害にならない。
+一方、位数6の既存例 $B_*$ 自身を使うことはできない。
+その最高次パラメータは $a=1/3,b=0$、従って
+$(p,q,r)=(2,-2,-2)$ であり、$q^3-r^3=0$ のため $T_0$ の外にある。
+\end{remark}
+
+\subsection{固定した有限位数 ambient の相対開}
+
+\begin{proposition}[有限位数固定 ambient 上の相対 smooth proper 開]
+\label{prop:seed-fixed-ambient-relative-smooth}
+$t\in T_B(\C)$ を境界 translation が有限位数となる固定 ambient 点とし、
+$A_{t,g}=B_t/(\mathcal G_t+\sum_{j=0}^3g_ju^{3-j}v^j)$ と置く。
+$P=\mathbb C[g_0,g_1,g_2,g_3]$ とする。
+ある非零元 $h\in P$ が存在し、任意の可換 $P_h$-代数 $S$ に対して、
+\[
+ \mathrm D(\operatorname{QGr}A_{t,S})^c
+\]
+は $S$ 上 dg smooth proper となる。
+この同定と dg Morita 模型は任意の基底変更と両立する。
+
+\end{proposition}
+
+\begin{proof}
+系\ref{cor:relative-cubic-compact-proper}と
+命題\ref{prop:general17-relative-cy-koszul}により、
+\[
+ T=\bigoplus_{i=0}^{4}\mathcal O(i),\qquad
+ E=\mathbf R\operatorname{Hom}(T,T)
+\]
+を取ると、$T$ は compact generator、$E$ は $P$-perfect であり、
+全ての可換 $P$-代数 $S$ について
+\[
+ E\otimes_P^{\mathbf L}S
+   \simeq\mathbf R\operatorname{Hom}(T_S,T_S)
+\]
+が成り立つ。この比較は乗法を保つ canonical な dg 比較である。
+
+$K=\operatorname{Frac}P$ とする。
+固定した有限位数境界についての全四係数族は、
+定理\ref{thm:central-model-finite} により
+有限型次数付き可換 $P$-代数 $C$ 上有限である。
+従って $Y=\operatorname{Proj}C^{(\ell)}$ と
+$\mathscr A=\widetilde{A^{(\ell)}}$ は
+$K$ と $\overline K$ への基底変更後にも使える。
+$C_S\to\mathscr A_S$ の単射性や全中心の基底変更可換性は不要であり、
+中心作用と有限加群性だけを用いる。
+
+定理\ref{CSBGthm:global-open}を左右に適用して得た二つの非零多項式は、
+generic point $\operatorname{Spec}\overline K\to\mathbb A^4$ ではともに可逆である。
+同定理の幾何学的基底変更版から、
+$A_{t,\overline K}$ の左右 tails 大域次元はともに3である。
+左右の tails 大域次元が有限であるから、
+補題\ref{CSBGlem:global-finite-to-perfect}により有界 coherent 導来圏は
+全 twist で厚く生成される。各 twist は局所 $\mathscr A$-perfect なので、
+左右とも $\mathrm D^b(\operatorname{coh}\mathscr A)=\operatorname{Perf}(Y,\mathscr A)$ となる。
+命題\ref{prop:seed-finite-central-global-smooth}を
+$(Y_{\overline K},\mathscr A_{\overline K})$ に適用して
+$E_{\overline K}$ の dg smooth 性を得る。
+補題\ref{lem:dg-smooth-field-descent}で $E_K$ へ降下する。
+
+補題\ref{lem:dg-generic-spreading}を整域 $P$ と $P$-perfect dg 代数 $E$ に適用すれば、
+ある $0\ne h\in P$ について
+\[
+ E_h\in\operatorname{Perf}
+    (E_h^{\mathrm{op}}\otimes_{P_h}^{\mathbf L}E_h)
+\]
+となる。任意の $P_h\to S$ の導来基底変更はこの perfect 対角を保つ。
+$E_h$ 自身の $P_h$-perfect 性も基底変更で保たれるので、
+$E\otimes_P^{\mathbf L}S$ は $S$ 上 smooth proper である。
+普遍 generator とその endomorphism の基底変更比較により、
+これを $\mathrm D(\operatorname{QGr}A_{t,S})^c$ へ移す。
+\end{proof}
+
+\begin{remark}
+$t\in T_B^e$ の場合、この相対四次元開は新しい十七次元 atlas の中で
+ambient $t$ を固定した fiber 内の非空開集合である。
+十七次元 atlas 自体の非空開集合とは区別する。
+\end{remark}
+
+\subsection{十五次元および十六次元の相対 smooth proper 族}
+
+\begin{proposition}[有限位数境界を固定した全混合変形]
+\label{prop:seed-torsion-base-relative-smooth}
+$Z\subset T_0$ を integral affine な局所閉部分スキームとし、
+その幾何学的一般点における境界 translation が有限位数を持つと仮定する。
+十一個の mixed 係数と四個の cubic 係数を全て動かす族
+\[
+ X_Z=Z\times\mathbb A^{11}_{\alpha,\beta,m_{ij}}
+           \times\mathbb A^4_{g_0,g_1,g_2,g_3}
+\]
+には、非空主開集合 $U_Z$ があり、その上の compact tails は
+相対 dg smooth proper である。
+この主張は $U_Z$ からの任意の可換係数環への基底変更に両立する。
+従って $Z$ が有限位数境界の複素点なら、
+十五次元 affine 空間の非空開上の相対 dg smooth proper 族が得られる。
+\end{proposition}
+
+\begin{proof}
+$R_0=\Gamma(Z,\mathcal O_Z)$、
+$R=R_0[\alpha,\beta,m_{ij},g_0,g_1,g_2,g_3]$ と置く。
+この $R$ は有限型 $\mathbb C$-整域である。
+普遍五線 generator の dg 自己準同型代数 $E_R$ は $R$-perfect であり、
+任意の基底変更と両立する。
+\[
+ F=\operatorname{Frac}(R_0)(\alpha,\beta,m_{ij}),\qquad
+ K=F(g_0,g_1,g_2,g_3)=\operatorname{Frac}(R)
+\]
+と置き、$\overline K$ の中で $F$ の代数閉包 $\overline F$ を選ぶ。
+$\overline F$ 上の ambient は固定され、
+その境界 translation は仮定により有限位数である。
+
+定理\ref{CSBGthm:global-open}は任意の代数閉標数零体上で成立する。
+実際、その有限中心入力は Rains\cite[Theorem~2.13]{CSBGRainsElliptic}、
+開性入力は Rennemo--Segal--Van den Bergh\cite[Proposition~2.1]{CSBGRSVBertini}であり、
+両者ともこの体の仮定で成立する。
+二つの中心 chart、行列因子化、境界の twists 生成、Serre 双対性の議論も
+\(\mathbb C\) に固有の位相的性質を使わない。
+従って $B_{\overline F}$ とその反対環にそれぞれ適用すると、
+四係数空間上の二つの非零正則性多項式を得る。
+
+$g_0,g_1,g_2,g_3$ は $\overline F$ 上も代数的独立なので、
+この二つの多項式は幾何学的一般点で消えない。
+従って $A_{\overline K}$ の左右 tails 大域次元は3である。
+被約 Jacobson 係数環の交換子行列を使う
+補題\ref{CSBGlem:global-center-lifting}と定理\ref{thm:central-model-finite}の証明も
+この体上で成立する。従って有限中心射影模型が存在する。
+前命題と同じ左右の twist 生成により、その有界 coherent 導来圏は局所 perfect 圏に一致するので、
+命題\ref{prop:seed-finite-central-global-smooth}から
+$E_{\overline K}$ は smooth である。
+補題\ref{lem:dg-smooth-field-descent}で $E_K$ へ降下し、
+補題\ref{lem:dg-generic-spreading}で $R_h$ 上へ延ばす。
+$U_Z=D(h)$ とすれば、相対 smooth proper 性と任意の底変更への両立が従う。
+全 $X_Z$ 上で中心を一様に選ぶことは、この証明の仮定ではない。
+\end{proof}
+
+\begin{theorem}[十六次元 smooth proper 族の稠密な集合]
+\label{thm:seed-sixteen-dimensional-dense-families}
+十七次元 atlas $T_B^e\times\mathbb A^4$ の任意の非空開集合 $W$ に対し、
+smooth integral affine 曲線 $Z\subset T_0$ と、
+\[
+ V\subset (Z\times\mathbb A^{15})\cap W
+\]
+なる非空開部分スキームが存在して、
+$V$ 上の compact tails は相対 dg smooth proper となる。
+$V$ は十六次元であり、任意の可換係数環への基底変更に両立する。
+従ってこの atlas では、十六次元の相対 smooth proper 族の像の合併が稠密である。
+\end{theorem}
+
+\begin{proof}
+Hesse elliptic scheme を
+\[
+ \mathcal E\longrightarrow M
+   =\operatorname{Spec}\mathbb C[\mu,(\mu^3-27)^{-1}],
+ \qquad X^3+Y^3+Z^3-\mu XYZ=0,
+ \qquad O=[1:-1:0]
+\]
+とする。
+$pqr\ne0$ 上では $\mu=(p^3+q^3+r^3)/(pqr)$ によって
+$\mu$ が一意に決まるので、
+$T_0$ は $\mathcal E$ の非空開部分スキームと同一視できる。
+正整数 $n$ に対し、乗法写像 $[n]:\mathcal E\to\mathcal E$ の
+相対微分は $n$ 倍なので可逆であり、滑らかな $M$-曲線間の Jacobian 判定から
+この射は \emph{\'etale} である。各幾何学的ファイバーの乗法写像は有限である
+\cite[Lemmas~39.9.8,39.9.9]{StacksEllipticTorsion}。
+従って $[n]$ は proper かつ quasi-finite、ゆえに有限であり、
+その kernel $\mathcal E[n]$ は $M$ 上有限 \emph{\'etale} である。
+従って $\mathcal E[n]\cap T_0$ の各非空連結成分は
+smooth integral affine 曲線である。
+affine 性は、$\mathcal E[n]\cap T_0$ が affine な $T_0$ の閉部分スキームであり、
+smooth 曲線の連結成分が開かつ閉であることから従う。
+
+$W$ の $T_0$ への射影像は非空開集合である。
+補題\ref{lem:seed-torsion-boundary-dense}により、そこに torsion 点 $P$ を選べる。
+$nP=0$ となる $n$ を取り、
+$P$ を含む $\mathcal E[n]\cap T_0$ の連結成分を $Z$ とする。
+その全ての点で $\sigma^n=1$ なので、
+$Z$ は命題\ref{prop:seed-torsion-base-relative-smooth}の仮定を満たす。
+
+$P$ は $W$ の射影像に入るので、
+$W\cap(Z\times\mathbb A^{15})$ は空でない。
+これは integral な十六次元スキーム $Z\times\mathbb A^{15}$ の開部分である。
+命題\ref{prop:seed-torsion-base-relative-smooth}が与える非空主開 $U_Z$ と交わらせ、
+\[
+ V=U_Z\cap W
+\]
+とすれば、非空性、次元、相対 smooth proper 性を得る。
+\end{proof}
+
+\begin{remark}[十七次元の開性との区別]
+前定理では、各 $Z$ 上で有限位数の上界 $n$ を固定している。
+得られる十六次元族の合併は稠密であるが、
+十七次元 atlas の generic point を含むとは述べていない。
+十七次元の相対 dg smooth proper 非空開の構成には、
+引き続き一般の無限位数境界を扱う議論が必要である。
+\end{remark}
+
+
+\begin{corollary}[smooth proper 点の稠密性]
+\label{thm:seed-smooth-points-dense}
+$T_B^e\times\A^4$ および $\mathfrak C_{\mathrm J}$ の中で、
+compact tails が dg smooth proper となる複素点の集合は Zariski 稠密である。
+\end{corollary}
+\begin{proof}
+前定理で得た非空な有限型 $\C$-スキーム $V$ は複素点を持つ。
+従って atlas の任意の非空開集合はそのような点を含む。
+atlas の全射性から、$\mathfrak C_{\mathrm J}$ の非空開部分の逆像も非空であり、
+同じ主張が stack 上で従う。
+\end{proof}
+
+\begin{remark}[結論の範囲と既知入力]
+外積 generator の定理、perfect dg 加群の filtered colimit、
+楕円曲線の torsion と既存の有限中心 Bertini は既知の入力である。
+本節の具体的な Jacobian 族への適用と、その相対十六次元族の初出は未確認である。
+$V$ は atlas 内の局所閉部分スキームであり、その像が独立に閉部分 stack を
+定めることや、異なる torsion 曲線の像が互いに異なることまでは主張しない。
+十七次元の一般点の dg smooth 性、全 smooth locus の開性、
+全 Abel モジュライ内での成分性は別の問題として残る。
+\end{remark}

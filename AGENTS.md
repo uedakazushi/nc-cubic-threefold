@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
 
-2026-11-19 / research-plan-v9。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1.7・§1.6・§5）、`papers/sections/jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v15）。
+2026-11-19 / research-plan-v10。GitHub mainが正本。再開時は `00_research_plan.md`、`notes/research_notes.md`（特に§1.8・§1.7・§5）、`papers/sections/dg_smooth_torsion_families.tex`、`jacobian_moduli_chart.tex`、`koszul_relative_duality.tex` と `jacobian_abel_comparison.tex`、`abel_formal_descent.tex`、`relative_serre_duality.tex` と `finite_order_relative_categories.tex`、`abel_cubic_deformations.tex` と `abel_marked_moduli.tex`、`validation.json` の順で読む。主原稿は `papers/nc_cubic_threefold_moduli.tex`（v16）。
 
 ## 最優先の判断基準
 
@@ -8,7 +8,7 @@
 
 ## 直近の優先順位
 
-1. **一般Jacobian部分モジュライのdg smooth開。** 17次元DM stack C_Jと13次元DM stack B_J、相対A4 torsorと全Mへの完全忠実性は構成した。次はatlas上の五線compact generatorのdg自己準同型代数の対角から、各圏のdg smoothな非空開を示す。パラメータstackのsmooth性からは従わない。
+1. **一般Jacobian部分モジュライのdg smooth開。** 17次元DM stack C_Jと13次元DM stack B_J、相対A4 torsorと全Mへの完全忠実性は構成した。有限位数境界上の相対4・15・16次元smooth proper開と、16次元族の稠密性を証明した。次は17次元一般点のsmooth性を示し、証明済みgeneric spreadingを適用する。ノート§1.8の量子化函数体単射と未証明の形式持上げ(FS)を出発点にし、閉点のsmooth性や稠密性から一般点の結論を出さない。パラメータstackのsmooth性からは従わない。
 2. **全Mとの局所比較と残余有限群。** 既存の全Hom比較は持上げの存在を保証しない。一般の非可換点の全Artin Abel変形との比較で、全M内の開性・局所閉性・成分性を検討する。有限stabilizerの具体化と有限残余同一視を扱う。有限対角・分離性は未証明。
 3. **完了範囲を保持する。** 可換点の全stack化後のframed形式群oid≃Spf R_X、一般族の普遍PBW/CY・全Hom比較、固定剛体ambientの全A4 monomorphismは各々明示した範囲で完成。元の有限Tor版C3とcompact版を区別する。
 4. 公表単位と初出を照合する。相対双対・全Hom比較と代数的部分モジュライはMori–Smith/BT/EG/Keller/Keeler/Stacks Project等の既知入力を組み合わせる。相対構成の初出は未確認。既存B_*のPBW・CY・剛体性、中心証明書と全Artin量子化入力の独立点検も残る。
@@ -30,7 +30,7 @@ DDL全Artin比較は既知定理の適用。O-marking忘却の同値は自然同
 
 四係数族の全体で使う内在的圏は非有界導来圏のcompact対象である。元の有限係数Tor部分圏との一致は非空正則開上の別結果。monomorphismは開埋込み・成分性・atlasではない。相対双対の初期基底変更はambient導来圏で扱い、振幅集中とflatnessを得てから真正な双加群同型へ移る。
 
-有限中心Cの任意底変更後は中心準同型C_S→Z(A_S)だけを使い、単射や全中心の底変更可換性は仮定しない。非Noetherian底には大きいQGrを使う。相対アフィン対角のperfect性を大域dg smooth性と同一視しない。
+有限中心Cの任意底変更後は中心準同型C_S→Z(A_S)だけを使い、単射や全中心の底変更可換性は仮定しない。非Noetherian底には大きいQGrを使う。相対アフィン対角のperfect性を大域dg smooth性と同一視しない。有限中心模型の大域smooth性は、左右Dbcoh=PerfとELS4.18の外積generator、対角kernelのMorita比較によって別に証明した。torsion曲線上の16次元族はatlasの局所閉部分スキームであり、17次元開や独立の閉部分stackを主張しない。
 
 原稿の証明、今回の点検、計算、新規性確認を区別する。追加定理は明記した仮定の下で証明し、初出は未確認。有限Artin基底上の相対ASと絶対global dimension、体上のregular tailsと相対dg smooth proper性、実際のgraded17次元族と裸の導来圏の次元を混同しない。接空間同型だけで成分性や全Artin同値を宣言しない。
 

@@ -1,6 +1,6 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-19 / research-plan-v9。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
+2026-11-19 / research-plan-v10。現在有効な研究知識。詳細証明は主論文とその `papers/sections` に保持する。H3曲面の分類メモは移管対象外。
 
 ## 1. 何をモジュライのデータに含めるか
 
@@ -97,7 +97,7 @@ B_*では二次中心の普遍条件も全係数基底上で成立する。A_2/S
 | C4：perfect RHom・相対Serre・底変更 | 局所Perf上で全四係数基底、S≅(−2)[3]。任意Noetherian底変更 |
 | 全相対Homとモジュライ射 | 有限型CサイトでIsom_gr/Gm≅Eq_O、剛体性入力下でA4→M^Oはmonomorphism |
 
-一般17係数族の明示Δ開への相対Serre・Hom比較は、有限Koszul解消を用いる§1.6で完成した。有限型atlasと大域dg smooth性は別の問題であり、局所対角のperfect性だけから結論しない。
+一般17係数族の明示Δ開への相対Serre・Hom比較は、有限Koszul解消を用いる§1.6で完成した。有限型atlasと大域dg smooth性は別の問題であり、局所対角のperfect性だけから結論しない。有限位数境界上の大域対角と相対smooth proper性は§1.8で別に証明する。
 
 ### 1.5 相対Serre双対と全四係数族の忠実性
 
@@ -213,6 +213,70 @@ Y上では普遍二次代数が存在する。`GL5×T_B^e→Y` のfpqc被覆でs
 **以後の課題の境界。** C_Jの対角はアフィン・有限表示・非分岐であり、幾何学的stabilizerは有限。自明性、有限対角、分離性は未証明。全M内での開性・局所閉性・成分性・形式的な全変形との一致も未証明である。有限関係窓の商内での局所閉性とは区別する。Oは降下するがO(1)と無捩れなSerre式(−2)[3]はatlas上での表示として扱う。パラメータstackのsmooth性は、個々のcompact圏のdg smooth性を意味しない。
 
 固定Bとその同定を含む2-fiberはA4 torsorだが、Bの同型類だけを固定した同型類には有限Aut_gr(B)/Gmの作用が残り得る。B_Jの射はprojectively graded同型であり、周囲の全O保存Abel同値を分類したとはしない。
+
+### 1.8 相対 dg smooth proper な部分族と残る一般点
+
+**現在の確定範囲。** 詳細証明は `papers/sections/dg_smooth_torsion_families.tex`。固定有限位数ambientではA4、境界(a,b)だけを固定して混合11係数も動かすとA15、それをHesse族のtorsion曲線Z上で動かすとZ×A15の非空開に相対dg smooth proper性が成立する。全て任意の可換係数変更と両立する。17次元atlasの任意の非空開Wの中にも、後者の16次元族の非空開を取れる。従ってsmooth proper複素点はatlasとC_Jに稠密である。17次元一般点のsmooth性とその非空開は未証明。
+
+**証明の構造。** `prop:seed-finite-central-global-smooth` は完全体上の有限型分離Yとcoherent代数Aについて、左右Dbcoh=Perfから大域dg smooth性を得る。ELS4.18によりG∨⊠Gが外積代数のDbcohを生成するため、対角δ_*Aがそのthick閉包に入る。Künneth・有限Čech・有限射影tensor–Homにより、dg Moritaで対角E∈Perf(E^op⊗E)へ移す。O_Y-flat性は仮定しない。局所affine対角のperfect性と大域対角を省略して同一視しない。
+
+`lem:dg-generic-spreading` はR-perfectなEの一般点がsmoothなら非空主開上でも相対smooth properであることを証明する。TV2.10／Toën F4により一般点のperfect対角をPへ降ろし、**source Pのcompact性だけ**でP→Eを降下する。coneはR-perfectなので一般点での零性を有限個の分母払いで開上へ広げられる。Eが既に包絡dg代数上perfectであるとは仮定しない。`lem:dg-smooth-field-descent` は任意の体拡大からのsmooth性の降下を与える。一般点を証明済みの場合に使う補題であり、閉点からの開性定理ではない。
+
+**体の仮定。** 固定ambientの正則開 `CSBGthm:global-open` と中心持上げ補題を、代数閉標数零体k上で述べ直した。全係数u-chartはD_u[g1,g2,g3]なので有限大域次元を持ち、Rains2.13、被約Jacobson環の一定階数、RSV2.1から相対有限対角を得る。very-general点や非可算性を使わない。これによりF=Frac(O(Z))(混合11係数)、K=F(g0,…,g3)、Fbar⊂Kbarという順序で、固定ambientの定理をFbar上に適用できる。gはFbar上でも独立である。有限中心模型は幾何学的一般点でだけ必要で、Z×A15全体での一様な中心選択は仮定しない。
+
+**torsion曲線と旧例の位置。** p=2−b、q=−(2+b)、r=−6a、p−q=4により、T0はHesse elliptic schemeの開部分である。逆写像はa=−2r/[3(p−q)]、b=−2(p+q)/(p−q)。µ=(p³+q³+r³)/(pqr)で、境界のσは原点[1:−1:0]の下でP=[p:q:r]による平行移動。各E_µのtorsion点は稠密であり、E[n]∩T0の非空連結成分はsmooth integral affine曲線になる。相対[n]の微分はn倍で可逆、properかつ有限fiberなので有限étale。Z×A15の次元は16である。旧B_*は(a,b)=(1/3,0)、(p,q,r)=(2,−2,−2)でq³−r³=0となるため新Δ開の外にあり、旧例を新atlasの点とは扱わない。
+
+#### 1.8.1 17次元一般点へ向かう量子化の係数変換
+
+これは現在有効な着手情報であり、次の(FS)を解決した結果とはしない。係数a,b,α,β,m_ij,g_jを代数的独立に取り、その函数体をKとする。既存 `central_pair_explicit_centers.tex` の一様な有限係数量子化をR=K[[h]]へ移すと、B_h/(h)=K[x,y,z,u,v]、中心三次w_hの還元は一般三次Fとなる。
+
+Fの幾何学的smooth性には明示的な証人
+
+\[
+F_*=x^3+y^3+z^3+u x^2+u^3+v^3
+\]
+
+を使える。この17係数族に属し、偏微分の同時零点ではy=z=v=0、x(3x+2u)=0、x²+3u²=0。x=0ならu=0、x=−2u/3でも31u²/9=0となり、射影空間には特異点がない。射影Jacobian判別条件により一般Fは幾何学的に滑らか。これは代数的な計算による証明であり、計算コードの実行結果ではない。
+
+Rainsの式への代入は
+
+\[
+q=\frac{2+hb}{2-hb},\quad t=\frac{6ha}{2-hb},\quad
+\lambda=\frac b{3a},\quad
+(L_1,L_2,L_3)=\frac{(2u,2\alpha v,2\beta(u+v))}{3a},
+\quad \widetilde M_i=M_i/(3a).
+\]
+
+q=1+λtであり、分母q(q³−t³)(q+1)(1+t³)のh=0での値は2。active定数項0のRains中心G_t^Rはh=0で(F−g)/(3a)となるから、w_h=3aG_t^R+gはw_0=Fを満たす。
+
+h≠0でu'=hu、v'=hvと置くと
+
+\[
+a'=ha,\quad b'=hb,\quad \alpha'=\alpha,\quad
+\beta'=\beta,\quad m'_{ij}=h^{-1}m_{ij}.
+\]
+
+canonicalな未スケールRains中心を用い、三次関係を3aで割る規約ではg'_j=g_j/(3ah³)。中心を3a'倍する規約ではg'_j=h^−2g_jとなる。同じ三次直線を表すが、中心の規格化とgの変換を必ず同時に行う。前者の逆写像はa=a'/h、b=b'/h、m_ij=hm'_ij、g_j=3a'h²g'_j。C(h)上で可逆なので一般17係数の函数体はK((h))へ単射となり、atlasの一般点を与える。
+
+相対CY/Koszul入力は、三変数potential複体の各全次数が有限自由R複体で、mod hが多項式Koszul解消となることから、degreewise Nakayamaで完全性を得る。augmentationの次数成分も自由なので係数上の完全列は分裂し、任意底変更を保つ。CY5への移行ではT=R[u,v]、D=B_h^op⊗_R B_h、C=B_h^op⊗_T B_hとし、中心差d_u,d_vの正則列でRHom_D(C,D)=C(2)[−2]を得る。相対CY3の自己双対とchange of ringsを用いてRHom_D(B_h,D)=B_h(5)[−5]となる。単純なtensor複体の形を無条件に仮定しない。ここまでの係数の橋渡しと、商のdg smooth性は別である。
+
+#### 1.8.2 未証明の形式持上げ命題と方法の障害
+
+必要な命題は、標数零体K、R=K[[h]]、E∈Perf(R)に対し
+
+\[
+E\otimes_R^{\mathbf L}K\text{ が dg smooth}
+\quad\Longrightarrow\quad
+E\otimes_R K((h))\text{ が dg smooth}.\tag{FS}
+\]
+
+この一般性の(FS)について、適用できる一次資料の定理と自己完結した証明は未確定。もしこの族に対して示せれば、上の函数体単射、`lem:dg-smooth-field-descent`、`lem:dg-generic-spreading`を順に使い17次元の非空開を得る。新しい16次元定理の証明は(FS)に依存しない。
+
+EがR-perfectなのでD=E^op⊗_R^L EもR-perfectであり、D自体は導来h完備である。従って包絡dg代数そのものの通常／導来完備tensorの差を障害とするのは適切でない。残る問題は、完備した無限bar解消の収束するホモトピーや、全Artin切断での情報から、**通常のD加群導来圏における有限cellのretract**を得る段階である。
+
+有限generated graded-freeに微分を載せただけの模型は、有限半自由filtrationを持つとは限らない。例えばΓ=R⊕Rε、|ε|=1、ε²=0、d_Γ=0上の(Γ,d_M=hε·−)では、表示された微分は一つのcellの内部を回り、表示自体は有限半自由filtrationを与えない。この例を(FS)の反例として扱わない。残すべき注意はgraded-freeとperfectの取り違えである。
+
+文献の適用限界：Toën–Vaquié Cor2.13/Prop2.14はsmooth proper⇒hfp⇒smoothであり、hfpを未証明のまま仮定すると循環する。[Toën, Finitude homotopique…](https://www.math.univ-toulouse.fr/~btoen/dgalgsat.pdf), Lem3.14はbounded smooth部分前層のquasi-compactnessであり、smooth locusの開性ではない。[Blanc–Katzarkov–Pandit, Generators in formal deformations of categories](https://arxiv.org/pdf/1705.00655), Compos. Math.154 (2018), 2055–2089, DOI10.1112/S0010437X18007303は形式変形でのcompact generatorを扱い、この対角のperfect性を直接与える定理としては使用しない。Etingof–Ginzburgのcentral quotientの議論も、今回確認した範囲で(FS)の代替にはならない。
 
 ## 2. ファイバー、中心条件、正規条件
 
@@ -419,7 +483,7 @@ Pymのscheme/formal germ比較と実際のQmod比較により、Q113は射影基
 
 17係数sliceの31次整数行列式−5538243375000、分離型余次元15、可換cubic忘却核7、全混合中心、相対Picard障害、偶数Veronese、構造対象を保つ導来復元、固定剛体ambientの4係数族と有限位数境界は現行原稿に保持する。完全な証明は重複しない。
 
-可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。次は非空dg smooth開と全Mの変形との局所比較を扱う。全Artin残余射の形式幾何化（§10）も上位目標である。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
+可換点の二次包絡平坦性・任意係数飽和・全stack化後のframed形式群oidは§5で完成した。一般17係数族の相対Serre・全Hom比較も明示Δ開上で§1.6に完成した。代数的部分モジュライと相対二次包絡射は§1.7で構成した。相対smooth properな16次元族とその稠密性は§1.8で完成した。次は17次元一般点のdg smooth性と全Mの変形との局所比較を扱う。全Artin残余射の形式幾何化（§10）も上位目標である。有限中心の局所対角の証明を無限位数の楕円境界へ無条件に転用しない。P3のrank6模型の全分類や全AS5許容関手の代数性を前提にしない。
 
 文献上の範囲：Sierraの厳密twist比較、AOUのAS3での内部O(n)認識、Behrend–Noohiの切断stackは一次資料を確認。AOUの裸のqgr復元をAS5/cubicへ無証明で一般化しない。新しい主張の初出・優先権と、保持した全旧証明の独立全面監査は未完了。実施した計算・組版・証明監査はvalidation.jsonで区別する。
 
@@ -493,6 +557,10 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 | [Cattaneo–Felder–Tomassini, arXiv:math/0012228v3](https://arxiv.org/pdf/math/0012228), §3, Prop3.3, Cor5.2(iv) | GL同変な普遍式、一次項・単位、Casimirの中心持上げ | Artin係数の有限代入、次数計算、実際の中心商族を本稿で補う。逆向きの全分類は不要 |
 | [Polishchuk–Positselski, Quadratic Algebras, ULS37, AMS2005](https://doi.org/10.1090/ulect/037), Ch6 Prop7.2/Thm7.3 pp129–130 | Noetherian局所環上で、Koszul特殊ファイバーと次数1–3の自由性から全次数自由性 | 原著の該当頁を確認。非周期的Artin Z版には直接証明を与える。一般原理を新規成果としない |
 | [Rains, arXiv:2107.13540v2](https://arxiv.org/pdf/2107.13540), Thm2.13 p16 | 有限位数translationの楕円代数の全filtered deformationの中心持上げ | 被約有限型係数環上の交換子行列へ適用。非被約基底へ文献を無条件拡張しない |
+| [Elagin–Lunts–Schnürer, arXiv:1810.07626v2](https://arxiv.org/pdf/1810.07626), Thms4.15,4.18, pp26–27; Moscow Math. J.20:2 (2020),277–309 | coherent代数のDbcohのclassical generatorと、任意の選択の外積による生成 | 左右Dbcoh=Perfを別に供給し、対角kernelのMorita比較で大域smooth性を得る |
+| [Toën–Vaquié, ASENS40 (2007),387–444](https://www.numdam.org/article/ASENS_2007_4_40_3_387_0.pdf), Lem2.10; [Toën, Anneaux de définition…](https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf), F4 | perfect dg加群のfiltered colimitとの可換性 | F4はhfp不要。一般点からの拡張に用い、closedpointからのopennessとはしない |
+| [Walton–Wang–Yakimov, arXiv:1704.04975v3](https://arxiv.org/pdf/1704.04975), Def–Lem2.13 p9; Proc. LMS118 (2019),1471–1500 | SklyaninのHesse曲線と平行移動点[p:q:r] | 関係式の規約と原点[1:−1:0]を確認。原典ATVへの帰属を保持 |
+| [Stacks0BFG](https://stacks.math.columbia.edu/tag/0BFG), [0BFH](https://stacks.math.columbia.edu/tag/0BFH) | 体上の乗法[n]の次数n²・有限性・étale性 | Hesse族では相対微分とpropernessの証明を加え、torsion曲線の次元1を得る |
 | [Rennemo–Segal–Van den Bergh, arXiv:1705.01366v2](https://arxiv.org/pdf/1705.01366), Prop2.1 steps3–6, Lems3.3–3.6, Cor3.9 | 有限中心代数の有限大域次元→対角smoothness、射影性のgeneric spread | 一般tailsから全中心アフィンchartへ移す段階を本稿で証明。分裂の分母払いを明示 |
 | [Stacks 058G](https://stacks.math.columbia.edu/tag/058G), [023N](https://stacks.math.columbia.edu/tag/023N), [039Y](https://stacks.math.columbia.edu/tag/039Y) | Lazard、通常の加群降下 | Grothendieck圏内の等化子による降下は直接証明 |
 | [Stacks 01YR](https://stacks.math.columbia.edu/tag/01YR), [08EV](https://stacks.math.columbia.edu/tag/08EV), [0FCL](https://stacks.math.columbia.edu/tag/0FCL) | Proj上の生成・消滅、proper pushforwardのperfect性、cohとQCohのExt比較 | 0A1Eは節番号、使用するLemma36.27.1の固有tagは08EV。底の平坦性を仮定しない適用を確認 |
@@ -538,7 +606,7 @@ A_0=k[[a_01,...,a_34]]/(Plücker(a))、R=A_0[[s_1,...,s_10]]とする。§5.3–
 
 今回新たに実行した `verify_jacobian_etale_point.py` は、§1.7の同一有理点でD37非零・M113非零・整数上のMD=0とスカラー核・全Δ因子非零を確認した。独立した再実行で小証明書全体の一致も確認した。旧M113の計算は新script内で再構成しており、旧script全体の実行とは区別する。圏論的な降下と全Hom定理はこの数値計算の結論ではない。
 
-現行sourceの参照・引用・TeX入力閉包を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止した。日本語クラス・luatexjaも実行環境で確認できず、同じ環境でv15を再試行していない。現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存の各状態を区別する。
+現行sourceの参照・引用・TeX入力閉包を検査する。同日の先行LuaLaTeX試行は `lualatex.fmt` 不在で本文処理前に停止した。日本語クラス・luatexjaも実行環境で確認できず、同じ環境でv16を再試行していない。現行PDF生成・視覚確認は未完了。生成、静的検査、証明点検、組版、remote保存の各状態を区別する。
 
 ### H3/PI4の関連知識（本研究の定理の入力ではない）
 

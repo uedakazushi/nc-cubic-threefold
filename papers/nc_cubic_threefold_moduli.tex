@@ -59,7 +59,7 @@
 \newcommand{\Symm}{\operatorname{sym}}
 \title{非可換三次三様体と射影四空間のモジュライ\\構造対象付きAbel圏・二次包絡・周期構造}
 \author{}
-\date{2026年11月19日・nc cubic moduli研究草稿 v15}
+\date{2026年11月19日・nc cubic moduli研究草稿 v16}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -162,6 +162,11 @@ potential 複体と中心二変数の Koszul 双対から相対 CY 同型を構�
 二次包絡への射は、滑らかな十三次元 Deligne--Mumford stack 上の
 階数四のベクトル束の torsor であり、スキームで表現可能なアフィン滑らかな射となる。
 有限な関係窓と全同値比較から、この部分 stack の Abel 圏問題への完全忠実性を示す。
+さらに有限位数の楕円境界上では、外積 generator の既知定理から大域 dg 対角を扱い、
+係数上 perfect な dg 代数の一般点からの拡張によって相対 dg smooth proper な族を得る。
+境界を固定した十五次元族、および torsion 曲線上の十六次元族の非空開を構成し、
+後者の合併が十七次元 atlas に稠密であることを示す。
+十七次元 atlas 自体の dg smooth な非空開は未証明である。
 任意の無標識な非可換三次圏の定義、全AS正則$\mathbb Z$-代数の
 大域代数的モジュライ、およびその中の大域成分性は未証明である。
 \end{abstract}
@@ -429,8 +434,31 @@ Section~95.15, Theorems~97.17.2,101.21.6]{StacksAlgebraicChart}。
 さらに、同じ有理数係数点で $150\times38$ 軌道・slice 行列の階数三十七と
 全 Poisson 接空間の次元三十七を厳密に検証する。
 この適用の初出は未確認であり、全モジュライの代数性、
-その中の開性・局所閉性・成分性、および各圏の dg smooth 性は結論しない。
+その中の開性・局所閉性・成分性は結論しない。
+各圏の dg smooth 性は、次の有限位数境界上の結果で別に扱う。
 
+
+\paragraph{相対 dg smooth proper な十六次元族.}
+第\ref{sec:dg-smooth-torsion-families}節では、有限中心射影模型における左右の
+$\mathrm D^b(\operatorname{coh}\mathscr A)=\operatorname{Perf}(\mathscr A)$ を入力とする。
+Elagin--Lunts--Schn\"urer\cite[Theorems~4.15,4.18]{ELSSmoothAlgebras}の
+classical generator と外積生成定理を用い、coherent な対角
+$\delta_*\mathscr A$ を $G^\vee\boxtimes G$ で厚く生成する。
+dg Morita 比較によって、これが compact 圏の大域 dg smooth 性を与える。
+局所アフィン対角だけから大域的な結論を宣言するものではない。
+
+係数上 perfect な dg 代数の一般点で smoothness が判明すれば、
+To\"en--Vaqui\'e\cite[Lemma~2.10]{ToenVaquieObjects}の perfect 加群の連続性と
+係数-perfect な cone の消滅によって、非空主開へ拡張できる。
+この議論は出発 dg 代数の homotopical finite presentation を仮定しない。
+固定 ambient の有限中心 Bertini を任意の代数閉標数零体上で用いると、
+境界を固定した十五次元族の一般点へ適用できる。
+さらに Hesse 楕円族の torsion 曲線を動かすことで、相対 dg smooth proper な
+十六次元局所閉部分族が十七次元 atlas に稠密に分布することを示す。
+Sklyanin 自己同型の平行移動表示には
+Walton--Wang--Yakimov\cite[Definition--Lemma~2.13]{WWYSklyaninPoisson}を用いる。
+これらの既知入力と本稿の具体的適用は区別し、後者の初出は未確認とする。
+稠密性から十七次元の非空開が得られるとは結論しない。
 
 \paragraph{代数構成の入力.}
 三変数 Sklyanin 代数と楕円曲線の対応，次数３の中心元および
@@ -1129,6 +1157,7 @@ Artin--Zhangのsection algebraの自然写像は
 \input{papers/sections/koszul_relative_duality.tex}
 \input{papers/sections/jacobian_abel_comparison.tex}
 \input{papers/sections/jacobian_moduli_chart.tex}
+\input{papers/sections/dg_smooth_torsion_families.tex}
 
 \section{結論と検証の状態}\label{sec:status}
 本稿では、非可換三次とambientの二つのモジュライをfpqc stackとして定義し、
@@ -1195,8 +1224,15 @@ monomorphismを与える。これは開埋込みや成分性を主張するも�
 $\mathcal O(1)$ と $(-2)[3]$ の無捩れな表示は atlas 上で扱い、
 全商上への降下を追加仮定なしに主張しない。
 
+有限位数の境界を固定した全十五係数族には、相対 dg smooth proper な非空開を得た。
+固定 ambient の四係数族でも同様である。さらに、Hesse 楕円族の torsion 曲線上には
+十六次元の相対 dg smooth proper な局所閉部分族があり、その合併は
+十七次元 atlas に稠密である。これにより smooth proper な複素点も稠密となる。
+この証明は既知の外積 generator、有限中心 Bertini、perfect 加群の連続性と、
+本稿の相対五線 dg 模型を組み合わせる。
+
 全大域モジュライの代数性と成分性、任意の非可換点への形式比較の拡張、
-smooth properな三次部分の開性と支配性、構造対象$\mathcal O$そのものの内在的認識は残っている。
+十七次元 atlas の一般点の dg smooth 性とその非空開、構造対象$\mathcal O$そのものの内在的認識は残っている。
 独立に選んだformality座標の下でのactual mapの全高次式の一致も未確認である。
 本稿は公表準備用の研究草稿であり、新しい結果の初出調査と
 保持した既存証明の全面独立監査は未完了である。
@@ -1709,6 +1745,47 @@ The Stacks Project Authors, \emph{The Stacks Project}.
 \href{https://stacks.math.columbia.edu/tag/06N3}{Theorem~101.21.6, Tag~06N3}。
 étale locus とその底変更、群作用商・torsor の表示、DM atlas、アフィン降下。
 2026年11月19日原文確認。
+
+\bibitem{ELSSmoothAlgebras}
+A.~Elagin, V.~A.~Lunts and O.~M.~Schn\"urer,
+\emph{Smoothness of Derived Categories of Algebras},
+Moscow Math.~J. \textbf{20} (2020), no.~2, 277--309.
+\url{https://arxiv.org/abs/1810.07626}, v2 (2019), Theorems~4.15,4.18.
+\url{https://www.mathjournals.org/mmj/2020-020-002/2020-020-002-003.html}.
+著者版26--27頁の生成定理とその仮定を2026年11月19日に確認。
+
+\bibitem{ToenVaquieObjects}
+B.~To\"en and M.~Vaqui\'e,
+\emph{Moduli of objects in dg-categories},
+Ann.~Sci.~\'Ec.~Norm.~Sup\'er.~(4) \textbf{40} (2007), 387--444.
+\href{https://doi.org/10.1016/j.ansens.2007.05.001}{doi:10.1016/j.ansens.2007.05.001}.
+\url{https://www.numdam.org/article/ASENS_2007_4_40_3_387_0.pdf}.
+Lemma~2.10（405--407頁）、Corollary~2.13、Proposition~2.14。
+
+\bibitem{ToenDefinitionRings}
+B.~To\"en,
+\emph{Anneaux de d\'efinition des dg-alg\`ebres propres et lisses},
+著者版（2007年5月）, 事実 F4（2頁）.
+\url{https://www.math.univ-toulouse.fr/~btoen/defdgalg.pdf};
+\url{https://arxiv.org/abs/math/0611546}.
+F4 の perfect 加群の連続性は任意の出発 dg 代数に適用される。
+F5 の pseudoperfect 加群についての hfp 仮定とは区別する。
+
+\bibitem{WWYSklyaninPoisson}
+C.~Walton, X.~Wang and M.~Yakimov,
+\emph{Poisson geometry of PI 3-dimensional Sklyanin algebras},
+Proc.~Lond.~Math.~Soc. (3) \textbf{118} (2019), 1471--1500.
+\url{https://arxiv.org/abs/1704.04975}, v3 (2018),
+Definition--Lemma~2.13（9頁）と Proposition~2.22。
+平行移動点の規約を確認。原典の\cite{ATV}への帰属を保持する。
+
+\bibitem{StacksEllipticTorsion}
+The Stacks Project Authors, \emph{The Stacks Project}.
+\href{https://stacks.math.columbia.edu/tag/0BFG}{Tag~0BFG, Lemma~39.9.8},
+\href{https://stacks.math.columbia.edu/tag/0BFH}{Tag~0BFH, Lemma~39.9.9}.
+体上の乗法写像の有限性と、標数と互いに素な場合の \'etale 性。
+Hesse 族上の主張には本文の相対微分と properness の議論を加える。
+2026年11月19日確認。
 
 \end{thebibliography}
 \end{document}
