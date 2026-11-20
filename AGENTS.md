@@ -1,14 +1,21 @@
-# Codex研究指示 — 非可換三次三様体のAbel圏モジュライ
+# Codex研究指示 — 非可換三次三様体のAbel圏変形・モジュライ・残余比較
 
-2026-11-20 / research-plan-v16。GitHub mainが正本。再開時は `00_research_plan.md`、主稿Introduction、`notes/research_notes.md` §12、`validation.json` を読む。主稿は `papers/nc-cubic-threefold-moduli.tex`（v22）。各数学課題の入口は研究方針§4–5にある。
+2026-11-21 / research-plan-v17。GitHub mainが正本。再開時は `00_research_plan.md`、主稿Introduction、`notes/research_notes.md` §12、`validation.json` を読む。主稿は `papers/nc-cubic-threefold.tex`（v23）。各数学課題の入口は研究方針§4–5にある。
 
 ## 最優先の判断基準
 
 数学的重要性、新規性、理解の深化、応用可能性、正確性、実現可能性を総合し、研究全体の価値を最大化する。現在の目標は、構造対象Oだけを標識したAbel圏としてnc cubic threefoldのモジュライを定め、実際の射・全Artin変形・二次包絡の比較を完成すること。17次元族のsmooth proper開と残余圏の幾何化は達成した。全Abel形式残余とPoisson形式fiberも達成し、実際の開上の非標準的なPoisson持上げも得た。公表前の証明点検・文章の完成を優先し、内在的Poisson持上げと全Abelモジュライ内の位置を次の数学的目標とする。
 
+## 研究間の分担・正本
+
+- 正本は改名後の `uedakazushi/nc-cubic-threefold` の `main`、主原稿は本文のある `papers/nc-cubic-threefold.tex`。日本語LuaLaTeX、著者欄空欄。全$n\ge3$の証明は `nc-cubic`、古典正規形は `poisson-cubic`、量子化存在は `cubic-quantization` を引用する。三様体に固有の**全Abel Artin形式変形と残余射の実際の代数化**を中心にする。
+- `nc-cubic` の$n=3$の良い一ブロックstackが本repoの$\mathfrak C_J$とどの開で同一か、および$\rho$が$\operatorname{forget}\circ\Psi_{\mathrm{res}}^{\mathrm{sc}}$に一致するかは未確認。全次元の定理の$n=3$特殊化・最小次数や残余射の次数をこのrepo固有の新定理として再証明・再計上しない。
+- `nc-cubic-point` の点スキームの細部、`pfaffian-brill-noether` のTorelli/Pfaffian、`nc-cubic2` の相対復元は独立研究の正本として保持し、内容の重複が立証できない限り削除・移管しない。ここには要点と正確な定理の出典を記す。
+- 再開時は [research-hub](https://github.com/uedakazushi/research-hub) の研究間分担を確認し、本repoの `00_research_plan.md` を最初に読む。研究区切りには本repoの原稿・方針・ノート・READMEを先にmainへ保存し、次にhubの到達点・確実性・核心・次の一手・依存・再開先・実確認日を更新する。他の研究の変更を保持し、双方の反映を別に確認する。
+
 ## 直近の優先順位
 
-1. **公表前検証と推敲。** 主稿 `papers/nc-cubic-threefold-moduli.tex` のIntroductionにA–Dを集約する。相対Koszul/CYからSerre trace、全O保存同値、atlas、残余射という依存鎖、全Artin模型、および有限中心・相対圏・大域smoothness三節の重点点検範囲を保持する。次は ambient_periodicity.tex と period_forgetting_moduli.tex の周期選択、正規族との可換性、相対降下を点検する。一般の未解決分類や内在的逆量子化の完成を公表の前提にしない。主稿の3部と証明を保持した付録という構成を尊重する。
+1. **公表前検証と推敲。** 主稿 `papers/nc-cubic-threefold.tex` のIntroductionにA–Dを集約する。相対Koszul/CYからSerre trace、全O保存同値、atlas、残余射という依存鎖、全Artin模型、および有限中心・相対圏・大域smoothness三節の重点点検範囲を保持する。次は ambient_periodicity.tex と period_forgetting_moduli.tex の周期選択、正規族との可換性、相対降下を点検する。一般の未解決分類や内在的逆量子化の完成を公表の前提にしない。主稿の3部と証明を保持した付録という構成を尊重する。
 2. **量子中心に対応する古典三次。** 点schemeからU,Q,R_Qと[Π]、shift付き対応から二次包絡とhΠ_Fを復元した。次は量子中心直線をR_Q内へ補正し、ρの出力三次との一致を示す。Hesseの有限点schemeの零点非実現性とsym⁻¹反例を制約とする。有限σのlogは使わない。相対超越基底による非標準的持上げは一般論の命題として扱う。
 3. **七次元fiberと全M内の位置。** 接合双加群と既存17→13 torsorの関係を調べる。一般非可換点の全変形は小拡大・障害を含めて比較する。C_Jは可換点を含まず、次元17の一致だけで成分性を宣言しない。全Mの代数性、開性・局所閉性、有限対角、分離性は未解決。
 4. **入力と検証の状態。** 一般(FS)、compact核の無条件形式効果化、generator開性はノート§1.8.2の反例により使わない。係数Perfを先に効果化しsmooth targetと相対Serreを使う。主要節の読み合わせ、引用仮定確認、計算実行、組版、外部査読を区別する。初出・新規性の網羅調査と全証明の独立監査は未完了。

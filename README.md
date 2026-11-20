@@ -1,10 +1,18 @@
-# 非可換三次三様体のAbel圏モジュライ
+# 非可換三次三様体：Abel圏の変形・モジュライ・Kuznetsov比較
 
-2026-11-20 / research-plan-v16・主稿v22。
+2026-11-21 / research-plan-v17・主稿v23。
 
 構造対象Oを保つ全ての完全Abel圏同値を射として、非可換三次三様体のモジュライと、二次包絡・Kuznetsov残余圏による二つの射を研究する。
 
-**研究再開は[研究方針](00_research_plan.md)から。** [主論文](papers/nc-cubic-threefold-moduli.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [作業指示](AGENTS.md)。
+**研究再開は[研究方針](00_research_plan.md)から。** [主論文](papers/nc-cubic-threefold.tex) ／ [研究ノート](notes/research_notes.md) ／ [検証状態](validation.json) ／ [作業指示](AGENTS.md)。
+
+## 担当範囲と他研究との関係
+
+このリポジトリを**非可換三次三様体（dimension 3）に固有の成果の入口**とする。最も重要な独立成果は、可換三次三様体点における全O-marked Abel圏のframed Artin形式近傍（主定理C）である。17次元Jacobian部分stack（A）、実際の残余Ku射と相対dg smooth proper性（B）、特殊な点データと尺度（D）を組み合わせる。
+
+[一般次元のnc-cubic](https://github.com/uedakazushi/nc-cubic) が全n≥3の一ブロック moduli・残余Poisson射の一般次数9／符号商18・比較核のPicard障害の正本である。これらを三様体で再証明せずn=3特殊化を引用する。**未証明：** 同repoの良い一ブロックstackと本稿のJacobian stackの共通開の厳密な同定、同repoの残余Poisson射の可換三次への忘却と本稿のρの一致、全O-markedモジュライの成分性。
+
+[poisson-cubic](https://github.com/uedakazushi/poisson-cubic) は古典的Poisson正規形、[cubic-quantization](https://github.com/uedakazushi/cubic-quantization) はその代数的量子化、[nc-cubic-point](https://github.com/uedakazushi/nc-cubic-point) は点スキーム・非被約退化、[pfaffian-brill-noether](https://github.com/uedakazushi/pfaffian-brill-noether) は三次三様体のPfaffian/Brill--Noether研究、[nc-cubic2](https://github.com/uedakazushi/nc-cubic2) は相対復元の別研究の正本。独立した公表原稿をこのrepoへ機械的に合併しない。
 
 ## 論文の中心結果
 
@@ -29,14 +37,14 @@ Introductionで主定理A–Dと先行研究との関係を述べる。第I部�
 
 ```sh
 python3 scripts/verify.py
-latexmk papers/nc-cubic-threefold-moduli.tex
+latexmk papers/nc-cubic-threefold.tex
 python3 computations/verify_relative_cy.py --output build/relative_cy.json
 python3 computations/verify_point_poisson.py --output build/point_poisson.json
 python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json
 python3 computations/verify_commutative_dominance.py --output build/commutative_dominance.json
 ```
 
-LuaLaTeX、latexmk、luatexja、日本語フォント、Python3、SymPyを用いる。既定の日本語フォントはNoto Serif CJK、利用できない場合はHarano Aji Mincho。`.latexmkrc` とVS Codeの設定はルートからのLuaLaTeXビルドに対応する。出力は `build/nc-cubic-threefold-moduli.pdf`。
+LuaLaTeX、latexmk、luatexja、日本語フォント、Python3、SymPyを用いる。既定の日本語フォントはNoto Serif CJK、利用できない場合はHarano Aji Mincho。`.latexmkrc` とVS Codeの設定はルートからのLuaLaTeXビルドに対応する。出力は `build/nc-cubic-threefold.pdf`。
 
 計算の出力は `computations/` の対応する小証明書と比較する。`verify_relative_cy.py` はPython標準ライブラリだけで全40自由語の恒等式とcochain符号を検算し、PBW・解消の完全性は本文で別に証明する。`scripts/verify.py` はTeX入力・参照・引用の静的検査であり、数学的証明の検証を代替しない。PDF・中間物・ZIP・キャッシュはGit追跡しない。GitHub mainに現行一式を保存し、旧版の取得なしに再開できる構成を保つ。
 

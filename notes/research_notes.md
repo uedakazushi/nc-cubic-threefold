@@ -1,6 +1,16 @@
 # 研究ノート：非可換三次三様体と非可換P^4
 
-2026-11-20 / research-notes-v16 / 主論文 manuscript-v22。現在有効な研究知識。詳細証明は主論文 `papers/nc-cubic-threefold-moduli.tex` とその `papers/sections` に保持する。H3/PI4曲面の関連知識は§12で本研究の入力と区別する。
+2026-11-21 / research-notes-v17 / 主論文 manuscript-v23。現在有効な研究知識。詳細証明は主論文 `papers/nc-cubic-threefold.tex` とその `papers/sections` に保持する。H3/PI4曲面の関連知識は§12で本研究の入力と区別する。
+
+## 0. 三次三様体に固有の現行成果と研究間の接続
+
+本repo `uedakazushi/nc-cubic-threefold` の主原稿は `papers/nc-cubic-threefold.tex`。全次元一ブロック論文 [nc-cubic](https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex)、古典正規形 [poisson-cubic](https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex)、量子化 [cubic-quantization](https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex) を独立した外部入力とし、証明の正本を重複させない。
+
+**三様体固有の中心：** 可換点の全O-marked Abel圏framed Artin群oidは `abel_cubic_deformations.tex` と `abel_formal_descent.tex` により十次元形式円板×Gr(2,5)錐の頂点完備化であり、Krull次元17・接空間次元20。実際の残余操作と相対Poisson忘却の形式射への両立は `poisson_cubic_lifts.tex`。17次元Jacobian部分stack `jacobian_moduli_chart.tex` と十次元可換三次モジュライへのρ（相対次元7） `kuznetsov_moduli_morphism.tex` は、全次元の良い一ブロックの特殊化と開の条件を要照合。
+
+**一般次元からの引用（本稿固有の再証明はしない）：** `nc-cubic` の (n=3) では良い一ブロックstackの次元17、周囲stack13、中心三次選択のrank4 torsor、残余Poisson射の一般次数9と符号商18、点型比較核の一般split体上のPicard index三が得られる。三様体についてfull比較classの降下・最小次数三も同論文の指定仮定の下で主張される。これらを本稿の全Abel Artin近傍や全intrinsic成分へ自動的に拡張しない。
+
+**最優先の比較：** `nc-cubic` の良い一ブロックstackとの実際の共通開で、O-全同値・PBW/AS・中心・étale条件を合わせる。両方で比較が成立する場合も、ρが `forget∘Ψ_res^sc` に一致することは現在未証明である。比較核の全同型類とscalar gerbe、標識付き周期を混同しない。点スキーム固有の退化の正本は `nc-cubic-point`、Pfaffian・Brill--Noetherの正本は `pfaffian-brill-noether`、一般相対復元の正本は `nc-cubic2`。
 
 ## 1. 何をモジュライのデータに含めるか
 

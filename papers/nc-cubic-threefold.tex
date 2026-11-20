@@ -1,4 +1,4 @@
-% !TEX root = nc-cubic-threefold-moduli.tex
+% !TEX root = nc-cubic-threefold.tex
 \documentclass[11pt,a4paper]{ltjsarticle}
 \usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
 \usepackage{luatexja-fontspec}
@@ -60,13 +60,14 @@
 \newcommand{\AS}{\mathrm{AS}}
 \newcommand{\nc}{\mathrm{nc}}
 \newcommand{\Symm}{\operatorname{sym}}
-\title{非可換三次三様体のAbel圏モジュライ\\二次包絡とKuznetsov残余射}
+\title{非可換三次三様体のAbel圏変形とモジュライ\\\large 形式近傍・二次包絡・Kuznetsov残余射}
 \author{}
-\date{2026年11月20日・公表準備稿 v22}
-\hypersetup{pdftitle={非可換三次三様体のAbel圏モジュライ},pdfsubject={二次包絡とKuznetsov残余射}}
+\date{2026年11月21日・公表準備稿 v23}
+\hypersetup{pdftitle={非可換三次三様体のAbel圏変形とモジュライ},pdfsubject={形式近傍・二次包絡・Kuznetsov残余射}}
 \begin{document}
 \maketitle
 \begin{abstract}
+本稿の三次三様体固有の中心成果は、滑らかな可換三次三様体の点における全 $\mathcal O$-marked Abel 圏の framed Artin 形式近傍と残余射を、群oid として記述することである。
 構造対象 $\mathcal O$ を保つ全ての完全 Abel 圏同値を射とする、
 非可換三次三様体のモジュライを考える。
 二つの中心一次変数を持つ Jacobian 型中心三次商から、
@@ -122,6 +123,33 @@
 係数基底は通常の可換 $\C$-代数とする。
 導来底変更とは、その任意の射 $R\to S$ に沿う
 $-\otimes_R^{\mathbf L}S$ による係数延長を指す。
+
+\subsection{研究の分担と三次三様体固有の問題}
+一般次元の非可換三次超曲面に対する中心一次復元、良い一ブロックの
+$\mathcal O$-marked moduli、残余 Poisson 射、Kuznetsov 比較とその算術は
+独立論文\cite{NCCubicGeneral}を正本とする。
+本稿の十七次元 Jacobian 型 stack と一般次元論文の $n=3$ の良い一ブロック stack
+は、名称や次元だけで同一視しない。相互の共通開、標識忘却、
+底変更と全 Abel 同値の範囲の比較は未完了である。
+一般次元論文では、この範囲の半古典規格化された残余 Poisson 射の
+一般次数が九、符号商射の一般次数が十八となる。
+ここで得る $\rho$ が、同じ共通開において同論文の
+$\Psi_{\mathrm{res}}^{\mathrm{sc}}$ から Poisson tensor を忘れた射に
+一致することは、今後の比較課題とし、現時点で証明済みとは扱わない。
+
+これに対し、本稿の主定理\ref{thm:intro-formal}は、
+可換三次三様体の点における\emph{全}構造対象付き Abel 変形の
+framed Artin 群oid と、その非自明な Pl\"ucker 二次障害を対象とする。
+可換点は上記 Jacobian 型部分 stack には含まれないので、
+十七次元という数値だけから両者の閉包・成分性を導かない。
+Poisson 正規形は\cite{PoissonCubic}、その代数的量子化の存在と
+中心元は\cite{CubicQuantization}を別の正本とする。
+指定混合族の点スキームのより細かい退化は
+\url{https://github.com/uedakazushi/nc-cubic-point}、
+三次三様体の Brill--Noether/Pfaffian 研究は
+\url{https://github.com/uedakazushi/pfaffian-brill-noether} が担当する。
+本稿では必要な三様体固有の比較とその証明だけを保持し、
+独立論文の本文を重複して収録しない。
 
 \subsection{二つのモジュライ射}
 
@@ -502,6 +530,28 @@ $\mathfrak C_{\mathrm J}$ の有限型代数性と完全忠実性は主定理\re
 \input{papers/sections/exact_rank_certificate.tex}
 
 \begin{thebibliography}{99}
+\bibitem{NCCubicGeneral}
+\emph{非可換三次 $n$-fold の可換復元とモジュライ},
+日本語未公表研究稿（2026年11月21日）,
+\href{https://github.com/uedakazushi/nc-cubic/blob/main/papers/nc-cubic.tex}{現行主原稿}。
+一般中心三次変形の \texttt{cft:thm:complete} と \texttt{gdr:thm:generic}、
+良い一ブロックの残余 Poisson 射・次数・比較障害を参照する。
+一般次元の命題を本稿固有の新規成果として再計上しない。
+
+\bibitem{PoissonCubic}
+\emph{滑らかな三次超曲面の Poisson 構造：正規形・退化軌跡・モジュライ},
+日本語未公表研究稿（2026年11月21日）,
+\href{https://github.com/uedakazushi/poisson-cubic/blob/main/papers/poisson-cubic.tex}{現行主原稿}。
+特に $n=3$ の非零 Poisson 構造が一ブロック型となる古典正規形を参照する。
+
+\bibitem{CubicQuantization}
+\emph{滑らかな三次超曲面の代数的量子化},
+日本語未公表研究稿（2026年11月21日）,
+\href{https://github.com/uedakazushi/cubic-quantization/blob/main/papers/cubic-quantization.tex}{現行主原稿}。
+一般次元の中心三次量子化の存在・規格化を参照し、
+Ku 比較を量子化の存在証明に使わない。
+
+
 \bibitem{BehrendNoohiModuli}
 K.~Behrend and B.~Noohi,
 \emph{Moduli of non-commutative polarized schemes},
