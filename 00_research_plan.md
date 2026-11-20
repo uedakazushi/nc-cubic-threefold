@@ -19,7 +19,7 @@
 
 ## 2. 目標と公表の中心
 
-**新しい分担。** 本研究を三次三様体特有の $\mathcal O$-marked Abel 圏の形式変形・有限型部分モジュライ・実際の残余射・比較核の降下の研究拠点とする。とくに可換三次三様体点の **全 Abel 形式近傍**（主定理 C）を最も独立性の高い中心結果に据える。主定理 A の十七次元 Jacobian 部分 stack は一般次元理論の $n=3$ の良い一ブロック stack と開条件を照合し、主定理 B の $\rho$ は一般次元の残余 Poisson 射の忘却との一致を検証する。主定理 D の一般次元に通じる証明は \`nc-cubic\` を正本とし、三様体固有の埋込み・反例・形式降下の証明をここに保持する。
+**新しい分担。** 本研究を三次三様体特有の $\mathcal O$-marked Abel 圏の形式変形・有限型部分モジュライ・実際の残余射・比較核の降下の研究拠点とする。とくに可換三次三様体点の **全 Abel 形式近傍**（主定理 C）を最も独立性の高い中心結果に据える。主定理 A の十七次元 Jacobian 部分 stack は一般次元理論の $n=3$ の良い一ブロック stack と開条件を照合し、主定理 B の $\rho$ は一般次元の残余 Poisson 射の忘却との一致を検証する。主定理 D の一般次元に通じる証明は `nc-cubic` を正本とし、三様体固有の埋込み・反例・形式降下の証明をここに保持する。
 
 **他repoとの分担：** [nc-cubic](https://github.com/uedakazushi/nc-cubic) は全 $n\ge3$ の一般中心三次変形と一ブロックの復元・モジュライ・点型算術・残余 Poisson 射の正本であり、そのうち $n=3$ への特殊化の証明を本repoで重複させない。[poisson-cubic](https://github.com/uedakazushi/poisson-cubic) は古典正規形、[cubic-quantization](https://github.com/uedakazushi/cubic-quantization) は代数的量子化、[nc-cubic-point](https://github.com/uedakazushi/nc-cubic-point) は特殊族の点スキーム・退化、[pfaffian-brill-noether](https://github.com/uedakazushi/pfaffian-brill-noether) は Brill--Noether/Pfaffian の独立論文、[nc-cubic2](https://github.com/uedakazushi/nc-cubic2) は相対復元の独立技術稿を管理する。いずれも自動的に統合・削除しない。
 
@@ -54,11 +54,11 @@
 
 ## 4. 優先課題と達成基準
 
-**P0の比較表を最初に完成する。** (i) Jacobian $\mathfrak C_{\mathrm J}$ と \`nc-cubic\` の $n=3$ の良い一ブロック stack の共通開を同定するため、両者の $\mathcal O$-保存全同値、$\sigma^j\ne1$、中心・AS/PBW・smoothness の条件を一つずつ照合する。(ii) $\rho$ と $\operatorname{forget}\circ\Psi_{\mathrm{res}}^{\mathrm{sc}}$ は同じ $X$ の Ku を回復する場合に整合する可能性が高いが、未証明の同一性として扱う。(iii) 一般次元の最小比較次数三・残余 Poisson 射九／十八と、三様体固有の全 Abel Artin 形式近傍、七次元 fiber・相対 dg smooth proper 性を別々に記載する。$n=3$ を含む全次元の定理を本稿独自の定理として再掲しない。
+**P0の比較表を最初に完成する。** (i) Jacobian $\mathfrak C_{\mathrm J}$ と `nc-cubic` の $n=3$ の良い一ブロック stack の共通開を同定するため、両者の $\mathcal O$-保存全同値、$\sigma^j\ne1$、中心・AS/PBW・smoothness の条件を一つずつ照合する。(ii) $\rho$ と $\operatorname{forget}\circ\Psi_{\mathrm{res}}^{\mathrm{sc}}$ は同じ $X$ の Ku を回復する場合に整合する可能性が高いが、未証明の同一性として扱う。(iii) 一般次元の最小比較次数三・残余 Poisson 射九／十八と、三様体固有の全 Abel Artin 形式近傍、七次元 fiber・相対 dg smooth proper 性を別々に記載する。$n=3$ を含む全次元の定理を本稿独自の定理として再掲しない。
 
 
 
-### P0：中心結果の公表前検証と文章の完成
+### P0：三様体固有の全Artin変形と比較・公表前検証
 
 1. 中心定理の上流では、普遍PBWの閉点検出から有限射影分裂への移行、cyclic Hessianの符号、二つの中心差によるCY3からCY5への移行を重点点検済みである。本文の `eq:general17-cy-chain-signs` と `verify_relative_cy.py` が符号の再確認の入口となる。任意非平坦・非Noetherian底変更は分裂完全性の証明に依存し、自由語の検算だけで代替しない。
 2. 相対Veronese・豊富列比較から全O保存Homへの経路、形式認識→係数Perf効果化→Serre安定像の生成性→有限表示・Torelli降下を重点点検済みである。偶数sectionの全Z代数は `eq:abel-even-section-coherence`、冪等完備化後の生成性は `lem:kuznetsov-graded-thick-simple` に明示した。公表前の整合確認では、主定理A–Dの基底と開条件を各証明へ辿り、全M、C_J、残余射の開U、点復元の開を混同する表現を残さない。
