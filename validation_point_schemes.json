@@ -69,5 +69,18 @@
   },
   "mathematical_proof_audit": false,
   "independent_novelty_audit": false,
-  "delete_old_repository": "pending_manual_deletion_only_after_migration_and_required_runtime_checks; no connected GitHub repository deletion action is available."
+  "delete_old_repository": "prepared_for_deletion_with_redirect_readme; actual GitHub repo deletion unsupported by connected tools and not executed. Run current source/compute/build checks before manual deletion.",
+  "content_transfer_verification": {
+    "date": "2026-11-21",
+    "source_repository": "uedakazushi/nc-cubic-point",
+    "destination_repository": "uedakazushi/nc-cubic-threefold",
+    "method": "Fetched matching original and relocated UTF-8 source using connected GitHub and compared contents in same turn",
+    "results": {
+      "proof_and_support_tex_identical": 9,
+      "computation_scripts_identical": 4,
+      "computation_script_one_path_literal_only": "verify_mixed_test_family.py: proof_formulas_source changed from papers/reconstruction_extensions/mixed_central_family.tex to papers/point/mixed_central_family.tex",
+      "independent_papers_modified_only_for_paths_title_date_blank_author_and_reference_link": true
+    },
+    "limits": "Does not constitute a new mathematical proof audit, compiler run or full script execution."
+  }
 }
