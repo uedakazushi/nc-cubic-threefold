@@ -42,4 +42,4 @@ LuaLaTeX、latexmk、luatexja、日本語フォント、Python3、SymPyを用い
 
 ## 関連する独立研究
 
-[非可換三次曲面分類](https://github.com/uedakazushi/nc-cubic-classification) ／ [四次元AS正則Z代数](https://github.com/uedakazushi/asz4) ／ [非可換三次曲面](https://github.com/uedakazushi/nc-cubic) ／ [P4のPoisson構造](https://github.com/uedakazushi/poisson-p4)。これらの課題や全分類を本論文の結論と混同しない。
+[非可換三次曲面分類](https://github.com/uedakazushi/nc-cubic-classification) ／ [四次元AS正則Z代数](https://github.com/uedakazushi/asz4) ／ [三次超曲面のPoisson構造・量子化](https://github.com/uedakazushi/poisson-cubic) ／ [P4のPoisson構造](https://github.com/uedakazushi/poisson-p4)。これらの課題や全分類を本論文の結論と混同しない。
