@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-21",
+  "version": "point-transfer-v1",
+  "canonical_repository": "uedakazushi/nc-cubic-threefold",
+  "papers": [
+    "papers/mixed-cubic-point-schemes.tex",
+    "papers/diagonal-cubic-point-geometry.tex"
+  ],
+  "source_scope": "Two independent point-scheme papers with complete support sources; formerly in nc-cubic-point. Their mathematical content is unchanged apart from names, paths, date, citation link and author field.",
+  "static_migration": {
+    "method": "GitHub connector source graph and reference scan",
+    "status": "pass",
+    "mixed_tex_files": 8,
+    "diagonal_tex_files": 3,
+    "mixed_labels": 47,
+    "diagonal_labels": 3,
+    "missing_tex_inputs": 0,
+    "duplicate_labels": 0,
+    "unresolved_refs": 0,
+    "unresolved_citations": 0,
+    "full_permitted_static_checker_executed_locally": false
+  },
+  "current_typesetting": {
+    "executed": false,
+    "reason": "New repository inputs have not yet been compiled in a LuaLaTeX runtime",
+    "prior_mixed_build": {
+      "date": "2026-11-13",
+      "pages": 12,
+      "source_entry": "papers/mixed_cubic_point_schemes.tex",
+      "engine": "LuaLaTeX",
+      "claimed_prior_status": "passed_in_previous_repo"
+    },
+    "prior_diagonal_build": "Original README reports a prior build; not rerun in destination."
+  },
+  "current_computations": {
+    "executed": false,
+    "reason": "Computational scripts transferred; not yet rerun in destination."
+  },
+  "prior_validated_scope": {
+    "source_date": "2026-11-13",
+    "small_exact_checks": {
+      "executed": true,
+      "tex_files": 8,
+      "labels": 47,
+      "references": 22,
+      "citation_occurrences": 6,
+      "bibliography_entries": 2,
+      "unresolved_references": 0,
+      "unresolved_citations": 0,
+      "duplicate_labels": 0,
+      "checker": "scripts/check_mixed_point_schemes.py",
+      "checker_with_calculations_executed": true
+    },
+    "prior_build_result": {
+      "executed": true,
+      "command": "latexmk -g -r .latexmkrc papers/mixed_cubic_point_schemes.tex",
+      "engine": "LuaLaTeX",
+      "latexmkrc_blob": "e91814c24c952db2ee886837d0c827cd64498f3d",
+      "pages": 12,
+      "overfull_boxes": 0,
+      "missing_characters": 0,
+      "undefined_references_and_citations": 0,
+      "multiply_defined_labels": 0,
+      "visual_review": "All 12 manuscript pages rendered and inspected in three contact sheets; final reference correction on page 8 re-rendered and checked.",
+      "pdf_sha256": "4b2f9ac4dea90dc4e13162e6b5c13da93f45a2cfbe0fc37c7e35f0bdfa14b857",
+      "pdf_git_tracked": false
+    },
+    "notes": "Earlier checks are retained as evidence of scope; recorded source blob IDs apply to original paths before relocation and must not be read as hashes of current sources."
+  },
+  "mathematical_proof_audit": false,
+  "independent_novelty_audit": false,
+  "delete_old_repository": "pending_manual_deletion_only_after_migration_and_required_runtime_checks; no connected GitHub repository deletion action is available."
+}
