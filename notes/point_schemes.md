@@ -1,7 +1,9 @@
 # 混合三次超曲面の点スキーム：現行ノート
 
-**2026-11-13 / v1。再開時はリポジトリの00_research_plan.mdと、このノートを読む。**
-公表用原稿は `papers/mixed-cubic-point-schemes.tex`。本文の証明は `papers/point/` 内の混合中心式および4本のpoint_scheme節にある。一般次元の可換復元定理はnc-cubic論文Bに残し、この原稿はそれを仮定しない。
+**2026-11-21 / v2。再開時は[三次三様体研究方針](../00_research_plan.md)と、このノートを読む。**
+公表用原稿は `papers/mixed-cubic-point-schemes.tex`。本文の証明は `papers/point/` 内の混合中心式および4本のpoint_scheme節にある。一般次元の可換復元定理は[nc-cubic](https://github.com/uedakazushi/nc-cubic)の一般次元の復元論文に残し、この原稿はそれを仮定しない。
+
+本ノートは二つの独立稿（[混合族](../papers/mixed-cubic-point-schemes.tex) と [対角族](../papers/diagonal-cubic-point-geometry.tex)）に共通する現行知識と障害を扱う。研究全体の正本は `uedakazushi/nc-cubic-threefold` のmainであり、移管前の旧repoを取得する必要はない。対角族の詳細な定理と証明は `papers/point/diagonal_point_divisors.tex` と `papers/point/diagonal_point_shift.tex` に置く。
 
 ## 目標・達成基準と次の作業
 
@@ -43,7 +45,7 @@ python computations/point/verify_lambda_discriminant.py --output build/lambda_di
 
 実行済み：自由代数の3恒等式、mod h^3,h^4,h^5,h^9のPBW/中心性と負例、有理数上の3+12個の長さ24のGroebner商、せん断の記号計算、標数11における判別式上の3例と長さ6の局所商。標数11の検算を標数零の一般証明の代用にしない。コードはpoint functorの表現可能性や既知Sklyanin定理を形式検証しない。容易に再生成できる出力はbuild/へ置く。
 
-全文12頁を組版し全頁を表示確認した。参照・引用・重複ラベル・欠落文字・overfull boxは0。原稿の8TeXファイルと検算スクリプトのハッシュ、および正確な状態は `validation_mixed_cubic_point_schemes.json` に記す。全数学的証明の新しい独立監査、包括的な新規性調査、外部査読は未実施。
+移管前の稿について12頁を組版し全頁を表示確認した記録がある。移管後v2の再組版は未確認。参照・引用・重複ラベル・欠落文字・overfull boxは0。以前の原稿8TeXファイルと検算スクリプトのハッシュ、および正確な状態は `validation_point_schemes.json` に記す。全数学的証明の新しい独立監査、包括的な新規性調査、外部査読は未実施。
 
 ## 運用上の一般原則
 

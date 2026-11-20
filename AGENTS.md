@@ -1,6 +1,6 @@
 # Codex研究指示 — 非可換三次三様体のAbel圏変形・モジュライ・残余比較
 
-2026-11-21 / research-plan-v17。GitHub mainが正本。再開時は `00_research_plan.md`、主稿Introduction、`notes/research_notes.md` §12、`validation.json` を読む。主稿は `papers/nc-cubic-threefold.tex`（v23）。各数学課題の入口は研究方針§4–5にある。
+2026-11-21 / research-plan-v18。GitHub mainが正本。再開時は `00_research_plan.md`、主稿Introduction、`notes/research_notes.md` §12、`validation.json` を読む。主稿は `papers/nc-cubic-threefold.tex`（v23）。各数学課題の入口は研究方針§4–5にある。
 
 ## 最優先の判断基準
 
@@ -10,8 +10,14 @@
 
 - 正本は改名後の `uedakazushi/nc-cubic-threefold` の `main`、主原稿は本文のある `papers/nc-cubic-threefold.tex`。日本語LuaLaTeX、著者欄空欄。全$n\ge3$の証明は `nc-cubic`、古典正規形は `poisson-cubic`、量子化存在は `cubic-quantization` を引用する。三様体に固有の**全Abel Artin形式変形と残余射の実際の代数化**を中心にする。
 - `nc-cubic` の$n=3$の良い一ブロックstackが本repoの$\mathfrak C_J$とどの開で同一か、および$\rho$が$\operatorname{forget}\circ\Psi_{\mathrm{res}}^{\mathrm{sc}}$に一致するかは未確認。全次元の定理の$n=3$特殊化・最小次数や残余射の次数をこのrepo固有の新定理として再証明・再計上しない。
-- `nc-cubic-point` の点スキームの細部、`pfaffian-brill-noether` のTorelli/Pfaffian、`nc-cubic2` の相対復元は独立研究の正本として保持し、内容の重複が立証できない限り削除・移管しない。ここには要点と正確な定理の出典を記す。
+- 点スキームに固有の論文・ノート・計算・証明書は本repo内の `papers/mixed-cubic-point-schemes.tex` と `papers/diagonal-cubic-point-geometry.tex`、`papers/point/`、`notes/point_schemes.md`、`computations/point/` を正本とする。`nc-cubic-point` は旧リポジトリで削除予定、研究再開時に依存しない。`pfaffian-brill-noether` のTorelli/Pfaffian、`nc-cubic2` の相対復元は独立研究の正本として保持し、内容の重複が立証できない限り削除・移管しない。ここには要点と正確な定理の出典を記す。
 - 再開時は [research-hub](https://github.com/uedakazushi/research-hub) の研究間分担を確認し、本repoの `00_research_plan.md` を最初に読む。研究区切りには本repoの原稿・方針・ノート・READMEを先にmainへ保存し、次にhubの到達点・確実性・核心・次の一手・依存・再開先・実確認日を更新する。他の研究の変更を保持し、双方の反映を別に確認する。
+
+## 点スキーム論文と旧リポジトリ削除の運用
+
+- 主原稿は `papers/nc-cubic-threefold.tex` のまま。独立した点スキーム二稿は `papers/mixed-cubic-point-schemes.tex` と `papers/diagonal-cubic-point-geometry.tex`。必要な証明を保持し、一つの主原稿へ無理に結合しない。別論文としての役割を方針・README・引用に明示する。
+- `python3 scripts/check_point_schemes.py` は二稿の入力・参照・引用を検査し、`--calculations` は有限検算、`--build` は両稿のLuaLaTeX組版を実行する。移管前の検証を移管後の成功と誤記しない。
+- `nc-cubic-point` リポジトリの内容を旧正本としない。旧repoの削除は新repoの現行内容・必要な証明書と参照を確認してから。GitHubの接続でリポジトリ自体を削除できない場合は、旧repoを案内専用にして残し、管理画面での削除が必要と正確に報告する。既存研究の全ファイルを衝動的に削除しない。
 
 ## 直近の優先順位
 

@@ -1,6 +1,6 @@
 # 研究方針：非可換三次三様体のAbel圏変形・モジュライ・残余比較
 
-2026-11-21 / research-plan-v17。再開時は最初に本書を読む。主論文は `papers/nc-cubic-threefold.tex`（公表準備稿v23）、補助的な知識は `notes/research_notes.md`、実行済み検証の状態は `validation.json` にある。GitHub `uedakazushi/nc-cubic-threefold` のmainを正本とし、この現行一式だけから再開する。
+2026-11-21 / research-plan-v18。再開時は最初に本書を読む。主論文は `papers/nc-cubic-threefold.tex`（公表準備稿v23）、補助的な知識は `notes/research_notes.md`、実行済み検証の状態は `validation.json` にある。GitHub `uedakazushi/nc-cubic-threefold` のmainを正本とし、この現行一式だけから再開する。
 
 ## 1. 恒常的な研究原則と保存許可
 
@@ -21,7 +21,9 @@
 
 **新しい分担。** 本研究を三次三様体特有の $\mathcal O$-marked Abel 圏の形式変形・有限型部分モジュライ・実際の残余射・比較核の降下の研究拠点とする。とくに可換三次三様体点の **全 Abel 形式近傍**（主定理 C）を最も独立性の高い中心結果に据える。主定理 A の十七次元 Jacobian 部分 stack は一般次元理論の $n=3$ の良い一ブロック stack と開条件を照合し、主定理 B の $\rho$ は一般次元の残余 Poisson 射の忘却との一致を検証する。主定理 D の一般次元に通じる証明は `nc-cubic` を正本とし、三様体固有の埋込み・反例・形式降下の証明をここに保持する。
 
-**他repoとの分担：** [nc-cubic](https://github.com/uedakazushi/nc-cubic) は全 $n\ge3$ の一般中心三次変形と一ブロックの復元・モジュライ・点型算術・残余 Poisson 射の正本であり、そのうち $n=3$ への特殊化の証明を本repoで重複させない。[poisson-cubic](https://github.com/uedakazushi/poisson-cubic) は古典正規形、[cubic-quantization](https://github.com/uedakazushi/cubic-quantization) は代数的量子化、[nc-cubic-point](https://github.com/uedakazushi/nc-cubic-point) は特殊族の点スキーム・退化、[pfaffian-brill-noether](https://github.com/uedakazushi/pfaffian-brill-noether) は Brill--Noether/Pfaffian の独立論文、[nc-cubic2](https://github.com/uedakazushi/nc-cubic2) は相対復元の独立技術稿を管理する。いずれも自動的に統合・削除しない。
+**同一repoの点スキーム二論文：** [混合族の点スキームとPoisson零点](papers/mixed-cubic-point-schemes.tex) は二中心変数を持つ五生成元の指定量子化族の点加群、非被約・平坦極限、判別式境界を扱う。[対角族の点因子と標準種数五曲線](papers/diagonal-cubic-point-geometry.tex) は次数24因子、次数56衝突判別式、埋込みshiftからの係数復元を扱う。それぞれ証明を分割TeXに保つ独立論文であり、主原稿には共通幾何とモジュライへの応用だけを記す。現行知識は [点スキームノート](notes/point_schemes.md)、検算は `computations/point/`、ソース検査は `scripts/check_point_schemes.py`。一般の非可換三次超曲面に無条件に拡張しない。
+
+**他repoとの分担：** [nc-cubic](https://github.com/uedakazushi/nc-cubic) は全 $n\ge3$ の一般中心三次変形と一ブロックの復元・モジュライ・点型算術・残余 Poisson 射の正本であり、そのうち $n=3$ への特殊化の証明を本repoで重複させない。[poisson-cubic](https://github.com/uedakazushi/poisson-cubic) は古典正規形、[cubic-quantization](https://github.com/uedakazushi/cubic-quantization) は代数的量子化、本repoは三様体固有の点スキーム・退化も含み、[pfaffian-brill-noether](https://github.com/uedakazushi/pfaffian-brill-noether) は Brill--Noether/Pfaffian の独立論文、[nc-cubic2](https://github.com/uedakazushi/nc-cubic2) は相対復元の独立技術稿を管理する。`nc-cubic-point` に属した有効な論文・計算・ノートを移管した。外部の独立論文や有効な資料の削除は、代替正本と検証を確認せずには行わない。
 
 
 
@@ -53,6 +55,10 @@
 主稿と付録を一体で保持するのは、現在の中心定理が相対双対・全Hom・形式模型に依存するためである。分割する場合も、各論文の入力と証明の所在を自立させ、既存の価値ある内容を失わないことを条件とする。
 
 ## 4. 優先課題と達成基準
+
+**点スキーム固有の検証：** 新たに移管した二論文のTeX入力とラベル・引用を閉じ、混合族の `ps39:thm:global` と `psl:thm:universal-flat` の任意可換試験環での正当性、楕円成分の厚化消滅、判別式上の局所環を再確認する。対角族の次数56の衝突判別式とshift付き係数復元の証明・計算を点検する。旧repoの過去の組版・計算履歴は現行版v2の再実行とはみなさない。
+
+
 
 **P0の比較表を最初に完成する。** (i) Jacobian $\mathfrak C_{\mathrm J}$ と `nc-cubic` の $n=3$ の良い一ブロック stack の共通開を同定するため、両者の $\mathcal O$-保存全同値、$\sigma^j\ne1$、中心・AS/PBW・smoothness の条件を一つずつ照合する。(ii) $\rho$ と $\operatorname{forget}\circ\Psi_{\mathrm{res}}^{\mathrm{sc}}$ は同じ $X$ の Ku を回復する場合に整合する可能性が高いが、未証明の同一性として扱う。(iii) 一般次元の最小比較次数三・残余 Poisson 射九／十八と、三様体固有の全 Abel Artin 形式近傍、七次元 fiber・相対 dg smooth proper 性を別々に記載する。$n=3$ を含む全次元の定理を本稿独自の定理として再掲しない。
 
@@ -99,6 +105,9 @@
 ```sh
 python3 scripts/verify.py
 latexmk papers/nc-cubic-threefold.tex
+python3 scripts/check_point_schemes.py
+latexmk papers/mixed-cubic-point-schemes.tex
+latexmk papers/diagonal-cubic-point-geometry.tex
 python3 computations/verify_relative_cy.py --output build/relative_cy.json
 python3 computations/verify_point_poisson.py --output build/point_poisson.json
 python3 computations/verify_jacobian_etale_point.py --output build/jacobian_etale_point.json
@@ -114,3 +123,5 @@ H3非可換三次曲面分類は `uedakazushi/nc-cubic-classification` の独立
 ## research-hub 更新義務と成果の正本
 
 研究の区切りでは、先に本repoの原稿・ノート・方針・READMEと必要な再現資産をmainへ通常コミットしてから、[research-hub](https://github.com/uedakazushi/research-hub)の三次三様体項目を更新する。そこで主要到達点・確実性・未解決の核心・次の一手・他研究の依存・確認日を簡潔に記し、他研究の変更を保持する。force push、Actions追加・起動はしない。GitHub正本になった後のLibraryへの定常二重保存は不要。push不能の緊急保存を除きLibraryを使わず、既存Libraryファイルを無断削除しない。証明の確認・計算・組版・GitHub反映とhub反映は別々に報告する。
+
+**統合と旧リポジトリの整理：** `nc-cubic-point` の正本は本repoに移した。旧repoは削除予定の案内専用に移行し、本文・証明・コード・検算の移管確認後にGitHub上で削除する。接続されたGitHub操作にはリポジトリ自体を削除する機能がないため、物理的削除はGitHubの管理画面で行う。旧repoが存在することを再開条件にはしない。GitHubのmainへの反映とソース確認、LuaLaTeX組版、計算再実行は別々に記録する。
